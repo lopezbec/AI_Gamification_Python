@@ -12,4 +12,11 @@ ___________________________________________________
 #  Progrmas, Code, Algorithms, and Models implementation
 ___________________________________________________
 
-## Google Play and Apple Store App Reviwers Scrapping
+## Google Play and Apple Store App Reviews Scrapping
+
+<table align="left">
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/appreviews.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Scrapping</a>
+  </td>
+</table>
+<br></br>
