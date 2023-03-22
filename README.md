@@ -21,5 +21,6 @@ ___________________________________________________
 </table>
 <br></br>
 
+___________________________________________________
 This project allows you to gather reviews from any app that is found on Google Play or AppStore. It lets you choose multiple options, from gathering specific number of reviews, to specify the rating of desire from the app.
 The google collab grants you via forms, a visual cue of how the reviews are gathered and are saved specifically.
