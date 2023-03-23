@@ -26,7 +26,13 @@ The google collab grants you via forms, a visual cue of how the reviews are gath
 
 ___________________________________________________
 
-#  Prototye of Application   
+#  Prototype of Application   
 ___________________________________________________
 
-## Prototype of 
+## Example of Application Pedagogical Interface
+
+
+
+
+
+## Example of Application Hexad Player type and User Data Interface
