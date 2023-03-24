@@ -1,24 +1,23 @@
 {
     "pages": [
         {
-            "title": "Decision Making",
-            "text": "The if statement is used to execute some code if a condition is true.",
+            "title": "Toma de decisiones",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "The if statement is used to execute some code if a condition is true."
+                    "text": "La instrucción 'if' se utiliza para ejecutar algún código si una condición es verdadera."
                 },
                 {
                     "type": "syntax",
-                    "text": "Syntax:\nif (condition) {\n    //statements\n}"
+                    "text": "Syntax:\nif (condición) {\n    //Declaraciones\n}"
                 },
                 {
                     "type": "hint",
-                    "text": "The condition specifies which expression is to be evaluated. If the condition is true, the statements in the curly brackets are executed."
+                    "text": "La condición especifica qué expresión se va a evaluar. Si la condición es verdadera, se ejecutan las instrucciones entre llaves."
                 },
                 {
                     "type": "hint",
-                    "text": "If the condition is false, the statements are simply ignored, and the program continues to run after the if statements body."
+                    "text": "Si la condición es false, las instrucciones simplemente se omiten y el programa continúa ejecutándose después del cuerpo de las instrucciones if."
                 }
             ]
         }
