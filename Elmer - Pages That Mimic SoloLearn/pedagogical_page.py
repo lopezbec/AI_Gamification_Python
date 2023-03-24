@@ -2,6 +2,7 @@ import sys
 import json
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel
 
+
 class PedagogicalWidget(QWidget):
     def __init__(self, data):
         super().__init__()
@@ -42,7 +43,7 @@ class PedagogicalWidget(QWidget):
 app = QApplication(sys.argv)
 
 # Load the data from the JSON file
-with open('data.json', 'r') as file:
+with open('pedagogical.json', 'r') as file:
     data = json.load(file)
 
 # Create a list of PedagogicalWidget instances based on the data
