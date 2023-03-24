@@ -32,7 +32,8 @@ ___________________________________________________
 ## Example of Application Pedagogical Interface
 
 This is a example of the "pedagogical page" (v 3_24_23)
-<img src="https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/pedagogical_page.png" width="300" height="300">
+
+<img src="https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/pedagogical_page.png" width="600" height="300">
 
 
 ## Example of Application Hexad Player type and User Data Interface
