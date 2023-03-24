@@ -17,7 +17,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Si la condicion es false, las instrucciones simplemente se omiten y el programa continua ejecutandose despues del cuerpo de las instrucciones if."
+                    "text": "Si la condicion es falsa, las instrucciones simplemente se omiten y el programa continua ejecutandose despues del cuerpo de las instrucciones if."
                 }
             ]
         }
