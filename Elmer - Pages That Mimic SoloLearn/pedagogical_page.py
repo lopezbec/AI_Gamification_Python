@@ -16,11 +16,6 @@ class PedagogicalWidget(QWidget):
         title_label.setStyleSheet('font-size: 24px; font-weight: bold; color: #00BFFF;')
         layout.addWidget(title_label)
 
-        # Add the text and blocks to the layout
-        text_label = QLabel(data['text'])
-        text_label.setStyleSheet('font-size: 18px; color: #555555;')
-        layout.addWidget(text_label)
-
         for block in data['blocks']:
             block_label = QLabel(block['text'])
             block_label.setStyleSheet('font-size: 18px; color: #555555;')
