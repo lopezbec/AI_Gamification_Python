@@ -1,6 +1,6 @@
 # Machine Learning and Gamification for a personalized-adaptive educational application 
 **[Inteligencia Artificial y Gamificación Personalizada-Adaptativa para la Formación en Programación]**
-
+[Website of the project](https://sites.lafayette.edu/lopezbec/projects/machine-learning-and-gamification-for-a-personalized-adaptive-educational-application/)
 ## Abstract
 
 This project is supported by the National Fund for Innovation and Scientific and Technological Development (FONDOCyT for its acronym in Spanish) from the Ministry of Higher Education, Science, and Technology of the Dominican Republic (**FONDOCYT 2022-3A1-112**), and is in collaboration with the Universidad Nacional Pedro Henríquez Ureña (UNPHU) and the  Asociación para la Creatividad, Innovación, Emprendimiento y Networking (A100%) from the Dominican Republic.
