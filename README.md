@@ -28,6 +28,11 @@ ___________________________________________________
 
 #  Prototype of Application   
 ___________________________________________________
+## Example of Application Hexad Player type and User Data Interface
+This is a example of the "intro page" for the app and study itself (v 3_26_23)
+
+[Screencast from 03-27-2023 12:45:30 PM.webm](https://user-images.githubusercontent.com/106645242/228009729-84788814-1de0-4f0b-9e7f-d4c778fc7d64.webm)
+
 
 ## Example of Application Pedagogical Interface
 
@@ -36,10 +41,6 @@ This is a example of the "pedagogical page" (v 3_24_23)
 <img src="https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/pedagogical_page.png" width="600" height="300">
 
 
-## Example of Application Hexad Player type and User Data Interface
-This is a example of the "intro page" for the app and study itself (v 3_26_23)
-
-[Screencast from 03-27-2023 12:45:30 PM.webm](https://user-images.githubusercontent.com/106645242/228009729-84788814-1de0-4f0b-9e7f-d4c778fc7d64.webm)
 ___________________________________________________
 
 #  Data and more
