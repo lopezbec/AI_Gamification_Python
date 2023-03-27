@@ -44,6 +44,9 @@ ___________________________________________________
 #  Data and more
 ___________________________________________________
 
+The team has collected online reviews from users of similar educational gamified applications in Google Play and Apple App Store (using the (Google Play and Apple Store App Reviews Scrapping notebook)[https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/appreviews.ipynb]). This with the objective to gain a better understanding of what makes some apps “better” than other. Some summary statistics of the reviews are shown below.
+
+
 |    | Name                   |   ReviewCount |   AverageRating |   AverageReviewLength | EarliestDate        | LatestDate          |
 |---:|:-----------------------|--------------:|----------------:|----------------------:|:--------------------|:--------------------|
 |  0 | codeacademy            |          3573 |         3.75679 |               88.5665 | 2018-08-01 01:33:12 | 2023-03-24 22:07:12 |
