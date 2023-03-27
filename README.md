@@ -37,8 +37,9 @@ This is a example of the "pedagogical page" (v 3_24_23)
 
 
 ## Example of Application Hexad Player type and User Data Interface
+This is a example of the "intro page" for the app and study itself (v 3_26_23)
 
-
+[Screencast from 03-27-2023 12:45:30 PM.webm](https://user-images.githubusercontent.com/106645242/228009729-84788814-1de0-4f0b-9e7f-d4c778fc7d64.webm)
 ___________________________________________________
 
 #  Data and more
@@ -59,5 +60,4 @@ The team has collected online reviews from users of similar educational gamified
 |  7 | sololearn              |        132553 |         4.71747 |               61.8852 | 2016-10-26 02:56:32 | 2023-03-25 16:36:13 |
 
 
-## Video Demo
-[Screencast from 03-27-2023 12:45:30 PM.webm](https://user-images.githubusercontent.com/106645242/228009729-84788814-1de0-4f0b-9e7f-d4c778fc7d64.webm)
+
