@@ -19,7 +19,7 @@ ___________________________________________________
     <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/appreviews.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Scrapping</a>
   </td>
 </table>
-<br></br>
+<br><br></br>
 
 This project allows you to gather reviews from any app that is found on Google Play or AppStore. It lets you choose multiple options, from gathering specific number of reviews, to specify the rating of desire from the app.
 The google collab grants you via forms, a visual cue of how the reviews are gathered and are saved specifically.
@@ -45,7 +45,7 @@ ___________________________________________________
 #  Data and more
 ___________________________________________________
 
-The team has collected online reviews from users of similar educational gamified applications in Google Play and Apple App Store (using the (Google Play and Apple Store App Reviews Scrapping notebook)[https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/appreviews.ipynb]). This with the objective to gain a better understanding of what makes some apps “better” than other. Some summary statistics of the reviews are shown below.
+The team has collected online reviews from users of similar educational gamified applications in Google Play and Apple App Store (using the (Google Play and Apple Store App Reviews Scrapping notebook above). This with the objective to gain a better understanding of what makes some apps “better” than other. Some summary statistics of the reviews are shown below.
 
 
 |    | Name                   |   ReviewCount |   AverageRating |   AverageReviewLength | EarliestDate        | LatestDate          |
