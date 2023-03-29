@@ -1,6 +1,6 @@
 import sys
 import json
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton
 
 
 class PedagogicalWidget(QWidget):
@@ -15,11 +15,6 @@ class PedagogicalWidget(QWidget):
         title_label = QLabel(data['title'])
         title_label.setStyleSheet('font-size: 24px; font-weight: bold; color: #00BFFF;')
         layout.addWidget(title_label)
-
-        # Add the text and blocks to the layout
-        text_label = QLabel(data['text'])
-        text_label.setStyleSheet('font-size: 18px; color: #555555;')
-        layout.addWidget(text_label)
 
         for block in data['blocks']:
             block_label = QLabel(block['text'])
@@ -38,28 +33,55 @@ class PedagogicalWidget(QWidget):
 
         # Set the layout for the widget
         self.setLayout(layout)
+        self.setStyleSheet('background-color: #CCCCCC;')
+
 
 # Create the QApplication instance
 app = QApplication(sys.argv)
 
 # Load the data from the JSON file
-with open('pedagogical.json', 'r') as file:
+with open('data.json', 'r') as file:
     data = json.load(file)
 
 # Create a list of PedagogicalWidget instances based on the data
-pedagogical_widgets = [PedagogicalWidget(page_data) for page_data in data['pages']]
+pedagogical_widgets = [PedagogicalWidget(page_data) for page_data in data['pedagogical']]
 
 # Create the main window and set its properties
 window = QWidget()
 window.setWindowTitle('My SoloLearn Course')
 window.setGeometry(100, 100, 800, 600)
 
-# Create a vertical layout for the window and add the widgets to it
+# Create a vertical layout for the window
 window_layout = QVBoxLayout()
+
+# Create the navigation bar
+nav_layout = QHBoxLayout()
+nav_layout.setSpacing(20)
+
+# Add the 'Pedagogical' page button
+pedagogical_button = QPushButton('Pedagogical')
+pedagogical_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
+nav_layout.addWidget(pedagogical_button)
+
+# Add the 'Questions' page button
+questions_button = QPushButton('Questions')
+questions_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #555555; padding: 10px 20px; border-radius: 5px;')
+nav_layout.addWidget(questions_button)
+
+# Add the navigation bar and the widgets to the window layout
+window_layout.addLayout(nav_layout)
 for widget in pedagogical_widgets:
     window_layout.addWidget(widget)
+
+# Add the 'Continuar' button
+continue_button = QPushButton('Continuar')
+continue_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
+window_layout.addWidget(continue_button)
+
+# Set the layout for the window
 window.setLayout(window_layout)
 
 # Show the window and start the application event loop
 window.show()
 sys.exit(app.exec_())
+
