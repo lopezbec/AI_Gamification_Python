@@ -84,4 +84,3 @@ window.setLayout(window_layout)
 # Show the window and start the application event loop
 window.show()
 sys.exit(app.exec_())
-

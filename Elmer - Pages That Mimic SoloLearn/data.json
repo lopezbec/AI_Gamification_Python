@@ -25,19 +25,15 @@
 
     "question": [
         {
-            "title": "Elija la respuesta correcta",
+            "title": "Selecciona la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Que opcion muestra la sintaxis correcta para la instruccion if en C++?"
+                    "text": "Cual opcion muestra la sintaxis correcta para la declaracion 'if' en C++?"
                 },
                 {
-                    "type": "Seleciona",
-                    "text": "Select the correct answer:"
-                },
-                {
-                    "type": "answers",
-                    "text": "IF prueba\nif prueba\nif (prueba) {}"
+                    "type": "syntax",
+                    "text": "IF prueba\nif prueba\nif (test) {}"
                 }
             ]
         }

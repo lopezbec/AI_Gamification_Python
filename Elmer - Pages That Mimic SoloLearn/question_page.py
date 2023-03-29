@@ -6,7 +6,6 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QHBoxLayout, QRadioBut
     QApplication, QMessageBox
 
 
-
 class QuestionWidget(QWidget):
     def __init__(self, data):
         super().__init__()
@@ -26,7 +25,7 @@ class QuestionWidget(QWidget):
         question_label.setStyleSheet('font-size: 18px; color: #555555; background-color: #d0d0d0; padding: 5px;')
         layout.addWidget(question_label)
 
-        answer_options = data['blocks'][2]['text'].split('\n')
+        answer_options = data['blocks'][1]['text'].split('\n')
         answer_group = QButtonGroup()
 
         for i, option in enumerate(answer_options):
@@ -73,25 +72,8 @@ window.setGeometry(100, 100, 800, 600)
 
 # Create a vertical layout for the window and add the widgets to it
 window_layout = QVBoxLayout()
-
-# Create the navigation bar
-nav_layout = QHBoxLayout()
-nav_layout.setSpacing(20)
-
-# Add the 'Pedagogical' page button
-pedagogical_button = QPushButton('Pedagogical')
-pedagogical_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #555555; padding: 10px 20px; border-radius: 5px;')
-nav_layout.addWidget(pedagogical_button)
-
-# Add the 'Questions' page button
-questions_button = QPushButton('Questions')
-questions_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
-nav_layout.addWidget(questions_button)
-
-window_layout.addLayout(nav_layout)
 for widget in question_widgets:
     window_layout.addWidget(widget)
-
 window.setLayout(window_layout)
 
 # Apply the hover effect to the submit button
