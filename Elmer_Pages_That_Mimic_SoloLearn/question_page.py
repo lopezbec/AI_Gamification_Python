@@ -72,6 +72,24 @@ window.setGeometry(100, 100, 800, 600)
 
 # Create a vertical layout for the window and add the widgets to it
 window_layout = QVBoxLayout()
+
+# Create the navigation bar
+nav_layout = QHBoxLayout()
+nav_layout.setSpacing(20)
+
+# Add the 'Pedagogical' page button
+pedagogical_button = QPushButton('Pedagogical')
+pedagogical_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #555555; padding: 10px 20px; border-radius: 5px;')
+nav_layout.addWidget(pedagogical_button)
+
+# Add the 'Questions' page button
+questions_button = QPushButton('Questions')
+questions_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
+nav_layout.addWidget(questions_button)
+
+# Add the navigation bar and the widgets to the window layout
+window_layout.addLayout(nav_layout)
+
 for widget in question_widgets:
     window_layout.addWidget(widget)
 window.setLayout(window_layout)
