@@ -34,12 +34,15 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 [Screencast from 03-27-2023 12:45:30 PM.webm](https://user-images.githubusercontent.com/106645242/228009729-84788814-1de0-4f0b-9e7f-d4c778fc7d64.webm)
 
 
-## Example of Application Pedagogical Interface
+## Example of Application Pedagogical/Question Interfaces
 
-This is a example of the "pedagogical page" (v 3_24_23)
+This is an example of the "pedagogical page" (v 3_24_23)
 
 <img src="https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/pedagogical_page.png" width="600" height="300">
 
+This is an example of the "question page" (v 3_24_23)
+
+<img src="https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/question_page.png" width="600" height="300">
 
 ___________________________________________________
 
@@ -49,16 +52,16 @@ ___________________________________________________
 The team has collected online reviews from users of similar educational gamified applications in Google Play and Apple App Store (using the (Google Play and Apple Store App Reviews Scrapping notebook above). This with the objective to gain a better understanding of what makes some apps “better” than other. Some summary statistics of the reviews are shown below.
 
 
-|    | Name                   |   ReviewCount |   AverageRating |   AverageReviewLength | EarliestDate        | LatestDate          |
-|---:|:-----------------------|--------------:|----------------:|----------------------:|:--------------------|:--------------------|
-|  0 | codeacademy            |          3573 |         3.75679 |               88.5665 | 2018-08-01 01:33:12 | 2023-03-24 22:07:12 |
-|  1 | datacamp               |          7719 |         4.47882 |               76.3687 | 2017-10-18 11:23:14 | 2023-03-24 21:09:12 |
-|  2 | encode                 |          2045 |         4.63081 |               91.7667 | 2016-03-13 23:11:32 | 2023-03-19 01:47:34 |
-|  3 | learn-python-programiz |          4814 |         4.65351 |               60.8224 | 2019-08-22 19:39:09 | 2023-03-25 13:34:31 |
-|  4 | mimo                   |         88724 |         4.53408 |               63.3281 | 2016-08-19 21:15:07 | 2023-03-25 15:45:02 |
-|  5 | programming-hero       |         16538 |         4.78069 |               57.101  | 2018-11-28 09:32:14 | 2023-03-25 14:57:48 |
-|  6 | programming-hub        |         49549 |         4.58268 |               60.9303 | 2013-07-31 05:45:19 | 2023-03-25 14:57:25 |
-|  7 | sololearn              |        132553 |         4.71747 |               61.8852 | 2016-10-26 02:56:32 | 2023-03-25 16:36:13 |
+|    | Name                   |   ReviewCount |   AverageRating |   AverageReviewLength | EarliestDate        | LatestDate          |   AppleStoreReviews |   GooglePlayReviews |
+|---:|:-----------------------|--------------:|----------------:|----------------------:|:--------------------|:--------------------|--------------------:|--------------------:|
+|  0 | codeacademy            |          3573 |         3.75679 |               88.5665 | 2018-08-01 01:33:12 | 2023-03-24 22:07:12 |                 473 |                3100 |
+|  1 | datacamp               |          7719 |         4.47882 |               76.3687 | 2017-10-18 11:23:14 | 2023-03-24 21:09:12 |                 341 |                7378 |
+|  2 | encode                 |          2045 |         4.63081 |               91.7667 | 2016-03-13 23:11:32 | 2023-03-19 01:47:34 |                 184 |                1861 |
+|  3 | learn-python-programiz |          4814 |         4.65351 |               60.8224 | 2019-08-22 19:39:09 | 2023-03-25 13:34:31 |                  86 |                4728 |
+|  4 | mimo                   |         88724 |         4.53408 |               63.3281 | 2016-08-19 21:15:07 | 2023-03-25 15:45:02 |                2000 |               86724 |
+|  5 | programming-hero       |         16538 |         4.78069 |               57.101  | 2018-11-28 09:32:14 | 2023-03-25 14:57:48 |                 131 |               16407 |
+|  6 | programming-hub        |         49549 |         4.58268 |               60.9303 | 2013-07-31 05:45:19 | 2023-03-25 14:57:25 |                 867 |               48682 |
+|  7 | sololearn              |        132553 |         4.71747 |               61.8852 | 2016-10-26 02:56:32 | 2023-03-25 16:36:13 |                1702 |              130851 |
 
 
 
