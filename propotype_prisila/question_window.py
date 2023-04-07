@@ -13,6 +13,7 @@ class QuestionWindow(QMainWindow):
         global responses
         self.counter = 0
         responses = []
+        self.username = "placeholder"
         super(QuestionWindow, self).__init__()
         
         #title
@@ -186,11 +187,10 @@ class QuestionWindow(QMainWindow):
         csv_columns = ['question_index','score']
         final_responses = responses
         try:
-            with open('user_response.csv', 'w') as csv_file:
+            with open('user_{}.csv'.format(self.username), 'w') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=csv_columns, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 writer.writeheader()
                 for data in final_responses:
                     writer.writerow(data)
-                print("saved succesfully")
         except IOError:
             print("I/O error")

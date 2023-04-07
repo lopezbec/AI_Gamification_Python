@@ -18,15 +18,19 @@ class FinishWindow(QMainWindow):
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setMargin(10)
 
-        next_button = QPushButton()
-        next_button.setText("Finalizar")
-        next_button.setFixedSize(250, 30)
+        finish_button = QPushButton()
+        finish_button.setText("Finalizar")
+        finish_button.clicked.connect(self.close_window)
+        finish_button.setFixedSize(250, 30)
 
         v_layout = QVBoxLayout()
         v_layout.addWidget(title)
-        v_layout.addWidget(next_button, alignment=Qt.AlignmentFlag.AlignHCenter)
+        v_layout.addWidget(finish_button, alignment=Qt.AlignmentFlag.AlignHCenter)
 
         widget = QWidget()
         widget.setLayout(v_layout)
         self.showMaximized()
         self.setCentralWidget(widget)
+
+    def close_window(self):
+        self.close();
