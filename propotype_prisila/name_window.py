@@ -54,6 +54,5 @@ class NameWindow(QMainWindow):
 
     def show_name(self):
         self.question_window = QuestionWindow()
-        self.question_window.read_csv()
         self.question_window.show()
         self.hide()

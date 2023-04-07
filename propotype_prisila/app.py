@@ -1,5 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication
+import name_window
 import welcome_window
 
 
