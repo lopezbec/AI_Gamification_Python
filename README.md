@@ -16,7 +16,7 @@ ___________________________________________________
 
 <table align="left">
   <td>
-    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/appreviews.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Scrapping</a>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/reviews/appreviews.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Scrapping</a>
   </td>
 </table>
 <br><br></br>
