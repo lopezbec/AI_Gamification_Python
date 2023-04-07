@@ -1,0 +1,44 @@
+{
+
+
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para calcular y generar la suma de 55 y 7."
+                },
+                {
+                    "type": "info",
+                    "text": "print(55__7)"
+                },
+                {
+                    "type": "syntax",
+                    "text": "+ '\n - \n *"
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Multiplicación.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La multiplicación se hace usando un símbolo de asterisco *."
+                },
+                {
+                    "type": "syntax",
+                    "text": "print(12 * 12)"
+                }
+
+            ]
+        }
+    ]
+
+
+
+}

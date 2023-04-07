@@ -1,8 +1,0 @@
-codeacademy
-datacamp
-encode
-learn-python-programiz
-mimo
-programming-hero
-programming-hub
-sololearn

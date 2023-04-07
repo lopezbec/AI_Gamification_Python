@@ -1,9 +1,9 @@
-codecademy
+codeacademy
 datacamp
 encode
 learn-python-programiz
 mimo
-programming hero
-programming hub
+programming-hero
+programming-hub
 python-x
 sololearn

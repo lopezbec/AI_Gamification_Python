@@ -1,0 +1,56 @@
+{
+    "pedagogical": [
+        {
+            "title": "Toma de decisiones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "\n\nLa instruccion 'if' se utiliza para ejecutar algun codigo si una condicion es verdadera.\n\n\nSyntax:"
+                },
+                {
+                    "type": "syntax",
+                    "text": "\nif (condicion) {\n//Declaraciones\n}\n"
+                },
+                {
+                    "type": "hint1",
+                    "text": "\nLa condicion especifica que expresion se va a evaluar. Si la condicion es verdadera, se ejecutan las instrucciones entre llaves."
+                },
+                {
+                    "type": "hint",
+                    "text": "\nSi la condicion es falsa, las instrucciones simplemente se omiten y el programa continua ejecutandose despues del cuerpo de\nlas instrucciones if.",
+                    "background-color": "yellow"
+                }
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "\nCual opcion muestra la sintaxis correcta para la declaracion 'if' en C++?\n"
+                },
+                {
+                    "type": "syntax",
+                    "text": "IF prueba\nif prueba\nif (prueba) {}"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "IF prueba",
+                    "correct": false
+                },
+                {
+                    "text": "if prueba",
+                    "correct": false
+                },
+                {
+                    "text": "if (prueba) {}",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}
