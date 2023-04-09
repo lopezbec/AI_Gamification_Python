@@ -1,7 +1,4 @@
 {
-
-
-
     "question": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -13,10 +10,16 @@
                 {
                     "type": "hint",
                     "text": "print(8/2)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": false
                 },
                 {
-                    "type": "syntax",
-                    "text": "6 '\n 4.0"
+                    "text": "4.0",
+                    "correct": true
                 }
             ]
         }
@@ -40,14 +43,11 @@
                 },
 
                 {
-                    "type": "hint",
+                    "type": "hint2",
                     "text": "- Flotante: número que tiene decimales, también puede ser positivo (1.5, 3.14, 5.5) o negativo (-1.5, -3.14)."
                 }
 
             ]
         }
     ]
-
-
-
 }

@@ -1,7 +1,4 @@
 {
-
-
-
     "question": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -11,12 +8,22 @@
                     "text": "Complete los espacios en blanco para calcular y generar la suma de 55 y 7."
                 },
                 {
-                    "type": "info",
-                    "text": "print(55__7)"
+                    "type": "hint",
+                    "text": "print(55 _ 7)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "*",
+                    "correct": false
                 },
                 {
-                    "type": "syntax",
-                    "text": "+ '\n - \n *"
+                    "text": "+",
+                    "correct": true
+                },
+                {
+                    "text": "-",
+                    "correct": false
                 }
             ]
         }
@@ -38,7 +45,4 @@
             ]
         }
     ]
-
-
-
 }

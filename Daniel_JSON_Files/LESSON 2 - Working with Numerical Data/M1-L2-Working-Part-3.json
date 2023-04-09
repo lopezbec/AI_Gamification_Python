@@ -1,7 +1,4 @@
 {
-
-
-
     "question": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -12,11 +9,21 @@
                 },
                 {
                     "type": "hint",
-                    "text": "print(42 _____3)"
+                    "text": "print(42 _____ 3)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "*",
+                    "correct": true
                 },
                 {
-                    "type": "syntax",
-                    "text": "# '\n * \n x"
+                    "text": "x",
+                    "correct": false
+                },
+                {
+                    "text": "#",
+                    "correct": false
                 }
             ]
         }
@@ -47,7 +54,4 @@
             ]
         }
     ]
-
-
-
 }

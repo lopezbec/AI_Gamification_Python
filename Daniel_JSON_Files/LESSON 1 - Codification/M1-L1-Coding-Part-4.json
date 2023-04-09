@@ -6,15 +6,25 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre y suelte para escribir una línea de código que genere el número 729."
+                    "text": "Arrastre (Click) y suelte para escribir una línea de código que genere el número 729."
                 },
                 {
                     "type": "hint",
                     "text": "....(729)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "run",
+                    "correct": false
                 },
                 {
-                    "type": "syntax",
-                    "text": "run\noutput\nprint"
+                    "text": "print",
+                    "correct": true
+                },
+                {
+                    "text": "output",
+                    "correct": false
                 }
             ]
         }
@@ -33,7 +43,7 @@
                     "text": "print('Programar es tu nuevo super poder.')"
                 },
                 {
-                    "type": "hint",
+                    "type": "pregunta",
                     "text": "¿Puedes cambiar el código para mostrar un mensaje diferente?"
                 },
                 {

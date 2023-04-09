@@ -5,11 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Python es uno de los lenguajes de programación más populares del mundo. Se usa ampliamente en el desarrollo web y de juegos, análisis de datos, ciencia de datos, aprendizaje automático y mucho más."
+                    "text": "Python es uno de los lenguajes de programación más populares del mundo. \nSe usa ampliamente en el desarrollo web y de juegos, análisis de datos, ciencia de datos, \naprendizaje automático y mucho más."
                 },
                 {
                     "type": "info",
-                    "text": "Python tiene una sintaxis simple, lo que significa que es más fácil de aprender. En este curso, comenzará a codificar sus propios programas en poco tiempo, para que pueda resolver problemas del mundo real y crear sus propias aplicaciones."
+                    "text": "Python tiene una sintaxis simple, lo que significa que es más fácil de aprender. \nEn este curso, comenzará a codificar sus propios programas en poco tiempo, para que pueda \nresolver problemas del mundo real y crear sus propias aplicaciones."
                 }
 
             ]
@@ -23,10 +23,16 @@
                 {
                     "type": "info",
                     "text": "¿Qué es un lenguaje de programación?"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "Un lenguaje utilizado por las máquinas para comunicarse con los extraterrestres.",
+                    "correct": false
                 },
                 {
-                    "type": "syntax",
-                    "text": "Un lenguaje utilizado por las máquinas para comunicarse con los extraterrestres.\nUn lenguaje utilizado por los humanos para comunicarse con las máquinas."
+                    "text": "Un lenguaje utilizado por los humanos para comunicarse con las máquinas.",
+                    "correct": true
                 }
             ]
         }

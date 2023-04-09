@@ -7,10 +7,20 @@
                 {
                     "type": "info",
                     "text": "El texto en una declaración print debe estar encerrado en:"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "comillas '' ",
+                    "correct": true
                 },
                 {
-                    "type": "syntax",
-                    "text": "comillas '\npunto y coma ;t\nbarra inclinada /"
+                    "text": "punto y coma ;",
+                    "correct": false
+                },
+                {
+                    "text": "barra inclinada /",
+                    "correct": false
                 }
             ]
         }
@@ -44,7 +54,4 @@
             ]
         }
     ]
-
-
-
 }

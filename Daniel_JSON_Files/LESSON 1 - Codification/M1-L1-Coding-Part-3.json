@@ -27,14 +27,18 @@
                 {
                     "type": "info",
                     "text": "¿Puedes usar el Code Playground para ejecutar codigo?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Falso",
+                    "correct": false
                 },
                 {
-                    "type": "syntax",
-                    "text": "Falso\nVerdadero"
+                    "text": "Verdadero",
+                    "correct": true
                 }
             ]
         }
     ]
-
-
 }

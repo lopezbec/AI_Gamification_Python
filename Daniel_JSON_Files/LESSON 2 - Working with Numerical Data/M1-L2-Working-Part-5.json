@@ -1,7 +1,4 @@
 {
-
-
-
     "question": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -11,16 +8,22 @@
                     "text": "Arrastra y suelta para clasificar los datos numéricos:"
                 },
                 {
-                    "type": "hint",
+                    "type": "pregunta1",
                     "text": "Entero:____"
                 },
                 {
-                    "type": "hint",
+                    "type": "pregunta2",
                     "text": "Flotante:____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3.14",
+                    "correct": false
                 },
                 {
-                    "type": "syntax",
-                    "text": "3.14 '\n 2"
+                    "text": "2",
+                    "correct": true
                 }
             ]
         }
@@ -46,7 +49,4 @@
             ]
         }
     ]
-
-
-
 }
