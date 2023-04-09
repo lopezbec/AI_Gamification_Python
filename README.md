@@ -16,7 +16,7 @@ ___________________________________________________
 
 <table align="left">
   <td>
-    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/appreviews.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Scrapping</a>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/reviews/appreviews.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Scrapping</a>
   </td>
 </table>
 <br><br></br>
@@ -31,7 +31,7 @@ ___________________________________________________
 ## Example of Application Hexad Player type and User Data Interface
 This is a example of the "intro page" for the app and study itself (v 3_26_23)
 
-[Screencast from 03-27-2023 12:45:30 PM.webm](https://user-images.githubusercontent.com/106645242/228009729-84788814-1de0-4f0b-9e7f-d4c778fc7d64.webm)
+[Screencast from 04-07-2023 11:55:59 AM.webm](https://user-images.githubusercontent.com/106645242/230639504-9ef200a2-7bbb-4cf5-857b-179b8565507a.webm)
 
 
 ## Example of Application Pedagogical/Question Interfaces

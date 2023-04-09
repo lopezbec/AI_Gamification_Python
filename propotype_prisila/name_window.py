@@ -30,7 +30,7 @@ class NameWindow(QMainWindow):
         self.input.setAlignment(Qt.AlignmentFlag.AlignCenter)
         #button properties
         button = QPushButton("Siguiente", self)
-        button.clicked.connect(self.show_name)
+        button.clicked.connect(self.show_survey)
         button.setMinimumWidth(300)
         #Add widgets to Layouts
             #Horizontal Layout
@@ -52,7 +52,9 @@ class NameWindow(QMainWindow):
         self.showMaximized()
         self.setCentralWidget(widget)
 
-    def show_name(self):
+    def show_survey(self):
         self.question_window = QuestionWindow()
+        self.question_window.username = self.input.text()
+        self.question_window.read_csv()
         self.question_window.show()
         self.hide()
