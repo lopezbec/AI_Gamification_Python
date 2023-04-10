@@ -12,7 +12,7 @@ ___________________________________________________
 #  Code, Algorithms, and Models implementation
 ___________________________________________________
 
-## Google Play and Apple Store App Reviews Scrapping
+## Google Play and Apple Store App Reviews Scraping
 
 <table align="left">
   <td>
@@ -24,6 +24,25 @@ ___________________________________________________
 This project allows you to gather reviews from any app that is found on Google Play or AppStore. It lets you choose multiple options, from gathering specific number of reviews, to specify the rating of desire from the app.
 The google collab grants you via forms, a visual cue of how the reviews are gathered and are saved specifically.
 
+## Sentiment and NER analysis on reviews
+
+<table align="left">
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/reviews/appreviews_sentiment.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews Sentiment</a>
+  </td>
+</table>
+<br><br></br>
+
+This notebook allows you to get the sentiment (positive, negative or neutral) of the reviews that were scraped stored on the repo. The interactive colab forms provides visual indicators of what reviews are analyzed. 
+
+<table align="left">
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/reviews/appreviews_NER.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Apps Reviews NER</a>
+  </td>
+</table>
+<br><br></br>
+
+This notebook allows you to perform NER (Name Entity Recognition) analysis on the reviews that were scraped stored on the repo. The interactive colab forms provides visual indicators of what reviews are analyzed. 
 ___________________________________________________
 
 #  Prototype of Application   
