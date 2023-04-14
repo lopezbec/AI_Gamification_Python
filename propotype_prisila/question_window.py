@@ -164,6 +164,27 @@ class QuestionWindow(QMainWindow):
         index_in_list = question_index.index(random_index)
         question_index.pop(index_in_list)
         
+        self.radio_1.setAutoExclusive(False)
+        self.radio_1.setChecked(False)
+
+        self.radio_2.setAutoExclusive(False)
+        self.radio_2.setChecked(False)
+
+        self.radio_3.setAutoExclusive(False)
+        self.radio_3.setChecked(False)
+        
+        self.radio_4.setAutoExclusive(False)
+        self.radio_4.setChecked(False)    
+        
+        self.radio_5.setAutoExclusive(False)
+        self.radio_5.setChecked(False)
+        
+        self.radio_6.setAutoExclusive(False)
+        self.radio_6.setChecked(False)
+        
+        self.radio_7.setAutoExclusive(False)
+        self.radio_7.setChecked(False)
+
         if len(question_index) < 1:
             self.save_question()
             self.write_csv()
@@ -175,8 +196,18 @@ class QuestionWindow(QMainWindow):
             self.title.setText("Pregunta #" + str(self.get_number_question()))
             self.content.setText(self.pick_question())
 
+
         if len(question_index) == 1:
             self.next_button.setText("finalizar")
+        
+        self.radio_1.setAutoExclusive(True)
+        self.radio_2.setAutoExclusive(True)
+        self.radio_3.setAutoExclusive(True)
+        self.radio_4.setAutoExclusive(True)
+        self.radio_5.setAutoExclusive(True)
+        self.radio_6.setAutoExclusive(True)
+        self.radio_1.setAutoExclusive(True)
+
 
     def save_question(self):
         question = random_index
