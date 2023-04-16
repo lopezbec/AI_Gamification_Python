@@ -57,7 +57,7 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 
 This is an example
 
-[![Alt text](https://img.youtube.com/vi/A6SFVJavD68/0.jpg)](https://www.youtube.com/watch?v=A6SFVJavD68)
+[Elmer_Pages_That_Mimic_SoloLearn_Video_Pedagogical_Question_pages.webm](https://user-images.githubusercontent.com/113645268/232347440-d11792f2-825d-4b9d-a90b-ff2b96d5d0d6.webm)
 
 ___________________________________________________
 
