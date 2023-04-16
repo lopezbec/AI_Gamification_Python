@@ -57,7 +57,7 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 
 This is an example of the "pedagogical page" (v 3_24_23)
 
-<img src="(https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/Video_Pedagogical_Question_pages.avi)" width="600" height="300">
+[Screencast from 04-07-2023 11:55:59 AM.avi](https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/Video_Pedagogical_Question_pages.avi)
 
 ___________________________________________________
 
