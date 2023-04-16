@@ -1,0 +1,27 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "El conocimiento es poder",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El programa dado está diseñado para generar el texto: El conocimiento es poder \n Pero falta la última palabra. ¿Puedes arreglarlo?"
+                },
+                {
+                    "type": "hint",
+                    "text": "Complete el código para generar el resultado requerido." 
+                },
+                {
+                    "type": "syntax",
+                    "text": "print('Conocimiento ' + 'es poder')" 
+                },
+                {
+                    "type": "syntax",
+                    "text": "Notas a recordar: Se debe crear un ejecutador de codigos de prueba (IDE de Python) para esta practica, \n y que valide cuando el codigo escrito esta correcto." 
+                }
+
+
+            ]
+        }
+    ]
+}

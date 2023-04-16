@@ -1,0 +1,44 @@
+{
+    "pedagogical": [
+        {
+            "title": "Code Playground",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Listo para escribir, ejecutar y probar código real? Abre Code Playground. Luego presione 'Ejecutar' para ver el resultado en la parte inferior de la pantalla."
+                },
+                {
+                    "type": "syntax",
+                    "text": "print('Bienvenido al Code playground')"
+                },
+                {
+                    "type": "info",
+                    "text": "El código nos permite dar instrucciones a las máquinas. Presionamos 'Ejecutar' cuando nuestras instrucciones están listas para ser ejecutadas. Esto frecuentemente resulta en la salida que podemos ver en la parte inferior de la pantalla."
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Puedes usar el Code Playground para ejecutar codigo?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Falso",
+                    "correct": false
+                },
+                {
+                    "text": "Verdadero",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}
