@@ -57,7 +57,7 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 
 This is an example
 
-[Elmer_Pages_That_Mimic_SoloLearn_Video_Pedagogical_Question_pages.webm](https://user-images.githubusercontent.com/113645268/232347440-d11792f2-825d-4b9d-a90b-ff2b96d5d0d6.webm)
+[Elmer_Pages_That_Mimic_SoloLearn_Video_Pedagogical_Question_pages.webm](https://user-images.githubusercontent.com/113645268/232347651-2ef7e6b1-1bf1-4abc-973c-b559271a64b2.webm)
 
 ___________________________________________________
 
