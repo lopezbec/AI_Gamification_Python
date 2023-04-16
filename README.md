@@ -55,9 +55,9 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 
 ## Example of Application Pedagogical/Question Interfaces
 
-This is an example of the "pedagogical page" (v 3_24_23)
+This is an example
 
-[Screencast from 04-07-2023 11:55:59 AM.avi](https://github.com/lopezbec/AI_Gamification_Python/blob/main/Elmer_Pages_That_Mimic_SoloLearn/Video_Pedagogical_Question_pages.avi)
+[![Alt text](https://img.youtube.com/vi/A6SFVJavD68/0.jpg)](https://www.youtube.com/watch?v=A6SFVJavD68)
 
 ___________________________________________________
 
