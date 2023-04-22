@@ -1,15 +1,15 @@
 {
     "pedagogical": [
         {
-            "title": "Programación",
+            "title": "Programacion",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Los humanos utilizan programas informáticos para comunicarse con las máquinas. Sin programas de computadora, no tendríamos teléfonos inteligentes, sitios web o incluso exploración en el espacio exterior."
+                    "text": "Los humanos utilizan programas informaticos para comunicarse con las maquinas. Sin programas de computadora, no tendriamos telefonos inteligentes, sitios web o incluso exploracion en el espacio exterior."
                 },
                 {
                     "type": "info",
-                    "text": "Aprender algo de codificación puede ayudarlo a innovar y crear diferentes soluciones a los problemas, lo que le brinda una ventaja competitiva en este mundo impulsado por la tecnología."
+                    "text": "Aprender algo de codificacion puede ayudarlo a innovar y crear diferentes soluciones a los problemas, lo que le brinda una ventaja competitiva en este mundo impulsado por la tecnologia."
                 },
                 {
                     "type": "info",
@@ -19,14 +19,13 @@
             ]
         }
     ],
-
     "pedagogical2": [
         {
             "title": "Salida",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "El comando o instrucción print es la forma más fácil de enviar un mensaje específico a la pantalla u otro dispositivo de visualización."
+                    "text": "El comando o instruccion print es la forma más fácil de enviar un mensaje específico a la pantalla u otro dispositivo de visualización."
                 },
                 {
                     "type": "info",

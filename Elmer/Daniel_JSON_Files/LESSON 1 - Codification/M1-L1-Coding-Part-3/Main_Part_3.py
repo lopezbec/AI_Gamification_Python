@@ -1,11 +1,15 @@
 import sys
 import json
+import csv
 
+from datetime import datetime
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, QScrollArea, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, \
+    QScrollArea, QMessageBox
+
+app = QApplication([])
 
 
-# Clase MainPage hereda de QMainWindow
 class MainPage(QMainWindow):
     def __init__(self, data, page_type):
         super().__init__()
@@ -31,7 +35,8 @@ class MainPage(QMainWindow):
         # Crea y añade etiquetas de título para cada sección pedagógica
         for seccion in self.data['pedagogical']:
             titulo_label = QLabel(seccion['title'])
-            titulo_label.setStyleSheet('background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
+            titulo_label.setStyleSheet(
+                'background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
             titulo_label.setAlignment(Qt.AlignCenter)
             layout.addWidget(titulo_label)
 
@@ -46,8 +51,10 @@ class MainPage(QMainWindow):
         # Si la página es de tipo pedagógico, añade un botón de continuar
         if self.page_type == "Pedagogical":
             continue_button = QPushButton("Continuar")
-            continue_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
-            continue_button.clicked.connect(self.open_secondary_page)  # Conecta el botón a la función open_secondary_page
+            continue_button.setStyleSheet(
+                'font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
+            continue_button.clicked.connect(
+                self.open_secondary_page)  # Conecta el botón a la función open_secondary_page
             layout.addWidget(continue_button)
 
         container = QWidget()  # Crea un widget contenedor
@@ -73,6 +80,7 @@ class QuestionPage(QMainWindow):
         self.feedback_label = QLabel("")  # Etiqueta para mostrar información de retroalimentación
         self.data = data  # Almacena los datos proporcionados
         self.setStyleSheet('background-color: #444444;')
+        self.first_attempt = True  # Rastrea si es el primer intento en la sesión
         self.initUI()  # Llama a la función para crear la interfaz de usuario
 
     # Función para inicializar la interfaz de usuario
@@ -85,7 +93,8 @@ class QuestionPage(QMainWindow):
         # Crea y añade etiquetas de título para cada sección de preguntas
         for seccion in self.data['question']:
             titulo_label = QLabel(seccion['title'])
-            titulo_label.setStyleSheet('background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
+            titulo_label.setStyleSheet(
+                'background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
             titulo_label.setFixedHeight(70)
             titulo_label.setAlignment(Qt.AlignCenter)
             layout.addWidget(titulo_label)
@@ -108,7 +117,8 @@ class QuestionPage(QMainWindow):
 
         # Crea y añade el botón de enviar
         submit_button = QPushButton("Enviar")
-        submit_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
+        submit_button.setStyleSheet(
+            'font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
         submit_button.clicked.connect(self.check_answer)  # Conecta el botón a la función check_answer
         layout.addWidget(submit_button)
 
@@ -118,6 +128,19 @@ class QuestionPage(QMainWindow):
         container = QWidget()  # Crea un widget contenedor
         container.setLayout(layout)  # Asigna el layout al contenedor
         self.setCentralWidget(container)  # Establece el contenedor como el widget central de la ventana
+
+    def save_answer(self, answer_text, correct):
+        with open('M1-L1-Coding-Part-1.csv', mode='a', newline='') as file:
+            csv_writer = csv.writer(file)
+
+            # Si es el primer intento en la sesión, escribe una línea vacía y luego la fecha y hora en el archivo CSV
+            if self.first_attempt:
+                csv_writer.writerow([])  # Agrega un salto de línea
+                current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                csv_writer.writerow([current_time])
+                self.first_attempt = False
+
+            csv_writer.writerow([answer_text, correct])
 
     # Función para verificar la respuesta seleccionada
     def check_answer(self):
@@ -129,11 +152,18 @@ class QuestionPage(QMainWindow):
 
         # Verifica si se ha seleccionado una respuesta
         if selected_answer is not None:
+            answer_text = self.data["question"][0]["answers"][selected_answer]["text"]
+            correct = self.data["question"][0]["answers"][selected_answer]["correct"]
+
+            # Guarda la respuesta en el archivo CSV
+            self.save_answer(answer_text, correct)
+
             # Si la respuesta seleccionada es correcta, actualiza la etiqueta de retroalimentación y el estilo del botón de opción
-            if self.data["question"][0]["answers"][selected_answer]["correct"]:
+            if correct:
                 self.feedback_label.setText("Correcto")
                 self.feedback_label.setStyleSheet("color: green; font-weight: bold; font-size: 14px")
                 self.radio_buttons[selected_answer].setStyleSheet("color: green; font-size: 14px")
+
             else:
                 # Si la respuesta seleccionada es incorrecta, actualiza la etiqueta de retroalimentación y el estilo del botón de opción
                 self.feedback_label.setText("Incorrecto")
@@ -159,13 +189,11 @@ def main():
 
     # Crea instancias de MainPage y QuestionPage
     main_page1 = MainPage(data1, "Pedagogical")
-    question_page1 = QuestionPage(data1)
 
     main_page1.show()  # Muestra la página principal
 
     sys.exit(app.exec_())  # Ejecuta el bucle de eventos de la aplicación
 
 
-# Verifica si el script se está ejecutando como programa principal
-if __name__ == "__main__":
-    main()  # Llama a la función principal
+window = main()
+sys.exit(app.exec_())
