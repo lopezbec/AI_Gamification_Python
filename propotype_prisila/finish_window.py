@@ -1,7 +1,7 @@
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, QWidget
-
+from PyQt6.QtWidgets import QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
+# from Elmer.Elmer_Pages_That_Mimic_SoloLearn.
 
 class FinishWindow(QMainWindow):
     def __init__(self) -> None:
@@ -20,8 +20,8 @@ class FinishWindow(QMainWindow):
         title.setMargin(10)
 
         finish_button = QPushButton()
-        finish_button.setText("Finalizar")
-        finish_button.clicked.connect(self.close_window)
+        finish_button.setText("Pasar a contenido")
+        finish_button.clicked.connect(self.pass_to_content)
         finish_button.setFixedSize(250, 30)
 
         v_layout = QVBoxLayout()
@@ -33,5 +33,5 @@ class FinishWindow(QMainWindow):
         self.showMaximized()
         self.setCentralWidget(widget)
 
-    def close_window(self):
-        self.close();
+    def pass_to_content(self):
+        pass

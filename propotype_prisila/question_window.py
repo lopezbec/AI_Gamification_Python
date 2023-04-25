@@ -173,6 +173,9 @@ class QuestionWindow(QMainWindow):
             getattr(self, radio).setAutoExclusive(False)
             getattr(self, radio).setChecked(False)
 
+        if len(question_index) == 1:
+            self.next_button.setText("finalizar")
+            
         if len(question_index) < 1:
             self.save_question()
             self.write_csv()
@@ -185,8 +188,6 @@ class QuestionWindow(QMainWindow):
             self.content.setText(self.pick_question())
 
 
-        if len(question_index) == 1:
-            self.next_button.setText("finalizar")
         
         for radio in self.radio_buttons:
             getattr(self, radio).setAutoExclusive(True)
