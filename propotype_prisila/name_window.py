@@ -3,6 +3,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from question_window import QuestionWindow
 
+
 class NameWindow(QMainWindow):
     def __init__(self) -> None:
         super(NameWindow, self).__init__()

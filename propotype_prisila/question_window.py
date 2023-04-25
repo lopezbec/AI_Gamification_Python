@@ -6,14 +6,16 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, QWidget
 from finish_window import FinishWindow
 
+
 class QuestionWindow(QMainWindow):
-    
     def __init__(self) -> None:
         self.read_csv()
         global responses
         self.counter = 0
         responses = []
         self.username = "placeholder"
+        self.radio_buttons = ["radio_1", "radio_2", "radio_3", "radio_4", 
+                            "radio_5", "radio_6", "radio_7"]
         super(QuestionWindow, self).__init__()
         
         #title
@@ -87,6 +89,7 @@ class QuestionWindow(QMainWindow):
         self.next_button = QPushButton(self)
         self.next_button.setText("Siguiente")
         self.next_button.setFixedSize(250, 30)
+        self.next_button.setEnabled(False)
         self.next_button.clicked.connect(self.next_question)
 
 
@@ -152,38 +155,23 @@ class QuestionWindow(QMainWindow):
     #assing value to the radio button
     def pick_value(self, radio):
         global score
-        options = ["Totalmente en desacuerdo", "En Desacuerdo", "Ligeramente en desacuerdo", "Neutral", "Ligeramente de acuerdo", "De acuerdo", "Totalmente de acuerdo"]
+        options = ["Totalmente en desacuerdo", "En Desacuerdo", "Ligeramente en desacuerdo", 
+                   "Neutral", "Ligeramente de acuerdo", "De acuerdo", "Totalmente de acuerdo"]
         value = [1, 2, 3, 4, 5, 6, 7]
         values_dict = dict(zip(options, value))
 
         if radio.isChecked() and radio.text() in options:
            score = values_dict.get(radio.text())
-
+           self.next_button.setEnabled(True)
 
     def next_question(self):
         index_in_list = question_index.index(random_index)
         question_index.pop(index_in_list)
+        self.next_button.setEnabled(False)
         
-        self.radio_1.setAutoExclusive(False)
-        self.radio_1.setChecked(False)
-
-        self.radio_2.setAutoExclusive(False)
-        self.radio_2.setChecked(False)
-
-        self.radio_3.setAutoExclusive(False)
-        self.radio_3.setChecked(False)
-        
-        self.radio_4.setAutoExclusive(False)
-        self.radio_4.setChecked(False)    
-        
-        self.radio_5.setAutoExclusive(False)
-        self.radio_5.setChecked(False)
-        
-        self.radio_6.setAutoExclusive(False)
-        self.radio_6.setChecked(False)
-        
-        self.radio_7.setAutoExclusive(False)
-        self.radio_7.setChecked(False)
+        for radio in self.radio_buttons:
+            getattr(self, radio).setAutoExclusive(False)
+            getattr(self, radio).setChecked(False)
 
         if len(question_index) < 1:
             self.save_question()
@@ -200,14 +188,8 @@ class QuestionWindow(QMainWindow):
         if len(question_index) == 1:
             self.next_button.setText("finalizar")
         
-        self.radio_1.setAutoExclusive(True)
-        self.radio_2.setAutoExclusive(True)
-        self.radio_3.setAutoExclusive(True)
-        self.radio_4.setAutoExclusive(True)
-        self.radio_5.setAutoExclusive(True)
-        self.radio_6.setAutoExclusive(True)
-        self.radio_1.setAutoExclusive(True)
-
+        for radio in self.radio_buttons:
+            getattr(self, radio).setAutoExclusive(True)
 
     def save_question(self):
         question = random_index

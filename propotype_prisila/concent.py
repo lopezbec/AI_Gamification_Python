@@ -3,6 +3,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QCheckBox, QLabel, QMainWindow, QPushButton, QScrollArea, QVBoxLayout, QWidget
 from name_window import NameWindow
 
+
 class ConcentWindow(QMainWindow):
     def __init__(self) -> None:
         super(ConcentWindow, self).__init__()
@@ -63,5 +64,3 @@ class ConcentWindow(QMainWindow):
             self.name_window = NameWindow()
             self.name_window.show()
             self.hide()
-
-        
