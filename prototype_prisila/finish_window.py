@@ -1,7 +1,11 @@
+import json
+import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
-# from Elmer.Elmer_Pages_That_Mimic_SoloLearn.
+sys.path.append("C:/Users/Admin/VSCode/AI_Gamification_Python")
+from Elmer.Elmer_Pages_That_Mimic_SoloLearn import question_pedagogical_page
+
 
 class FinishWindow(QMainWindow):
     def __init__(self) -> None:
@@ -34,4 +38,8 @@ class FinishWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def pass_to_content(self):
-        pass
+        with open(r"../Elmer/Elmer_Pages_That_Mimic_SoloLearn/data.json", "r") as file:
+            self.data = json.load(file)
+        self.pedagogical_page = question_pedagogical_page.MainPage(data=self.data)
+        self.pedagogical_page.show()
+        self.hide()

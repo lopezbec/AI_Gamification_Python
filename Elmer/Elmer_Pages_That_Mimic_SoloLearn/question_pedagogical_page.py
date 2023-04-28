@@ -4,15 +4,14 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPus
     QScrollArea, QMessageBox
 from PyQt5.QtCore import Qt
 
+app = QApplication(sys.argv)
 
 class MainPage(QMainWindow):
-    def __init__(self, data):
-        super().__init__()
+    def __init__(self, data) -> None:
+        super(MainPage, self).__init__()
         self.data = data
-        self.initUI()
         self.setStyleSheet('background-color: #444444')
 
-    def initUI(self):
         self.setGeometry(100, 100, 900, 550)
         self.setWindowTitle(self.data["pedagogical"][0]["title"])
         layout = QVBoxLayout()
@@ -61,14 +60,12 @@ class MainPage(QMainWindow):
 
 
 class QuestionPage(QMainWindow):
-    def __init__(self, data):
-        super().__init__()
+    def __init__(self, data) -> None:
         self.data = data
-        self.initUI()
+        super(QuestionPage, self).__init__()
         # Configura el estilo de fondo de la ventana
         self.setStyleSheet('background-color: #444444')
 
-    def initUI(self):
         self.setGeometry(100, 100, 900, 550)
         self.setWindowTitle(self.data["question"][0]["title"])
         layout = QVBoxLayout()
@@ -124,16 +121,16 @@ class QuestionPage(QMainWindow):
         else:
             QMessageBox.warning(self, "Advertencia", "Selecciona una respuesta antes de enviar.")
 
-def main():
-    app = QApplication(sys.argv)
+# def main():
+#     app = QApplication(sys.argv)
 
-    with open("data.json", "r") as file:
-        data = json.load(file)
+#     with open("Elmer\Elmer_Pages_That_Mimic_SoloLearn\data.json", "r") as file:
+#         data = json.load(file)
 
-    main_page = MainPage(data)
-    main_page.show()
+#     main_page = MainPage(data)
+#     main_page.show()
 
-    sys.exit(app.exec_())
+#     sys.exit(app.exec_())
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

@@ -128,7 +128,7 @@ class QuestionWindow(QMainWindow):
         question_index = [] #store the index
         question_value = [] #store the questions itself
 
-        with open('Survey.csv') as csv_file:
+        with open(r"./Survey.csv") as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', skipinitialspace=True)
             line = 0
             for row in csv_reader:
