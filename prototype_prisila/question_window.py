@@ -1,6 +1,5 @@
 import csv
 import random
-import time
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, QWidget
@@ -128,7 +127,7 @@ class QuestionWindow(QMainWindow):
         question_index = [] #store the index
         question_value = [] #store the questions itself
 
-        with open(r"./Survey.csv") as csv_file:
+        with open('Survey.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', skipinitialspace=True)
             line = 0
             for row in csv_reader:
@@ -173,9 +172,6 @@ class QuestionWindow(QMainWindow):
             getattr(self, radio).setAutoExclusive(False)
             getattr(self, radio).setChecked(False)
 
-        if len(question_index) == 1:
-            self.next_button.setText("finalizar")
-            
         if len(question_index) < 1:
             self.save_question()
             self.write_csv()
@@ -188,6 +184,13 @@ class QuestionWindow(QMainWindow):
             self.content.setText(self.pick_question())
 
 
+        if len(question_index) == 1:
+            self.next_button.setText("finalizar")
+            #self.next_button.clicked.connect( self.show_pages)
+            #Sself.hide()
+            
+        if len(question_index) == 0:
+            self.next_button.setText("finalizar")
         
         for radio in self.radio_buttons:
             getattr(self, radio).setAutoExclusive(True)
@@ -197,6 +200,8 @@ class QuestionWindow(QMainWindow):
         value = score
         responses.append(dict({"question_index":question, "score":value}))
 
+
+        
     def write_csv(self):
         csv_columns = ['question_index','score']
         final_responses = responses
