@@ -1,14 +1,13 @@
 import json
+import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
-from concent import ConcentWindow
+from PyQt6.QtWidgets import QApplication, QHBoxLayout, QLabel, QMainWindow, QPushButton, QScrollArea, QVBoxLayout, QWidget
 
 
-class WelcomeWindow(QMainWindow):
+class Test(QMainWindow):
     def __init__(self) -> None:
-        super(WelcomeWindow, self).__init__()
-
+        super(Test, self).__init__()
 
         welcome_data = open(r"./json/welcome_info.json", "r")
         data = json.loads(welcome_data.read())
@@ -17,11 +16,11 @@ class WelcomeWindow(QMainWindow):
         title.setText(data["title_text"])
         title.adjustSize()
         font_title = QFont()
-        font_title.setBold(data["title_bold"])
+        font_title.setBold(True)
         font_title.setPointSize(data["title_font_size"])
         font_title.setFamily(data["title_font_family"])
         title.setFont(font_title)
-        title.setWordWrap(data["content_word_wrap"])
+        title.setWordWrap(True)
         title.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignHCenter)
         title.setMargin(data["title_margin"])
 
@@ -31,17 +30,13 @@ class WelcomeWindow(QMainWindow):
 
         font_content = QFont()
         font_content.setPointSize(data["content_font_size"])
-        font_content.setFamily(data["content_font_family"])
+        font_content.setFamily("Lato")
         content.setFont(font_content)
         content.adjustSize()
-        content.setWordWrap(data["content_word_wrap"])
-        content.setAlignment(Qt.AlignmentFlag.AlignTop |  Qt.AlignmentFlag.AlignJustify)
-        content.setMargin(data["title_margin"])
+        content.setWordWrap(True)
+        content.setAlignment(data["title_alignment"])
+        content.setMargin(10)
 
-        next_button = QPushButton(self)
-        next_button.setText(data["button_text"])
-        next_button.setFixedSize(data["button_width"], data["button_height"])
-        next_button.clicked.connect(self.show_concent)
 
 
         v_layout = QVBoxLayout()
@@ -53,7 +48,6 @@ class WelcomeWindow(QMainWindow):
         h_layout.setSpacing(0)
         h_layout.setContentsMargins(-1,-1,-1,-1)
         v_layout.addLayout(h_layout)
-        v_layout.addWidget(next_button, alignment=Qt.AlignmentFlag.AlignHCenter)
         v_layout.setSpacing(0)
         v_layout.setContentsMargins(-1,-1,-1,-1)
         
@@ -61,7 +55,18 @@ class WelcomeWindow(QMainWindow):
         widget.setLayout(v_layout)
         self.setCentralWidget(widget)
 
-    def show_concent(self):
-        self.concent_window = ConcentWindow()
-        self.concent_window.show()
-        self.hide()
+  
+def main():
+    app = QApplication(sys.argv)
+    window = Test()
+    window.showMaximized()
+    window.show()
+
+    try:
+        app.exec()
+    except KeyboardInterrupt:
+        print("shuting down...")
+
+if __name__ == "__main__":
+    main()
+
