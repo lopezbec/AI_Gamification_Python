@@ -8,10 +8,10 @@ from concent import ConcentWindow
 class WelcomeWindow(QMainWindow):
     def __init__(self) -> None:
         super(WelcomeWindow, self).__init__()
-
-
-        welcome_data = open(r"./json/welcome_info.json", "r")
-        data = json.loads(welcome_data.read())
+        
+        with open(r"./json/welcome_info.json", "r") as welcome_data:
+            data = json.load(welcome_data)
+        
         #title
         title = QLabel(self)
         title.setText(data["title_text"])
