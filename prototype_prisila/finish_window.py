@@ -9,22 +9,25 @@ class FinishWindow(QMainWindow):
     def __init__(self) -> None:
         super(FinishWindow, self).__init__()
 
+        with open(r'./json/finish_info.json', "r") as finish_info:
+            data = json.load(finish_info)
+
         title = QLabel()
-        title.setText("Questionario finalizado, estas listo para aprender?" )
+        title.setText(data["title_text"])
         title.adjustSize()
         font_title = QFont()
-        font_title.setBold(True)
-        font_title.setPointSize(18)
-        font_title.setFamily("Lato")
+        font_title.setBold(data["title_bold"])
+        font_title.setPointSize(data["title_font_size"])
+        font_title.setFamily(data["title_font_family"])
         title.setFont(font_title)
-        title.setWordWrap(True)
+        title.setWordWrap(data["title_word_wrap"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setMargin(10)
+        title.setMargin(data["title_margin"])
 
         finish_button = QPushButton()
-        finish_button.setText("Iniciar aprendizaje")
+        finish_button.setText(data["finish_button_text"])
         finish_button.clicked.connect(self.close_window)
-        finish_button.setFixedSize(250, 30)
+        finish_button.setFixedSize(data["finish_button_width"], data["finish_button_height"])
 
         v_layout = QVBoxLayout()
         v_layout.addWidget(title)
