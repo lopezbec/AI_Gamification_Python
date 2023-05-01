@@ -1,4 +1,5 @@
 import csv
+import json
 import random
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
@@ -17,32 +18,35 @@ class QuestionWindow(QMainWindow):
                             "radio_5", "radio_6", "radio_7"]
         super(QuestionWindow, self).__init__()
         
+        with open(r'./json/question_info.json') as question_info:
+            data = json.load(question_info)
+
         #title
         self.title = QLabel(self)
         question_number = self.get_number_question()
-        self.title.setText("Pregunta #" + str(question_number))
+        self.title.setText(data["title_text"] + str(question_number))
         self.title.adjustSize()
         font_title = QFont()
-        font_title.setBold(True)
-        font_title.setPointSize(18)
-        font_title.setFamily("Lato")
+        font_title.setBold(data["title_bold"])
+        font_title.setPointSize(data["title_font_size"])
+        font_title.setFamily(data["title_font_family"])
         self.title.setFont(font_title)
-        self.title.setWordWrap(True)
+        self.title.setWordWrap(data["title_word_wrap"])
         self.title.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignHCenter)
-        self.title.setMargin(10)
+        self.title.setMargin(data["title_margin"])
 
         self.content = QLabel(self)
         question = self.pick_question()
         self.content.setText(question)
 
         font_content = QFont()
-        font_content.setPointSize(12)
-        font_content.setFamily("Lato")
+        font_content.setPointSize(data["content_font_size"])
+        font_content.setFamily(data["content_font_family"])
         self.content.setFont(font_content)
         self.content.adjustSize()
-        self.content.setWordWrap(True)
+        self.content.setWordWrap(data["content_word_wrap"])
         self.content.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignHCenter)
-        self.content.setMargin(10)
+        self.content.setMargin(data["content_margin"])
 
         # For the variables name in radio button I rather to choose the point in the scale 
         # than the name itself for shortest but logical names here the scale
@@ -58,37 +62,37 @@ class QuestionWindow(QMainWindow):
         # because is their rate in the scale
         
         self.radio_1 = QRadioButton()
-        self.radio_1.setText("Totalmente en desacuerdo")
+        self.radio_1.setText(data["radio_text"]["radio_1"])
         self.radio_1.toggled.connect(lambda: self.pick_value(self.radio_1))
 
         self.radio_2 = QRadioButton()
-        self.radio_2.setText("En Desacuerdo")
+        self.radio_2.setText(data["radio_text"]["radio_2"])
         self.radio_2.toggled.connect(lambda: self.pick_value(self.radio_2))
 
         self.radio_3 = QRadioButton()
-        self.radio_3.setText("Ligeramente en desacuerdo")
+        self.radio_3.setText(data["radio_text"]["radio_3"])
         self.radio_3.toggled.connect(lambda: self.pick_value(self.radio_3))
 
         self.radio_4 = QRadioButton()
-        self.radio_4.setText("Neutral")
+        self.radio_4.setText(data["radio_text"]["radio_4"])
         self.radio_4.toggled.connect(lambda: self.pick_value(self.radio_4))
 
         self.radio_5 = QRadioButton()
-        self.radio_5.setText("Ligeramente de acuerdo")
+        self.radio_5.setText(data["radio_text"]["radio_5"])
         self.radio_5.toggled.connect(lambda: self.pick_value(self.radio_5))
 
         self.radio_6 = QRadioButton()
-        self.radio_6.setText("De acuerdo")
+        self.radio_6.setText(data["radio_text"]["radio_6"])
         self.radio_6.toggled.connect(lambda: self.pick_value(self.radio_6))
 
         self.radio_7 = QRadioButton()
-        self.radio_7.setText("Totalmente de acuerdo")
+        self.radio_7.setText(data["radio_text"]["radio_7"])
         self.radio_7.toggled.connect(lambda: self.pick_value(self.radio_7))
 
         self.next_button = QPushButton(self)
-        self.next_button.setText("Siguiente")
-        self.next_button.setFixedSize(250, 30)
-        self.next_button.setEnabled(False)
+        self.next_button.setText(data["next_button_text"])
+        self.next_button.setFixedSize(data["next_button_width"], data["next_button_height"])
+        self.next_button.setEnabled(data["next_button_enabled"])
         self.next_button.clicked.connect(self.next_question)
 
 
