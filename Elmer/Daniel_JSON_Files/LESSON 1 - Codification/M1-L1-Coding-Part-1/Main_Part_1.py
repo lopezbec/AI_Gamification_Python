@@ -1,201 +1,338 @@
-import sys
+import datetime
 import json
+import sys
 import csv
-from datetime import datetime
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, QScrollArea, QMessageBox
 
-app = QApplication([])
+from PyQt6.QtCore import Qt
+from PyQt6.QtGui import QFont
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup
 
-# Clase MainPage que hereda de QMainWindow
-class MainPage(QMainWindow):
-    # Constructor de la clase MainPage
-    def __init__(self, data, page_type):
+
+class JsonWindow(QWidget):
+    """
+    Clase para crear una ventana que muestra información almacenada en un archivo JSON.
+
+    ...
+
+    Atributos
+    ----------
+    filename : str
+        Nombre del archivo JSON que contiene la información que se mostrará en la ventana.
+    page_type : str
+        Tipo de página que se está mostrando (Pedagógica o Pregunta).
+    styles : dict
+        Diccionario que contiene los estilos a aplicar en la ventana.
+    json_number : int
+        Número que indica a qué archivo JSON pertenece la página que se está mostrando.
+
+    Métodos
+    -------
+    init_ui()
+        Inicializa la interfaz de usuario de la ventana.
+    """
+    def __init__(self, filename, page_type, styles, json_number):
+        """
+        Constructor de la clase JsonWindow.
+
+        Parámetros
+        ----------
+        filename : str
+            Nombre del archivo JSON que contiene la información que se mostrará en la ventana.
+        page_type : str
+            Tipo de página que se está mostrando (Pedagógica o Pregunta).
+        styles : dict
+            Diccionario que contiene los estilos a aplicar en la ventana.
+        json_number : int
+            Número que indica a qué archivo JSON pertenece la página que se está mostrando.
+        """
         super().__init__()
-        self.data = data  # Almacena los datos proporcionados
-        self.setStyleSheet('background-color: #444444;')  # Establece el estilo de fondo de la ventana
-        self.page_type = page_type  # Almacena el tipo de página (Pedagogical o Question)
-        self.initUI()  # Llama a la función para crear la interfaz de usuario
-        self.start_time = datetime.now()  # Registra la hora de inicio
+        self.filename = filename
+        self.page_type = page_type
+        self.styles = styles
+        self.json_number = json_number
 
-    # Función para inicializar la interfaz de usuario
-    def initUI(self):
-        self.setGeometry(100, 100, 700, 550)  # Configura la geometría de la ventana
+        self.init_ui()
 
-        # Selecciona los bloques de datos en función del tipo de página
-        if self.page_type == "Pedagogical":
-            blocks = self.data["pedagogical"][0]["blocks"]
+    def init_ui(self):
+        """
+        Inicializa la interfaz de usuario de la ventana.
+        """
+        # Crear un layout vertical
+        self.layout = QVBoxLayout()
+
+        # Leer el archivo JSON y almacenar los datos
+        with open(self.filename) as json_file:
+            self.data = json.load(json_file)
+
+        # Crear y personalizar el título de la ventana
+        title = QLabel(self.data[self.page_type.lower()][0]["title"])
+        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        title.setStyleSheet(
+            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title_font = QFont()
+        title_font.setPointSize(self.styles['font_size'])
+        title.setFont(title_font)
+        # Añadir el título al layout
+        self.layout.addWidget(title)
+
+        # Si el tipo de página es "question", agregar bloques de preguntas y respuestas
+        if self.page_type.lower() == "question":
+            self.radio_buttons = []
+            self.button_group = QButtonGroup()
+
+            # Añadir bloques de preguntas al layout
+            for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
+                block_label = QLabel(block["text"])
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size']}px")
+                self.layout.addWidget(block_label)
+
+            # Añadir botones de radio (opciones de respuesta) al layout
+            for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
+                radio_button = QRadioButton(answer["text"])
+                radio_button.setStyleSheet(f"font-size: {self.styles['font_size']}px")
+                self.radio_buttons.append(radio_button)
+                self.button_group.addButton(radio_button, idx)
+                self.layout.addWidget(radio_button)
+
+            # Añadir la etiqueta de retroalimentación al layout
+            self.feedback_label = QLabel("")
+            self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            self.layout.addWidget(self.feedback_label)
+
+        # Si el tipo de página es "pedagogical", agregar bloques de contenido
         else:
-            blocks = self.data["question"][0]["blocks"]
+            for block in self.data[self.page_type.lower()][0]["blocks"]:
+                block_label = QLabel(block["text"])
+                if block["type"] == "Syntax":
+                    block_label.setStyleSheet(
+                        f"border: {self.styles['syntax_border_width']}px solid {self.styles['syntax_border_color']}; background-color: {self.styles['syntax_background_color']}; font-size: {self.styles['font_size']}px")
+                else:
+                    block_label.setStyleSheet(f"font-size: {self.styles['font_size']}px")
+                # Añadir el bloque al layout
+                self.layout.addWidget(block_label)
 
-        # Establece el título de la ventana
-        self.setWindowTitle(self.data[self.page_type.lower()][0]["title"])
-        layout = QVBoxLayout()  # Crea un layout vertical
-
-        # Crea y añade etiquetas de título para cada sección pedagógica
-        for seccion in self.data['pedagogical']:
-            titulo_label = QLabel(seccion['title'])
-            titulo_label.setStyleSheet('background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
-            titulo_label.setAlignment(Qt.AlignCenter)
-            layout.addWidget(titulo_label)
-
-        font_size = 14
-
-        # Crea y añade etiquetas para cada bloque de texto
-        for block in blocks:
-            label = QLabel(block["text"])
-            label.setStyleSheet(label.styleSheet() + "font-size: {}px;".format(font_size))
-            layout.addWidget(label)
-
-        # Si la página es de tipo pedagógico, añade un botón de continuar
-        if self.page_type == "Pedagogical":
-            continue_button = QPushButton("Continuar")
-            continue_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
-            continue_button.clicked.connect(self.open_secondary_page)  # Conecta el botón a la función open_secondary_page
-            layout.addWidget(continue_button)
-
-        container = QWidget()  # Crea un widget contenedor
-        container.setLayout(layout)  # Asigna el layout al contenedor
-
-        scroll = QScrollArea()  # Crea un área de desplazamiento
-        scroll.setWidget(container)  # Añade el contenedor al área de desplazamiento
-        scroll.setWidgetResizable(True)  # Habilita el redimensionamiento del widget
-        self.setCentralWidget(scroll)  # Establece el área de desplazamiento como el widget central de la ventana
-
-    # Función para abrir la página secundaria
-    def open_secondary_page(self):
-        elapsed_time = datetime.now() - self.start_time  # Calcula el tiempo transcurrido
-        self.question_page = QuestionPage(self.data, elapsed_time)  # Crea una instancia de QuestionPage
-        self.question_page.show()  # Muestra la instancia de QuestionPage
-        self.hide()  # Oculta la página actual
+        # Establecer el layout en el QWidget
+        self.setLayout(self.layout)
 
 
-    # Clase QuestionPage que hereda de QMainWindow
-class QuestionPage(QMainWindow):
-    # Constructor de la clase QuestionPage
-    def __init__(self, data, elapsed_time_pedagogical):
+class MainWindow(QWidget):
+    """
+        Clase para crear la ventana principal de la aplicación, que contiene páginas cargadas desde archivos JSON.
+
+        ...
+
+        Atributos
+        ----------
+        styles : dict
+            Diccionario que contiene los estilos a aplicar en la ventana.
+        log_data : list
+            Lista que almacena los eventos de apertura y cierre de las páginas para su posterior registro.
+        current_page : int
+            Número de página actual que se está mostrando en la ventana principal.
+
+        Métodos
+        -------
+        init_ui()
+            Inicializa la interfaz de usuario de la ventana principal.
+        log_event(event)
+            Registra un evento de apertura o cierre de página.
+        save_log()
+            Guarda el registro de eventos en un archivo CSV.
+        load_page_order()
+            Carga el orden de las páginas desde un archivo JSON.
+    """
+
+    def __init__(self):
         super().__init__()
-        self.radio_buttons = []  # Inicializa la lista de botones de radio
-        self.feedback_label = QLabel("")  # Inicializa la etiqueta de retroalimentación
-        self.data = data  # Almacena los datos proporcionados
-        self.setStyleSheet('background-color: #444444;')  # Establece el estilo de fondo de la ventana
-        self.first_attempt = True  # Indica si es el primer intento de responder la pregunta
-        self.elapsed_time_pedagogical = elapsed_time_pedagogical  # Almacena el tiempo transcurrido en la página pedagógica
-        self.initUI()  # Llama a la función para crear la interfaz de usuario
-        self.start_time = datetime.now()  # Registra la hora de inicio
 
-    # Función para inicializar la interfaz de usuario
-    def initUI(self):
-        self.setGeometry(100, 100, 700, 550)  # Configura la geometría de la ventana
-        self.setWindowTitle(self.data["question"][0]["title"])  # Establece el título de la ventana
-        layout = QVBoxLayout()  # Crea un layout vertical
-        font_size = 14
+        with open("styles.json") as styles_file:
+            self.styles = json.load(styles_file)
 
-        # Crea y añade etiquetas de título para cada sección de preguntas
-        for seccion in self.data['question']:
-            titulo_label = QLabel(seccion['title'])
-            titulo_label.setStyleSheet('background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
-            titulo_label.setFixedHeight(70)  # Establece la altura fija de la etiqueta
-            titulo_label.setAlignment(Qt.AlignCenter)  # Alinea la etiqueta al centro
-            layout.addWidget(titulo_label)
+        self.log_data = []
+        self.init_ui()
+        self.current_page = 0
 
-        # Crea y añade etiquetas para cada bloque de texto en las preguntas
-        for block in self.data["question"][0]["blocks"]:
-            if block["type"] == "info":
-                label = QLabel(block["text"])
-                label.setStyleSheet(
-                label.styleSheet() + "font-size: {}px;".format(font_size))  # Establece el tamaño de fuente
-                label.setFixedHeight(70)  # Establece la altura fija de la etiqueta
-                layout.addWidget(label)  # Añade la etiqueta al layout
+    def init_ui(self):
+        """
+        Inicializa la interfaz de usuario de la ventana principal.
+        """
+        self.layout = QVBoxLayout()
+        self.setStyleSheet(f"background-color: {self.styles['main_background_color']}")
 
-        # Crea y añade botones de radio para cada respuesta
-        for answer in self.data["question"][0]["answers"]:
-            radio_button = QRadioButton(answer["text"])
-            radio_button.setStyleSheet(
-                radio_button.styleSheet() + "font-size: {}px;".format(font_size))  # Establece el tamaño de fuente
-            radio_button.setFixedHeight(30)  # Establece la altura fija del botón de radio
-            layout.addWidget(radio_button)  # Añade el botón de radio al layout
-            self.radio_buttons.append(radio_button)  # Guarda el botón de radio en la lista
+        self.stacked_widget = QStackedWidget()
 
-        # Crea y añade un botón de envío
-        submit_button = QPushButton("Enviar")
-        submit_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
-        submit_button.clicked.connect(self.check_answer)  # Conecta el botón de envío con la función check_answer
-        layout.addWidget(submit_button)
+        for page in self.load_page_order():
+            if page["type"] == "JsonWindow":
+                json_window = JsonWindow(page["filename"], page["page_type"], self.styles, page["json_number"])
+                self.stacked_widget.addWidget(json_window)
 
-        # Configura y añade la etiqueta de retroalimentación al layout
-        self.feedback_label.setFixedHeight(30)
-        layout.addWidget(self.feedback_label)
+        self.continue_button = QPushButton("Continuar")
+        self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        continue_button_font = QFont()
+        continue_button_font.setPointSize(self.styles['font_size'])
+        self.continue_button.setFont(continue_button_font)
+        self.continue_button.clicked.connect(self.switch_page)
 
-        # Crea un contenedor QWidget y establece su layout
-        container = QWidget()
-        container.setLayout(layout)
-        self.setCentralWidget(container)  # Establece el contenedor como widget central
+        self.submit_button = QPushButton("Enviar")
+        self.submit_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        submit_button_font = QFont()
+        submit_button_font.setPointSize(self.styles['font_size'])
+        self.submit_button.setFont(submit_button_font)
+        self.submit_button.clicked.connect(self.submit_answer)
+        self.submit_button.hide()
 
-    # Función para guardar la respuesta del usuario en un archivo CSV
-    def save_answer(self, answer_text, correct):
-        with open('Respuestas_Main_Part_1.csv', mode='a', newline='') as file:
-            csv_writer = csv.writer(file)
+        self.button_layout = QHBoxLayout()
+        self.button_layout.addWidget(self.submit_button)
+        self.button_layout.addWidget(self.continue_button)
 
-            # Si es el primer intento, escribe la información adicional en el archivo
-            if self.first_attempt:
-                csv_writer.writerow([])
-                current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                csv_writer.writerow([current_time])
-                elapsed_time_question = datetime.now() - self.start_time
-                csv_writer.writerow(
-                    ["El tiempo en Pedagogical:", self.elapsed_time_pedagogical, " El tiempo en Question:",
-                     elapsed_time_question])
-                self.first_attempt = False
+        self.layout.addWidget(self.stacked_widget)
+        self.layout.addLayout(self.button_layout)
 
-            # Escribe la respuesta y su corrección en el archivo
-            csv_writer.writerow([answer_text, correct])
+        self.setLayout(self.layout)
+        self.showFullScreen()
 
-    # Función para verificar y mostrar si la respuesta seleccionada es correcta o incorrecta
-    def check_answer(self):
-        selected_answer = None
-        # Busca el botón de radio seleccionado
-        for i, radio_button in enumerate(self.radio_buttons):
-            if radio_button.isChecked():
-                selected_answer = i
-                break
+    def log_event(self, event):
+        """
+        Registra un evento con su hora en self.log_data.
 
-        # Si se seleccionó una respuesta
-        if selected_answer is not None:
-            answer_text = self.data["question"][0]["answers"][selected_answer]["text"]
-            correct = self.data["question"][0]["answers"][selected_answer]["correct"]
+        Parámetros
+        ----------
+        event : str
+            Descripción del evento a registrar.
+        """
+        # Obtener la hora actual y almacenarla como una cadena de texto
+        event_time = datetime.datetime.now().strftime("%H:%M:%S")
+        # Obtener el número del archivo JSON correspondiente a la página actual
+        json_number = self.stacked_widget.currentWidget().json_number
+        # Añadir el evento y su hora al registro de datos (log_data)
+        self.log_data.append({"event": f"Json {json_number} {event}", "time": event_time})
 
-            self.save_answer(answer_text, correct)  # Guarda la respuesta en el archivo CSV
+    def save_log(self):
 
-            # Muestra la retroalimentación según si la respuesta es correcta o incorrecta
-            if correct:
-                self.feedback_label.setText("Correcto")
-                self.feedback_label.setStyleSheet("color: green; font-weight: bold; font-size: 14px")
-                self.radio_buttons[selected_answer].setStyleSheet("color: green; font-size: 14px")
+        fieldnames = ['event', 'time']
+
+        with open("Respuestas_Main_Part_1.csv", mode="a", newline="") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+            # Si el archivo está vacío, escribir el encabezado
+            if csv_file.tell() == 0:
+                writer.writeheader()
+
+            # Escribir cada registro en el archivo
+            for log in self.log_data:
+                writer.writerow(log)
+
+            csv_file.write("\n")  # Agregar un salto de línea después de los registros
+
+    def load_page_order(self):
+        """
+        Carga el orden de las páginas desde el archivo "page_order.json".
+
+        Devoluciones
+        -------
+        list
+            Lista de objetos que representan el orden de las páginas.
+        """
+        # Abrir el archivo "page_order.json" y cargar los datos en una variable
+        with open("page_order.json") as order_file:
+            data = json.load(order_file)
+            # Devolver la lista que representa el orden de las páginas
+            return data["page_order"]
+
+    def submit_answer(self):
+        """
+        Valida la respuesta seleccionada y muestra retroalimentación al usuario.
+        """
+        # Obtener el índice de la respuesta seleccionada
+        selected_answer_id = self.stacked_widget.currentWidget().button_group.checkedId()
+        if selected_answer_id != -1:
+            correct_answer_id = None
+            # Buscar el índice de la respuesta correcta en la lista de respuestas
+            for idx, answer in enumerate(
+                    self.stacked_widget.currentWidget().data[self.stacked_widget.currentWidget().page_type.lower()][0][
+                        "answers"]):
+                if answer["correct"]:
+                    correct_answer_id = idx
+                    break
+
+            # Si la respuesta seleccionada es correcta, mostrar un mensaje de éxito
+            if selected_answer_id == correct_answer_id:
+                self.stacked_widget.currentWidget().feedback_label.setText("Respuesta correcta")
+                self.stacked_widget.currentWidget().feedback_label.setStyleSheet(
+                    f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size']}px")
+                self.submit_button.hide()
+                self.continue_button.show()
+            # Si la respuesta seleccionada es incorrecta, mostrar un mensaje de error
             else:
-                self.feedback_label.setText("Incorrecto")
-                self.feedback_label.setStyleSheet("color: red; font-size: bold; font-size:")
-                self.radio_buttons[selected_answer].setStyleSheet("color: red; font-size: 14px")
-
+                self.stacked_widget.currentWidget().feedback_label.setText(
+                    "Respuesta incorrecta. Por favor, inténtalo de nuevo.")
+                self.stacked_widget.currentWidget().feedback_label.setStyleSheet(
+                    f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size']}px")
+        # Si no se ha seleccionado ninguna respuesta, mostrar un mensaje de advertencia
         else:
-            QMessageBox.warning(self, "Advertencia", "Selecciona una respuesta antes de enviar.")
+            self.stacked_widget.currentWidget().feedback_label.setText("No se ha seleccionado ninguna respuesta")
+            self.stacked_widget.currentWidget().feedback_label.setStyleSheet(
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size']}px")
+
+    def switch_page(self):
+        """
+            Cambia la página actual por la siguiente en el orden establecido.
+        """
+        # Obtener el tipo de página actual
+        current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+
+        # Si la página actual es la primera página del primer archivo JSON, registra el evento de apertura
+        if current_page_type == "pedagogical" and self.stacked_widget.currentWidget().json_number == 1 and self.current_page == 0:
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")
+
+        # Registrar el evento de cierre de la página actual
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")
+
+        # Calcular el índice de la siguiente página
+        next_index = self.stacked_widget.currentIndex() + 1
+
+        # Si el siguiente índice es menor que el número total de páginas, continuar navegando
+        if next_index < self.stacked_widget.count():
+            # Cambiar a la siguiente página
+            self.stacked_widget.setCurrentIndex(next_index)
+
+            # Obtener el tipo de página actualizado
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+
+            # Registrar el evento de apertura de la nueva página
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")
+
+            # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+            if current_page_type == "question":
+                self.submit_button.show()
+                self.continue_button.hide()
+            # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+            else:
+                self.submit_button.hide()
+                self.continue_button.show()
+        # Si se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
+        else:
+            self.save_log()
+            self.close()
+
+        # Incrementar el número de la página actual
+        self.current_page += 1
 
 
-# Función principal del programa
 def main():
-    app = QApplication(sys.argv)  # Crea una aplicación Qt
+    """
+        Función principal que crea la ventana de la aplicación y ejecuta el bucle de eventos.
+    """
+    # Crear una instancia de QApplication
+    app = QApplication(sys.argv)
+    # Crear e inicializar una instancia de MainWindow
+    main_window = MainWindow()
+    # Ejecutar el bucle de eventos de la aplicación
+    sys.exit(app.exec())
 
-    # Abre el archivo JSON y carga los datos en la variable data1
-    with open("M1-L1-Coding-Part-1.json", "r") as file:
-        data1 = json.load(file)
 
-    # Crea una instancia de la clase MainPage y le pasa los datos y el tipo de página "Pedagogical"
-    main_page1 = MainPage(data1, "Pedagogical")
-
-    main_page1.show()  # Muestra la página principal
-
-    sys.exit(app.exec_())  # Ejecuta la aplicación y cierra cuando se cierra la ventana
-
-# Punto de entrada del programa, llama a la función main()
-if __name__ == "__main__":
+if __name__ == '__main__':
+    # Llamar a la función principal si el script se ejecuta como el programa principal
     main()
+
+#TODO ARREGLAR LO DEL TIEMPO QUE SE ABRE Y SE CIERRA EL PEDAGOGICAL DEL PRIMER JSON.
