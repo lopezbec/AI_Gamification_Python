@@ -33,7 +33,7 @@ The google collab grants you via forms, a visual cue of how the reviews are gath
 </table>
 <br><br></br>
 
-This notebook allows you to get the sentiment (positive, negative or neutral) of the reviews that were scraped stored on the repo. The interactive colab forms provides visual indicators of what reviews are analyzed. 
+This notebook allows you to get the sentiment (positive, negative or neutral) of the reviews that were scraped stored on the repo, in both Spanish or English. The interactive colab forms provides visual indicators of what reviews are analyzed. 
 
 <table align="left">
   <td>

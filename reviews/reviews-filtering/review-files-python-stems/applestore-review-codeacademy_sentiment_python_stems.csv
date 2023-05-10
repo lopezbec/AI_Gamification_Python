@@ -1,0 +1,2 @@
+Unnamed: 0,date,content,rating,isEdited,title,userName,sentiment,matched_python,matched_stem
+71,2019-10-09 01:33:58,"I’ve had to force close this app and restart it at least a half dozen times in the two days I’ve been using it. Very buggy. The content in the python module is good so far, but the app itself makes the content useless because it won’t refresh, update progress, or even add a course when you select “start this course.”",2,False,Ironically Buggy for an App that Teaches Coding,ncpck,NEGATIVE,python,progress
