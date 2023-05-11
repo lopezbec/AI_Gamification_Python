@@ -1,2 +1,0 @@
-Unnamed: 0,date,content,rating,isEdited,userName,title,developerResponse,sentiment,matched_feature
-763,2018-04-11 18:40:38,Challenges should tell you the correct answer not just that its wrong.,3,False,Huluappsucks,Need correct answers in challenges,"{'id': 3110520, 'body': 'Hi, \nThanks for your feedback. You can view the correct answers after the match, from the results page.', 'modified': '2018-04-12T07:24:09Z'}",NEGATIVE,Challenges
