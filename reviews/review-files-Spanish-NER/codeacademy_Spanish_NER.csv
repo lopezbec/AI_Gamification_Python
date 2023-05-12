@@ -1,0 +1,4 @@
+reviewId,NER_Text,Start_Pos,End_Pos,NER_Label,Prob
+100,codecademy,7,17,MISC,0.39766523241996765
+233,play,55,59,MISC,0.801342248916626
+239,oagina web edta,67,82,MISC,0.942644993464152

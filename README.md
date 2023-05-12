@@ -33,7 +33,7 @@ The google collab grants you via forms, a visual cue of how the reviews are gath
 </table>
 <br><br></br>
 
-This notebook allows you to get the sentiment (positive, negative or neutral) of the reviews that were scraped stored on the repo. The interactive colab forms provides visual indicators of what reviews are analyzed. 
+This notebook allows you to get the sentiment (positive, negative or neutral) of the reviews that were scraped stored on the repo, in both Spanish or English. The interactive colab forms provides visual indicators of what reviews are analyzed. 
 
 <table align="left">
   <td>
@@ -53,11 +53,11 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 [Screencast from 04-07-2023 11:55:59 AM.webm](https://user-images.githubusercontent.com/106645242/230639504-9ef200a2-7bbb-4cf5-857b-179b8565507a.webm)
 
 
-## Example of Application Pedagogical/Question Interfaces
+## Example of Application Pedagogical/Question all in one Interface
 
 This is an example
 
-[Elmer_Pages_That_Mimic_SoloLearn_Video_Pedagogical_Question_pages.webm](https://user-images.githubusercontent.com/113645268/232347651-2ef7e6b1-1bf1-4abc-973c-b559271a64b2.webm)
+[Video_Pedagogical_Question_Lesson1Complete.webm](https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/870ead00-830b-43b6-a3ef-22e8c663eaad)
 
 ___________________________________________________
 
