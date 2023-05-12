@@ -1,15 +1,15 @@
 {
 
-    "question": [
+    "draganddrop": [
         {
             "title": "Arrastra la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre (Click) y suelte para escribir una línea de código que genere el número 729."
+                    "text": "Arrastre y suelte para escribir una linea de codigo que genere el numero 729."
                 },
                 {
-                    "type": "hint",
+                    "type": "Syntax",
                     "text": "....(729)"
                 }
             ],
@@ -44,11 +44,11 @@
                 },
                 {
                     "type": "pregunta",
-                    "text": "¿Puedes cambiar el código para mostrar un mensaje diferente?"
+                    "text": "Puedes cambiar el codigo para mostrar un mensaje diferente?"
                 },
                 {
                     "type": "hint",
-                    "text": "Las comillas que encierran el texto deben ser las mismas, ya sea que use comillas simples o dobles. Si olvida agregar las comillas o si las comillas no son las mismas, Python devolverá un error."
+                    "text": "Las comillas que encierran el texto deben ser las mismas, ya sea que use comillas simples o dobles. Si olvida agregar las comillas o si las comillas no son las mismas, Python devolvera un error."
                 }
 
             ]
