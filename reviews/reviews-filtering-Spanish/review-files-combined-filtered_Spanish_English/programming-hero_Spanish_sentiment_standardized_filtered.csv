@@ -1,0 +1,127 @@
+Unnamed: 0,reviewId,userName,userImage,content,score,thumbsUpCount,reviewCreatedVersion,at,replyContent,repliedAt,appVersion,language,sentiment,standardizedReview,mentionedFeature,mentionedSynonyms
+46,57dcd980-9f20-4ed3-8538-0f0b09b0822a,Marco Di Noto,https://play-lh.googleusercontent.com/a-/ACB-R5SlZnibmIKimXm5gdgaRnVEI0oGljXWWyglyV8yTA,"No tiene ejercicios para hacer y practicar, los tiene ya hechos y son muy muy simples para ejemplificar cada aspecto de un determinado lenguaje. La compré pensando que estaba buena pero no. Además algunos ejemplos ni siquiera funcionan, como el de los strings con fgets y puts. El fgets nunca abre un prompt para escribir, y el resultado es un error. Lo quise respetar con el sorpresa premium, y el botón no funciona, hace force close o devuelve a la pantalla principal",2,35,1.4.63,2022-01-29 10:25:19,"Dear Marco, Grandma is very sad that you faced issues with our app. But she is not clear about all the issues. She needs to be clear about all the issues to fix them, can you help her with more details about the issue at support@programming-hero.com? Grandma loves you sooo much and she doesn't want you to be stuck, we will be waiting for you! 💖",2022-01-31 12:52:36,1.4.63,es,NEG,tiene ejercicios para hacer practicar los tiene ya hechos son muy muy simples para ejemplificar cada aspecto de un determinado lenguaje la compre pensando que estaba buena pero ademas algunos ejemplos ni siquiera funcionan como el de los strings con fgets puts el fgets nunca abre un prompt para escribir el resultado es un error lo quise respetar con el sorpresa premium el boton funciona hace force close devuelve la pantalla principal,win states,resultad
+47,23443a37-4696-448e-9b51-59556774c8d6,SAMURAI LIDER DE LEGIÓN SOMBRA,https://play-lh.googleusercontent.com/a-/ACB-R5T60Pe9_bMWBYiTYL_oKBDyV0FTcVA0xcD-ZA02,"El juego en si está muy bien en todos los aspectos, si lo una recomendación, Poner el idioma español, ya que la personas no saben inglés, pues la desinstalaran al instante sin dale una oportunidad a la app, pero si sabe inglés estar encantado como yo con esta, al, s están leyendo esto y saben inglés, pues Se las recomiendo, Es la mejor en todos sus aspectos, aún no compro el premium por lo que está en inglés,pero en cuánto salga me lo compro,para aprender más, Les deseo muchos éxitos ,",4,1,,2022-01-28 02:14:44,"Dear User, our team is working on multiple languages to offer you a better experience in near future. Stay tuned. We appreciate your love and support but 4 stars mean ""I like you."" 5 stars mean ""I'm in love! let's get hitched!"". As for us, we love you to the thousand stars and back. You can just love us one star more to make Grandma happy.😄",2022-02-01 14:47:35,,es,POS,el juego en si esta muy bien en todos los aspectos si lo una recomendacion poner el idioma espanol ya que la personas saben ingles pues la desinstalaran al instante sin dale una oportunidad la app pero si sabe ingles estar encantado como yo con esta al estan leyendo esto saben ingles pues se las recomiendo es la mejor en todos sus aspectos aun compro el premium por lo que esta en inglespero en cuanto salga lo compropara aprender mas les deseo muchos exitos,"avatar, status quo sloth","person, person"
+76,278e6a30-20ac-4e66-a3e0-cecdeddae42c,Oscar Guillen,https://play-lh.googleusercontent.com/a/AGNmyxbvpXT5SBCbs7tO9UcZQiNsJFyMUYyQ8EGhQc_1=mo,"Es una buena aplicación para aprender a programar, su punto fuerte es que esta en inglés impulsando a los programadores a aprender el idioma. Se merece las 5 estrellas y mucho más.",5,1,,2021-10-01 16:51:40,,,,es,POS,es una buena aplicacion para aprender programar su punto fuerte es que esta en ingles impulsando los programadores aprender el idioma se merece las 5 estrellas mucho mas,last mile drive,impuls
+99,47c5ff63-4e74-4e36-be3b-11140fe216c3,Mafer Acosta (Mafer124),https://play-lh.googleusercontent.com/a-/ACB-R5QP-oOtMliD1R4lduCTBn6W6UAS3yjmHgIAl7wUUjc,"Hasta el momento no me ha cobrado ni un peso por aprender, aunque lo único ""malo"" es que está en inglés, pero si eres un nivel intermedio podrás entender casi todo, de resto a base de diccionario y ahí se matan dos pájaros de un tiro, aprendes a programar y mejoras tu inglés.",5,23,1.4.53,2021-07-01 03:16:45,,,1.4.53,es,NEU,hasta el momento ha cobrado ni un peso por aprender aunque lo unico malo es que esta en ingles pero si eres un nivel intermedio podras entender casi todo de resto base de diccionario ahi se matan dos pajaros de un tiro aprendes programar mejoras tu ingles,boosters,mejora
+102,570b7ff8-1d79-439a-be9e-c4a9a07a85b9,Matias Ignacio,https://play-lh.googleusercontent.com/a-/ACB-R5SGWVRbGqy6WZjV78Zrjj8VHzcohULPBOMQbh7uBDA,"No la encontré útil, hay mucho mejorar y agregar idioma español.",1,1,,2021-06-24 19:45:29,"Hey Matias Peredas, you know what? You can help us making it useful and adding Spanish language. If you are interested then mail us at support@programming-hero.com.
+Grandma will be waiting for your mail, as she wants to make this app usefull so badly and get a 5 star rating from everyone. She wants your help to do that. Please help her.",2021-06-26 14:15:15,,es,NEU,la encontre util hay mucho mejorar agregar idioma espanol,boosters,mejora
+125,3e43aff3-2a3c-45ad-880e-6160650856e5,Laura Alvarez,https://play-lh.googleusercontent.com/a/AGNmyxZyqTcz9OYPmAFdjfR5LJr7SXNyyYzzu-RnNSKi=mo,La estoy disfrutando bastante hasta el momento. Me encantó encontrar una opción para estudiar código en mi celular ya que tengo mucho trabajo en la computadora entonces mientras hago renders y cosas así puedo ir estudiando. Espero de verdad poder convertirme en desarrolladora es mi sueño. Muchas gracias por esta opción gratuita para estudiar 💙.,5,12,1.4.46,2021-02-26 18:26:10,,,1.4.46,es,POS,la estoy disfrutando bastante hasta el momento encanto encontrar una opcion para estudiar codigo en mi celular ya que tengo mucho trabajo en la computadora entonces mientras hago renders cosas asi puedo ir estudiando espero de verdad poder convertirme en desarrolladora es mi sueno muchas gracias por esta opcion gratuita para estudiar,daily streaks,dia
+150,6f58d5f1-3b73-474a-bf18-0de32828658e,Nicolás Agustín Frate,https://play-lh.googleusercontent.com/a-/ACB-R5TD4Z3sxI1WU1RSejz1GuAg6_42ad1lm-Vv6Vu9Bw,"Esta aplicación es muy buena, en lo personal no es lo que estaba buscando pero se la recomendaría a toda persona que quisiera aprender Phyton. Uno de los únicos detalles que también veo que muchos mencionan en las reseñas es la falta de una traducción al castellano, pero si tenés un nivel de inglés intermedio eso no es un gran problema xd",5,24,1.4.40,2020-12-09 02:11:26,"Thanks a lot, Nicolás Agustín Frate! 😊
+Glad you loved our app.
+
+Please keep exploring Programming Hero and keep supporting us.
+
+We're working harder along with our awesome volunteers to bring the Spanish and other languages soon. 
+
+Please stay tuned... 
+
+Love from Team Programming Hero! ❤",2020-12-17 05:29:40,1.4.40,es,POS,esta aplicacion es muy buena en lo personal es lo que estaba buscando pero se la recomendaria toda persona que quisiera aprender phyton uno de los unicos detalles que tambien veo que muchos mencionan en las resenas es la falta de una traduccion al castellano pero si tenes un nivel de ingles intermedio eso es un gran problema xd,"avatar, status quo sloth","person, person"
+154,193b2679-62a5-4450-a4e6-53464d6090fa,Danthe,https://play-lh.googleusercontent.com/a-/ACB-R5SmLE05qT2R4j8IIfuziQ24l_7-7LU4RGDUgsE7CQ,Voy a ir el grano es una joya en todo sentido las lecciones son entretenidas lo que aprendes es útil e interesante (si te gusta codificar claro está) la intefa está bastante bien y de momento no he tenido ningún tipo de problema aún me falta mucho por aprender pero por lo menos voy mejorando lo máximo que digo que pueden mejorar de momento sería las lecturas de ingles con esto me refiero a la voz me disgusto un poco pero no es nada molesto o irritante solo un detalle felicito a los creadores,5,10,1.4.35,2020-11-07 02:42:42,"Thanks a ton, Gabriel Brito! 😊
+
+We're really glad you liked our app.
+
+Please keep exploring Programming Hero and keep supporting us…
+
+This month, we brought a brand new web development video course. Now we're working on to bring Machine Learning and C Programming courses. So, please stay tuned…
+
+Love from Team Programming Hero! ❤",2020-11-14 11:55:49,1.4.35,es,POS,voy ir el grano es una joya en todo sentido las lecciones son entretenidas lo que aprendes es util e interesante si te gusta codificar claro esta la intefa esta bastante bien de momento tenido ningun tipo de problema aun falta mucho por aprender pero por lo menos voy mejorando lo maximo que digo que pueden mejorar de momento seria las lecturas de ingles con esto refiero la voz disgusto un poco pero es nada molesto irritante solo un detalle felicito los creadores,boosters,mejora
+166,65ad3fbe-b2cb-41c7-8575-19ac5ed993a8,Vicente Rafael Jacobo Reyes,https://play-lh.googleusercontent.com/a-/ACB-R5QgI-689cVfSmW8SdL8I8YRsxWL9Ma8eMmcXdUQ,"Quiero aprender programacion y quiero aprender ingles, nada mato dos pajaros de un tiro. ya enserio la aplicacion te guia de buena manera te explica desde conceptos basicos y como puedes utilizarlo luego pone a prueba tu conocimiento y asi hasta lo mas avanzado",5,1,1.4.35,2020-09-26 12:52:39,"Thanks a lot, El Kanguro! 😊
+
+We're really glad you liked our app.
+
+
+Please keep exploring Programming Hero and keep supporting us…
+
+
+This month, we brought a brand new web development video course. Now we're working on to bring Machine Learning and C Programming courses. So, please stay tuned…
+
+
+Love from Team Programming Hero! ❤",2020-09-28 05:43:39,1.4.35,es,POS,quiero aprender programacion quiero aprender ingles nada mato dos pajaros de un tiro ya enserio la aplicacion te guia de buena manera te explica desde conceptos basicos como puedes utilizarlo luego pone prueba tu conocimiento asi hasta lo mas avanzado,challenges,prueba
+168,15a0fdba-3921-49fc-bbb8-4a288793c9c8,Desple,https://play-lh.googleusercontent.com/a-/ACB-R5TtxR5Pjc1k1OapQXQNB3xVOWPPiA_pLCcz3VGL,"La he estado probando y por ahora me esta ayudando mucho, mi intención era aprender Lua pero según he visto esto es casi lo mismo. Me gusta la manera en la que te enseñan y las bromas de los tipo test, en resumen una muy buena app se la recomiendo a todo el mundo que quiera programar o al menos intentarlo",5,11,1.4.35,2020-09-25 13:42:25,"Thanks a ton, Desple! 😊
+
+We're really glad you liked our app.
+
+
+Please keep exploring Programming Hero and keep supporting us…
+
+
+This month, we brought a brand new web development video course. Now we're working on to bring Machine Learning and C Programming courses. So, please stay tuned…
+
+
+Love from Team Programming Hero! ❤",2020-09-28 06:43:59,1.4.35,es,POS,la estado probando por ahora esta ayudando mucho mi intencion era aprender lua pero segun visto esto es casi lo mismo gusta la manera en la que te ensenan las bromas de los tipo test en resumen una muy buena app se la recomiendo todo el mundo que quiera programar al menos intentarlo,win states,estad
+171,e795bb34-651c-484c-8a40-cfb48157e97f,Da' stuff,https://play-lh.googleusercontent.com/a-/ACB-R5TOiq-f_LwQy4CNQ9-6h8aRbnw9TlS6At50nMWNoQ,"Tengo un problema, con la última actualización cada vez que entro me dice que dejó de funcionar y se cierra, (sin abrir ni siquiera). Lo desinstale pero después de 2 días empezó a pasar lo mismo, la app está genial y todo. Voy a intentar solucionarlo y pedir ayuda, cuando lo solucione cambiaré mi reseña otra vez",5,6,1.4.31,2020-09-15 15:19:34,"Hello,Vladket.
+
+We're really sorry for the inconvenience! 😥
+
+
+Kindly tell us a bit more about the exact issue via support@programming-hero.com and we'll be more than happy to assist you.
+
+Grandma beat us yesterday...nobody loves us. 😢
+
+Please show us your love by giving 5-stars.
+
+Love from Team Programming Hero! ❤",2020-09-15 13:14:32,1.4.31,es,NEU,tengo un problema con la ultima actualizacion cada vez que entro dice que dejo de funcionar se cierra sin abrir ni siquiera lo desinstale pero despues de 2 dias empezo pasar lo mismo la app esta genial todo voy intentar solucionarlo pedir ayuda cuando lo solucione cambiare mi resena otra vez,daily streaks,dia
+181,13a7b134-e089-4317-ab41-80eac7b6be1e,er_kevin-_-,https://play-lh.googleusercontent.com/a-/ACB-R5TIOzXzCTUcEqtvfbIy0Ry_9l0q9LpE15DgcleCRA,"En la ultima actualizacion dejo de funcionar bien almenos en mi dispositivo no se abre la app se abre y se cierra automaticamente ya probé a desinstalarla e instalarla, forzar su detencion, etc... El problema es cuando inicio sesion de google ya no me deja entrar mas en la app. Ya he hecho varias comprobaciones y mi conclusion es esa. Pero tengo todo el progreso ahi asi que no puedo seguir aprendiendo sin la cuenta. Si hay alguna solucion lo agradeceria.",1,6,1.4.34,2020-09-04 12:35:21,"Hey er_kevin-_-, we're really sorry for the inconvenience! 😥
+
+
+Kindly tell us a bit more about the exact issue via support@programming-hero.com and we'll be more than happy to assist you.
+
+Please keep supporting us…
+
+
+Grandma beat us yesterday...nobody loves us. 😢
+
+Please show us your love by giving 5-stars.
+
+
+Love from Team Programming Hero! ❤",2020-09-04 08:37:05,1.4.34,es,NEG,en la ultima actualizacion dejo de funcionar bien almenos en mi dispositivo se abre la app se abre se cierra automaticamente ya probe desinstalarla e instalarla forzar su detencion etc el problema es cuando inicio sesion de google ya deja entrar mas en la app ya hecho varias comprobaciones mi conclusion es esa pero tengo todo el progreso ahi asi que puedo seguir aprendiendo sin la cuenta si hay alguna solucion lo agradeceria,voting,tom
+247,3676f77d-afe4-4cc0-81fe-679510d669dd,Noriko Yaseki,https://play-lh.googleusercontent.com/a-/ACB-R5So2MFh-WjJGlJ_42r-CRnd9SYg1J70rnKaRRH3cA,¡Si esta aplicación fuera una persona me caso! 😳,5,1,1.4.28,2020-05-18 22:27:14,"Thanks a lot, Noryko! 😊 We're really glad you liked our app. Please keep exploring Programming Hero and keep supporting us… We'll surely consider your suggestion. This month, we brought a brand new Dark mode. Now we're working on to bring advanced Web Development course contents. So, please stay tuned… Love from Team Programming Hero! ❤",2020-05-20 01:50:47,1.4.28,es,NEU,si esta aplicacion fuera una persona caso,"avatar, status quo sloth","person, person"
+259,a25c3d18-c978-4531-adc7-335d0ed87ba5,Martínez Hernández Sergio,https://play-lh.googleusercontent.com/a-/ACB-R5TuPLOA2FsBquTjDm-9hNT0LxKvedHWHG9Ncy-J4A,"Me gusta la forma de enseñar , sobretodo no necesita conexión a internet,lo cual la vuelve mejor,muy buena.",5,8,1.4.26,2020-05-04 16:13:39,"Thanks a trillion, Sergio! 😊
+We're really glad you liked our app.
+
+Please keep exploring Programming Hero and keep supporting us…
+
+This month, we brought a brand new Dark mode. Now we're working on to bring advanced Web Development course contents. So, please stay tuned…
+
+Love from Team Programming Hero! ❤",2020-05-17 22:54:16,1.4.26,es,POS,gusta la forma de ensenar sobretodo necesita conexion internetlo cual la vuelve mejormuy buena,social discovery,conexion
+306,7bb21215-be35-44ea-bbb4-f036708d3049,Un usuario de Google,https://play-lh.googleusercontent.com/EGemoI2NTXmTsBVtJqk8jxF9rh8ApRWfsIMQSt2uE4OcpQqbFu7f7NbTK05lx80nuSijCz7sc3a277R67g,Explican muy bien y me ayuda a mejorar el inglés,5,1,1.4.24,2020-02-09 05:51:55,"Thanks a lot! 😊 We're really glad you liked our app. Please keep exploring Programming Hero and keep supporting us... This month, we started adding the Web Development (HTML, CSS & JavaScript) course. Next month, we'll add more fun Python coding projects, so please stay tuned... Love from team Programming Hero! ❤",2020-02-10 02:33:06,1.4.24,es,POS,explican muy bien ayuda mejorar el ingles,boosters,mejora
+315,cd05cb39-12da-42dd-8ee9-6d29b0855ed0,Un usuario de Google,https://play-lh.googleusercontent.com/EGemoI2NTXmTsBVtJqk8jxF9rh8ApRWfsIMQSt2uE4OcpQqbFu7f7NbTK05lx80nuSijCz7sc3a277R67g,"Parecia muy buena. Justo ya tenia bien planeado practicar todo lo necesario para dominar el tema. Pensaba repartirme un planeta por día pero ahora ya no me reconoce mi avance. No se qué paso y estoy muy molesto. Pienso que si vuelvo a empezar en ceros como me ponen, es posible que en cualquier otro momento me vuelvan a borrar todo mi prgreso.",3,15,1.4.24,2020-01-22 06:13:29,"Thanks a lot, Luis! 😊 
+We're really glad you liked our app. 
+
+Please keep exploring Programming Hero and keep supporting us... 
+
+This month, we started adding the Web Development (HTML, CSS & JavaScript) course. Next month, we'll add more fun Python coding projects, so please stay tuned... 
+
+Love from team Programming Hero! ❤",2020-01-23 00:14:46,1.4.24,es,NEG,parecia muy buena justo ya tenia bien planeado practicar todo lo necesario para dominar el tema pensaba repartirme un planeta por dia pero ahora ya reconoce mi avance se que paso estoy muy molesto pienso que si vuelvo empezar en ceros como ponen es posible que en cualquier otro momento vuelvan borrar todo mi prgreso,daily streaks,dia
+319,3f530af1-8195-495d-b9ef-918c2ec0e263,Un usuario de Google,https://play-lh.googleusercontent.com/EGemoI2NTXmTsBVtJqk8jxF9rh8ApRWfsIMQSt2uE4OcpQqbFu7f7NbTK05lx80nuSijCz7sc3a277R67g,"Es una aplicación bastante buena, el inglés es bastante fácil de entender incluso para los que no somos nativos del idioma, el diseño estético puede mejorar, pero eso no interfiere en ningún caso con la app.",5,6,1.4.22,2020-01-18 05:59:29,"Thanks a lot, The Lion's Violin! 😊 
+We're really glad you liked our app. 
+
+Please keep exploring Programming Hero and keep supporting us... 
+
+This month, we started adding the Web Development (HTML, CSS & JavaScript) course. Next month, we'll add more fun Python coding projects, so please stay tuned... 
+
+Love from team Programming Hero! ❤",2020-01-20 18:35:46,1.4.22,es,POS,es una aplicacion bastante buena el ingles es bastante facil de entender incluso para los que somos nativos del idioma el diseno estetico puede mejorar pero eso interfiere en ningun caso con la app,boosters,mejora
+326,078ef32e-43c2-44d2-97df-86d28c69bd2d,Un usuario de Google,https://play-lh.googleusercontent.com/EGemoI2NTXmTsBVtJqk8jxF9rh8ApRWfsIMQSt2uE4OcpQqbFu7f7NbTK05lx80nuSijCz7sc3a277R67g,"Me gusta, tiene una buena plataforma de enseñanza muy amigable y las clases separadas en pequeños trozos hace que sea más motivador el aprenderlas, también hay retos interesantes y la experiencia a es a tiempo real, la recomiendo definitivamente",5,6,1.4.22,2019-12-31 17:37:51,"Thanks a lot, Arno! 😊 
+We're really glad you liked our app. 
+
+Please keep exploring Programming Hero and keep supporting us... 
+
+This month, we started adding the Web Development (HTML, CSS & JavaScript) course. Next month, we'll add more fun Python coding projects, so please stay tuned... 
+
+Love from team Programming Hero! ❤",2019-12-31 17:44:13,1.4.22,es,POS,gusta tiene una buena plataforma de ensenanza muy amigable las clases separadas en pequenos trozos hace que sea mas motivador el aprenderlas tambien hay retos interesantes la experiencia es tiempo real la recomiendo definitivamente,last mile drive,motiv
+348,b349498d-34fe-4c36-9029-f8346a9982ca,Un usuario de Google,https://play-lh.googleusercontent.com/EGemoI2NTXmTsBVtJqk8jxF9rh8ApRWfsIMQSt2uE4OcpQqbFu7f7NbTK05lx80nuSijCz7sc3a277R67g,"Primer día de uso y me gustó mucho. Algunos ejercicios ""Try it!"" para probar el código provocan que la aplicación se detenga, al menos en los niveles iniciales. Es mi unico pero hasta el momento.",3,2,1.4.15,2019-10-06 17:18:02,"Hell Taller
+
+We are extremely sorry for the inconvenience. We noticed a few number of devices. We are going to fix it in our next release.
+
+Here is our release timeline-
+This month, existing Feature improvement
+November, Web development(HTML, CSS, JavaScript)
+December, More coding projects(Python)
+January, App development(Java)",2019-10-07 12:32:46,1.4.15,es,POS,primer dia de uso gusto mucho algunos ejercicios try para probar el codigo provocan que la aplicacion se detenga al menos en los niveles iniciales es mi unico pero hasta el momento,daily streaks,dia
+370,efc10d84-9891-4ad4-8cdd-55ada46a7c25,Un usuario de Google,https://play-lh.googleusercontent.com/EGemoI2NTXmTsBVtJqk8jxF9rh8ApRWfsIMQSt2uE4OcpQqbFu7f7NbTK05lx80nuSijCz7sc3a277R67g,"buenisima app,facil de aprender,llevo dos dias y siento que puedo lanzar una app ahora mismo ,solo una cosa,podrian agregarle el idioma español,yo no tengo muchos problemas com eso pero alguna cuestiones didacticas complican algo ,pero maravilosa la app",5,11,1.4.6,2019-07-09 19:47:59,"Thank you, Anderson, for trying out Programming Hero
+
+Please note, we will release Coding Playground, Build your own game this month. Also, we are actively looking for volunteers to help us translate this app in Spanish. Let us know if you can help at codinism@gmail.com
+
+Appreciate your support and care
+
+💖💖💖 Love from team Programming Hero",2019-07-10 21:07:27,1.4.6,es,POS,buenisima appfacil de aprenderllevo dos dias siento que puedo lanzar una app ahora mismo solo una cosapodrian agregarle el idioma espanolyo tengo muchos problemas com eso pero alguna cuestiones didacticas complican algo pero maravilosa la app,daily streaks,dia

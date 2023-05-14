@@ -1,0 +1,110 @@
+{
+  "Días consecutivos": [
+    "Cadenas diarias",
+    "Días seguidos",
+    "Secuencias diarias",
+    "Bonificaciones por racha"
+  ],
+  "Sistema de puntos": [
+    "Mecanismo de puntuación",
+    "Estructura basada en puntos",
+    "Sistema de puntuación",
+    "Asignación de puntos"
+  ],
+  "Barra de progreso": [
+    "Indicador de avance",
+    "Medidor de completitud",
+    "Visualización de progreso",
+    "Barra de seguimiento"
+  ],
+  "Competencia de hábitos/golpe": [
+    "Rutina de golpe/competencia",
+    "Desafío de golpe",
+    "Batalla de hábitos",
+    "Racha competitiva"
+  ],
+  "Descubrimiento social": [
+    "Exploración social",
+    "Encuentro comunitario",
+    "Conexiones sociales",
+    "Descubrimiento de contactos"
+  ],
+  "Desafíos": [
+    "Tareas",
+    "Objetivos",
+    "Misiones",
+    "Pruebas"
+  ],
+  "Tablero de clasificación/competencia": [
+    "Tabla de clasificación",
+    "Lista de mejores jugadores",
+    "Posiciones competitivas",
+    "Marcador"
+  ],
+  "Potenciadores": [
+    "Mejoras",
+    "Objetos de bonificación",
+    "Amplificadores",
+    "Refuerzos"
+  ],
+  "Economía virtual": [
+    "Economía en el juego",
+    "Mercado digital",
+    "Sistema de moneda virtual",
+    "Sistema económico en línea"
+  ],
+  "Descansos de tortura": [
+    "Intervalos de descanso",
+    "Pausas de relajación",
+    "Períodos de recuperación",
+    "Descansos restauradores"
+  ],
+  "Tumba visual": [
+    "Memorial visual",
+    "Mostrador de tumbas",
+    "Sitio conmemorativo",
+    "Área conmemorativa"
+  ],
+  "Choca esos cinco": [
+    "Choque de puños",
+    "Golpe de palmas",
+    "Gestos de celebración",
+    "Intercambio de felicitaciones"
+  ],
+  "Última milla": [
+    "Empuje final",
+    "Impulso de fin de juego",
+    "Esfuerzo final",
+    "Motivación en la recta final"
+  ],
+  "Desfile de anticipación": [
+    "Procesión de emoción",
+    "Marcha de expectativa",
+    "Celebración anticipada",
+    "Presentación preparatoria"
+  ],
+  "Avatar": [
+    "Personaje",
+    "Representación digital",
+    "Persona virtual",
+    "Identidad en el juego"
+  ],
+  "Estados de victoria": [
+    "Condiciones de victoria",
+    "Escenarios de victoria",
+    "Estados de éxito",
+    "Resultados triunfantes"
+  ],
+  "Votación": [
+    "Elección",
+    "Votación",
+    "Toma de decisiones por votación",
+    "Emisión de votos"
+  ],
+  "Coronación": [
+    "Coronación",
+    "Investidura",
+    "Ceremonia de coron",
+    "Elevación"
+  ]
+}
