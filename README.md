@@ -53,11 +53,15 @@ This is a example of the "intro page" for the app and study itself (v 3_26_23)
 [Screencast from 04-07-2023 11:55:59 AM.webm](https://user-images.githubusercontent.com/106645242/230639504-9ef200a2-7bbb-4cf5-857b-179b8565507a.webm)
 
 
-## Example of Application Pedagogical/Question all in one Interface
+## Examples of Application Pedagogical/Question all in one Interface / Lesson 1 and 2
 
-This is an example
+Lesson 1 Complete
 
-[Video_Pedagogical_Question_Lesson1Complete.webm](https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/870ead00-830b-43b6-a3ef-22e8c663eaad)
+[Video_Pedagogical_Question_Lesson1_Complete.webm](https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/15d74d61-ac00-4658-acf8-ba36603a274c)
+
+Lesson 2 Complete
+
+[Video_Pedagogical_Question_Lesson2_Complete.webm](https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/384deacf-48e8-4e04-a95a-b32045ad548c)
 
 ___________________________________________________
 
