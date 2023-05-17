@@ -1,0 +1,59 @@
+{
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El texto en una declaracion print debe estar encerrado en:"
+                }
+            ],
+            "answers": [
+
+                {
+                    "text": "comillas '' ",
+                    "correct": true
+                },
+                {
+                    "text": "punto y coma ;",
+                    "correct": false
+                },
+                {
+                    "text": "barra inclinada /",
+                    "correct": false
+                }
+
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Mensajes de error",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las maquinas se negaran a entender sus instrucciones si hay errores. Incluso el error tipografico más pequeño en su código resultara en un error."
+                },
+                {
+                    "type": "info",
+                    "text": "La siguiente linea contiene un error. 'Ejecuta' el codigo para obtener el mensaje de error."
+                },
+                {
+                    "type": "syntax",
+                    "text": "print('Ahora eres el detective de codigos.)"
+                },
+                {
+                    "type": "hint",
+                    "text": "Solucione el error agregando las comillas de cierre que faltan, luego presione 'Ejecutar' nuevamente."
+                },
+                {
+                    "type": "hint",
+                    "text": "Incluso los programadores experimentados obtienen errores de codificacion todo el tiempo. La clave para convertirse en codificador es aceptar esto como una parte normal y esperada de escribir codigo. Entonces, si estas cometiendo errores, esta bien! Estas en el camino correcto."
+                }
+
+            ]
+        }
+    ]
+}

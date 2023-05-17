@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-Final.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/AI_Gamification_Python" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/Elmer - Pages That Mimic SoloLearn.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/Video_Pedagogical_Question_pages.avi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/Elmer_Pages_That_Mimic_SoloLearn/question-pedagogical pages.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/Survey.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/concent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/finish_window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/name_window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/question_window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/propotype_prisila/welcome_window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/Run_NER.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/Run_NER.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/applestore-apps.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/appreviews.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/appreviews_NER.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/appreviews_sentiment.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/googleplay-apps.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/metadata.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/output_file.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-codeacademy_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-datacamp_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-encode_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-learn-python-programiz_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-mimo_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-programming-hero_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-programming-hub_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-python-x_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/applestore-review-sololearn_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-codeacademy_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-datacamp_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-encode_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-learn-python-programiz_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-mimo_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-programming-hero_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-programming-hub_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-NER/googleplay-review-sololearn_NER.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-codeacademy_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-datacamp_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-encode_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-learn-python-programiz_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-mimo_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-programming-hero_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-programming-hub_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-python-x_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/applestore-review-sololearn_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-codeacademy_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-datacamp_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-encode_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-learn-python-programiz_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-mimo_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-programming-hero_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-programming-hub_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files-sentiment/googleplay-review-sololearn_sentiment.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-codeacademy.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-datacamp.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-encode.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-learn-python-programiz.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-mimo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-programming-hero.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-programming-hub.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-python-x.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/applestore-review-sololearn.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-codeacademy.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-datacamp.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-encode.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-learn-python-programiz.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-mimo.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-programming-hero.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-programming-hub.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-files/googleplay-review-sololearn.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/review-metadata.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/run_all_sentiment.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/run_sentiment_review.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/AI_Gamification_Python/reviews/sentiment.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/Daniel_JSON_Files.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/M1-L1-Coding-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/Main_Lesson_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/Tiempos_Lesson_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/page_order.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 1 - Codification/styles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 2 - Working with Numerical Data/M1-L2-Working-Part-7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files/LESSON 3 - Working with Text Data/M1-L3-TextData-Part-6.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PuAHioFPuUJS3pNNfe3iuI9HWv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/elmer/Escritorio/AI_Gamification_Python/Elmer/Daniel_JSON_Files_Elmer"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="" />
+      <created>1684296506967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684296506967</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,39 @@
+{
+    "pedagogical": [
+        {
+            "title": "Datos numericos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las computadoras procesan y almacenan datos de diferentes maneras dependiendo de su formato. En esta leccion, aprendera a trabajar con datos numricos."
+                },
+                {
+                    "type": "info",
+                    "text": "Operar con datos numericos en Python te permite realizar calculos, automatizar formulas y resolver problemas numericos como optimizar rutas para la navegacion autonoma de drones."
+                }
+
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Operaciones Matematicas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puedes usar Python para operar con numeros. Para generar el resultado de un calculo, solo necesita ingresar la operacion matematica directamente en la declaracion print."
+                },
+                {
+                    "type": "info",
+                    "text": "Al igual que en matematicas, usamos + y - para sumas y restas, respectivamente."
+                },
+                {
+                    "type": "Syntax",
+                    "text": "print(9 + 4 - 7)"
+                }
+
+            ]
+        }
+    ]
+}

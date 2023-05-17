@@ -1,0 +1,76 @@
+{
+    "multiplechoiceplus": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Seleccione todas las opciones que representan una cadena: "
+                },
+                {
+                    "type": "hint",
+                    "text": "Notas a recordar: Crear un codigo que me permita seleccionar varias respuestas a la vez"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "9",
+                    "correct": false
+                },
+                {
+                    "text": "'Manzana'",
+                    "correct": true
+                },
+                {
+                    "text": "'100'",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "draganddroptriple": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Has aprendido acerca de 3 de los tipos de datos mas importantes. \n Arrastra y suelta para clasificar los siguientes datos:"
+                },
+                {
+                    "type": "info",
+                    "text": "Notas a recordar: Crear un codigo que me permita validar si varias respuestas son true o false"
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "100",
+                    "text": "Entero:____"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "100.00",
+                    "text": "Flotante:____"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "'cien'",
+                    "text": "Cadena:____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "'cien'",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "100.00",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "100",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ]
+}

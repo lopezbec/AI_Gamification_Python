@@ -1,0 +1,57 @@
+{
+    "multiplechoiceplus": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Seleccione todas las opciones que representan una cadena: "
+                },
+                {
+                    "type": "hint",
+                    "text": "Seleccione todas las respuestas correctas."
+                },
+                {
+                    "type": "hint",
+                    "text": "Notas a recordar: Crear un codigo que me permita seleccionar varias opciones y que valide si son correctas"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "55.8",
+                    "correct": false
+                },
+                {
+                    "text": "'Viernes'",
+                    "correct": true
+                },
+                {
+                    "text": "'The Lord of the Rings'",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [ 
+        {
+            "title": "Concatenacion",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "En Python, algunos operadores aritmeticos tambien se pueden aplicar a cadenas. \n Podemos unir dos cadenas, tambien conocido como concatenacien , de la siguiente forma:"
+                },
+                {
+                    "type": "syntax",
+                    "text": "print('Parque ' + ' temático')" 
+                }
+
+
+            ]
+        }
+    ]
+}

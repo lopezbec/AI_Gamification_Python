@@ -1,0 +1,52 @@
+{
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastra y suelta para clasificar los datos numéricos:"
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "Entero:____"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "Flotante:____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3.14",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Depurar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los errores en el codigo tambien se conocen como bugs.\n Depurar(debugging) es el proceso de encontrar y corregir errores en el codigo.\n La siguiente linea de codigo contiene algunos errores.\n Encuentra y Arregla los errores (bugs) en el codigo."
+                },
+                {
+                    "type": "syntax",
+                    "text": "print(100x100"
+                },
+                {
+                    "type": "hint",
+                    "text": "Recuerda que el comando print requiere parentesis para funcionar sin errores."
+                }
+
+            ]
+        }
+    ]
+}
