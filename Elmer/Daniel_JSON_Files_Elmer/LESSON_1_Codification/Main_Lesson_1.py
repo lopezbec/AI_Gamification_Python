@@ -205,7 +205,6 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         print("La consola no está disponible por el momento.")
-        exit()
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
@@ -229,7 +228,7 @@ class MainWindow(QWidget):
     def save_log(self):
         fieldnames = ['event', 'time']
 
-        with open("Tiempos_Lesson_1.csv", mode="a", newline="") as csv_file:
+        with open("Time_Lesson_1.csv", mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             # Si el archivo está vacío, escribir el encabezado
             if csv_file.tell() == 0:

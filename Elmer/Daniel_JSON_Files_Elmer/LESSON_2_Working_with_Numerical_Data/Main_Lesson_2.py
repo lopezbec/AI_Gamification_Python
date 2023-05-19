@@ -267,6 +267,10 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
         self.showMaximized()
 
+    def open_python_console(self):
+        self.SubmitHideContinueShow(True, False)
+        print("La consola no está disponible por el momento.")
+
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
             self.submit_button.hide()
@@ -281,10 +285,6 @@ class MainWindow(QWidget):
             self.practice_button.hide()
             self.continue_button.hide()
 
-    def open_python_console(self):
-        print("La consola no está disponible por el momento.")
-        exit()
-
     def log_event(self, event):
         event_time = datetime.datetime.now().strftime("%H:%M:%S") # Obtener la hora actual y almacenarla como una cadena de texto
         json_number = self.stacked_widget.currentWidget().json_number # Obtener el número del archivo JSON correspondiente a la página actual
@@ -293,7 +293,7 @@ class MainWindow(QWidget):
     def save_log(self):
         fieldnames = ['event', 'time']
 
-        with open("Tiempos_Lesson_1.csv", mode="a", newline="") as csv_file:
+        with open("Time_Lesson_2.csv", mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             # Si el archivo está vacío, escribir el encabezado
             if csv_file.tell() == 0:
@@ -389,11 +389,17 @@ class MainWindow(QWidget):
                     correct_answer_text = answer["text"]
                     break
 
-            current_hint_text = current_widget.hint_label.text() # Obtener el texto de la pista con la respuesta seleccionada
-            selected_symbol = current_hint_text[current_widget.blank_space_index] # Extraer el símbolo de la respuesta en el texto de la pista
+            current_hint_text = current_widget.hint_label.text()  # Obtener el texto de la pista con la respuesta seleccionada
+            selected_symbol = current_hint_text[current_widget.blank_space_index]  # Extraer el símbolo de la respuesta en el texto de la pista
+
+            # Comprobar si se seleccionó una respuesta
+            if selected_symbol == "_":
+                current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
+                current_widget.feedback_label.setStyleSheet(
+                    f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
             # Comprobar si la respuesta seleccionada es correcta
-            if selected_symbol == correct_answer_text:
+            elif selected_symbol == correct_answer_text:
                 current_widget.feedback_label.setText("Respuesta correcta")
                 current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
                 self.SubmitHideContinueShow(True, False)
@@ -403,15 +409,17 @@ class MainWindow(QWidget):
                 current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
     def switch_page(self):
-        current_page_type = self.stacked_widget.currentWidget().page_type.lower() # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time") # Registrar el evento de cierre de la página actual
-        next_index = self.stacked_widget.currentIndex() + 1 # Calcular el índice de la siguiente página
+        current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
+        self.log_event(
+            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
-            self.stacked_widget.setCurrentIndex(next_index) # Cambiar a la siguiente página
-            current_page_type = self.stacked_widget.currentWidget().page_type.lower() # Obtener el tipo de página actualizado
-            self.log_event(f"{current_page_type.capitalize()} Page Open Time") # Registrar el evento de apertura de la nueva página
+            self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
+            self.log_event(
+                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
             # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
