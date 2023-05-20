@@ -1,7 +1,10 @@
+import json
+import sys
+# sys.path.append(r"C:/Users/Admin/VSCode/AI_Gamification_Python")
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
-import json
+# from Elmer.Elmer_Pages_That_Mimic_SoloLearn import question_pedagogical_page
 from pages import MainPage
 
 

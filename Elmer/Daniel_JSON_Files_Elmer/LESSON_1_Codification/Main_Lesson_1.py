@@ -3,11 +3,11 @@ import json
 import sys
 import csv
 import drag_drop
-
 from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup
-
+sys.path.append(r"C:/Users/Admin/VSCode/AI_Gamification_Python")
+from prototype_prisila.badge_system.badge_verification import BadgeVerification
 
 class JsonLoader:
     @staticmethod
@@ -166,6 +166,7 @@ class MainWindow(QWidget):
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
                 json_window = JsonWindow(page["filename"], page["page_type"], self.styles, page["json_number"])
+                
                 self.stacked_widget.addWidget(json_window)
 
         self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time")
@@ -254,7 +255,10 @@ class MainWindow(QWidget):
         current_page_type = current_widget.page_type.lower()
 
         if current_page_type == "multiplechoice":
-            selected_answer_id = current_widget.button_group.checkedId() # Obtener el índice de la respuesta seleccionada
+            #solucion para el badge system
+            print(BadgeVerification.check_badge(current_page_type))
+            # Obtener el índice de la respuesta seleccionada
+            selected_answer_id = current_widget.button_group.checkedId()
             if selected_answer_id != -1:
                 correct_answer_id = None
                 # Buscar el índice de la respuesta correcta en la lista de respuestas
@@ -280,6 +284,8 @@ class MainWindow(QWidget):
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
             correct_count = 0
             unanswered = 0
+            correct = True
+            print(BadgeVerification.check_badge(current_page_type))
 
             for label in drop_labels:
                 dropped_text = label.drop_area.text()
