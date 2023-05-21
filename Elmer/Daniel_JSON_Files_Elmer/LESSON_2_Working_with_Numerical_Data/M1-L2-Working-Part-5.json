@@ -42,8 +42,8 @@
                     "text": "Los errores en el codigo tambien se conocen como bugs. Depurar(debugging) es el proceso de encontrar y corregir errores en el codigo. La siguiente linea de codigo contiene algunos errores. Encuentra y Arregla los errores (bugs) en el codigo."
                 },
                 {
-                    "type": "Syntax",
-                    "text": "print(100x100"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(100*100\n>SyntaxError: print(100*100, Did you mean print(100*100)?"
                 },
                 {
                     "type": "hint",

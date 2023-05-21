@@ -41,11 +41,11 @@
                     "text": "La siguiente linea contiene un error. 'Ejecuta' el codigo para obtener el mensaje de error."
                 },
                 {
-                    "type": "syntax",
-                    "text": "print('Ahora eres el detective de codigos.)"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Ahora eres el detective de codigos.)\n>SyntaxError: print('Ahora eres el detective de codigos.), Did you mean print('Ahora eres el detective de codigos.')?"
                 },
                 {
-                    "type": "hint",
+                    "type": "requerimiento",
                     "text": "Solucione el error agregando las comillas de cierre que faltan, luego presione 'Ejecutar' nuevamente."
                 },
                 {

@@ -122,9 +122,6 @@ class QuestionPage(QMainWindow):
         else:
             QMessageBox.warning(self, "Advertencia", "Selecciona una respuesta antes de enviar.")
 
-# def show_lessons(self):
-#     self.lessons_window = MainWindow(lesson_number=1)
-
 def main():
     app = QApplication(sys.argv)
 
