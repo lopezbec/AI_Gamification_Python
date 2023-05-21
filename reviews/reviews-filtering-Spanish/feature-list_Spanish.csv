@@ -1,91 +1,91 @@
 Feature,Synonym,Stem,SynonymStem
-días consecutivos,días consecutivos,,dia
-días consecutivos,cadenas diarias,,cadena
-días consecutivos,días seguidos,,dia
-días consecutivos,secuencias diarias,,secuencia
-días consecutivos,bonificaciones por racha,,bonificacion
-sistema de puntos,sistema de puntos,,sistema
-sistema de puntos,cadenas diarias,,mecanismo
-sistema de puntos,días seguidos,,estructura
-sistema de puntos,secuencias diarias,,sistema
-sistema de puntos,bonificaciones por racha,,asignacion
-barra de progreso,barra de progreso,,barra
-barra de progreso,mecanismo de puntuación,,indicador
-barra de progreso,estructura basada en puntos,,medidor
-barra de progreso,sistema de puntuación,,visualizacion
-barra de progreso,asignación de puntos,,barra
-competencia de hábitos/golpe,competencia de hábitos/golpe,,competencia
-competencia de hábitos/golpe,rutina de golpe/competencia,,rutina
-competencia de hábitos/golpe,desafío de golpe,,desafio
-competencia de hábitos/golpe,batalla de hábitos,,batalla
-competencia de hábitos/golpe,racha competitiva,,racha
-descubrimiento social,descubrimiento social,,descubrimiento
-descubrimiento social,exploración social,,exploracion
-descubrimiento social,encuentro comunitario,,encuentro
-descubrimiento social,conexiones sociales,,conexion
-descubrimiento social,descubrimiento de contactos,,descubrimiento
-desafíos,desafíos,,desafio
-desafíos,tareas,,tarea
-desafíos,objetivos,,objetivo
-desafíos,misiones,,mision
-desafíos,pruebas,,prueba
-tablero de clasificación/competencia,tablero de clasificación/competencia,,tablero
-tablero de clasificación/competencia,tabla de clasificación,,tabla
-tablero de clasificación/competencia,lista de mejores jugadores,,lista
-tablero de clasificación/competencia,posiciones competitivas,,posicion
-tablero de clasificación/competencia,marcador,,marcador
-potenciadores,potenciadores,,potenciador
-potenciadores,mejoras,,mejora
-potenciadores,objetos de bonificación,,objeto
-potenciadores,amplificadores,,amplificador
-potenciadores,refuerzos,,refuerzo
-economía virtual,economía virtual,,economia
-economía virtual,economía en el juego,,economia
-economía virtual,mercado digital,,mercado
-economía virtual,sistema de moneda virtual,,sistema
-economía virtual,sistema económico en línea,,sistema
-descansos de tortura,descansos de tortura,,descanso
-descansos de tortura,intervalos de descanso,,intervalo
-descansos de tortura,pausas de relajación,,pausa
-descansos de tortura,períodos de recuperación,,periodo
-descansos de tortura,descansos restauradores,,descanso
-tumba visual,tumba visual,,tumba
-tumba visual,memorial visual,,memorial
-tumba visual,mostrador de tumbas,,mostrador
-tumba visual,sitio conmemorativo,,sitio
-tumba visual,área conmemorativa,,area
-choca esos cinco,choca esos cinco,,chocar
-choca esos cinco,choque de puños,,choque
-choca esos cinco,golpe de palmas,,golpe
-choca esos cinco,gestos de celebración,,gesto
-choca esos cinco,intercambio de felicitaciones,,intercambi
-última milla,última milla,,última
-última milla,empuje final,,empuj
-última milla,impulso de fin de juego,,impuls
-última milla,esfuerzo final,,esfuerz
-última milla,motivación en la recta final,,motiv
-desfile de anticipación,desfile de anticipación,,desfil
-desfile de anticipación,procesión de emoción,,procesión
-desfile de anticipación,marcha de expectativa,,march
-desfile de anticipación,celebración anticipada,,celebración
-desfile de anticipación,presentación preparatoria,,presentación
+daily streaks,días consecutivos,,dia
+daily streaks,cadenas diarias,,cadena
+daily streaks,días seguidos,,dia
+daily streaks,secuencias diarias,,secuencia
+daily streaks,bonificaciones por racha,,bonificacion
+points system,sistema de puntos,,sistema
+points system,cadenas diarias,,mecanismo
+points system,días seguidos,,estructura
+points system,secuencias diarias,,sistema
+points system,bonificaciones por racha,,asignacion
+progress bar,barra de progreso,,barra
+progress bar,mecanismo de puntuación,,indicador
+progress bar,estructura basada en puntos,,medidor
+progress bar,sistema de puntuación,,visualizacion
+progress bar,asignación de puntos,,barra
+strike habit/competition,competencia de hábitos/golpe,,competencia
+strike habit/competition,rutina de golpe/competencia,,rutina
+strike habit/competition,desafío de golpe,,desafio
+strike habit/competition,batalla de hábitos,,batalla
+strike habit/competition,racha competitiva,,racha
+social discovery,descubrimiento social,,descubrimiento
+social discovery,exploración social,,exploracion
+social discovery,encuentro comunitario,,encuentro
+social discovery,conexiones sociales,,conexion
+social discovery,descubrimiento de contactos,,descubrimiento
+challenges,desafíos,,desafio
+challenges,tareas,,tarea
+challenges,objetivos,,objetivo
+challenges,misiones,,mision
+challenges,pruebas,,prueba
+leaderboard/competition,tablero de clasificación/competencia,,tablero
+leaderboard/competition,tabla de clasificación,,tabla
+leaderboard/competition,lista de mejores jugadores,,lista
+leaderboard/competition,posiciones competitivas,,posicion
+leaderboard/competition,marcador,,marcador
+boosters,potenciadores,,potenciador
+boosters,mejoras,,mejora
+boosters,objetos de bonificación,,objeto
+boosters,amplificadores,,amplificador
+boosters,refuerzos,,refuerzo
+virtual economy,economía virtual,,economia
+virtual economy,economía en el juego,,economia
+virtual economy,mercado digital,,mercado
+virtual economy,sistema de moneda virtual,,sistema
+virtual economy,sistema económico en línea,,sistema
+torture breaks,descansos de tortura,,descanso
+torture breaks,intervalos de descanso,,intervalo
+torture breaks,pausas de relajación,,pausa
+torture breaks,períodos de recuperación,,periodo
+torture breaks,descansos restauradores,,descanso
+visual grave,tumba visual,,tumba
+visual grave,memorial visual,,memorial
+visual grave,mostrador de tumbas,,mostrador
+visual grave,sitio conmemorativo,,sitio
+visual grave,área conmemorativa,,area
+high five,choca esos cinco,,chocar
+high five,choque de puños,,choque
+high five,golpe de palmas,,golpe
+high five,gestos de celebración,,gesto
+high five,intercambio de felicitaciones,,intercambi
+last mile drive,última milla,,última
+last mile drive,empuje final,,empuj
+last mile drive,impulso de fin de juego,,impuls
+last mile drive,esfuerzo final,,esfuerz
+last mile drive,motivación en la recta final,,motiv
+anticipation parade,desfile de anticipación,,desfil
+anticipation parade,procesión de emoción,,procesión
+anticipation parade,marcha de expectativa,,march
+anticipation parade,celebración anticipada,,celebración
+anticipation parade,presentación preparatoria,,presentación
 avatar,avatar,,avatar
 avatar,personaje,,personaj
 avatar,representación digital,,representación
 avatar,persona virtual,,person
 avatar,identidad en el juego,,identid
-estados de victoria,estados de victoria,,estad
-estados de victoria,condiciones de victoria,,condicion
-estados de victoria,escenarios de victoria,,escenari
-estados de victoria,estados de éxito,,estad
-estados de victoria,resultados triunfantes,,resultad
-votación,votación,,votaci
-votación,elección,,elecc
-votación,toma de decisiones por votación,,tom
-votación,emisión de votos,,emisió
-votación,escrutinio,,escrutini
-coronación,coronación,,coron
-coronación,investidura,,investidur
-coronación,ceremonia de coron,,ceremoni
-coronación,elevación,,elevaci
-coronación,coronamiento,,coron
+win states,estados de victoria,,estad
+win states,condiciones de victoria,,condicion
+win states,escenarios de victoria,,escenari
+win states,estados de éxito,,estad
+win states,resultados triunfantes,,resultad
+voting,votación,,votaci
+voting,elección,,elecc
+voting,toma de decisiones por votación,,tom
+voting,emisión de votos,,emisió
+voting,escrutinio,,escrutini
+crowning,coronación,,coron
+crowning,investidura,,investidur
+crowning,ceremonia de coron,,ceremoni
+crowning,elevación,,elevaci
+crowning,coronamiento,,coron

@@ -1,0 +1,127 @@
+,app,feature,positiveCount,negativeCount,score
+0,codeacademy,daily streaks,0,0,0
+0,codeacademy,points system,0,0,0
+0,codeacademy,progress bar,0,0,0
+0,codeacademy,strike habit/competition,0,0,0
+0,codeacademy,social discovery,0,0,0
+0,codeacademy,challenges,0,0,0
+0,codeacademy,leaderboard/competition,0,0,0
+0,codeacademy,boosters,0,0,0
+0,codeacademy,virtual economy,0,0,0
+0,codeacademy,torture breaks,0,0,0
+0,codeacademy,visual grave,0,0,0
+0,codeacademy,high five,0,0,0
+0,codeacademy,last mile drive,0,0,0
+0,codeacademy,anticipation parade,0,0,0
+0,codeacademy,avatar,0,0,0
+0,codeacademy,win states,0,0,0
+0,codeacademy,voting,0,0,0
+0,codeacademy,crowning,0,0,0
+0,datacamp,daily streaks,16,-2,0.777777777777778
+0,datacamp,points system,4,-1,0.6
+0,datacamp,progress bar,0,0,0
+0,datacamp,strike habit/competition,1,0,1
+0,datacamp,social discovery,1,-1,0
+0,datacamp,challenges,3,0,1
+0,datacamp,leaderboard/competition,2,0,1
+0,datacamp,boosters,6,0,1
+0,datacamp,virtual economy,1,-1,0
+0,datacamp,torture breaks,0,0,0
+0,datacamp,visual grave,2,0,1
+0,datacamp,high five,0,0,0
+0,datacamp,last mile drive,2,0,1
+0,datacamp,anticipation parade,0,0,0
+0,datacamp,avatar,2,0,1
+0,datacamp,win states,1,0,1
+0,datacamp,voting,4,-1,0.6
+0,datacamp,crowning,0,0,0
+0,learn-python-programiz,daily streaks,0,0,0
+0,learn-python-programiz,points system,0,0,0
+0,learn-python-programiz,progress bar,0,0,0
+0,learn-python-programiz,strike habit/competition,0,0,0
+0,learn-python-programiz,social discovery,0,0,0
+0,learn-python-programiz,challenges,0,0,0
+0,learn-python-programiz,leaderboard/competition,0,0,0
+0,learn-python-programiz,boosters,0,0,0
+0,learn-python-programiz,virtual economy,0,0,0
+0,learn-python-programiz,torture breaks,0,0,0
+0,learn-python-programiz,visual grave,0,0,0
+0,learn-python-programiz,high five,0,0,0
+0,learn-python-programiz,last mile drive,0,0,0
+0,learn-python-programiz,anticipation parade,0,0,0
+0,learn-python-programiz,avatar,2,0,1
+0,learn-python-programiz,win states,0,0,0
+0,learn-python-programiz,voting,0,0,0
+0,learn-python-programiz,crowning,0,0,0
+0,mimo,daily streaks,198,-53,0.577689243027888
+0,mimo,points system,49,-11,0.633333333333333
+0,mimo,progress bar,3,-3,0
+0,mimo,strike habit/competition,15,-5,0.5
+0,mimo,social discovery,15,-16,-0.032258064516129
+0,mimo,challenges,42,-26,0.235294117647059
+0,mimo,leaderboard/competition,4,-3,0.142857142857143
+0,mimo,boosters,58,-6,0.8125
+0,mimo,virtual economy,30,-10,0.5
+0,mimo,torture breaks,2,-1,0.333333333333333
+0,mimo,visual grave,21,-6,0.555555555555556
+0,mimo,high five,2,0,1
+0,mimo,last mile drive,45,-4,0.836734693877551
+0,mimo,anticipation parade,2,0,1
+0,mimo,avatar,100,-22,0.639344262295082
+0,mimo,win states,32,-5,0.72972972972973
+0,mimo,voting,37,-18,0.345454545454545
+0,mimo,crowning,0,0,0
+0,programming-hero,daily streaks,3,-1,0.5
+0,programming-hero,points system,0,0,0
+0,programming-hero,progress bar,0,0,0
+0,programming-hero,strike habit/competition,0,0,0
+0,programming-hero,social discovery,1,0,1
+0,programming-hero,challenges,1,0,1
+0,programming-hero,leaderboard/competition,0,0,0
+0,programming-hero,boosters,3,0,1
+0,programming-hero,virtual economy,0,0,0
+0,programming-hero,torture breaks,0,0,0
+0,programming-hero,visual grave,0,0,0
+0,programming-hero,high five,0,0,0
+0,programming-hero,last mile drive,2,0,1
+0,programming-hero,anticipation parade,0,0,0
+0,programming-hero,avatar,2,0,1
+0,programming-hero,win states,1,-1,0
+0,programming-hero,voting,0,-1,-1
+0,programming-hero,crowning,0,0,0
+0,programming-hub,daily streaks,28,-15,0.302325581395349
+0,programming-hub,points system,10,-1,0.818181818181818
+0,programming-hub,progress bar,0,-1,-1
+0,programming-hub,strike habit/competition,2,0,1
+0,programming-hub,social discovery,3,-3,0
+0,programming-hub,challenges,5,-3,0.25
+0,programming-hub,leaderboard/competition,2,0,1
+0,programming-hub,boosters,19,-4,0.652173913043478
+0,programming-hub,virtual economy,6,-1,0.714285714285714
+0,programming-hub,torture breaks,0,0,0
+0,programming-hub,visual grave,4,0,1
+0,programming-hub,high five,0,0,0
+0,programming-hub,last mile drive,4,0,1
+0,programming-hub,anticipation parade,0,0,0
+0,programming-hub,avatar,13,-4,0.529411764705882
+0,programming-hub,win states,4,-1,0.6
+0,programming-hub,voting,8,-2,0.6
+0,programming-hub,crowning,0,0,0
+0,sololearn,daily streaks,625,-73,0.790830945558739
+0,sololearn,points system,192,-29,0.737556561085973
+0,sololearn,progress bar,1,-5,-0.666666666666667
+0,sololearn,strike habit/competition,182,-58,0.516666666666667
+0,sololearn,social discovery,54,-59,-0.0442477876106195
+0,sololearn,challenges,283,-82,0.550684931506849
+0,sololearn,leaderboard/competition,31,-6,0.675675675675676
+0,sololearn,boosters,323,-15,0.911242603550296
+0,sololearn,virtual economy,101,-21,0.655737704918033
+0,sololearn,torture breaks,9,-3,0.5
+0,sololearn,visual grave,69,-3,0.916666666666667
+0,sololearn,high five,7,0,1
+0,sololearn,last mile drive,125,-6,0.908396946564885
+0,sololearn,anticipation parade,5,0,1
+0,sololearn,avatar,317,-27,0.843023255813954
+0,sololearn,win states,51,-14,0.569230769230769
+0,sololearn,voting,125,-22,0.700680272108844
+0,sololearn,crowning,0,0,0
