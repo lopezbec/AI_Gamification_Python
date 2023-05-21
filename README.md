@@ -65,6 +65,15 @@ Lesson 2 Complete
 
 ___________________________________________________
 
+#  How to clone the repository and use it  
+___________________________________________________
+
+Tutorial:
+
+https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/3003e86e-7db8-4f83-95bb-852a0a035651
+
+___________________________________________________
+
 #  Data and more
 ___________________________________________________
 
