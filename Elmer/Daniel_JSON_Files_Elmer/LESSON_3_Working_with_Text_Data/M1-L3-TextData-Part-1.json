@@ -5,18 +5,16 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "En la Leccion 1, aprendio a usar el comando de impresion para enviar mensajes a la pantalla. \n El siguiente codigo contiene dos lineas:  \n - Un numero es la salida en la primera linea. \n - Un fragmento de texto es la salida en la segunda linea."
+                    "text": "En la Leccion 1, aprendio a usar el comando de impresion para enviar mensajes a la pantalla.  El siguiente codigo contiene dos lineas:  \n \n- Un numero es la salida en la primera linea. \n- Un fragmento de texto es la salida en la segunda linea."
                 },
                 {
                     "type": "info",
-                    "text": "Hay algo mal con la segunda linea de codigo y devuelve un error. ¿Puedes arreglarlo?"
+                    "text": "Hay algo mal con la segunda linea de codigo y devuelve un error. Puedes arreglarlo?"
                 },
                 {
-                    "type": "syntax",
-                    "text": "print(2.71) \n print(Octubre)" 
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(2.71) \nprint(Octubre)\n>2.71\n>NameError: name 'Octubre' is not defined"
                 }
-
-
             ]
         }
     ],
@@ -30,8 +28,8 @@
                     "text": "Las computadoras procesan el texto y los numeros de manera diferente. Un fragmento de datos de texto se denomina cadena. \n Puede crear una cadena ingresando texto entre dos comillas simples o dobles."
                 },
                 {
-                    "type": "syntax",
-                    "text": "print('Soy una cadena')" 
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Soy una cadena')\n>Soy una cadena"
                 },
                 {
                     "type": "hint",

@@ -8,7 +8,7 @@
                     "text": "Arrastre y suelte para escribir una linea de codigo que genere el numero 729."
                 },
                 {
-                    "type": "Syntax",
+                    "type": "Consola",
                     "text": "____(729)"
                 }
             ],
@@ -38,8 +38,8 @@
                     "text": "Las computadoras tratan el texto y los números de manera diferente. Al imprimir salidas de texto, debe encerrar el texto entre comillas simples o dobles:"
                 },
                 {
-                    "type": "Syntax",
-                    "text": "print('Programar es tu nuevo super poder.')"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Programar es tu nuevo super poder.')\n>Programar es tu nuevo super poder."
                 },
                 {
                     "type": "info",
@@ -53,7 +53,4 @@
             ]
         }
     ]
-
-
-
 }

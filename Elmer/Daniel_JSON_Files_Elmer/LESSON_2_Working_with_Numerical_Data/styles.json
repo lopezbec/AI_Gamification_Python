@@ -17,6 +17,8 @@
     "text_color": "#000000",
     "hint_background_color": "#FFFF00",
     "hint_border_width": 1,
-    "hint_border_color": "#FFA500"
+    "hint_border_color": "#FFA500",
+    "cmd_background_color": "#000000",
+    "cmd_text_color": "#FFFFFF",
+    "cmd_border_color": "#FFFFFF"
 }
-

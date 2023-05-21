@@ -35,6 +35,7 @@ class DropLabel(QWidget):
         self.question_type = question_type
         self.setAcceptDrops(True)
         self.dropped_text = None
+        self.styles = styles
 
         self.layout = QVBoxLayout()
         self.layout.setContentsMargins(0, 0, 0, 0)
@@ -42,7 +43,7 @@ class DropLabel(QWidget):
 
         self.base_text = text
         self.drop_area = QLabel(text)
-        self.drop_area.setStyleSheet(f"border: {styles['syntax_border_width']}px solid {styles['syntax_border_color']}; background-color: {styles['syntax_background_color']}; font-size: {styles['font_size_normal']}px")
+        self.drop_area.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
         self.layout.addWidget(self.drop_area)
 
     def dragEnterEvent(self, event):

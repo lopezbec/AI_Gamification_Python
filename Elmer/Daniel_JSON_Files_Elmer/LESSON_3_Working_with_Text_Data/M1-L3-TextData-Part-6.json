@@ -8,19 +8,13 @@
                     "text": "El programa dado esta diseñado para generar el texto: El conocimiento es poder \n Pero falta la ultima palabra. ¿Puedes arreglarlo?"
                 },
                 {
-                    "type": "hint",
+                    "type": "requerimiento",
                     "text": "Complete el codigo para generar el resultado requerido."
                 },
                 {
-                    "type": "syntax",
-                    "text": "print('Conocimiento ' + 'es poder')" 
-                },
-                {
-                    "type": "syntax",
-                    "text": "Notas a recordar: Se debe crear un ejecutador de codigos de prueba (IDE de Python) para esta practica, \n y que valide cuando el codigo escrito esta correcto." 
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Conocimiento ' + 'es poder')\n>'Conocimiento es poder'"
                 }
-
-
             ]
         }
     ]
