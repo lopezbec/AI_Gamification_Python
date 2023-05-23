@@ -1,0 +1,241 @@
+NER_Text,Count,NER_Label
+DataCamp,212,ORG
+Python,174,MISC
+R,114,MISC
+Datacamp,93,ORG
+SQL,68,MISC
+Nice,39,ORG
+Data Camp,25,ORG
+datacamp,23,ORG
+Android,18,MISC
+God,11,PER
+Google,10,ORG
+Duolingo,8,ORG
+Hugo,8,PER
+Ca,7,LOC
+Coursera,5,ORG
+Udemy,5,ORG
+India,5,LOC
+LinkedIn,5,ORG
+YouTube,5,ORG
+DATACAMP,5,MISC
+Phyton,5,MISC
+SoloLearn,4,MISC
+Mimo,4,MISC
+google,4,ORG
+Gud,3,PER
+Gmail,3,ORG
+MySQL,3,MISC
+App,3,MISC
+Power BI,3,MISC
+English,3,MISC
+DC,3,ORG
+Java,3,MISC
+Py,3,MISC
+C,3,MISC
+Goof,2,PER
+Edx,2,ORG
+indian,2,MISC
+Sololearn,2,MISC
+Tableau,2,MISC
+Facebook,2,ORG
+Lego,2,MISC
+Python.,2,MISC
+Allah,2,PER
+Instagram,2,MISC
+I4G,2,ORG
+DataCamp App,2,ORG
+Data Science for Everyone,2,MISC
+Ruby,2,MISC
+camp,2,MISC
+Netflix,2,ORG
+PC,2,MISC
+to SQL,1,MISC
+R.,1,MISC
+R Package,1,MISC
+R Basics,1,MISC
+redmi note 4,1,MISC
+Python OOP,1,MISC
+Pythonista,1,MISC
+Python SQL Data Science,1,MISC
+Pyton,1,PER
+Python.Awesome,1,MISC
+Pythone,1,MISC
+Pythons,1,MISC
+Python Introduction,1,MISC
+enki,1,MISC
+Pycharm,1,MISC
+PayPal,1,ORG
+OnePlus,1,ORG
+Oracle,1,MISC
+Osm,1,MISC
+Osthir,1,PER
+Owsome,1,ORG
+w3school,1,MISC
+PYTHON,1,MISC
+"Pakistan,and",1,LOC
+Pandas,1,MISC
+Paython,1,MISC
+PySpark,1,MISC
+Payton,1,MISC
+Perl,1,MISC
+"udacity,you",1,MISC
+PoC,1,MISC
+Portuguese,1,MISC
+PowerBI,1,MISC
+Programming Hub,1,MISC
+Purai Kop Mama,1,PER
+RGui,1,MISC
+R.velukallingal muthukurussi,1,PER
+nyc,1,LOC
+RStudio Certified,1,MISC
+iPad,1,MISC
+US,1,ORG
+iPython Shell,1,MISC
+University of Glasgow,1,ORG
+iPhone,1,MISC
+Uzair khan,1,PER
+VBA,1,MISC
+Wadiya,1,ORG
+Web,1,MISC
+Web-based,1,MISC
+Wrost,1,ORG
+Türkiye,1,LOC
+XP Points App,1,MISC
+huawei p20 lite,1,MISC
+Yohooo,1,LOC
+Youtube,1,MISC
+Zaw,1,ORG
+coursera,1,MISC
+google pay,1,ORG
+dataCamp,1,ORG
+elki,1,MISC
+UPI,1,MISC
+Twitter,1,MISC
+power BI,1,MISC
+Samsung s10 plus,1,MISC
+Ralational Database,1,MISC
+Redmi note3,1,MISC
+Rosetta Stone,1,MISC
+Rstudio,1,MISC
+pluralsight,1,ORG
+github,1,ORG
+SQL Server Analysis Services,1,MISC
+Samsung,1,ORG
+Samsung galaxy S7,1,MISC
+Science,1,MISC
+Thad,1,PER
+Shell,1,MISC
+ipython,1,MISC
+ONE'S,1,MISC
+Sql,1,MISC
+Sundaram Finance,1,ORG
+Super Dope,1,MISC
+TU Munich,1,ORG
+Termux,1,MISC
+TextToSpeech,1,MISC
+One Day One Course,1,MISC
+ABC,1,MISC
+Nyc,1,LOC
+Datacamp.,1,ORG
+Data Personal DataCamp,1,ORG
+Data Scientists Carrer,1,MISC
+DataCamp Team,1,ORG
+DataCamp-Learn,1,MISC
+DataComo,1,ORG
+DataScience,1,MISC
+Database,1,MISC
+Datacamp App,1,MISC
+Datacamp Team,1,ORG
+Datacamp Web,1,MISC
+Date,1,MISC
+Daily XP,1,MISC
+DayaCamp,1,ORG
+Devs,1,PER
+Dotocamp,1,ORG
+Enki,1,MISC
+Excel,1,MISC
+"Facebook,gmail,linkedin",1,ORG
+French,1,MISC
+GPC,1,ORG
+Galaxy S20 FE,1,MISC
+Gboard,1,MISC
+DaraCamp,1,MISC
+Daily Streak,1,MISC
+Google Analytics,1,MISC
+Binod,1,ORG
+AMD,1,ORG
+Akes,1,PER
+AmZing,1,ORG
+Amamzing,1,ORG
+Amzing,1,ORG
+Android 12.0,1,MISC
+Android Pie,1,MISC
+Azure,1,MISC
+Bahasa Indonesia,1,MISC
+Besr,1,ORG
+Black Friday,1,MISC
+DSN,1,ORG
+Bluetooth,1,MISC
+CSE,1,ORG
+CX,1,MISC
+Camp,1,MISC
+Core,1,MISC
+Covid19,1,MISC
+DA,1,ORG
+DATA CAMP,1,ORG
+DATACAMP INC,1,ORG
+DAX,1,MISC
+Goodapp,1,ORG
+Google Payment,1,MISC
+Numpy,1,MISC
+Mass,1,LOC
+LG BRB,1,ORG
+Lenovo Vibe K6,1,MISC
+LinkedIn Learn,1,MISC
+Linux,1,MISC
+M11,1,PER
+MCO,1,ORG
+ML,1,MISC
+Mac,1,MISC
+Mariadb,1,MISC
+Marveloys,1,MISC
+AI Singapore,1,ORG
+Kerala,1,LOC
+Mobile App,1,MISC
+Motorola Moto G6,1,MISC
+My Library,1,ORG
+NICE,1,ORG
+NYC,1,LOC
+New York,1,LOC
+Niice App,1,MISC
+Noice,1,ORG
+Nokia 8,1,MISC
+NumPy,1,MISC
+Khan,1,PER
+KeRn,1,LOC
+Google Play,1,MISC
+Indian,1,MISC
+Google pixel 3,1,MISC
+Google plus,1,ORG
+Hlpful,1,ORG
+Honor 10,1,MISC
+Huawei,1,ORG
+Hugo Bowne,1,PER
+Hugo Bowne-Anderson,1,PER
+Hulu,1,ORG
+IDE,1,MISC
+India.,1,LOC
+Indian Bank,1,ORG
+Kaamran,1,LOC
+Indonesia,1,LOC
+Indonesian,1,MISC
+Indonesian Language,1,MISC
+Ingressive for Good,1,ORG
+Intermediate R,1,MISC
+Introductory R.,1,MISC
+Ithin,1,PER
+JavaScript,1,MISC
+Josh,1,PER
+Jupyter,1,MISC
+英語の勉強にもなって楽しいです,1,MISC

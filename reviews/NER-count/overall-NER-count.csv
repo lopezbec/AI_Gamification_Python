@@ -1,0 +1,1740 @@
+NER_Text,Count,NER_Label
+Mimo,1656,PER
+Nice,771,ORG
+Python,412,MISC
+HTML,387,MISC
+Duolingo,383,MISC
+mimo,174,MISC
+JavaScript,153,MISC
+Java,139,MISC
+MIMO,119,MISC
+CSS,112,MISC
+duolingo,95,MISC
+YouTube,90,ORG
+Google,82,ORG
+Android,76,MISC
+English,64,MISC
+SQL,61,MISC
+C,55,MISC
+Javascript,50,MISC
+God,47,PER
+SoloLearn,45,MISC
+JS,41,MISC
+Gud,40,PER
+Sololearn,37,MISC
+Mimi,36,MISC
+Lua,36,MISC
+Noice,35,ORG
+Osm,32,MISC
+Arabic,31,MISC
+Html,31,MISC
+C ++,24,MISC
+Grasshopper,23,MISC
+DuoLingo,22,MISC
+Nyc,21,LOC
+Udemy,20,ORG
+India,19,LOC
+Kotlin,18,MISC
+Facebook,18,ORG
+Ca,18,ORG
+Spanish,16,MISC
+Play Store,15,MISC
+Google Play,15,ORG
+nyc,14,LOC
+english,13,MISC
+iOS,12,MISC
+PHP,12,MISC
+Mimo Pro,12,MISC
+Awsm,12,ORG
+Mino,12,MISC
+Web,12,MISC
+C #,11,MISC
+Mimohello GmbH,11,ORG
+Pro,11,MISC
+sololearn,11,MISC
+Nicee,10,ORG
+google,10,ORG
+React,10,MISC
+Internet,10,MISC
+HTML5,9,MISC
+PYTHON,9,MISC
+Programming Hero,9,MISC
+Russian,9,MISC
+m1m0,8,MISC
+MCQ,8,MISC
+Bangladesh,8,LOC
+MiMo,8,PER
+NICE,8,ORG
+Apple,8,MISC
+Instagram,8,MISC
+Indonesian,8,MISC
+Doulingo,8,PER
+LUA,7,MISC
+Scratch,7,MISC
+IOS,7,MISC
+M1M0,7,MISC
+Iran,7,LOC
+Swift,7,MISC
+Pog,7,PER
+arabic,7,MISC
+ABC,6,MISC
+Codecademy,6,MISC
+ADHD,6,MISC
+Khan Academy,6,ORG
+Mimo Team,6,ORG
+Youtube,6,MISC
+PayPal,6,ORG
+GOD,6,PER
+Roblox,6,MISC
+Gmail,5,ORG
+Lucky Patcher,5,MISC
+M1mo,5,ORG
+Js,5,MISC
+Learn to Code,5,MISC
+FreeCodeCamp,5,MISC
+Java Script,5,MISC
+Portuguese,5,MISC
+Chinese,5,MISC
+German,5,MISC
+USD,5,MISC
+Ruby,5,MISC
+Windows,5,MISC
+Bootstrap,5,MISC
+google play,5,ORG
+Css,5,MISC
+Goof,5,PER
+Nigeria,5,LOC
+Hello world,5,MISC
+Mimo.,5,PER
+Momo,5,MISC
+Amezing,5,ORG
+Netflix,5,MISC
+EA,4,ORG
+indonesian,4,MISC
+Gooood,4,ORG
+Persian,4,MISC
+HTML CSS,4,MISC
+Pakistan,4,LOC
+Hindi,4,MISC
+Android 11,4,MISC
+JAVA,4,MISC
+french,4,MISC
+Code Academy,4,ORG
+Programming Hub,4,MISC
+Enki,4,MISC
+CAD,4,MISC
+Phyton,4,MISC
+DUOLINGO,4,MISC
+Mimohello Gmbh,4,ORG
+Italian,4,MISC
+Playstore,4,MISC
+Coursera,4,ORG
+spanish,4,MISC
+Tysm,4,PER
+Solo Learn,4,MISC
+Osam,4,PER
+udemy,4,ORG
+NOICE,4,MISC
+Duo,4,ORG
+Mimo App,4,MISC
+Hearts,4,MISC
+momo,4,PER
+mino,4,MISC
+Romania,4,LOC
+Team Mimo,4,ORG
+FB,4,MISC
+BlueStacks,3,MISC
+Duo Lingo,3,MISC
+Bluestacks,3,MISC
+Google Chrome,3,MISC
+Udacity,3,ORG
+JavaScripts,3,MISC
+Mimo Premium,3,MISC
+العربية,3,MISC
+Ossum,3,MISC
+Nic,3,ORG
+Delphi,3,MISC
+freecodecamp,3,MISC
+Dart,3,PER
+Tnx,3,LOC
+Sri Lanka,3,LOC
+America,3,LOC
+india,3,LOC
+ca,3,LOC
+Lynda,3,MISC
+Allah,3,LOC
+London,3,LOC
+w3schools,3,MISC
+HTMl,3,MISC
+Turkish,3,MISC
+Ausome,3,PER
+USA,3,LOC
+Godd,3,PER
+Ez,3,ORG
+US,3,LOC
+Awasome,3,ORG
+Nive,3,ORG
+CS,3,MISC
+Mario,3,PER
+M1m0,3,MISC
+Rust,3,MISC
+inglés,3,MISC
+PBJ,3,ORG
+Khan academy,3,ORG
+Google play,3,MISC
+mimo pro,3,MISC
+Mass,3,LOC
+Hello World,3,MISC
+Wikipedia,3,MISC
+m1mo,3,ORG
+ingles,3,MISC
+.,3,MISC
+Epic,3,MISC
+NYC,3,LOC
+French,3,MISC
+Osum,3,MISC
+VS,3,MISC
+Fair,2,ORG
+Mozilla Firefox,2,MISC
+Lerner,2,PER
+DEVS,2,ORG
+Jesus,2,PER
+White Hat Jr,2,MISC
+عربية,2,MISC
+Einstein,2,PER
+Czech,2,MISC
+Lingodeer,2,MISC
+LinkedIn,2,ORG
+Linux,2,MISC
+UK,2,LOC
+Poli,2,ORG
+Khan,2,PER
+Werry,2,ORG
+Visual Studio Code,2,MISC
+Kewl,2,ORG
+Vienna,2,LOC
+PowerShell,2,MISC
+Coooool,2,ORG
+Nise,2,ORG
+Cool,2,PER
+Elon Musk,2,PER
+Freecodecamp,2,MISC
+Kenya,2,LOC
+Rs,2,MISC
+Covid,2,MISC
+W3School,2,MISC
+Faltu,2,ORG
+My,2,PER
+Lear,2,MISC
+Pydroid 3,2,MISC
+Jason,2,PER
+Python 3,2,MISC
+Lang,2,MISC
+Python Basics,2,MISC
+GOOGLE,2,ORG
+Dualingo,2,MISC
+Vey,2,PER
+GCSE,2,ORG
+Finnish,2,MISC
+MySpace,2,ORG
+M1MO,2,MISC
+انجليزي,2,MISC
+Heart,2,ORG
+Python.,2,MISC
+Dev,2,PER
+Py,2,MISC
+EPIC,2,ORG
+Uwu,2,ORG
+Programming Hero App,2,MISC
+GML,2,MISC
+Rosetta Stone,2,MISC
+RM,2,MISC
+Nicr,2,ORG
+Programming hero,2,MISC
+Mst,2,LOC
+Ux,2,MISC
+Exelant,2,ORG
+Joxx,2,MISC
+DataCamp,2,ORG
+Ui,2,MISC
+Ace,2,MISC
+🇮🇳,2,LOC
+Learn Coding / Programming : Mimo,2,MISC
+английском,2,MISC
+Arunava,2,PER
+Al,2,MISC
+iPad,2,MISC
+inglês,2,MISC
+indonesia,2,LOC
+indian,2,MISC
+"Mimo,I",2,PER
+Bill Gates,2,PER
+Google Play Store,2,ORG
+Marathi,2,MISC
+Solo,2,MISC
+HTML Basics,2,MISC
+Mantap,2,PER
+iranian,2,MISC
+Odin Project,2,ORG
+grasshopper,2,MISC
+Indian,2,MISC
+Brazilian,2,MISC
+russian,2,MISC
+Malaysia,2,LOC
+Bro,2,PER
+Indonesia,2,LOC
+german,2,MISC
+Imma,2,PER
+Bengali,2,MISC
+Amzing,2,ORG
+Ossam,2,ORG
+Asian,2,MISC
+Mimo Coding App,2,MISC
+nimo,2,MISC
+Mimo : Learn to code,2,MISC
+Mimo +,2,MISC
+Gucci,2,ORG
+Awosem,2,ORG
+Aws,2,ORG
+polish,2,MISC
+INDIA,2,LOC
+Google pay,2,ORG
+INR,2,MISC
+I.T,2,ORG
+Microsoft,2,ORG
+AngularJS,2,MISC
+microsoft,2,ORG
+Grest,2,ORG
+Greek,2,MISC
+HDML,2,MISC
+I,2,MISC
+Maja,2,PER
+Android App,2,MISC
+Faboulous,2,ORG
+"HTML,CSS",2,MISC
+easyJet,2,ORG
+MImo,2,MISC
+coursera,2,ORG
+CSS3,2,MISC
+Amazon,2,ORG
+Swype,2,MISC
+Play,2,MISC
+Chrome,2,MISC
+MIT,2,ORG
+Amazin,2,LOC
+Mimosa,2,ORG
+SwiftKey,2,MISC
+china,2,LOC
+Nuce,2,MISC
+MIMO.,2,ORG
+topprcodr,2,MISC
+Mimohello,2,PER
+fortnite,2,MISC
+Phython,2,MISC
+Pewdiepie,2,ORG
+Perl,2,MISC
+Code,2,MISC
+facebook,2,ORG
+Rs.1000,1,MISC
+SIMON COWELL,1,PER
+Score Hero,1,MISC
+SCOTT CAWTHOWN,1,PER
+Sayonara,1,ORG
+Sdh,1,ORG
+Southasian,1,MISC
+Rs.it,1,MISC
+Santa Claus,1,PER
+Sira,1,MISC
+Sealy,1,MISC
+SololLearn,1,MISC
+SL,1,MISC
+Seski,1,ORG
+Scratch Cat,1,MISC
+Sofar,1,MISC
+SICK,1,ORG
+Shappire,1,PER
+Romanian,1,MISC
+Snapdragon,1,ORG
+Roman,1,PER
+Siperb,1,ORG
+SHERRYTHEMASTER,1,ORG
+Script,1,MISC
+Robloxians,1,MISC
+Rockies,1,MISC
+SOLOLEARN,1,ORG
+Shandaar,1,PER
+"Rolla,Mo.",1,LOC
+Roger Rickyisms,1,PER
+SPANISH,1,MISC
+Sonu kumar,1,PER
+Samsung Tab S7,1,MISC
+SC,1,ORG
+SQL Basics,1,MISC
+SQL Savante,1,MISC
+SQUIL,1,MISC
+SSDI,1,MISC
+SSuper,1,ORG
+South Africa,1,LOC
+Ryan.B,1,PER
+Ryan.S,1,PER
+S. K. Nayak,1,PER
+Saale,1,PER
+S23 Ultra,1,MISC
+S7,1,MISC
+SAMSUNG J7 EDGE,1,MISC
+Skippy,1,MISC
+Sololearn and Programming Hub,1,ORG
+Roblox Studio,1,MISC
+Smartly,1,MISC
+South African,1,MISC
+Russians,1,MISC
+"Russian,Indonesian,Arabic,German,etc",1,MISC
+Samsung Dex,1,MISC
+Samsung S23 Ultra,1,MISC
+Samsung J7Max G615,1,MISC
+Samsung J2,1,MISC
+Sirve,1,ORG
+Samsung Galaxy A21,1,MISC
+Small Basic,1,MISC
+Rs800,1,MISC
+South Park,1,ORG
+Russ,1,MISC
+Sam PS,1,PER
+Salağa,1,PER
+SAP,1,ORG
+Sagar Khanwhat,1,PER
+Sololearm,1,ORG
+Sabse,1,ORG
+Rupesh,1,MISC
+Skillcrush,1,MISC
+#,1,MISC
+Roblox Lua,1,MISC
+Ossm,1,MISC
+Owesame,1,MISC
+Ourantine,1,LOC
+Oswm,1,MISC
+Ossum App,1,ORG
+Ossssom,1,ORG
+Osssom,1,PER
+Ossom,1,MISC
+Ossmmm,1,ORG
+Osn,1,ORG
+Roblox Game,1,ORG
+Osmm,1,ORG
+Osm Nice,1,PER
+Oshom,1,ORG
+Osem,1,ORG
+Oscar,1,MISC
+Osama,1,PER
+OsM,1,MISC
+Opopopp,1,PER
+Owesome,1,ORG
+Owls,1,MISC
+Owsam,1,ORG
+Ozm,1,ORG
+Paython,1,MISC
+Paying Pal,1,MISC
+Pascal,1,MISC
+Pandemic,1,MISC
+Paideot,1,ORG
+Pacific Island,1,LOC
+Paaka,1,MISC
+PY,1,MISC
+PWA,1,MISC
+PS4,1,MISC
+PROGRAMMING HUB,1,MISC
+PORTUGUÊS,1,MISC
+PL,1,MISC
+PIXEL 3,1,MISC
+PHYTON,1,MISC
+PHP Also,1,MISC
+PB & J,1,MISC
+Opopop,1,ORG
+OpenCV,1,MISC
+OpenAI,1,ORG
+Noitice,1,ORG
+Noicc,1,ORG
+Node.js,1,MISC
+Node,1,MISC
+Noce,1,ORG
+No Power Button,1,MISC
+Nisc,1,ORG
+NinjaDevGames,1,ORG
+Niiiiiice,1,PER
+Niiiiiccce,1,PER
+Niice,1,ORG
+NicsterV,1,MISC
+Niceeee,1,ORG
+Nicce,1,PER
+Niccceeee,1,PER
+Nicccce,1,PER
+Nicc,1,PER
+Nevermind,1,MISC
+Noisss,1,PER
+North,1,LOC
+Open University,1,ORG
+North Korea,1,LOC
+Open Course Ware,1,MISC
+Open Classrooms,1,MISC
+Op Thanks,1,MISC
+Only,1,MISC
+OneHitGamers,1,MISC
+Oms,1,MISC
+Olwes,1,PER
+Okie,1,ORG
+OMG,1,MISC
+Nyz,1,ORG
+Nycs,1,ORG
+Numpy Pandas,1,MISC
+NuggetsforBrainz,1,ORG
+Ntap,1,ORG
+Nsn,1,ORG
+Npc,1,MISC
+Note 8,1,MISC
+Payton,1,MISC
+Peapole,1,ORG
+Pease,1,PER
+Raaad,1,ORG
+RRAX Gaming,1,ORG
+ROBUX,1,PER
+RM11.68,1,MISC
+RM100,1,MISC
+RLSS,1,MISC
+RHIS,1,MISC
+REACT,1,MISC
+RAECT,1,MISC
+R200,1,MISC
+R150,1,MISC
+R120,1,MISC
+R,1,MISC
+Qualcomm,1,ORG
+Quacker,1,MISC
+QBasic,1,MISC
+Pythonista,1,MISC
+Python3,1,MISC
+RUBBISH,1,ORG
+Rabi shankar pani,1,PER
+Python for Dummies,1,MISC
+Rajeev Tyndall,1,PER
+Robin,1,PER
+Rly,1,MISC
+Rivera,1,MISC
+Rip,1,PER
+Rili,1,LOC
+Rich,1,PER
+Rhos,1,MISC
+Reoson,1,PER
+Reese,1,PER
+Realme 5,1,MISC
+Reactjs,1,MISC
+ReactiveUI,1,MISC
+ReactJs,1,MISC
+Raspberry pi,1,MISC
+Raspberry Pi,1,MISC
+Ramzan Hafiz,1,PER
+Rajesh kashyap,1,PER
+"Python,Java",1,MISC
+Python SQL,1,MISC
+Phuu,1,ORG
+Popo,1,PER
+Pokat,1,ORG
+Poggers,1,PER
+Pogchamp Clap,1,MISC
+Pocket,1,MISC
+Pluralsight,1,ORG
+Plumber,1,MISC
+Plessey Solve,1,MISC
+Pleasant,1,ORG
+Playground,1,MISC
+PlayGrounds,1,MISC
+Platform Called Whitehatjr,1,MISC
+Piyush Singh,1,PER
+Pixel3 XL,1,MISC
+Pithon,1,MISC
+Piczo,1,MISC
+Phython SQl,1,MISC
+Phython 1,1,MISC
+Poopoo,1,ORG
+Popskill Review,1,ORG
+Python Path,1,MISC
+Português,1,MISC
+Python Loops,1,MISC
+Python Lang,1,MISC
+Pyrhon Java,1,MISC
+Pyhton,1,MISC
+Pwoli saanam,1,LOC
+Pundreek,1,PER
+Pueblo Co,1,ORG
+Pubg,1,ORG
+Programming Python.,1,MISC
+Programing Hub,1,MISC
+Pro.hac.des,1,MISC
+Premiun Learn Code,1,MISC
+Premium Jackass,1,MISC
+Premium,1,MISC
+Prefect Program,1,MISC
+Practices,1,MISC
+PostgreSQL,1,MISC
+Spaceman,1,ORG
+Tthhuy,1,PER
+Spanishfor,1,MISC
+estonian,1,MISC
+imedia,1,ORG
+ikea,1,ORG
+icici,1,ORG
+iPhone XR,1,MISC
+iPhone,1,MISC
+iMrKay,1,PER
+html,1,MISC
+hindi,1,MISC
+hero,1,MISC
+hello world,1,MISC
+grasshoper,1,MISC
+google play store,1,ORG
+google grasshopper,1,MISC
+godot,1,MISC
+game of thrones,1,MISC
+galaxy,1,MISC
+g tusi,1,PER
+freecampcode,1,MISC
+freeCodeCamp,1,MISC
+filipino,1,MISC
+fCC,1,MISC
+india.It,1,LOC
+ingilizce,1,MISC
+iran,1,LOC
+learn,1,MISC
+mimo apps,1,ORG
+mimo application,1,ORG
+mimi,1,PER
+michel thomas,1,PER
+memrise,1,MISC
+memo,1,ORG
+losAngeles,1,LOC
+lord,1,PER
+lmfao,1,PER
+kunal Rajput,1,PER
+isima,1,ORG
+kirrak,1,ORG
+khanacademy,1,ORG
+khan academy,1,MISC
+kanav sharma,1,PER
+js,1,PER
+jason r. briggs,1,PER
+japan,1,LOC
+jake paul,1,PER
+j. nixon,1,PER
+eveeythibg,1,MISC
+esta chida,1,ORG
+mimo guruji,1,PER
+español,1,MISC
+bca,1,ORG
+baran,1,LOC
+bangladesh,1,LOC
+bangla.Its,1,MISC
+bangla,1,MISC
+bana tech,1,ORG
+ayush piyush,1,PER
+ayman Hassan,1,PER
+atvleast,1,ORG
+atlest,1,ORG
+athg,1,ORG
+aris,1,MISC
+arabs,1,MISC
+arabec,1,MISC
+arab,1,MISC
+apple,1,ORG
+amzing,1,ORG
+amzaing,1,ORG
+amurrican,1,MISC
+amezing,1,ORG
+amazin,1,ORG
+bengali,1,MISC
+bethesda,1,LOC
+booga,1,MISC
+dani,1,PER
+epix,1,ORG
+elias l n,1,PER
+elevate,1,MISC
+ecen,1,ORG
+ea,1,ORG
+e e W Bush,1,PER
+dino james,1,PER
+dhamalastic,1,PER
+delphi,1,ORG
+creative 2.0,1,MISC
+borat,1,PER
+courseera,1,MISC
+corey schafer,1,PER
+chinese,1,MISC
+canada,1,LOC
+c,1,MISC
+bruh,1,PER
+british,1,MISC
+bri'ish,1,MISC
+brazilian,1,MISC
+mimo debs,1,PER
+mimo is,1,MISC
+adobe dreamweaver,1,MISC
+soloLearn,1,MISC
+youtube,1,ORG
+youse wael,1,PER
+wihtehat jr,1,MISC
+whitehatjunior,1,MISC
+whitehat junier,1,MISC
+whitehat jr,1,MISC
+white hat Jr,1,MISC
+west Africa,1,LOC
+w3school,1,MISC
+use my.,1,MISC
+us,1,LOC
+unreal engine 5,1,MISC
+unaish,1,MISC
+udacity,1,ORG
+ubisoft,1,ORG
+tutorial,1,ORG
+tnQ Develaper,1,ORG
+the north remembers,1,MISC
+syria,1,LOC
+super Mario,1,MISC
+sonu,1,PER
+İngilizcem,1,MISC
+ελληνικά,1,MISC
+Харош,1,PER
+كويس,1,PER
+🇵🇭👍,1,LOC
+🇰🇭💖,1,LOC
+𝐊𝐀𝐑𝐓𝐈𝐊 𝐂𝐇𝐀𝐔𝐇𝐀𝐍,1,PER
+പോളിയാണ്,1,LOC
+রিদান Ridan,1,PER
+মযশথমমধল,1,LOC
+বাংলা,1,MISC
+हिदुस्तानी,1,MISC
+لابأس بيها,1,PER
+قوقل,1,ORG
+русский,1,MISC
+عربي,1,MISC
+رارىع,1,MISC
+جميييل,1,ORG
+جمدان,1,ORG
+العربيه,1,MISC
+البايثون,1,MISC
+الانجلش,1,MISC
+الإنجليزية,1,MISC
+русском,1,MISC
+sololearn.,1,MISC
+sofar,1,PER
+mimo.There,1,LOC
+sniper,1,ORG
+persian,1,MISC
+pa,1,PER
+osm,1,ORG
+oshadharon,1,ORG
+oppo f1s,1,MISC
+nikhil endra,1,PER
+new year 's Day,1,MISC
+neta,1,MISC
+nepal,1,LOC
+nasa,1,ORG
+naise,1,ORG
+myanmar,1,LOC
+msk,1,ORG
+mr.robot,1,MISC
+mirage,1,MISC
+mini hello GmbH,1,ORG
+mimohello mbh,1,PER
+mimohello,1,PER
+mimoHello,1,MISC
+mimo.when,1,MISC
+mimo.mimo,1,MISC
+persian.hey,1,MISC
+play Store,1,MISC
+play Store.if,1,MISC
+redmi note 10,1,MISC
+shivansh auman,1,PER
+senpai mimo,1,PER
+sbi,1,ORG
+samsung galaxy j6,1,MISC
+russians,1,MISC
+rubyvids,1,ORG
+romanian,1,MISC
+roblox lua,1,MISC
+revature,1,ORG
+realme 8,1,MISC
+play store,1,ORG
+raj,1,LOC
+ragul,1,PER
+python 3,1,MISC
+python 2,1,MISC
+programming hero,1,MISC
+pro,1,MISC
+portuguese,1,MISC
+poli mone,1,PER
+plurasight,1,MISC
+ajab wallahi,1,PER
+abdllah,1,PER
+Spiderman,1,PER
+Thnku,1,ORG
+Tyrant,1,MISC
+Typescript,1,MISC
+Ty,1,PER
+Twitter,1,MISC
+TutorialsPoint,1,ORG
+Turbo C,1,MISC
+Tunisia,1,LOC
+Neo,1,PER
+True or False,1,MISC
+TriHard,1,ORG
+Traprance,1,ORG
+Tq MIMO,1,MISC
+Torbaik,1,ORG
+Tony the tiger,1,PER
+Tk,1,ORG
+Tjis App,1,MISC
+Tis,1,MISC
+Tinko,1,PER
+Tingini,1,ORG
+Time,1,MISC
+Thwi,1,MISC
+Tyu,1,ORG
+U Mimo,1,MISC
+U.S,1,LOC
+Unreal Engine,1,MISC
+VB 6,1,MISC
+V.nice,1,LOC
+V. Cool,1,PER
+Uy N,1,PER
+UwU,1,ORG
+Usfull,1,ORG
+Us,1,LOC
+Until Know,1,MISC
+Unreal Engine 5,1,MISC
+Unreal,1,MISC
+UDEMY,1,ORG
+University at Metro,1,ORG
+Unity Engine,1,MISC
+Unity,1,MISC
+UniGate,1,ORG
+Ukrainian,1,MISC
+Ukraine,1,LOC
+Ukrain,1,LOC
+Uganda Africa,1,LOC
+UE,1,ORG
+Thry,1,ORG
+Thii,1,MISC
+VEX,1,MISC
+Thia,1,MISC
+TNX,1,ORG
+TF,1,ORG
+TCL,1,ORG
+TBH,1,ORG
+Suwun,1,ORG
+Supur,1,LOC
+Supubb,1,PER
+Supet,1,PER
+Superb.Mimo,1,PER
+Super Poli,1,ORG
+Super Mario Run,1,MISC
+Supeb,1,MISC
+Supar,1,ORG
+Supaa,1,ORG
+Subway,1,ORG
+Subarashi,1,PER
+Steve jobs,1,PER
+Stack Overflow,1,MISC
+Stacey ICYMI,1,PER
+St Patrick 's Day,1,MISC
+Sql,1,MISC
+TQ,1,ORG
+TYE,1,ORG
+TYSM,1,ORG
+Thamks,1,PER
+Theaches,1,MISC
+TheOdinProject,1,MISC
+The Path,1,MISC
+The HTML,1,MISC
+The Explanations,1,MISC
+The,1,MISC
+Thas,1,MISC
+Thanos,1,PER
+Thanksgiving,1,MISC
+Thais,1,MISC
+TYSM Mimohelo GmbH,1,ORG
+Termux,1,MISC
+Terible,1,ORG
+Teribel,1,MISC
+Tell Pa,1,PER
+Teleio,1,ORG
+Tebib,1,PER
+TeamMimo,1,ORG
+Teachable,1,MISC
+Tbest,1,ORG
+VBA,1,MISC
+VM,1,PER
+aashu rajput,1,PER
+WhiteHat Jr,1,MISC
+Wowo,1,ORG
+Wounderfull,1,ORG
+Woukf,1,PER
+Wossem,1,PER
+Worthy,1,PER
+WordPress,1,MISC
+Womder,1,MISC
+Woderfull,1,ORG
+WoW,1,MISC
+Wo,1,PER
+Wnats,1,MISC
+Wish Pro,1,MISC
+Wingardium Leviosa,1,MISC
+Windows 7,1,MISC
+Windmill Slam,1,MISC
+Wi-Fi,1,MISC
+Whites,1,MISC
+Whitehatjr,1,MISC
+Whitehat.jr,1,MISC
+Whitehat Jr,1,MISC
+Whitehat,1,PER
+Xixk,1,ORG
+Xoss,1,MISC
+YETRAN,1,ORG
+Yphone Now,1,MISC
+Zordiac,1,LOC
+Zimbabwe,1,LOC
+Zava,1,MISC
+Zakkkasss,1,ORG
+Z,1,MISC
+Yuvaraj,1,PER
+Yu,1,PER
+Yss,1,PER
+Ypu,1,MISC
+YouTube Udemy Codecamp,1,MISC
+YT,1,ORG
+You Mimo,1,PER
+Yorkshireman,1,ORG
+Yezwa Manje,1,PER
+Yehey,1,ORG
+Yeahs,1,ORG
+Yasss,1,ORG
+Yass,1,ORG
+Yash Maurya,1,PER
+YU HACK,1,PER
+WhiteHatJr,1,MISC
+WhiteHat,1,MISC
+VND,1,MISC
+White hat Jr,1,MISC
+W3SCHOOL,1,ORG
+W3C,1,ORG
+Vveery,1,PER
+Vrey,1,ORG
+VooHuuu,1,ORG
+Vone,1,ORG
+Visual Basic Software,1,MISC
+Visual Basic 6.0,1,MISC
+Vinci,1,PER
+Vince,1,PER
+VietNam,1,LOC
+Vgood,1,ORG
+Vey Good,1,PER
+Vetu,1,MISC
+Verru,1,LOC
+Veri naes,1,ORG
+Verey,1,PER
+Veey,1,PER
+Variables,1,MISC
+VS Code,1,MISC
+VPN,1,MISC
+W3Schools,1,ORG
+W3school,1,MISC
+WHITE HAT Jr,1,PER
+Webpage,1,MISC
+West,1,LOC
+Wery,1,PER
+Werrry goodd,1,ORG
+Welsh,1,MISC
+Well,1,LOC
+Weldon,1,PER
+Wel,1,ORG
+Weebly,1,MISC
+Webtech,1,MISC
+Webb,1,MISC
+WHITEHATjr,1,MISC
+WebDev,1,MISC
+Web-Dev,1,MISC
+Web Development,1,MISC
+Washington Post,1,ORG
+Warren,1,PER
+Wao,1,PER
+Walter White,1,PER
+Wala,1,MISC
+WINDOWS,1,MISC
+NetBeans,1,MISC
+MiMo pro,1,MISC
+Neato,1,ORG
+George Retters Rairers,1,ORG
+Devs,1,PER
+Development,1,MISC
+Deutschenfolke,1,MISC
+Democrats,1,MISC
+Dear Mimo,1,PER
+DeX,1,MISC
+David Hopkins,1,MISC
+David,1,PER
+Datacamp,1,MISC
+Dashing,1,PER
+Dark Souls,1,MISC
+Daily Missions,1,MISC
+Daily Challenges,1,MISC
+Daily Challenge,1,MISC
+Daily,1,ORG
+DOSENT,1,ORG
+DND,1,ORG
+DF,1,LOC
+DCoder,1,MISC
+DARKMODE,1,ORG
+D Jeez,1,PER
+Dident,1,PER
+Diolingo,1,MISC
+Discord,1,MISC
+Duolingo for Python,1,MISC
+Dutch,1,MISC
+Duracell,1,ORG
+Duper,1,PER
+Duolingue,1,MISC
+Duolingo.for.code,1,MISC
+Duolingo.,1,MISC
+Duolingo-style,1,MISC
+Duolingo-esque,1,MISC
+"Duolingo,it",1,MISC
+Duolingo for Coding,1,MISC
+Django,1,LOC
+Duilingo,1,MISC
+Dualungo,1,MISC
+Drops,1,MISC
+Douloingo,1,MISC
+Dopest,1,ORG
+Dopealicous,1,ORG
+Dont Read Me Pls,1,MISC
+Dont Read Me,1,MISC
+Domingo,1,MISC
+Cyka.blyat,1,ORG
+Cyber-Duo,1,MISC
+Cs,1,MISC
+Chaiya,1,PER
+Codding,1,MISC
+Cock,1,PER
+Cling,1,MISC
+Chris,1,PER
+Chow,1,PER
+Chloe,1,PER
+Chirper,1,PER
+Check Number Equality,1,MISC
+Chandan Badatya,1,PER
+Central America,1,LOC
+Code Studio,1,MISC
+Ceating,1,MISC
+Career Karma,1,MISC
+Candy Crush,1,MISC
+Can It Boindexter !,1,MISC
+Cambodia,1,LOC
+Callenge,1,PER
+CST,1,MISC
+CSS.Thank,1,MISC
+COVID19,1,ORG
+Code Louisville,1,ORG
+CodeAcademy,1,ORG
+Cryengine,1,MISC
+Con,1,MISC
+Croatin,1,MISC
+CppDroid,1,MISC
+Covid-19,1,MISC
+Costly,1,PER
+CopadaCopada,1,MISC
+Constanza,1,LOC
+Console,1,MISC
+Conputers,1,MISC
+Conan,1,PER
+Computer Application,1,MISC
+CodeCademy,1,MISC
+Compiler.,1,MISC
+College,1,ORG
+Colds,1,MISC
+Cody,1,MISC
+Coding Ninjas,1,MISC
+Coding Duolingo,1,MISC
+Codic,1,MISC
+Codeliber,1,MISC
+Codecadamy,1,ORG
+EA Games of Education,1,ORG
+EDX,1,ORG
+ES6,1,MISC
+Fire Fox,1,MISC
+G,1,PER
+Fuze,1,ORG
+Fricken,1,MISC
+Frickem,1,MISC
+Free triel,1,MISC
+Fortnite,1,MISC
+Fookin,1,PER
+Flexbox,1,MISC
+Fiverr,1,ORG
+Finesh,1,MISC
+GBoard,1,MISC
+Ferrari,1,ORG
+Fergood,1,PER
+Fentastic,1,ORG
+Fañtastic,1,ORG
+Fazol,1,ORG
+Fasak,1,ORG
+Fantastuc,1,MISC
+Fanaminal,1,ORG
+Faltu App,1,MISC
+G.O.A.T,1,ORG
+GCSE Computer Science,1,MISC
+Fairsesseassa,1,MISC
+Galaxy S9,1,MISC
+Gdapp,1,PER
+Gd,1,MISC
+Gboard,1,MISC
+Gaster86,1,PER
+Gareat,1,MISC
+Gams,1,MISC
+Gameloft,1,ORG
+GameMaker Language,1,MISC
+Gamaei,1,PER
+Galaxy J2,1,MISC
+GCSEs,1,MISC
+Galaxy,1,MISC
+GUT,1,ORG
+GSuite,1,MISC
+GOT TALENT GLOBAL,1,MISC
+GOLDEN BUZZER,1,MISC
+GNRC,1,ORG
+GMBh,1,ORG
+GMAIL,1,ORG
+GEEK FOREVER,1,MISC
+Faizan Usmani,1,PER
+Fahim,1,PER
+EZ,1,ORG
+Elon,1,PER
+Español,1,MISC
+Esay,1,PER
+Es6,1,MISC
+Episode,1,MISC
+Epicc,1,ORG
+Epic Easy,1,MISC
+Enternet,1,ORG
+Emmet,1,MISC
+Emejing,1,ORG
+Eljouuuu,1,PER
+Ethical Hacker,1,MISC
+Ejjaathi,1,PER
+Eh is Alr,1,MISC
+Editor 's Choice,1,MISC
+EdX,1,MISC
+EcmaScript 6 +,1,MISC
+Ebic,1,ORG
+Eazy,1,ORG
+Easyro,1,MISC
+Easley,1,MISC
+Essy,1,ORG
+Ethiopia,1,LOC
+Fabulaos,1,ORG
+Exodus Privacy,1,MISC
+FRESHMEN,1,MISC
+FIB,1,ORG
+FANTABULAS,1,MISC
+FACEBOOK,1,ORG
+F ** KING UNIVERSITY,1,ORG
+Ezzy,1,PER
+Eyydeshshsua,1,ORG
+Express,1,ORG
+Explanatory,1,MISC
+Exland,1,ORG
+Ethiopia.And,1,LOC
+Exclusive,1,ORG
+Exceptional Awesome Classic,1,MISC
+Exceleny,1,ORG
+Excelante,1,ORG
+Excel,1,MISC
+Evan,1,PER
+Europe.,1,LOC
+"Europe,Australia",1,LOC
+Eucational,1,MISC
+COVID,1,ORG
+CODE LOVER,1,MISC
+CODDINGTON,1,LOC
+Amei,1,ORG
+Android 13,1,MISC
+Android 12,1,MISC
+Android 10,1,MISC
+Andriod,1,MISC
+Anak RPL,1,ORG
+Amzang,1,ORG
+Amizing,1,ORG
+Amir fahad Khan,1,PER
+American,1,MISC
+Ameging,1,ORG
+Android Apps,1,MISC
+Ambani,1,PER
+Amazinh,1,ORG
+Amazinf,1,ORG
+Amazimg,1,MISC
+Amaze,1,ORG
+Amaizing,1,ORG
+Amaizimg,1,ORG
+Amaaaazing,1,ORG
+Almighty,1,PER
+Android 7.1.1,1,MISC
+Android Phone,1,MISC
+All tje,1,PER
+App,1,MISC
+Atiuttam,1,ORG
+Asweome,1,ORG
+Aswell,1,PER
+Assom,1,MISC
+Asikkk,1,ORG
+Ash,1,PER
+Artificial Intelligence Certificate,1,MISC
+Arkansans,1,LOC
+Aritro Datta,1,PER
+Api,1,MISC
+Android Studio,1,MISC
+Aondroid,1,MISC
+Anyones,1,ORG
+Antisemitic,1,MISC
+Anonymous,1,ORG
+Anki,1,MISC
+Anh,1,MISC
+Angular,1,MISC
+Angela Yu,1,PER
+Angas,1,LOC
+Allah Hafez,1,PER
+Alberta,1,LOC
+Ausom,1,ORG
+AGame,1,ORG
+ASNapps,1,ORG
+ASAP,1,ORG
+API,1,MISC
+AP,1,ORG
+ANDROID,1,MISC
+AMOLED,1,MISC
+AMD,1,ORG
+AL,1,LOC
+AI,1,ORG
+AGI,1,MISC
+AWSOME,1,ORG
+AF,1,ORG
+AEWSOME,1,ORG
+ADIPOLI,1,ORG
+ABCD,1,ORG
+AAP,1,ORG
+911,1,MISC
+4th of July,1,MISC
+4th industrial resolution,1,MISC
+2.7 Python,1,MISC
+AUSTRALIA'S DEADLIEST ANIMALS,1,MISC
+AZERBAIJAN,1,MISC
+Albert,1,PER
+Adipwoli,1,ORG
+Akhil verma,1,PER
+Ai,1,MISC
+African,1,MISC
+Africa,1,LOC
+Afghanistan,1,LOC
+Aendry Sinha,1,PER
+Adventures of Tintin,1,MISC
+Adorable Home,1,MISC
+Adobe,1,ORG
+Adipwli,1,MISC
+Aadhar,1,PER
+Adhbut,1,LOC
+Adam Gresham,1,PER
+Ad Saif,1,PER
+Actullay,1,PER
+Acode,1,MISC
+Acellus learning,1,ORG
+Academy,1,ORG
+Aboagye,1,PER
+Abhay raj Choudhury,1,PER
+Atom,1,MISC
+Austria,1,LOC
+CLI,1,MISC
+Blacks,1,MISC
+Borsika Porteka,1,ORG
+Boom,1,PER
+Bolta Kopdi Kolta,1,ORG
+Boi,1,ORG
+Bobal,1,ORG
+Bluej,1,ORG
+Blockchain,1,MISC
+Bling-Sound,1,MISC
+Bleh,1,ORG
+Blackberry,1,MISC
+Brazil,1,LOC
+Bizony,1,ORG
+Biva,1,ORG
+Bing,1,ORG
+Bigner,1,MISC
+Bigginer,1,PER
+Bhut,1,PER
+Besy,1,ORG
+Bestt,1,ORG
+Bestla,1,ORG
+Bosnian,1,MISC
+Brazilian Portuguese,1,MISC
+Best Just,1,ORG
+"C ++""",1,MISC
+CISSP,1,MISC
+CFB,1,ORG
+CE,1,ORG
+CCA,1,MISC
+C.A.,1,MISC
+C.,1,MISC
+C Language,1,MISC
+C ++/,1,MISC
+C ++.,1,MISC
+C ++ Peales,1,MISC
+Brill,1,PER
+C +,1,MISC
+"Busuu,which",1,MISC
+Bush,1,PER
+Buruk,1,ORG
+Bulbul,1,LOC
+Build An Android App,1,MISC
+Bty,1,MISC
+Brutygood,1,MISC
+Brooklyn nine nine,1,MISC
+Bestapps,1,ORG
+Bess,1,ORG
+Awe,1,ORG
+Azure,1,ORG
+Babbal,1,PER
+Baba,1,PER
+BSIT,1,ORG
+BRAZIL,1,LOC
+BR,1,LOC
+BMO,1,ORG
+BEST 2020,1,MISC
+BASIC,1,MISC
+B.B.A,1,ORG
+Ayush,1,PER
+Bahasa Indonesia,1,MISC
+Awsume,1,ORG
+Awsum,1,MISC
+Awsmp,1,MISC
+Awseome,1,ORG
+Awosame,1,ORG
+Awli,1,ORG
+Awit,1,PER
+Awesone,1,ORG
+Awesomesauce,1,ORG
+Bagas,1,LOC
+Bakawas,1,ORG
+Besr App,1,ORG
+Bash,1,MISC
+Bery,1,ORG
+Berkeley,1,ORG
+Beggineers,1,MISC
+Befors,1,MISC
+Becky,1,PER
+Beast,1,ORG
+Bear,1,MISC
+Battlefield,1,MISC
+Basic Programming Builder,1,MISC
+Barber,1,ORG
+Bakvas,1,ORG
+"Bangla,Hindi,Urdu,Arabic,Latin,Spanish,Chinese,Japanese",1,MISC
+Bangla,1,MISC
+Banavath LIMBADRI,1,PER
+Bal,1,ORG
+Bakwass App,1,MISC
+Bakwass,1,ORG
+Bakwas.,1,LOC
+Bakwas,1,PER
+Bakwaas,1,ORG
+Geat,1,ORG
+Getting Started,1,MISC
+Neatest,1,ORG
+Gfk,1,ORG
+MIS,1,MISC
+MINECRAFT,1,MISC
+MIMOHELLO GMBH,1,ORG
+MIMOHELLO,1,ORG
+MIMO.JUST,1,ORG
+MIMO Team,1,ORG
+MIMO APP,1,ORG
+MERN,1,ORG
+ME,1,LOC
+MANKEY,1,ORG
+MAHAVEER VERMA,1,PER
+M1mo-mimo,1,MISC
+Luke,1,PER
+Luis,1,PER
+Luckypatcher,1,MISC
+Lua Programming,1,MISC
+Lovedit,1,ORG
+Lol,1,PER
+Lockdown,1,MISC
+Lmfao.,1,ORG
+Lmao,1,PER
+MITs,1,ORG
+MImO,1,MISC
+ML,1,MISC
+Mahol,1,PER
+Mantul,1,LOC
+Mantoell,1,ORG
+Mantap Kali,1,PER
+Mantal,1,LOC
+Mansoor Khan,1,PER
+Mandarin,1,MISC
+Mamba Codes,1,PER
+Malay,1,MISC
+Making,1,MISC
+Mahad sanidiin miimo group,1,ORG
+MO,1,LOC
+Magnif,1,ORG
+MacOS,1,MISC
+Mac,1,MISC
+MY,1,MISC
+MS Learn,1,ORG
+MS,1,ORG
+MR WHITE,1,PER
+MR,1,ORG
+MOOC,1,MISC
+Llove,1,PER
+Lively,1,PER
+Lithuanian,1,MISC
+Kotling,1,MISC
+LREAN,1,PER
+LOVE ME SOME,1,MISC
+LKG,1,ORG
+LG,1,ORG
+L3ARN,1,PER
+L.Y,1,LOC
+Kwel,1,ORG
+KwameBrown,1,PER
+Kubernetes,1,MISC
+Kollam,1,LOC
+Lala,1,PER
+Kollaam,1,LOC
+Koda,1,ORG
+Kivy Language,1,MISC
+Kimmy.iķ.,1,PER
+Kim.kmm,1,PER
+Kim.k,1,PER
+Kidilam,1,ORG
+Khatarnak,1,MISC
+Kevin Nealy,1,PER
+LUCKY PATCHER,1,MISC
+Lambda,1,MISC
+Lit,1,LOC
+Leasons,1,MISC
+Likey,1,PER
+Like,1,PER
+Lgyo,1,ORG
+Lekka,1,ORG
+Lehman,1,MISC
+Lego,1,MISC
+Legend,1,MISC
+Lee,1,ORG
+Lec,1,MISC
+Learning by fun,1,MISC
+Lambda School,1,ORG
+Learning App,1,MISC
+Leard,1,LOC
+Lear Html,1,MISC
+Leaks,1,MISC
+Lauren,1,PER
+Launguses,1,MISC
+Latinos,1,MISC
+LastBG,1,MISC
+Lame,1,ORG
+Mantull,1,LOC
+Marckzackerburg,1,PER
+Mario Run,1,MISC
+Mimos,1,MISC
+Morocco,1,LOC
+Monty Python,1,PER
+Mongolian,1,MISC
+Momi,1,PER
+Mobile Wizards,1,ORG
+Mismo,1,MISC
+Minmo Team,1,ORG
+Minecraft,1,MISC
+Mimoteam,1,ORG
+Mimoo,1,MISC
+Mother 's,1,MISC
+Mimohello gmbH,1,ORG
+MimoTeam,1,ORG
+MimoPro,1,MISC
+MimoHello,1,ORG
+Mimo.sugest,1,MISC
+Mimo.app,1,MISC
+Mimo.I,1,PER
+"Mimo,the",1,PER
+"Mimo,best",1,MISC
+Moses Junior,1,PER
+Moto G 5s,1,MISC
+"Mimo coding Cool app,Try",1,MISC
+NG,1,MISC
+Nchdneje,1,ORG
+Nazi Youth,1,ORG
+Nas Daily,1,PER
+Nais,1,ORG
+Naira,1,LOC
+Naice,1,ORG
+Naic,1,ORG
+NICEEE,1,ORG
+NICE Pro,1,ORG
+NCAA,1,ORG
+Moto G Stylus,1,MISC
+NBA,1,ORG
+Mükemmdl,1,PER
+México,1,LOC
+MySQL,1,MISC
+Musa,1,PER
+Muchh,1,PER
+Muaknyosss,1,PER
+Mr. Robot,1,PER
+Motorola Z Play,1,MISC
+Mimo pro,1,MISC
+Mimo app,1,ORG
+Marlo,1,PER
+Mdbablu,1,ORG
+Michael,1,PER
+MiMo Team,1,ORG
+MiMO,1,ORG
+Mi,1,MISC
+Mgodonf,1,MISC
+Merlin,1,MISC
+Memohello GmbH,1,ORG
+Memo Team,1,ORG
+Memo,1,MISC
+Md.Ridwan Ul Karim.I,1,PER
+Microsoft Azure,1,MISC
+Mcqs,1,MISC
+Mcq,1,ORG
+Mc'Donalds,1,ORG
+Mazin,1,PER
+May God,1,PER
+May,1,PER
+Maxxxaaaaa,1,ORG
+Mavis Bacon,1,PER
+Marxh,1,PER
+Michael reeves,1,PER
+Microsoft Edge,1,MISC
+Mimo _ Dev,1,MISC
+Mimo Demo,1,MISC
+Mimo Tshirt,1,MISC
+Mimo Service,1,ORG
+Mimo Rock !,1,MISC
+Mimo Premium Cracked,1,MISC
+Mimo Plus,1,ORG
+Mimo Learning,1,ORG
+Mimo Lean,1,MISC
+Mimo Devs,1,PER
+Mimo Developers,1,ORG
+Mimo Crew,1,ORG
+Microsoft Virtual Academy,1,ORG
+Mimo 3000,1,MISC
+Mimmo,1,MISC
+Mimio,1,MISC
+Mimi.,1,PER
+Mimi Team,1,ORG
+Mim0,1,PER
+Miko,1,MISC
+MikeTheGamer,1,PER
+Middo,1,PER
+Kelly,1,PER
+Keka,1,MISC
+Keep It Stupid Simple,1,MISC
+"HTML,Css",1,MISC
+HTml,1,MISC
+HTmL,1,MISC
+HTML.Thanks,1,MISC
+HTML.CSS.JAVA,1,MISC
+"HTML,however",1,MISC
+"HTML,JavaScript,C",1,MISC
+"HTML,JavaScript",1,MISC
+"HTML,Java",1,MISC
+"HTML,Css,Javascript",1,MISC
+"HTML,CSS,CSS",1,MISC
+Hack Club,1,ORG
+HTML Programming Language,1,MISC
+HTML JavaScript CSS,1,MISC
+HTML Java JavaScript.I,1,MISC
+HTML 5,1,MISC
+HTML 3,1,MISC
+HMTL,1,MISC
+HCJ,1,MISC
+HANRAQ DAR,1,ORG
+HAKUNA MATTATA,1,ORG
+HaNdy App,1,MISC
+Hackathon,1,MISC
+H T M L,1,MISC
+Helfull,1,ORG
+Hope,1,PER
+Holy Spirit,1,PER
+Holy Moly,1,MISC
+Hohyuu,1,ORG
+Hohoho,1,LOC
+Hllo Mimo,1,ORG
+Hitesh,1,PER
+Hepfull,1,PER
+Hello World.,1,MISC
+Hejsmnd,1,ORG
+Hacker,1,MISC
+Hehihuhha,1,ORG
+Hecin,1,PER
+Hax,1,PER
+Hat Jr,1,PER
+Hare krishna,1,PER
+Hare Krishna,1,PER
+Haramkhoro,1,ORG
+Hanuman,1,PER
+Hamazing,1,ORG
+HA Marine Corps Panther Pride,1,ORG
+Gwynedd,1,MISC
+Html.,1,MISC
+Goid,1,ORG
+Goog,1,PER
+Goofy,1,ORG
+Goodup,1,PER
+Goodify,1,PER
+Goodd,1,PER
+Good,1,MISC
+GooD,1,MISC
+Golang,1,MISC
+Goidgoodgodo,1,ORG
+Gods,1,PER
+Google LLC,1,ORG
+Godot,1,MISC
+God Bless.,1,PER
+Go,1,MISC
+Gladiators,1,MISC
+Git,1,MISC
+Girish,1,MISC
+Giod,1,ORG
+Giid,1,ORG
+Ghana,1,LOC
+Goog Apks,1,MISC
+Google Play store,1,ORG
+Guys,1,PER
+Greta,1,MISC
+Gutten,1,PER
+Guido Van Rossum,1,PER
+Gudone,1,ORG
+Gud App,1,MISC
+Gtear,1,ORG
+Gsv bank,1,ORG
+Grrrrrreat,1,ORG
+Grrat,1,ORG
+Grid,1,MISC
+Gret,1,PER
+Google Store,1,ORG
+Gravity Falls,1,MISC
+Grate Application,1,MISC
+Grate,1,MISC
+Graet,1,PER
+Gracehopper,1,MISC
+Googles,1,ORG
+Google.,1,ORG
+Google playstore,1,MISC
+Google grasshopper,1,MISC
+Html CSS,1,MISC
+Html.Then,1,MISC
+Kavissen Veeren,1,PER
+Java Python Html,1,MISC
+Jaypal Singh Raj,1,PER
+Javvy,1,MISC
+Javascript Html,1,MISC
+JavaScripting,1,MISC
+"JavaScript,this",1,MISC
+"JavaScript,html",1,MISC
+"Java,HTML",1,MISC
+"Java,C,C ++",1,MISC
+"Java,C,C",1,MISC
+Java Minecraft,1,MISC
+Jesus Christ,1,PER
+Java CSS,1,MISC
+Jasmine Supertramp,1,PER
+Japanesy,1,MISC
+Jai nandan,1,PER
+Jabardast,1,ORG
+JScript,1,MISC
+JSX,1,MISC
+JK,1,PER
+JHS 1,1,ORG
+Jeesh,1,PER
+Jhakkaas,1,MISC
+JDKs,1,MISC
+Juat,1,PER
+Karachi Pakistan,1,LOC
+Kalo,1,ORG
+Kahn Academy,1,ORG
+KISS,1,MISC
+KIMO,1,PER
+KETAN,1,ORG
+Justin sampson,1,PER
+Jus,1,PER
+Junmoni,1,PER
+Jr.,1,PER
+Jijh,1,ORG
+Joss,1,PER
+Joseph,1,PER
+Jon Cena,1,PER
+JohnnyG,1,ORG
+John Bass,1,PER
+Johanna,1,PER
+Jo,1,PER
+JnHat,1,MISC
+Jist,1,PER
+JESUS CHRIST,1,PER
+"JAVASCRIPT,the",1,MISC
+Html5,1,MISC
+IDR299.000,1,MISC
+ISO,1,MISC
+IS DA BEZ,1,MISC
+IPS,1,ORG
+IPHONE 12,1,MISC
+ING,1,ORG
+ILOVE IT,1,ORG
+IKEA,1,ORG
+IIT,1,ORG
+IGCSE,1,ORG
+ICSE,1,ORG
+ITT,1,ORG
+IBM,1,ORG
+IAM,1,ORG
+I.mkm,1,PER
+I Line Good,1,MISC
+Hypertext Markup language,1,MISC
+Hxveisher,1,ORG
+Huffington Post,1,ORG
+Huawei P9,1,MISC
+Huawei,1,ORG
+IT,1,MISC
+Ian,1,PER
+J.S,1,MISC
+Intelligence,1,MISC
+Itask,1,ORG
+Ital,1,MISC
+Istg,1,ORG
+Issy,1,PER
+Issa,1,PER
+Islamic,1,MISC
+Isa,1,PER
+Ira,1,PER
+Ir,1,MISC
+Intelagent,1,ORG
+Ibrahim khan,1,PER
+Intel,1,ORG
+Insta,1,MISC
+Inggris,1,MISC
+Informatic Extended,1,ORG
+Indians,1,MISC
+Imt,1,ORG
+Ilikeit,1,ORG
+Ilearn,1,LOC
+Icribulus,1,ORG
+💝😘,1,LOC

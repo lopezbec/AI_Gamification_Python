@@ -1,0 +1,44 @@
+NER_Text,Count,NER_Label
+Encode,13,MISC
+Knowin,11,MISC
+JavaScript,9,MISC
+HTML,5,MISC
+iPad,4,MISC
+CSS,4,MISC
+App Store,3,ORG
+Python,3,MISC
+Java,3,MISC
+Javascript,3,MISC
+FlexBox,2,MISC
+Mimo,2,MISC
+Grasshopper,2,MISC
+Charles Babbage,2,PER
+Excel,1,MISC
+WhatsApp,1,MISC
+SoloLearn,1,MISC
+Swift,1,MISC
+Swift Playgrounds,1,MISC
+Upskew,1,ORG
+apple,1,ORG
+SKIP,1,MISC
+iOS,1,MISC
+C,1,MISC
+iPhone,1,MISC
+iPhone 3D Touch,1,MISC
+mimo,1,MISC
+Shun Hybrid,1,PER
+Nigeria,1,LOC
+CSS3,1,MISC
+Py,1,MISC
+Facebook,1,MISC
+Layman,1,PER
+Krystal,1,PER
+Bluetooth,1,MISC
+China,1,LOC
+Code playground,1,MISC
+It,1,MISC
+Internet,1,MISC
+Command Line,1,MISC
+GeoCities,1,MISC
+Free Code Camp,1,MISC
+scratch Tynker,1,MISC

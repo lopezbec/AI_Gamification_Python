@@ -1,0 +1,19 @@
+NER_Text,Count,NER_Label
+iPhone,5,MISC
+iOS,4,MISC
+Python,3,MISC
+App Store,1,MISC
+COVID,1,MISC
+iPhone 7,1,MISC
+iPad mini,1,MISC
+YouTube,1,MISC
+Nxncnnc,1,ORG
+MacBook,1,MISC
+Jhankar Mahbub,1,PER
+Java,1,MISC
+J. Mahbub,1,PER
+Ipad,1,MISC
+EXPLORE HTML,1,MISC
+ES6,1,MISC
+Ca,1,PER
+iPhone XR,1,MISC
