@@ -8,7 +8,7 @@ import re
 from functools import partial
 from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
@@ -34,8 +34,8 @@ class JsonWindow(QWidget):
         self.data = None
         self.layout = None
         self.hint_label = None
+        self.checkboxes = None
         self.button_group = None
-        self.radio_buttons = None
         self.blank_space_index = None
         self.original_hint_text = None
         self.filename = filename
@@ -57,8 +57,8 @@ class JsonWindow(QWidget):
         title.setFont(title_font)
         self.layout.addWidget(title)
 
-        if self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_layout_radioButtons()
+        if self.page_type.lower() == "multiplechoiceplus":
+            self.create_multiple_choice_plus_layout_radioButtons()
             self.create_feedback_label()
 
         elif self.page_type.lower() == "completeblankspace":
@@ -129,8 +129,8 @@ class JsonWindow(QWidget):
         # Añadir el layout horizontal de botones de respuesta al layout principal (vertical)
         self.layout.addLayout(answers_layout)
 
-    def create_multiple_choice_layout_radioButtons(self):
-        self.radio_buttons = []
+    def create_multiple_choice_plus_layout_radioButtons(self):
+        self.checkboxes = []  # Cambia esto de radio_buttons a checkboxes
         self.button_group = QButtonGroup()
 
         answers_layout = QHBoxLayout()  # Nuevo layout horizontal para las respuestas
@@ -144,12 +144,13 @@ class JsonWindow(QWidget):
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
-            radio_button = QRadioButton(answer["text"])
-            radio_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            self.radio_buttons.append(radio_button)
-            self.button_group.addButton(radio_button, idx)
-            answers_layout.addWidget(radio_button)  # Agregar al layout horizontal en lugar del vertical
+            checkbox = QCheckBox(answer["text"])  # Utilizar QCheckBox en lugar de QRadioButton
+            checkbox.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
+            self.checkboxes.append(checkbox)  # Cambia esto de radio_buttons a checkboxes
+            self.button_group.addButton(checkbox, idx)
+            answers_layout.addWidget(checkbox)  # Agregar el checkbox al layout horizontal en lugar del vertical
 
+        self.button_group.setExclusive(False)  # Permitir la selección de múltiples respuestas
         self.layout.addLayout(answers_layout)  # Agregar el layout horizontal al layout principal
 
     def create_drag_and_drop_layout(self):
@@ -161,8 +162,8 @@ class JsonWindow(QWidget):
             if "correctValue" in block:
                 drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type)
                 block_label = drop_labels[block_type]
-            elif block_type == "Consola":
-                block_label = drag_drop.DropLabel(block["text"], self.styles)
+            elif block["type"] == "Consola":
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label = QLabel(block["text"])
 
@@ -176,11 +177,6 @@ class JsonWindow(QWidget):
             draggable_label = drag_drop.DraggableLabel(answer["text"])
             draggable_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
             draggable_labels_layout.addWidget(draggable_label)
-
-        for block in self.data[self.page_type.lower()][0]["blocks"]:
-            block_label = QLabel(block["text"])
-            if block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
 
         self.layout.addLayout(draggable_labels_layout)
 
@@ -214,7 +210,6 @@ class MainWindow(QWidget):
     def __init__(self, lesson_number=1):
         super().__init__()
         self.layout = None
-        self.current_part = None
         self.button_layout = None
         self.submit_button = None
         self.stacked_widget = None
@@ -281,6 +276,7 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
+        print("La consola no está disponible por el momento.")
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
@@ -326,31 +322,39 @@ class MainWindow(QWidget):
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
         current_page_type = current_widget.page_type.lower()
-        json_number = current_widget.json_number
 
-        if hasattr(self, 'last_json_number') and self.last_json_number != json_number: self.log_event(f"Parte {json_number}", "mouse")
-        self.last_json_number = json_number
+        if current_page_type == "multiplechoiceplus":
+            # Crear una lista vacía para las respuestas seleccionadas
+            selected_answers = []
+            # Iterar sobre los checkboxes
 
-        if current_page_type == "multiplechoice":
-            selected_answer_id = current_widget.button_group.checkedId()
-            if selected_answer_id != -1:
-                correct_answer_id = None
-                for idx, answer in enumerate(current_widget.data[current_page_type][0]["answers"]):
-                    if answer["correct"]:
-                        correct_answer_id = idx
-                        break
+            for checkbox in current_widget.checkboxes:
+                # Si el checkbox está seleccionado, añadir su texto a la lista
+                if checkbox.isChecked():
+                    selected_answers.append(checkbox.text())
 
-                selected_answer_text = current_widget.data[current_page_type][0]["answers"][selected_answer_id]["text"]
-                if selected_answer_id == correct_answer_id:
+            # Crear una lista vacía para las respuestas correctas
+            correct_answers = []
+            # Iterar sobre las respuestas
+            for answer in current_widget.data[current_page_type][0]["answers"]:
+                # Si la respuesta es correcta, añadir su texto a la lista
+                if answer["correct"]:
+                    correct_answers.append(answer["text"])
+
+            # Comprobamos las respuestas seleccionadas
+            if selected_answers:
+                correct_selected = [answer for answer in selected_answers if answer in correct_answers]
+                incorrect_selected = [answer for answer in selected_answers if answer not in correct_answers]
+
+                if len(correct_selected) == len(correct_answers) and len(incorrect_selected) == 0:
                     current_widget.feedback_label.setText("Respuesta correcta")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"{selected_answer_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                     self.SubmitHideContinueShow(True, False)
 
                 else:
                     current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"{selected_answer_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+
             else:
                 current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
                 current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
@@ -377,9 +381,6 @@ class MainWindow(QWidget):
                 if correct_answer:
                     if correct_answer["text"] in dropped_text:
                         correct_count += 1
-                        self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
-                    else:
-                        self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
@@ -433,24 +434,22 @@ class MainWindow(QWidget):
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
             self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
-            if current_page_type == "pedagogical" or current_page_type == "pedagogical2": self.SubmitHideContinueShow(True, False) # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+            if current_page_type == "pedagogical" or current_page_type == "pedagogical2": self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
             elif current_page_type == "practica": self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
-            else: self.SubmitHideContinueShow(False, False) # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+            else: self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.close()
-        self.current_page += 1 # Incrementar el número de la página actual
+        self.current_page += 1  # Incrementar el número de la página actual
 
 
 def main():
     app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=2)  # Aquí puedes cambiar el número de lecciones que deseas cargar
+    main_window = MainWindow(lesson_number=3)  # Aquí puedes cambiar el número de lecciones que deseas cargar
     sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
 
 
 if __name__ == '__main__':
     main() # Llamar a la función principal si el script se ejecuta como el programa principal
-
-#TODO RECUERDA ARREGLAR LA PARTE DE ENTRADAS/SALIDAS/CLIC.CSV

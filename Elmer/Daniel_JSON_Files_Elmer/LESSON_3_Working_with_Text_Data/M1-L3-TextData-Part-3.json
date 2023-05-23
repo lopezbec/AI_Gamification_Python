@@ -1,5 +1,5 @@
 {
-    "dragnanddropsecuence": [
+    "draganddropsecuence": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -8,12 +8,8 @@
                     "text": "Arrastre y suelte para generar ' WaterPark '. "
                 },
                 {
-                    "type": "hint",
+                    "type": "Consola",
                     "text": "print('___ ___ ___')"
-                },
-                {
-                    "type": "hint",
-                    "text": "Notas a recordar: Crear un codigo que me permita Arrastrar y soltar bloques con codigos"
                 }
             ],
             "answers": [
@@ -40,8 +36,8 @@
                     "text": "Cualquier cosa entre comillas es una cadena, incluso numeros. Los numeros entre comillas se trataran como datos de texto y no podra realizar operaciones aritmeticas con ellos. \n Ejecute el siguiente codigo y verifique la salida:"
                 },
                 {
-                    "type": "syntax",
-                    "text": "print('28 ' + ' 6')" 
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('28 ' + ' 6')\n>\"28 6\""
                 },
                 {
                     "type": "hint",

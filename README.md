@@ -68,9 +68,30 @@ ___________________________________________________
 #  How to clone the repository and use it  
 ___________________________________________________
 
-Tutorial:
+## Tutorial:
 
 https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/3003e86e-7db8-4f83-95bb-852a0a035651
+
+## Steps shown on the video above:
+Steps for use/execute the apps
+
+Must have git installed.
+
+1- Clone the repository.
+
+	1.1 - Go to Github and sign up
+	1.2 - Search for the repository by: lopezbec / Then: AI_Gamification_Python
+	1.3 - Go to the '<> Code' Button (Green)
+	1.4 - Coppy the HTTPS link
+	1.5 - Create a folder, or go to the path you want to clone the repository (Must be a clear folder, i suggest a new one)
+	1.6 - Open a cmd in the folder
+	1.7 - Clone the repository by typping this comand: Git clone https://github.com/lopezbec/AI_Gamification_Python.git
+
+2- Go to the folder named 'Elmer'
+
+3- Go to the folder named 'Daniel_JSON_Files_Elmer'
+
+There you will see all the leasson we have at the moment. You can select whichever you want and open the file named: Main_Lesson_#.py then execute that code.
 
 ___________________________________________________
 

@@ -6,10 +6,6 @@
                 {
                     "type": "info",
                     "text": "Seleccione todas las opciones que representan una cadena: "
-                },
-                {
-                    "type": "hint",
-                    "text": "Notas a recordar: Crear un codigo que me permita seleccionar varias respuestas a la vez"
                 }
             ],
             "answers": [
@@ -36,10 +32,6 @@
                 {
                     "type": "info",
                     "text": "Has aprendido acerca de 3 de los tipos de datos mas importantes. \n Arrastra y suelta para clasificar los siguientes datos:"
-                },
-                {
-                    "type": "info",
-                    "text": "Notas a recordar: Crear un codigo que me permita validar si varias respuestas son true o false"
                 },
                 {
                     "type": "pregunta1",
