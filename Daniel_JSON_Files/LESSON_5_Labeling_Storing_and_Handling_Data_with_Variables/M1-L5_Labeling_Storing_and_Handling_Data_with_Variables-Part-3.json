@@ -1,0 +1,61 @@
+{
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una variable tiene un nombre y un:"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "apodo.",
+                    "correct": false
+                },
+                {
+                    "text": "valor.",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para crear una variable llamada ' edad ' y asígnele el valor 18:"
+                    
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "_____:",
+                    "correctValue": "18"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "_____",
+                    "correctValue": "edad"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "18",
+                    "correctType": "pregunta1",
+                    "correct": true
+                },
+                {
+                    "text": "edad",
+                    "correctType": "pregunta2",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+   
+}
