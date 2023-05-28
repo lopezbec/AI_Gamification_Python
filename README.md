@@ -43,6 +43,17 @@ This notebook allows you to get the sentiment (positive, negative or neutral) of
 <br><br></br>
 
 This notebook allows you to perform NER (Name Entity Recognition) analysis on the reviews that were scraped stored on the repo. The interactive colab forms provides visual indicators of what reviews are analyzed. 
+
+## Bigram Networks of Reviews
+
+<table align="left">
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/reviews/bigram-network/bigram_networks_interactive.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Bigram Networks</a>
+  </td>
+</table>
+<br><br></br>
+
+This notebook allows you to plot the bigram networks of reviews per app and overall, either with the entire review text or the NER tags. There are visual indicators of the frequency of the bigrams (as the width of the edges) and the average sentiment of the reviews the bigrams appear in (as the color of the edges).
 ___________________________________________________
 
 #  Prototype of Application   
