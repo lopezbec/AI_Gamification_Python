@@ -1,0 +1,18 @@
+{
+    "window_title": "Bienvenido",
+    "ask_name_title": "¿Cual es tu nombre?",
+    "ask_name_font_family": "Lato",
+    "ask_name_font_size": 14,
+    "ask_name_margin": 40,
+
+    "input_margin": {
+        "left": 0,
+        "top": 20,
+        "right": 0,
+        "bottom": 20
+    },
+    "input_minimum_width": 300,
+
+    "button_text": "Siguiente",
+    "button_minimun_width": 300
+}

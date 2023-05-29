@@ -2,7 +2,7 @@ import json
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
-from pages import MainPage
+from question_pedagogical_page import MainPage
 
 
 class FinishWindow(QMainWindow):
@@ -39,7 +39,7 @@ class FinishWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def close_window(self):
-        with open("data.json", "r") as file:
+        with open("./json/data.json", "r", encoding='utf-8') as file:
             data = json.load(file) 
             
         self.main_page = MainPage(data)

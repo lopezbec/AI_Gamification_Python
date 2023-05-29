@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Programacion",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los humanos utilizan programas informaticos para comunicarse con las maquinas. Sin programas de computadora, no tendriamos telefonos inteligentes, sitios web o incluso exploracion en el espacio exterior."
+                },
+                {
+                    "type": "info",
+                    "text": "Aprender algo de codificacion puede ayudarlo a innovar y crear diferentes soluciones a los problemas, lo que le brinda una ventaja competitiva en este mundo impulsado por la tecnologia."
+                },
+                {
+                    "type": "info",
+                    "text": "Todo el mundo puede aprender a programar con Sololearn."
+                }
+
+            ]
+        }
+    ],
+    "pedagogical2": [
+        {
+            "title": "Salida",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El comando o instruccion print es la forma mas facil de enviar un mensaje especifico a la pantalla u otro dispositivo de visualizacion."
+                },
+                {
+                    "type": "info",
+                    "text": "Este mensaje o salida puede ser un numero, texto o el resultado de un calculo."
+                },
+                {
+                    "type": "info",
+                    "text": "Syntax:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(60)\n>60"
+                },
+                {
+                    "type": "hint",
+                    "text": "La declaracion print siempre va seguida de parentesis que contienen la salida que queremos generar."
+                }
+
+            ]
+        }
+    ]
+}
