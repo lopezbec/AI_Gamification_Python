@@ -1,0 +1,243 @@
+NER_Text,Count,NER_Label
+SoloLearn,143,ORG
+Python,49,MISC
+Java,42,MISC
+Sololearn,36,MISC
+JavaScript,26,MISC
+HTML,22,MISC
+C,20,MISC
+YouTube,17,ORG
+App Store,17,ORG
+iPhone,12,MISC
+Lua,11,MISC
+Apple,11,ORG
+Swift,11,MISC
+iPad,11,MISC
+SQL,10,MISC
+iOS,8,MISC
+Code Playground,7,MISC
+PHP,6,MISC
+Kotlin,6,MISC
+Chinese,6,MISC
+Duolingo,6,MISC
+Solo Learn,6,MISC
+Udemy,6,ORG
+C ++,5,MISC
+iPhone X,5,MISC
+English,5,MISC
+CSS,5,MISC
+sololearn,4,ORG
+apple,4,ORG
+iPad Pro,4,MISC
+Mimo,4,ORG
+JS,4,MISC
+God,3,PER
+HTML5,3,MISC
+LinkedIn,3,ORG
+Learn Python,3,MISC
+My Code Bits,3,MISC
+Keyboard,3,MISC
+React,3,MISC
+Khan Academy,3,ORG
+Pro,3,MISC
+Ruby,3,MISC
+Python 3,3,MISC
+Android,3,MISC
+Rust,2,MISC
+Instagram,2,MISC
+JAVA,2,MISC
+iPhone 6,2,MISC
+Unity,2,MISC
+sololearn.com,2,ORG
+Playground,2,MISC
+C #,2,MISC
+App,2,MISC
+GitHub,2,ORG
+PYTHON,2,MISC
+Javascript,2,MISC
+iOS 12,2,MISC
+paypal,2,ORG
+Facebook,2,ORG
+ios,2,MISC
+Smart Keyboard,2,MISC
+iPhone SE,2,MISC
+LUA,2,MISC
+Sublime,1,MISC
+Russian,1,MISC
+Swift 5,1,MISC
+SAT,1,MISC
+Susan,1,PER
+Reddit,1,ORG
+Super Data Science,1,ORG
+Sofy,1,PER
+Soundcloud.com,1,ORG
+SoloLearn-the,1,MISC
+Solo Learn.,1,ORG
+Solo Pro,1,MISC
+Scratch,1,MISC
+Scala,1,MISC
+Solo learn,1,ORG
+SoloLearn PRO,1,MISC
+SoloLearn Pro,1,MISC
+Samsung Galaxy s4,1,MISC
+Sololearner,1,MISC
+SOLO,1,ORG
+SoloLearnPro,1,MISC
+SoloLearners,1,MISC
+Solocode,1,MISC
+SE,1,MISC
+Sololearn Pro,1,MISC
+Sololearn.com,1,ORG
+SL,1,PER
+11 Max Pro,1,MISC
+Terms of Use,1,MISC
+iPhone 12mini,1,MISC
+iPhone 7 Plus,1,MISC
+iPhone 8,1,MISC
+iPhone Xr,1,MISC
+iPhone Xs Max,1,MISC
+ipad mini 1,1,MISC
+max ryapolov,1,PER
+python 3,1,MISC
+rasparry pi,1,MISC
+replit.com,1,MISC
+soloLearn,1,MISC
+sololearn Python,1,MISC
+terraria,1,MISC
+unity,1,MISC
+unreal Engine,1,MISC
+w3schools,1,MISC
+wix,1,ORG
+xCode,1,MISC
+русском,1,MISC
+اللغة العربية,1,MISC
+عربيه,1,MISC
+فارسی,1,MISC
+iPhone 5s,1,MISC
+iPad mini,1,MISC
+Test Automation University,1,ORG
+iOS’,1,MISC
+Transitions and Transformations - Animation Properties,1,MISC
+Tye,1,PER
+USA Air Force,1,ORG
+Umer Selmani,1,PER
+Unity 3D,1,MISC
+University of Michigan,1,ORG
+VS,1,MISC
+VS Dev,1,MISC
+Raspberry Pi,1,MISC
+Visualstudio,1,MISC
+W3Schools,1,MISC
+Warsaw,1,LOC
+Whao,1,MISC
+XCode,1,MISC
+XP,1,MISC
+Xs,1,MISC
+Youtube,1,MISC
+arashk,1,PER
+freecodecamp.org,1,MISC
+iOS 11.4.1,1,MISC
+iOS11,1,MISC
+Visual Basic,1,MISC
+Objective C,1,MISC
+RU3IX,1,PER
+Ferris Bueller,1,PER
+DeVs,1,PER
+Dogzill54,1,PER
+Duolingo Plus,1,MISC
+EE,1,ORG
+ES6,1,MISC
+ESRB,1,ORG
+Eiffel,1,MISC
+FF Holley Station 9 B,1,ORG
+FIOS,1,MISC
+FaceBook,1,ORG
+Fortran,1,MISC
+Herbert,1,PER
+Freecodecamp,1,MISC
+Gen,1,MISC
+Go Fish,1,MISC
+Go Pro,1,MISC
+Google,1,ORG
+Gucci,1,ORG
+H @€ kEr,1,PER
+HTML CCS JavaScript,1,MISC
+HTML4,1,MISC
+HTML5.2,1,MISC
+Dart / Flutter,1,MISC
+Daddy,1,PER
+CompSci,1,MISC
+College of Engineering,1,ORG
+ADHD,1,MISC
+APPLE,1,ORG
+AYEEE,1,ORG
+Adam,1,PER
+Android Store,1,MISC
+Apple ID,1,MISC
+Apple iPad Air 1st Gen,1,MISC
+Apple iPhone,1,MISC
+Arabic,1,MISC
+Ardwino,1,MISC
+Barnes and nobles,1,ORG
+Bollywood,1,MISC
+Brilliant,1,ORG
+COVID,1,ORG
+COVID-19,1,MISC
+CSS Fundamentals,1,MISC
+Ca,1,PER
+Classroom,1,MISC
+Code.org,1,MISC
+Codeacademy,1,ORG
+Codepen,1,ORG
+Harvard,1,ORG
+I-Pad.,1,MISC
+ROBLOX,1,MISC
+Node.js,1,MISC
+Mc’Jagger,1,PER
+Mimo App,1,ORG
+Min,1,PER
+Minecraft,1,MISC
+Mino,1,MISC
+MooC,1,MISC
+MySQL,1,MISC
+MySpace,1,ORG
+NLRFD,1,ORG
+NUMPY,1,MISC
+6,1,MISC
+IDLE,1,MISC
+PRO,1,MISC
+PayPal,1,ORG
+Pinterest,1,MISC
+Play Store,1,MISC
+Pluralsight,1,ORG
+Pog,1,PER
+Py,1,MISC
+Python Core,1,MISC
+Python for Beginners,1,MISC
+R,1,MISC
+MatNetFiles,1,ORG
+Massive Open Online,1,MISC
+Magic Keyboard,1,MISC
+Macbook,1,MISC
+IPAD,1,MISC
+IPad Pro,1,MISC
+IPhones,1,MISC
+Ipad,1,MISC
+Ipad mini 6,1,MISC
+JQuery,1,MISC
+Java Fundamentals,1,MISC
+JavaScript SoloLearn,1,MISC
+Jeff Shumway,1,PER
+Johnny,1,PER
+Kaboom,1,MISC
+Kanye,1,PER
+Koltin,1,MISC
+LearnJS,1,MISC
+Lolz,1,PER
+Lou,1,PER
+Lua Coding,1,MISC
+MATLAB,1,MISC
+MIT,1,ORG
+MVA,1,ORG
+MY,1,MISC
+لو,1,PER

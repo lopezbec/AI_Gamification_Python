@@ -1,0 +1,14 @@
+NER_Text,Count,NER_Label
+Python,19,MISC
+iPad,10,MISC
+Alex,1,PER
+Bitcoin,1,MISC
+C,1,MISC
+Eve,1,ORG
+Nice,1,ORG
+Parewa Labs,1,ORG
+Programiz,1,ORG
+Python Namespace,1,MISC
+Visual Studio Code,1,MISC
+iOS,1,MISC
+iPhone,1,MISC

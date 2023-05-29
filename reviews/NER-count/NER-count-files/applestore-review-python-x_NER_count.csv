@@ -1,0 +1,22 @@
+NER_Text,Count,NER_Label
+Python,9,MISC
+Mimo,3,MISC
+PythonX,3,MISC
+Python X,3,MISC
+PyX,2,MISC
+Apple iPhone 11,1,MISC
+U Demy,1,ORG
+Rust,1,MISC
+Ruby,1,MISC
+Python 3,1,MISC
+Kotlin,1,MISC
+Dart / Flutter,1,MISC
+Julia,1,MISC
+Josh Johnson,1,PER
+JavaScript,1,MISC
+Java,1,MISC
+Haskell,1,MISC
+Go,1,MISC
+European,1,MISC
+English,1,MISC
+X,1,MISC

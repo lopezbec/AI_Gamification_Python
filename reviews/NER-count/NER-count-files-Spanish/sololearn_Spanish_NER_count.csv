@@ -1,0 +1,415 @@
+NER_Text,Count,NER_Label
+sololearn,157,ORG
+smilingfacewithhearteyes,25,MISC
+duolingo,19,ORG
+grinningfacewithbigeyes,18,MISC
+kotlin,15,PER
+smilingfacewithsunglasses,14,MISC
+beamingfacewithsmilingeyes,14,MISC
+play store,13,MISC
+phyton,12,MISC
+code playground,11,MISC
+buenardo,11,PER
+smilingfacewithsmilingeyes,10,MISC
+visual basic,10,MISC
+solo learn,9,MISC
+google play,6,ORG
+facewithtearsofjoy,6,MISC
+sololearn pro,5,MISC
+u,5,ORG
+play,4,MISC
+nasa,4,ORG
+cuba,4,LOC
+grinningfacewithsmilingeyes,4,MISC
+loudlycryingface,4,MISC
+python 3,4,MISC
+redheart,4,ORG
+java script,4,MISC
+python,4,PER
+ruby,4,MISC
+argentina,3,LOC
+uds,3,ORG
+hello world,3,MISC
+udemy,3,ORG
+visual studio code,3,MISC
+script,3,MISC
+learn,3,MISC
+colombia,3,LOC
+android studio,3,MISC
+facewithsteamfromnose,3,MISC
+java,3,ORG
+callmehandlightskintone,3,MISC
+adderly cespedes,3,PER
+swift,3,MISC
+pensiveface,2,MISC
+php,2,MISC
+pascal,2,LOC
+clappinghands,2,MISC
+sql,2,MISC
+facesavoringfood,2,MISC
+platzi,2,PER
+slightlysmilingface,2,MISC
+star  star  star  star  star,2,MISC
+heartsuit,2,ORG
+googlec,2,ORG
+facescreaminginfear,2,MISC
+google development,2,MISC
+free fire,2,MISC
+freecodecamp,2,MISC
+raisinghandsmediumskintone,2,MISC
+game maker language,2,MISC
+python core,2,MISC
+gmail,2,ORG
+chevere,2,LOC
+chévere,2,LOC
+laravel,2,PER
+okhand,2,ORG
+angular js,2,MISC
+venezuela,2,LOC
+assembler,2,MISC
+unity,2,MISC
+uni,2,ORG
+lenguaje c,2,MISC
+c,2,MISC
+méxico,2,LOC
+visual studio,2,MISC
+adderly céspedes,2,PER
+starstruck,2,MISC
+lua,2,MISC
+modulo tkinter,1,MISC
+magnigica,1,MISC
+playstor,1,MISC
+playstore,1,MISC
+playstore print,1,MISC
+minecraft,1,MISC
+pley,1,MISC
+pley store,1,MISC
+python 310,1,MISC
+mimoen,1,PER
+militarymedal,1,MISC
+mantechnologistlightskintone,1,MISC
+pyhton core,1,MISC
+manfacepalmingmediumskintone,1,MISC
+mexico,1,LOC
+posgret,1,MISC
+messirve,1,PER
+playgoud,1,MISC
+printf,1,ORG
+mechanicalarm,1,MISC
+printta chulo,1,MISC
+publi,1,ORG
+maçho,1,PER
+manuel teves,1,PER
+pvtamadre,1,ORG
+manraisinghandmediumskintone,1,MISC
+miami,1,LOC
+okhandmediumskintone,1,MISC
+playa store,1,MISC
+play yo win,1,MISC
+opengldirectx,1,MISC
+okhandmediumlightskintone,1,MISC
+python for begginer,1,MISC
+okhand  redheart,1,MISC
+panamá,1,LOC
+partyingface,1,MISC
+partypopper,1,MISC
+ojalá,1,PER
+nodojs angular,1,MISC
+pearl,1,PER
+nodejs,1,MISC
+netbeans,1,MISC
+neos fiesta choice awars,1,MISC
+nelson,1,PER
+phyton 3,1,MISC
+muybuenaprendizaje,1,MISC
+phyton x,1,MISC
+phytonsqljavascript,1,MISC
+picante dou,1,MISC
+picsart,1,ORG
+piola,1,PER
+planea méxico,1,MISC
+msg toing,1,MISC
+moto g4 play,1,MISC
+mongodb,1,MISC
+moneywithwings,1,MISC
+mokosoft,1,PER
+opengl,1,MISC
+modulofizzbuzz,1,MISC
+python estructura de datos,1,MISC
+100 reconendada,1,MISC
+python for beginners,1,MISC
+speaknoevilmonkey,1,MISC
+upsidedownface,1,MISC
+unreal engine 4,1,MISC
+unity 5,1,MISC
+unity 3d gamer maker,1,MISC
+typescript,1,MISC
+trophy  sportsmedal,1,MISC
+todo y le doy 5,1,MISC
+tkinter,1,MISC
+thumbsupmediumlightskintone,1,MISC
+thumbsuplightskintone,1,MISC
+this love 3,1,MISC
+tester automatización,1,MISC
+te amo,1,MISC
+tad take and drop,1,MISC
+swift fundamentals,1,MISC
+swift angular js,1,MISC
+sublime text 3,1,MISC
+star  star  star  star  star  star,1,MISC
+sql server,1,MISC
+vbscript,1,MISC
+vdd,1,ORG
+victoryhandlightskintone,1,MISC
+windev,1,ORG
+youtune,1,MISC
+youtube intertronik youtube curso básico c,1,MISC
+xml,1,MISC
+wow,1,MISC
+winkingfacewithtongue,1,MISC
+winkingface,1,MISC
+windows forms,1,MISC
+windevsi,1,ORG
+wenardo,1,PER
+victoryhandmediumlightskintone,1,MISC
+wed,1,MISC
+web development fundamentals,1,MISC
+web developer,1,MISC
+warcos coronel,1,PER
+w3school,1,MISC
+vulkan,1,MISC
+vue,1,MISC
+vsc,1,MISC
+sql html,1,MISC
+sparklingheart,1,MISC
+python for benginers,1,MISC
+sparkles  blackheart  okhandlightskintone,1,MISC
+scanf,1,ORG
+sass,1,MISC
+rust,1,MISC
+ruby on rails cms,1,MISC
+ruby on rails,1,MISC
+ruby  c,1,MISC
+machine learnig c,1,MISC
+rstudio visualbasic,1,MISC
+rptm,1,MISC
+roblox,1,MISC
+redheart  explodinghead,1,MISC
+reactjs,1,MISC
+react js big data,1,MISC
+react  redux,1,MISC
+react,1,MISC
+raisinghandslightskintone  rocket,1,MISC
+raisinghands,1,MISC
+raisedhand  wavinghand,1,PER
+r  cryingface,1,MISC
+seenoevilmonkey,1,MISC
+self,1,MISC
+sena,1,LOC
+sologanas de aprender,1,MISC
+soolearn,1,MISC
+sololern,1,MISC
+sololeran,1,ORG
+sololearnpara,1,MISC
+sololearn 3000,1,MISC
+sololearn 1010,1,MISC
+sololearn  twohearts  pd,1,MISC
+sololear,1,MISC
+soloearn,1,MISC
+senka kualli,1,MISC
+solo learning,1,MISC
+smilingfacewithsunglasses  victoryhand,1,MISC
+smilingfacewithsunglasses  okhand,1,MISC
+smilingcatwithhearteyes,1,MISC
+simplemente perfecta,1,MISC
+signofthehornsmediumskintone,1,PER
+shootingstar  star,1,MISC
+shell script android studio,1,MISC
+machine learning,1,MISC
+latino america,1,LOC
+luahtml5javaruby,1,MISC
+class my class,1,MISC
+css c,1,MISC
+crossedfingersmediumskintone,1,MISC
+costa rica,1,LOC
+costa  rica,1,LOC
+core,1,MISC
+consolelogaquí,1,MISC
+conde playground,1,MISC
+code coach,1,MISC
+clojure,1,MISC
+clappinghandsmediumlightskintone,1,MISC
+candy crush,1,MISC
+clappinghandslightskintone,1,MISC
+chile,1,LOC
+checkmarkbutton,1,ORG
+chartincreasing,1,MISC
+chamba,1,PER
+cerio,1,LOC
+celia perez,1,PER
+cdecl,1,MISC
+cc,1,MISC
+cxxdroid,1,MISC
+dabi,1,PER
+dart lua,1,MISC
+dawdesarrollo,1,ORG
+estudie java,1,MISC
+españolademas,1,LOC
+españa,1,LOC
+esintuitiba,1,MISC
+epicardo,1,PER
+enseñanasa,1,LOC
+enrealidad,1,MISC
+edit,1,MISC
+ea,1,ORG
+dualingo,1,PER
+dropsmenriseduolingoetc,1,MISC
+dr garcía,1,PER
+documentwrite,1,MISC
+documentgetelementbyiddatoinnehml,1,MISC
+dizzy,1,PER
+dios mio,1,MISC
+dev c,1,MISC
+debbuger,1,MISC
+de,1,MISC
+caramba,1,PER
+calle melos,1,LOC
+lua objective c kotlin java android,1,MISC
+allegro de c,1,MISC
+anwriter free,1,MISC
+ankidroid,1,MISC
+angularjs bootstrap 3,1,MISC
+angular ionic backbone,1,MISC
+angular bootstrap,1,MISC
+angular,1,MISC
+androidxml,1,MISC
+amoooooo,1,MISC
+amo ésta,1,MISC
+alexis verón,1,PER
+call of duty,1,MISC
+akgi,1,ORG
+ahuevo,1,PER
+adsi,1,ORG
+administración de sistemas informáticos en red,1,MISC
+aderly céspedes,1,PER
+aderly,1,PER
+adderly cespedes v,1,PER
+adderly,1,ORG
+5,1,MISC
+api drag y drop,1,MISC
+apktanks,1,MISC
+app,1,MISC
+appme,1,MISC
+by yourself,1,MISC
+buenazo,1,PER
+buenarda nanana,1,PER
+bora,1,PER
+bootstrap 4,1,MISC
+bootstrap 3,1,MISC
+bondi,1,ORG
+beamingfacewithsmilingeyes  okhandmediumskintone,1,MISC
+bdjavahtml,1,MISC
+bdjava para compu,1,MISC
+bdhtmlcssphp,1,MISC
+batch powershell,1,MISC
+bash,1,MISC
+backhandindexpointingright,1,MISC
+astonishedface,1,MISC
+arduino abz,1,MISC
+arc map,1,MISC
+aprendepython,1,MISC
+aprende python,1,MISC
+excelent  learning,1,MISC
+explodinghead,1,MISC
+expressionlessface  facewithsteamfromnose,1,MISC
+java c pyhton,1,MISC
+kali linux,1,MISC
+juliaensambladorrustbioinformátics,1,MISC
+julia lan,1,MISC
+julia,1,PER
+johan strong,1,PER
+javautilscanner,1,MISC
+javascript,1,MISC
+java scrip r,1,MISC
+java eyes,1,MISC
+java c c,1,MISC
+facebook,1,ORG
+java c,1,MISC
+java 1010,1,MISC
+jajaj,1,PER
+indexeddb,1,MISC
+imternet,1,MISC
+ieacer7,1,MISC
+iaga,1,MISC
+i love you sololearn,1,MISC
+htmletc,1,MISC
+khan,1,PER
+khan academy,1,MISC
+kissingfacewithclosedeyes,1,MISC
+knockout papers physics,1,MISC
+los kiero 3,1,MISC
+lollipop,1,MISC
+linux shell,1,MISC
+linux,1,MISC
+likedin redheart,1,MISC
+levi,1,PER
+lernisg,1,MISC
+leonard cohen,1,PER
+learning,1,MISC
+learn pro,1,MISC
+learn pd,1,MISC
+learn es padrisimo,1,MISC
+latinoamerica,1,LOC
+1010,1,MISC
+laptop  blackheart,1,MISC
+lamaners,1,PER
+la amo  starstruck,1,MISC
+la amo,1,MISC
+kotlin ruby swift,1,MISC
+htmlcssjavascript,1,MISC
+htmlccjavascript,1,MISC
+html creator,1,MISC
+gmlgame maker,1,MISC
+glslshaders go,1,MISC
+globewithmeridians,1,MISC
+globeshowingasiaaustralia,1,MISC
+gemstone  redheart,1,MISC
+gdscriptgmletc,1,MISC
+gdscript,1,MISC
+gameobjets,1,MISC
+game maker,1,MISC
+game development with js,1,MISC
+game development with java script,1,MISC
+fundamentos de programacion,1,MISC
+flexedbiceps,1,MISC
+flexbox,1,MISC
+flanders,1,ORG
+fire  fire  fire,1,MISC
+felicidsdes,1,MISC
+fcebook,1,ORG
+fbstart,1,MISC
+facewithrollingeyes,1,MISC
+gml,1,MISC
+go bear,1,MISC
+htlm,1,MISC
+god es corte duolingo,1,MISC
+hola soy dalto,1,MISC
+hola mundo,1,MISC
+hello   world,1,MISC
+heartwithribbon,1,MISC
+heartdecoration,1,MISC
+haskell miranda,1,MISC
+gucci,1,PER
+gta v,1,MISC
+grinningcatwithsmilingeyes  sparkles,1,MISC
+great for begginers,1,MISC
+gran uyuda,1,MISC
+google play store,1,MISC
+google play service,1,MISC
+google flutter,1,MISC
+google chrome,1,MISC
+google,1,ORG
+godotscrip,1,MISC
+godot engine,1,MISC
+godot,1,PER
+z3,1,MISC

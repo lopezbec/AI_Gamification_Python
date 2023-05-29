@@ -1,0 +1,170 @@
+NER_Text,Count,NER_Label
+Codecademy,49,ORG
+Google,43,ORG
+Nice,21,ORG
+Python,14,MISC
+Ca,14,LOC
+Android,11,MISC
+Facebook,11,ORG
+Java,10,MISC
+GitHub,9,ORG
+Golang,7,MISC
+Codeacademy,7,ORG
+google,6,ORG
+Go,5,MISC
+Github,5,ORG
+Codecademy Go,5,MISC
+LinkedIn,5,ORG
+C,5,MISC
+God,4,PER
+Gmail,4,MISC
+JavaScript,4,MISC
+CodeAcademy,4,ORG
+Ruby,4,MISC
+CA,3,LOC
+YouTube,3,MISC
+codeacademy,3,ORG
+Sololearn,3,MISC
+Gud,3,PER
+Noice,2,ORG
+SoloLearn,2,MISC
+KhanAcademy,2,MISC
+Scrimba,2,MISC
+English,2,MISC
+Pixel 2,2,MISC
+FaceBook,2,ORG
+PC,2,MISC
+codecademy,2,ORG
+Android 10,2,MISC
+Android 9,2,MISC
+Jesus,2,PER
+Web,2,MISC
+Codeacademy Go,2,MISC
+N.JS,2,MISC
+Code academy,2,ORG
+Code Academy Pro,2,MISC
+Code Academy,2,ORG
+github,2,ORG
+HTML,2,MISC
+JS,2,MISC
+Pro,2,MISC
+Ui,1,LOC
+R,1,MISC
+React JS,1,MISC
+Stahp,1,ORG
+USA,1,LOC
+Tab S8 Ultra,1,MISC
+React.JS,1,MISC
+Streak,1,MISC
+Samsung Galaxy S7,1,MISC
+Samsung s9,1,MISC
+Samsung galaxy j5 prime,1,MISC
+University,1,ORG
+Samsung S8,1,MISC
+Realme,1,ORG
+Samsung Note 9,1,MISC
+Samsung Note 10,1,MISC
+SQL,1,MISC
+Samsung Galaxy Note 10,1,MISC
+Unity,1,MISC
+.,1,MISC
+V.V Good,1,PER
+kim,1,PER
+galaxy edge S7,1,MISC
+galaxy tab S5e,1,MISC
+honor play,1,MISC
+iOS,1,MISC
+iPad Pro,1,MISC
+iPhone 6s,1,MISC
+pro,1,MISC
+Vout 2D,1,MISC
+redmi note 5 pro,1,MISC
+s7,1,MISC
+samsung s10,1,MISC
+sshanumobile,1,ORG
+xiaomi redmi 4 prime,1,MISC
+העברית,1,MISC
+galaxy Note 9,1,MISC
+galaxy 7,1,MISC
+french,1,MISC
+duolingo,1,MISC
+codecademys,1,ORG
+codecademy go,1,ORG
+codecadedy,1,ORG
+ca,1,LOC
+black friday,1,MISC
+bickin,1,PER
+academy,1,MISC
+Yeehaw,1,LOC
+Xiaomi note 8 pro,1,MISC
+Xiaomi Mi8,1,MISC
+Whitehatjr,1,MISC
+WhatsApp,1,MISC
+WEB,1,MISC
+Xiaomi mi 8,1,MISC
+Lekh,1,PER
+Pixel 3a,1,MISC
+GO,1,MISC
+Ephesins2:10,1,MISC
+EU,1,ORG
+ENKI,1,ORG
+Duolingo,1,MISC
+Dex,1,MISC
+Desktop,1,MISC
+Data Science,1,MISC
+CrudCademy,1,ORG
+Codecadmy Go,1,MISC
+Codecadmy,1,ORG
+Codecadeny,1,ORG
+Codecademy Pro,1,MISC
+Codeademy Go,1,MISC
+CodeCademy Pro,1,MISC
+CodeCademy,1,ORG
+Chrome,1,MISC
+Christ,1,PER
+Cat McGee,1,PER
+CSS,1,MISC
+CODECADEMY,1,ORG
+CC,1,ORG
+C ++,1,MISC
+C #,1,MISC
+BlankAcademy,1,MISC
+Beware Codeacademy,1,ORG
+Basic Android Development,1,MISC
+Basar,1,ORG
+Android 9 Pie,1,MISC
+Ai,1,PER
+FS,1,ORG
+Galaxy 9 +,1,MISC
+Pixel 3,1,MISC
+Galaxy S8,1,MISC
+OnePlus 7 pro,1,MISC
+Okayish,1,ORG
+OAuth,1,MISC
+Note 9,1,MISC
+Nokia 5.1 plus,1,MISC
+Nokia 5.1,1,MISC
+Nive,1,ORG
+Moto Force Z2,1,MISC
+Moon,1,MISC
+Mike Dane,1,PER
+Academy,1,ORG
+Learn HTML,1,MISC
+"Learn C ++""",1,MISC
+Lear,1,MISC
+LUA,1,MISC
+LGBTQ + Tech Icons,1,MISC
+Khan Academy,1,ORG
+Karina,1,PER
+KA,1,ORG
+"JavaScript,phython",1,MISC
+JAVA,1,MISC
+Instagram,1,MISC
+Huawei Mate 20,1,MISC
+Hamdy,1,PER
+Grasshopper,1,MISC
+Goood,1,PER
+Googling,1,MISC
+Goodish,1,PER
+Gionee M15,1,MISC
+الله,1,PER

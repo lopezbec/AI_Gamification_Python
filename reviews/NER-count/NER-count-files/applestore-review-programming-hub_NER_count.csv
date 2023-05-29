@@ -1,0 +1,110 @@
+NER_Text,Count,NER_Label
+JavaScript,11,MISC
+Python,10,MISC
+iOS,10,MISC
+Programming Hub,8,ORG
+Java,8,MISC
+C,7,MISC
+English,7,MISC
+ProgramingHub,6,MISC
+ProgrammingHub,5,ORG
+John,5,PER
+Facebook,5,ORG
+Apple,4,ORG
+HTML,4,MISC
+App Store,4,ORG
+iPad,3,MISC
+CSS,3,MISC
+Android,3,MISC
+VS Code,2,MISC
+iPhone,2,MISC
+BART,2,ORG
+Ca,2,ORG
+Arabic,2,MISC
+Unity,2,MISC
+Learn,2,ORG
+apple,2,ORG
+Pro,2,MISC
+Lily,2,PER
+YouTube,2,MISC
+Tanyalei,1,PER
+Ted,1,PER
+Spanish,1,MISC
+ReactJS,1,MISC
+Sololearn,1,ORG
+SoloLearn,1,MISC
+Scratch,1,MISC
+Roba Mike,1,PER
+Raleigh,1,LOC
+Python 3,1,MISC
+Python 2,1,MISC
+Programminghub,1,MISC
+ProgrammingHubs,1,ORG
+UDAAP,1,MISC
+Advanced,1,MISC
+Udemy,1,ORG
+iOS 15,1,MISC
+khab,1,MISC
+iran,1,LOC
+iPhone 8 Plus,1,MISC
+iPhone 7 +,1,MISC
+iPhone 6,1,MISC
+iPhone 12 Pro Max,1,MISC
+iPhone 11 Pro Max,1,MISC
+iPad Air,1,MISC
+iOS 13.3,1,MISC
+University of Phoenix,1,ORG
+english,1,MISC
+ZenDesk,1,ORG
+Yowza,1,PER
+Xs Max,1,MISC
+Programming hub,1,MISC
+VB.NET,1,MISC
+Unreal engine,1,MISC
+Unreal Engine,1,MISC
+WORDSMITHS,1,PER
+Mimo,1,MISC
+Program Hub,1,ORG
+Premium,1,MISC
+Google Play,1,ORG
+Goode,1,ORG
+Facebook Thing,1,MISC
+Evernote,1,MISC
+Duolingo,1,MISC
+DogCat,1,MISC
+Code Academy,1,ORG
+Chinese,1,MISC
+CS,1,ORG
+C ++,1,MISC
+Brock Lytle,1,PER
+Boolean,1,MISC
+Black Friday,1,MISC
+Ben,1,PER
+Bay,1,LOC
+Apple-Microsoft,1,MISC
+Apple Store,1,MISC
+Apple App Store,1,ORG
+Amazona,1,MISC
+Havsvan,1,ORG
+Human,1,MISC
+IOS 13,1,MISC
+Linux,1,MISC
+Pluralsight,1,MISC
+Object Oriented Programming,1,MISC
+Nice,1,ORG
+MySpace,1,ORG
+Alzheimer's.,1,MISC
+Mike Patel,1,PER
+Microsoft,1,ORG
+MIMO,1,ORG
+LinkedIn,1,ORG
+IPad,1,MISC
+Lim,1,PER
+Knowin,1,MISC
+Jshshdvee,1,ORG
+Joseph p Brunner,1,PER
+Joey,1,PER
+Jobs,1,PER
+Javascript,1,MISC
+JSON,1,MISC
+use Grasshopper,1,ORG
