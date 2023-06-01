@@ -48,7 +48,7 @@ This notebook allows you to perform NER (Name Entity Recognition) analysis on th
 
 <table align="left">
   <td>
-    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/reviews/bigram-network/bigram_networks_interactive.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Bigram Networks</a>
+    <a target="_blank" href="https://colab.research.google.com/github/lopezbec/AI_Gamification_Python/blob/main/ reviews/bigram-network/bigram_networks_interactive.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Bigram Networks</a>
   </td>
 </table>
 <br><br></br>
