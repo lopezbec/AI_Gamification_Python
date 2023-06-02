@@ -7,9 +7,6 @@ import drag_drop
 from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup
-directorio_actual = os.path.abspath(os.path.dirname(__file__))
-directorio_hermano = os.path.abspath(os.path.join(directorio_actual, "..", "..", "prototype_prisila"))
-from prototype_prisila.badge_system.badge_verification import BadgeVerification
 
 class JsonLoader:
     @staticmethod
@@ -268,9 +265,6 @@ class MainWindow(QWidget):
                         break
                 # Si la respuesta seleccionada es correcta, mostrar un mensaje de éxito
                 if selected_answer_id == correct_answer_id:
-                    #solucion para el badge system
-                    self.badge = BadgeVerification()
-                    self.badge.show()
                     current_widget.feedback_label.setText("Respuesta correcta")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
                     self.SubmitHideContinueShow(True, False)
@@ -319,7 +313,6 @@ class MainWindow(QWidget):
                 current_widget.feedback_label.setText("Respuesta correcta")
                 current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
                 self.SubmitHideContinueShow(True, False)
-                BadgeVerification.show()
 
             else:
                 current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
