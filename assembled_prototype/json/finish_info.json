@@ -1,0 +1,12 @@
+{
+    "title_text": "Questionario finalizado, estas listo para aprender?",
+    "title_font_size": 18,
+    "title_font_family": "Lato",
+    "title_margin": 10,
+    "title_word_wrap": true,
+    "title_bold": true,
+
+    "finish_button_text": "Iniciar aprendizaje",
+    "finish_button_width": 250,
+    "finish_button_height": 30
+  }

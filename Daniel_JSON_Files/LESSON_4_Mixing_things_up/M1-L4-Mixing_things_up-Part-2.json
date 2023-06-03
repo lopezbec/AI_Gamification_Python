@@ -1,0 +1,75 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Líneas Múltiples",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Hay situaciones en las que es posible que desee utilizar el comando de impresión varias veces.\n Cada instrucción de impresión genera texto en una nueva línea."
+                },
+
+                {
+                    "type": "Consola",
+                    "text": "print('Name:')" 
+                },
+                {
+                    "type": "Consola",
+                    "text": "print('Mary:')" 
+                },
+                {
+                    "type": "Consola",
+                    "text": "print('Balance:')" 
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(500)" 
+                },
+
+                {
+                    "type": "hint",
+                    "text": "Una línea de código se llama declaración . Usamos sentencias para dar \n instrucciones a la computadora. Puede incluir tantas líneas o \n declaraciones como necesite en su código. Cuando le da \n a la computadora muchas declaraciones, \n las instrucciones se ejecutarán línea por línea, de arriba a abajo." 
+                }
+
+
+
+            ]
+        }
+    ],
+
+
+    "multiplechoiceplus": [
+        {
+            "title": "Arrastre y suelte para reorganizar el código y generar la letra de la canción popular como salida",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Nosotros somos los campeones amigos \nY seguiremos luchando hasta el final\n Somos los campeones."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": " "
+                }
+            ],
+            "answers": [
+                {
+                    "text": "print('Nosotros somos los campeones amigos')",
+                    "correct": true
+                },
+                {
+                    "text": "print('Y seguiremos luchando hasta el final')",
+                    "correct": true
+                },
+                {
+                    "text": "print('Somos los campeones')",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+
+
+
+
+
+}

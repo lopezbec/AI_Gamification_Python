@@ -1,10 +1,11 @@
-import sys
 import json
+import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, \
     QScrollArea, QMessageBox
 from PyQt5.QtCore import Qt
-
+sys.path.append(r"C:/Users/Admin/VSCode/AI_Gamification_Python")
 app = QApplication(sys.argv)
+
 
 class MainPage(QMainWindow):
     def __init__(self, data) -> None:
@@ -121,16 +122,16 @@ class QuestionPage(QMainWindow):
         else:
             QMessageBox.warning(self, "Advertencia", "Selecciona una respuesta antes de enviar.")
 
-# def main():
-#     app = QApplication(sys.argv)
+def main():
+    app = QApplication(sys.argv)
 
-#     with open("Elmer\Elmer_Pages_That_Mimic_SoloLearn\data.json", "r") as file:
-#         data = json.load(file)
+    with open("data.json", "r") as file:
+        data = json.load(file)
 
-#     main_page = MainPage(data)
-#     main_page.show()
+    main_page = MainPage(data)
+    main_page.show()
 
-#     sys.exit(app.exec_())
+    sys.exit(app.exec_())
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

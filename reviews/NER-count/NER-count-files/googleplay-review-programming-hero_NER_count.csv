@@ -1,0 +1,648 @@
+NER_Text,Count,NER_Label
+Nice,196,ORG
+Python,154,MISC
+Programming Hero,53,MISC
+Bangladesh,36,LOC
+Bangladeshi,33,MISC
+Java,31,MISC
+Jhankar Mahbub,30,PER
+YouTube,27,MISC
+Android,24,MISC
+English,21,MISC
+Bangla,20,MISC
+C,19,MISC
+God,17,PER
+Google,15,ORG
+Bengali,15,MISC
+JavaScript,11,MISC
+Osm,11,ORG
+Hero,9,ORG
+Grandma,9,PER
+Jhankar,9,PER
+Antik Mahmud,9,PER
+Nyc,7,LOC
+বাংলা,7,MISC
+Programming Hero Team,7,ORG
+Programming hero,7,MISC
+Python3,7,MISC
+SoloLearn,6,MISC
+GitHub,6,MISC
+HTML,6,MISC
+Allah,6,PER
+Fibu,5,ORG
+JAVA,5,MISC
+Bkash,5,MISC
+India,5,LOC
+Noice,5,ORG
+Sololearn,5,MISC
+bengali,5,MISC
+Programming Hub,5,ORG
+CSE,5,ORG
+BD,5,ORG
+Mahbub,4,PER
+Joss,4,PER
+Mimo,4,MISC
+Jhanker Mahbub,4,PER
+Nagad,4,MISC
+programming hero,4,MISC
+jhanker mahbub,4,PER
+jhankar mahbub,4,PER
+Hindi,4,MISC
+Osam,4,ORG
+PROGRAMMING HERO,4,ORG
+Amzing,3,ORG
+Jhankar Mahbub Vai,3,PER
+Udemy,3,MISC
+WoW,3,MISC
+Osthir,3,MISC
+Rocket,3,MISC
+jhankar mahbub vai,3,PER
+Gud,3,PER
+Arduino,3,MISC
+Html,3,MISC
+Playstore,3,MISC
+nyc,3,LOC
+Russian,3,MISC
+bangladeshi,3,MISC
+Javascript,3,MISC
+CSS,3,MISC
+english,3,MISC
+Python 3,3,MISC
+Pygame,3,MISC
+PHP,3,MISC
+Xoss,3,PER
+python,3,MISC
+Kotlin,3,MISC
+ইংলিশ,2,MISC
+jhankar mahabub,2,PER
+DeployTo GitHub,2,MISC
+google,2,ORG
+google play,2,MISC
+Jhankar Mahbub vai,2,PER
+india,2,LOC
+Valo,2,ORG
+মাহবুব,2,PER
+Huawei,2,ORG
+INDIA,2,LOC
+hero,2,MISC
+Ossum,2,ORG
+jhankar,2,PER
+ঝংকার,2,PER
+Jhankar Mahmud,2,PER
+Facebook,2,ORG
+Google Play Store,2,ORG
+OOP,2,MISC
+Alex,2,PER
+Goof,2,PER
+YT,2,ORG
+Jhanker,2,PER
+Jhanker Mahabub,2,PER
+বাংলাদেশ,2,LOC
+Git,2,MISC
+Grasshopper,2,MISC
+Galaxy,2,MISC
+Galaxies,2,MISC
+bangladesh,2,LOC
+বাংলাদেশে,2,LOC
+GOD,2,PER
+GIT,2,MISC
+French,2,MISC
+ঝংকার মাহবুব,2,PER
+Jhankar Vai,2,PER
+Jhankar mahbub,2,PER
+jhankar mahbub bhai,2,PER
+Python IDE,2,MISC
+Nigerian,2,MISC
+Nigeria,2,LOC
+ABC,2,MISC
+Programming Hero : Coding Just Got Fun,2,MISC
+App Store,2,ORG
+Blockchain,2,MISC
+Nicr,2,ORG
+Play Store,2,MISC
+pakistan,2,LOC
+programming Hero,2,MISC
+NICE,2,ORG
+sololearn,2,MISC
+Tnx,2,LOC
+Tkinter,2,MISC
+Phyton,2,MISC
+Nic,2,ORG
+Nepal,2,LOC
+Awsm,2,ORG
+python 3,2,MISC
+raspberry Pi,2,MISC
+Jankar Mahbub,2,PER
+BKash,2,MISC
+Mahmud,2,PER
+Jhankar vai,2,PER
+Internet,2,MISC
+C ++,2,MISC
+C / C ++,2,MISC
+অসাম অসাম,2,PER
+Noce,2,LOC
+jhonkar vai,2,PER
+Code Playground,2,MISC
+Nise,2,ORG
+Steve,2,PER
+Antik,2,PER
+Lua,2,MISC
+jhanker mahabub,2,PER
+PAYTM,1,MISC
+TeamHero,1,ORG
+Sotti,1,LOC
+Stephen G Kochans',1,PER
+Sololearning,1,MISC
+Spanish,1,MISC
+Sheeesh,1,PER
+Osom,1,ORG
+Sohag360,1,ORG
+Super Duper,1,MISC
+Sukriya,1,PER
+Sololearn App,1,MISC
+Supeb,1,ORG
+Team Programming Hero,1,MISC
+Tat,1,PER
+Ossem,1,PER
+Tamil Nadu,1,LOC
+TVET,1,ORG
+TTS,1,MISC
+Suuper,1,PER
+Ossaaam,1,PER
+Ossam,1,PER
+Ostir,1,ORG
+Ossm,1,ORG
+SoloLearn Python,1,MISC
+Solo Learn,1,MISC
+Pc,1,MISC
+Semmaa,1,PER
+Python-3,1,MISC
+Telenor,1,ORG
+Python 3.0,1,MISC
+Py,1,MISC
+Punjabi,1,MISC
+ProgrammingHero,1,ORG
+Programming in C,1,MISC
+PUBG,1,MISC
+Programming Hero.,1,MISC
+PYTHON,1,MISC
+Programming Hero App,1,MISC
+Programming,1,ORG
+Programme Hero Team,1,ORG
+Programing Hero,1,MISC
+Pro,1,MISC
+PlayStore,1,MISC
+Play,1,MISC
+PYTHON IDE,1,MISC
+Planet,1,MISC
+PYTHON JAVA,1,MISC
+"PYTHON,C,C",1,MISC
+Pip,1,MISC
+Phython,1,MISC
+PYthonBTW,1,MISC
+Python Programming Language,1,MISC
+Python.,1,MISC
+Selena Gomez,1,PER
+Python.BTW,1,MISC
+Sei,1,PER
+PH,1,ORG
+Sawyer,1,PER
+Savage Eash,1,ORG
+Samsung Galaxy Note9,1,MISC
+Russian.,1,MISC
+Ruby,1,MISC
+Romeo,1,PER
+Roblox,1,MISC
+Road,1,LOC
+Richi,1,PER
+Republic of Islamic of Iran,1,LOC
+Perahin,1,PER
+ReactJs,1,MISC
+Rasberry Pi,1,MISC
+RasPi,1,MISC
+RU,1,LOC
+RTG,1,ORG
+RDD,1,ORG
+Python3.Thanks,1,MISC
+PLZ,1,ORG
+Python.So,1,MISC
+Python.I,1,MISC
+Python Programming App,1,MISC
+.,1,MISC
+Terminal,1,MISC
+nodeJS,1,MISC
+mahbub baia,1,PER
+mahbub vai,1,PER
+mandarin,1,MISC
+mehboob,1,PER
+nepal,1,LOC
+node js,1,MISC
+opencv,1,MISC
+Thai,1,MISC
+os,1,MISC
+ossam,1,ORG
+phython 3,1,MISC
+programming Hero 2,1,MISC
+programming Hero 3,1,MISC
+programming hero 1,1,MISC
+mahabub vai,1,PER
+lg,1,ORG
+l ca,1,ORG
+koushik,1,PER
+jhunkar mahbub,1,PER
+jhunkar Mahbub vai,1,PER
+jhonkar mahmud,1,PER
+jhonkar mahabub Vai,1,PER
+jhonkar,1,PER
+jhanker mahbub brother,1,PER
+jhankarmahbub,1,PER
+jhankar vaiya,1,PER
+jhankar vai,1,PER
+jhankar the hablu,1,PER
+jhankar mehboob Bhai,1,PER
+jhankar mahmud,1,PER
+jhankar mahbub.we,1,PER
+programminghero,1,ORG
+pygame,1,MISC
+redmi,1,MISC
+আলহামদুলিল্লাহ,1,PER
+🇧🇩,1,LOC
+อิท อิส กึ้ด,1,PER
+মাহবুব ভাইয়া,1,PER
+মা শা আল্লাহ।,1,PER
+মচেতকার,1,ORG
+বাংলায়,1,LOC
+বাংলায়,1,MISC
+বাংলাদেশের,1,LOC
+বাংলাদেশীদের,1,MISC
+বাংলাদেশি,1,MISC
+পাইথন,1,MISC
+ঝংকার স্যারের,1,PER
+ঝংকর,1,PER
+জাজাকাল্লাহ খাইরান,1,ORG
+আপ্নারাই,1,PER
+redmi note 4,1,MISC
+আন্তিক মাহমুদ,1,PER
+অন্তিক,1,PER
+שפת,1,MISC
+פייטון 3,1,MISC
+Информатика,1,ORG
+udemy,1,MISC
+tkinter,1,MISC
+tios game,1,MISC
+smtlib,1,MISC
+selena gomez,1,PER
+sanowar Islam,1,PER
+samsung,1,MISC
+sakib,1,PER
+repl.it,1,MISC
+jhankar mahbub vaiya,1,PER
+jhankar mahabub bhai,1,PER
+jhankar Mahbub,1,PER
+Valgse,1,ORG
+Youtube,1,ORG
+Xiaomi MI Max 2,1,MISC
+World of Web,1,MISC
+WordPress,1,MISC
+Woner,1,PER
+WildLearner,1,MISC
+Web,1,MISC
+WePlay Game Engine,1,MISC
+WHALLA,1,LOC
+Vusal _ Sediyev,1,PER
+Vue,1,MISC
+Vinod,1,PER
+Vijay kumar Ratnani,1,PER
+Vera,1,PER
+V.good,1,PER
+Zero to Hero,1,MISC
+Unlock Pro Content,1,MISC
+University,1,ORG
+Unity,1,MISC
+Ui,1,ORG
+Udacity,1,ORG
+Uchenna Kevin,1,PER
+UPI,1,ORG
+Trojan,1,MISC
+Tom hancks,1,PER
+Tom cruise,1,PER
+Tom Hardy,1,PER
+Tom Hanks',1,PER
+Thip,1,MISC
+Thiis,1,MISC
+Zankar Mahbub,1,PER
+Zhankar Mahbub vai.,1,PER
+jesus,1,PER
+duolingo,1,MISC
+jankhar muhbub,1,PER
+jankar mahavub vai,1,PER
+jankar bi,1,PER
+iran,1,LOC
+iOS,1,MISC
+honor 5x,1,MISC
+heroku,1,MISC
+hero.,1,MISC
+google.You,1,ORG
+google.But,1,ORG
+google.,1,ORG
+google play store,1,ORG
+github,1,ORG
+edX,1,ORG
+django,1,MISC
+Zhankar vaiya,1,PER
+cy,1,PER
+cs,1,ORG
+bkash,1,ORG
+bill Gates,1,PER
+bd,1,LOC
+bcz,1,ORG
+bangladesh.,1,LOC
+autopy,1,MISC
+arabic,1,MISC
+antik mahmud,1,PER
+ankit mahmud,1,PER
+anglais,1,MISC
+adea,1,ORG
+Zimnandi,1,ORG
+Wounderfull,1,ORG
+MsT,1,MISC
+Osame,1,ORG
+Discord,1,MISC
+Dani,1,PER
+DataBot,1,MISC
+Destiny,1,MISC
+Devs,1,PER
+Dhaka,1,LOC
+Digital Technology,1,MISC
+Divyanshu Prakash,1,PER
+Crypto,1,MISC
+DrunK,1,PER
+Dunno,1,PER
+DuoLingo,1,ORG
+Duolingo,1,MISC
+Dutch,1,MISC
+"E.A.First,it",1,MISC
+Dabest,1,ORG
+CrazyBrad,1,MISC
+Op,1,PER
+Chicago,1,LOC
+CLI,1,MISC
+CODING PLAYGROUND,1,MISC
+Call of Duty 4,1,MISC
+Candy Crush,1,MISC
+Certificate,1,MISC
+Cheta,1,ORG
+Choice,1,MISC
+Corona,1,MISC
+Christmas,1,MISC
+Codding,1,MISC
+Code,1,MISC
+Code Spark,1,MISC
+Code playground,1,MISC
+College,1,ORG
+Electric,1,ORG
+Elixir,1,MISC
+Emma Watson,1,PER
+Godot,1,MISC
+Galad,1,PER
+Geo,1,PER
+Ggez,1,PER
+Github,1,ORG
+Gmail,1,MISC
+Godd,1,PER
+Golang,1,PER
+Ender 's Game,1,MISC
+Goog,1,PER
+Google Play,1,ORG
+Google Translate,1,MISC
+Gooood,1,ORG
+Grammar,1,MISC
+Grammarly,1,MISC
+GRANDMA,1,ORG
+GITHUB,1,MISC
+Fundamentals Pyhton,1,MISC
+Foxy,1,PER
+Faiza,1,PER
+Fahad Rahim,1,PER
+FIFA,1,ORG
+Extrodinary,1,ORG
+Exiland,1,ORG
+Excelsiar,1,MISC
+ExcellAnT MEZ,1,PER
+Español,1,MISC
+Eror,1,PER
+Epic,1,ORG
+English-the,1,MISC
+"English,that",1,MISC
+"English,Bangla,hindi",1,MISC
+C # Dart,1,MISC
+Byjus,1,PER
+Byah,1,PER
+Android Development,1,MISC
+Ammu,1,PER
+Anazing,1,ORG
+Andake,1,MISC
+Android 10,1,MISC
+Android 11 Go Edition,1,MISC
+Android 7.1.2,1,MISC
+Angas,1,LOC
+Automate The Boring Stuff,1,MISC
+Ansh,1,PER
+Antik Mahmoud,1,PER
+Antik Mahmud vahi.,1,PER
+Antik Vai,1,PER
+Antiks Mahmud,1,PER
+Arabic,1,MISC
+Amezing,1,MISC
+Amaze,1,ORG
+Amaizing,1,ORG
+Amader Moto,1,ORG
+Amaaaazing,1,ORG
+Almighty,1,PER
+Ai,1,MISC
+Agun,1,LOC
+Africa,1,LOC
+Afghanistan,1,LOC
+Adítyá Ráj,1,PER
+Abiazka,1,PER
+AIDE,1,MISC
+ADHD,1,MISC
+ABCD,1,ORG
+AAP,1,ORG
+A71,1,MISC
+Aseom,1,MISC
+Avery,1,MISC
+Burger Game,1,MISC
+Bill Gates,1,PER
+Belta,1,LOC
+Bengali.Hope,1,MISC
+Bifu,1,PER
+Biginers,1,MISC
+Bikash,1,MISC
+"Bikash,Nogod",1,PER
+Bitcoin,1,MISC
+Awe,1,ORG
+"Bkash,Nagad,Rocket",1,MISC
+Black Friday,1,MISC
+Brazilian,1,MISC
+Brills,1,ORG
+Broski,1,PER
+Burger Challenge,1,MISC
+Beat,1,ORG
+Bcs,1,ORG
+Bay,1,LOC
+Bangladeshis,1,MISC
+Bangladeshi.,1,MISC
+Bangladesh.As,1,LOC
+Bangladesh.,1,LOC
+Bangladehi,1,MISC
+Bangaldeshi,1,MISC
+Balbal,1,PER
+Baest,1,ORG
+BadAss,1,ORG
+B'Desh,1,LOC
+Ayman,1,PER
+Awsum,1,MISC
+Awsame,1,PER
+Awsam.It,1,PER
+GrandMaa,1,ORG
+Grasshoper,1,MISC
+Grasshoper Code,1,MISC
+LisabethDixon,1,PER
+La shet,1,ORG
+Lalantop,1,PER
+Leaner,1,PER
+Lifetime Pro,1,MISC
+Liftime,1,MISC
+Linux,1,MISC
+Lol,1,PER
+Mark Zuckerberg,1,PER
+M1M0,1,MISC
+MFS,1,MISC
+Mado,1,PER
+Mahabub,1,PER
+Mahabub vai,1,PER
+Majduldeen Nader,1,PER
+Khosraw,1,PER
+Khool,1,ORG
+Kewl,1,ORG
+Keshav jha,1,PER
+Keshav,1,PER
+Keraniganj,1,LOC
+Kavaniih,1,PER
+Kanyakumari,1,LOC
+Kabia Jaja,1,PER
+Jusu,1,PER
+Jus,1,PER
+Junju,1,ORG
+Julie,1,PER
+Joss App,1,ORG
+Jongkar Mahbub,1,PER
+Joiful,1,ORG
+Johnkar Mahbub,1,PER
+Malaysia,1,LOC
+MarthaK Carter,1,PER
+Jhonkor Mahmud,1,PER
+OSM,1,ORG
+Nilima,1,ORG
+NoNeedToPay,1,MISC
+Nogod,1,MISC
+Nohod.Please,1,MISC
+Nyz,1,MISC
+O My,1,PER
+Ocam,1,ORG
+Masaallah,1,ORG
+Olease,1,ORG
+Omaging,1,ORG
+OnFire Fibu,1,MISC
+Oneplus 5T,1,MISC
+Oneplus 7T,1,MISC
+Oosam,1,ORG
+Nicenicenice,1,ORG
+Nicee,1,ORG
+Nice.Educative,1,LOC
+New Video Tutorials,1,MISC
+New,1,MISC
+Netflix,1,ORG
+Nest,1,ORG
+NeVerSeTTle,1,MISC
+Naice,1,ORG
+NFTs,1,MISC
+NELSON,1,ORG
+My Talking Angela,1,MISC
+Muhammad,1,PER
+7.o1 Nugut,1,MISC
+Minku,1,PER
+Mbs,1,ORG
+Mashallah,1,LOC
+Jhunkar Mahmoud,1,PER
+Jhonkkar,1,PER
+Grasshopper Coding Software,1,MISC
+JHANKAR MAHBUB,1,PER
+Ineed,1,PER
+Ita,1,LOC
+Italia,1,LOC
+J7star,1,MISC
+JARVIS,1,MISC
+JHANKAR,1,PER
+JHS,1,MISC
+Jankar Mahbub Bhaia,1,PER
+JHankar Mahbub vai,1,PER
+JM,1,PER
+JS,1,MISC
+Jai hind,1,PER
+Jangkar VAi,1,LOC
+Jankar,1,PER
+Industrial Revolution 4.0,1,MISC
+Indonesian,1,MISC
+Inca,1,MISC
+Ihtesham,1,PER
+IU,1,ORG
+IOS,1,MISC
+ICSE,1,ORG
+I.T,1,MISC
+I.,1,MISC
+I,1,MISC
+Huawei y3,1,MISC
+Hero Python,1,MISC
+Hella,1,ORG
+Hablu,1,MISC
+HSC,1,ORG
+HABLU,1,MISC
+Gui,1,MISC
+Jankar Mahabub,1,PER
+Jankar mahabub vi,1,MISC
+Jhonkar Mahbub,1,PER
+Jhankar vaia,1,PER
+Jhankar Mahbub vaiya,1,PER
+Jhankar Mahbub.His,1,PER
+Jhankar Mahmud Bhai,1,PER
+Jhankar Mahub,1,PER
+Jhankar Vaia.,1,PER
+Jhankar Vaiya,1,PER
+Jhankar vaiya,1,PER
+Jankar mahbub,1,ORG
+Jhankar.You,1,PER
+Jhanker vaia,1,PER
+Jhankor,1,PER
+Jhnakar Mahbub,1,PER
+Jhonkar,1,PER
+Jhonkar Mahabub,1,PER
+Jhankar Mahbub Brother,1,PER
+Jhankar Mahbub Bhaiya,1,PER
+Jhankar Mahbub Bhai,1,PER
+Jhankar Mahboob.I,1,PER
+Jhankar Mahabub vai,1,PER
+Jhankar Mahabub bai,1,PER
+Jhankar Mahabub Brother.,1,PER
+"Jhankar Bhai,you",1,PER
+Jhankar Bhai,1,PER
+Jhangkar vai,1,PER
+Jhangkar Mahbub Bhai,1,PER
+Jhangkar,1,PER
+Jhangar Mahbub,1,PER
+Jhanankar Mahbub,1,PER
+Jaz,1,ORG
+JavaScript Canvas,1,MISC
+Janker Mahbub,1,PER
+🇮🇳,1,LOC

@@ -1,0 +1,46 @@
+NER_Text,Count,NER_Label
+programming hub,2,MISC
+codecademy,2,ORG
+google,2,ORG
+sololearn,2,MISC
+españa,2,LOC
+américa,1,LOC
+learn at home 95,1,MISC
+lifetime,1,MISC
+linux shell scripting,1,MISC
+metodo pascal,1,MISC
+méxico,1,LOC
+peru,1,LOC
+piola,1,PER
+purecss ionic,1,MISC
+joshua guevara jimnez,1,PER
+scanf,1,MISC
+server,1,MISC
+sql,1,MISC
+tulip,1,PER
+unreal engine 4 blueprints,1,MISC
+visual basic 60,1,MISC
+visual studio,1,MISC
+webapp,1,MISC
+lazarus,1,PER
+hello world,1,MISC
+i want to learn,1,MISC
+android studio java,1,MISC
+app development,1,MISC
+bienen,1,PER
+callmehand,1,PER
+covid19,1,MISC
+dart,1,MISC
+dartflutter,1,MISC
+delphi,1,PER
+delphi android,1,MISC
+duolingo,1,ORG
+edpañol,1,ORG
+ello goo,1,PER
+españollseria,1,LOC
+espeñol,1,LOC
+go node js,1,MISC
+google online,1,MISC
+google play,1,MISC
+grinningfacewithbigeyes,1,MISC
+yeltsin pavon,1,PER

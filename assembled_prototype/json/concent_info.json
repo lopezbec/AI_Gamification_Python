@@ -1,0 +1,21 @@
+{
+    "title_text": "Terminos y condiciones",
+    "title_bold": true,
+    "title_font_size": 18,
+    "title_font_family": "Lato",
+    "title_word_wrap": true,
+    "title_margin": 5,
+
+    "content_text": "Aqui ira un texto para dar concentimiento a los terminos y condiciones",
+    "content_font_size": 12,
+    "content_font_family": "Lato",
+    "content_word_wrap": true,
+    "content_margin": 10,
+    
+    "accept_checkbox_text": "Aceptar terminos y condiciones",
+    "button_text": "Acepto",
+    "button_width": 250,
+    "button_height": 30,
+    "button_enabled": false
+
+}

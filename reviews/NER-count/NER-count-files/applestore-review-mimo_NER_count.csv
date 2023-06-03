@@ -1,0 +1,227 @@
+NER_Text,Count,NER_Label
+Mimo,195,MISC
+Python,61,MISC
+Duolingo,50,MISC
+iPad,21,MISC
+HTML,20,MISC
+App Store,17,MISC
+Swift,14,MISC
+JavaScript,14,MISC
+English,11,MISC
+CSS,11,MISC
+Apple,11,ORG
+Java,11,MISC
+MIMO,10,MISC
+Udemy,10,ORG
+mimo,9,MISC
+Facebook,8,MISC
+SQL,8,MISC
+duolingo,7,MISC
+Mimi,7,MISC
+Lua,5,MISC
+DuoLingo,5,MISC
+Codecademy,5,ORG
+Python 3,4,MISC
+MiMo,4,MISC
+R,4,MISC
+Xcode,4,MISC
+M1,3,MISC
+M1m0,3,MISC
+God,3,PER
+Javascript,3,MISC
+SoloLearn,3,MISC
+apple,3,ORG
+Swifty,3,MISC
+IOS,3,MISC
+iPhone,3,MISC
+.,3,MISC
+iOS,2,MISC
+Arabic,2,MISC
+Mimo Pro,2,MISC
+App of the Day,2,MISC
+iTunes,2,ORG
+Streak Freeze,2,MISC
+Odin Project,2,MISC
+Engineering,2,MISC
+LinkedIn Learning,2,MISC
+Java Script,2,MISC
+Mac,2,MISC
+Smart Cleaner,2,MISC
+Unity,2,MISC
+Instagram,2,ORG
+C,2,MISC
+Coursera,2,ORG
+C ++,2,MISC
+MacBook,2,MISC
+GDScript,2,MISC
+Nation States,1,MISC
+Nice,1,ORG
+ReactJS,1,MISC
+Node JS,1,MISC
+Roblox,1,ORG
+Ruby,1,MISC
+Russian,1,MISC
+RaspberryPi,1,MISC
+Playgrounds in Xcode,1,MISC
+Raspberry Pi,1,MISC
+PHP,1,MISC
+Prisha,1,PER
+Pro,1,MISC
+Programming Hub,1,MISC
+Phyton,1,MISC
+Pyhon,1,MISC
+Palestine,1,LOC
+PBJ,1,MISC
+ROBLOX,1,MISC
+PB & J,1,MISC
+Oythin,1,ORG
+Oracle,1,ORG
+Power BI,1,MISC
+Qustodio,1,ORG
+Ok,1,MISC
+Python Loops,1,MISC
+& J,1,MISC
+SWIFT,1,MISC
+Sam,1,PER
+arabic,1,MISC
+codeacademy,1,MISC
+doulingo,1,MISC
+iOS 11,1,MISC
+iPad Pro,1,MISC
+iPhone 11,1,MISC
+iPhone 12,1,MISC
+iPhone 12 Pro Max,1,MISC
+iPhone 7,1,MISC
+iPhone Plus,1,MISC
+iPhone X,1,MISC
+iPhone xs,1,MISC
+iPhone-is,1,MISC
+iphone 11 pro,1,MISC
+lynda,1,PER
+mac book air,1,MISC
+macbook,1,MISC
+memo,1,MISC
+mimmo,1,PER
+nintendo,1,ORG
+spanish,1,MISC
+and Service,1,MISC
+Zybooks,1,PER
+Xbox Live,1,MISC
+TeaMarieG,1,PER
+SaveTheWorld,1,MISC
+Schmeej101,1,PER
+Scotty Saunders,1,PER
+Snapchat,1,ORG
+Spanish,1,MISC
+Sprint,1,ORG
+Streak Repair,1,MISC
+MoveOn,1,ORG
+TJ Reed,1,PER
+The Mimo Team,1,ORG
+Web Development,1,MISC
+To Make Apps,1,MISC
+Treehouse,1,MISC
+Ty Fir That,1,MISC
+UCI,1,ORG
+US,1,LOC
+Ukraine,1,LOC
+VBA,1,MISC
+Vusual Basic,1,MISC
+W3schools,1,ORG
+NICE,1,ORG
+Mario Job,1,PER
+Mosh,1,PER
+DMV,1,ORG
+Candy Crush,1,MISC
+Cat + Queen,1,MISC
+Chinese,1,MISC
+Christmas,1,MISC
+CodeAcademy,1,ORG
+Codeacademy,1,ORG
+Codio,1,PER
+Computer Info Tech,1,MISC
+DAX,1,MISC
+Daddy,1,PER
+COVID-19,1,ORG
+David Bombal,1,PER
+Devops,1,ORG
+Dulingo,1,ORG
+Duolingo-style,1,MISC
+Duolingo-type,1,MISC
+EdX,1,MISC
+Elon musk,1,PER
+FNAF,1,ORG
+Five Nights at Cuphead ’s,1,MISC
+CS50,1,MISC
+CBSSports,1,ORG
+French,1,MISC
+Ashton,1,PER
+10.0,1,MISC
+A.D.D,1,MISC
+A.D.H.D,1,MISC
+ABCYA,1,ORG
+Andriod,1,MISC
+Apple ID,1,MISC
+Arduino,1,MISC
+Arnold C,1,MISC
+ArnoldC,1,MISC
+BBB,1,ORG
+C / C ++,1,MISC
+Back End Developer Certificate,1,MISC
+Ben,1,PER
+Betsy,1,LOC
+Big Bang Theory,1,MISC
+Big Macs,1,MISC
+Bility,1,MISC
+Blake Jobs,1,PER
+Brett,1,PER
+Bryan,1,PER
+Fortnite,1,MISC
+Gmail,1,ORG
+Mohammed,1,PER
+Mark Myers,1,PER
+Linux,1,MISC
+M.,1,MISC
+M1M0,1,MISC
+MIMO APP,1,MISC
+MS Edge,1,MISC
+Mac Book pro,1,MISC
+Mac OS,1,MISC
+Mac os,1,MISC
+Macs,1,MISC
+Marvel Contest of Champions,1,MISC
+Jumping Around,1,MISC
+Mashallah,1,ORG
+Max OS,1,MISC
+Merica,1,PER
+Mike,1,PER
+Mimo - Sub-Sandwich,1,PER
+Mimo Team,1,ORG
+Mimo pro,1,MISC
+Mimolicios,1,MISC
+Mimó,1,PER
+Khan Academy,1,ORG
+Joe Joe mama,1,MISC
+Google,1,ORG
+Hopscotch,1,MISC
+Google Playstore,1,MISC
+Googled,1,MISC
+Grammy,1,MISC
+HBOMAX,1,ORG
+HTML CSS,1,MISC
+HTML5,1,MISC
+Habitica,1,MISC
+Henry,1,PER
+Himmee,1,PER
+I. Ca,1,LOC
+Jesus Christ,1,PER
+IAmVanessaGuillen,1,PER
+IIT,1,ORG
+ITunes,1,ORG
+Italian,1,MISC
+J,1,PER
+JS,1,MISC
+JavaScrip,1,MISC
+Je,1,PER
+Jes,1,PER
+w3schools,1,MISC

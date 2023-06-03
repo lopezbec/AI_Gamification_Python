@@ -1,0 +1,11 @@
+NER_Text,Count,NER_Label
+datacamp,9,ORG
+diez,1,PER
+github studio,1,MISC
+phyton,1,MISC
+python data science toolkit,1,MISC
+python r,1,MISC
+rollingonthefloorlaughing,1,MISC
+spark sql,1,MISC
+sql server,1,MISC
+udemy,1,ORG

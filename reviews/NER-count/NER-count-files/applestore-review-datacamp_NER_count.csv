@@ -1,0 +1,57 @@
+NER_Text,Count,NER_Label
+DataCamp,74,ORG
+Python,27,MISC
+iPad,24,MISC
+R,22,MISC
+SQL,18,MISC
+Datacamp,6,MISC
+iPad Pro,5,MISC
+iOS,5,MISC
+Data Camp,3,MISC
+datacamp,2,ORG
+DS,2,MISC
+Apple,2,ORG
+AppStore,2,ORG
+YouTube,2,MISC
+RStudio,1,MISC
+Tableau,1,MISC
+Science,1,MISC
+Power BI,1,MISC
+Shell,1,ORG
+Starbucks,1,ORG
+14 Pro,1,MISC
+Wall Street Finance,1,ORG
+apple,1,ORG
+coursera,1,ORG
+Pandas,1,MISC
+duolingo,1,ORG
+edX,1,MISC
+iPhone,1,MISC
+iPhone 5S,1,MISC
+iPhone 6s,1,MISC
+Pluralsight,1,MISC
+Not4me,1,MISC
+Oldsera,1,MISC
+ONE'S,1,MISC
+AWS,1,ORG
+App Store,1,ORG
+C,1,MISC
+Ca,1,PER
+Coursera,1,ORG
+DBMS,1,MISC
+DatCamp,1,MISC
+Data Science for Everyone,1,MISC
+DataCamp.com,1,MISC
+Duolingo,1,MISC
+EdX,1,ORG
+Excel,1,MISC
+Facebook,1,ORG
+GMAT,1,MISC
+Hugo,1,PER
+Java,1,MISC
+Kaplan,1,PER
+Linux,1,MISC
+MATlab,1,ORG
+ML,1,MISC
+4th NumPy,1,MISC
+iPod 5,1,MISC

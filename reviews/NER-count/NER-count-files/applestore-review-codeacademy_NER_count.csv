@@ -1,0 +1,112 @@
+NER_Text,Count,NER_Label
+iPad,73,MISC
+Codecademy,40,ORG
+iPhone,32,MISC
+Facebook,18,ORG
+Google,12,ORG
+JavaScript,12,MISC
+iPads,8,MISC
+Code Academy,6,ORG
+iPad Pro,5,MISC
+Mimo,4,PER
+Python,4,MISC
+CodeAcademy,4,ORG
+HTML,3,MISC
+iOS,3,MISC
+iOS 13,3,MISC
+Java,3,MISC
+God,2,PER
+codeacademy,2,MISC
+YouTube,2,MISC
+FCC,2,ORG
+Safari,2,MISC
+Datacamp,2,MISC
+DataCamp,2,MISC
+Codecademy pro,2,MISC
+Codecademy Pro,2,MISC
+GitHub,2,ORG
+Swift,2,MISC
+Codeacademy,2,ORG
+C,2,MISC
+Apple,2,ORG
+LinkedIn,2,ORG
+CodeAcademy Go,2,MISC
+SQL,2,MISC
+CSS,2,MISC
+Magic Keyboard,2,MISC
+CodeCademy,2,MISC
+C ++,2,MISC
+University,1,ORG
+Node.js,1,MISC
+Stanford,1,ORG
+Php,1,MISC
+Stack,1,MISC
+R,1,MISC
+React,1,MISC
+Ruby,1,MISC
+Sololearn,1,MISC
+Smart Keyboard,1,MISC
+United States,1,LOC
+Ahmed T,1,PER
+VScode,1,MISC
+iPad Air 4,1,MISC
+icloud.com,1,ORG
+iPhone XS,1,MISC
+iPhone 11 pro,1,MISC
+iPhone 11 Pro,1,MISC
+iPadOS,1,MISC
+iPad Safari,1,MISC
+iPad OS,1,MISC
+iOS 12.1.2,1,MISC
+Version 13,1,MISC
+iCloud,1,ORG
+grasshopper,1,MISC
+github,1,ORG
+MySpace,1,ORG
+apple,1,ORG
+YAZE,1,ORG
+Windows ‘ 99,1,MISC
+expo.io,1,ORG
+Jesus Christ,1,PER
+Marxist,1,MISC
+Ca,1,LOC
+Command Prompt,1,MISC
+Codecademy.,1,ORG
+Codecademy Go,1,MISC
+CodecAcademy,1,ORG
+CodeAcademy Review,1,MISC
+Code Foundations,1,MISC
+Code Academy Go,1,MISC
+Christmas Day 2018,1,MISC
+CC,1,MISC
+Magen,1,PER
+CApro,1,MISC
+CA,1,ORG
+Black,1,ORG
+Bible,1,MISC
+BLM,1,ORG
+Apple Pay,1,MISC
+Apple ID,1,MISC
+Android,1,MISC
+DuoLingo,1,MISC
+FB,1,ORG
+Freecodecamp,1,MISC
+Github,1,ORG
+MacBook Pro,1,MISC
+MacBook,1,MISC
+Mac OS,1,MISC
+MIT,1,ORG
+MIMO,1,ORG
+Kroger,1,ORG
+Kazakhstan,1,LOC
+America,1,LOC
+JavaScrip,1,MISC
+JS,1,MISC
+Iphone 6s,1,MISC
+Iphone,1,MISC
+IPhone 11,1,MISC
+IPad,1,MISC
+IDE,1,MISC
+Google Play Store,1,ORG
+Go,1,MISC
+mac OS,1,MISC
