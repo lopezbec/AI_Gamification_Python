@@ -38,10 +38,7 @@ class JsonWindow(QWidget):
         self.json_number = json_number
         self.init_ui()
 
-    def init_ui(self):
-        self.layout = QVBoxLayout()
-        self.data = JsonLoader.load_json_data(self.filename)
-
+    def title(self):
         title = QLabel(self.data[self.page_type.lower()][0]["title"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
@@ -49,6 +46,11 @@ class JsonWindow(QWidget):
         title_font.setPointSize(self.styles["font_size_titles"])
         title.setFont(title_font)
         self.layout.addWidget(title)
+
+    def init_ui(self):
+        self.layout = QVBoxLayout()
+        self.data = JsonLoader.load_json_data(self.filename)
+        self.title()
 
         if self.page_type.lower() == "multiplechoice":
             self.create_multiple_choice_layout_radioButtons()
@@ -67,6 +69,13 @@ class JsonWindow(QWidget):
 
         # Establecer el layout en el QWidget
         self.setLayout(self.layout)
+
+    def createResetBottom(self):
+        # Add a reset button to the layout
+        reset_button = QPushButton('Reiniciar')
+        reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+        self.layout.addWidget(reset_button)
+        reset_button.clicked.connect(self.reset_drag_and_drop)
 
     def create_feedback_label(self):
         # Añadir la etiqueta de retroalimentación al layout
@@ -95,32 +104,71 @@ class JsonWindow(QWidget):
             answers_layout.addWidget(radio_button)  # Agregar al layout horizontal en lugar del vertical
 
         self.layout.addLayout(answers_layout)  # Agregar el layout horizontal al layout principal
+        self.createResetBottom()
 
     def create_drag_and_drop_layout(self):
         drop_labels = {}
-        for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
-            block_type = block["type"]
-            if "correctValue" in block:
-                drop_labels[block_type] = drag_drop.DropLabel(block["text"], question_type=block_type)
-                block_label = drop_labels[block_type]
-            elif block_type == "Consola": block_label = drag_drop.DropLabel(block["text"], self.styles)
-            else: block_label = QLabel(block["text"])
+        data_block = self.data[self.page_type.lower()][0]
 
-            block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
-            self.layout.addWidget(block_label)
+        if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
+
+            for idx, block in enumerate(data_block["blocks"]):
+                block_type = block["type"]
+
+                if "correctOrder" in data_block:
+                    multiple_drops = len(data_block["correctOrder"]) > 1
+                else:
+                    multiple_drops = False
+
+                if block_type == "Consola":
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    block_label = drop_labels[block_type]
+                else:
+                    block_label = QLabel(block["text"])
+
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+                self.layout.addWidget(block_label)
+
+        else:
+
+            for idx, block in enumerate(data_block["blocks"]):
+                block_type = block["type"]
+
+                if "correctValue" in block or "correctOrder" in data_block:
+                    multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    block_label = drop_labels[block_type]
+                elif block_type == "Consola": block_label = drag_drop.DropLabel(block["text"], self.styles)
+                else: block_label = QLabel(block["text"])
+
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+                self.layout.addWidget(block_label)
 
         draggable_labels_layout = QHBoxLayout()
         draggable_labels_layout.setSpacing(50)
 
-        for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
+        for idx, answer in enumerate(data_block["answers"]):
             draggable_label = drag_drop.DraggableLabel(answer["text"])
             draggable_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
             draggable_labels_layout.addWidget(draggable_label)
 
-        for block in self.data[self.page_type.lower()][0]["blocks"]:
-            block_label = QLabel(block["text"])
-            if block["type"] == "Consola": block_label.setStyleSheet(f"border: {self.styles['syntax_border_width']}px solid {self.styles['syntax_border_color']}; background-color: {self.styles['syntax_background_color']}; font-size: {self.styles['font_size_normal']}px")
         self.layout.addLayout(draggable_labels_layout)
+        self.createResetBottom()
+
+    def reset_drag_and_drop(self):
+        # Remove all current widgets from the layout
+        while self.layout.count():
+            child = self.layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+
+        # Call the function that creates the initial layout again
+        self.title()
+        if self.page_type.lower() == "draganddrop":
+            self.create_drag_and_drop_layout()
+        elif self.page_type.lower() == "multiplechoice":
+            self.create_multiple_choice_layout_radioButtons()
+        self.create_feedback_label()
 
     def create_pedagogical_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
@@ -278,26 +326,64 @@ class MainWindow(QWidget):
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
             correct_count = 0
             unanswered = 0
+            data_block = current_widget.data[current_page_type][0]
 
-            for label in drop_labels:
-                dropped_text = label.drop_area.text()
-                label_type = label.question_type
+            if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
+                for label in drop_labels:
+                    dropped_texts = label.dropped_texts
+                    label_type = label.question_type
 
-                if "____" in dropped_text or "_" in dropped_text:
-                    unanswered += 1
-                    continue
+                    if len(dropped_texts) == 0:
+                        unanswered += 1
+                        continue
 
-                correct_answer = None
-                for option in current_widget.data[current_page_type][0]["answers"]:
-                    if option["correct"] and (label_type is None or option.get("correctType") == label_type):
-                        correct_answer = option
-                        break
+                    # Check if the question requires multiple responses
+                    if data_block.get("multipleResponses"):
+                        correct_order = None
 
-                if correct_answer:
-                    if correct_answer["text"] == dropped_text.split("(")[0].strip():
-                        correct_count += 1
-                        self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
-                    else: self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                        # Verify if the "correctOrder" field exists
+                        if "correctOrder" in data_block:
+                            correct_order = data_block["correctOrder"]
+
+                        if correct_order:
+                            # Check the correct order against the texts dropped into the drop label
+                            if correct_order == dropped_texts:
+                                correct_count += 1
+
+                    else:
+                        # For questions requiring only one response, the original check is performed
+                        correct_answer = None
+                        for option in data_block["answers"]:
+                            if option["correct"] and (label_type is None or option.get("correctType") == label_type):
+                                correct_answer = option
+                                break
+
+                        if correct_answer:
+                            if correct_answer["text"] in dropped_texts[0]:
+                                correct_count += 1
+
+            else:
+                for label in drop_labels:
+                    dropped_text = label.drop_area.text()
+                    label_type = label.question_type
+
+                    if "____" in dropped_text or "_" in dropped_text:
+                        unanswered += 1
+                        continue
+
+                    correct_answer = None
+                    for option in data_block["answers"]:
+                        if option["correct"] and (label_type is None or option.get("correctType") == label_type):
+                            correct_answer = option
+                            break
+
+                    if correct_answer:
+                        if correct_answer["text"] in dropped_text:
+                            correct_count += 1
+                            self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+
+                        else:
+                            self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")

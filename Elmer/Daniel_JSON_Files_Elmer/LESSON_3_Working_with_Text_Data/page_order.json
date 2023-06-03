@@ -184,7 +184,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1-L3-TextData-Part-3.json",
-                    "page_type": "DragAndDropSecuence",
+                    "page_type": "DragAndDrop",
                     "json_number": 3
                 },
                 {
@@ -202,7 +202,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1-L3-TextData-Part-4.json",
-                    "page_type": "DragAndDropTriple",
+                    "page_type": "DragAndDrop",
                     "json_number": 4
                 },
                 {

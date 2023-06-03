@@ -12,3 +12,92 @@ Parte 5,19:24:03
 Entero:2 (Correcto),19:24:03
 Flotante:3.14 (Correcto),19:24:03
 
+Parte 2,18:23:50
++ (Correcto),18:23:50
+Parte 3,18:23:55
+print(42 x 3) (Incorrecto),18:23:55
+print(42 * 3) (Correcto),18:23:58
+Parte 4,18:24:04
+4.0 (Correcto),18:24:04
+Parte 5,18:24:09
+Entero:2 (Correcto),18:24:09
+Flotante:3.14 (Correcto),18:24:09
+
+Parte 2,21:20:07
++ (Correcto),21:20:08
+Parte 3,21:20:11
+print(42 x 3) (Incorrecto),21:20:14
+print(42 * 3) (Correcto),21:20:17
+Parte 4,21:20:21
+4.0 (Correcto),21:20:22
+Parte 5,21:20:26
+Flotante:3.14 (Correcto),21:20:28
+Entero:2 (Correcto),21:20:32
+Flotante:3.14 (Correcto),21:20:32
+
+Parte 2,21:27:07
++ (Correcto),21:27:08
+Parte 3,21:27:10
+print(42 * 3) (Correcto),21:27:13
+Parte 4,21:27:18
+4.0 (Correcto),21:27:18
+Parte 5,21:27:21
+Flotante:3.14 (Correcto),21:27:23
+Entero:2 (Correcto),21:27:25
+Flotante:3.14 (Correcto),21:27:25
+
+Parte 2,21:55:57
++ (Correcto),21:55:57
+Parte 3,21:56:00
+print(42 # 3) (Incorrecto),21:56:02
+print(42 * 3) (Correcto),21:56:04
+Parte 4,21:56:08
+4.0 (Correcto),21:56:08
+Parte 5,21:56:12
+Flotante:3.14 (Correcto),21:56:12
+Entero:2 (Correcto),21:56:15
+Flotante:3.14 (Correcto),21:56:15
+
+Parte 2,22:08:15
++ (Correcto),22:08:16
+Parte 3,22:08:20
+print(42 * 3) (Correcto),22:08:20
+Parte 4,22:08:26
+4.0 (Correcto),22:08:27
+Parte 5,22:08:30
+Flotante:3.14 (Correcto),22:08:31
+Entero:2 (Correcto),22:08:33
+Flotante:3.14 (Correcto),22:08:33
+
+Parte 2,22:46:17
++ (Correcto),22:46:20
+Parte 3,22:46:23
+print(42 * 3) (Correcto),22:46:23
+Parte 4,22:46:27
+4.0 (Correcto),22:46:27
+Parte 5,22:46:36
+Entero:2 (Correcto),22:46:36
+Flotante:3.14 (Correcto),22:46:36
+
+Parte 2,23:45:19
+Parte 3,23:45:24
+print(42 x 3) (Incorrecto),23:45:29
+print(42 * 3) (Correcto),23:45:32
+Parte 4,23:45:36
+4.0 (Correcto),23:45:38
+Parte 5,23:45:44
+Flotante:3.14 (Correcto),23:45:44
+Entero:2 (Correcto),23:45:49
+Flotante:3.14 (Correcto),23:45:49
+
+Parte 2,07:51:59
+Parte 3,07:52:04
+print(42 x 3) (Incorrecto),07:52:04
+print(42 # 3) (Incorrecto),07:52:08
+print(42 * 3) (Correcto),07:52:12
+Parte 4,07:52:13
+4.0 (Correcto),07:52:15
+Parte 5,07:52:23
+Entero:2 (Correcto),07:52:23
+Flotante:3.14 (Correcto),07:52:23
+

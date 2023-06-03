@@ -76,15 +76,152 @@
             "pages": [
                 {
                     "type": "JsonWindow",
-                    "filename": "M1-L2-Coding-Part-1.json",
+                    "filename": "M1-L2-Working-Part-1.json",
                     "page_type": "Pedagogical",
                     "json_number": 1
                 },
                 {
                     "type": "JsonWindow",
-                    "filename": "M1-L2-Coding-Part-1.json",
-                    "page_type": "MultipleChoice",
+                    "filename": "M1-L2-Working-Part-1.json",
+                    "page_type": "Pedagogical2",
                     "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-2.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-3.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-4.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-4.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-5.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-6.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-6.json",
+                    "page_type": "Pedagogical2",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L2-Working-Part-7.json",
+                    "page_type": "Practica",
+                    "json_number": 7
+                }
+            ]
+        },
+        {
+            "lesson_number": 3,
+            "pages": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-1.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-1.json",
+                    "page_type": "Pedagogical2",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-2.json",
+                    "page_type": "MultipleChoicePlus",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-3.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-4.json",
+                    "page_type": "MultipleChoicePlus",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-4.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-5.json",
+                    "page_type": "Pedagogical2",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L3-TextData-Part-6.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 6
                 }
             ]
         }
