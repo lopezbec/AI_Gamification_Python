@@ -1,0 +1,49 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué produce input()?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "un flotante",
+                    "correct": false
+                },
+                {
+                    "text": "un entero",
+                    "correct": false
+                },
+                {
+                    "text": "una cadena",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+
+    
+    "pedagogical2": [
+        {
+            "title": "Input",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El comando input() debe ir seguido de paréntesis."
+                },
+                {
+                    "type": "Consola",
+                    "text": "name = input()\nprint('Welcome, ' + name)"
+                }
+
+            ]
+        }
+    ]
+
+
+   
+}
