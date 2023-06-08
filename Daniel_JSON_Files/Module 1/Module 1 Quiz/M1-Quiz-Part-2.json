@@ -1,0 +1,64 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastra y suelta a la salida 425."
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "print(___",
+                    "correctValue": "'42'"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "___'5')",
+                    "correctValue": "+"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "+",
+                    "correctType": "pregunta2",
+                    "correct": true
+                },
+                {
+                    "text": "'42'",
+                    "correctType": "pregunta1",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿ Cuál de los siguientes es un float (decimal)?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "100",
+                    "correct": false
+                },
+                {
+                    "text": "'Hola'",
+                    "correct": false
+                },
+                {
+                    "text": "Ninguno",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+
+   
+}
