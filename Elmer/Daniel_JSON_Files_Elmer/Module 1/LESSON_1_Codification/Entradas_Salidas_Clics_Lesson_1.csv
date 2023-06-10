@@ -1,0 +1,154 @@
+event,time
+Parte 1,19:23:28
+Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres. (Incorrecto),19:23:28
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),19:23:29
+Parte 3,19:23:33
+Verdadero (Correcto),19:23:33
+Parte 4,19:23:36
+print(729) (Correcto),19:23:36
+Parte 5,19:23:37
+comillas ''  (Correcto),19:23:38
+
+Parte 1,21:57:03
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:57:04
+Parte 3,21:57:08
+Verdadero (Correcto),21:57:08
+Parte 4,21:57:18
+run(729) (Incorrecto),21:57:18
+print(729) (Correcto),21:57:21
+Parte 5,21:57:25
+comillas ''  (Correcto),21:57:25
+
+Parte 1,22:06:58
+Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres. (Incorrecto),22:06:58
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),22:07:01
+Parte 3,22:07:05
+Verdadero (Correcto),22:07:05
+Parte 4,22:07:09
+run(729) (Incorrecto),22:07:13
+print(729) (Correcto),22:07:16
+Parte 5,22:07:20
+comillas ''  (Correcto),22:07:20
+
+Parte 1,22:48:28
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),22:48:30
+Parte 3,22:48:35
+Verdadero (Correcto),22:48:35
+Parte 4,22:48:40
+print(729) (Correcto),22:48:40
+Parte 5,22:48:45
+comillas ''  (Correcto),22:48:45
+
+Parte 1,07:55:14
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),07:55:14
+Parte 3,07:55:18
+Falso (Incorrecto),07:55:24
+Verdadero (Correcto),07:55:27
+Parte 4,07:55:35
+print(729) (Correcto),07:55:35
+Parte 5,07:55:41
+comillas ''  (Correcto),07:55:41
+
+Parte 1,21:40:28
+Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres. (Incorrecto),21:40:30
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:40:31
+Parte 3,21:40:38
+Verdadero (Correcto),21:40:38
+Parte 4,21:40:38
+print(729) (Correcto),21:40:42
+Parte 5,21:40:47
+comillas ''  (Correcto),21:40:47
+
+Parte 1,21:49:02
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:49:02
+Parte 3,21:49:09
+Verdadero (Correcto),21:49:09
+Parte 4,21:49:20
+print(729) (Correcto),21:49:20
+Parte 5,21:49:25
+comillas ''  (Correcto),21:49:25
+
+Parte 1,21:52:45
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:52:45
+Parte 3,21:52:50
+Verdadero (Correcto),21:52:50
+Parte 4,21:52:51
+print(729) (Correcto),21:52:55
+Parte 5,21:52:56
+comillas ''  (Correcto),21:53:00
+
+Parte 1,21:56:40
+Parte 1,21:56:44
+Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres. (Incorrecto),21:56:46
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:56:48
+Parte 3,21:56:52
+Verdadero (Correcto),21:56:52
+Parte 4,21:56:52
+print(729) (Correcto),21:56:54
+Parte 5,21:56:55
+comillas ''  (Correcto),21:56:57
+
+Parte 1,21:57:22
+Parte 1,21:57:26
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:57:26
+Parte 3,21:57:31
+Verdadero (Correcto),21:57:31
+Parte 4,21:57:31
+print(729) (Correcto),21:57:33
+Parte 5,21:57:34
+comillas ''  (Correcto),21:57:36
+
+Parte 1,21:58:31
+Parte 1,21:58:35
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:58:35
+Parte 3,21:58:38
+Verdadero (Correcto),21:58:38
+Parte 4,21:58:39
+print(729) (Correcto),21:58:41
+Parte 5,21:58:43
+comillas ''  (Correcto),21:58:43
+
+Parte 1,21:59:55
+Parte 1,21:59:57
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),21:59:57
+Parte 2,21:59:58
+Parte 3,21:59:58
+Parte 3,22:00:00
+Verdadero (Correcto),22:00:00
+Parte 4,22:00:01
+Parte 4,22:00:01
+print(729) (Correcto),22:00:03
+Parte 5,22:00:04
+Parte 5,22:00:04
+comillas ''  (Correcto),22:00:06
+Parte 6,22:00:06
+
+Parte 1,00:32:04
+Parte 1,00:32:06
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),00:32:08
+Parte 2,00:32:08
+Parte 3,00:32:09
+Parte 3,00:32:12
+Falso (Incorrecto),00:32:12
+Falso (Incorrecto),00:32:12
+Verdadero (Correcto),00:32:14
+Parte 4,00:32:14
+Parte 4,00:32:14
+run(729) (Incorrecto),00:32:17
+print(729) (Correcto),00:32:21
+Parte 5,00:32:21
+Parte 5,00:32:22
+comillas ''  (Correcto),00:32:25
+Parte 6,00:32:26
+
+Parte 1,00:33:02
+Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres. (Incorrecto),00:33:05
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),00:33:07
+Parte 3,00:33:14
+Falso (Incorrecto),00:33:14
+Verdadero (Correcto),00:33:15
+Parte 4,00:33:16
+print(729) (Correcto),00:33:17
+Parte 5,00:33:20
+comillas ''  (Correcto),00:33:20
+
