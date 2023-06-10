@@ -179,8 +179,7 @@ class JsonWindow(QWidget):
                     multiple_drops = False
 
                 if block_type == "Consola":
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
@@ -296,7 +295,8 @@ class MainWindow(QWidget):
                 json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"])
                 self.stacked_widget.addWidget(json_window)
 
-        self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
+        self.log_part_change()  # Registrar el cambio a la "Parte 1"
+        self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time")  # Registrar la apertura de la primera página
 
         self.continue_button = QPushButton("Continuar")
         self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
@@ -358,24 +358,28 @@ class MainWindow(QWidget):
         elif practica: self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide()
         else: self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide()
 
-    def log_event(self, event, event_type="time"):
+    def log_part_change(self):
         event_time = datetime.datetime.now().strftime("%H:%M:%S")
         json_number = self.stacked_widget.currentWidget().json_number
 
         # Si la parte cambia, agrega la entrada de "Parte X"
         if not hasattr(self, 'current_part') or self.current_part != json_number:
             self.current_part = json_number
-            if event_type == "mouse": self.mouse_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
-            else: self.time_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
-            return  # Evita que se registre el mismo evento dos veces
+            self.time_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
+            self.mouse_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
+
+    def log_event(self, event, event_type="time"):
+        event_time = datetime.datetime.now().strftime("%H:%M:%S")
 
         # Añadir el evento y su hora al registro de datos (log_data)
-        if event_type == "mouse": self.mouse_log_data.append({"event": event, "time": event_time})
-        else: self.time_log_data.append({"event": event, "time": event_time})
+        if event_type == "mouse":
+            self.mouse_log_data.append({"event": event, "time": event_time})
+        else:
+            self.time_log_data.append({"event": event, "time": event_time})
 
     def save_log(self, log_type="time"):
         fieldnames = ['event', 'time']
-        filename = "Time_Lesson_2.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_2.csv"
+        filename = "Time_Lesson_3.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_3.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
         with open(filename, mode="a", newline="") as csv_file:
@@ -402,11 +406,11 @@ class MainWindow(QWidget):
             # Crear una lista vacía para las respuestas seleccionadas
             selected_answers = []
             # Iterar sobre los checkboxes
-
             for checkbox in current_widget.checkboxes:
                 # Si el checkbox está seleccionado, añadir su texto a la lista
                 if checkbox.isChecked():
                     selected_answers.append(checkbox.text())
+                    self.log_event(f"Checkbox Selected: {checkbox.text()}", event_type="mouse")  # Log mouse event
 
             # Crear una lista vacía para las respuestas correctas
             correct_answers = []
@@ -451,10 +455,14 @@ class MainWindow(QWidget):
 
                         if correct_order:
                             if correct_order == dropped_texts:
+                                for text in dropped_texts:
+                                    self.log_event(f"Correct Drop Event: {text}", event_type="mouse")
                                 correct_count += 1
+                            else:
+                                for text in dropped_texts:
+                                    self.log_event(f"Incorrect Drop Event: {text}", event_type="mouse")
 
                     else:
-
                         correct_answer = None
                         for option in data_block["answers"]:
                             if option["correct"] and (label_type is None or option.get("correctType") == label_type):
@@ -463,72 +471,77 @@ class MainWindow(QWidget):
 
                         if correct_answer:
                             if correct_answer["text"] in dropped_texts[0]:
+                                self.log_event(f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse")
                                 correct_count += 1
+                            else:
+                                self.log_event(f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse")
 
             else:
-
                 for label in drop_labels:
-                    dropped_text = label.drop_area.text()
+                    full_dropped_text = label.drop_area.text()
                     label_type = label.question_type
 
-                    if "____" in dropped_text or "_" in dropped_text:
+                    if "____" in full_dropped_text or "_" in full_dropped_text:
                         unanswered += 1
                         continue
 
-                    correct_answer = None
-                    for option in data_block["answers"]:
-                        if option["correct"] and (label_type is None or option.get("correctType") == label_type):
-                            correct_answer = option
-                            break
+                    if "multipleResponseVariant" in data_block and data_block["multipleResponseVariant"]:
+                        dropped_text = full_dropped_text.split(':')[1].strip()
+                        correct_value = None
 
-                    if correct_answer:
-                        if correct_answer["text"] in dropped_text:
-                            correct_count += 1
-                            self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")
+                        for block in data_block["blocks"]:
+                            if block["type"] == label_type:
+                                correct_value = block.get("correctValue")
+                                break
 
-                        else:
-                            self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")
+                        if correct_value:
+                            if correct_value == dropped_text:
+                                correct_count += 1
+                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
 
-                    # Nueva lógica para manejar la clave "correctValue"
-                    correct_value = None
-                    for block in data_block["blocks"]:
-                        if block.get("type") == label_type:
-                            correct_value = block.get("correctValue")
+                            else: self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
 
-                    if correct_value:
-                        if correct_value in dropped_text:
-                            correct_count += 1
-                            self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")
+                    else:
+                        correct_answer = None
+                        for option in data_block["answers"]:
+                            if option["correct"] and (label_type is None or option.get("correctType") == label_type):
+                                correct_answer = option
+                                break
 
-                        else:
-                            self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")
+                        if correct_answer:
+                            if correct_answer["text"] in full_dropped_text:  # Aquí usamos full_dropped_text en lugar de dropped_text
+                                correct_count += 1
+                                self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")
+                            else:
+                                self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
-
             elif unanswered > 0:
                 self.SubmitAnswers(False, False, False)
-
             elif correct_count == len(drop_labels):
                 self.SubmitAnswers(False, True, False)
-
             else:
                 self.SubmitAnswers(False, False, True)
 
         elif current_page_type == "completeblankspace":
             correct_answer_text = None
+
             for answer in current_widget.data[current_page_type][0]["answers"]:
                 if answer["correct"]:
                     correct_answer_text = answer["text"]
                     break
 
             if selected_symbol == "_":
+                self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(True, False, False)
 
             elif selected_symbol == correct_answer_text:
+                self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, True, False)
 
             else:
+                self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
     def switch_page(self):
@@ -539,6 +552,7 @@ class MainWindow(QWidget):
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
+            self.log_part_change()  # Registrar el cambio de parte si corresponde
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
             self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
@@ -561,5 +575,3 @@ def main():
 
 if __name__ == '__main__':
     main() # Llamar a la función principal si el script se ejecuta como el programa principal
-
-#TODO RECUERDA TERMINAR LA PARTE 4 DE ESTA LECCION

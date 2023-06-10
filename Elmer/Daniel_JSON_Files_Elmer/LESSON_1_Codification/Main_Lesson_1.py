@@ -1,12 +1,18 @@
-import csv
 import datetime
 import json
-import os
 import sys
+import csv
 import drag_drop
+import re
+
+from functools import partial
 from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from qtconsole.manager import QtKernelManager
+from custom_console import CustomPythonConsole
+
 
 class JsonLoader:
     @staticmethod
@@ -23,13 +29,15 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, styles, json_number):
+    def __init__(self, filename, page_type,  json_number):
         super().__init__()
         self.data = None
         self.layout = None
         self.hint_label = None
         self.button_group = None
         self.radio_buttons = None
+        self.blank_space_index = None
+        self.original_hint_text = None
         self.filename = filename
         self.feedback_label = QLabel(self)
         self.page_type = page_type
@@ -55,8 +63,16 @@ class JsonWindow(QWidget):
             self.create_multiple_choice_layout_radioButtons()
             self.create_feedback_label()
 
+        elif self.page_type.lower() == "completeblankspace":
+            self.create_complete_blank_space_layout()
+            self.create_feedback_label()
+
         elif self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
+            self.create_feedback_label()
+
+        elif self.page_type.lower() == "practica":
+            self.create_practice_layout()
             self.create_feedback_label()
 
         # Si el tipo de página es "pedagogical", agregar bloques de contenido
@@ -69,12 +85,13 @@ class JsonWindow(QWidget):
         # Establecer el layout en el QWidget
         self.setLayout(self.layout)
 
-    def createResetBottom(self):
-        # Add a reset button to the layout
-        reset_button = QPushButton('Reiniciar')
-        reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
-        self.layout.addWidget(reset_button)
-        reset_button.clicked.connect(self.reset_drag_and_drop)
+    def handle_answer_click(self, answer_text):
+        # Restaurar el texto original de la pista
+        self.hint_label.setText(self.original_hint_text)
+
+        # Reemplazar el espacio en blanco con la respuesta seleccionada
+        updated_hint = self.hint_label.text()[:self.blank_space_index] + answer_text + self.hint_label.text()[self.blank_space_index + 1:]
+        self.hint_label.setText(updated_hint)
 
     def create_feedback_label(self):
         # Añadir la etiqueta de retroalimentación al layout
@@ -84,6 +101,44 @@ class JsonWindow(QWidget):
         self.feedback_label.setMaximumHeight(50)  # Ajusta este valor según sea necesario
         self.layout.addWidget(self.feedback_label)
 
+    def createResetBottom(self):
+        # Add a reset button to the layout
+        reset_button = QPushButton('Reiniciar')
+        reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+        self.layout.addWidget(reset_button)
+        reset_button.clicked.connect(self.reset_drag_and_drop)
+
+    def create_complete_blank_space_layout(self):
+        self.blank_space_index = -1
+        self.original_hint_text = ""
+
+        # Añadir bloques de contenido al layout
+        for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
+            if block["type"] == "info":
+                block_label = QLabel(block["text"])
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+                self.layout.addWidget(block_label)
+            elif block["type"] == "Consola":
+                self.hint_label = QLabel(block["text"])
+                self.hint_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                self.layout.addWidget(self.hint_label)
+                self.blank_space_index = block["text"].find("_")
+                self.original_hint_text = block["text"]
+
+        # Crear un layout horizontal para los botones de respuesta
+        answers_layout = QHBoxLayout()
+
+        # Añadir botones de respuesta al layout horizontal
+        for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
+            answer_button = QPushButton(answer["text"])
+            answer_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
+            answer_button.clicked.connect(partial(self.handle_answer_click, answer["text"]))
+            answers_layout.addWidget(answer_button)
+
+        # Añadir el layout horizontal de botones de respuesta al layout principal (vertical)
+        self.layout.addLayout(answers_layout)
+        self.createResetBottom()
+
     def create_multiple_choice_layout_radioButtons(self):
         self.radio_buttons = []
         self.button_group = QButtonGroup()
@@ -91,8 +146,11 @@ class JsonWindow(QWidget):
         answers_layout = QHBoxLayout()  # Nuevo layout horizontal para las respuestas
 
         for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
+            block_type = block["type"]
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+            if block["type"] == "Consola":
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
@@ -107,21 +165,8 @@ class JsonWindow(QWidget):
 
     def create_drag_and_drop_layout(self):
         drop_labels = {}
-<<<<<<< HEAD
+
         data_block = self.data[self.page_type.lower()][0]
-=======
-
-        for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
-            block_type = block["type"]
-
-            if "correctValue" in block:
-                drop_labels[block_type] = drag_drop.DropLabel(block["text"], question_type=block_type)
-                block_label = drop_labels[block_type]
-            elif block_type == "Syntax":
-                block_label = drag_drop.DropLabel(block["text"], self.styles)
-            else:
-                block_label = QLabel(block["text"])
->>>>>>> 7d9c58d471d4a05f6e6693b05dbb2289a8b55684
 
         if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
 
@@ -148,11 +193,15 @@ class JsonWindow(QWidget):
                 block_type = block["type"]
 
                 if "correctValue" in block or "correctOrder" in data_block:
-                    multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    multiple_drops = "correctOrder" in data_block and len(
+                        data_block["correctOrder"]) > 1
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
+                                                                  multiple=multiple_drops)
                     block_label = drop_labels[block_type]
-                elif block_type == "Consola": block_label = drag_drop.DropLabel(block["text"], self.styles)
-                else: block_label = QLabel(block["text"])
+                elif block_type == "Consola":
+                    block_label = drag_drop.DropLabel(block["text"], self.styles)
+                else:
+                    block_label = QLabel(block["text"])
 
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(block_label)
@@ -165,14 +214,6 @@ class JsonWindow(QWidget):
             draggable_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
             draggable_labels_layout.addWidget(draggable_label)
 
-<<<<<<< HEAD
-=======
-        for block in self.data[self.page_type.lower()][0]["blocks"]:
-            block_label = QLabel(block["text"])
-            if block["type"] == "Syntax":
-                block_label.setStyleSheet(f"border: {self.styles['syntax_border_width']}px solid {self.styles['syntax_border_color']}; background-color: {self.styles['syntax_background_color']}; font-size: {self.styles['font_size_normal']}px")
-
->>>>>>> 7d9c58d471d4a05f6e6693b05dbb2289a8b55684
         self.layout.addLayout(draggable_labels_layout)
         self.createResetBottom()
 
@@ -189,33 +230,57 @@ class JsonWindow(QWidget):
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
             self.create_multiple_choice_layout_radioButtons()
+        elif self.page_type.lower() == "completeblankspace":
+            self.create_complete_blank_space_layout()
+        else:
+            self.create_pedagogical_layout()
         self.create_feedback_label()
+
+    def create_practice_layout(self):
+        for block in self.data[self.page_type.lower()][0]["blocks"]:
+            block_label = QLabel(block["text"])
+
+            if block["type"] == "hint":
+                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+            elif block["type"] == "Consola":
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+            else:
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+
+            self.layout.addWidget(block_label)  # Añadir el bloque al layout
 
     def create_pedagogical_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
-            if block["type"] == "Syntax":
-                block_label.setStyleSheet(f"border: {self.styles['syntax_border_width']}px solid {self.styles['syntax_border_color']}; background-color: {self.styles['syntax_background_color']}; font-size: {self.styles['font_size_normal']}px")
-            elif block["type"] == "hint":
+            if block["type"] == "hint":
                 block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+            elif block["type"] == "Consola":
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
-            self.layout.addWidget(block_label) # Añadir el bloque al layout
+            self.layout.addWidget(block_label)  # Añadir el bloque al layout
 
 
 class MainWindow(QWidget):
     def __init__(self, lesson_number=1):
         super().__init__()
         self.layout = None
+        self.current_part = None
         self.button_layout = None
         self.submit_button = None
         self.stacked_widget = None
+        self.python_console = None
         self.practice_button = None
         self.continue_button = None
+        self.last_json_number = None
+        self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
         self.log_data = []
+        self.click_data = []
+        self.time_log_data = []
+        self.mouse_log_data = []
         self.init_ui()
         self.current_page = 0
         self.total_pages = 0
@@ -223,16 +288,15 @@ class MainWindow(QWidget):
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']}")
-
         self.stacked_widget = QStackedWidget()
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], self.styles, page["json_number"])
-                
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"])
                 self.stacked_widget.addWidget(json_window)
 
-        self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time")
+        self.log_part_change()  # Registrar el cambio a la "Parte 1"
+        self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
 
         self.continue_button = QPushButton("Continuar")
         self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
@@ -259,6 +323,7 @@ class MainWindow(QWidget):
 
         self.button_layout = QHBoxLayout()
         self.button_layout.addWidget(self.submit_button)
+        self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
 
         self.layout.addWidget(self.stacked_widget)
@@ -267,41 +332,59 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
         self.showMaximized()
 
+    def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
+        current_widget = self.stacked_widget.currentWidget()
+
+        if NoSeleciona:
+            current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+        elif Correcto:
+            current_widget.feedback_label.setText("Respuesta correcta")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+            self.SubmitHideContinueShow(True, False)
+        elif Incorrecto:
+            current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+        else:
+            current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+
     def open_python_console(self):
-        print("La consola no está disponible por el momento.")
+        self.SubmitHideContinueShow(True, False)
 
     def SubmitHideContinueShow(self, pedagogical, practica):
-        if pedagogical:
-            self.submit_button.hide()
-            self.practice_button.hide()
-            self.continue_button.show()
-        elif practica:
-            self.submit_button.hide()
-            self.practice_button.show()
-            self.continue_button.hide()
+        if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
+        elif practica: self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide()
+        else: self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide()
+
+    def log_part_change(self):
+        event_time = datetime.datetime.now().strftime("%H:%M:%S")
+        json_number = self.stacked_widget.currentWidget().json_number
+
+        # Si la parte cambia, agrega la entrada de "Parte X"
+        if not hasattr(self, 'current_part') or self.current_part != json_number:
+            self.current_part = json_number
+            self.time_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
+
+    def log_event(self, event, event_type="time"):
+        event_time = datetime.datetime.now().strftime("%H:%M:%S")
+
+        # Añadir el evento y su hora al registro de datos (log_data)
+        if event_type == "mouse":
+            self.mouse_log_data.append({"event": event, "time": event_time})
         else:
-            self.submit_button.show()
-            self.practice_button.hide()
-            self.continue_button.hide()
+            self.time_log_data.append({"event": event, "time": event_time})
 
-    def log_event(self, event):
-        event_time = datetime.datetime.now().strftime("%H:%M:%S") # Obtener la hora actual y almacenarla como una cadena de texto
-        json_number = self.stacked_widget.currentWidget().json_number # Obtener el número del archivo JSON correspondiente a la página actual
-        self.log_data.append({"event": f"Json {json_number} {event}", "time": event_time}) # Añadir el evento y su hora al registro de datos (log_data)
-
-    def save_log(self):
+    def save_log(self, log_type="time"):
         fieldnames = ['event', 'time']
+        filename = "Time_Lesson_1.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_1.csv"
+        log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
-        with open("Time_Lesson_1.csv", mode="a", newline="") as csv_file:
+        with open(filename, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            # Si el archivo está vacío, escribir el encabezado
-            if csv_file.tell() == 0:
-                writer.writeheader()
-            # Escribir cada registro en el archivo
-            for log in self.log_data:
-                writer.writerow(log)
-
-            csv_file.write("\n")  # Agregar un salto de línea después de los registros
+            if csv_file.tell() == 0: writer.writeheader()
+            for log in log_data: writer.writerow(log)
+            csv_file.write('\n')
 
     def load_page_order(self):
         with open("page_order.json", "r") as file:
@@ -316,40 +399,39 @@ class MainWindow(QWidget):
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
         current_page_type = current_widget.page_type.lower()
+        json_number = current_widget.json_number
+
+        if hasattr(self, 'last_json_number') and self.last_json_number != json_number: self.log_event(f"Parte {json_number}", "mouse")
+        self.last_json_number = json_number
 
         if current_page_type == "multiplechoice":
-            # Obtener el índice de la respuesta seleccionada
             selected_answer_id = current_widget.button_group.checkedId()
             if selected_answer_id != -1:
                 correct_answer_id = None
-                # Buscar el índice de la respuesta correcta en la lista de respuestas
                 for idx, answer in enumerate(current_widget.data[current_page_type][0]["answers"]):
                     if answer["correct"]:
                         correct_answer_id = idx
                         break
-                # Si la respuesta seleccionada es correcta, mostrar un mensaje de éxito
+
+                selected_answer_text = current_widget.data[current_page_type][0]["answers"][selected_answer_id]["text"]
                 if selected_answer_id == correct_answer_id:
                     current_widget.feedback_label.setText("Respuesta correcta")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+                    self.log_event(f"{selected_answer_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                     self.SubmitHideContinueShow(True, False)
-                # Si la respuesta seleccionada es incorrecta, mostrar un mensaje de error
+
                 else:
                     current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-            # Si no se ha seleccionado ninguna respuesta, mostrar un mensaje de advertencia
+                    self.log_event(f"{selected_answer_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
             else:
-                current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
-                current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                self.SubmitAnswers(True, False, False)
 
         elif current_page_type == "draganddrop":
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
             correct_count = 0
             unanswered = 0
-<<<<<<< HEAD
             data_block = current_widget.data[current_page_type][0]
-=======
-            correct = True
->>>>>>> 7d9c58d471d4a05f6e6693b05dbb2289a8b55684
 
             if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
                 for label in drop_labels:
@@ -364,7 +446,6 @@ class MainWindow(QWidget):
                     if data_block.get("multipleResponses"):
                         correct_order = None
 
-<<<<<<< HEAD
                         # Verify if the "correctOrder" field exists
                         if "correctOrder" in data_block:
                             correct_order = data_block["correctOrder"]
@@ -377,6 +458,7 @@ class MainWindow(QWidget):
                     else:
                         # For questions requiring only one response, the original check is performed
                         correct_answer = None
+
                         for option in data_block["answers"]:
                             if option["correct"] and (label_type is None or option.get("correctType") == label_type):
                                 correct_answer = option
@@ -387,6 +469,7 @@ class MainWindow(QWidget):
                                 correct_count += 1
 
             else:
+
                 for label in drop_labels:
                     dropped_text = label.drop_area.text()
                     label_type = label.question_type
@@ -408,54 +491,58 @@ class MainWindow(QWidget):
 
                         else:
                             self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
-=======
-                if correct_answer:
-                    if correct_answer["text"] in dropped_text:
-                        correct_count += 1
->>>>>>> 7d9c58d471d4a05f6e6693b05dbb2289a8b55684
 
             if unanswered == len(drop_labels):
-                current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
-                current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                self.SubmitAnswers(True, False, False)
 
             elif unanswered > 0:
-                current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
-                current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                self.SubmitAnswers(False, False, False)
 
             elif correct_count == len(drop_labels):
-                current_widget.feedback_label.setText("Respuesta correcta")
-                current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-                self.SubmitHideContinueShow(True, False)
+                self.SubmitAnswers(False, True, False)
 
             else:
-                current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
-                current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                self.SubmitAnswers(False, False, True)
+
+        elif current_page_type == "completeblankspace":
+            correct_answer_text = None
+            for answer in current_widget.data[current_page_type][0]["answers"]:
+                if answer["correct"]:
+                    correct_answer_text = answer["text"]
+                    break
+
+            current_hint_text = current_widget.hint_label.text()
+            selected_symbol = current_hint_text[current_widget.blank_space_index]
+            if selected_symbol == "_":
+                self.SubmitAnswers(True, False, False)
+
+            elif selected_symbol == correct_answer_text:
+                self.SubmitAnswers(False, True, False)
+
+            else:
+                self.SubmitAnswers(False, False, True)
 
     def switch_page(self):
-        current_page_type = self.stacked_widget.currentWidget().page_type.lower() # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time") # Registrar el evento de cierre de la página actual
-        next_index = self.stacked_widget.currentIndex() + 1 # Calcular el índice de la siguiente página
+        current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
-            self.stacked_widget.setCurrentIndex(next_index) # Cambiar a la siguiente página
-            current_page_type = self.stacked_widget.currentWidget().page_type.lower() # Obtener el tipo de página actualizado
-            self.log_event(f"{current_page_type.capitalize()} Page Open Time") # Registrar el evento de apertura de la nueva página
+            self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
+            self.log_part_change()  # Registrar el cambio a la "Parte 1"
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
-            # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
-            if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True, False)
-            elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False, True)
-            # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
-            else:
-                self.SubmitHideContinueShow(False, False)
+            if current_page_type == "pedagogical" or current_page_type == "pedagogical2": self.SubmitHideContinueShow(True, False) # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+            elif current_page_type == "practica": self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+            else: self.SubmitHideContinueShow(False, False) # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
-            self.save_log()
+            self.save_log(log_type="time")
+            self.save_log(log_type="mouse")
             self.close()
-        # Incrementar el número de la página actual
-        self.current_page += 1
+        self.current_page += 1 # Incrementar el número de la página actual
 
 
 def main():

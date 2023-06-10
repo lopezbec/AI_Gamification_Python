@@ -226,7 +226,6 @@ class JsonWindow(QWidget):
 
         # Call the function that creates the initial layout again
         self.title()
-        print(self.page_type.lower())
         if self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
@@ -266,6 +265,7 @@ class JsonWindow(QWidget):
 class MainWindow(QWidget):
     def __init__(self, lesson_number=1):
         super().__init__()
+
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -275,6 +275,7 @@ class MainWindow(QWidget):
         self.practice_button = None
         self.continue_button = None
         self.last_json_number = None
+        self.last_page_number = None
         self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
@@ -296,6 +297,7 @@ class MainWindow(QWidget):
                 json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"])
                 self.stacked_widget.addWidget(json_window)
 
+        self.log_part_change()  # Registrar el cambio a la "Parte 1"
         self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
 
         self.continue_button = QPushButton("Continuar")
@@ -351,26 +353,30 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
+        print("La consola no está disponible por el momento.")
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
         elif practica: self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide()
         else: self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide()
 
-    def log_event(self, event, event_type="time"):
+    def log_part_change(self):
         event_time = datetime.datetime.now().strftime("%H:%M:%S")
         json_number = self.stacked_widget.currentWidget().json_number
 
         # Si la parte cambia, agrega la entrada de "Parte X"
         if not hasattr(self, 'current_part') or self.current_part != json_number:
             self.current_part = json_number
-            if event_type == "mouse": self.mouse_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
-            else: self.time_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
-            return  # Evita que se registre el mismo evento dos veces
+            self.time_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
+
+    def log_event(self, event, event_type="time"):
+        event_time = datetime.datetime.now().strftime("%H:%M:%S")
 
         # Añadir el evento y su hora al registro de datos (log_data)
-        if event_type == "mouse": self.mouse_log_data.append({"event": event, "time": event_time})
-        else: self.time_log_data.append({"event": event, "time": event_time})
+        if event_type == "mouse":
+            self.mouse_log_data.append({"event": event, "time": event_time})
+        else:
+            self.time_log_data.append({"event": event, "time": event_time})
 
     def save_log(self, log_type="time"):
         fieldnames = ['event', 'time']
@@ -503,6 +509,7 @@ class MainWindow(QWidget):
 
         elif current_page_type == "completeblankspace":
             correct_answer_text = None
+
             for answer in current_widget.data[current_page_type][0]["answers"]:
                 if answer["correct"]:
                     correct_answer_text = answer["text"]
@@ -511,34 +518,46 @@ class MainWindow(QWidget):
             current_hint_text = current_widget.hint_label.text()
             selected_symbol = current_hint_text[current_widget.blank_space_index]
             if selected_symbol == "_":
+                self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(True, False, False)
 
             elif selected_symbol == correct_answer_text:
+                self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, True, False)
 
             else:
+                self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(
+            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
+            self.log_part_change()  # Registrar el cambio de parte si corresponde
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(
+                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
-            if current_page_type == "pedagogical" or current_page_type == "pedagogical2": self.SubmitHideContinueShow(True, False) # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
-            elif current_page_type == "practica": self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
-            else: self.SubmitHideContinueShow(False, False) # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+            if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
+                self.SubmitHideContinueShow(True,
+                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+            elif current_page_type == "practica":
+                self.SubmitHideContinueShow(False,
+                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+            else:
+                self.SubmitHideContinueShow(False,
+                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.close()
-        self.current_page += 1 # Incrementar el número de la página actual
+        self.current_page += 1  # Incrementar el número de la página actual
 
 
 def main():

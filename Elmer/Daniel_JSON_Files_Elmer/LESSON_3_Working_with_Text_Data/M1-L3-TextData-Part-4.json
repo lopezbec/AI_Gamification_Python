@@ -28,6 +28,8 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
             "blocks": [
                 {
                     "type": "info",
