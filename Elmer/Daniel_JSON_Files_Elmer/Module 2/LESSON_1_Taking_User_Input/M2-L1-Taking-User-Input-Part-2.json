@@ -1,0 +1,55 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para tomar la entrada del usuario, asignarla a una variable y generarla:"
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "text = _____",
+                    "correctValue": "input()"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "print(_____)",
+                    "correctValue": "text"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "text",
+                    "correctType": "pregunta2",
+                    "correct": true
+                },
+                {
+                    "text": "'42'a",
+                    "correctType": "pregunta1",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Input",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Incluso si el usuario ingresa un número como entrada, se procesa como una cadena:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "number = input()\nprint('You entered: ' + number)"
+                }
+
+            ]
+        }
+    ]
+
+
+   
+}

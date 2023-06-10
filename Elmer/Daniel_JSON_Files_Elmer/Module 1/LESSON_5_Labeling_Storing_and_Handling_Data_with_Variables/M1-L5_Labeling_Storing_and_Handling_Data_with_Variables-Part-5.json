@@ -1,0 +1,52 @@
+{
+
+    "pedagogical": [ 
+        {
+            "title": "Reasignación de variables",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las variables se pueden reasignar tantas veces como sea necesario."
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 8\nprint(x)\nx = 41\nprint(x)"
+                }
+
+            ]
+        }
+    ],
+
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Adivina la salida de este código:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "age = 42\nage = 24\nprint(age)"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "24",
+                    "correct": true
+                },
+                {
+                    "text": "42",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+   
+}

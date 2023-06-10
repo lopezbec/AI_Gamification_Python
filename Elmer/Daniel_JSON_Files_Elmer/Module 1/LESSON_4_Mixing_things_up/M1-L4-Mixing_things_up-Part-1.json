@@ -1,0 +1,60 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Trabajar con datos mixtos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Ahora conoces los diferentes tipos de datos en Python. \n En esta lección, trabajará con texto y números para generar salidas múltiples y mixtas."
+                }
+
+            ]
+        }
+    ],
+
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para definir los tipos de datos:"
+                    
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "Un número entero:_____",
+                    "correctValue": "Entero"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "Un número con un punto decimal:_____",
+                    "correctValue": "Flotante"
+                },
+                {
+                    "type": "pregunta3",
+                    "text": "Un trozo de texto:_____",
+                    "correctValue": "Cadena"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Flotante",
+                    "correctType": "pregunta2",
+                    "correct": true
+                },
+                {
+                    "text": "Entero",
+                    "correctType": "pregunta1",
+                    "correct": true
+                },
+                {
+                    "text": "Cadena",
+                    "correctType": "pregunta3",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

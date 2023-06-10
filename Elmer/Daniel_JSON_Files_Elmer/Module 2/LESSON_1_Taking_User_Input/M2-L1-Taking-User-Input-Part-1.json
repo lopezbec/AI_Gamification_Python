@@ -1,0 +1,35 @@
+{
+    "pedagogical": [
+        {
+            "title": "La interacción del usuario",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Muchos programas informáticos están diseñados para que otros usuarios puedan\ninteractuar con ellos. Estos programas toman información de los usuarios. Por ejemplo,\nun juego puede solicitar el nombre y la edad del usuario como entrada para usar\ndurante el juego."
+                },
+                {
+                    "type": "info",
+                    "text": "En esta lección, aprenderá a escribir programas interactivos que toman información del\nusuario como entrada para trabajar."
+                }
+
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Entrada del usuario",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El comando input () le pide al usuario que ingrese y devuelve lo que ingresa como una\ncadena. Como esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = input()\nprint(x)"
+                }
+
+            ]
+        }
+    ]
+}

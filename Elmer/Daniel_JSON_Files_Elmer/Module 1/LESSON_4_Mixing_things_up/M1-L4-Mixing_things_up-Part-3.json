@@ -1,0 +1,58 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Múltiples Salidas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El comando de impresión puede tomar múltiples valores para generar en la misma línea.\n Esto se puede hacer separándolos con comas."
+                },
+
+                {
+                    "type": "Consola",
+                    "text": "print('Balance:', 5000)" 
+                },
+                {
+                    "type": "hint",
+                    "text": "Por defecto, los valores estarán separados por espacios." 
+                }
+
+
+
+            ]
+        }
+    ],
+
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para generar la puntuación: 95."
+                },
+                {
+                    "type": "Consola",
+                    "text": "_____('Puntaje:', 95)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "95",
+                    "correct": false
+                },
+                {
+                    "text": "print",
+                    "correct": true
+                },
+                {
+                    "text": "95",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+
+}
