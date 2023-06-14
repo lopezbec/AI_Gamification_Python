@@ -1,0 +1,21 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "El conocimiento es poder",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El programa dado esta diseñado para generar el texto: El conocimiento es poder \n Pero falta la ultima palabra. ¿Puedes arreglarlo?"
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Complete el codigo para generar el resultado requerido."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Conocimiento ' + 'es poder')\n>'Conocimiento es poder'"
+                }
+            ]
+        }
+    ]
+}
