@@ -277,6 +277,7 @@ class MainWindow(QWidget):
     def __init__(self, lesson_number=1):
         super().__init__()
         self.layout = None
+        self.lessons = None
         self.current_part = None
         self.button_layout = None
         self.submit_button = None
@@ -285,6 +286,7 @@ class MainWindow(QWidget):
         self.practice_button = None
         self.continue_button = None
         self.last_json_number = None
+        self.current_lesson_index = None
         self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
@@ -300,6 +302,8 @@ class MainWindow(QWidget):
         self.layout = QVBoxLayout()
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']}")
         self.stacked_widget = QStackedWidget()
+        self.lessons = [1, 2, 3, 4]  # puedes cambiar esta lista a tus lecciones deseadas
+        self.current_lesson_index = 0  # esto mantendrá la cuenta de cuál es la lección actual
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
@@ -388,6 +392,10 @@ class MainWindow(QWidget):
         else:
             self.time_log_data.append({"event": event, "time": event_time})
 
+    def load_lessons(self):
+        lessons = JsonLoader.load_json_data('lessons.json')
+        return lessons['lessons']
+
     def save_log(self, log_type="time"):
         fieldnames = ['event', 'time']
         filename = "Time_Lesson_3.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_3.csv"
@@ -409,9 +417,68 @@ class MainWindow(QWidget):
 
         raise ValueError(f"Lesson {self.lesson_number} not found in page_order.json")
 
+    def create_page_widget(self, page_data):
+        # Aquí crearías tu widget de página a partir de los datos de la página.
+        # Este código variará dependiendo de cómo estés implementando tus widgets de página.
+        page_type = page_data['page_type']
+        widget = JsonWindow('lessons.json', page_type, self.json_number)
+
+        return widget
+
+    def get_pages_for_lesson(self, lesson_number):
+        # Cargar el archivo JSON "page_order.json"
+        lessons_data = JsonLoader.load_json_data("page_order.json")
+
+        # Obtener la lista de lecciones del archivo JSON
+        lessons = lessons_data["lessons"]
+
+        # Buscar la lección que coincida con el número de lección proporcionado
+        for lesson in lessons:
+            print(f"lesson_number: {lesson['lesson_number']}")
+            if lesson["lesson_number"] == lesson_number:
+                pages_data = lesson["pages"]
+                break
+
+        else:
+            print(f"No se encontró la lección con el número: {lesson_number}")
+            return []
+
+        # Crear los widgets de las páginas
+        pages = []
+        for page_data in pages_data:
+            page = self.create_page_widget(page_data)
+            pages.append(page)
+
+        return pages
+
+    def load_new_lesson(self, lesson_number):
+        print(f"Starting to load new lesson: {lesson_number['lesson_number']}")
+
+        # Debes limpiar el stacked_widget antes de cargar una nueva lección
+        for i in reversed(range(self.stacked_widget.count())):
+            self.stacked_widget.removeWidget(self.stacked_widget.widget(i))
+
+        print("Removed old pages from stacked_widget")  # NUEVO: para registro de eventos
+
+        # Aquí debes cargar las páginas de la nueva lección en el stacked_widget
+        # Esto dependerá de cómo estás manejando tus páginas y lecciones.
+        pages = self.get_pages_for_lesson(lesson_number)
+        print(f"Got {len(pages)} pages for new lesson")  # NUEVO: para registro de eventos
+
+        for page in pages:
+            self.stacked_widget.addWidget(page)
+
+        print("Added new pages to stacked_widget")  # NUEVO: para registro de eventos
+
+        print(f"Finished loading new lesson: {lesson_number}")  # NUEVO: para registro de eventos
+
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
         current_page_type = current_widget.page_type.lower()
+        json_number = current_widget.json_number
+
+        if hasattr(self, 'last_json_number') and self.last_json_number != json_number: self.log_event(f"Parte {json_number}", "mouse")
+        self.last_json_number = json_number
 
         if current_page_type == "multiplechoice":
             selected_answers = []  # Respuestas seleccionadas
@@ -460,22 +527,29 @@ class MainWindow(QWidget):
                         unanswered += 1
                         continue
 
+                    # Check if the question requires multiple responses
                     if data_block.get("multipleResponses"):
                         correct_order = None
 
+                        # Verify if the "correctOrder" field exists
                         if "correctOrder" in data_block:
                             correct_order = data_block["correctOrder"]
 
                         if correct_order:
+                            # Check the correct order against the texts dropped into the drop label
                             if correct_order == dropped_texts:
-                                for text in dropped_texts:
-                                    self.log_event(f"Correct Drop Event: {text}", event_type="mouse")
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    for text in dropped_texts:
+                                        self.log_event(f"Correct Drop Event: {text}", event_type="mouse")
                                 correct_count += 1
+
                             else:
-                                for text in dropped_texts:
-                                    self.log_event(f"Incorrect Drop Event: {text}", event_type="mouse")
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    for text in dropped_texts:
+                                        self.log_event(f"Incorrect Drop Event: {text}", event_type="mouse")
 
                     else:
+                        # For questions requiring only one response, the original check is performed
                         correct_answer = None
                         for option in data_block["answers"]:
                             if option["correct"] and (label_type is None or option.get("correctType") == label_type):
@@ -484,17 +558,19 @@ class MainWindow(QWidget):
 
                         if correct_answer:
                             if correct_answer["text"] in dropped_texts[0]:
-                                self.log_event(f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse")
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    self.log_event(f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse")
                                 correct_count += 1
                             else:
-                                self.log_event(f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse")
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    self.log_event(f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse")
 
             else:
                 for label in drop_labels:
-                    full_dropped_text = label.drop_area.text()
+                    dropped_text = label.drop_area.text()
                     label_type = label.question_type
 
-                    if "____" in full_dropped_text or "_" in full_dropped_text:
+                    if "____" in dropped_text or "_" in dropped_text:
                         unanswered += 1
                         continue
 
@@ -530,37 +606,38 @@ class MainWindow(QWidget):
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
+
             elif unanswered > 0:
                 self.SubmitAnswers(False, False, False)
+
             elif correct_count == len(drop_labels):
                 self.SubmitAnswers(False, True, False)
+
             else:
                 self.SubmitAnswers(False, False, True)
 
         elif current_page_type == "completeblankspace":
             correct_answer_text = None
-
             for answer in current_widget.data[current_page_type][0]["answers"]:
                 if answer["correct"]:
                     correct_answer_text = answer["text"]
                     break
 
+            current_hint_text = current_widget.hint_label.text()
+            selected_symbol = current_hint_text[current_widget.blank_space_index]
             if selected_symbol == "_":
-                self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(True, False, False)
 
             elif selected_symbol == correct_answer_text:
-                self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, True, False)
 
             else:
-                self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
         self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
-        next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
+        next_index = self.stacked_widget.currentIndex() + 1
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
@@ -576,15 +653,33 @@ class MainWindow(QWidget):
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
-            self.close()
+
+            # Incrementa el índice de la lección
+            self.current_lesson_index += 1
+
+            print(f"Current lesson index is now {self.current_lesson_index}")  # NUEVO: para registro de eventos
+
+            # Si aún hay lecciones por enseñar, inicia la siguiente
+            if self.current_lesson_index < len(self.lessons):
+                print(
+                    f"Loading new lesson: {self.lessons[self.current_lesson_index]}")  # NUEVO: para registro de eventos
+                self.load_new_lesson(self.lessons[self.current_lesson_index])
+            # Si ya no hay más lecciones, cierra la aplicación
+            else:
+                print("No more lessons, closing application")  # NUEVO: para registro de eventos
+                self.close()
+
         self.current_page += 1  # Incrementar el número de la página actual
 
 
 def main():
     app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=3)  # Aquí puedes cambiar el número de lecciones que deseas cargar
+    main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
     sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
 
 
 if __name__ == '__main__':
     main() # Llamar a la función principal si el script se ejecuta como el programa principal
+
+#TODO RECUERDA TAMBIEN VER SI PUEDES VER CUAL ES EL PROBLEMA EN EL SWITCH DE LA LECCION 1 CON EL DE LAS 3, Y SI ES IGUAL CON EL DE LA 2
+#TODO RECUERDA SEGUIR TRABAJANDO CON UNIR LAS LECCIONES. RECUERDA TAMBIEN QUE IMPRIME LLEGUE, LO QUE SIGNIFICA QUE ESTA LLAMANDO A LA FUNCION

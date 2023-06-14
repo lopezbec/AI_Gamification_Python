@@ -36,6 +36,7 @@ class JsonWindow(QWidget):
         self.hint_label = None
         self.button_group = None
         self.radio_buttons = None
+        self.button_widgets = None
         self.blank_space_index = None
         self.original_hint_text = None
         self.filename = filename
@@ -60,7 +61,7 @@ class JsonWindow(QWidget):
         self.title()
 
         if self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_layout_radioButtons()
+            self.create_multiple_choice_layout(is_multiple_choice_plus=False)
             self.create_feedback_label()
 
         elif self.page_type.lower() == "completeblankspace":
@@ -106,7 +107,7 @@ class JsonWindow(QWidget):
         reset_button = QPushButton('Reiniciar')
         reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
         self.layout.addWidget(reset_button)
-        reset_button.clicked.connect(self.reset_drag_and_drop)
+        reset_button.clicked.connect(self.reset_button)
 
     def create_complete_blank_space_layout(self):
         self.blank_space_index = -1
@@ -139,8 +140,9 @@ class JsonWindow(QWidget):
         self.layout.addLayout(answers_layout)
         self.createResetBottom()
 
-    def create_multiple_choice_layout_radioButtons(self):
-        self.radio_buttons = []
+    def create_multiple_choice_layout(self, is_multiple_choice_plus=False):
+
+        self.button_widgets = []  # Esta lista almacenará las QCheckBox o QRadioButton.
         self.button_group = QButtonGroup()
 
         answers_layout = QHBoxLayout()  # Nuevo layout horizontal para las respuestas
@@ -150,15 +152,19 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
-            radio_button = QRadioButton(answer["text"])
-            radio_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            self.radio_buttons.append(radio_button)
-            self.button_group.addButton(radio_button, idx)
-            answers_layout.addWidget(radio_button)  # Agregar al layout horizontal en lugar del vertical
+            button_widget = QCheckBox(answer["text"]) if is_multiple_choice_plus else QRadioButton(answer["text"])
+            button_widget.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
+            self.button_widgets.append(button_widget)
+            self.button_group.addButton(button_widget, idx)
+            answers_layout.addWidget(button_widget)  # Agregar al layout horizontal en lugar del vertical
+
+        if is_multiple_choice_plus:
+            self.button_group.setExclusive(False)  # Permitir la selección de múltiples respuestas
 
         self.layout.addLayout(answers_layout)  # Agregar el layout horizontal al layout principal
         self.createResetBottom()
@@ -217,7 +223,7 @@ class JsonWindow(QWidget):
         self.layout.addLayout(draggable_labels_layout)
         self.createResetBottom()
 
-    def reset_drag_and_drop(self):
+    def reset_button(self):
         # Remove all current widgets from the layout
         while self.layout.count():
             child = self.layout.takeAt(0)
@@ -229,7 +235,7 @@ class JsonWindow(QWidget):
         if self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_layout_radioButtons()
+            self.create_multiple_choice_layout(is_multiple_choice_plus=False)
         elif self.page_type.lower() == "completeblankspace":
             self.create_complete_blank_space_layout()
         else:
@@ -405,27 +411,36 @@ class MainWindow(QWidget):
         self.last_json_number = json_number
 
         if current_page_type == "multiplechoice":
-            selected_answer_id = current_widget.button_group.checkedId()
-            if selected_answer_id != -1:
-                correct_answer_id = None
-                for idx, answer in enumerate(current_widget.data[current_page_type][0]["answers"]):
-                    if answer["correct"]:
-                        correct_answer_id = idx
-                        break
+            selected_answers = []  # Respuestas seleccionadas
+            correct_answers = []  # Respuestas correctas
+            # Iterar sobre los botones
+            for idx, button in enumerate(current_widget.button_widgets):
+                if button.isChecked():
+                    selected_answers.append({
+                        "text": button.text(),
+                        "correct": current_widget.data[current_page_type][0]["answers"][idx]["correct"]
+                    })
+                    self.log_event(f"Checkbox Selected: {button.text()}", event_type="mouse")  # Log mouse event
 
-                selected_answer_text = current_widget.data[current_page_type][0]["answers"][selected_answer_id]["text"]
-                if selected_answer_id == correct_answer_id:
-                    current_widget.feedback_label.setText("Respuesta correcta")
-                    current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"{selected_answer_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
-                    self.SubmitHideContinueShow(True, False)
+            # Iterar sobre las respuestas
+            for answer in current_widget.data[current_page_type][0]["answers"]:
+                if answer["correct"]:
+                    correct_answers.append(answer["text"])
 
+            # Verificar las respuestas seleccionadas
+            if selected_answers:
+                correct_selected = [answer for answer in selected_answers if answer["correct"]]
+                incorrect_selected = [answer for answer in selected_answers if not answer["correct"]]
+
+                # Verificar las respuestas correctas seleccionadas y si hay alguna incorrecta seleccionada
+                if len(correct_selected) == len(correct_answers) and len(incorrect_selected) == 0:
+                    self.SubmitAnswers(False, True, False)  # Correcto
+                elif len(correct_selected) < len(correct_answers) and len(incorrect_selected) == 0:
+                    self.SubmitAnswers(False, False, True)  # Incompleto
                 else:
-                    current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
-                    current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"{selected_answer_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                    self.SubmitAnswers(False, False, True)  # Incorrecto
             else:
-                self.SubmitAnswers(True, False, False)
+                self.SubmitAnswers(True, False, False)  # Respuesta no seleccionada
 
         elif current_page_type == "draganddrop":
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
@@ -453,12 +468,19 @@ class MainWindow(QWidget):
                         if correct_order:
                             # Check the correct order against the texts dropped into the drop label
                             if correct_order == dropped_texts:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    for text in dropped_texts:
+                                        self.log_event(f"Correct Drop Event: {text}", event_type="mouse")
                                 correct_count += 1
+
+                            else:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    for text in dropped_texts:
+                                        self.log_event(f"Incorrect Drop Event: {text}", event_type="mouse")
 
                     else:
                         # For questions requiring only one response, the original check is performed
                         correct_answer = None
-
                         for option in data_block["answers"]:
                             if option["correct"] and (label_type is None or option.get("correctType") == label_type):
                                 correct_answer = option
@@ -466,10 +488,14 @@ class MainWindow(QWidget):
 
                         if correct_answer:
                             if correct_answer["text"] in dropped_texts[0]:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    self.log_event(f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse")
                                 correct_count += 1
+                            else:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    self.log_event(f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse")
 
             else:
-
                 for label in drop_labels:
                     dropped_text = label.drop_area.text()
                     label_type = label.question_type
@@ -478,19 +504,35 @@ class MainWindow(QWidget):
                         unanswered += 1
                         continue
 
-                    correct_answer = None
-                    for option in data_block["answers"]:
-                        if option["correct"] and (label_type is None or option.get("correctType") == label_type):
-                            correct_answer = option
-                            break
+                    if "multipleResponseVariant" in data_block and data_block["multipleResponseVariant"]:
+                        dropped_text = full_dropped_text.split(':')[1].strip()
+                        correct_value = None
 
-                    if correct_answer:
-                        if correct_answer["text"] in dropped_text:
-                            correct_count += 1
-                            self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                        for block in data_block["blocks"]:
+                            if block["type"] == label_type:
+                                correct_value = block.get("correctValue")
+                                break
 
-                        else:
-                            self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                        if correct_value:
+                            if correct_value == dropped_text:
+                                correct_count += 1
+                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
+
+                            else: self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
+
+                    else:
+                        correct_answer = None
+                        for option in data_block["answers"]:
+                            if option["correct"] and (label_type is None or option.get("correctType") == label_type):
+                                correct_answer = option
+                                break
+
+                        if correct_answer:
+                            if correct_answer["text"] in dropped_text:
+                                correct_count += 1
+                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                            else:
+                                self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
