@@ -172,7 +172,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1-L3-TextData-Part-2.json",
-                    "page_type": "MultipleChoicePlus",
+                    "page_type": "MultipleChoice",
                     "json_number": 2
                 },
                 {
@@ -196,7 +196,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1-L3-TextData-Part-4.json",
-                    "page_type": "MultipleChoicePlus",
+                    "page_type": "MultipleChoice",
                     "json_number": 4
                 },
                 {

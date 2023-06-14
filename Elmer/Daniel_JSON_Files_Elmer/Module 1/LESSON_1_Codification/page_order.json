@@ -4,7 +4,7 @@
             "lesson_number": 1,
             "pages": [
                 {
-                    "type": "JsonWindow",
+                    "type": "JsoAnWindow",
                     "filename": "M1-L1-Coding-Part-1.json",
                     "page_type": "Pedagogical",
                     "json_number": 1

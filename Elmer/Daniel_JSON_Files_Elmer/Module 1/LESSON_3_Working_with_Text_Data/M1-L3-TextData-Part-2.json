@@ -1,7 +1,8 @@
 {
-    "multiplechoiceplus": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multiplechoiceplus": true,
             "blocks": [
                 {
                     "type": "info",
