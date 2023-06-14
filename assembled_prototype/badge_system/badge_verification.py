@@ -4,7 +4,7 @@ import os
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap
-from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QFrame, QLabel, QMainWindow, QVBoxLayout, QWidget
 app = QApplication([])
 main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
@@ -33,7 +33,8 @@ class BadgeVerification(QMainWindow):
         badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
         badge.setMargin(data["badge_margin"])
 
-        label = QLabel()
+        frame = QFrame()
+        label = QLabel(frame)
 
         #obtener directorio del archivo actual
         directorio_actual = os.path.dirname(os.path.abspath(__file__))
@@ -45,21 +46,25 @@ class BadgeVerification(QMainWindow):
         image_path = os.path.join(directorio_hermano, 'medal_5.jpg')
         pixmap = QPixmap(image_path)
 
+        frame.setFixedSize(pixmap.width(), pixmap.height())
+
         # Establecer la imagen en la etiqueta
         label.setPixmap(pixmap)
-
-        # Ajustar el tamaño de la etiqueta a la imagen
-        label.setFixedSize(pixmap.width(), pixmap.height())
         label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
+
+        label.setFixedSize(pixmap.width(), pixmap.height())
 
         #Add widgets to Layouts
             #Horizontal Layout
     
         #Vertical layout
         layoutV.setSpacing(10)
-        layoutV.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
+        layoutV.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layoutV.addWidget(badge)
-        layoutV.addWidget(label)
+
+        layoutV.addStretch()
+        layoutV.addWidget(frame, alignment=Qt.AlignmentFlag.AlignHCenter)
+        layoutV.addStretch()
         #Widget/Container initialization
         widget = QWidget()
         widget.setLayout(layoutV)
