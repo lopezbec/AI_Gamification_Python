@@ -1,0 +1,242 @@
+[
+    {
+        "name": "Usuario 1",
+        "points": 276,
+        "country": "Mexico",
+        "city": "Mexico City",
+        "friends": ["Usuario 2", "Usuario 3", "Usuario 4"],
+        "last_active": "2023-05-25 ; 14h:32m"
+    },
+    {
+        "name": "Usuario 2",
+        "points": 11670,
+        "country": "Canada",
+        "city": "Toronto",
+        "friends": ["Usuario 5", "Usuario 6"],
+        "last_active": "2023-03-20 ; 06h:45m"
+    },
+    {
+        "name": "Usuario 3",
+        "points": 1325,
+        "country": "United Kingdom",
+        "city": "London",
+        "friends": ["Usuario 7", "Usuario 8", "Usuario 9", "Usuario 10", "Usuario 11", "Usuario 12"],
+        "last_active": "2023-05-10 ; 23h:25m"
+    },
+    {
+        "name": "Usuario 4",
+        "points": 22450,
+        "country": "Germany",
+        "city": "Berlin",
+        "friends": ["Usuario 1", "Usuario 13", "Usuario 14"],
+        "last_active": "2023-04-02 ; 11h:15m"
+    },
+    {
+        "name": "Usuario 5",
+        "points": 910,
+        "country": "Italy",
+        "city": "Rome",
+        "friends": ["Usuario 1", "Usuario 2"],
+        "last_active": "2023-06-08 ; 16h:50m"
+    },
+    {
+        "name": "Usuario 6",
+        "points": 11100,
+        "country": "Australia",
+        "city": "Sydney",
+        "friends": ["Usuario 2"],
+        "last_active": "2023-05-15 ; 09h:10m"
+    },
+    {
+        "name": "Usuario 7",
+        "points": 500,
+        "country": "United States",
+        "city": "New York",
+        "friends": ["Usuario 3", "Usuario 35"],
+        "last_active": "2023-06-09 ; 08h:20m"
+    },
+    {
+        "name": "Usuario 8",
+        "points": 975,
+        "country": "Brazil",
+        "city": "Rio de Janeiro",
+        "friends": ["Usuario 3", "Usuario 35"],
+        "last_active": "2023-06-05 ; 17h:30m"
+    },
+    {
+        "name": "Usuario 9",
+        "points": 320,
+        "country": "France",
+        "city": "Paris",
+        "friends": ["Usuario 3", "Usuario 35"],
+        "last_active": "2023-06-07 ; 12h:40m"
+    },
+    {
+        "name": "Usuario 10",
+        "points": 590,
+        "country": "Argentina",
+        "city": "Buenos Aires",
+        "friends": ["Usuario 3"],
+        "last_active": "2023-06-02 ; 21h:50m"
+    },
+    {
+        "name": "Usuario 11",
+        "points": 9910,
+        "country": "South Korea",
+        "city": "Seoul",
+        "friends": ["Usuario 3"],
+        "last_active": "2023-06-06 ; 10h:00m"
+    },
+    {
+        "name": "Usuario 12",
+        "points": 285,
+        "country": "India",
+        "city": "Mumbai",
+        "friends": ["Usuario 3"],
+        "last_active": "2023-06-04 ; 18h:10m"
+    },
+    {
+        "name": "Usuario 13",
+        "points": 2180,
+        "country": "Canada",
+        "city": "Vancouver",
+        "friends": ["Usuario 4"],
+        "last_active": "2023-05-28 ; 07h:20m"
+    },
+    {
+        "name": "Usuario 14",
+        "points": 1390,
+        "country": "Spain",
+        "city": "Madrid",
+        "friends": ["Usuario 4", "Usuario 35"],
+        "last_active": "2023-05-30 ; 14h:30m"
+    },
+    {
+        "name": "Usuario 15",
+        "points": 2950,
+        "country": "United States",
+        "city": "Los Angeles",
+        "friends": [],
+        "last_active": "2023-06-01 ; 11h:40m"
+    },
+    {
+        "name": "Usuario 16",
+        "points": 2230,
+        "country": "Germany",
+        "city": "Munich",
+        "friends": [],
+        "last_active": "2023-05-27 ; 19h:50m"
+    },
+    {
+        "name": "Usuario 17",
+        "points": 4290,
+        "country": "Italy",
+        "city": "Florence",
+        "friends": [],
+        "last_active": "2023-05-23 ; 13h:00m"
+    },
+    {
+        "name": "Usuario 18",
+        "points": 410,
+        "country": "Mexico",
+        "city": "Guadalajara",
+        "friends": [],
+        "last_active": "2023-06-10 ; 10h:10m"
+    },
+    {
+        "name": "Usuario 19",
+        "points": 1895,
+        "country": "Canada",
+        "city": "Montreal",
+        "friends": [],
+        "last_active": "2023-06-09 ; 16h:20m"
+    },
+    {
+        "name": "Usuario 20",
+        "points": 300,
+        "country": "United Kingdom",
+        "city": "Edinburgh",
+        "friends": [],
+        "last_active": "2023-06-08 ; 08h:30m"
+    },
+    {
+        "name": "Usuario 21",
+        "points": 1380,
+        "country": "Germany",
+        "city": "Hamburg",
+        "friends": [],
+        "last_active": "2023-06-06 ; 19h:40m"
+    },
+    {
+        "name": "Usuario 22",
+        "points": 230,
+        "country": "Brazil",
+        "city": "Sao Paulo",
+        "friends": [],
+        "last_active": "2023-06-04 ; 10h:50m"
+    },
+    {
+        "name": "Usuario 23",
+        "points": 2420,
+        "country": "Australia",
+        "city": "Melbourne",
+        "friends": [],
+        "last_active": "2023-06-02 ; 22h:00m"
+    },
+    {
+        "name": "Usuario 24",
+        "points": 165,
+        "country": "France",
+        "city": "Nice",
+        "friends": [],
+        "last_active": "2023-05-31 ; 06h:10m"
+    },
+    {
+        "name": "Usuario 25",
+        "points": 290,
+        "country": "South Africa",
+        "city": "Cape Town",
+        "friends": [],
+        "last_active": "2023-05-29 ; 14h:20m"
+    },
+    {
+        "name": "Usuario 26",
+        "points": 2175,
+        "country": "India",
+        "city": "New Delhi",
+        "friends": [],
+        "last_active": "2023-05-25 ; 10h:30m"
+    },
+    {
+        "name": "Usuario 27",
+        "points": 2000,
+        "country": "United States",
+        "city": "Chicago",
+        "friends": [],
+        "last_active": "2023-05-22 ; 20h:40m"
+    },
+    {
+        "name": "Usuario 28",
+        "points": 20050,
+        "country": "Mexico",
+        "city": "Monterrey",
+        "friends": [],
+        "last_active": "2023-05-20 ; 14h:50m"
+    },
+    {
+        "name": "Usuario 29",
+        "points": 1990,
+        "country": "Canada",
+        "city": "Ottawa",
+        "friends": [],
+        "last_active": "2023-05-18 ; 08h:00m"
+    },
+    {
+        "name": "Usuario 30",
+        "points": 120,
+        "country": "United Kingdom",
+        "city": "Glasgow",
+        "friends": [],
+        "last_active": "2023-05-16 ; 21h:10m"
+    }
+]
