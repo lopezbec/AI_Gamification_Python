@@ -1,0 +1,639 @@
+event,time
+Parte 2,19:23:51
+* (Incorrecto),19:23:51
+- (Incorrecto),19:23:52
+- (Incorrecto),19:23:52
++ (Correcto),19:23:54
+Parte 3,19:23:55
+print(42 * 3) (Correcto),19:23:56
+Parte 4,19:23:59
+4.0 (Correcto),19:23:59
+Parte 5,19:24:03
+Entero:2 (Correcto),19:24:03
+Flotante:3.14 (Correcto),19:24:03
+
+Parte 2,18:23:50
++ (Correcto),18:23:50
+Parte 3,18:23:55
+print(42 x 3) (Incorrecto),18:23:55
+print(42 * 3) (Correcto),18:23:58
+Parte 4,18:24:04
+4.0 (Correcto),18:24:04
+Parte 5,18:24:09
+Entero:2 (Correcto),18:24:09
+Flotante:3.14 (Correcto),18:24:09
+
+Parte 2,21:20:07
++ (Correcto),21:20:08
+Parte 3,21:20:11
+print(42 x 3) (Incorrecto),21:20:14
+print(42 * 3) (Correcto),21:20:17
+Parte 4,21:20:21
+4.0 (Correcto),21:20:22
+Parte 5,21:20:26
+Flotante:3.14 (Correcto),21:20:28
+Entero:2 (Correcto),21:20:32
+Flotante:3.14 (Correcto),21:20:32
+
+Parte 2,21:27:07
++ (Correcto),21:27:08
+Parte 3,21:27:10
+print(42 * 3) (Correcto),21:27:13
+Parte 4,21:27:18
+4.0 (Correcto),21:27:18
+Parte 5,21:27:21
+Flotante:3.14 (Correcto),21:27:23
+Entero:2 (Correcto),21:27:25
+Flotante:3.14 (Correcto),21:27:25
+
+Parte 2,21:55:57
++ (Correcto),21:55:57
+Parte 3,21:56:00
+print(42 # 3) (Incorrecto),21:56:02
+print(42 * 3) (Correcto),21:56:04
+Parte 4,21:56:08
+4.0 (Correcto),21:56:08
+Parte 5,21:56:12
+Flotante:3.14 (Correcto),21:56:12
+Entero:2 (Correcto),21:56:15
+Flotante:3.14 (Correcto),21:56:15
+
+Parte 2,22:08:15
++ (Correcto),22:08:16
+Parte 3,22:08:20
+print(42 * 3) (Correcto),22:08:20
+Parte 4,22:08:26
+4.0 (Correcto),22:08:27
+Parte 5,22:08:30
+Flotante:3.14 (Correcto),22:08:31
+Entero:2 (Correcto),22:08:33
+Flotante:3.14 (Correcto),22:08:33
+
+Parte 2,22:46:17
++ (Correcto),22:46:20
+Parte 3,22:46:23
+print(42 * 3) (Correcto),22:46:23
+Parte 4,22:46:27
+4.0 (Correcto),22:46:27
+Parte 5,22:46:36
+Entero:2 (Correcto),22:46:36
+Flotante:3.14 (Correcto),22:46:36
+
+Parte 2,23:45:19
+Parte 3,23:45:24
+print(42 x 3) (Incorrecto),23:45:29
+print(42 * 3) (Correcto),23:45:32
+Parte 4,23:45:36
+4.0 (Correcto),23:45:38
+Parte 5,23:45:44
+Flotante:3.14 (Correcto),23:45:44
+Entero:2 (Correcto),23:45:49
+Flotante:3.14 (Correcto),23:45:49
+
+Parte 2,07:51:59
+Parte 3,07:52:04
+print(42 x 3) (Incorrecto),07:52:04
+print(42 # 3) (Incorrecto),07:52:08
+print(42 * 3) (Correcto),07:52:12
+Parte 4,07:52:13
+4.0 (Correcto),07:52:15
+Parte 5,07:52:23
+Entero:2 (Correcto),07:52:23
+Flotante:3.14 (Correcto),07:52:23
+
+Parte 2,10:34:58
+Parte 3,10:35:02
+print(42 * 3) (Correcto),10:35:02
+Parte 4,10:35:04
+4.0 (Correcto),10:35:06
+Parte 5,10:35:10
+Entero:2 (Correcto),10:35:10
+Flotante:3.14 (Correcto),10:35:10
+
+Parte 2,21:34:29
+Parte 3,21:34:37
+print(42 * 3) (Correcto),21:34:37
+Parte 4,21:34:39
+4.0 (Correcto),21:34:39
+Parte 5,21:34:44
+Entero:2 (Correcto),21:34:44
+Flotante:3.14 (Correcto),21:34:44
+
+Parte 1,21:59:30
+Parte 2,21:59:32
+Parte 2,21:59:35
+Parte 3,21:59:37
+Parte 3,21:59:40
+print(42 * 3) (Correcto),21:59:40
+Parte 4,21:59:40
+Parte 4,21:59:40
+4.0 (Correcto),21:59:42
+Parte 5,21:59:43
+Parte 5,21:59:47
+Entero:2 (Correcto),21:59:47
+Flotante:3.14 (Correcto),21:59:47
+Parte 6,21:59:47
+Parte 7,21:59:48
+
+Parte 1,22:03:46
+Parte 2,22:03:48
+Parte 2,22:03:48
+Parte 3,22:03:55
+Parte 3,22:03:59
+print(42 * 3) (Correcto),22:03:59
+Parte 4,22:04:00
+Parte 4,22:04:02
+4.0 (Correcto),22:04:02
+Parte 5,22:04:03
+Parte 5,22:04:06
+Entero:2 (Correcto),22:04:06
+Flotante:3.14 (Correcto),22:04:06
+Parte 6,22:04:07
+Parte 7,22:04:08
+
+Parte 1,23:09:34
+Parte 2,23:09:36
+Parte 2,23:09:38
+Correct Answer Selected: +,23:09:38
+Parte 3,23:09:38
+Parte 3,23:09:41
+print(42 * 3) (Correcto),23:09:41
+Parte 4,23:09:42
+Parte 4,23:09:44
+4.0 (Correcto),23:09:44
+Parte 5,23:09:45
+Parte 5,23:09:48
+Entero:2 (Correcto),23:09:48
+Flotante:3.14 (Correcto),23:09:48
+Parte 6,23:09:48
+Parte 7,23:09:49
+
+Parte 1,23:12:20
+Parte 2,23:12:22
+Parte 2,23:12:24
+Correct Answer Selected: +,23:12:24
+Parte 3,23:12:25
+Parte 3,23:12:27
+print(42 * 3) (Correcto),23:12:27
+Parte 4,23:12:28
+Parte 4,23:12:28
+4.0 (Correcto),23:12:30
+Parte 5,23:12:31
+Parte 5,23:12:34
+Entero:2 (Correcto),23:12:34
+Flotante:3.14 (Correcto),23:12:34
+Parte 6,23:12:34
+Parte 7,23:12:35
+
+Parte 1,23:18:50
+Parte 2,23:18:52
+Parte 2,23:18:53
+Correct Answer Selected: +,23:18:53
+Parte 3,23:18:54
+Parte 3,23:18:54
+print(42 * 3) (Correcto),23:18:56
+Parte 4,23:18:56
+Parte 4,23:18:57
+4.0 (Correcto),23:18:58
+Parte 5,23:18:58
+Parte 5,23:19:01
+Entero:2 (Correcto),23:19:01
+Flotante:3.14 (Correcto),23:19:01
+Parte 6,23:19:01
+Parte 7,23:19:01
+
+Parte 1,23:25:50
+Parte 2,23:25:53
+Parte 2,23:25:54
+Correct Answer Selected: +,23:25:54
+Parte 3,23:25:55
+Parte 3,23:25:58
+print(42 * 3) (Correcto),23:25:58
+Parte 4,23:25:59
+Parte 4,23:26:01
+4.0 (Correcto),23:26:01
+Parte 5,23:26:02
+Parte 5,23:26:05
+Entero:2 (Correcto),23:26:05
+Flotante:3.14 (Correcto),23:26:05
+Parte 6,23:26:06
+Parte 7,23:26:07
+
+Parte 1,23:30:46
+Parte 2,23:30:49
+Correct Answer Selected: +,23:30:49
+Parte 3,23:30:52
+print(42 * 3) (Correcto),23:30:52
+Parte 4,23:30:54
+4.0 (Correcto),23:30:54
+Parte 5,23:30:59
+Entero:2 (Correcto),23:30:59
+Flotante:3.14 (Correcto),23:30:59
+
+Parte 1,23:34:36
+Parte 2,23:34:39
+Correct Answer Selected: +,23:34:39
+Parte 3,23:34:42
+print(42 * 3) (Correcto),23:34:42
+Parte 4,23:34:44
+4.0 (Correcto),23:34:44
+Parte 5,23:34:47
+Entero:2 (Correcto),23:34:47
+Flotante:3.14 (Correcto),23:34:47
+
+Parte 1,23:42:47
+Parte 2,23:42:49
+Parte 2,23:42:50
+Correct Answer Selected: +,23:42:50
+Parte 3,23:42:51
+Parte 3,23:42:53
+print(42 * 3) (Correcto),23:42:53
+Parte 4,23:42:53
+Parte 4,23:42:54
+4.0 (Correcto),23:42:55
+Parte 5,23:42:56
+Parte 5,23:43:00
+Entero:2 (Correcto),23:43:00
+Flotante:3.14 (Correcto),23:43:00
+Parte 6,23:43:00
+Parte 7,23:43:01
+
+Parte 1,23:44:47
+Parte 2,23:44:49
+Parte 2,23:44:51
+Correct Answer Selected: +,23:44:51
+Parte 3,23:44:51
+Parte 3,23:44:53
+print(42 * 3) (Correcto),23:44:53
+Parte 4,23:44:54
+Parte 4,23:44:55
+4.0 (Correcto),23:44:55
+Parte 5,23:44:55
+Parte 5,23:44:58
+Entero:2 (Correcto),23:44:58
+Flotante:3.14 (Correcto),23:44:58
+Parte 6,23:44:58
+Parte 7,23:44:59
+
+Parte 1,23:46:36
+Parte 2,23:46:37
+Parte 2,23:46:40
+Correct Answer Selected: +,23:46:40
+Parte 3,23:46:41
+Parte 3,23:46:41
+print(42 * 3) (Correcto),23:46:43
+Parte 4,23:46:43
+Parte 4,23:46:43
+4.0 (Correcto),23:46:44
+Parte 5,23:46:45
+Parte 5,23:46:47
+Entero:2 (Correcto),23:46:47
+Flotante:3.14 (Correcto),23:46:47
+Parte 6,23:46:48
+Parte 7,23:46:49
+
+Parte 1,23:48:44
+Parte 2,23:48:46
+Parte 2,23:48:49
+Correct Answer Selected: +,23:48:49
+Parte 3,23:48:49
+Parte 3,23:48:53
+print(42 x 3) (Incorrecto),23:48:53
+print(42 * 3) (Correcto),23:48:56
+Parte 4,23:48:56
+Parte 4,23:48:58
+4.0 (Correcto),23:48:58
+Parte 5,23:48:59
+Parte 5,23:49:03
+Entero:2 (Correcto),23:49:03
+Flotante:3.14 (Correcto),23:49:03
+Parte 6,23:49:03
+Parte 7,23:49:04
+
+Parte 1,23:49:45
+Parte 2,23:49:48
+Parte 2,23:49:52
+Correct Answer Selected: +,23:49:52
+Parte 3,23:49:53
+Parte 3,23:49:57
+print(42 * 3) (Correcto),23:49:57
+Parte 4,23:49:57
+Parte 4,23:49:59
+4.0 (Correcto),23:49:59
+Parte 5,23:50:00
+Parte 5,23:50:05
+Entero:2 (Correcto),23:50:05
+Flotante:3.14 (Correcto),23:50:05
+Parte 6,23:50:05
+Parte 7,23:50:06
+
+Parte 1,23:50:24
+Parte 2,23:50:25
+Parte 2,23:50:26
+Blank Space Selected,23:50:26
+Correct Answer Selected: +,23:50:28
+Parte 3,23:50:28
+Parte 3,23:50:31
+print(42 * 3) (Correcto),23:50:31
+Parte 4,23:50:32
+Parte 4,23:50:34
+4.0 (Correcto),23:50:34
+Parte 5,23:50:34
+Parte 5,23:50:37
+Entero:2 (Correcto),23:50:37
+Flotante:3.14 (Correcto),23:50:37
+Parte 6,23:50:38
+Parte 7,23:50:38
+
+Parte 1,23:50:58
+Parte 2,23:50:59
+Parte 2,23:51:00
+Blank Space Selected,23:51:00
+Correct Answer Selected: +,23:51:01
+Parte 3,23:51:01
+Parte 3,23:51:01
+print(42 * 3) (Correcto),23:51:06
+Parte 4,23:51:06
+Parte 4,23:51:06
+4.0 (Correcto),23:51:08
+Parte 5,23:51:08
+Parte 5,23:51:11
+Entero:2 (Correcto),23:51:11
+Flotante:3.14 (Correcto),23:51:11
+Parte 6,23:51:11
+Parte 7,23:51:12
+
+Parte 1,23:51:52
+Parte 2,23:51:55
+Correct Answer Selected: +,23:51:55
+Parte 3,23:51:57
+print(42 * 3) (Correcto),23:51:57
+Parte 4,23:51:59
+4.0 (Correcto),23:51:59
+Parte 5,23:52:00
+Entero:2 (Correcto),23:52:04
+Flotante:3.14 (Correcto),23:52:04
+
+Parte 1,23:53:36
+Parte 2,23:53:40
+Correct Answer Selected: +,23:53:40
+Parte 3,23:53:43
+print(42 * 3) (Correcto),23:53:43
+Parte 4,23:53:45
+4.0 (Correcto),23:53:45
+Parte 5,23:53:49
+Entero:2 (Correcto),23:53:49
+Flotante:3.14 (Correcto),23:53:49
+Parte 6,23:53:52
+print(42 * 3) (Correcto),23:53:52
+
+Parte 1,23:57:31
+Parte 2,23:57:35
+Correct Answer Selected: +,23:57:35
+Parte 2,23:57:35
+Parte 3,23:57:37
+print(42 * 3) (Correcto),23:57:37
+Parte 3,23:57:38
+Parte 4,23:57:40
+4.0 (Correcto),23:57:40
+Parte 4,23:57:40
+Parte 5,23:57:44
+Entero:2 (Correcto),23:57:44
+Flotante:3.14 (Correcto),23:57:44
+Parte 5,23:57:44
+Parte 6,23:57:46
+
+Parte 1,23:58:16
+Parte 2,23:58:20
+Correct Answer Selected: +,23:58:20
+Parte 3,23:58:22
+print(42 * 3) (Correcto),23:58:22
+Parte 4,23:58:25
+4.0 (Correcto),23:58:25
+Parte 5,23:58:30
+Entero:2 (Correcto),23:58:30
+Flotante:2 (Incorrecto),23:58:30
+Entero:2 (Correcto),23:58:32
+Flotante:3.14 (Correcto),23:58:32
+
+Parte 1,23:59:36
+Parte 2,23:59:38
+Parte 2,23:59:40
+Correct Answer Selected: +,23:59:40
+Parte 3,23:59:41
+Parte 3,23:59:43
+print(42 * 3) (Correcto),23:59:43
+Parte 4,23:59:44
+Parte 4,23:59:46
+4.0 (Correcto),23:59:46
+Parte 5,23:59:46
+Parte 5,23:59:49
+Entero:2 (Correcto),23:59:49
+Flotante:3.14 (Correcto),23:59:49
+Parte 6,23:59:50
+Parte 7,23:59:50
+
+Parte 1,00:00:40
+Parte 2,00:00:54
+Correct Answer Selected: +,00:00:54
+Parte 3,00:00:54
+print(42 * 3) (Correcto),00:00:56
+Parte 4,00:00:57
+4.0 (Correcto),00:00:58
+Parte 5,00:01:02
+Entero:2 (Correcto),00:01:02
+Flotante:3.14 (Correcto),00:01:02
+
+Parte 1,00:02:35
+Parte 2,00:02:37
+Parte 2,00:02:38
+Correct Answer Selected: +,00:02:38
+Parte 3,00:02:39
+Parte 3,00:02:41
+print(42 * 3) (Correcto),00:02:41
+Parte 4,00:02:41
+Parte 4,00:02:43
+4.0 (Correcto),00:02:43
+Parte 5,00:02:43
+Parte 5,00:02:46
+Entero:2 (Correcto),00:02:46
+Flotante:3.14 (Correcto),00:02:46
+Parte 6,00:02:47
+Parte 7,00:02:47
+
+Parte 1,00:03:28
+Parte 2,00:03:29
+Parte 2,00:03:31
+Correct Answer Selected: +,00:03:31
+Parte 3,00:03:31
+Parte 3,00:03:33
+print(42 * 3) (Correcto),00:03:33
+Parte 4,00:03:34
+Parte 4,00:03:35
+4.0 (Correcto),00:03:35
+Parte 5,00:03:36
+Parte 5,00:03:39
+Entero:2 (Correcto),00:03:39
+Flotante:3.14 (Correcto),00:03:39
+Parte 6,00:03:39
+Parte 7,00:03:40
+
+Parte 1,00:04:32
+Parte 2,00:04:34
+Parte 2,00:04:36
+Correct Answer Selected: +,00:04:36
+Parte 3,00:04:36
+Parte 3,00:04:38
+print(42 * 3) (Correcto),00:04:38
+Parte 4,00:04:39
+Parte 4,00:04:40
+4.0 (Correcto),00:04:40
+Parte 5,00:04:40
+Parte 5,00:04:43
+Entero:2 (Correcto),00:04:43
+Flotante:3.14 (Correcto),00:04:43
+Parte 6,00:04:43
+Parte 7,00:04:44
+
+Parte 1,00:05:23
+Parte 2,00:05:27
+Correct Answer Selected: +,00:05:27
+Parte 3,00:05:29
+print(42 * 3) (Correcto),00:05:29
+Parte 4,00:05:31
+4.0 (Correcto),00:05:31
+Parte 5,00:05:34
+Entero:2 (Correcto),00:05:34
+Flotante:3.14 (Correcto),00:05:34
+
+Parte 1,00:09:01
+Parte 2,00:09:03
+Parte 2,00:09:04
+Correct Answer Selected: +,00:09:04
+Parte 3,00:09:05
+Parte 3,00:09:05
+print(42 * 3) (Correcto),00:09:07
+Parte 4,00:09:07
+Parte 4,00:09:09
+4.0 (Correcto),00:09:09
+Parte 5,00:09:09
+Parte 5,00:09:12
+Entero:2 (Correcto),00:09:12
+Flotante:3.14 (Correcto),00:09:12
+Parte 6,00:09:12
+Parte 7,00:09:13
+
+Parte 1,00:13:25
+Parte 2,00:13:27
+Parte 2,00:13:28
+Correct Answer Selected: +,00:13:28
+Parte 3,00:13:28
+Parte 3,00:13:29
+print(42 * 3) (Correcto),00:13:30
+Parte 4,00:13:31
+Parte 4,00:13:33
+4.0 (Correcto),00:13:33
+Parte 5,00:13:34
+Parte 5,00:13:37
+Entero:2 (Correcto),00:13:37
+Flotante:3.14 (Correcto),00:13:37
+Parte 6,00:13:38
+Parte 7,00:13:38
+
+Parte 1,00:16:28
+Parte 2,00:16:29
+Parte 2,00:16:31
+Correct Answer Selected: +,00:16:31
+Parte 3,00:16:32
+Parte 3,00:16:34
+print(42 * 3) (Correcto),00:16:34
+Parte 4,00:16:35
+Parte 4,00:16:37
+4.0 (Correcto),00:16:37
+Parte 5,00:16:37
+Parte 5,00:16:40
+Entero:2 (Correcto),00:16:40
+Flotante:3.14 (Correcto),00:16:40
+Parte 6,00:16:41
+Parte 7,00:16:42
+
+Parte 1,00:22:39
+Parte 2,00:22:42
+Correct Answer Selected: +,00:22:42
+Parte 3,00:22:45
+print(42 * 3) (Correcto),00:22:45
+Parte 4,00:22:47
+4.0 (Correcto),00:22:47
+Parte 5,00:22:50
+Entero:2 (Correcto),00:22:50
+Flotante:3.14 (Correcto),00:22:50
+
+Parte 1,00:24:26
+Parte 2,00:24:28
+Parte 2,00:24:28
+Blank Space Selected,00:24:28
+Correct Answer Selected: +,00:24:29
+Parte 3,00:24:30
+Parte 3,00:24:30
+print(42 * 3) (Correcto),00:24:32
+Parte 4,00:24:32
+Parte 4,00:24:34
+4.0 (Correcto),00:24:34
+Parte 5,00:24:34
+Parte 5,00:24:38
+Entero:2 (Correcto),00:24:38
+Flotante:3.14 (Correcto),00:24:38
+Parte 6,00:24:38
+Parte 7,00:24:39
+
+Parte 2,00:26:23
+Correct Answer Selected: +,00:26:23
+Parte 3,00:26:26
+print(42 * 3) (Correcto),00:26:26
+Parte 4,00:26:28
+4.0 (Correcto),00:26:28
+Parte 5,00:26:31
+Entero:2 (Correcto),00:26:31
+Flotante:3.14 (Correcto),00:26:31
+
+Parte 2,00:27:53
+Incorrect Answer Selected: *,00:27:53
+Correct Answer Selected: +,00:27:55
+Parte 3,00:27:58
+print(42 * 3) (Correcto),00:27:58
+Parte 4,00:28:01
+4.0 (Correcto),00:28:01
+Parte 5,00:28:02
+Entero:2 (Correcto),00:28:05
+Flotante:3.14 (Correcto),00:28:05
+
+Parte 1,00:28:59
+print(42 * 3) (Correcto),00:28:59
+Parte 2,00:29:00
+Blank Space Selected,00:29:00
+Correct Answer Selected: +,00:29:02
+Parte 3,00:29:05
+print(42 * 3) (Correcto),00:29:05
+Parte 4,00:29:08
+4.0 (Correcto),00:29:08
+Parte 5,00:29:11
+Entero:2 (Correcto),00:29:11
+Flotante:3.14 (Correcto),00:29:11
+
+Parte 2,00:29:50
+Correct Answer Selected: +,00:29:50
+Parte 3,00:29:52
+print(42 * 3) (Correcto),00:29:52
+Parte 4,00:29:56
+6 (Incorrecto),00:29:56
+6 (Incorrecto),00:29:57
+6 (Incorrecto),00:29:57
+6 (Incorrecto),00:29:58
+6 (Incorrecto),00:29:58
+4.0 (Correcto),00:30:00
+Parte 5,00:30:02
+Entero:3.14 (Incorrecto),00:30:05
+Entero:2 (Correcto),00:30:07
+Entero:2 (Correcto),00:30:09
+Flotante:3.14 (Correcto),00:30:09
+

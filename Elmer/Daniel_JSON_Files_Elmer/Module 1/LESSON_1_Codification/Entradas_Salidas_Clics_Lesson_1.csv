@@ -152,6 +152,7 @@ print(729) (Correcto),00:33:17
 Parte 5,00:33:20
 comillas ''  (Correcto),00:33:20
 
+<<<<<<< Updated upstream
 Parte 1,17:01:14
 Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,17:01:16
 Parte 3,17:01:20
@@ -169,4 +170,14 @@ Parte 4,17:27:36
 print(729) (Correcto),17:27:40
 Parte 5,17:27:45
 Checkbox Selected: comillas '' ,17:27:45
+=======
+Parte 1,10:34:44
+Un lenguaje utilizado por los humanos para comunicarse con las maquinas. (Correcto),10:34:44
+Parte 3,10:34:47
+Verdadero (Correcto),10:34:49
+Parte 4,10:34:53
+print(729) (Correcto),10:34:53
+Parte 5,10:35:09
+comillas ''  (Correcto),10:35:09
+>>>>>>> Stashed changes
 

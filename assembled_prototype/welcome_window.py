@@ -4,6 +4,8 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from concent import ConcentWindow
+from game_features.progress_bar import ProgressBar
+
 
 class WelcomeWindow(QMainWindow):
     def __init__(self) -> None:
@@ -42,11 +44,10 @@ class WelcomeWindow(QMainWindow):
         next_button.setText(data["button_text"])
         next_button.setFixedSize(data["button_width"], data["button_height"])
         next_button.clicked.connect(self.show_concent)
-
-
+       
         v_layout = QVBoxLayout()
         h_layout = QHBoxLayout()
-
+        
         v_layout.addWidget(title)
 
         h_layout.addWidget(content)

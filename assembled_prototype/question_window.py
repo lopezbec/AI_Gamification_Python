@@ -1,10 +1,13 @@
 import csv
 import json
 import random
+import sys
+import time
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, QWidget
 from finish_window import FinishWindow
+from game_features.progress_bar import ProgressBar
 
 
 class QuestionWindow(QMainWindow):
@@ -12,6 +15,7 @@ class QuestionWindow(QMainWindow):
         self.read_csv()
         global responses
         self.counter = 0
+        self.total_elements = 0
         responses = []
         self.username = "placeholder"
         self.radio_buttons = ["radio_1", "radio_2", "radio_3", "radio_4", 
@@ -21,6 +25,10 @@ class QuestionWindow(QMainWindow):
         with open(r'./json/question_info.json') as question_info:
             data = json.load(question_info)
 
+        #Progress Bar
+        self.progress_bar = ProgressBar()
+        self.total_elements = self.progress_bar.count_element_progress('./assets/csv/Survey.csv')
+      
         #title
         self.title = QLabel(self)
         question_number = self.get_number_question()
@@ -108,6 +116,7 @@ class QuestionWindow(QMainWindow):
         grid_layout.addWidget(self.radio_6)
         grid_layout.addWidget(self.radio_7)
 
+        v_layout.addWidget(self.progress_bar, alignment=Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignHCenter)
         v_layout.addWidget(self.title)
 
         h_layout.addWidget(self.content)
@@ -168,6 +177,8 @@ class QuestionWindow(QMainWindow):
            self.next_button.setEnabled(True)
 
     def next_question(self):
+        self.progress_bar.increment_progress(self.total_elements)
+        time.sleep(1.1)
         index_in_list = question_index.index(random_index)
         question_index.pop(index_in_list)
         self.next_button.setEnabled(False)
@@ -217,3 +228,9 @@ class QuestionWindow(QMainWindow):
                     writer.writerow(data)
         except IOError:
             print("I/O error")
+
+        if __name__ == '__main__':
+            app = QApplication(sys.argv)
+            window = QuestionWindow()
+            window.show()
+            sys.exit(app.exec())

@@ -1,6 +1,7 @@
 {
-    "badge_text": "Felicidades! has conseguido una nueva insignia",
-    "badge_title": "Un pequeno, gran paso!",
+    "badge_window_title": "¡¡WOW!!",
+    "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+    "badge_title": "¡Un pequeño, gran paso!",
     "badge_font_size": 18,
     "badge_font_family": "Lato",
     "badge_margin": 10,

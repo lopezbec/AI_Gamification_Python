@@ -1,28 +1,31 @@
+#badge_system/badge_verification.py
 import json
 import os
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QWidget
+app = QApplication([])
+main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+
 
 class BadgeVerification(QMainWindow):
     def __init__(self) -> None:
         super(BadgeVerification, self).__init__()
 
-        
-        joined_path = os.path.join(os.path.dirname(os.path.abspath("app.py")), "badge_info.json")
-        with open(joined_path, "r", encoding='utf-8') as finish_info:
+        self.initUI()
+
+    def initUI(self): 
+        with open(main_directory_path + "\\badge_info.json", "r", encoding='utf-8') as finish_info:
             data = json.load(finish_info)
-
-
         #Window properties
-        self.setWindowTitle = data["badge_text"]
+        self.setWindowTitle(data["badge_window_title"])
         #Layouts
         layoutV = QVBoxLayout()
-      
+    
         #Label properties
         badge = QLabel(self)
-        badge.setText(data["badge_title"])
+        badge.setText(data["badge_text"] + "\n" + data["badge_title"])
         font = QFont()
         font.setFamily(data["badge_font_family"])
         badge.setFont(font)
@@ -51,7 +54,7 @@ class BadgeVerification(QMainWindow):
 
         #Add widgets to Layouts
             #Horizontal Layout
-      
+    
         #Vertical layout
         layoutV.setSpacing(10)
         layoutV.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)

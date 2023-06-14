@@ -945,6 +945,7 @@ Parte 6,00:33:21
 Pedagogical Page Open Time,00:33:21
 Pedagogical Page Close Time,00:33:21
 
+<<<<<<< Updated upstream
 Parte 1,17:01:12
 Pedagogical Page Open Time,17:01:12
 Pedagogical Page Close Time,17:01:13
@@ -1002,4 +1003,34 @@ Pedagogical Page Close Time,17:27:46
 Parte 6,17:27:46
 Pedagogical Page Open Time,17:27:46
 Pedagogical Page Close Time,17:27:47
+=======
+Parte 1,10:34:37
+Pedagogical Page Open Time,10:34:37
+Pedagogical Page Close Time,10:34:38
+Multiplechoice Page Open Time,10:34:38
+Multiplechoice Page Close Time,10:34:45
+Parte 2,10:34:45
+Pedagogical Page Open Time,10:34:45
+Pedagogical Page Close Time,10:34:45
+Pedagogical2 Page Open Time,10:34:45
+Pedagogical2 Page Close Time,10:34:46
+Parte 3,10:34:46
+Pedagogical Page Open Time,10:34:46
+Pedagogical Page Close Time,10:34:47
+Multiplechoice Page Open Time,10:34:47
+Multiplechoice Page Close Time,10:34:50
+Parte 4,10:34:50
+Draganddrop Page Open Time,10:34:50
+Draganddrop Page Close Time,10:34:54
+Pedagogical Page Open Time,10:34:54
+Pedagogical Page Close Time,10:34:55
+Parte 5,10:34:55
+Multiplechoice Page Open Time,10:34:55
+Multiplechoice Page Close Time,10:35:10
+Pedagogical Page Open Time,10:35:10
+Pedagogical Page Close Time,10:35:11
+Parte 6,10:35:11
+Pedagogical Page Open Time,10:35:11
+Pedagogical Page Close Time,10:35:12
+>>>>>>> Stashed changes
 

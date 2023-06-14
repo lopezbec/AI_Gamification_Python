@@ -4,7 +4,6 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, \
     QScrollArea, QMessageBox
 from badge_system.badge_verification import BadgeVerification
-app = QApplication(sys.argv)
 
 
 class MainPage(QMainWindow):
@@ -129,7 +128,7 @@ class QuestionPage(QMainWindow):
 def main():
     app = QApplication(sys.argv)
 
-    with open("data.json", "r", encoding='utf-8') as file:
+    with open("./json/data.json", "r", encoding='utf-8') as file:
         data = json.load(file)
 
     main_page = MainPage(data)
