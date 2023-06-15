@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Daniel_JSON_Files_Elmer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/Main_Module_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Daniel_JSON_Files.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Leaderboard.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Main_Leaderboard_FV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/levels.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/styles_leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/Main_Leaderboard_FV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/levels.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/pyvenv.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/styles_leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Entradas_Salidas_Clics_Lesson_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Module_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Time_Lesson_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/custom_console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/page_order.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2RDqtXbbD0apwyA61RGQMQJ3jKY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="" />
+      <created>1686795215029</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686795215029</updated>
+    </task>
+    <servers />
+  </component>
+</project>

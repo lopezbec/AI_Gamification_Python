@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="92a81983-83f1-4dff-8e17-26c7ec83ad14" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Daniel_JSON_Files_Elmer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Daniel_JSON_Files.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Leaderboard.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Main_Leaderboard_FV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/levels.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/styles_leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/Main_Leaderboard_FV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/levels.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/pyvenv.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/styles_leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Entradas_Salidas_Clics_Lesson_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L1-Coding-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L2-Working-Part-7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/M1-L3-TextData-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Module_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Time_Lesson_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/custom_console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/page_order.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2RDp0Qb5jaFQM4F3qB109ghQrCZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/elmer/Escritorio/AI_Gamification_Python/Elmer/Daniel_JSON_Files_Elmer/Module 1/Interprete",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Daniel_JSON_Files_Elmer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92a81983-83f1-4dff-8e17-26c7ec83ad14" name="Changes" comment="" />
+      <created>1686794282425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686794282425</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
