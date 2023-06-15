@@ -1,3 +1,4 @@
+# module_1/lesson_1_codification/drag_drop.py
 from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QDrag,  QPixmap, QPainter
 from PyQt6.QtWidgets import QLabel, QWidget, QVBoxLayout

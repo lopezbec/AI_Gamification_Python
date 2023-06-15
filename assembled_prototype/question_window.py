@@ -167,7 +167,7 @@ class QuestionWindow(QMainWindow):
     #assing value to the radio button
     def pick_value(self, radio):
         global score
-        options = ["Totalmente en desacuerdo", "En Desacuerdo", "Ligeramente en desacuerdo", 
+        options = ["Totalmente en desacuerdo", "En desacuerdo", "Ligeramente en desacuerdo", 
                    "Neutral", "Ligeramente de acuerdo", "De acuerdo", "Totalmente de acuerdo"]
         value = [1, 2, 3, 4, 5, 6, 7]
         values_dict = dict(zip(options, value))
@@ -178,7 +178,7 @@ class QuestionWindow(QMainWindow):
 
     def next_question(self):
         self.progress_bar.increment_progress(self.total_elements)
-        time.sleep(1.1)
+        time.sleep(0.2)
         index_in_list = question_index.index(random_index)
         question_index.pop(index_in_list)
         self.next_button.setEnabled(False)

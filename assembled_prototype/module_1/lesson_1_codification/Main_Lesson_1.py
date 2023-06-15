@@ -1,7 +1,6 @@
 # module_1/lesson_1_codification/Main_Lesson_1.py
 import csv
 import datetime
-import drag_drop
 import json
 import os
 import sys
@@ -11,20 +10,23 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup
 
 main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+current_directory = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 sys.path.append(main_directory_path)
+sys.path.append(current_directory)
+from module_1.lesson_1_codification import drag_drop
 from game_features.progress_bar import ProgressBar
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename) as json_file:
+        with open(current_directory + "\\" + filename) as json_file:
             data = json.load(json_file)
         return data
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        with open(current_directory + "\\styles.json") as styles_file:
             styles = json.load(styles_file)
         return styles
 
@@ -392,7 +394,7 @@ class MainWindow(QWidget):
             csv_file.write('\n')
 
     def load_page_order(self):
-        with open("page_order.json", "r") as file:
+        with open(current_directory + "\\page_order.json", "r") as file:
             data = json.load(file)
 
         for lesson in data["lessons"]:
@@ -553,6 +555,7 @@ class MainWindow(QWidget):
 def main():
     app = QApplication(sys.argv) # Crear una instancia de QApplication
     main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
+    main_window.show()
     sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
 
 

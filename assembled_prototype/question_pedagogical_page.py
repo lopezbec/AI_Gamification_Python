@@ -1,10 +1,11 @@
 import json
 import sys
-from PyQt5.QtCore import Qt
+import time
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, \
     QScrollArea, QMessageBox
 from badge_system.badge_verification import BadgeVerification
-
+app = QApplication([])
 
 class MainPage(QMainWindow):
     def __init__(self, data) -> None:
@@ -118,6 +119,7 @@ class QuestionPage(QMainWindow):
                 self.radio_buttons[selected_answer].setStyleSheet("font-size: 15px; color: green")
                 self.badge = BadgeVerification()
                 self.badge.show()
+    
             else:
                 self.feedback_label.setText("Incorrecto")
                 self.feedback_label.setStyleSheet("font-size: 15px; color: red; font-weight: bold")

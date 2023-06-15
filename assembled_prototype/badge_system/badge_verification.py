@@ -4,7 +4,8 @@ import os
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap
-from PyQt6.QtWidgets import QApplication, QFrame, QLabel, QMainWindow, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QFrame, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from module_1.lesson_1_codification import Main_Lesson_1
 app = QApplication([])
 main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
@@ -12,8 +13,13 @@ main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 class BadgeVerification(QMainWindow):
     def __init__(self) -> None:
         super(BadgeVerification, self).__init__()
-
         self.initUI()
+
+    def closeEvent(self, event):
+        self.hide()
+        self.mod_1_lesson_1 = Main_Lesson_1.MainWindow()
+        self.mod_1_lesson_1.show()
+
 
     def initUI(self): 
         with open(main_directory_path + "\\badge_info.json", "r", encoding='utf-8') as finish_info:
@@ -32,6 +38,11 @@ class BadgeVerification(QMainWindow):
         font.setPointSize(data["badge_font_size"])
         badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
         badge.setMargin(data["badge_margin"])
+        
+        # close button
+        accept_button = QPushButton("Aceptar")
+        accept_button.setFixedSize(250, 30)
+        accept_button.clicked.connect(self.closeEvent)
 
         frame = QFrame()
         label = QLabel(frame)
@@ -65,10 +76,13 @@ class BadgeVerification(QMainWindow):
         layoutV.addStretch()
         layoutV.addWidget(frame, alignment=Qt.AlignmentFlag.AlignHCenter)
         layoutV.addStretch()
+        layoutV.addWidget(accept_button, alignment=Qt.AlignmentFlag.AlignHCenter)
         #Widget/Container initialization
         widget = QWidget()
         widget.setLayout(layoutV)
         self.setCentralWidget(widget)
+
+           
 
         def initialize_user_data(self):
             datos = {
