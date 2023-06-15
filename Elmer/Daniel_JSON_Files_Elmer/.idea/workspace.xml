@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/Daniel_JSON_Files_Elmer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Module 1/Main_Module_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/candado_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/guia_usuario_icon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/leaderboard_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Daniel_JSON_Files.iml" beforeDir="false" />
@@ -15,16 +21,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Leaderboard.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Leaderboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Daniel_JSON_Files_Elmer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/Main_Leaderboard_FV.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/leaderboard.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/levels.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/styles_leaderboard.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Leaderboard/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/Main_Leaderboard_FV.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/leaderboard.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Leaderboard/levels.json" beforeDir="false" />
