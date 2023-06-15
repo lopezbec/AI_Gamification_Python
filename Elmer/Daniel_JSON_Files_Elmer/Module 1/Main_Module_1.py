@@ -2,21 +2,7 @@ import sys
 import os
 import json
 from PyQt6 import QtWidgets, QtCore, QtGui
-
-# Ruta al directorio Leaderboard_First_Version
-leaderboard_dir = os.path.join(os.path.dirname(__file__), 'Leaderboard_First_Version')
-
-# Agregar el directorio al sys.path
-sys.path.insert(0, leaderboard_dir)
-
-# Importar los archivos necesarios
-import Main_Leaderboard_FV
-
-# Ruta a los archivos
-styles_file = os.path.join(leaderboard_dir, 'styles_leaderboard.json')
-levels_file = os.path.join(leaderboard_dir, 'levels.json')
-leaderboard_file = os.path.join(leaderboard_dir, 'leaderboard.json')
-
+from Main_Leaderboard_FV import run
 
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -30,7 +16,6 @@ class UserGuideDialog(QtWidgets.QDialog):
         label = QtWidgets.QLabel("Aquí va la guía de usuario...")
         label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(label)
-
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -119,7 +104,11 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog.exec()
 
     def abrir_leaderboard(self):
-        run_leaderboard()
+        try:
+            run()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Error", f"Ha ocurrido un error inesperado: {str(e)}")
+            sys.exit(1)
 
 
 if __name__ == "__main__":
@@ -128,5 +117,5 @@ if __name__ == "__main__":
     mainWin.showMaximized()  # Esta línea hará que la ventana se muestre maximizada
     sys.exit(app.exec())
 
-#TODO RECUERDA ARREGLAR LAS IMPORTACIONES PARA QUE SE ABRA EL LEADEARBOARD Y LAS LECCIONES CORRESPONDIENTES.
+#TODO RECUERDA ARREGLAR LAS IMPORTACIONES PARA QUE SE ABRAN LAS LECCIONES CORRESPONDIENTES.
 #TODO UNA VEZ ARREGLADO ESO, RECUERDA PONER A QUE SE LE VAYAN QUITANDO LOS CANDADOS SEGÚN VAYA COMPLETANDO LAS LECCIONES.
