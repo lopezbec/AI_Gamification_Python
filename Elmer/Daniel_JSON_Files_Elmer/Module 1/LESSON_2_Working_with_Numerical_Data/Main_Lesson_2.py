@@ -1,24 +1,37 @@
-import datetime
-import json
+import re
+import os
 import sys
 import csv
+import json
+import datetime
 import drag_drop
-import re
 
+from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename) as json_file:
+        # Obtiene el directorio del script actual.
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Define la ruta del archivo json en relación al directorio del script.
+        json_path = os.path.join(script_dir, filename)
+
+        # Comprueba si el archivo existe. Si no, intenta encontrarlo en la carpeta de LESSON_1_Codification.
+        if not os.path.exists(json_path):
+            json_path = os.path.join(script_dir, 'LESSON_2_Working_with_Numerical_Data', filename)
+
+        with open(json_path) as json_file:
             data = json.load(json_file)
+
         return data
 
     @staticmethod
@@ -36,6 +49,7 @@ class JsonWindow(QWidget):
         self.hint_label = None
         self.button_group = None
         self.radio_buttons = None
+        self.button_widgets = None
         self.blank_space_index = None
         self.original_hint_text = None
         self.filename = filename
@@ -106,7 +120,7 @@ class JsonWindow(QWidget):
         reset_button = QPushButton('Reiniciar')
         reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
         self.layout.addWidget(reset_button)
-        reset_button.clicked.connect(self.reset_drag_and_drop)
+        reset_button.clicked.connect(self.reset_button)
 
     def create_complete_blank_space_layout(self):
         self.blank_space_index = -1
@@ -139,8 +153,8 @@ class JsonWindow(QWidget):
         self.layout.addLayout(answers_layout)
         self.createResetBottom()
 
-    def create_multiple_choice_layout_radioButtons(self):
-        self.radio_buttons = []
+    def create_multiple_choice_layout(self, is_multiple_choice_plus=False):
+        self.button_widgets = []  # Esta lista almacenará las QCheckBox o QRadioButton.
         self.button_group = QButtonGroup()
 
         answers_layout = QHBoxLayout()  # Nuevo layout horizontal para las respuestas
@@ -154,22 +168,23 @@ class JsonWindow(QWidget):
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
-            radio_button = QRadioButton(answer["text"])
-            radio_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            self.radio_buttons.append(radio_button)
-            self.button_group.addButton(radio_button, idx)
-            answers_layout.addWidget(radio_button)  # Agregar al layout horizontal en lugar del vertical
+            button_widget = QCheckBox(answer["text"]) if is_multiple_choice_plus else QRadioButton(answer["text"])
+            button_widget.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
+            self.button_widgets.append(button_widget)
+            self.button_group.addButton(button_widget, idx)
+            answers_layout.addWidget(button_widget)  # Agregar al layout horizontal en lugar del vertical
+
+        if is_multiple_choice_plus:
+            self.button_group.setExclusive(False)  # Permitir la selección de múltiples respuestas
 
         self.layout.addLayout(answers_layout)  # Agregar el layout horizontal al layout principal
         self.createResetBottom()
 
     def create_drag_and_drop_layout(self):
         drop_labels = {}
-
         data_block = self.data[self.page_type.lower()][0]
 
         if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
-
             for idx, block in enumerate(data_block["blocks"]):
                 block_type = block["type"]
 
@@ -188,15 +203,12 @@ class JsonWindow(QWidget):
                 self.layout.addWidget(block_label)
 
         else:
-
             for idx, block in enumerate(data_block["blocks"]):
                 block_type = block["type"]
 
                 if "correctValue" in block or "correctOrder" in data_block:
-                    multiple_drops = "correctOrder" in data_block and len(
-                        data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 elif block_type == "Consola":
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
@@ -217,7 +229,7 @@ class JsonWindow(QWidget):
         self.layout.addLayout(draggable_labels_layout)
         self.createResetBottom()
 
-    def reset_drag_and_drop(self):
+    def reset_button(self):
         # Remove all current widgets from the layout
         while self.layout.count():
             child = self.layout.takeAt(0)
@@ -229,7 +241,7 @@ class JsonWindow(QWidget):
         if self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_plus_layout_radioButtons()
+            self.create_multiple_choice_layout(is_multiple_choice_plus=False)
         elif self.page_type.lower() == "completeblankspace":
             self.create_complete_blank_space_layout()
         else:
@@ -263,8 +275,8 @@ class JsonWindow(QWidget):
 
 
 class MainWindow(QWidget):
-    def __init__(self, lesson_number=1):
-        super().__init__()
+    def __init__(self, lesson_number=2, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         self.layout = None
         self.current_part = None
@@ -420,13 +432,13 @@ class MainWindow(QWidget):
                 if selected_answer_id == correct_answer_id:
                     current_widget.feedback_label.setText("Respuesta correcta")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"{selected_answer_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                    self.log_event(f"Correct Answer Selected: {selected_answer_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                     self.SubmitHideContinueShow(True, False)
 
                 else:
                     current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
                     current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"{selected_answer_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                    self.log_event(f"Incorrect Answer Selected: {selected_answer_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
             else:
                 self.SubmitAnswers(True, False, False)
 
@@ -456,12 +468,19 @@ class MainWindow(QWidget):
                         if correct_order:
                             # Check the correct order against the texts dropped into the drop label
                             if correct_order == dropped_texts:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    for text in dropped_texts:
+                                        self.log_event(f"Correct Drop Event: {text}", event_type="mouse")
                                 correct_count += 1
+
+                            else:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    for text in dropped_texts:
+                                        self.log_event(f"Incorrect Drop Event: {text}", event_type="mouse")
 
                     else:
                         # For questions requiring only one response, the original check is performed
                         correct_answer = None
-
                         for option in data_block["answers"]:
                             if option["correct"] and (label_type is None or option.get("correctType") == label_type):
                                 correct_answer = option
@@ -469,10 +488,14 @@ class MainWindow(QWidget):
 
                         if correct_answer:
                             if correct_answer["text"] in dropped_texts[0]:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    self.log_event(f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse")
                                 correct_count += 1
+                            else:
+                                if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
+                                    self.log_event(f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse")
 
             else:
-
                 for label in drop_labels:
                     dropped_text = label.drop_area.text()
                     label_type = label.question_type
@@ -481,31 +504,48 @@ class MainWindow(QWidget):
                         unanswered += 1
                         continue
 
-                    correct_answer = None
-                    for option in data_block["answers"]:
-                        if option["correct"] and (label_type is None or option.get("correctType") == label_type):
-                            correct_answer = option
-                            break
+                    if "multipleResponseVariant" in data_block and data_block["multipleResponseVariant"]:
+                        dropped_text = full_dropped_text.split(':')[1].strip()
+                        correct_value = None
 
-                    if correct_answer:
-                        if correct_answer["text"] in dropped_text:
-                            correct_count += 1
-                            self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                        for block in data_block["blocks"]:
+                            if block["type"] == label_type:
+                                correct_value = block.get("correctValue")
+                                break
 
-                        else:
-                            self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                        if correct_value:
+                            if correct_value == dropped_text:
+                                correct_count += 1
+                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
 
-            if unanswered == len(drop_labels):
-                self.SubmitAnswers(True, False, False)
+                            else:
+                                self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
 
-            elif unanswered > 0:
-                self.SubmitAnswers(False, False, False)
+                    else:
+                        correct_answer = None
+                        for option in data_block["answers"]:
+                            if option["correct"] and (label_type is None or option.get("correctType") == label_type):
+                                correct_answer = option
+                                break
 
-            elif correct_count == len(drop_labels):
-                self.SubmitAnswers(False, True, False)
+                        if correct_answer:
+                            if correct_answer["text"] in dropped_text:
+                                correct_count += 1
+                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                            else:
+                                self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
-            else:
-                self.SubmitAnswers(False, False, True)
+                if unanswered == len(drop_labels):
+                    self.SubmitAnswers(True, False, False)
+
+                elif unanswered > 0:
+                    self.SubmitAnswers(False, False, False)
+
+                elif correct_count == len(drop_labels):
+                    self.SubmitAnswers(False, True, False)
+
+                else:
+                    self.SubmitAnswers(False, False, True)
 
         elif current_page_type == "completeblankspace":
             correct_answer_text = None
@@ -560,11 +600,7 @@ class MainWindow(QWidget):
         self.current_page += 1  # Incrementar el número de la página actual
 
 
-def main():
-    app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=2)  # Aquí puedes cambiar el número de lecciones que deseas cargar
-    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
-
-
-if __name__ == '__main__':
-    main() # Llamar a la función principal si el script se ejecuta como el programa principal
+def main_lesson_2():
+    main_window = MainWindow(lesson_number=2)
+    main_window.show()
+    return main_window

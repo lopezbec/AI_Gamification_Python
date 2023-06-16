@@ -60,16 +60,18 @@ class MainWindow(QtWidgets.QMainWindow):
         self.filter_layout = QtWidgets.QHBoxLayout()
         self.layout.addLayout(self.filter_layout)
 
-        self.user_combo_box = QtWidgets.QComboBox()
-        self.populate_user_combo_box()
-        self.user_combo_box.setStyleSheet(f"background-color: {self.styles['themes']['light']['header_border_color']};")
-        self.user_combo_box.currentIndexChanged.connect(self.apply_user_filter)
-        self.filter_layout.addWidget(self.user_combo_box)
+        # self.user_combo_box = QtWidgets.QComboBox()
+        # self.populate_user_combo_box()
+        # self.user_combo_box.setStyleSheet(
+        #     f"background-color: {self.styles['themes']['light']['header_border_color']};")
+        # self.user_combo_box.currentIndexChanged.connect(self.apply_user_filter)
+        # self.filter_layout.addWidget(self.user_combo_box)
 
         self.leaderboard_table = QtWidgets.QTableWidget()
         self.layout.addWidget(self.leaderboard_table)
         self.leaderboard_table.setColumnCount(4)
         self.leaderboard_table.setHorizontalHeaderLabels(["Nombre", "Nivel", "Puntos", "Última vez activo"])
+        self.leaderboard_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
 
         self.apply_theme(self.theme)
         self.apply_filter('Todos')
@@ -144,22 +146,24 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def apply_theme(self, theme):
         theme_data = self.styles['themes'][theme]
+
         self.setStyleSheet(
             f"MainWindow {{background-color: {theme_data['main_background_color']}; color: {theme_data['text_color']};}}"
             f"QMenu {{background-color: {theme_data['menu_background_color']}; color: {theme_data['menu_text_color']};}}"
             f"QMenu::item:selected {{background-color: {theme_data['menu_item_selected_background']}; color: {theme_data['menu_item_selected_text']};}}"
         )
+
         self.title.setStyleSheet(
             f"background-color: {theme_data['title_background_color']}; "
             f"border-color: {theme_data['title_border_color']}; "
             f"color: {theme_data['title_text_color']};"
         )
+        """
         self.user_combo_box.setStyleSheet(
             f"background-color: {theme_data['header_border_color']};"
             f"color: {theme_data['text_color']};"
         )
-
-        # Aquí se cambia el color del encabezado de la tabla
+        """
         self.leaderboard_table.horizontalHeader().setStyleSheet(
             f"QHeaderView::section {{"
             f"background-color: {theme_data['header_background_color']};"
@@ -168,12 +172,26 @@ class MainWindow(QtWidgets.QMainWindow):
             f"}}"
         )
 
-        # Y aquí se cambia el color del contenido de la tabla
         self.leaderboard_table.setStyleSheet(
             f"QTableWidget {{"
             f"background-color: {theme_data['main_background_color']};"
-            f"alternate-background-color: {theme_data['main_background_color']};"
+            f"alternate-background-color: {theme_data['alternate_background_color']};"
             f"color: {theme_data['text_color']};"
+            f"}}"
+        )
+
+        self.leaderboard_table.setAlternatingRowColors(True)
+
+        # Calcula el color de sombreado intermedio
+        row_odd_color = QtGui.QColor(theme_data['table_row_odd_color'])
+        row_even_color = QtGui.QColor(theme_data['table_row_even_color'])
+        shadow_color = row_odd_color.darker(110)  # Ajusta la intensidad del color más oscuro
+
+        # Agrega el siguiente código después de setAlternatingRowColors(True)
+        self.leaderboard_table.setStyleSheet(
+            f"{self.leaderboard_table.styleSheet()}"
+            f"QTableWidget::item:hover {{"
+            f"background-color: {shadow_color.name()};"
             f"}}"
         )
 
@@ -188,16 +206,27 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_user = selected_user
         self.populate_leaderboard_table()
 
+    # Dentro del método add_user_to_leaderboard
     def add_user_to_leaderboard(self, row, user):
         item_name = QtWidgets.QTableWidgetItem(user['name'])
         item_points = QtWidgets.QTableWidgetItem(str(user['points']))
         item_level = QtWidgets.QTableWidgetItem(self.get_level(user['points']))
         item_last_active = QtWidgets.QTableWidgetItem(user.get('last_active', 'N/A'))
 
+        # Alineación del texto en la columna de puntos
+        item_points.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        item_level.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        item_last_active.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        item_name.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+
+        # Establecer tooltip en la columna de última vez activo
+        item_last_active.setToolTip(user.get('last_active', 'N/A'))
+
         self.leaderboard_table.setItem(row, 0, item_name)
         self.leaderboard_table.setItem(row, 1, item_points)
         self.leaderboard_table.setItem(row, 2, item_level)
         self.leaderboard_table.setItem(row, 3, item_last_active)
+
 
     def get_level(self, points):
         for level in self.levels:
@@ -242,6 +271,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.leaderboard_table.setRowCount(len(ordered_users))
         for row, user in enumerate(ordered_users):
             self.add_user_to_leaderboard(row, user)
+
+        # Ajustar automáticamente el ancho de la columna "Última vez activo" al contenido
+        self.leaderboard_table.resizeColumnToContents(3)
 
     def filter_leaderboard(self):
         if self.current_filter == 'Todos':
@@ -295,7 +327,3 @@ def run():
     window = MainWindow()
     window.showMaximized()
     return app.exec()
-
-
-
-

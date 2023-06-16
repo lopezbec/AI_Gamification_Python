@@ -1,24 +1,37 @@
-import datetime
-import json
+import re
+import os
 import sys
 import csv
+import json
+import datetime
 import drag_drop
-import re
 
+from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename) as json_file:
+        # Obtiene el directorio del script actual.
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Define la ruta del archivo json en relación al directorio del script.
+        json_path = os.path.join(script_dir, filename)
+
+        # Comprueba si el archivo existe. Si no, intenta encontrarlo en la carpeta de LESSON_1_Codification.
+        if not os.path.exists(json_path):
+            json_path = os.path.join(script_dir, 'LESSON_1_Codification', filename)
+
+        with open(json_path) as json_file:
             data = json.load(json_file)
+
         return data
 
     @staticmethod
@@ -141,7 +154,6 @@ class JsonWindow(QWidget):
         self.createResetBottom()
 
     def create_multiple_choice_layout(self, is_multiple_choice_plus=False):
-
         self.button_widgets = []  # Esta lista almacenará las QCheckBox o QRadioButton.
         self.button_group = QButtonGroup()
 
@@ -152,8 +164,7 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
-                block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
@@ -171,11 +182,9 @@ class JsonWindow(QWidget):
 
     def create_drag_and_drop_layout(self):
         drop_labels = {}
-
         data_block = self.data[self.page_type.lower()][0]
 
         if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
-
             for idx, block in enumerate(data_block["blocks"]):
                 block_type = block["type"]
 
@@ -194,15 +203,12 @@ class JsonWindow(QWidget):
                 self.layout.addWidget(block_label)
 
         else:
-
             for idx, block in enumerate(data_block["blocks"]):
                 block_type = block["type"]
 
                 if "correctValue" in block or "correctOrder" in data_block:
-                    multiple_drops = "correctOrder" in data_block and len(
-                        data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 elif block_type == "Consola":
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
@@ -269,8 +275,9 @@ class JsonWindow(QWidget):
 
 
 class MainWindow(QWidget):
-    def __init__(self, lesson_number=1):
-        super().__init__()
+    def __init__(self, lesson_number=1, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -280,6 +287,7 @@ class MainWindow(QWidget):
         self.practice_button = None
         self.continue_button = None
         self.last_json_number = None
+        self.last_page_number = None
         self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
@@ -357,6 +365,7 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
+        print("La consola no está disponible por el momento.")
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
@@ -416,10 +425,7 @@ class MainWindow(QWidget):
             # Iterar sobre los botones
             for idx, button in enumerate(current_widget.button_widgets):
                 if button.isChecked():
-                    selected_answers.append({
-                        "text": button.text(),
-                        "correct": current_widget.data[current_page_type][0]["answers"][idx]["correct"]
-                    })
+                    selected_answers.append({"text": button.text(), "correct": current_widget.data[current_page_type][0]["answers"][idx]["correct"]})
                     self.log_event(f"Checkbox Selected: {button.text()}", event_type="mouse")  # Log mouse event
 
             # Iterar sobre las respuestas
@@ -518,7 +524,8 @@ class MainWindow(QWidget):
                                 correct_count += 1
                                 self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
 
-                            else: self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
+                            else:
+                                self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
 
                     else:
                         correct_answer = None
@@ -548,6 +555,7 @@ class MainWindow(QWidget):
 
         elif current_page_type == "completeblankspace":
             correct_answer_text = None
+
             for answer in current_widget.data[current_page_type][0]["answers"]:
                 if answer["correct"]:
                     correct_answer_text = answer["text"]
@@ -556,12 +564,15 @@ class MainWindow(QWidget):
             current_hint_text = current_widget.hint_label.text()
             selected_symbol = current_hint_text[current_widget.blank_space_index]
             if selected_symbol == "_":
+                self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(True, False, False)
 
             elif selected_symbol == correct_answer_text:
+                self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, True, False)
 
             else:
+                self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
     def switch_page(self):
@@ -587,11 +598,8 @@ class MainWindow(QWidget):
         self.current_page += 1 # Incrementar el número de la página actual
 
 
-def main():
-    app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
-    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
+def main_lesson_1():
+    main_window = MainWindow(lesson_number=1)
+    main_window.show()
+    return main_window
 
-
-if __name__ == '__main__':
-    main() # Llamar a la función principal si el script se ejecuta como el programa principal

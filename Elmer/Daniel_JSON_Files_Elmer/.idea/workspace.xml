@@ -5,11 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Module 1/leaderboard.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/levels.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/styles_leaderboard.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1-L1-Coding-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1-L1-Coding-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1-L1-Coding-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1-L1-Coding-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1-L1-Coding-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1-L1-Coding-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Main_Lesson_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Main_Lesson_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Time_Lesson_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/custom_console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/page_order.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/styles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Entradas_Salidas_Clics_Lesson_2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1-L2-Working-Part-7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Time_Lesson_2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/custom_console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/page_order.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/styles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Entradas_Salidas_Clics_Lesson_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1-L3-TextData-Part-1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1-L3-TextData-Part-2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1-L3-TextData-Part-3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1-L3-TextData-Part-4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1-L3-TextData-Part-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1-L3-TextData-Part-6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Time_Lesson_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/custom_console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/page_order.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/styles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Main_Leaderboard_FV.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Main_Leaderboard_FV.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/Main_Module_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Main_Module_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/styles_leaderboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/styles_leaderboard.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +76,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -3,6 +3,10 @@ import os
 import json
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Main_Leaderboard_FV import run
+from PyQt6 import QtWidgets
+from LESSON_1_Codification.Main_Lesson_1 import main_lesson_1 as ml1
+from LESSON_2_Working_with_Numerical_Data.Main_Lesson_2 import main_lesson_2 as ml2
+from LESSON_3_Working_with_Text_Data.Main_Lesson_3 import main_lesson_3 as ml3
 
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -21,6 +25,7 @@ class UserGuideDialog(QtWidgets.QDialog):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.lesson2_window = None
 
         self.styles = self.load_styles("styles.json")
 
@@ -35,10 +40,7 @@ class MainWindow(QtWidgets.QMainWindow):
         layout = QtWidgets.QVBoxLayout(central_widget)
 
         title = QtWidgets.QLabel("Menú")
-        title.setStyleSheet(f"background-color: {self.styles['title_background_color']};"
-                            f"border: 1px solid {self.styles['title_border_color']};"
-                            f"color: {self.styles['title_text_color']};"
-                            f"font-size: {self.styles['font_size_titles']}px;")
+        title.setStyleSheet(f"background-color: {self.styles['title_background_color']};"f"border: 1px solid {self.styles['title_border_color']};"f"color: {self.styles['title_text_color']};"f"font-size: {self.styles['font_size_titles']}px;")
         title.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         title.setFixedHeight(50)  # Esto hará que el título tenga un alto fijo de 50 píxeles
         layout.addWidget(title)
@@ -47,23 +49,20 @@ class MainWindow(QtWidgets.QMainWindow):
         button_layout = QtWidgets.QHBoxLayout()
 
         leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
-        leaderboard_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+        leaderboard_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         leaderboard_btn.clicked.connect(self.abrir_leaderboard)
         leaderboard_btn.setIcon(QtGui.QIcon('leaderboard_icon.png'))  # Agrega ícono al botón
         button_layout.addWidget(leaderboard_btn)
 
         guia_usuario_btn = QtWidgets.QPushButton("Guía de Usuario")
-        guia_usuario_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+        guia_usuario_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
         guia_usuario_btn.setIcon(QtGui.QIcon('guia_usuario_icon.jpeg'))  # Agrega ícono al botón
         button_layout.addWidget(guia_usuario_btn)
 
         lecciones_btn = QtWidgets.QToolButton()
         lecciones_btn.setText("Lecciones")
-        lecciones_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+        lecciones_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
 
         lecciones_menu = QtWidgets.QMenu()
 
@@ -91,30 +90,26 @@ class MainWindow(QtWidgets.QMainWindow):
         return data
 
     def abrir_leccion1(self):
-        print("Abrir lección 1...")  # Aquí pondrías el código para abrir la lección 1
+        self.lesson1_window = ml1()
 
     def abrir_leccion2(self):
-        print("Abrir lección 2...")  # Aquí pondrías el código para abrir la lección 2
+        self.lesson2_window = ml2()
 
     def abrir_leccion3(self):
-        print("Abrir lección 3...")  # Aquí pondrías el código para abrir la lección 3
+        self.lesson3_window = ml3()
 
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)
         dialog.exec()
 
     def abrir_leaderboard(self):
-        try:
-            run()
-        except Exception as e:
-            QtWidgets.QMessageBox.critical(self, "Error", f"Ha ocurrido un error inesperado: {str(e)}")
-            sys.exit(1)
+        run()
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     mainWin = MainWindow()
-    mainWin.showMaximized()  # Esta línea hará que la ventana se muestre maximizada
+    mainWin.showMaximized()
     sys.exit(app.exec())
 
 #TODO RECUERDA ARREGLAR LAS IMPORTACIONES PARA QUE SE ABRAN LAS LECCIONES CORRESPONDIENTES.
