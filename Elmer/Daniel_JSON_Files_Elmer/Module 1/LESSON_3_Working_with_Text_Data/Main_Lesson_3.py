@@ -1,42 +1,34 @@
-import datetime
-import json
+import re
+import os
 import sys
 import csv
+import json
+import datetime
 import drag_drop
-import re
 
+from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
-from PyQt6 import QtWidgets
-
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        # Obtiene el directorio del script actual.
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-
-        # Define la ruta del archivo json en relación al directorio del script.
-        json_path = os.path.join(script_dir, filename)
-
-        # Comprueba si el archivo existe. Si no, intenta encontrarlo en la carpeta de LESSON_1_Codification.
-        if not os.path.exists(json_path):
-            json_path = os.path.join(script_dir, 'LESSON_3_Working_with_Text_Data', filename)
-
-        with open(json_path) as json_file:
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(current_directory, filename)) as json_file:
             data = json.load(json_file)
-
         return data
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with open(os.path.join(parent_directory, "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
 
@@ -51,6 +43,7 @@ class JsonWindow(QWidget):
         self.button_group = None
         self.button_widgets = None
         self.blank_space_index = None
+        self.leaderboard_button = None
         self.original_hint_text = None
         self.filename = filename
         self.feedback_label = QLabel(self)
@@ -71,7 +64,17 @@ class JsonWindow(QWidget):
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
-        self.title()
+
+        # Crear el botón de Leaderboard
+        self.leaderboard_button = QPushButton("Leaderboard")
+        self.leaderboard_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        leaderboard_button_font = QFont()
+        leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
+        self.leaderboard_button.setFont(leaderboard_button_font)
+        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
+        self.layout.addWidget(self.leaderboard_button)  # Añadir el botón al layout
+
+        self.title()  # Ahora añadimos el título
 
         if self.page_type.lower() == "multiplechoice":
             if self.data[self.page_type.lower()][0].get("multiplechoiceplus", False):
@@ -101,6 +104,9 @@ class JsonWindow(QWidget):
 
         # Establecer el layout en el QWidget
         self.setLayout(self.layout)
+
+    def abrir_leaderboard(self):
+        LeaderBoard()
 
     def createResetBottom(self):
         # Add a reset button to the layout
@@ -285,9 +291,10 @@ class JsonWindow(QWidget):
 
             self.layout.addWidget(block_label)  # Añadir el bloque al layout
 
+
 class MainWindow(QWidget):
-    def __init__(self, lesson_number=3, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, lesson_number=3):
+        super().__init__()
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -405,7 +412,14 @@ class MainWindow(QWidget):
         filename = "Time_Lesson_3.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_3.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
-        with open(filename, mode="a", newline="") as csv_file:
+        # Asegurarte de que el directorio existe, si no, lo crea
+        if not os.path.exists('LESSON_3_Working_with_Text_Data'):
+            os.makedirs('LESSON_3_Working_with_Text_Data')
+
+        # Guardar el archivo en la carpeta especificada
+        filepath = os.path.join('LESSON_3_Working_with_Text_Data', filename)
+
+        with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             if csv_file.tell() == 0: writer.writeheader()
             for log in log_data: writer.writerow(log)
@@ -593,6 +607,9 @@ class MainWindow(QWidget):
 
 
 def main_lesson_3():
+    print("LLegue")
     main_window = MainWindow(lesson_number=3)
-    main_window.show()
+    print("LLegue 2")
+    main_window.showMaximized()
+    print("LLegue 3")
     return main_window

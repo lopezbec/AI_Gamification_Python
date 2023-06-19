@@ -13,30 +13,22 @@ from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        # Obtiene el directorio del script actual.
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-
-        # Define la ruta del archivo json en relación al directorio del script.
-        json_path = os.path.join(script_dir, filename)
-
-        # Comprueba si el archivo existe. Si no, intenta encontrarlo en la carpeta de LESSON_1_Codification.
-        if not os.path.exists(json_path):
-            json_path = os.path.join(script_dir, 'LESSON_2_Working_with_Numerical_Data', filename)
-
-        with open(json_path) as json_file:
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(current_directory, filename)) as json_file:
             data = json.load(json_file)
-
         return data
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with open(os.path.join(parent_directory, "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
 
@@ -51,6 +43,7 @@ class JsonWindow(QWidget):
         self.radio_buttons = None
         self.button_widgets = None
         self.blank_space_index = None
+        self.leaderboard_button = None
         self.original_hint_text = None
         self.filename = filename
         self.feedback_label = QLabel(self)
@@ -71,10 +64,20 @@ class JsonWindow(QWidget):
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
-        self.title()
+
+        # Crear el botón de Leaderboard
+        self.leaderboard_button = QPushButton("Leaderboard")
+        self.leaderboard_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        leaderboard_button_font = QFont()
+        leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
+        self.leaderboard_button.setFont(leaderboard_button_font)
+        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
+        self.layout.addWidget(self.leaderboard_button)  # Añadir el botón al layout
+
+        self.title()  # Ahora añadimos el título
 
         if self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_layout_radioButtons()
+            self.create_multiple_choice_layout()
             self.create_feedback_label()
 
         elif self.page_type.lower() == "completeblankspace":
@@ -98,6 +101,9 @@ class JsonWindow(QWidget):
 
         # Establecer el layout en el QWidget
         self.setLayout(self.layout)
+
+    def abrir_leaderboard(self):
+        LeaderBoard()
 
     def handle_answer_click(self, answer_text):
         # Restaurar el texto original de la pista
@@ -275,9 +281,8 @@ class JsonWindow(QWidget):
 
 
 class MainWindow(QWidget):
-    def __init__(self, lesson_number=2, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
+    def __init__(self, lesson_number=2):
+        super().__init__()
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -395,7 +400,14 @@ class MainWindow(QWidget):
         filename = "Time_Lesson_2.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_2.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
-        with open(filename, mode="a", newline="") as csv_file:
+        # Asegurarte de que el directorio existe, si no, lo crea
+        if not os.path.exists('LESSON_2_Working_with_Numerical_Data'):
+            os.makedirs('LESSON_2_Working_with_Numerical_Data')
+
+        # Guardar el archivo en la carpeta especificada
+        filepath = os.path.join('LESSON_2_Working_with_Numerical_Data', filename)
+
+        with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             if csv_file.tell() == 0: writer.writeheader()
             for log in log_data: writer.writerow(log)
@@ -571,8 +583,7 @@ class MainWindow(QWidget):
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(
-            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
@@ -580,18 +591,14 @@ class MainWindow(QWidget):
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio de parte si corresponde
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(
-                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True,
-                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+                self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False,
-                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
             else:
-                self.SubmitHideContinueShow(False,
-                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
             self.save_log(log_type="time")
@@ -602,5 +609,7 @@ class MainWindow(QWidget):
 
 def main_lesson_2():
     main_window = MainWindow(lesson_number=2)
-    main_window.show()
+    main_window.showMaximized()
     return main_window
+
+

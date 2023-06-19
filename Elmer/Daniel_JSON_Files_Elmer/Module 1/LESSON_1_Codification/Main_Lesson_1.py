@@ -13,6 +13,7 @@ from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
@@ -22,7 +23,7 @@ class JsonLoader:
         # Obtiene el directorio del script actual.
         script_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Define la ruta del archivo json en relación al directorio del script.
+        # Define la ruta del archivo json en lo que se refiere al directorio del script.
         json_path = os.path.join(script_dir, filename)
 
         # Comprueba si el archivo existe. Si no, intenta encontrarlo en la carpeta de LESSON_1_Codification.
@@ -42,7 +43,7 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type,  json_number):
+    def __init__(self, filename, page_type, json_number):
         super().__init__()
         self.data = None
         self.layout = None
@@ -51,6 +52,7 @@ class JsonWindow(QWidget):
         self.radio_buttons = None
         self.button_widgets = None
         self.blank_space_index = None
+        self.leaderboard_button = None
         self.original_hint_text = None
         self.filename = filename
         self.feedback_label = QLabel(self)
@@ -59,19 +61,20 @@ class JsonWindow(QWidget):
         self.json_number = json_number
         self.init_ui()
 
-    def title(self):
-        title = QLabel(self.data[self.page_type.lower()][0]["title"])
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
-        title_font = QFont()
-        title_font.setPointSize(self.styles["font_size_titles"])
-        title.setFont(title_font)
-        self.layout.addWidget(title)
-
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
-        self.title()
+
+        # Crear el botón de Leaderboard
+        self.leaderboard_button = QPushButton("Leaderboard")
+        self.leaderboard_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        leaderboard_button_font = QFont()
+        leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
+        self.leaderboard_button.setFont(leaderboard_button_font)
+        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
+        self.layout.addWidget(self.leaderboard_button)  # Añadir el botón al layout
+
+        self.title()  # Ahora añadimos el título
 
         if self.page_type.lower() == "multiplechoice":
             self.create_multiple_choice_layout(is_multiple_choice_plus=False)
@@ -98,6 +101,18 @@ class JsonWindow(QWidget):
 
         # Establecer el layout en el QWidget
         self.setLayout(self.layout)
+
+    def abrir_leaderboard(self):
+        LeaderBoard()
+
+    def title(self):
+        title = QLabel(self.data[self.page_type.lower()][0]["title"])
+        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title_font = QFont()
+        title_font.setPointSize(self.styles["font_size_titles"])
+        title.setFont(title_font)
+        self.layout.addWidget(title)
 
     def handle_answer_click(self, answer_text):
         # Restaurar el texto original de la pista
@@ -288,6 +303,7 @@ class MainWindow(QWidget):
         self.continue_button = None
         self.last_json_number = None
         self.last_page_number = None
+        self.leaderboard_button = None
         self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
@@ -367,6 +383,9 @@ class MainWindow(QWidget):
         self.SubmitHideContinueShow(True, False)
         print("La consola no está disponible por el momento.")
 
+    def abrir_leaderboard(self):
+        LeaderBoard()
+
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
         elif practica: self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide()
@@ -395,7 +414,14 @@ class MainWindow(QWidget):
         filename = "Time_Lesson_1.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_1.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
-        with open(filename, mode="a", newline="") as csv_file:
+        # Asegurarte de que el directorio existe, si no, lo crea
+        if not os.path.exists('LESSON_1_Codification'):
+            os.makedirs('LESSON_1_Codification')
+
+        # Guardar el archivo en la carpeta especificada
+        filepath = os.path.join('LESSON_1_Codification', filename)
+
+        with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             if csv_file.tell() == 0: writer.writeheader()
             for log in log_data: writer.writerow(log)

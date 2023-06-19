@@ -1,9 +1,11 @@
 import sys
 import os
 import json
+
+from pathlib import Path
+from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
-from Main_Leaderboard_FV import run
-from PyQt6 import QtWidgets
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from LESSON_1_Codification.Main_Lesson_1 import main_lesson_1 as ml1
 from LESSON_2_Working_with_Numerical_Data.Main_Lesson_2 import main_lesson_2 as ml2
 from LESSON_3_Working_with_Text_Data.Main_Lesson_3 import main_lesson_3 as ml3
@@ -13,7 +15,7 @@ class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Guía de Usuario")
-        self.setWindowIcon(QtGui.QIcon('guia_usuario_icon.jpeg'))  # Establece el ícono de la ventana
+        self.setWindowIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))  # Establece el ícono de la ventana
         self.setGeometry(100, 100, 800, 600)
 
         layout = QtWidgets.QVBoxLayout(self)
@@ -25,7 +27,9 @@ class UserGuideDialog(QtWidgets.QDialog):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.lesson1_window = None
         self.lesson2_window = None
+        self.lesson3_window = None
 
         self.styles = self.load_styles("styles.json")
 
@@ -51,13 +55,13 @@ class MainWindow(QtWidgets.QMainWindow):
         leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
         leaderboard_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         leaderboard_btn.clicked.connect(self.abrir_leaderboard)
-        leaderboard_btn.setIcon(QtGui.QIcon('leaderboard_icon.png'))  # Agrega ícono al botón
+        leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))  # Agrega ícono al botón
         button_layout.addWidget(leaderboard_btn)
 
         guia_usuario_btn = QtWidgets.QPushButton("Guía de Usuario")
         guia_usuario_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
-        guia_usuario_btn.setIcon(QtGui.QIcon('guia_usuario_icon.jpeg'))  # Agrega ícono al botón
+        guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))  # Agrega ícono al botón
         button_layout.addWidget(guia_usuario_btn)
 
         lecciones_btn = QtWidgets.QToolButton()
@@ -70,12 +74,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
         leccion2_action = QtGui.QAction("Lección 2", lecciones_menu)
         leccion2_action.triggered.connect(self.abrir_leccion2)
-        leccion2_action.setIcon(QtGui.QIcon("candado_icon.png"))
+        leccion2_action.setIcon(QtGui.QIcon("Icons/candado_icon.png"))
         lecciones_menu.addAction(leccion2_action)
 
         leccion3_action = QtGui.QAction("Lección 3", lecciones_menu)
         leccion3_action.triggered.connect(self.abrir_leccion3)
-        leccion3_action.setIcon(QtGui.QIcon("candado_icon.png"))
+        leccion3_action.setIcon(QtGui.QIcon("Icons/candado_icon.png"))
         lecciones_menu.addAction(leccion3_action)
 
         lecciones_btn.setMenu(lecciones_menu)
@@ -103,13 +107,18 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog.exec()
 
     def abrir_leaderboard(self):
-        run()
+        LeaderBoard()
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    # Crear una instancia de QApplication
+    app = QApplication(sys.argv)
+
+    # Crear y mostrar la ventana principal del menú
     mainWin = MainWindow()
     mainWin.showMaximized()
+
+    # Ejecutar el bucle de eventos de la aplicación
     sys.exit(app.exec())
 
 #TODO RECUERDA ARREGLAR LAS IMPORTACIONES PARA QUE SE ABRAN LAS LECCIONES CORRESPONDIENTES.

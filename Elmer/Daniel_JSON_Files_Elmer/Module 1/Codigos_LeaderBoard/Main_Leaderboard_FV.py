@@ -63,7 +63,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # self.user_combo_box = QtWidgets.QComboBox()
         # self.populate_user_combo_box()
         # self.user_combo_box.setStyleSheet(
-        #     f"background-color: {self.styles['themes']['light']['header_border_color']};")
+        # f"background-color: {self.styles['themes']['light']['header_border_color']};")
         # self.user_combo_box.currentIndexChanged.connect(self.apply_user_filter)
         # self.filter_layout.addWidget(self.user_combo_box)
 
@@ -79,12 +79,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def load_data(self):
         try:
-            with open("styles_leaderboard.json", encoding='utf-8') as styles_file:
+            # Usa rutas de archivo relativas que apunten desde Carpeta principal a Codigos_LeaderBoard
+            styles_path = "Codigos_LeaderBoard/styles_leaderboard.json"
+            leaderboard_path = "Codigos_LeaderBoard/leaderboard.json"
+            levels_path = "Codigos_LeaderBoard/levels.json"
+
+            # Ahora, puedes cargar los archivos JSON normalmente
+            with open(styles_path, encoding='utf-8') as styles_file:
                 self.styles = json.load(styles_file)
-            with open("leaderboard.json", encoding='utf-8') as leaderboard_file:
+            with open(leaderboard_path, encoding='utf-8') as leaderboard_file:
                 self.leaderboard = json.load(leaderboard_file)
-            with open("levels.json", encoding='utf-8') as levels_file:
+            with open(levels_path, encoding='utf-8') as levels_file:
                 self.levels = json.load(levels_file)
+
         except FileNotFoundError as e:
             QtWidgets.QMessageBox.critical(self, "Error", f"Archivo no encontrado: {e.filename}")
             sys.exit(1)
@@ -227,7 +234,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.leaderboard_table.setItem(row, 2, item_level)
         self.leaderboard_table.setItem(row, 3, item_last_active)
 
-
     def get_level(self, points):
         for level in self.levels:
             range_string = level['range']
@@ -320,7 +326,7 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog.exec()
 
 
-def run():
+def LeaderBoard():
     app = QtWidgets.QApplication.instance()
     if app is None:
         app = QtWidgets.QApplication(sys.argv)
