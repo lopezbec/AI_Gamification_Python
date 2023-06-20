@@ -5,39 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Module 1/Codigos_LeaderBoard/Main_Leaderboard_FV.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Codigos_LeaderBoard/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Codigos_LeaderBoard/levels.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Codigos_LeaderBoard/styles_leaderboard.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Icons/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Icons/candado_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Icons/guia_usuario_icon.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Icons/leaderboard_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Time_Lesson_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Module 1 Code Project/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/Module 1 Quiz/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 1/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Main_Lesson_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Main_Lesson_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Main_Leaderboard_FV.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/Main_Module_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Main_Module_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Time_Lesson_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/candado_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/guia_usuario_icon.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/leaderboard.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/leaderboard_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/levels.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/styles_leaderboard.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -37,6 +37,7 @@ class JsonWindow(QWidget):
     def __init__(self, filename, page_type,  json_number):
         super().__init__()
         self.data = None
+        self.puntos = None
         self.layout = None
         self.hint_label = None
         self.button_group = None
@@ -45,6 +46,7 @@ class JsonWindow(QWidget):
         self.blank_space_index = None
         self.leaderboard_button = None
         self.original_hint_text = None
+        self.XP_Ganados = 0
         self.filename = filename
         self.feedback_label = QLabel(self)
         self.page_type = page_type
@@ -52,18 +54,20 @@ class JsonWindow(QWidget):
         self.json_number = json_number
         self.init_ui()
 
-    def title(self):
-        title = QLabel(self.data[self.page_type.lower()][0]["title"])
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
-        title_font = QFont()
-        title_font.setPointSize(self.styles["font_size_titles"])
-        title.setFont(title_font)
-        self.layout.addWidget(title)
-
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
+
+        # Crear un nuevo layout horizontal
+        hlayout = QHBoxLayout()
+
+        # Crear el widget de puntos
+        self.puntos = QLabel(f"XP ganados: {self.XP_Ganados}")
+        self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
+        puntos_font = QFont()
+        puntos_font.setPointSize(self.styles["font_size_normal"])
+        self.puntos.setFont(puntos_font)
 
         # Crear el botón de Leaderboard
         self.leaderboard_button = QPushButton("Leaderboard")
@@ -72,7 +76,13 @@ class JsonWindow(QWidget):
         leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
         self.leaderboard_button.setFont(leaderboard_button_font)
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
-        self.layout.addWidget(self.leaderboard_button)  # Añadir el botón al layout
+
+        # Añadir los widgets al layout horizontal
+        hlayout.addWidget(self.puntos)
+        hlayout.addWidget(self.leaderboard_button)
+
+        # Añadir el layout horizontal al layout vertical
+        self.layout.addLayout(hlayout)
 
         self.title()  # Ahora añadimos el título
 
@@ -102,8 +112,21 @@ class JsonWindow(QWidget):
         # Establecer el layout en el QWidget
         self.setLayout(self.layout)
 
+    def update_points(self, new_points):
+        self.XP_Ganados = new_points
+        self.puntos.setText(f"XP ganados: {self.XP_Ganados}")
+
     def abrir_leaderboard(self):
         LeaderBoard()
+
+    def title(self):
+        title = QLabel(self.data[self.page_type.lower()][0]["title"])
+        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title_font = QFont()
+        title_font.setPointSize(self.styles["font_size_titles"])
+        title.setFont(title_font)
+        self.layout.addWidget(title)
 
     def handle_answer_click(self, answer_text):
         # Restaurar el texto original de la pista
@@ -293,6 +316,7 @@ class MainWindow(QWidget):
         self.continue_button = None
         self.last_json_number = None
         self.last_page_number = None
+        self.leaderboard_button = None
         self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
@@ -301,6 +325,7 @@ class MainWindow(QWidget):
         self.time_log_data = []
         self.mouse_log_data = []
         self.init_ui()
+        self.current_xp = 0
         self.current_page = 0
         self.total_pages = 0
 
@@ -358,7 +383,9 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         elif Correcto:
-            current_widget.feedback_label.setText("Respuesta correcta")
+            self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
+            current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
+            current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
         elif Incorrecto:
@@ -371,6 +398,9 @@ class MainWindow(QWidget):
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
         print("La consola no está disponible por el momento.")
+
+    def abrir_leaderboard(self):
+        LeaderBoard()
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
