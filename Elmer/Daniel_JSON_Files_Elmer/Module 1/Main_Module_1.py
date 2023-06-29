@@ -11,6 +11,60 @@ from LESSON_2_Working_with_Numerical_Data.Main_Lesson_2 import main_lesson_2 as 
 from LESSON_3_Working_with_Text_Data.Main_Lesson_3 import main_lesson_3 as ml3
 
 
+class Leccion:
+    def __init__(self, nombre, funcion_apertura, menu, leccion_anterior=None):
+        self.proxima_leccion = None
+        self.nombre = nombre
+        self.funcion_apertura = funcion_apertura
+        self.completada = False
+        self.bloqueada = leccion_anterior is not None
+        self.icono_bloqueado = "Icons/cerrado_icon.jpg"
+        self.icono_abierto = "Icons/abierto_icon.jpg"  # Nuevo icono para las lecciones abiertas
+        self.icono_completado = "Icons/completado_icon.png"
+        self.leccion_anterior = leccion_anterior
+        self.accion = QtGui.QAction(nombre, menu)
+        self.accion.triggered.connect(self.abrir)
+        icono_inicial = self.icono_bloqueado if self.bloqueada else self.icono_abierto
+        self.accion.setIcon(QtGui.QIcon(icono_inicial))
+        menu.addAction(self.accion)
+
+    def abrir(self):
+        if not self.bloqueada:
+            self.funcion_apertura()
+            self.completada = True
+            self.accion.setIcon(QtGui.QIcon(self.icono_completado))
+        else:
+            self.mostrar_advertencia()
+
+    def mostrar_advertencia(self):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+        msg.setWindowTitle("Lección Bloqueada")
+        msg.setText(f"Recuerda terminar la {self.leccion_anterior.nombre} para desbloquear esta leccion")
+        msg.exec()
+
+    def desbloquear(self):
+        self.bloqueada = False
+        self.accion.setIcon(QtGui.QIcon(self.icono_abierto))  # Actualizar el icono al desbloquear la lección
+
+    def marcar_como_completada(self):
+        self.completada = True
+        self.accion.setIcon(QtGui.QIcon(self.icono_completado))
+        if self.proxima_leccion:
+            self.proxima_leccion.desbloquear()
+
+
+class Curso:
+    def __init__(self, lecciones):
+        self.lecciones = lecciones
+        self.lecciones[0].desbloquear()  # Desbloqueamos la primera lección al inicio
+
+    def verificar_estado_lecciones(self):
+        for i in range(len(self.lecciones) - 1):
+            if self.lecciones[i].completada:
+                self.lecciones[i + 1].desbloquear()
+
+
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -49,7 +103,6 @@ class MainWindow(QtWidgets.QMainWindow):
         title.setFixedHeight(50)  # Esto hará que el título tenga un alto fijo de 50 píxeles
         layout.addWidget(title)
 
-        # Añadimos los botones a nuestro layout vertical
         button_layout = QtWidgets.QHBoxLayout()
 
         leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
@@ -70,17 +123,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
         lecciones_menu = QtWidgets.QMenu()
 
-        lecciones_menu.addAction("Lección 1", self.abrir_leccion1)
+        self.lecciones = []
+        self.lecciones.append(Leccion("Lección 1", self.abrir_leccion1, lecciones_menu))
+        self.lecciones.append(Leccion("Lección 2", self.abrir_leccion2, lecciones_menu, self.lecciones[0]))
+        self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
 
-        leccion2_action = QtGui.QAction("Lección 2", lecciones_menu)
-        leccion2_action.triggered.connect(self.abrir_leccion2)
-        leccion2_action.setIcon(QtGui.QIcon("Icons/candado_icon.png"))
-        lecciones_menu.addAction(leccion2_action)
+        self.lecciones[0].proxima_leccion = self.lecciones[1]
+        self.lecciones[1].proxima_leccion = self.lecciones[2]
 
-        leccion3_action = QtGui.QAction("Lección 3", lecciones_menu)
-        leccion3_action.triggered.connect(self.abrir_leccion3)
-        leccion3_action.setIcon(QtGui.QIcon("Icons/candado_icon.png"))
-        lecciones_menu.addAction(leccion3_action)
+        self.curso = Curso(self.lecciones)
 
         lecciones_btn.setMenu(lecciones_menu)
         lecciones_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
@@ -95,12 +146,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def abrir_leccion1(self):
         self.lesson1_window = ml1()
+        self.lesson1_window.destroyed.connect(self.curso.verificar_estado_lecciones)
 
     def abrir_leccion2(self):
         self.lesson2_window = ml2()
+        self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
 
     def abrir_leccion3(self):
         self.lesson3_window = ml3()
+        self.lesson3_window.destroyed.connect(self.curso.verificar_estado_lecciones)
 
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)
@@ -111,18 +165,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 if __name__ == "__main__":
-    # Crear una instancia de QApplication
     app = QApplication(sys.argv)
-
-    # Crear y mostrar la ventana principal del menú
     mainWin = MainWindow()
     mainWin.showMaximized()
-
-    # Ejecutar el bucle de eventos de la aplicación
     sys.exit(app.exec())
 
-#TODO RECUERDA ARREGLAR LAS IMPORTACIONES PARA QUE SE ABRAN LA LECCION 3
-#TODO UNA VEZ ARREGLADO ESO, RECUERDA PONER A QUE SE LE VAYAN QUITANDO LOS CANDADOS SEGÚN VAYA COMPLETANDO LAS LECCIONES.
+
+#TODO RECUERDA ARREGLAR LO DEL BOTON DE REINICIAR EN LOS DRAGNADDROPS.
 #TODO RECUERDA ARREGLAR LO DE LOS PUNTOS, PARA QUE NO APAREZCA EL 0 DESDE QUE CAMBIA DE PAGINAS
-#TODO RECUERDA TAMBIEN ARREGLAR LO DE LA PRIMERA PAGINA DE PREGUNTA EN LA LECCION 1
-#TODO RECUERDA AGREGAR LO DE LOS PUNTOS LECCION 2 Y 3

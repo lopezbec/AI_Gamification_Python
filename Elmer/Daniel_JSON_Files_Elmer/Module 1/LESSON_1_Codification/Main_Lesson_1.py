@@ -12,27 +12,18 @@ from PyQt6.QtGui import QFont, QDrag
 from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
+from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from game_features.progress_bar import ProgressBar
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        # Obtiene el directorio del script actual.
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-
-        # Define la ruta del archivo json en lo que se refiere al directorio del script.
-        json_path = os.path.join(script_dir, filename)
-
-        # Comprueba si el archivo existe. Si no, intenta encontrarlo en la carpeta de LESSON_1_Codification.
-        if not os.path.exists(json_path):
-            json_path = os.path.join(script_dir, 'LESSON_1_Codification', filename)
-
-        with open(json_path) as json_file:
+        with open(filename) as json_file:
             data = json.load(json_file)
-
         return data
 
     @staticmethod
@@ -43,23 +34,25 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number):
+    def __init__(self, filename, page_type, json_number, XP_Ganados):
         super().__init__()
         self.data = None
         self.puntos = None
         self.layout = None
         self.hint_label = None
+        self.progress_bar = None
         self.button_group = None
         self.radio_buttons = None
         self.button_widgets = None
         self.blank_space_index = None
         self.leaderboard_button = None
         self.original_hint_text = None
-        self.XP_Ganados = 0
+        self.XP_Ganados = XP_Ganados
         self.filename = filename
         self.feedback_label = QLabel(self)
         self.page_type = page_type
         self.styles = JsonLoader.load_json_styles()
+        self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
         self.init_ui()
 
@@ -86,8 +79,11 @@ class JsonWindow(QWidget):
         self.leaderboard_button.setFont(leaderboard_button_font)
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
 
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data('page_order.json'))  # Asegúrate de que 'page_order.json' está en el mismo directorio que tu script
+
         # Añadir los widgets al layout horizontal
         hlayout.addWidget(self.puntos)
+        hlayout.addWidget(self.progress_bar)  # Añade la barra de progreso aquí.
         hlayout.addWidget(self.leaderboard_button)
 
         # Añadir el layout horizontal al layout vertical
@@ -116,10 +112,19 @@ class JsonWindow(QWidget):
             self.create_pedagogical_layout()
 
         else:
-            print("Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
+            print("Lo siento, el tipo de página no está disponible todavía.")
 
-        # Establecer el layout en el QWidget
+        self.setWindowTitle('JsonWindow')
         self.setLayout(self.layout)
+
+    def get_lesson_number(self, filename):
+        """
+        Obtén el número de lección del nombre del archivo.
+        Supone que el número de lección está presente al final del nombre del archivo antes de la extensión ".json".
+        """
+        base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
+        lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
+        return int(lesson_number)  # Convierte el número de lección a un entero
 
     def update_points(self, new_points):
         self.XP_Ganados = new_points
@@ -315,7 +320,6 @@ class JsonWindow(QWidget):
 class MainWindow(QWidget):
     def __init__(self, lesson_number=1, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -334,10 +338,13 @@ class MainWindow(QWidget):
         self.click_data = []
         self.time_log_data = []
         self.mouse_log_data = []
-        self.init_ui()
         self.current_xp = 0
-        self.current_page = 0
+        self.XP_Ganados = 0
         self.total_pages = 0
+        self.current_page = 0
+        self.progress_bar = None  # Agrega esta línea para la barra de progreso
+
+        self.init_ui()
 
     def init_ui(self):
         self.layout = QVBoxLayout()
@@ -346,10 +353,10 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"])
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados)
                 self.stacked_widget.addWidget(json_window)
 
-        self.log_part_change()  # Registrar el cambio a la "Parte 1"
+        self.log_part_change()
         self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
 
         self.continue_button = QPushButton("Continuar")
@@ -380,11 +387,13 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
 
+        self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
         self.layout.addWidget(self.stacked_widget)
         self.layout.addLayout(self.button_layout)
 
         self.setLayout(self.layout)
         self.showMaximized()
+
 
     def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
         current_widget = self.stacked_widget.currentWidget()
@@ -393,11 +402,17 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         elif Correcto:
-            self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
-            current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
-            current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
-            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-            self.SubmitHideContinueShow(True, False)
+            try:
+                self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
+                self.XP_Ganados = self.current_xp  # actualiza XP_Ganados
+                current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
+                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
+                current_widget.feedback_label.setStyleSheet(
+                    f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+                self.SubmitHideContinueShow(True, False)
+            except Exception as e:
+                print(f"Error al actualizar los puntos: {e}")
+
         elif Incorrecto:
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
@@ -408,9 +423,6 @@ class MainWindow(QWidget):
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
         print("La consola no está disponible por el momento.")
-
-    def abrir_leaderboard(self):
-        LeaderBoard()
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
@@ -650,8 +662,13 @@ class MainWindow(QWidget):
         self.current_page += 1 # Incrementar el número de la página actual
 
 
-def main_lesson_1():
-    main_window = MainWindow(lesson_number=1)
-    main_window.show()
-    return main_window
+def main():
+    app = QApplication(sys.argv) # Crear una instancia de QApplication
+    main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
+    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
 
+
+if __name__ == '__main__':
+    main() # Llamar a la función principal si el script se ejecuta como el programa principal
+
+#TODO RECUERDA PONER A QUE SE ACTUALICE LA BARRA DE PROGRESO, CON LA FUNCION INCREMENTAR, Y EL CAMBIAR DE PAGINA EN ESTE CODIGO CON EL BOTON DE CONTINUAR

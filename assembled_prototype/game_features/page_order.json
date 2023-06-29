@@ -4,7 +4,7 @@
             "lesson_number": 1,
             "pages": [
                 {
-                    "type": "JsoAnWindow",
+                    "type": "JsonWindow",
                     "filename": "M1_L1_Coding_Part_1.json",
                     "page_type": "Pedagogical",
                     "json_number": 1
@@ -172,7 +172,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_L3_TextData_Part_2.json",
-                    "page_type": "MultipleChoicePlus",
+                    "page_type": "MultipleChoice",
                     "json_number": 2
                 },
                 {
@@ -196,7 +196,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_L3_TextData_Part_4.json",
-                    "page_type": "MultipleChoicePlus",
+                    "page_type": "MultipleChoice",
                     "json_number": 4
                 },
                 {
