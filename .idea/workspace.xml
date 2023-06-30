@@ -5,35 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/custom_console.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/drag_drop.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/game_features/page_order.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/game_features/styles.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/page_order.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/styles.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assembled_prototype/game_features/page_order.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assembled_prototype/game_features/styles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AI_Gamification_Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AI_Gamification_Python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/WhatsApp Image 2023-06-23 at 14.45.54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/WhatsApp Image 2023-06-23 at 15.46.24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/WhatsApp Image 2023-06-23 at 15.46.45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/abierto_icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/cerrado_icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/completado_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/guia_usuario_icon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/leaderboard_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/custom_console.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/drag_drop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/game_features/___init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/game_features/page_order.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/game_features/progress_bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/game_features/styles.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/page_order.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/styles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/Main_Leaderboard_FV.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/levels.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/styles_leaderboard.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/candado_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/guia_usuario_icon.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Icons/leaderboard_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Codigos_LeaderBoard/Main_Leaderboard_FV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Codigos_LeaderBoard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Codigos_LeaderBoard/levels.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Codigos_LeaderBoard/styles_leaderboard.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/WhatsApp Image 2023-06-23 at 14.45.54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/WhatsApp Image 2023-06-23 at 15.46.24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/WhatsApp Image 2023-06-23 at 15.46.45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/abierto_icon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/cerrado_icon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/completado_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/guia_usuario_icon.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Icons/leaderboard_icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Main_Lesson_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Main_Lesson_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Time_Lesson_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/Time_Lesson_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/custom_console.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/drag_drop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/game_features/___init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/game_features/page_order.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/game_features/progress_bar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/game_features/styles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/page_order.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_1_Codification/styles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_2_Working_with_Numerical_Data/Entradas_Salidas_Clics_Lesson_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_2_Working_with_Numerical_Data/Entradas_Salidas_Clics_Lesson_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_2_Working_with_Numerical_Data/Time_Lesson_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_2_Working_with_Numerical_Data/Time_Lesson_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_3_Working_with_Text_Data/Entradas_Salidas_Clics_Lesson_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_3_Working_with_Text_Data/Entradas_Salidas_Clics_Lesson_3.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_3_Working_with_Text_Data/Time_Lesson_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/LESSON_3_Working_with_Text_Data/Time_Lesson_3.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Main_Module_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/Main_Module_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/custom_console.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/drag_drop.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/page_order.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1/styles.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assembled_prototype/game_features/progress_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/assembled_prototype/game_features/progress_bar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

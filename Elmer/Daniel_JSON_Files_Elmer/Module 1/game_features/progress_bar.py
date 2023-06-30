@@ -6,7 +6,7 @@ from PyQt6.QtCore import Qt
 
 
 class ProgressBar(QWidget):
-    def __init__(self, data):
+    def __init__(self, data, current_lesson):
         super().__init__()
 
         self.label = None
@@ -15,7 +15,7 @@ class ProgressBar(QWidget):
         self.styles = self.load_json_styles()
         self.lesson_data = data
 
-        self.current_lesson = 0
+        self.current_lesson = current_lesson
         self.current_page = 0
 
         self.initUI()
@@ -34,16 +34,16 @@ class ProgressBar(QWidget):
         self.label = QLabel(self)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        #self.button = QPushButton('Siguiente página', self)
-        #self.button.clicked.connect(self.increment_page)
-
         layout = QVBoxLayout()
         layout.addWidget(self.progress_bar)
         layout.addWidget(self.label)
-        #layout.addWidget(self.button)
         layout.setAlignment(Qt.AlignmentFlag.AlignHCenter)
 
         self.setLayout(layout)
+        self.update_progress()
+
+    def setValue(self, value):
+        self.current_page = value
         self.update_progress()
 
     def get_style_sheet(self):
@@ -65,6 +65,9 @@ class ProgressBar(QWidget):
             self.current_page += 1
             self.update_progress()
 
+    def Hola(self):
+        print("Hello world!")
+
     def update_progress(self):
         total_pages = len(self.lesson_data["lessons"][self.current_lesson]["pages"])
         self.progress = ((self.current_page + 1) / total_pages) * 100
@@ -83,5 +86,3 @@ if __name__ == '__main__':
     window = ProgressBar(lesson_data)
     window.show()
     sys.exit(app.exec())
-
-#TODO RECUERDA AL TERMINAR DE ACTUALIZAR ESTE CODIGO EN LA CARPETA DE PRIS

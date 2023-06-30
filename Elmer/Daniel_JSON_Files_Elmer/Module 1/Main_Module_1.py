@@ -145,17 +145,25 @@ class MainWindow(QtWidgets.QMainWindow):
         return data
 
     def abrir_leccion1(self):
-        self.lesson1_window = ml1()
-        self.lesson1_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        try:
+            self.lesson1_window = ml1()
+            self.lesson1_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        except Exception as e:
+            print(f"Error al abrir la lección 1: {e}")
 
     def abrir_leccion2(self):
-        self.lesson2_window = ml2()
-        self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        try:
+            self.lesson2_window = ml2()
+            self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        except Exception as e:
+            print(f"Error al abrir la lección 1: {e}")
 
     def abrir_leccion3(self):
-        self.lesson3_window = ml3()
-        self.lesson3_window.destroyed.connect(self.curso.verificar_estado_lecciones)
-
+        try:
+            self.lesson3_window = ml3()
+            self.lesson3_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        except Exception as e:
+            print(f"Error al abrir la lección 1: {e}")
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)
         dialog.exec()

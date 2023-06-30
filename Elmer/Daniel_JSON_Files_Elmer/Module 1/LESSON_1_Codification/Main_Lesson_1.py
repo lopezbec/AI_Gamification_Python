@@ -15,20 +15,21 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from game_features.progress_bar import ProgressBar
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename) as json_file:
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(current_directory, filename)) as json_file:
             data = json.load(json_file)
         return data
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with open(os.path.join(parent_directory, "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
 
@@ -79,8 +80,6 @@ class JsonWindow(QWidget):
         self.leaderboard_button.setFont(leaderboard_button_font)
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
 
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data('page_order.json'))  # Asegúrate de que 'page_order.json' está en el mismo directorio que tu script
-
         # Añadir los widgets al layout horizontal
         hlayout.addWidget(self.puntos)
         hlayout.addWidget(self.progress_bar)  # Añade la barra de progreso aquí.
@@ -118,10 +117,6 @@ class JsonWindow(QWidget):
         self.setLayout(self.layout)
 
     def get_lesson_number(self, filename):
-        """
-        Obtén el número de lección del nombre del archivo.
-        Supone que el número de lección está presente al final del nombre del archivo antes de la extensión ".json".
-        """
         base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
         lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
         return int(lesson_number)  # Convierte el número de lección a un entero
@@ -342,8 +337,7 @@ class MainWindow(QWidget):
         self.XP_Ganados = 0
         self.total_pages = 0
         self.current_page = 0
-        self.progress_bar = None  # Agrega esta línea para la barra de progreso
-
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
         self.init_ui()
 
     def init_ui(self):
@@ -393,7 +387,6 @@ class MainWindow(QWidget):
 
         self.setLayout(self.layout)
         self.showMaximized()
-
 
     def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
         current_widget = self.stacked_widget.currentWidget()
@@ -646,6 +639,7 @@ class MainWindow(QWidget):
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
+            self.progress_bar.increment_page()
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
@@ -662,13 +656,7 @@ class MainWindow(QWidget):
         self.current_page += 1 # Incrementar el número de la página actual
 
 
-def main():
-    app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
-    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
-
-
-if __name__ == '__main__':
-    main() # Llamar a la función principal si el script se ejecuta como el programa principal
-
-#TODO RECUERDA PONER A QUE SE ACTUALICE LA BARRA DE PROGRESO, CON LA FUNCION INCREMENTAR, Y EL CAMBIAR DE PAGINA EN ESTE CODIGO CON EL BOTON DE CONTINUAR
+def main_lesson_1():
+    main_window = MainWindow(lesson_number=1)
+    main_window.showMaximized()
+    return main_window

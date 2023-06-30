@@ -12,6 +12,7 @@ from PyQt6.QtGui import QFont, QDrag
 from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
+from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
@@ -32,23 +33,25 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number):
+    def __init__(self, filename, page_type, json_number, XP_Ganados):
         super().__init__()
         self.data = None
         self.puntos = None
         self.layout = None
         self.hint_label = None
+        self.progress_bar = None
         self.button_group = None
         self.radio_buttons = None
         self.button_widgets = None
         self.blank_space_index = None
         self.leaderboard_button = None
         self.original_hint_text = None
-        self.XP_Ganados = 0
+        self.XP_Ganados = XP_Ganados
         self.filename = filename
         self.feedback_label = QLabel(self)
         self.page_type = page_type
         self.styles = JsonLoader.load_json_styles()
+        self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
         self.init_ui()
 
@@ -77,6 +80,7 @@ class JsonWindow(QWidget):
 
         # Añadir los widgets al layout horizontal
         hlayout.addWidget(self.puntos)
+        hlayout.addWidget(self.progress_bar)  # Añade la barra de progreso aquí.
         hlayout.addWidget(self.leaderboard_button)
 
         # Añadir el layout horizontal al layout vertical
@@ -112,7 +116,14 @@ class JsonWindow(QWidget):
             print("Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
 
         # Establecer el layout en el QWidget
+        self.setWindowTitle('JsonWindow')
         self.setLayout(self.layout)
+
+    def get_lesson_number(self, filename):
+        base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
+        lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
+        return int(lesson_number)  # Convierte el número de lección a un entero
+
 
     def update_points(self, new_points):
         self.XP_Ganados = new_points
@@ -324,7 +335,6 @@ class JsonWindow(QWidget):
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -343,10 +353,12 @@ class MainWindow(QWidget):
         self.click_data = []
         self.time_log_data = []
         self.mouse_log_data = []
-        self.init_ui()
         self.current_xp = 0
-        self.current_page = 0
+        self.XP_Ganados = 0
         self.total_pages = 0
+        self.current_page = 0
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 2)
+        self.init_ui()
 
     def init_ui(self):
         self.layout = QVBoxLayout()
@@ -355,10 +367,10 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"])
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados)
                 self.stacked_widget.addWidget(json_window)
 
-        self.log_part_change()  # Registrar el cambio a la "Parte 1"
+        self.log_part_change()
         self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
 
         self.continue_button = QPushButton("Continuar")
@@ -389,6 +401,7 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
 
+        self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
         self.layout.addWidget(self.stacked_widget)
         self.layout.addLayout(self.button_layout)
 
@@ -620,19 +633,28 @@ class MainWindow(QWidget):
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(
+            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
+            self.progress_bar.increment_page()
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
-            self.log_part_change()  # Registrar el cambio de parte si corresponde
+            self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(
+                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
-            if current_page_type == "pedagogical" or current_page_type == "pedagogical2": self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
-            elif current_page_type == "practica": self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
-            else: self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+            if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
+                self.SubmitHideContinueShow(True,
+                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+            elif current_page_type == "practica":
+                self.SubmitHideContinueShow(False,
+                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+            else:
+                self.SubmitHideContinueShow(False,
+                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
             self.save_log(log_type="time")

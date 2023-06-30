@@ -34,16 +34,20 @@ class ProgressBar(QWidget):
         self.label = QLabel(self)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.button = QPushButton('Siguiente página', self)
-        self.button.clicked.connect(self.increment_page)
+        #self.button = QPushButton('Siguiente página', self)
+        #self.button.clicked.connect(self.increment_page)
 
         layout = QVBoxLayout()
         layout.addWidget(self.progress_bar)
         layout.addWidget(self.label)
-        layout.addWidget(self.button)
+        #layout.addWidget(self.button)
         layout.setAlignment(Qt.AlignmentFlag.AlignHCenter)
 
         self.setLayout(layout)
+        self.update_progress()
+
+    def setValue(self, value):
+        self.current_page = value
         self.update_progress()
 
     def get_style_sheet(self):
@@ -60,15 +64,13 @@ class ProgressBar(QWidget):
         }
         """
 
-    def set_lesson(self, lesson_number):
-        self.current_lesson = lesson_number
-        self.current_page = 0
-        self.update_progress()
-
     def increment_page(self):
         if self.current_page < len(self.lesson_data["lessons"][self.current_lesson]["pages"]) - 1:
             self.current_page += 1
             self.update_progress()
+
+    def Hola(self):
+        print("Hello world!")
 
     def update_progress(self):
         total_pages = len(self.lesson_data["lessons"][self.current_lesson]["pages"])
