@@ -9,6 +9,8 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from LESSON_1_Codification.Main_Lesson_1 import main_lesson_1 as ml1
 from LESSON_2_Working_with_Numerical_Data.Main_Lesson_2 import main_lesson_2 as ml2
 from LESSON_3_Working_with_Text_Data.Main_Lesson_3 import main_lesson_3 as ml3
+from LESSON_4_Mixing_things_up import main_lesson_4 as ml4
+from LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables import main_lesson_5 as ml5
 
 
 class Leccion:
