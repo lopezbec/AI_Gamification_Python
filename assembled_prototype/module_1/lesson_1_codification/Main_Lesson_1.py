@@ -655,7 +655,8 @@ class MainWindow(QWidget):
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
-            self.badge = BadgeVerification(badge_types=["5_correct_answer", "first_lesson"])
+            self.badge = BadgeVerification(badge_types=["first_lesson"])
+            self.badge.validate_prerrequisite(self.badge.count_correct_answers("./LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv"))
             self.badge.show()
             self.close()
         self.current_page += 1 # Incrementar el número de la página actual

@@ -17,32 +17,39 @@ class BadgeVerification(QMainWindow):
         self.load_badges_data()
         super(BadgeVerification, self).__init__()
         
-        validation, badge_type = self.validateBadgeTypes()
+        validation, badge_type = self.validate_badge_types()
         if validation:
-            self.initUI(badge_type)
+            self.init_UI(badge_type)
         else:
             self.hide()
+
+    def set_badge_type(self, badge_type: str):
+        self.badge_types.append(badge_type)
 
     def load_badges_data(self):
         with open(main_directory_path + "\\badge_info.json", "r", encoding='utf-8') as finish_info:
             self.data = json.load(finish_info)
 
-    def validateBadgeTypes(self) -> bool:
+    def validate_badge_types(self) -> bool:
         for badge_type in self.badge_types:
             if badge_type not in self.data:
                 return False
             return True, badge_type
-
+        
+    def validate_prerrequisite(self, last_strike):
+        for badge_key, badge_info in self.data.items():
+            if "prerrequisite" in badge_info and badge_info["prerrequisite"] == last_strike:
+               self.set_badge_type(badge_key)
+        
     def onAcceptClicked(self):
         self.current_badge_index += 1
         if self.current_badge_index < len(self.badge_types):
-            self.initUI(self.badge_types[self.current_badge_index])
+            self.init_UI(self.badge_types[self.current_badge_index])
         else:
             self.close()
 
-    def initUI(self, badge_type): 
+    def init_UI(self, badge_type): 
         badge = self.data.get(badge_type, None)
-        
         if badge:
             badge = self.data[badge_type]
             #Window properties
@@ -125,11 +132,6 @@ class BadgeVerification(QMainWindow):
        
         return max_correctas_sucesivas
     
-        self.current_badge_index += 1
-        if self.current_badge_index < len(self.badge_types):
-           self.initUI()
-        else:
-            self.close()
 
 def main():
     app = QApplication(sys.argv)
