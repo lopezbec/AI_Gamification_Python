@@ -29,17 +29,13 @@
                     "type": "hint",
                     "text": "Una línea de código se llama declaración . Usamos sentencias para dar \n instrucciones a la computadora. Puede incluir tantas líneas o \n declaraciones como necesite en su código. Cuando le da \n a la computadora muchas declaraciones, \n las instrucciones se ejecutarán línea por línea, de arriba a abajo." 
                 }
-
-
-
             ]
         }
     ],
-
-
-    "multiplechoiceplus": [
+    "multiplechoice": [
         {
             "title": "Arrastre y suelte para reorganizar el código y generar la letra de la canción popular como salida",
+            "multiplechoiceplus": true,
             "blocks": [
                 {
                     "type": "info",
@@ -66,10 +62,4 @@
             ]
         }
     ]
-
-
-
-
-
-
 }

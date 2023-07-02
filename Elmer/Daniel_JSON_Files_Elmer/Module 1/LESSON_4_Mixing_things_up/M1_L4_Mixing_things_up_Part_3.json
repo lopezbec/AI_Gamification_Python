@@ -1,56 +1,56 @@
 {
-
     "pedagogical": [ 
         {
-            "title": "Trabajar con variables",
+            "title": "Múltiples Salidas",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Una vez que haya creado una variable, puede usarla para realizar operaciones con ella,\ntal como lo hace con números y cadenas.."
+                    "text": "El comando de impresión puede tomar múltiples valores para generar en la misma línea.\n Esto se puede hacer separándolos con comas."
                 },
+
                 {
                     "type": "Consola",
-                    "text": "price= 15\nprint(price*3)"
+                    "text": "print('Balance:', 5000)" 
                 },
                 {
                     "type": "hint",
-                    "text": "Una variable almacena el valor a lo largo del programa."
+                    "text": "Por defecto, los valores estarán separados por espacios." 
                 }
+
+
 
             ]
         }
     ],
-
-
-    "multiplechoice": [
+    "completeblankspace": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Cuál es la salida de este código?:"
+                    "text": "Complete los espacios en blanco para generar la puntuación: 95."
                 },
                 {
                     "type": "Consola",
-                    "text": "year = 2023\nprint(year + 5)"
+                    "text": "_____('Puntaje:', 95)"
                 }
-                    ],
+            ],
             "answers": [
                 {
-                    "text": "2023",
+                    "text": "95",
                     "correct": false
                 },
                 {
-                    "text": "2028",
+                    "text": "print",
                     "correct": true
                 },
                 {
-                    "text": "2025",
+                    "text": "95",
                     "correct": false
                 }
             ]
         }
     ]
 
-   
+
 }

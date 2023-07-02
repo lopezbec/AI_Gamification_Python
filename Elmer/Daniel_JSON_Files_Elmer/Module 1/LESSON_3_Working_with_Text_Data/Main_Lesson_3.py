@@ -633,8 +633,7 @@ class MainWindow(QWidget):
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(
-            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event( f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
@@ -643,18 +642,14 @@ class MainWindow(QWidget):
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(
-                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event( f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True,
-                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+                self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False,
-                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
             else:
-                self.SubmitHideContinueShow(False,
-                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
             self.save_log(log_type="time")

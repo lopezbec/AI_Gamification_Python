@@ -9,6 +9,8 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from LESSON_1_Codification.Main_Lesson_1 import main_lesson_1 as ml1
 from LESSON_2_Working_with_Numerical_Data.Main_Lesson_2 import main_lesson_2 as ml2
 from LESSON_3_Working_with_Text_Data.Main_Lesson_3 import main_lesson_3 as ml3
+from LESSON_4_Mixing_things_up.Main_Lesson_4 import main_lesson_4 as ml4
+from LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables.Main_Lesson_5 import main_lesson_5 as ml5
 
 
 class Leccion:
@@ -19,7 +21,7 @@ class Leccion:
         self.completada = False
         self.bloqueada = leccion_anterior is not None
         self.icono_bloqueado = "Icons/cerrado_icon.jpg"
-        self.icono_abierto = "Icons/abierto_icon.jpg"  # Nuevo icono para las lecciones abiertas
+        self.icono_abierto = "Icons/abierto_icon.jpg"
         self.icono_completado = "Icons/completado_icon.png"
         self.leccion_anterior = leccion_anterior
         self.accion = QtGui.QAction(nombre, menu)
@@ -84,10 +86,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lesson1_window = None
         self.lesson2_window = None
         self.lesson3_window = None
+        self.lesson4_window = None
+        self.lesson5_window = None
 
         self.styles = self.load_styles("styles.json")
 
-        self.setWindowTitle("Mi Aplicación")
+        self.setWindowTitle("Menú")
         self.setGeometry(100, 100, 800, 600)
 
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']};")
@@ -127,9 +131,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones.append(Leccion("Lección 1", self.abrir_leccion1, lecciones_menu))
         self.lecciones.append(Leccion("Lección 2", self.abrir_leccion2, lecciones_menu, self.lecciones[0]))
         self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
+        self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))
+        self.lecciones.append(Leccion("Lección 5", self.abrir_leccion5, lecciones_menu, self.lecciones[3]))
 
         self.lecciones[0].proxima_leccion = self.lecciones[1]
         self.lecciones[1].proxima_leccion = self.lecciones[2]
+        self.lecciones[2].proxima_leccion = self.lecciones[3]
+        self.lecciones[3].proxima_leccion = self.lecciones[4]
 
         self.curso = Curso(self.lecciones)
 
@@ -164,6 +172,21 @@ class MainWindow(QtWidgets.QMainWindow):
             self.lesson3_window.destroyed.connect(self.curso.verificar_estado_lecciones)
         except Exception as e:
             print(f"Error al abrir la lección 1: {e}")
+
+    def abrir_leccion4(self):
+        try:
+            self.lesson4_window = ml4()
+            self.lesson4_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        except Exception as e:
+            print(f"Error al abrir la lección 1: {e}")
+
+    def abrir_leccion5(self):
+        try:
+            self.lesson5_window = ml5()
+            self.lesson5_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+        except Exception as e:
+            print(f"Error al abrir la lección 1: {e}")
+
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)
         dialog.exec()
@@ -177,7 +200,3 @@ if __name__ == "__main__":
     mainWin = MainWindow()
     mainWin.showMaximized()
     sys.exit(app.exec())
-
-
-#TODO RECUERDA ARREGLAR LO DEL BOTON DE REINICIAR EN LOS DRAGNADDROPS.
-#TODO RECUERDA ARREGLAR LO DE LOS PUNTOS, PARA QUE NO APAREZCA EL 0 DESDE QUE CAMBIA DE PAGINAS
