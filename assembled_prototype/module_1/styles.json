@@ -1,4 +1,9 @@
 {
+    "progress_bar_color": "green",
+    "progress_bar_border_color": "grey",
+    "progress_bar_border_radius": 5,
+    "progress_bar_border_width": 2,
+    "progress_bar_chunk_width": 20,
     "main_background_color": "#444444",
     "title_background_color": "#ECF8FF",
     "title_border_color": "#B5E2FF",

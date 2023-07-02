@@ -1,23 +1,27 @@
-import datetime
-import json
+import re
+import os
 import sys
 import csv
+import json
+import datetime
 import drag_drop
-import re
 
+from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtCore import Qt, QMimeData
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from PyQt6.QtCore import Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
+from game_features.progress_bar import ProgressBar
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename) as json_file:
+        with open('LESSON_3_Working_with_Text_Data/' + filename) as json_file:
             data = json.load(json_file)
         return data
 
@@ -29,38 +33,67 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type,  json_number):
+    def __init__(self, filename, page_type, json_number, XP_Ganados):
         super().__init__()
         self.data = None
+        self.puntos = None
         self.layout = None
         self.hint_label = None
-        self.checkboxes = None
+        self.progress_bar = None
         self.button_group = None
+        self.radio_buttons = None
+        self.button_widgets = None
         self.blank_space_index = None
+        self.leaderboard_button = None
         self.original_hint_text = None
+        self.XP_Ganados = XP_Ganados
         self.filename = filename
         self.feedback_label = QLabel(self)
         self.page_type = page_type
         self.styles = JsonLoader.load_json_styles()
+        self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
         self.init_ui()
-
-    def title(self):
-        title = QLabel(self.data[self.page_type.lower()][0]["title"])
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
-        title_font = QFont()
-        title_font.setPointSize(self.styles["font_size_titles"])
-        title.setFont(title_font)
-        self.layout.addWidget(title)
 
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
-        self.title()
 
-        if self.page_type.lower() == "multiplechoiceplus":
-            self.create_multiple_choice_plus_layout_radioButtons()
+        # Crear un nuevo layout horizontal
+        hlayout = QHBoxLayout()
+
+        # Crear el widget de puntos
+        self.puntos = QLabel(f"XP ganados: {self.XP_Ganados}")
+        self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
+        puntos_font = QFont()
+        puntos_font.setPointSize(self.styles["font_size_normal"])
+        self.puntos.setFont(puntos_font)
+
+        # Crear el botón de Leaderboard
+        self.leaderboard_button = QPushButton("Leaderboard")
+        self.leaderboard_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        leaderboard_button_font = QFont()
+        leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
+        self.leaderboard_button.setFont(leaderboard_button_font)
+        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
+
+        # Añadir los widgets al layout horizontal
+        hlayout.addWidget(self.puntos)
+        hlayout.addWidget(self.progress_bar)  # Añade la barra de progreso aquí.
+        hlayout.addWidget(self.leaderboard_button)
+
+        # Añadir el layout horizontal al layout vertical
+        self.layout.addLayout(hlayout)
+
+        self.title()  # Ahora añadimos el título
+
+        if self.page_type.lower() == "multiplechoice":
+            multiplechoiceplus_value = self.data[self.page_type.lower()][0].get("multiplechoiceplus", False)
+            if multiplechoiceplus_value:
+                self.create_multiple_choice_layout(is_multiple_choice_plus=True)
+            else:
+                print("Vamos a crear un layout para regular multiple choice.")
             self.create_feedback_label()
 
         elif self.page_type.lower() == "completeblankspace":
@@ -83,14 +116,37 @@ class JsonWindow(QWidget):
             print("Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
 
         # Establecer el layout en el QWidget
+        self.setWindowTitle('JsonWindow')
         self.setLayout(self.layout)
+
+    def get_lesson_number(self, filename):
+        base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
+        lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
+        return int(lesson_number)  # Convierte el número de lección a un entero
+
+
+    def update_points(self, new_points):
+        self.XP_Ganados = new_points
+        self.puntos.setText(f"XP ganados: {self.XP_Ganados}")
+
+    def abrir_leaderboard(self):
+        LeaderBoard()
+
+    def title(self):
+        title = QLabel(self.data[self.page_type.lower()][0]["title"])
+        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title_font = QFont()
+        title_font.setPointSize(self.styles["font_size_titles"])
+        title.setFont(title_font)
+        self.layout.addWidget(title)
 
     def createResetBottom(self):
         # Add a reset button to the layout
         reset_button = QPushButton('Reiniciar')
         reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
         self.layout.addWidget(reset_button)
-        reset_button.clicked.connect(self.reset_drag_and_drop)
+        reset_button.clicked.connect(self.reset_button)
 
     def handle_answer_click(self, answer_text):
         # Restaurar el texto original de la pista
@@ -139,8 +195,8 @@ class JsonWindow(QWidget):
         self.layout.addLayout(answers_layout)
         self.createResetBottom()
 
-    def create_multiple_choice_plus_layout_radioButtons(self):
-        self.checkboxes = []  # Cambia esto de radio_buttons a checkboxes
+    def create_multiple_choice_layout(self, is_multiple_choice_plus=False):
+        self.button_widgets = []  # Esta lista almacenará las QCheckBox o QRadioButton.
         self.button_group = QButtonGroup()
 
         answers_layout = QHBoxLayout()  # Nuevo layout horizontal para las respuestas
@@ -154,13 +210,15 @@ class JsonWindow(QWidget):
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
-            checkbox = QCheckBox(answer["text"])  # Utilizar QCheckBox en lugar de QRadioButton
-            checkbox.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            self.checkboxes.append(checkbox)  # Cambia esto de radio_buttons a checkboxes
-            self.button_group.addButton(checkbox, idx)
-            answers_layout.addWidget(checkbox)  # Agregar el checkbox al layout horizontal en lugar del vertical
+            button_widget = QCheckBox(answer["text"]) if is_multiple_choice_plus else QRadioButton(answer["text"])
+            button_widget.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
+            self.button_widgets.append(button_widget)
+            self.button_group.addButton(button_widget, idx)
+            answers_layout.addWidget(button_widget)  # Agregar al layout horizontal en lugar del vertical
 
-        self.button_group.setExclusive(False)  # Permitir la selección de múltiples respuestas
+        if is_multiple_choice_plus:
+            self.button_group.setExclusive(False)  # Permitir la selección de múltiples respuestas
+
         self.layout.addLayout(answers_layout)  # Agregar el layout horizontal al layout principal
         self.createResetBottom()
 
@@ -217,23 +275,35 @@ class JsonWindow(QWidget):
         self.layout.addLayout(draggable_labels_layout)
         self.createResetBottom()
 
-    def reset_drag_and_drop(self):
+    def reset_button(self):
         # Remove all current widgets from the layout
         while self.layout.count():
             child = self.layout.takeAt(0)
             if child.widget():
                 child.widget().deleteLater()
 
+        # Add the puntos and leaderboard_button widgets back to the layout
+        hlayout = QHBoxLayout()
+        hlayout.addWidget(self.puntos)
+        hlayout.addWidget(self.leaderboard_button)
+        self.layout.insertLayout(0, hlayout)  # Insert at the beginning of the layout
+
         # Call the function that creates the initial layout again
         self.title()
         if self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
-        elif self.page_type.lower() == "multiplechoiceplus":
-            self.create_multiple_choice_plus_layout_radioButtons()
+
+        if self.page_type.lower() == "multiplechoice":
+            if self.data[self.page_type.lower()][0].get("multiplechoiceplus", False):
+                self.create_multiple_choice_layout(is_multiple_choice_plus=True)
+            else:
+                self.create_multiple_choice_layout(is_multiple_choice_plus=False)
+
         elif self.page_type.lower() == "completeblankspace":
             self.create_complete_blank_space_layout()
         else:
             self.create_pedagogical_layout()
+
         self.create_feedback_label()
 
     def create_practice_layout(self):
@@ -263,8 +333,8 @@ class JsonWindow(QWidget):
 
 
 class MainWindow(QWidget):
-    def __init__(self, lesson_number=1):
-        super().__init__()
+    def __init__(self, lesson_number=3, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.layout = None
         self.current_part = None
         self.button_layout = None
@@ -274,6 +344,8 @@ class MainWindow(QWidget):
         self.practice_button = None
         self.continue_button = None
         self.last_json_number = None
+        self.last_page_number = None
+        self.leaderboard_button = None
         self.python_console_widget = None
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
@@ -281,9 +353,12 @@ class MainWindow(QWidget):
         self.click_data = []
         self.time_log_data = []
         self.mouse_log_data = []
-        self.init_ui()
-        self.current_page = 0
+        self.current_xp = 0
+        self.XP_Ganados = 0
         self.total_pages = 0
+        self.current_page = 0
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 2)
+        self.init_ui()
 
     def init_ui(self):
         self.layout = QVBoxLayout()
@@ -292,11 +367,11 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"])
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados)
                 self.stacked_widget.addWidget(json_window)
 
-        self.log_part_change()  # Registrar el cambio a la "Parte 1"
-        self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time")  # Registrar la apertura de la primera página
+        self.log_part_change()
+        self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
 
         self.continue_button = QPushButton("Continuar")
         self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
@@ -326,23 +401,26 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
 
+        self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
         self.layout.addWidget(self.stacked_widget)
         self.layout.addLayout(self.button_layout)
 
         self.setLayout(self.layout)
         self.showMaximized()
 
-    def SubmitAnswers(self, Unanswered, Correct, Incorrect):
+    def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
         current_widget = self.stacked_widget.currentWidget()
 
-        if Unanswered:
+        if NoSeleciona:
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-        elif Correct:
-            current_widget.feedback_label.setText("Respuesta correcta")
+        elif Correcto:
+            self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
+            current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
+            current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
-        elif Incorrect:
+        elif Incorrecto:
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         else:
@@ -382,7 +460,14 @@ class MainWindow(QWidget):
         filename = "Time_Lesson_3.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_3.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
-        with open(filename, mode="a", newline="") as csv_file:
+        # Asegurarte de que el directorio existe, si no, lo crea
+        if not os.path.exists('LESSON_3_Working_with_Text_Data'):
+            os.makedirs('LESSON_3_Working_with_Text_Data')
+
+        # Guardar el archivo en la carpeta especificada
+        filepath = os.path.join('LESSON_3_Working_with_Text_Data', filename)
+
+        with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             if csv_file.tell() == 0: writer.writeheader()
             for log in log_data: writer.writerow(log)
@@ -402,35 +487,37 @@ class MainWindow(QWidget):
         current_widget = self.stacked_widget.currentWidget()
         current_page_type = current_widget.page_type.lower()
 
-        if current_page_type == "multiplechoiceplus":
-            # Crear una lista vacía para las respuestas seleccionadas
-            selected_answers = []
-            # Iterar sobre los checkboxes
-            for checkbox in current_widget.checkboxes:
-                # Si el checkbox está seleccionado, añadir su texto a la lista
-                if checkbox.isChecked():
-                    selected_answers.append(checkbox.text())
-                    self.log_event(f"Checkbox Selected: {checkbox.text()}", event_type="mouse")  # Log mouse event
+        if current_page_type == "multiplechoice":
+            selected_answers = []  # Respuestas seleccionadas
+            correct_answers = []  # Respuestas correctas
+            # Iterar sobre los botones
+            for idx, button in enumerate(current_widget.button_widgets):
+                if button.isChecked():
+                    selected_answers.append({
+                        "text": button.text(),
+                        "correct": current_widget.data[current_page_type][0]["answers"][idx]["correct"]
+                    })
+                    self.log_event(f"Checkbox Selected: {button.text()}", event_type="mouse")  # Log mouse event
 
-            # Crear una lista vacía para las respuestas correctas
-            correct_answers = []
             # Iterar sobre las respuestas
             for answer in current_widget.data[current_page_type][0]["answers"]:
-                # Si la respuesta es correcta, añadir su texto a la lista
                 if answer["correct"]:
                     correct_answers.append(answer["text"])
 
-            # Comprobamos las respuestas seleccionadas
+            # Verificar las respuestas seleccionadas
             if selected_answers:
-                correct_selected = [answer for answer in selected_answers if answer in correct_answers]
-                incorrect_selected = [answer for answer in selected_answers if answer not in correct_answers]
+                correct_selected = [answer for answer in selected_answers if answer["correct"]]
+                incorrect_selected = [answer for answer in selected_answers if not answer["correct"]]
 
+                # Verificar las respuestas correctas seleccionadas y si hay alguna incorrecta seleccionada
                 if len(correct_selected) == len(correct_answers) and len(incorrect_selected) == 0:
-                    self.SubmitAnswers(False, True, False)
+                    self.SubmitAnswers(False, True, False)  # Correcto
+                elif len(correct_selected) < len(correct_answers) and len(incorrect_selected) == 0:
+                    self.SubmitAnswers(False, False, True)  # Incompleto
                 else:
-                    self.SubmitAnswers(False, False, True)
+                    self.SubmitAnswers(False, False, True)  # Incorrecto
             else:
-                self.SubmitAnswers(True, False, False)
+                self.SubmitAnswers(True, False, False)  # Respuesta no seleccionada
 
         elif current_page_type == "draganddrop":
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
@@ -509,11 +596,11 @@ class MainWindow(QWidget):
                                 break
 
                         if correct_answer:
-                            if correct_answer["text"] in full_dropped_text:  # Aquí usamos full_dropped_text en lugar de dropped_text
+                            if correct_answer["text"] in dropped_text:
                                 correct_count += 1
-                                self.log_event(f"{dropped_text} (Correcto)", event_type="mouse")
+                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                             else:
-                                self.log_event(f"{dropped_text} (Incorrecto)", event_type="mouse")
+                                self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
@@ -546,19 +633,28 @@ class MainWindow(QWidget):
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(
+            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
+            self.progress_bar.increment_page()
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
-            self.log_part_change()  # Registrar el cambio de parte si corresponde
+            self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(
+                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
-            if current_page_type == "pedagogical" or current_page_type == "pedagogical2": self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
-            elif current_page_type == "practica": self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
-            else: self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+            if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
+                self.SubmitHideContinueShow(True,
+                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+            elif current_page_type == "practica":
+                self.SubmitHideContinueShow(False,
+                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+            else:
+                self.SubmitHideContinueShow(False,
+                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         else:
             self.save_log(log_type="time")
@@ -567,11 +663,7 @@ class MainWindow(QWidget):
         self.current_page += 1  # Incrementar el número de la página actual
 
 
-def main():
-    app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=3)  # Aquí puedes cambiar el número de lecciones que deseas cargar
-    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
-
-
-if __name__ == '__main__':
-    main() # Llamar a la función principal si el script se ejecuta como el programa principal
+def main_lesson_3():
+    main_window = MainWindow(lesson_number=3)
+    main_window.show()
+    return main_window
