@@ -1,10 +1,34 @@
 {
-    "badge_window_title": "¡¡WOW!!",
-    "badge_text": "¡Felicidades! has conseguido una nueva insignia",
-    "badge_title": "¡Un pequeño, gran paso!",
-    "badge_font_size": 18,
-    "badge_font_family": "Lato",
-    "badge_margin": 10,
-    "badge_word_wrap": true,
-    "badge_bold": true
+    "first_question": {
+        "badge_window_title": "¡¡WOW!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "¡Un pequeño, gran paso!\nResponde tu primera pregunta",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "first_lesson": {
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "¡el inicio de un nuevo viaje!\nCompleta tu primera leccion",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "5_correct_answer": {
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "¡el inicio de un nuevo viaje!\nReponde 5 preguntas correctamente en sucesión",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    }
 }
