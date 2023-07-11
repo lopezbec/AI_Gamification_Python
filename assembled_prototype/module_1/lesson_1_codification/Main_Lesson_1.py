@@ -635,6 +635,7 @@ class MainWindow(QWidget):
                 self.SubmitAnswers(False, False, True)
 
     def switch_page(self):
+        print("XP ganados:", self.XP_Ganados)
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
         self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
@@ -656,7 +657,8 @@ class MainWindow(QWidget):
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.badge = BadgeVerification(badge_types=["first_lesson"])
-            self.badge.validate_prerrequisite(self.badge.count_correct_answers("./LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv"))
+            self.badge.validate_last_strike_badge(self.badge.count_correct_answers("./LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv"))
+            self.badge.validate_xp_points_badge(self.XP_Ganados)
             self.badge.show()
             self.close()
         self.current_page += 1 # Incrementar el número de la página actual

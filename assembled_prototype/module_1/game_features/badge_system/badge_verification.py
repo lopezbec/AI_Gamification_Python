@@ -36,10 +36,15 @@ class BadgeVerification(QMainWindow):
                 return False
             return True, badge_type
         
-    def validate_prerrequisite(self, last_strike):
+    def validate_last_strike_badge(self, last_strike):
         for badge_key, badge_info in self.data.items():
-            if "prerrequisite" in badge_info and badge_info["prerrequisite"] == last_strike:
+            if "prerrequisite_correct_answer" in badge_info and last_strike >= badge_info["prerrequisite_correct_answer"]:
                self.set_badge_type(badge_key)
+
+    def validate_xp_badge(self, xp_points):
+        for badge_key, badge_info in self.data.items():
+            if "prerrequisite_xp_points" in badge_info and xp_points >= badge_info["prerrequisite_xp_points"]:
+                self.set_badge_type(badge_key)
         
     def onAcceptClicked(self):
         self.current_badge_index += 1
