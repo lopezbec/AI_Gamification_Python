@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Booleano Or",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Ahora en el operador o.\n\nEl operador o es True si cualquiera de sus condiciones (o ambas) es True y False si\nambas condiciones son False ."
+                },
+                {
+                    "type": "Consola",
+                    "text": "print( 1 == 1 or 2 == 2 )\nTrue\nprint( 1 == 1 or 2 == 3 )\nTrue\nprint( 1 != 1 or 2 == 2 )\nTrue\nprint( 2 < 1 or 3 > 6 )\nFalse"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para imprimir 'Bienvenido' si alguna de las condiciones es verdadera."
+                },
+                {
+                    "type": "Consola",
+                    "text": "age = 15\nmoney = 500\nif age > 18 ___ money > 100:\n    _____ ('Welcome')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "or",
+                    "correct": true
+                },
+                {
+                    "text": "print",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

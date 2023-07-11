@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Booleano Not",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Finalmente, el operador not funciona un poco diferente. not toma solo un argumento y\nlo invierte.\n\nEl resultado de no Verdadero es Falso , y no Falso va a Verdadero . Como esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(not 1 == 1)\nFalse\nprint(not 1 > 7)\nTrue"
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "if not True:\n   print('1')\nelif not (1 + 1 == 3):\n   print('2')\nelse:\n   print('3')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "2",
+                    "correct": true
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
