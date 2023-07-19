@@ -1,0 +1,44 @@
+{
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre el código para crear un bucle que genere los números del 10 al 0:"
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "while",
+                    "text": "x = 5\n__________ "
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "x > 0",
+                    "text": "__________:\nprint(x)"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "x -= 1",
+                    "text": "__________"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "x -= 1",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "x > 0",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "while",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ]
+
+}
