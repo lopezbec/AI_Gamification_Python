@@ -9,7 +9,8 @@
                 },
                 {
                     "type": "info",
-                    "text": "txt = _____ \n print(txt)"
+                    "text": "",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntxt = _____ \n print(txt)\n>?"
                 }
             ],
             "answers": [
@@ -41,7 +42,6 @@
                     "type": "hint",
                     "text": "Pista: En la próxima lección, aprenderá a convertir datos de entrada en diferentes formatos."
                 }
-
             ]
         }
     ]

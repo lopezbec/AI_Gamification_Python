@@ -11,7 +11,6 @@
                     "type": "info",
                     "text": "En esta lección, aprenderá a escribir programas interactivos que toman información del usuario como entrada para trabajar."
                 }
-
             ]
         }
     ],
@@ -26,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = input()\nprint(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = input()\nprint(x)\n>_?"
                 }
             ]
         }

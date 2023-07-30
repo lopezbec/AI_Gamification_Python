@@ -2,6 +2,8 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
             "blocks": [
                 {
                     "type": "info",
@@ -9,12 +11,12 @@
                 },
                 {
                     "type": "pregunta1",
-                    "text": "text = _____",
+                    "text": "text = ____",
                     "correctValue": "input()"
                 },
                 {
                     "type": "pregunta2",
-                    "text": "print(_____)",
+                    "text": "print(____)",
                     "correctValue": "text"
                 }
             ],
@@ -43,7 +45,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "number = input()\nprint('You entered: ' + number)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumber = input()\nprint('You entered: ' + number)\n>You entered: ____"
                 }
             ]
         }
