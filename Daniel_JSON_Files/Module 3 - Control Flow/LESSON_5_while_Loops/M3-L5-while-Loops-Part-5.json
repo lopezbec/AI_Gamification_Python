@@ -1,0 +1,54 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles while",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "También puede usar otras declaraciones, como declaraciones if en bucles.\nEsto es especialmente útil en cosas como los juegos, en los que es posible que deba\nrecorrer varias acciones del jugador y agregar o quitar puntos a la puntuación del\njugador.\n\nMira este código, que usa una instrucción if/else dentro de un ciclo while para separar\nlos números pares e impares en el rango de 1 a 10:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 1\nwhile x < 10:\n  if x%2 == 0:\n    print(str(x) + ' is even')\n  else:\n    print(str(x) + ' is odd')\n\n  x += 1"
+                },
+                {
+                    "type": "hint",
+                    "text": "str(x) se usa para convertir el número x en una cadena, de modo que\npueda usarse para la concatenación."
+                }
+
+            ]
+        }
+    ],
+
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear un bucle que incremente el valor de x en 2 e\nimprima los valores pares."
+                },
+                {
+                    "type": "info",
+                    "text": "x = 0\n_____x <=20_____\n   _____(X)\n   x + = 2"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "print",
+                    "correct": true
+                },
+                {
+                    "text": "while",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+}

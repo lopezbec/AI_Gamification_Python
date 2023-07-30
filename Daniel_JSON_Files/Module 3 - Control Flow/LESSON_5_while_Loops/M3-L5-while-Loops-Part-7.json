@@ -1,0 +1,39 @@
+{
+
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Números pares - Cambie el código para que solo genere números pares de un rango determinado."
+                }
+            ]
+        }
+    ],
+
+
+    "practica": [
+        {
+            "title": "Bucles while",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Se le proporciona un programa que genera todos los números del 0\nal 10.\nCambie el código para que genere solo los números pares."
+                },
+                {
+                    "type": "hint",
+                    "text": "Cualquier número entero que se puede dividir\nexactamente por 2 es un número par." 
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 0\nwhile x<=10:\n  if x%2 == 0:\n    print(x)\n  x += 1"
+                }
+            ]
+        }
+    ]
+}

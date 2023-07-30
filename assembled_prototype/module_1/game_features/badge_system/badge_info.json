@@ -1,0 +1,105 @@
+{
+    "first_question": {
+        "badge_window_title": "¡¡WOW!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "¡Un pequeño, gran paso!\nResponde tu primera pregunta",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "first_lesson": {
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "¡el inicio de un nuevo viaje!\nCompleta tu primera leccion",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    
+    "module_1_complete": {
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Pionero del conocimiento\nCompleta tu primer módulo",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "3_correct_answer": {
+        "prerrequisite_correct_answer": 3,
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Racha Relámpago\nReponde 5 preguntas correctamente en sucesión",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "10_correct_answer": {
+        "prerrequisite_correct_answer": 10,
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Racha de Diamante\nReponde 10 preguntas correctamente en sucesión",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "50_correct_answer": {
+        "prerrequisite_correct_answer": 50,
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Racha Dorada\nReponde 50 preguntas correctamente en sucesión",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "3xp": {
+        "prerrequisite_xp_points": 3,
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Dedicacion\nConsigue 3 puntos.",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+
+    "50xp": {
+        "prerrequisite_xp_points": 50,
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Pionero del conocimiento\nConsigue 100 puntos.",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    
+    "top _3": {
+        "badge_window_title": "¡¡INCREIBLE!!",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "¡Estudiante olimpico!\nAlcanza el Top 3 en el LeaderBoard.",
+        "badge_font_size": 18,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    }
+}

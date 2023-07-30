@@ -1,0 +1,49 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles while",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El código en el cuerpo de un ciclo while se ejecuta repetidamente mientras la condición\nes True .\nEsto se llama iteración .\n\nEl siguiente código agrega el número actual a la variable de suma durante cada iteración:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "sum = 0\nx = 10\nwhile x > 0:\n  sum += x\n  x -= 1\n\nprint(sum)"
+                }
+
+            ]
+        }
+    ],
+
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos números imprime este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i = 3\n\nwhile i>=0:\n\n   print(i)\n\n   i = i - 1"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}
