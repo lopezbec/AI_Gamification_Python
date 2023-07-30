@@ -5,12 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Codigos_LeaderBoard/Main_Leaderboard_FV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Codigos_LeaderBoard/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Codigos_LeaderBoard/levels.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Codigos_LeaderBoard/styles_leaderboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/WhatsApp Image 2023-06-23 at 14.45.54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/WhatsApp Image 2023-06-23 at 15.46.24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/WhatsApp Image 2023-06-23 at 15.46.45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/abierto_icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/cerrado_icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/completado_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/guia_usuario_icon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Icons/leaderboard_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/custom_console.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/drag_drop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/game_features/___init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/game_features/page_order.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/game_features/progress_bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/game_features/styles.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/page_order.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/styles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Icons/candado_icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/M1_L1_Coding_Part_6.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Main_Lesson_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Main_Lesson_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Time_Lesson_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_1_Codification/Time_Lesson_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Entradas_Salidas_Clics_Lesson_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Entradas_Salidas_Clics_Lesson_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Time_Lesson_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_2_Working_with_Numerical_Data/Time_Lesson_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Entradas_Salidas_Clics_Lesson_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Entradas_Salidas_Clics_Lesson_3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/M1_L3_TextData_Part_6.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Time_Lesson_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_3_Working_with_Text_Data/Time_Lesson_3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/Main_Lesson_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_4_Mixing_things_up/Main_Lesson_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Main_Lesson_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/Main_Lesson_5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/Main_Module_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Main_Module_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module 1/page_order.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/page_order.json" afterDir="false" />
     </list>
@@ -40,14 +99,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/elmer/Escritorio/AI_Gamification_Python/assembled_prototype/badge_system"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/elmer/Escritorio/AI_Gamification_Python/Elmer/Daniel_JSON_Files_Elmer&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -58,6 +117,17 @@
       <updated>1686795215029</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

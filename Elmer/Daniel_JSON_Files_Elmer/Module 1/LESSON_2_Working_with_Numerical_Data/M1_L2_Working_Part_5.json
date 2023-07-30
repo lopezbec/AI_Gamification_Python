@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastra y suelta para clasificar los datos numericos:"
+                    "text": "Arrastra y suelta para clasificar los datos numéricos:"
                 },
                 {
                     "type": "pregunta1",
@@ -39,7 +39,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Los errores en el codigo tambien se conocen como bugs. Depurar(debugging) es el proceso de encontrar y corregir errores en el codigo. La siguiente linea de codigo contiene algunos errores. Encuentra y Arregla los errores (bugs) en el codigo."
+                    "text": "Los errores en el código también se conocen como bugs. Depurar(debugging) es el proceso de encontrar y corregir errores en el código. La siguiente linea de código contiene algunos errores. Encuentra y Arregla los errores (bugs) en el código."
                 },
                 {
                     "type": "Consola",
@@ -47,7 +47,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Pista: Recuerda que el comando print requiere parentesis para funcionar sin errores."
+                    "text": "Pista: Recuerda que el comando print requiere paréntesis para funcionar sin errores."
                 }
             ]
         }

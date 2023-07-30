@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre y suelte para escribir una linea de codigo que genere el numero 729."
+                    "text": "Arrastre y suelte para escribir una linea de código que genere el numero 729."
                 },
                 {
                     "type": "Consola",
@@ -43,11 +43,11 @@
                 },
                 {
                     "type": "info",
-                    "text": "Puedes cambiar el codigo para mostrar un mensaje diferente?"
+                    "text": "Puedes cambiar el código para mostrar un mensaje diferente?"
                 },
                 {
                     "type": "hint",
-                    "text": "Las comillas que encierran el texto deben ser las mismas, ya sea que use comillas simples o dobles. Si olvida agregar las comillas o si las comillas no son las mismas, Python devolvera un error."
+                    "text": "Las comillas que encierran el texto deben ser las mismas, ya sea que use comillas simples o dobles. Si olvida agregar las comillas o si las comillas no son las mismas, Python devolverá un error."
                 }
 
             ]

@@ -21,7 +21,7 @@ class Leccion:
         self.completada = False
         self.bloqueada = leccion_anterior is not None
         self.icono_bloqueado = "Icons/cerrado_icon.jpg"
-        self.icono_abierto = "Icons/abierto_icon.jpg"
+        self.icono_abierto = "Icons/abierto_icon.jpg"  # Nuevo icono para las lecciones abiertas
         self.icono_completado = "Icons/completado_icon.png"
         self.leccion_anterior = leccion_anterior
         self.accion = QtGui.QAction(nombre, menu)
@@ -31,12 +31,18 @@ class Leccion:
         menu.addAction(self.accion)
 
     def abrir(self):
-        if not self.bloqueada:
-            self.funcion_apertura()
-            self.completada = True
-            self.accion.setIcon(QtGui.QIcon(self.icono_completado))
-        else:
-            self.mostrar_advertencia()
+        try:
+            if not self.bloqueada:
+                leccion_completada = self.funcion_apertura()  # Ahora `leccion_completada` será True o False
+                if leccion_completada:
+                    self.completada = True
+                    self.accion.setIcon(QtGui.QIcon(self.icono_completado))
+                    if self.proxima_leccion:
+                        self.proxima_leccion.desbloquear()
+            else:
+                self.mostrar_advertencia()
+        except Exception as e:
+            print(f"Error: {e}")
 
     def mostrar_advertencia(self):
         msg = QtWidgets.QMessageBox()
@@ -46,6 +52,9 @@ class Leccion:
         msg.exec()
 
     def desbloquear(self):
+        if self.leccion_anterior and self.leccion_anterior.completada:
+            self.leccion_anterior.completada = False
+            self.leccion_anterior.accion.setIcon(QtGui.QIcon(self.leccion_anterior.icono_completado))
         self.bloqueada = False
         self.accion.setIcon(QtGui.QIcon(self.icono_abierto))  # Actualizar el icono al desbloquear la lección
 
@@ -63,7 +72,7 @@ class Curso:
 
     def verificar_estado_lecciones(self):
         for i in range(len(self.lecciones) - 1):
-            if self.lecciones[i].completada:
+            if self.lecciones[i].completada and not self.lecciones[i + 1].bloqueada:
                 self.lecciones[i + 1].desbloquear()
 
 
@@ -91,7 +100,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.styles = self.load_styles("styles.json")
 
-        self.setWindowTitle("Menú")
+        self.setWindowTitle("Mi Aplicación")
         self.setGeometry(100, 100, 800, 600)
 
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']};")
@@ -131,13 +140,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones.append(Leccion("Lección 1", self.abrir_leccion1, lecciones_menu))
         self.lecciones.append(Leccion("Lección 2", self.abrir_leccion2, lecciones_menu, self.lecciones[0]))
         self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
-        self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))
-        self.lecciones.append(Leccion("Lección 5", self.abrir_leccion5, lecciones_menu, self.lecciones[3]))
+        self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))  # Agrega lección 4
+        self.lecciones.append(Leccion("Lección 5", self.abrir_leccion5, lecciones_menu, self.lecciones[3]))  # Agrega lección 5
 
         self.lecciones[0].proxima_leccion = self.lecciones[1]
         self.lecciones[1].proxima_leccion = self.lecciones[2]
-        self.lecciones[2].proxima_leccion = self.lecciones[3]
-        self.lecciones[3].proxima_leccion = self.lecciones[4]
+        self.lecciones[2].proxima_leccion = self.lecciones[3]  # Establece la lección 4 como la próxima de la 3
+        self.lecciones[3].proxima_leccion = self.lecciones[4]  # Establece la lección 5 como la próxima de la 4
 
         self.curso = Curso(self.lecciones)
 
@@ -154,8 +163,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def abrir_leccion1(self):
         try:
+            self.curso.verificar_estado_lecciones()
             self.lesson1_window = ml1()
-            self.lesson1_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson1_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 1: {e}")
 
@@ -163,29 +173,33 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             self.lesson2_window = ml2()
             self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson2_window  # Retorna la ventana de la lección
         except Exception as e:
-            print(f"Error al abrir la lección 1: {e}")
+            print(f"Error al abrir la lección 2: {e}")
 
     def abrir_leccion3(self):
         try:
             self.lesson3_window = ml3()
             self.lesson3_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson3_window  # Retorna la ventana de la lección
         except Exception as e:
-            print(f"Error al abrir la lección 1: {e}")
+            print(f"Error al abrir la lección 3: {e}")
 
-    def abrir_leccion4(self):
+    def abrir_leccion4(self):  # Nueva función para abrir la lección 4
         try:
             self.lesson4_window = ml4()
             self.lesson4_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson4_window  # Retorna la ventana de la lección
         except Exception as e:
-            print(f"Error al abrir la lección 1: {e}")
+            print(f"Error al abrir la lección 4: {e}")
 
-    def abrir_leccion5(self):
+    def abrir_leccion5(self):  # Nueva función para abrir la lección 5
         try:
             self.lesson5_window = ml5()
             self.lesson5_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson5_window  # Retorna la ventana de la lección
         except Exception as e:
-            print(f"Error al abrir la lección 1: {e}")
+            print(f"Error al abrir la lección 5: {e}")
 
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)

@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre y suelte para generar el resultado de una operacion de multiplicacion."
+                    "text": "Arrastre y suelte para generar el resultado de una operación de multiplicación."
                 },
                 {
                     "type": "Consola",
@@ -47,7 +47,7 @@
                 },
                 {
                     "type": "info",
-                    "text": "Importante: Usar una barra oblicua para dividir numeros siempre produce un numero decimal."
+                    "text": "Importante: Usar una barra oblicua para dividir números siempre produce un numero decimal."
                 }
             ]
         }

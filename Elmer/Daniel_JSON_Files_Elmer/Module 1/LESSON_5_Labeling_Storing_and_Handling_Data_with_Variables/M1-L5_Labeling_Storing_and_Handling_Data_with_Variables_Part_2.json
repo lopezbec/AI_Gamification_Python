@@ -5,11 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Creamos una variable conectando el nombre y el valor usando un signo igual = .\n El siguiente ejemplo almacena el número 15 en una variable llamada puntos ."
+                    "text": "Creamos una variable conectando el nombre y el valor usando un signo igual = . El siguiente ejemplo almacena el número 15 en una variable llamada puntos ."
                 },
                 {
                     "type": "Consola",
-                    "text": "points=15\nprint(points)"
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\npoints=15\nprint(points)\n>15"
                 }
 
             ]
@@ -26,15 +26,9 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = 42       #integer\ny = 'Hello'  #string) \nz = 3.14     #float"
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 42 #integer\ny = 'Hello' #string\nz = 3.14 #float"
                 }
-
             ]
         }
     ]
-
-
-
-
-   
 }

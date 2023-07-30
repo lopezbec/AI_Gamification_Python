@@ -31,11 +31,11 @@
 
     "pedagogical": [
         {
-            "title": "Multiplicacion.",
+            "title": "Multiplicación.",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "La multiplicacion se hace usando un simbolo de asterisco *."
+                    "text": "La multiplicación se hace usando un símbolo de asterisco *."
                 },
                 {
                     "type": "Consola",

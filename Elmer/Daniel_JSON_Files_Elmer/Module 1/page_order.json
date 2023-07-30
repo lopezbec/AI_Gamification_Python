@@ -249,7 +249,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_L4_Mixing_things_up_Part_2.json",
-                    "page_type": "MultipleChoice",
+                    "page_type": "DragAndDrop",
                     "json_number": 2
                 },
                 {
@@ -362,7 +362,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_4.json",
-                    "page_type": "MultipleChoice",
+                    "page_type": "CompleteBlankSpace",
                     "json_number": 4
                 },
                 {

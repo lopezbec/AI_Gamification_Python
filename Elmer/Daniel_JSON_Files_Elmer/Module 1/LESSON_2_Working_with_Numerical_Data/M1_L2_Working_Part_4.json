@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Cual es la salida de este codigo?"
+                    "text": "¿Cual es la salida de este código?"
                 },
                 {
                     "type": "Consola",
@@ -27,7 +27,7 @@
 
     "pedagogical": [
         {
-            "title": "Tipos de datos numericos.",
+            "title": "Tipos de datos numéricos.",
             "blocks": [
                 {
                     "type": "info",
@@ -35,7 +35,7 @@
                 },
                 {
                     "type": "info",
-                    "text": "Los tipos de datos numericos mas utilizados son:"
+                    "text": "Los tipos de datos numéricos mas utilizados son:"
                 },
                 {
                     "type": "info",
@@ -43,9 +43,8 @@
                 },
                 {
                     "type": "info",
-                    "text": "Flotante: numero que tiene decimales, tambien puede ser positivo (1.5, 3.14, 5.5) o negativo (-1.5, -3.14)."
+                    "text": "Flotante: numero que tiene decimales, también puede ser positivo (1.5, 3.14, 5.5) o negativo (-1.5, -3.14)."
                 }
-
             ]
         }
     ]

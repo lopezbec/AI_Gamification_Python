@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_3_Working_with_Text_Data/' + filename) as json_file:
+        with open('LESSON_3_Working_with_Text_Data/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -93,7 +93,7 @@ class JsonWindow(QWidget):
             if multiplechoiceplus_value:
                 self.create_multiple_choice_layout(is_multiple_choice_plus=True)
             else:
-                print("Vamos a crear un layout para regular multiple choice.")
+                self.create_multiple_choice_layout(is_multiple_choice_plus=False)
             self.create_feedback_label()
 
         elif self.page_type.lower() == "completeblankspace":
@@ -336,6 +336,7 @@ class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.layout = None
+        self.completed = None
         self.current_part = None
         self.button_layout = None
         self.submit_button = None
@@ -573,20 +574,35 @@ class MainWindow(QWidget):
                         continue
 
                     if "multipleResponseVariant" in data_block and data_block["multipleResponseVariant"]:
-                        dropped_text = full_dropped_text.split(':')[1].strip()
-                        correct_value = None
+                        if ":" in full_dropped_text:
+                            dropped_text = full_dropped_text.split(':')[1].strip()
+                        else:
+                            dropped_text = full_dropped_text.strip().split('\n')[-1]
 
+                        correct_value = None
                         for block in data_block["blocks"]:
                             if block["type"] == label_type:
                                 correct_value = block.get("correctValue")
                                 break
 
-                        if correct_value:
-                            if correct_value == dropped_text:
-                                correct_count += 1
-                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
+                        if "print" in dropped_text:
+                            sep_argument = re.findall(r"(sep)=(['\"]([^'\"]*)['\"])", dropped_text)
+                            if sep_argument:
+                                dropped_answer = sep_argument[0][0] if correct_value == 'sep' else sep_argument[0][1]
+                                if correct_value:
+                                    if correct_value == dropped_answer:
+                                        correct_count += 1
+                                        self.log_event(f"Correct Answer Selected: {dropped_answer}", event_type="mouse")
+                                    else:
+                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}", event_type="mouse")
+                        else:
+                            if correct_value:
+                                if correct_value == dropped_text:
+                                    correct_count += 1
+                                    self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
 
-                            else: self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
+                                else:
+                                    self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
 
                     else:
                         correct_answer = None
@@ -596,11 +612,11 @@ class MainWindow(QWidget):
                                 break
 
                         if correct_answer:
-                            if correct_answer["text"] in dropped_text:
+                            if correct_answer["text"] in full_dropped_text:
                                 correct_count += 1
-                                self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                                self.log_event(f"Correct Answer Selected: {full_dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                             else:
-                                self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                                self.log_event(f"Incorrect Answer Selected: {full_dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
@@ -631,6 +647,12 @@ class MainWindow(QWidget):
                 self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
+    def es_completada(self):
+        if self.completed:
+            return True
+        else:
+            return False
+
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
         self.log_event( f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
@@ -654,6 +676,8 @@ class MainWindow(QWidget):
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
+            self.completed = True
+            self.es_completada()
             self.close()
         self.current_page += 1  # Incrementar el número de la página actual
 

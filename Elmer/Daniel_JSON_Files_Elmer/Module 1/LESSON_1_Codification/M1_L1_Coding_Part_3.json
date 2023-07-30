@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Listo para escribir, ejecutar y probar codigo real? Abre Code Playground. Luego presione 'Ejecutar' para ver el resultado en la parte inferior de la pantalla."
+                    "text": "Listo para escribir, ejecutar y probar código real? Abre Code Playground. Luego presione 'Ejecutar' para ver el resultado en la parte inferior de la pantalla."
                 },
                 {
                     "type": "Consola",
@@ -13,7 +13,7 @@
                 },
                 {
                     "type": "info",
-                    "text": "El codigo nos permite dar instrucciones a las maquinas. Presionamos 'Ejecutar' cuando nuestras instrucciones estan listas para ser ejecutadas. Esto frecuentemente resulta en la salida que podemos ver en la parte inferior de la pantalla."
+                    "text": "El código nos permite dar instrucciones a las maquinas. Presionamos 'Ejecutar' cuando nuestras instrucciones están listas para ser ejecutadas. Esto frecuentemente resulta en la salida que podemos ver en la parte inferior de la pantalla."
                 }
 
             ]
@@ -26,7 +26,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Puedes usar el Code Playground para ejecutar codigo?"
+                    "text": "Puedes usar el Code Playground para ejecutar código?"
                 }
             ],
             "answers": [

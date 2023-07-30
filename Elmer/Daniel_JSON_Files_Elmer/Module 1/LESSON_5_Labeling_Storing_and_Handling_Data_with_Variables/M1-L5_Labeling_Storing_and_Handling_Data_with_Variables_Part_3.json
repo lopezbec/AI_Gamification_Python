@@ -1,5 +1,4 @@
 {
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -25,6 +24,8 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -32,30 +33,19 @@
                     
                 },
                 {
-                    "type": "pregunta1",
-                    "text": "_____:",
-                    "correctValue": "18"
-                },
-                {
-                    "type": "pregunta2",
-                    "text": "_____",
-                    "correctValue": "edad"
+                    "type": "Consola",
+                    "text": "___ = ___"
                 }
             ],
             "answers": [
                 {
-                    "text": "18",
-                    "correctType": "pregunta1",
-                    "correct": true
+                    "text": "18"
                 },
                 {
-                    "text": "edad",
-                    "correctType": "pregunta2",
-                    "correct": true
+                    "text": "edad"
                 }
-            ]
+            ],
+            "correctOrder": ["edad", "18"]
         }
     ]
-
-   
 }

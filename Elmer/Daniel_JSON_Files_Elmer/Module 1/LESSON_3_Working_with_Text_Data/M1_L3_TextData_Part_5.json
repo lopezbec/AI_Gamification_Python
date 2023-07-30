@@ -5,15 +5,15 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¡Increible! Has completado la leccion. Has aprendido que:"
+                    "text": "¡Increíble! Has completado la leccion. Has aprendido que:"
                 },
                 {
                     "type": "info",
-                    "text": "Una cadena es el tipo de datos para texto.  Las cadenas requieren comillas simples o dobles para que las computadoras las entiendan.  Puedes unir dos o mas cadenas usando la concatenacion (+)."
+                    "text": "Una cadena es el tipo de datos para texto.  Las cadenas requieren comillas simples o dobles para que las computadoras las entiendan.  Puedes unir dos o mas cadenas usando la concatenación (+)."
                 },
                 {
                     "type": "hint",
-                    "text": "En la proxima leccion, pondra en practica lo que ha aprendido."
+                    "text": "En la proxima leccion, pondrá en practica lo que ha aprendido."
                 }
             ]
         }
@@ -21,15 +21,15 @@
 
     "pedagogical2": [ 
         {
-            "title": "¡La practica hace la perfeccion!",
+            "title": "¡La practica hace la perfección!",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Pon en practica tus conocimientos y escribe codigo real para resolver el siguiente ejercicio."
+                    "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
                     "type": "hint",
-                    "text": "El conocimiento es poder. \n Complete el codigo para generar el resultado requerido."
+                    "text": "El conocimiento es poder. \n Complete el código para generar el resultado requerido."
                 }
             ]
         }

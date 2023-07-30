@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Fantastico! Has completado la leccion. Has aprendido que: Puedes realizar operaciones aritmeticas con Python usando +, -, *, /,  Los dos tipos de datos numericos mas utilizados son los numeros enteros para los numeros enteros y los flotantes \npara los numeros con decimales."
+                    "text": "Fantastico! Has completado la leccion. Has aprendido que: Puedes realizar operaciones aritmeticas con Python usando +, -, *, /,  Los dos tipos de datos numéricos mas utilizados son los números enteros para los números enteros y los flotantes \npara los números con decimales."
                 },
                 {
                     "type": "hint",
@@ -18,11 +18,11 @@
 
     "pedagogical2": [ 
         {
-            "title": "La practica hace la perfeccion!",
+            "title": "La practica hace la perfección!",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Pon en practica tus conocimientos y escribe codigo real para resolver el siguiente ejercicio."
+                    "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
                     "type": "requerimiento",

@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Practica: Necesitas calcular los puntos obtenidos por un equipo de futbol. El equipo gano 18 juegos y termino 7 juegos en empate."
+                    "text": "Práctica: Necesitas calcular los puntos obtenidos por un equipo de futbol. El equipo gano 18 juegos y termino 7 juegos en empate."
                 },
                 {
                     "type": "hint",

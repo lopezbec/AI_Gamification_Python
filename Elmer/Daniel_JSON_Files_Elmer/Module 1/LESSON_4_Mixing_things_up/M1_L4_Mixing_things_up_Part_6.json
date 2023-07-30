@@ -5,16 +5,12 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "El siguiente código contiene dos líneas:\n  - El primero es una explicación para los humanos que trabajan en el programa.\n  - El segundo es una instrucción para la máquina.\n Hay un error en el código. Ejecute el código para obtener el mensaje de error y luego corríjalo."
+                    "text": "El siguiente código contiene dos lineas:\n\n  -El primero es una explicación para los humanos que trabajan en el programa.\n  -El segundo es una instrucción para la maquina.\n\n Hay un error en el código. Observa el código para obtener el mensaje de error."
                 },
-
                 {
                     "type": "Consola",
-                    "text": "//Calculate the number of hours in a week \nprint(24*7)" 
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(2.71) \n//Calculate the number of hours in a week \nprint(24*7)\n>//Calculate the number of hours in a week \n^^\nSyntaxError: invalid syntax"
                 }
-
-
-
             ]
         }
     ],
@@ -24,13 +20,12 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¡Increíble! Has completado la lección. Has aprendido que:\n Puede agregar muchas declaraciones (o líneas de código) a sus programas\n Puede imprimir varios datos en la misma línea, separándolos con comas o un separador personalizado en la declaración de impresión.\n Puedes usar comentarios para explicar lo que hace el código."
+                    "text": "¡Increíble! Has completado la leccion. Has aprendido que:\n Puede agregar muchas declaraciones (o lineas de código) a sus programas\n Puede imprimir varios datos en la misma linea, separándolos con comas o un separador personalizado en la declaración de impresión.\n Puedes usar comentarios para explicar lo que hace el código."
                 },
                 {
                     "type": "hint",
-                    "text": "En la próxima lección, aprenderá a etiquetar, almacenar y manejar\n diferentes tipos de datos para resolver problemas más complejos."
+                    "text": "En la proxima leccion, aprenderá a etiquetar, almacenar y manejar\n diferentes tipos de datos para resolver problemas mas complejos."
                 }
-
             ]
         }
     ]

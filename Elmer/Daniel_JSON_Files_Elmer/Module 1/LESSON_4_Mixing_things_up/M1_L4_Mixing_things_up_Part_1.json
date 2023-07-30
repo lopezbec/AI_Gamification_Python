@@ -5,17 +5,16 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Ahora conoces los diferentes tipos de datos en Python. \n En esta lección, trabajará con texto y números para generar salidas múltiples y mixtas."
+                    "text": "Ahora conoces los diferentes tipos de datos en Python. En esta leccion, trabajara con texto y números para generar salidas multiples y mixtas."
                 }
-
             ]
         }
     ],
-
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
             "blocks": [
                 {
                     "type": "info",
@@ -24,35 +23,32 @@
                 },
                 {
                     "type": "pregunta1",
-                    "text": "Un número entero:_____",
-                    "correctValue": "Entero"
+                    "correctValue": "Entero",
+                    "text": "Un numero entero:____"
                 },
                 {
                     "type": "pregunta2",
-                    "text": "Un número con un punto decimal:_____",
-                    "correctValue": "Flotante"
+                    "correctValue": "Flotante",
+                    "text": "Un numero con un punto decimal:____"
                 },
                 {
                     "type": "pregunta3",
-                    "text": "Un trozo de texto:_____",
-                    "correctValue": "Cadena"
+                    "correctValue": "Cadena",
+                    "text": "Un trozo de texto:____"
                 }
             ],
             "answers": [
                 {
                     "text": "Flotante",
-                    "correctType": "pregunta2",
-                    "correct": true
+                    "correctType": "pregunta2"
                 },
                 {
                     "text": "Entero",
-                    "correctType": "pregunta1",
-                    "correct": true
+                    "correctType": "pregunta1"
                 },
                 {
                     "text": "Cadena",
-                    "correctType": "pregunta3",
-                    "correct": true
+                    "correctType": "pregunta3"
                 }
             ]
         }
