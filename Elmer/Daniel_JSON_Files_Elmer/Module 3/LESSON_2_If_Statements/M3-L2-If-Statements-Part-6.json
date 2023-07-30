@@ -1,0 +1,43 @@
+{
+
+    "pedagogical": [ 
+        {
+            "title": "La practica hace la perfeccion!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Pon en práctica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "¡En el punto de ebullición! - Escriba un programa que compruebe si el agua está hirviendo."
+                }
+            ]
+        }
+    ],
+
+
+    "practica": [
+        {
+            "title": "Declaraciones if",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Escriba un programa que compruebe si el agua está hirviendo.\nTome la temperatura entera en Celsius como entrada y\nsalida 'Ebullición' si la temperatura es superior o igual a 100."
+                },
+                {
+                    "type": "hint",
+                    "text": "Pista: No saque nada si el agua no está hirviendo."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra\n105\nSalida de muestra\nHirviendo" 
+                },
+                {
+                    "type": "Consola",
+                    "text": "temp = int(input())\n\nif temp >= 100:\n print('Hirviendo')"
+                }
+            ]
+        }
+    ]
+}

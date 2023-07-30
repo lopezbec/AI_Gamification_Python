@@ -1,0 +1,336 @@
+{
+    "lessons": [
+        {
+            "lesson_number": 1,
+            "pages": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-1.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-1.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-2.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-3.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-4.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-4.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-5.json",
+                    "page_type": "Pedagogical2",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L1-Booleans-And-Coparisons-Part-6.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 6
+                }
+            ]
+        },
+        {
+            "lesson_number": 2,
+            "pages": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-1.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-1.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-2.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-3.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-4.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-4.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-5.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-6.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-46.json",
+                    "page_type": "Practica",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L2-If-Statements-Part-7.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 7
+                }
+            ]
+        },
+        {
+            "lesson_number": 3,
+            "pages": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-1.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-1.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-2.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-3.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-4.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-4.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-5.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-6.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-6.json",
+                    "page_type": "Practica",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Else-Statements-Part-7.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 7
+                }
+            ]
+        },
+        {
+            "lesson_number": 4,
+            "pages": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-1.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-1.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-2.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-3.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-4.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-4.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-5.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-6.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-46.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-7.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 7
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-7.json",
+                    "page_type": "Practica",
+                    "json_number": 7
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3-L3-Boolean-Logic-Part-8.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 8
+                }
+            ]
+        }
+    ]
+}

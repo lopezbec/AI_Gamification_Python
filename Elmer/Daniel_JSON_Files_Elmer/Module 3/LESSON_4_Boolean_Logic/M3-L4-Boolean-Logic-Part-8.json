@@ -1,0 +1,36 @@
+{
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(2*2+2)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
