@@ -25,9 +25,7 @@
         }
     ],
 
-
-    
-    "pedagogical2": [
+    "pedagogical": [
         {
             "title": "Input",
             "blocks": [
@@ -43,7 +41,4 @@
             ]
         }
     ]
-
-
-   
 }

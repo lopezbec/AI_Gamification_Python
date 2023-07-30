@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "info",
-                    "text": "a = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)"
+                    "text": "x = 9,34\ny = int(x)\nprint(y)"
                 }
             ],
             "answers": [
@@ -18,34 +18,33 @@
                     "correct": false
                 },
                 {
-                    "text": "55",
+                    "text": "10",
                     "correct": false
                 },
                 {
-                    "text": "14",
+                    "text": "86",
                     "correct": false
                 },
                 {
-                    "text": "59",
+                    "text": "9",
                     "correct": true
                 }
             ]
         }
     ],
 
-    "pedagogical2": [
+    "pedagogical": [
         {
-            "title": "Entradas múltiples",
+            "title": "Convertir a cadena",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Lo último que hay que mencionar es que puede usar input() varias veces para tomar\nvarias entradas de usuario.\n \nPor ejemplo:"
+                    "text": "A veces es necesario usar un número en una concatenación de cadenas.\n \nEsto se puede hacer usando la función str() , que convierte un número en una cadena. \n \n Por ejemplo:"
                 },
                 {
                     "type": "Consola",
-                    "text": "name = input()\nage = input()\nprint(name + ' is ' + age)   "
+                    "text": "age = 42\nprint('His age is ' + str(age)) "
                 }
-
             ]
         }
     ]

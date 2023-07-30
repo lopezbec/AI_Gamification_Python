@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellene los espacios en blanco para producir un código válido, que toma los valores de\nlas variables x e y de la entrada y genera su suma."
+                    "text": "Complete los espacios en blanco para calcular y generar la suma de 55 y 7."
                 },
                 {
                     "type": "info",
@@ -14,19 +14,11 @@
             ],
             "answers": [
                 {
-                    "text": "float()",
+                    "text": "33",
                     "correct": false
                 },
                 {
-                    "text": "input",
-                    "correct": true
-                },
-                {
-                    "text": "int",
-                    "correct": true
-                },
-                {
-                    "text": "y",
+                    "text": "6",
                     "correct": true
                 },
                 {
@@ -37,19 +29,18 @@
         }
     ],
 
-    "pedagogical2": [
+    "pedagogical": [
         {
-            "title": "Entradas múltiples",
+            "title": "Convertir a flotante",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Lo último que hay que mencionar es que puede usar input() varias veces para tomar\nvarias entradas de usuario.\n \nPor ejemplo:"
+                    "text": "Similar a la función int() , la función float() convierte una cadena en un flotante:"
                 },
                 {
                     "type": "Consola",
-                    "text": "name = input()\nage = input()\nprint(name + ' is ' + age)   "
+                    "text": "height = float(input())\nprint(height)"
                 }
-
             ]
         }
     ]

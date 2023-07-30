@@ -1,43 +1,39 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellene los espacios en blanco para producir un código válido, que toma los valores de\nlas variables x e y de la entrada y genera su suma."
+                    "text": "Cual es la salida de este código?"
                 },
                 {
                     "type": "info",
-                    "text": "x = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)"
+                    "text": "a = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)"
                 }
             ],
             "answers": [
                 {
-                    "text": "float()",
+                    "text": "0",
                     "correct": false
                 },
                 {
-                    "text": "input",
-                    "correct": true
-                },
-                {
-                    "text": "int",
-                    "correct": true
-                },
-                {
-                    "text": "y",
-                    "correct": true
-                },
-                {
-                    "text": "1",
+                    "text": "55",
                     "correct": false
+                },
+                {
+                    "text": "14",
+                    "correct": false
+                },
+                {
+                    "text": "59",
+                    "correct": true
                 }
             ]
         }
     ],
 
-    "pedagogical2": [
+    "pedagogical": [
         {
             "title": "Entradas múltiples",
             "blocks": [
@@ -49,7 +45,6 @@
                     "type": "Consola",
                     "text": "name = input()\nage = input()\nprint(name + ' is ' + age)   "
                 }
-
             ]
         }
     ]

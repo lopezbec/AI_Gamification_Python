@@ -1,5 +1,5 @@
 {
-    "pedagogical2": [ 
+    "pedagogical": [
         {
             "title": "Hora de practicar",
             "blocks": [
@@ -15,7 +15,7 @@
         }
     ],
 
-    "pedagogical": [ 
+    "pedagogical2": [
         {
             "title": "Input",
             "blocks": [

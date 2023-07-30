@@ -8,7 +8,7 @@ from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from LESSON_1_Taking_User_Input.Main_Lesson_1 import main_lesson_1 as ml1
 from LESSON_2_Working_with_Input.Main_Lesson_2 import main_lesson_2 as ml2
-from LESSON_3_In_Place_Operators.Main_Lesson_3 import main_lesson_3 as ml3
+#from LESSON_3_In_Place_Operators.Main_Lesson_3 import main_lesson_3 as ml3
 
 
 class Leccion:
@@ -137,14 +137,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones = []
         self.lecciones.append(Leccion("Lección 1", self.abrir_leccion1, lecciones_menu))
         self.lecciones.append(Leccion("Lección 2", self.abrir_leccion2, lecciones_menu, self.lecciones[0]))
-        self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
-        self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))  # Agrega lección 4
-        self.lecciones.append(Leccion("Lección 5", self.abrir_leccion5, lecciones_menu, self.lecciones[3]))  # Agrega lección 5
+        #self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
 
         self.lecciones[0].proxima_leccion = self.lecciones[1]
-        self.lecciones[1].proxima_leccion = self.lecciones[2]
-        self.lecciones[2].proxima_leccion = self.lecciones[3]  # Establece la lección 4 como la próxima de la 3
-        self.lecciones[3].proxima_leccion = self.lecciones[4]  # Establece la lección 5 como la próxima de la 4
+        #self.lecciones[1].proxima_leccion = self.lecciones[2]
 
         self.curso = Curso(self.lecciones)
 
@@ -175,6 +171,7 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(f"Error al abrir la lección 2: {e}")
 
+    """
     def abrir_leccion3(self):
         try:
             self.lesson3_window = ml3()
@@ -182,6 +179,8 @@ class MainWindow(QtWidgets.QMainWindow):
             return self.lesson3_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 3: {e}")
+            
+    """
 
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)

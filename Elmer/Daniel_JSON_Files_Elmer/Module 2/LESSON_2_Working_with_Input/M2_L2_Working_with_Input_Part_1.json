@@ -1,17 +1,20 @@
 {
     "pedagogical": [
         {
-            "title": "La interacción del usuario",
+            "title": "Input con numero",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Muchos programas informáticos están diseñados para que otros usuarios puedan\ninteractuar con ellos. Estos programas toman información de los usuarios. Por ejemplo,\nun juego puede solicitar el nombre y la edad del usuario como entrada para usar\ndurante el juego."
+                    "text": "Entonces sabemos que la función input() devuelve una cadena. Pero, ¿y si necesitamos\nque sea otra cosa, como un número? No hay problema, ¡podemos hacerlo totalmente!\n \nSupongamos que hemos tomado la edad del usuario como entrada.\n \nPara convertirlo a un número, podemos usar la función int() :"
                 },
                 {
-                    "type": "info",
-                    "text": "En esta lección, aprenderá a escribir programas interactivos que toman información del\nusuario como entrada para trabajar."
+                    "type": "Consola",
+                    "text": "age = int(input())\nprint(age) "
+                },
+                {
+                    "type": "hint",
+                    "text": "Esto lo convertirá de una cadena a un número entero. Sencillo, ¿verdad?"
                 }
-
             ]
         }
     ],
@@ -28,7 +31,6 @@
                     "type": "Consola",
                     "text": "x = input()\nprint(x)"
                 }
-
             ]
         }
     ]
