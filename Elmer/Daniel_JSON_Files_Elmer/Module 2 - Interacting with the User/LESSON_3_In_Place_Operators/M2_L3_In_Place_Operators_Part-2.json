@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operadores In-Place",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Operadores In-Place los operadores se pueden usar para cualquier operación numérica (+, -, *, /, %, **, //)."
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 8\n\nx -= 2\nprint(x)\n\nx /= 3\nprint(x)\n\nx **= 5\nprint(x)"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 9\n\nx %= 2\nx += 3\n\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
