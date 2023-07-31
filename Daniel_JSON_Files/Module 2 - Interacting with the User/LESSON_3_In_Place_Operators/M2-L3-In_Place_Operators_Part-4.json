@@ -1,0 +1,18 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operadores In-Place",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Hemos cubierto una serie de temas importantes, como variables, entrada y operadores.\nEstos se pueden usar juntos para hacer un programa más complejo.\n\nPor ejemplo, hagamos un programa que tome millas como entrada\n y genere el valor de km correspondiente:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "miles = int(input())\nkm = miles * 1.60934\n\nprint(km)"
+                }
+
+            ]
+        }
+    ]
+}

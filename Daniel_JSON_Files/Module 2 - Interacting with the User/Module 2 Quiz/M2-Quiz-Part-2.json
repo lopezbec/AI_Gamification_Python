@@ -1,0 +1,74 @@
+{
+
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 5\ny = x + 3\ny = int(str(y) + '2')\nprint(y)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "42",
+                    "correct": false
+                },
+                {
+                    "text": "82",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "completeblankspace2": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para declarar una variable, agréguele 5 e imprima su valor."
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 4\nx____= 5\nprint____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "+",
+                    "correct": true
+                },
+                {
+                    "text": "(x)",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+
+  
+}

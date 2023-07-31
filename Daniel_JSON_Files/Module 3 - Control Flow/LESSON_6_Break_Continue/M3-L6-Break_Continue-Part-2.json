@@ -1,0 +1,55 @@
+{
+    "pedagogical": [
+        {
+            "title": "Break",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Aquí hay un ejemplo de caso de uso de break:\n\nSe puede usar un bucle while infinito para tomar continuamente la\nentrada del usuario. Por ejemplo, está haciendo una calculadora y\nnecesita tomar números del usuario para sumar y detenerse cuando el\nusuario ingresa 'detener'.\n\nEn este caso, la declaración de ruptura se puede usar para finalizar el\nbucle infinito cuando la entrada del usuario es igual a 'detener'."
+                },
+                {
+                    "type": "hint",
+                    "text": "El uso de la sentencia break fuera de un bucle provoca un error."
+                }
+
+            ]
+        }
+    ],
+
+    
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para romper el bucle después de imprimir el número 5:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i = 0\nwhile True:\n   print(i)\n   i = i + 1\n___ i >5:\n _____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "else",
+                    "correct": false
+                },
+                {
+                    "text": "continue",
+                    "correct": false
+                },
+                {
+                    "text": "break",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+  
+}

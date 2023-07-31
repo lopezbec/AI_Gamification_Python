@@ -1,0 +1,43 @@
+{
+    "pedagogical": [
+        {
+            "title": "Continue",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Otra declaración que se puede usar dentro de los bucles es continue.\n\nA diferencia de break, continue salta de regreso a la parte superior del\nbucle, en lugar de detenerlo. Básicamente, la declaración de continuar\ndetiene la iteración actual y continúa con la siguiente.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i = 0\nwhile i<5:\n  i += 1\n  if i==3:\n    print('Skipping 3')\n    continue\n  print(i)"
+                }
+
+            ]
+        }
+    ],
+
+    
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Puedes usar una declaración continua para detener un ciclo infinito?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "No",
+                    "correct": true
+                },
+                {
+                    "text": "Yes",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+  
+}

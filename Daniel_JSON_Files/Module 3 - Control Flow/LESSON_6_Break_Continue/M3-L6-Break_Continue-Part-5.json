@@ -1,0 +1,44 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Precio de los boletos - Cree un sistema de emisión de boletos que genere el precio total para 5 pasajeros según su edad."
+                }
+            ]
+        }
+    ],
+
+    
+    "practica": [
+        {
+            "title": "Continue",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Estás haciendo un sistema de tickets.\nEl precio de un boleto sencillo es de $100.\nPara niños menores de 3 años, la entrada es gratuita.\nSu programa necesita tomar las edades de 5 pasajeros como entrada y salida del precio total de sus boletos."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra\n18\n24\n2\n5\n42\nSalida de muestra\n400" 
+                },
+                {
+                    "type": "hint",
+                    "text": "Hay un niño menor de 3 años entre los pasajeros, por\nlo que el precio total de 5 boletos es de $400." 
+                },
+                {
+                    "type": "Consola",
+                    "text": "total = 0\n\ncontador = 0\n\nwhile contador < 5:\n    edad_pasajeros = int(input())\n    contador += 1\n    if edad_pasajeros < 3:\n        continue\n    total +=100\nprint(f'{total}')"
+                }
+            ]
+        }
+    ]
+
+  
+}

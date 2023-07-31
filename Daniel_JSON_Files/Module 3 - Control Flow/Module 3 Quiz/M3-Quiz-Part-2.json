@@ -1,0 +1,86 @@
+{
+
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para tomar un número de entrada y salida 'Aprobado', si es mayor que 70."
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "int",
+                    "text": "grade = ____(input())"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "if",
+                    "text": "____ grade >"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "70",
+                    "text": "____:"
+                },
+                {
+                    "type": "pregunta4",
+                    "correctValue": "print",
+                    "text": "____('Pass')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "print",
+                    "correctType": "pregunta4"
+                },
+                {
+                    "text": "70",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "if",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "int",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ],
+
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i = 0\n\nx = 0\n\nwhile i < 4:\n\n    x+=i\n\n    i+=1\n\n\n\n\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "15",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+  
+}

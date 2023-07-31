@@ -1,0 +1,44 @@
+{
+    "pedagogical": [
+        {
+            "title": "Break",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Para finalizar un bucle while antes de tiempo, podemos usar una instrucción break.\n\nPor ejemplo, podemos romper un bucle infinito si se cumple alguna condición:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i = 0\nwhile True:\n  print(i)\n  i = i + 1\n  if i >= 5:\n    print('Breaking')\n    break\n\nprint('Finished')"
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos números imprime este código?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

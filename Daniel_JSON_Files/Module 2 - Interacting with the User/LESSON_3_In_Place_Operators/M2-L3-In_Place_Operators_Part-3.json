@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operadores In-Place",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "También puede usar Operadores In-Place para la concatenación de cadenas:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 'spam'\nprint(x)\n\nx += 'eggs'\nprint(x)"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 'a'\nx *= 3\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "aaa",
+                    "correct": true
+                },
+                {
+                    "text": "a3",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": true
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

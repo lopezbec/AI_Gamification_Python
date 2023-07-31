@@ -1,0 +1,25 @@
+{
+    "practica": [
+        {
+            "title": "Calculadora de propinas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Cuando sales a comer, siempre das una propina del 20% del importe\nde la factura. Pero, ¿quién tiene tiempo para calcular la cantidad de\npropina correcta cada vez? ¡Tú no, eso es seguro! Estás creando un\nprograma para calcular propinas y ahorrar algo de tiempo.\n\nSu programa necesita tomar el monto de la factura como entrada y generar la propina como un\nvalor flotante."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra\n50\nSalida de muestra\n10.0" 
+                },
+                {
+                    "type": "hint",
+                    "text": "Explicación: el 20% de 50 es 10.\nPara calcular el 20% de una cantidad dada, puedes multiplicar el\nnumere por 20 y divídalo por 100: 50*20/100 = 10.0" 
+                },
+                {
+                    "type": "Consola",
+                    "text": "bill = int(input())\n\npropina = bill*20/100\n\nprint(propina)"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 3\nnum = 17\nprint(num % x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "draganddropsecuence": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para tomar un nombre como entrada y generar un mensaje de bienvenida que contenga la entrada?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "name = ____\n____('Welcome, '+____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "input()"
+                },
+                {
+                    "text": "print"
+                },
+                {
+                    "text": "name"
+                }
+            ],
+            "correctOrder": ["input()", "print", "name"]
+        }
+    ]
+
+  
+}

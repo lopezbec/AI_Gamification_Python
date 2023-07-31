@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Continue",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Un ejemplo de caso de uso de continuar:\n\nUn sistema de emisión de boletos de una aerolínea necesita calcular el\ncosto total de todos los boletos comprados. Las entradas para niños\nmenores de 3 años son gratuitas. Podemos usar un bucle while para\niterar a través de la lista de pasajeros y calcular el costo total de sus\nboletos. Aquí, la declaración de continuación se puede usar para omitir\na los niños."
+                }
+
+            ]
+        }
+    ],
+
+    
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos números generará el siguiente código"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i=0\nwhile True:\n    i+=1\n    if i == 2:\n        continue\n    if i == 5:\n        break\n\n    print(i)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3",
+                    "correct": true
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "infinite",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+  
+}

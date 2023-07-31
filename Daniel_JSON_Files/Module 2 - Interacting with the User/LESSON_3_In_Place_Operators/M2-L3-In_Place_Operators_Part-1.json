@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operadores In-Place",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Operadores In-Place le permite escribir código como 'x = x + 3' de manera más concisa, como 'x += 3'.\n\nÉchale un vistazo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 2\nprint(x)\n\nx += 3\nprint(x)"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 4\nx *= 3\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                },
+                {
+                    "text": "12",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

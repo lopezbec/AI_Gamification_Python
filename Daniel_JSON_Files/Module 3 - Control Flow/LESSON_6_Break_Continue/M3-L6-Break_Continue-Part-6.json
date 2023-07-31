@@ -1,0 +1,33 @@
+{
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué declaración se usa para detener el bucle?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "break",
+                    "correct": true
+                },
+                {
+                    "text": "continue",
+                    "correct": false
+                },
+                {
+                    "text": "stop",
+                    "correct": false
+                },
+                {
+                    "text": "if",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+}
