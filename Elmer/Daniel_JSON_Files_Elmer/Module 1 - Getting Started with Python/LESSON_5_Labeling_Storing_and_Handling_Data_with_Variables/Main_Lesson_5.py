@@ -638,15 +638,9 @@ class MainWindow(QWidget):
                 self.log_event(f"Incorrect Answer Selected: {selected_answer}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
-    def es_completada(self):
-        if self.completed:
-            return True
-        else:
-            return False
-
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event( f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
@@ -655,7 +649,7 @@ class MainWindow(QWidget):
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event( f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
                 self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
@@ -667,8 +661,6 @@ class MainWindow(QWidget):
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
-            self.completed = True
-            self.es_completada()
             self.close()
         self.current_page += 1  # Incrementar el número de la página actual
 

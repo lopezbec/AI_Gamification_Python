@@ -21,15 +21,13 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        with open(os.path.join(current_directory, filename), encoding='UTF-8') as json_file:
+        with open('LESSON_2_Working_with_Numerical_Data/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
     @staticmethod
     def load_json_styles():
-        parent_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        with open(os.path.join(parent_directory, "styles.json")) as styles_file:
+        with open("styles.json") as styles_file:
             styles = json.load(styles_file)
         return styles
 

@@ -8,8 +8,8 @@
                     "text": "Cual es la salida de este código?"
                 },
                 {
-                    "type": "info",
-                    "text": "a = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\na = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)\n>____"
                 }
             ],
             "answers": [
@@ -22,11 +22,11 @@
                     "correct": false
                 },
                 {
-                    "text": "14",
+                    "text": "'14'",
                     "correct": false
                 },
                 {
-                    "text": "59",
+                    "text": "'59'",
                     "correct": true
                 }
             ]
@@ -43,7 +43,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "name = input()\nage = input()\nprint(name + ' is ' + age)   "
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nname = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
                 }
             ]
         }

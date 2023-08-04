@@ -11,25 +11,23 @@
                 },
                 {
                     "type": "pregunta1",
-                    "text": "text = ____",
-                    "correctValue": "input()"
+                    "correctValue": "'42'",
+                    "text": "text = ____"
                 },
                 {
                     "type": "pregunta2",
-                    "text": "print(____)",
-                    "correctValue": "text"
+                    "correctValue": "text",
+                    "text": "print(____)"
                 }
             ],
             "answers": [
                 {
                     "text": "text",
-                    "correctType": "pregunta2",
-                    "correct": true
+                    "correctType": "pregunta2"
                 },
                 {
                     "text": "'42'",
-                    "correctType": "pregunta1",
-                    "correct": true
+                    "correctType": "pregunta1"
                 }
             ]
         }

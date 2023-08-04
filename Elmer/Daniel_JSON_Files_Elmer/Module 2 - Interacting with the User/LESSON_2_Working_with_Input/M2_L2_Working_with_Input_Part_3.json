@@ -5,11 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Cual es la salida de este codigo?"
+                    "text": "Cual es la salida de este código?"
                 },
                 {
-                    "type": "info",
-                    "text": "x = 9,34\ny = int(x)\nprint(y)"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 9,34\ny = int(x)\nprint(y)\n>?"
                 }
             ],
             "answers": [
@@ -43,7 +43,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "age = 42\nprint('His age is ' + str(age)) "
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = 42\nprint('His age is ' + str(age))\n>His age is 42"
                 }
             ]
         }

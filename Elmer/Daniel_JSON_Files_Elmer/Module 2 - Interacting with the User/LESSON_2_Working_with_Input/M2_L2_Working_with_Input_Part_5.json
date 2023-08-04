@@ -1,39 +1,46 @@
 {
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellene los espacios en blanco para producir un código válido, que toma los valores de\nlas variables x e y de la entrada y genera su suma."
+                    "text": "Rellene los espacios en blanco para producir un código válido, que toma los valores de las variables x e y de la entrada y genera su suma."
                 },
                 {
-                    "type": "info",
-                    "text": "x = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)"
+                    "type": "Consola",
+                    "text": "Empieza a arrastrar hasta aquí\n\n___ ___ ______\n___ ___ ______\n______ ___ ______"
                 }
             ],
             "answers": [
                 {
-                    "text": "float()",
-                    "correct": false
+                    "text": "x"
                 },
                 {
-                    "text": "input",
-                    "correct": true
+                    "text": "input())"
                 },
                 {
-                    "text": "int",
-                    "correct": true
+                    "text": "print("
                 },
                 {
-                    "text": "y",
-                    "correct": true
+                    "text": "+"
                 },
                 {
-                    "text": "1",
-                    "correct": false
+                    "text": "int("
+                },
+                {
+                    "text": "y"
+                },
+                {
+                    "text": ")"
+                },
+                {
+                    "text": "="
                 }
-            ]
+            ],
+            "correctOrder": ["x","=","int(","input())","y","=","int(","input())","print(","x","+","y",")"]
         }
     ],
 
@@ -47,7 +54,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "name = input()\nage = input()\nprint(name + ' is ' + age)   "
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nname = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
                 }
             ]
         }

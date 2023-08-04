@@ -9,13 +9,13 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Trabajar con entrada \nEscriba un programa para tomar x e y como entrada y salida de la cadena x, repetida y veces."
+                    "text": "Trabajar con entrada Escriba un programa para tomar x e y como entrada y salida de la cadena x, repetida y veces."
                 }
             ]
         }
     ],
 
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -24,8 +24,8 @@
                     "text": "¿Cuál sería la salida de este código, si el usuario ingresó 5 y 4 como entrada?"
                 },
                 {
-                    "type": "info",
-                    "text": "width = input()\nheight = input()\narea = int(width) * int(height)\nprint(area-9)"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwidth = input()\nheight = input()\narea = int(width) * int(height)\nprint(area-9)\n>____"
                 }
             ],
             "answers": [

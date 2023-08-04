@@ -42,7 +42,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L1_Taking_User_Input_Part_4.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "Multiplechoice",
                     "json_number": 4
                 },
                 {
@@ -119,7 +119,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L2_Working_with_Input_Part_5.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "DragAndDrop",
                     "json_number": 5
                 },
                 {
@@ -137,7 +137,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L2_Working_with_Input_Part_6.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "Multiplechoice",
                     "json_number": 6
                 }
             ]
@@ -154,62 +154,38 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L3_In_Place_Operators_Part_1.json",
-                    "page_type": "Pedagogical2",
+                    "page_type": "CompleteBlankSpace",
                     "json_number": 1
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L3_In_Place_Operators_Part_2.json",
-                    "page_type": "MultipleChoice",
+                    "page_type": "Pedagogical",
                     "json_number": 2
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L3_In_Place_Operators_Part_2.json",
-                    "page_type": "Pedagogical",
+                    "page_type": "CompleteBlankSpace",
                     "json_number": 2
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L3_In_Place_Operators_Part_3.json",
-                    "page_type": "DragAndDrop",
+                    "page_type": "Pedagogical",
                     "json_number": 3
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L3_In_Place_Operators_Part_3.json",
-                    "page_type": "Pedagogical",
+                    "page_type": "CompleteBlankSpace",
                     "json_number": 3
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M2_L3_In_Place_Operators_Part_4.json",
-                    "page_type": "MultipleChoice",
-                    "json_number": 4
-                },
-                {
-                    "type": "JsonWindow",
-                    "filename": "M2_L3_In_Place_Operators_Part_4.json",
-                    "page_type": "DragAndDrop",
-                    "json_number": 4
-                },
-                {
-                    "type": "JsonWindow",
-                    "filename": "M2_L3_In_Place_Operators_Part_5.json",
                     "page_type": "Pedagogical",
-                    "json_number": 5
-                },
-                {
-                    "type": "JsonWindow",
-                    "filename": "M2_L3_In_Place_Operators_Part_5.json",
-                    "page_type": "Pedagogical2",
-                    "json_number": 5
-                },
-                {
-                    "type": "JsonWindow",
-                    "filename": "M2_L3_In_Place_Operators_Part_6.json",
-                    "page_type": "Pedagogical",
-                    "json_number": 6
+                    "json_number": 4
                 }
             ]
         }

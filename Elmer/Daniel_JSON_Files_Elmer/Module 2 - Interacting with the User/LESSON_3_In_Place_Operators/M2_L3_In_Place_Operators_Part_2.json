@@ -5,13 +5,12 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Operadores In-Place le permite escribir código como 'x = x + 3' de manera más concisa, como 'x += 3'.\n\nÉchale un vistazo:"
+                    "text": "Operadores In-Place los operadores se pueden usar para cualquier operación numérica (+, -, *, /, %, **, //)."
                 },
                 {
                     "type": "Consola",
-                    "text": "x = 2\nprint(x)\n\nx += 3\nprint(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 8\nx -= 2\nprint(x)\n>6\nx /= 3\nprint(x)\n>2\nx **= 5\nprint(x)\n>64"
                 }
-
             ]
         }
     ],
@@ -26,13 +25,13 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = 4\nx *= 3\nprint(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 9\nx %= 2\nx += 3\nprint(x)\n>____"
                 }
             ],
             "answers": [
                 {
                     "text": "4",
-                    "correct": false
+                    "correct": true
                 },
                 {
                     "text": "3",
@@ -40,11 +39,11 @@
                 },
                 {
                     "text": "2",
-                    "correct": true
+                    "correct": false
                 },
                 {
                     "text": "12",
-                    "correct": true
+                    "correct": false
                 }
             ]
         }

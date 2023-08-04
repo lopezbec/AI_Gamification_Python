@@ -657,12 +657,6 @@ class MainWindow(QWidget):
                 self.log_event(f"Incorrect Answer Selected: {selected_answer}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
-    def es_completada(self):
-        if self.completed:
-            return True
-        else:
-            return False
-
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
         self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
@@ -686,8 +680,6 @@ class MainWindow(QWidget):
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
-            self.completed = True
-            self.es_completada()
             self.close()
         self.current_page += 1  # Incrementar el número de la página actual
 

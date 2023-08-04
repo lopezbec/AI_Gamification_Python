@@ -1,5 +1,5 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -8,9 +8,8 @@
                     "text": "Complete los espacios en blanco para hacer una declaración de entrada correcta."
                 },
                 {
-                    "type": "info",
-                    "text": "",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntxt = _____ \n print(txt)\n>?"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntxt = ____ \n print(txt)\n>?"
                 }
             ],
             "answers": [

@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_3_Working_with_Text_Data/' + filename, encoding='UTF-8') as json_file:
+        with open('LESSON_3_In_Place_Operators/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -35,6 +35,7 @@ class JsonLoader:
 class JsonWindow(QWidget):
     def __init__(self, filename, page_type, json_number, XP_Ganados):
         super().__init__()
+
         self.data = None
         self.puntos = None
         self.layout = None
@@ -44,6 +45,7 @@ class JsonWindow(QWidget):
         self.radio_buttons = None
         self.button_widgets = None
         self.blank_space_index = None
+        self.current_text_state = None
         self.leaderboard_button = None
         self.original_hint_text = None
         self.XP_Ganados = XP_Ganados
@@ -119,11 +121,13 @@ class JsonWindow(QWidget):
         self.setWindowTitle('JsonWindow')
         self.setLayout(self.layout)
 
+    def get_current_hint_text(self):
+        return self.hint_label.text()
+
     def get_lesson_number(self, filename):
         base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
         lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
         return int(lesson_number)  # Convierte el número de lección a un entero
-
 
     def update_points(self, new_points):
         self.XP_Ganados = new_points
@@ -148,13 +152,17 @@ class JsonWindow(QWidget):
         self.layout.addWidget(reset_button)
         reset_button.clicked.connect(self.reset_button)
 
-    def handle_answer_click(self, answer_text):
-        # Restaurar el texto original de la pista
-        self.hint_label.setText(self.original_hint_text)
+    def handle_answer_click(self, answer_text, original_hint_text):
+            # Restablece el texto a su estado original
+            self.hint_label.setText(original_hint_text)
 
-        # Reemplazar el espacio en blanco con la respuesta seleccionada
-        updated_hint = self.hint_label.text()[:self.blank_space_index] + answer_text + self.hint_label.text()[self.blank_space_index + 1:]
-        self.hint_label.setText(updated_hint)
+            current_text = self.hint_label.text()
+            # Reemplaza los primeros cuatro guiones bajos encontrados por la respuesta seleccionada
+            new_text = current_text.replace("____", answer_text, 1)
+            self.hint_label.setText(new_text)
+
+            # Actualizar el estado del texto actual
+            self.current_text_state = new_text
 
     def create_feedback_label(self):
         # Añadir la etiqueta de retroalimentación al layout
@@ -188,7 +196,7 @@ class JsonWindow(QWidget):
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
             answer_button = QPushButton(answer["text"])
             answer_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            answer_button.clicked.connect(partial(self.handle_answer_click, answer["text"]))
+            answer_button.clicked.connect(partial(self.handle_answer_click, answer["text"], self.original_hint_text))
             answers_layout.addWidget(answer_button)
 
         # Añadir el layout horizontal de botones de respuesta al layout principal (vertical)
@@ -462,11 +470,11 @@ class MainWindow(QWidget):
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
         # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('LESSON_3_Working_with_Text_Data'):
-            os.makedirs('LESSON_3_Working_with_Text_Data')
+        if not os.path.exists('LESSON_3_In_Place_Operators'):
+            os.makedirs('LESSON_3_In_Place_Operators')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('LESSON_3_Working_with_Text_Data', filename)
+        filepath = os.path.join('LESSON_3_In_Place_Operators', filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -628,34 +636,37 @@ class MainWindow(QWidget):
                 self.SubmitAnswers(False, False, True)
 
         elif current_page_type == "completeblankspace":
-            correct_answer_text = None
+            try:
+                correct_answer_text = None
 
-            for answer in current_widget.data[current_page_type][0]["answers"]:
-                if answer["correct"]:
-                    correct_answer_text = answer["text"]
-                    break
+                for answer in current_widget.data[current_page_type][0]["answers"]:
+                    if answer["correct"]:
+                        correct_answer_text = answer["text"]
+                        break
 
-            if selected_symbol == "_":
-                self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
-                self.SubmitAnswers(True, False, False)
+                # Extraer la respuesta del usuario del hint_label
+                current_hint_text = current_widget.get_current_hint_text()
+                selected_answer_start = current_widget.original_hint_text.find("____")
+                selected_answer_end = selected_answer_start + len("____")  # la longitud de "____"
+                selected_answer = current_hint_text[selected_answer_start:selected_answer_end]
 
-            elif selected_symbol == correct_answer_text:
-                self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
-                self.SubmitAnswers(False, True, False)
+                if selected_answer == "____":
+                    self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
+                    self.SubmitAnswers(True, False, False)
 
-            else:
-                self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
-                self.SubmitAnswers(False, False, True)
+                elif selected_answer == correct_answer_text:
+                    self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
+                    self.SubmitAnswers(False, True, False)
 
-    def es_completada(self):
-        if self.completed:
-            return True
-        else:
-            return False
+                else:
+                    self.log_event(f"Incorrect Answer Selected: {selected_answer}", event_type="mouse")  # Log mouse event
+                    self.SubmitAnswers(False, False, True)
+            except Exception as e:
+                print(f"Error {e}")
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event( f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
@@ -664,7 +675,7 @@ class MainWindow(QWidget):
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event( f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
                 self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
@@ -676,8 +687,6 @@ class MainWindow(QWidget):
         else:
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
-            self.completed = True
-            self.es_completada()
             self.close()
         self.current_page += 1  # Incrementar el número de la página actual
 
