@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Lógica booleana",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Ahora es el momento de subir de nivel nuestros valores booleanos con algunos\noperadores, que nos permiten combinar múltiples condiciones. Empecemos con el operador and . Es True , si ambas condiciones se evalúan como True :"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(1 == 1 and 2 == 2)\nTrue\nprint(1 == 1 and 2 == 3)\nFalse\nprint(1 != 1 and 2 == 2)\nFalse\nprint(2 < 1 and 3 > 6)\nFalse"
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "if (1 == 1) and (2 + 2 > 3):\n\n  print('true')\n\nelse:\n\n  print('false')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "true",
+                    "correct": true
+                },
+                {
+                    "text": "false",
+                    "correct": false
+                },
+                {
+                    "text": "true false",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

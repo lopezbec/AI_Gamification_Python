@@ -1,0 +1,43 @@
+{
+    "pedagogical": [
+        {
+            "title": "Booleanos ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Estas haciendo un gran progreso! Bien hecho! Definitivamente estas listo para conocer a otro tipo en Python. Asi que nos hemos encontrado con cadenas, enteros y flotantes. \nAgreguemos booleanos a la mezcla, ¿de acuerdo?"
+                },
+                {
+                    "type": "hint",
+                    "text": "Los booleanos pueden tener dos valores: True y False ."
+                }
+
+            ]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuáles son los dos valores booleanos en Python?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "True y False",
+                    "correct": true
+                },
+                {
+                    "text": "true y false",
+                    "correct": false
+                },
+                {
+                    "text": "Truth y Falsity",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

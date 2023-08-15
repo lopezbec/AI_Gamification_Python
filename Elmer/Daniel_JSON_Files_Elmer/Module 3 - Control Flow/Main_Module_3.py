@@ -6,7 +6,7 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from LESSON_1_Booleans_and_Coparisons.Main_Lesson_1 import main_lesson_1 as ml1
+from LESSON_1_Booleans_and_Comparisons.Main_Lesson_1 import main_lesson_1 as ml1
 from LESSON_2_If_Statements.Main_Lesson_2 import main_lesson_2 as ml2
 from LESSON_3_Else_Statements.Main_Lesson_3 import main_lesson_3 as ml3
 from LESSON_4_Boolean_Logic.Main_Lesson_4 import main_lesson_4 as ml4
@@ -30,12 +30,18 @@ class Leccion:
         menu.addAction(self.accion)
 
     def abrir(self):
-        if not self.bloqueada:
-            self.funcion_apertura()
-            self.completada = True
-            self.accion.setIcon(QtGui.QIcon(self.icono_completado))
-        else:
-            self.mostrar_advertencia()
+        try:
+            if not self.bloqueada:
+                leccion_completada = self.funcion_apertura()  # Ahora `leccion_completada` será True o False
+                if leccion_completada:
+                    self.completada = True
+                    self.accion.setIcon(QtGui.QIcon(self.icono_completado))
+                    if self.proxima_leccion:
+                        self.proxima_leccion.desbloquear()
+            else:
+                self.mostrar_advertencia()
+        except Exception as e:
+            print(f"Error: {e}")
 
     def mostrar_advertencia(self):
         msg = QtWidgets.QMessageBox()
@@ -45,6 +51,9 @@ class Leccion:
         msg.exec()
 
     def desbloquear(self):
+        if self.leccion_anterior and self.leccion_anterior.completada:
+            self.leccion_anterior.completada = False
+            self.leccion_anterior.accion.setIcon(QtGui.QIcon(self.leccion_anterior.icono_completado))
         self.bloqueada = False
         self.accion.setIcon(QtGui.QIcon(self.icono_abierto))  # Actualizar el icono al desbloquear la lección
 
@@ -62,7 +71,7 @@ class Curso:
 
     def verificar_estado_lecciones(self):
         for i in range(len(self.lecciones) - 1):
-            if self.lecciones[i].completada:
+            if self.lecciones[i].completada and not self.lecciones[i + 1].bloqueada:
                 self.lecciones[i + 1].desbloquear()
 
 
@@ -87,10 +96,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lesson3_window = None
         self.lesson4_window = None
 
-
         self.styles = self.load_styles("styles.json")
 
-        self.setWindowTitle("Menú")
+        self.setWindowTitle("Mi Aplicación")
         self.setGeometry(100, 100, 800, 600)
 
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']};")
@@ -129,11 +137,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones = []
         self.lecciones.append(Leccion("Lección 1", self.abrir_leccion1, lecciones_menu))
         self.lecciones.append(Leccion("Lección 2", self.abrir_leccion2, lecciones_menu, self.lecciones[0]))
-        self.lecciones.append(Leccion("Lección 3", self.abrir_leccion2, lecciones_menu, self.lecciones[1]))
-        self.lecciones.append(Leccion("Lección 4", self.abrir_leccion2, lecciones_menu, self.lecciones[2]))
-
-
-
+        self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
+        self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))
 
         self.lecciones[0].proxima_leccion = self.lecciones[1]
         self.lecciones[1].proxima_leccion = self.lecciones[2]
@@ -154,8 +159,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def abrir_leccion1(self):
         try:
+            self.curso.verificar_estado_lecciones()
             self.lesson1_window = ml1()
-            self.lesson1_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson1_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 1: {e}")
 
@@ -163,20 +169,23 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             self.lesson2_window = ml2()
             self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson2_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 2: {e}")
-    
+
     def abrir_leccion3(self):
         try:
             self.lesson3_window = ml3()
             self.lesson3_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson3_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 3: {e}")
 
     def abrir_leccion4(self):
         try:
-            self.lesson4_window = ml4()
+            self.lesson4_window = ml3()
             self.lesson4_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson4_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 4: {e}")
 

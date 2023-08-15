@@ -1,0 +1,39 @@
+{
+    "pedagogical": [
+        {
+            "title": "Declaraciones elif",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Demasiadas declaraciones if/else hacen que su código sea largo y difícil de leer. La mejor manera de resolver esto es la declaración elif (abreviatura de else if). \nEs un atajo para usar al encadenar declaraciones if y else , lo que hace que el código sea más corto y más fácil de leer. El mismo ejemplo de la parte anterior se puede reescribir usando declaraciones elif :"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 3\nif num == 1:\n  print('One')\nelif num == 2:\n  print('Two')\nelif num == 3:\n  print('Three')\nelse:\n  print('Something else')\n>Three"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una opción más corta para una declaración 'else if' es:"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "elif",
+                    "correct": true
+                },
+                {
+                    "text": "else",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
