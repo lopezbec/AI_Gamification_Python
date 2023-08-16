@@ -426,23 +426,19 @@ class MainWindow(QWidget):
 
         if NoSeleciona:
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
-            current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         elif Correcto:
             self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
             current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
             current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
-            current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
         elif Incorrecto:
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
-            current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         else:
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
-            current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
