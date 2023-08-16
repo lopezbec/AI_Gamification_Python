@@ -15,14 +15,13 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, \
-    QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename, encoding='UTF-8') as json_file:
+        with open('LESSON_4_Boolean_Logic/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -695,12 +694,7 @@ class MainWindow(QWidget):
         self.current_page += 1  # Incrementar el número de la página actual
 
 
-def main():
-    app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=4)  # Aquí puedes cambiar el número de lecciones que deseas cargar
-    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
-
-
-if __name__ == '__main__':
-    main() # Llamar a la función principal si el script se ejecuta como el programa principal
-
+def main_lesson_4():
+    main_window = MainWindow(lesson_number=4)
+    main_window.show()
+    return main_window

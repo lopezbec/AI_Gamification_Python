@@ -5,13 +5,12 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Finalmente, el operador not funciona un poco diferente. not toma solo un argumento y\nlo invierte.\n\nEl resultado de no Verdadero es Falso , y no Falso va a Verdadero . Como esto:"
+                    "text": "Finalmente, el operador not funciona un poco diferente. not toma solo un argumento y lo invierte. El resultado de no Verdadero es Falso , y no Falso va a Verdadero . Como esto:"
                 },
                 {
                     "type": "Consola",
-                    "text": "print(not 1 == 1)\nFalse\nprint(not 1 > 7)\nTrue"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(not 1 == 1)\n>False\nprint(not 1 > 7)\n>True"
                 }
-
             ]
         }
     ],
@@ -26,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "if not True:\n   print('1')\nelif not (1 + 1 == 3):\n   print('2')\nelse:\n   print('3')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nif not True:\n   print('1')\nelif not (1 + 1 == 3):\n   print('2')\nelse:\n   print('3')"
                 }
             ],
             "answers": [

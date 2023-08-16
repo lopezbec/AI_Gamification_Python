@@ -261,7 +261,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M3_L4_Boolean_Logic_Part_2.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "DragAndDrop",
                     "json_number": 2
                 },
                 {
@@ -273,7 +273,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M3_L4_Boolean_Logic_Part_3.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "DragAndDrop",
                     "json_number": 3
                 },
                 {

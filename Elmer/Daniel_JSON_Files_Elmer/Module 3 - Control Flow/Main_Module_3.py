@@ -183,7 +183,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def abrir_leccion4(self):
         try:
-            self.lesson4_window = ml3()
+            self.lesson4_window = ml4()
             self.lesson4_window.destroyed.connect(self.curso.verificar_estado_lecciones)
             return self.lesson4_window  # Retorna la ventana de la lección
         except Exception as e:

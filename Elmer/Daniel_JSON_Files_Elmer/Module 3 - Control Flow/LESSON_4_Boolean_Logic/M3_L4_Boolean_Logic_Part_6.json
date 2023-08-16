@@ -9,9 +9,8 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "country = 'US'\nage = 42\n\nif(country == 'US' or country == 'GB') and (age > 0 and age < 100):\n  print('Cool')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ncountry = 'US'\nage = 42\n\nif(country == 'US' or country == 'GB') and (age > 0 and age < 100):\n  print('Cool')"
                 }
-
             ]
         }
     ],
@@ -26,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "1 + 1 * 3"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(1 + 1 * 3)\n>?"
                 }
             ],
             "answers": [
