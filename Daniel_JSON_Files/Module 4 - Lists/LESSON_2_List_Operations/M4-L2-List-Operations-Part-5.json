@@ -1,0 +1,83 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El operador in también se usa para determinar si una cadena es o no una subcadena de\notra cadena."
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 'hello world'\n\nif 'world' in x:\n  print('Yes')"
+                }
+
+            ]
+        }
+    ],
+
+
+
+
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Reorganice el código para tomar la entrada del usuario, verifique si hay 'correo no deseado'\ny emita 'Sí' si lo encuentra, y 'No' si no lo está."
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "print('Yes')",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "print('No')",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "if('spam' in txt):",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta4",
+                    "correctValue": "else:",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta5",
+                    "correctValue": "txt = input()",
+                    "text": "__________"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "if('spam' in txt):",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "print('No')",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "print('Yes')",
+                    "correctType": "pregunta1"
+                },
+                {
+                    "text": "else:",
+                    "correctType": "pregunta4"
+                },
+                {
+                    "text": "txt = input()",
+                    "correctType": "pregunta5"
+                }
+            ]
+        }
+    ]
+
+
+}

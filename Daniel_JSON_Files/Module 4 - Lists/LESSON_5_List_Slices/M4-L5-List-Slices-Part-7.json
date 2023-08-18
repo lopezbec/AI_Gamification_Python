@@ -1,0 +1,40 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "El último personaje - Escriba un programa que tome una cadena como entrada y emita el último carácter de esa cadena."
+                }
+            ]
+        }
+    ],
+
+    
+    "practica": [
+        {
+            "title": "Listas en Bucles",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Escriba un programa que tome una cadena como entrada y emita el último carácter de esa cadena."
+                },
+                {
+                    "type": "hint",
+                    "text": "Recuerde, puede usar índices negativos para indexar listas. "
+                },
+                {
+                    "type": "Consola",
+                    "text": "#your code goes here\ncadena = input()\n\nprint(cadena[-1])"
+                }
+            ]
+        }
+    ]
+
+  
+}

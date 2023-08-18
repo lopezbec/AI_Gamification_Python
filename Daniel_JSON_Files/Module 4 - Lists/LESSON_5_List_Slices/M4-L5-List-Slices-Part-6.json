@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Segmentos de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Usar [::-1] como segmento es una forma común e idiomática de invertir una lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [5, 42, 7, 1, 0]\nres = nums[::-1]\nprint(res)"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [1, 2, 3, 4, 5, 6]\nres = nums[::-1]\nprint(res[2])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "pedagogical": [
+        {
+            "title": "Listas ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡Pero las listas no son solo para ir de compras!\n\nPodemos hacer algunas cosas geniales con ellos en Python. Por ejemplo, podemos usar\nlistas anidadas para representar cuadrículas 2D, como matrices."
+                },
+                {
+                    "type": "Consola",
+                    "text": "m = [\n    [1, 2, 3],\n    [4, 5, 6]\n    ]"
+                },
+                {
+                    "type": "hint",
+                    "text": "Esto es útil porque una estructura similar a una matriz puede permitirle almacenar datos en formato\nfila-columna, como en los programas de emisión de boletos, que necesitan almacenar los números de\nasiento en una matriz, con sus filas y números correspondientes."
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear una lista e imprima su tercer elemento. "
+                },
+                {
+                    "type": "Consola",
+                    "text": "list = ____ 42, 55, 67]\nprint(list[____])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "[",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+}

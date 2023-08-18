@@ -1,0 +1,38 @@
+{
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear una lista de números del 0 al 99 y genere el\nquinto elemento."
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = ____(____(0, 100))\nprint(____[4])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "list",
+                    "correct": true
+                },
+                {
+                    "text": "range",
+                    "correct": true
+                },
+                {
+                    "text": "print",
+                    "correct": false
+                },
+                {
+                    "text": "x",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+  
+}

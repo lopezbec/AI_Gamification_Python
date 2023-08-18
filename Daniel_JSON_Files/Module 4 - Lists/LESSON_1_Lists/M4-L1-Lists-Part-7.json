@@ -1,0 +1,36 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Listas - Escriba un programa que tome una cadena de entrada y emita el tercer carácter de la cadena."
+                }
+            ]
+        }
+    ],
+
+    
+    "practica": [
+        {
+            "title": "Listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Escriba un programa que tome una cadena de entrada y emita el\ntercer carácter de la cadena."
+                },
+                {
+                    "type": "Consola",
+                    "text": "#your code goes here\n\ntexto = input()\n\ncadena = texto\n\nprint(cadena[2])"
+                }
+            ]
+        }
+    ]
+
+  
+}

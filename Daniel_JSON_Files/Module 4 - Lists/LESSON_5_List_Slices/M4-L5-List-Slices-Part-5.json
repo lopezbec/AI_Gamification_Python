@@ -1,0 +1,60 @@
+{
+    "pedagogical": [
+        {
+            "title": "Segmentos de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los valores negativos también se pueden usar en la segmentación de listas \n(así como en la indexación normal de listas). \n\nLo que significa que cuando se utilizan valores negativos para el primer y segundo valor de un segmento (o un índice normal), cuentan desde el final de la lista. Como esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[1:-1])"
+                },
+                {
+                    "type": "info",
+                    "text": "Resultado:"
+                },
+                {
+                    "type": "Consola",
+                    "text": ">>>\n[1, 4, 9, 16, 25, 36, 49, 64]\n>>>"
+                },
+                {
+                    "type": "hint",
+                    "text": "Si se utiliza un valor negativo para el paso, el corte se realizará \nhacia atrás."
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(sqs[7:5:-1])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "[]",
+                    "correct": false
+                },
+                {
+                    "text": "[49]",
+                    "correct": false
+                },
+                {
+                    "text": "[49, 36]",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

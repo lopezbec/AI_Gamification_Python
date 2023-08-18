@@ -1,0 +1,54 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "De manera similar, para verificar si un elemento no está en una lista, puede usar el\noperador not de una de las siguientes maneras:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [1, 2, 3]\nprint(not 4 in nums)\nprint(4 not in nums)\nprint(not 3 in nums)\nprint(3 not in nums)"
+                }
+
+            ]
+        }
+    ],
+
+
+
+
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para imprimir 'Sí' si la lista contiene 'z':"
+                },
+                {
+                    "type": "Consola",
+                    "text": "letters = ['a', 'b', 'z']\n____ 'z' ____ letters:\n   print('Yes')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "if",
+                    "correct": true
+                },
+                {
+                    "text": "in",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+
+}

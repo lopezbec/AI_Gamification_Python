@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Rango",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Para generar el rango como una lista, debemos convertirlo explícitamente en una lista,\nusando la función list() ."
+                },
+                {
+                    "type": "Consola",
+                    "text": "numbers = list(range(10))\nprint(numbers)"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = list(range(5))\nprint(nums[4])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

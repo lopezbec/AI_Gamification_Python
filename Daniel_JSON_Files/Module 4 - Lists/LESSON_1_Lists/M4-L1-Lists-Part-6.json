@@ -1,0 +1,53 @@
+{
+    "pedagogical": [
+        {
+            "title": "Strings (Cadenas)",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡ Las cadenas también se pueden indexar como listas\n\nIndexar una cadena es como crear una lista que contenga cada carácter de la cadena.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "str = 'Hello world!'\nprint(str[6])"
+                },
+                {
+                    "type": "info",
+                    "text": "El espacio (' ') también es un símbolo y tiene un índice."
+                },
+                {
+                    "type": "hint",
+                    "text": "La cadena 'Hola' se puede considerar como una lista, donde cada\ncarácter es un elemento de la lista. El primer elemento es 'H', el\nsegundo elemento es 'e', y así sucesivamente."
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 'Python'\nprint(x[1] + x[4])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "yo",
+                    "correct": true
+                },
+                {
+                    "text": "io",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+}

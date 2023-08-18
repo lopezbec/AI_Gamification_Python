@@ -1,0 +1,25 @@
+{
+    "practica": [
+        {
+            "title": "Calculadora de IMC",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El seguimiento de su IMC es una forma útil de comprobar si está manteniendo\nun peso saludable. Se calcula usando el peso y la altura de una persona,\nusando esta fórmula:weight / height²\n\nEl número resultante indica una de las siguientes categorías:\nBajo peso = menos de 18.5\nNormal = mayor o igual a 18.5 y menor a 25\nSobrepeso = mayor o igual a 25 y menor a 30\nObesidad = 30 o más\n\nHagamos que averiguar su IMC sea más rápido y fácil, mediante la creación de\nun programa que tome el peso y la altura de una persona como entrada y\ngenere la categoría de IMC correspondiente."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra\n85\n1.9\nSalida de muestra\nNormal" 
+                },
+                {
+                    "type": "hint",
+                    "text": "El peso está en kg, la altura está en metros.\nTenga en cuenta que la altura es un flotador." 
+                },
+                {
+                    "type": "Consola",
+                    "text": "peso = int(input())\naltura = float(input())\nformula = (peso / altura**2)\ncalculo = formula\nif calculo < 18.5:\n    print('Underweight')\nif calculo >= 18.5 and calculo < 25:\n    print('Normal ')\nif calculo >= 25 and calculo < 30:\n    print('Overweight')\nif calculo >= 30:\n    print('Obesity')"
+                }
+            ]
+        }
+    ]
+}

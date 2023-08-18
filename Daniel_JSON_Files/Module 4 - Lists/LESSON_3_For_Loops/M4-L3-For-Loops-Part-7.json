@@ -1,0 +1,34 @@
+{
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [1, 2, 3, 4]\nres = 0\n\nfor x in nums:\n    if x%2==0:\n        continue\n    else:\n        res += x\n\nprint(res)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+  
+}
