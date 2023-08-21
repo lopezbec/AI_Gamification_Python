@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Segmentos de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Si se omite el segundo número, se toma como el final."
+                },
+                {
+                    "type": "Consola",
+                    "text": "squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[7:])"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos elementos producirá el siguiente slice?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "sq = [0, 1, 4, 9, 16, 25, 36, 49, 64]\nprint(sq[4:])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "5",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

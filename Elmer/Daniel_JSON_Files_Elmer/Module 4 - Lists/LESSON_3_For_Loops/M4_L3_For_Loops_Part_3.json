@@ -1,0 +1,63 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles en listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Se puede usar un bucle for para iterar sobre cadenas.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "str = 'testing for loops'\ncount = 0\n\nfor x in str:\n  if x == 't':\n    count += 1\n\nprint(count)"
+                },
+                {
+                    "type": "info",
+                    "text": "El código anterior define una variable de conteo , itera sobre la cadena y calcula el\nconteo de letras ' t ' en él. Durante cada iteración, la variable x representa la letra actual\nde la cadena."
+                },
+                {
+                    "type": "hint",
+                    "text": "La variable de conteo se incrementa cada vez que se encuentra la letra 't', por lo que al final del ciclo, representa el número de letras 't'\nen la cadena."
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para iterar sobre la cadena 'str' ​​y generar cada carácter."
+                },
+                {
+                    "type": "Consola",
+                    "text": "____ x ____ str ____\n print(____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "for",
+                    "correct": true
+                },
+                {
+                    "text": "in",
+                    "correct": true
+                },
+                {
+                    "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "x",
+                    "correct": true
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

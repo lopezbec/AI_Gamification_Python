@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Segmentos de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Al igual que con los rangos, los segmentos de su lista pueden incluir un tercer número,\nque representa el paso , para incluir solo valores alternativos en el segmento. Como esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[::2])\nprint(squares[2:8:3])"
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "sqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\nprint(sqs[1::4])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "[1, 25, 81]",
+                    "correct": true
+                },
+                {
+                    "text": "[1, 25]",
+                    "correct": false
+                },
+                {
+                    "text": "[0, 1, 4]",
+                    "correct": false
+                },
+                {
+                    "text": "se produce un error",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

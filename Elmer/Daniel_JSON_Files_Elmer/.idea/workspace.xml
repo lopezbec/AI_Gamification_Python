@@ -5,40 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Codigos_LeaderBoard/Main_Leaderboard_FV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Codigos_LeaderBoard/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Codigos_LeaderBoard/levels.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Codigos_LeaderBoard/styles_leaderboard.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/WhatsApp Image 2023-06-23 at 14.45.54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/WhatsApp Image 2023-06-23 at 15.46.24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/WhatsApp Image 2023-06-23 at 15.46.45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/abierto_icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/cerrado_icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/completado_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/guia_usuario_icon.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Icons/leaderboard_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/LESSON_1_Lists/Main_Lesson_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/LESSON_2_List_Operations/Main_Lesson_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/LESSON_3_For_Loops/Main_Lesson_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/LESSON_4_Ranges/Main_Lesson_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/LESSON_5_List_Slices/Main_Lesson_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Main_Module_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Module 4 Code Project/M3-Code-Project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Module 4 Quiz/M3-Quiz-Part-1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Module 4 Quiz/M3-Quiz-Part-2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/Module 4 Quiz/M3-Quiz-Part-3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/custom_console.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/drag_drop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/game_features/___init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/game_features/page_order.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/game_features/progress_bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/game_features/styles.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/page_order.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 4 - Lists/styles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Codigos_LeaderBoard/Main_Leaderboard_FV.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Codigos_LeaderBoard/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Codigos_LeaderBoard/levels.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Codigos_LeaderBoard/styles_leaderboard.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/WhatsApp Image 2023-06-23 at 14.45.54.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/WhatsApp Image 2023-06-23 at 15.46.24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/WhatsApp Image 2023-06-23 at 15.46.45.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/abierto_icon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/cerrado_icon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/completado_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/guia_usuario_icon.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Icons/leaderboard_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Main_Lesson_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/Main_Lesson_4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/custom_console.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/drag_drop.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/game_features/___init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/game_features/page_order.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/game_features/progress_bar.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/game_features/styles.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/page_order.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_4_Boolean_Logic/styles.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/Main_Module_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/Main_Module_3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/page_order.json" beforeDir="false" afterPath="$PROJECT_DIR$/Module 3 - Control Flow/page_order.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 - Getting Started with Python/LESSON_1_Codification/Main_Lesson_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1 - Getting Started with Python/LESSON_1_Codification/Main_Lesson_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 - Getting Started with Python/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1 - Getting Started with Python/LESSON_2_Working_with_Numerical_Data/Main_Lesson_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1 - Getting Started with Python/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1 - Getting Started with Python/LESSON_3_Working_with_Text_Data/Main_Lesson_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_1_Booleans_and_Comparisons/LESSON_1_Booleans_and_Comparisons/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 3 - Control Flow/LESSON_1_Booleans_and_Comparisons/LESSON_1_Booleans_and_Comparisons/Time_Lesson_1.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

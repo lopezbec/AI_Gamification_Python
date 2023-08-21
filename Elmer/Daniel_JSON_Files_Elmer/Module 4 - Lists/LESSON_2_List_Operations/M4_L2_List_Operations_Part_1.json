@@ -1,0 +1,49 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El elemento en un cierto índice en una lista se puede reasignar.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [5, 8, 2]\nnums[1] = 42\n\nprint(nums)"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [1, 2, 3, 4, 5]\nnums[3] = nums[1]\nprint(nums[3])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+}

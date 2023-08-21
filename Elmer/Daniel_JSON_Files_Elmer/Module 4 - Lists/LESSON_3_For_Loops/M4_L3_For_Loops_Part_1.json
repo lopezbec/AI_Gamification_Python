@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles en listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Hemos aprendido sobre el bucle while en las lecciones anteriores. Ahora es el momento\nde aprender sobre el bucle for .\n\nEl ciclo for se usa para iterar sobre una secuencia determinada, como listas o cadenas.\n\nEl siguiente código genera cada elemento de la lista y agrega un signo de exclamación al\nfinal:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "words = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear un bucle for válido."
+                },
+                {
+                    "type": "Consola",
+                    "text": "letras = ['a', 'b', 'c']\n____ x ____ letters ____ \n   print(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "for",
+                    "correct": true
+                },
+                {
+                    "text": "in",
+                    "correct": true
+                },
+                {
+                    "text": "x",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

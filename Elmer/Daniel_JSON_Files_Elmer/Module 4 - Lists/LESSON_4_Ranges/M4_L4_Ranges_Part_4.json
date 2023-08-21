@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Rango",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "También hay un tercer argumento que puedes usar con range() , y es realmente útil.\nSe llama Paso y determina el intervalo de la secuencia producida. Echar un vistazo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "numbers = list(range(5, 20, 2))\nprint(numbers)"
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = list(range(3, 15, 3))\n\nprint(nums[2])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "9",
+                    "correct": true
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

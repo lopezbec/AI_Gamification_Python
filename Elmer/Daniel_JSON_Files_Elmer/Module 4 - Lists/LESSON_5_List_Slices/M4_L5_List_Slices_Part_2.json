@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Segmentos de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Si se omite el primer número de un segmento, se toma como el comienzo de la lista.\nEjemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[:7])"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para tomar los dos primeros elementos de la lista:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "list = ['a', 'b', 'c', 'd']\na = list[0 ____ ]"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":2",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

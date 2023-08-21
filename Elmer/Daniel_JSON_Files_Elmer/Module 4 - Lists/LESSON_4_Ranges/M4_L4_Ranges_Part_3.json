@@ -1,0 +1,44 @@
+{
+    "pedagogical": [
+        {
+            "title": "Rango",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Si se llama a range con un argumento, producirá un objeto con valores desde 0 hasta ese\nargumento.\n\nSi se llama con dos argumentos, producirá valores del primero al segundo.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "numbers = list(range(3, 8))\nprint(numbers)"
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(range(20) == range(0, 20))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "True",
+                    "correct": true
+                },
+                {
+                    "text": "False",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

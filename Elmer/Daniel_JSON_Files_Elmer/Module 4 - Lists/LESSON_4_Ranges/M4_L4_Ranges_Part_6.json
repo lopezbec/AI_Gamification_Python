@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Rango",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puede usar rangos en bucles for , sin necesidad de convertirlos en listas. Se usa\ncomúnmente para repetir algún código un cierto número de veces. Como esto"
+                },
+                {
+                    "type": "Consola",
+                    "text": "for i in range(5):\n  print('hello!')"
+                }
+
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear un ciclo for que \nimprima solo los valores pares en el rango:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "____ i in range(0, 20,____):\n  print(____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "for",
+                    "correct": true
+                },
+                {
+                    "text": "i",
+                    "correct": true
+                },
+                {
+                    "text": "i",
+                    "correct": true
+                },
+                {
+                    "text": "print",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
