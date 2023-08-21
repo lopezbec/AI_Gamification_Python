@@ -1,35 +1,33 @@
 {
 
-
-
     "question": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Cuál es la salida de este código si el usuario ingresa 9 como entrada?"
+                    "text": "¿Qué generará este código??"
                 },
                 {
                     "type": "Consola",
-                    "text": "x = int(input())\n\nif x > 5:\n\n    if x < 8:\n\n        print(x+1)\n\n    else:\n\n        print(x-1)\n\nelse:\n\n    print(x)"
+                    "text": "x = [6, 4, 2, 9]\n\nx = x[::-1]\n\nprint(x[0]+x[2])"
                 }
             ],
             "answers": [
                 {
-                    "text": "9",
-                    "correct": false
-                },
-                {
-                    "text": "8",
+                    "text": "11",
                     "correct": true
                 },
                 {
-                    "text": "7",
+                    "text": "12",
                     "correct": false
                 },
                 {
-                    "text": "10",
+                    "text": "15",
+                    "correct": false
+                },
+                {
+                    "text": "13",
                     "correct": false
                 }
             ]

@@ -1,0 +1,69 @@
+{
+
+    "completeblankspace2": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para iterar sobre la lista utilizando un bucle for e imprime sus valores."
+                },
+                {
+                    "type": "Consola",
+                    "text": "list = [1, 2, 3]\n____ var ____ list:\n\nprint____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "for",
+                    "correct": true
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "in",
+                    "correct": true
+                },
+                {
+                    "text": "(var)",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para obtener los 3 primeros caracteres de la cadena de entrada."
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = input()\n\nprint(x[ ____ : _____ ])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "15",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+  
+}
