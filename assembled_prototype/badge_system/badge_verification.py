@@ -5,9 +5,10 @@ import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtWidgets import QApplication, QFrame, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
+main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+
 from module_1.lesson_1_codification import Main_Lesson_1
 app = QApplication([])
-main_directory_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 
 class BadgeVerification(QMainWindow):

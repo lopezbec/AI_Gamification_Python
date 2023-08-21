@@ -130,7 +130,7 @@ class QuestionPage(QMainWindow):
 def main():
     app = QApplication(sys.argv)
 
-    with open("data.json", "r") as file:
+    with open("data.json", "r", encoding='UTF-8') as file:
         data = json.load(file)
 
     main_page = MainPage(data)

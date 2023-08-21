@@ -39,7 +39,7 @@ class FinishWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def close_window(self):
-        with open("data.json", "r") as file:
+        with open("data.json", "r", encoding='UTF-8') as file:
             data = json.load(file) 
             
         self.main_page = MainPage(data)

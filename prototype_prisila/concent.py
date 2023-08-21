@@ -9,7 +9,7 @@ class ConcentWindow(QMainWindow):
     def __init__(self) -> None:
         super(ConcentWindow, self).__init__()
 
-        with open(r'./json/concent_info.json', "r") as f:
+        with open(r'./json/concent_info.json', "r", encoding='UTF-8') as f:
             data = json.load(f)
         
         #title

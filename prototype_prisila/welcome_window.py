@@ -9,7 +9,7 @@ class WelcomeWindow(QMainWindow):
     def __init__(self) -> None:
         super(WelcomeWindow, self).__init__()
         
-        with open(r"./json/welcome_info.json", "r") as welcome_data:
+        with open(r"./json/welcome_info.json", "r", encoding='UTF-8') as welcome_data:
             data = json.load(welcome_data)
         
         #title
