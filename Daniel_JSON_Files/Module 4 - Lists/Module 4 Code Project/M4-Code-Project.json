@@ -1,23 +1,23 @@
 {
     "practica": [
         {
-            "title": "Calculadora de IMC",
+            "title": "Suma de números consecutivos",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "El seguimiento de su IMC es una forma útil de comprobar si está manteniendo\nun peso saludable. Se calcula usando el peso y la altura de una persona,\nusando esta fórmula:weight / height²\n\nEl número resultante indica una de las siguientes categorías:\nBajo peso = menos de 18.5\nNormal = mayor o igual a 18.5 y menor a 25\nSobrepeso = mayor o igual a 25 y menor a 30\nObesidad = 30 o más\n\nHagamos que averiguar su IMC sea más rápido y fácil, mediante la creación de\nun programa que tome el peso y la altura de una persona como entrada y\ngenere la categoría de IMC correspondiente."
+                    "text": "A nadie le gustan los deberes, pero tu profesor\nde matemáticas te ha encomendado encontrar la suma de los primeros N números.\n Ahorremos tiempo creando un programa que haga el cálculo por ti.\n\nToma un número N como entrada y genera la suma de todos los números del 1 al N (incluyendo N)."
                 },
                 {
                     "type": "requerimiento",
-                    "text": "Entrada de muestra\n85\n1.9\nSalida de muestra\nNormal" 
+                    "text": "\n\nEjemplo de entrada\n100\n\nEjemplo de salida\n5050\n\nExplicación: La suma de todos los números del 1 a 100 es igual a 5050." 
                 },
                 {
                     "type": "hint",
-                    "text": "El peso está en kg, la altura está en metros.\nTenga en cuenta que la altura es un flotador." 
+                    "text": "Puedes iterar sobre un rango y calcular la suma de todos los números del rango.\n\nRecuerda, range(a,b) no incluye b, por lo que es necesario utilizar b+1 para incluir b en el rango." 
                 },
                 {
                     "type": "Consola",
-                    "text": "peso = int(input())\naltura = float(input())\nformula = (peso / altura**2)\ncalculo = formula\nif calculo < 18.5:\n    print('Underweight')\nif calculo >= 18.5 and calculo < 25:\n    print('Normal ')\nif calculo >= 25 and calculo < 30:\n    print('Overweight')\nif calculo >= 30:\n    print('Obesity')"
+                    "text": "N = int(input())\n\n#tu código va aquí"
                 }
             ]
         }
