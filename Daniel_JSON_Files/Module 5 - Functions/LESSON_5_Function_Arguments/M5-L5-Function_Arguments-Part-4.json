@@ -1,0 +1,64 @@
+{
+    "pedagogical": [
+        {
+            "title": "Argumentos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Como puedes ver en los ejemplos anteriores, los argumentos pueden ser utilizados como variables dentro de la función."
+                },
+                {
+                    "type": "hint",
+                    "text": "Puedes tener diferentes declaraciones en sus funciones, trabajando con las variables de los argumentos, tales como declaraciones if y loops."
+                }
+            ]
+        }
+    ],
+    
+    "completeblankspace2": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para definir una función que imprima \"Si\", si su argumento es un número par y \"No\" de lo contrario."
+                },
+                {
+                    "type": "Consola",
+                    "text": "_____ even(x)_____\n\n\tif(x%2) == 0:\n\t\t_____(\"Si\")\n\t______:\n\nprint(\"No\")"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "def",
+                    "correct": true
+                },
+                {
+                    "text": "print",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": false
+                },
+                {
+                    "text": "elif",
+                    "correct": false
+                },
+                {
+                    "text": "else",
+                    "correct": true
+                },
+                {
+                    "text": "for",
+                    "correct": false
+                }
+
+            ]
+        }
+    ]
+}

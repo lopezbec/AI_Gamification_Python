@@ -23,11 +23,11 @@
                 },
                 {
                     "text": "1",
-                    "correct": true
+                    "correct": false
                 },
                 {
                     "text": "13",
-                    "correct": true
+                    "correct": false
                 }
             ]
         }
@@ -39,7 +39,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Cuál hace de este código?"
+                    "text": "¿Qué hace este código?"
                 },
                 {
                     "type": "Consola",
@@ -62,7 +62,5 @@
             ]
         }
     ]
-
-
   
 }

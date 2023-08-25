@@ -1,0 +1,56 @@
+{
+    "pedagogical": [
+        {
+            "title": "Argumentos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Se puede llamar a la misma función con diferentes argumentos"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")\nexclamacion(\"eggs\")\nexclamacion(\"python\")"
+                },
+                {
+                    "type": "hint",
+                    "text": "Los argumentos se utilizan para pasar información a la función. Esto nos permite reutilizar la lógica de la función para diferentes valores."
+                }
+
+            ]
+        }
+    ],
+    
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Adivina que generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def x(y):\n\tprint(y + 2)\n\nx(5)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "7",
+                    "correct": true
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

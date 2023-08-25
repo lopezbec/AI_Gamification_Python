@@ -16,7 +16,7 @@
             "answers": [
                 {
                     "text": "11",
-                    "correct": true
+                    "correct": false
                 },
                 {
                     "text": "12",
@@ -28,7 +28,7 @@
                 },
                 {
                     "text": "13",
-                    "correct": false
+                    "correct": true
                 }
             ]
         }

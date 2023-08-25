@@ -1,6 +1,6 @@
 {
 
-    "completeblankspace2": [
+    "completeblankspace": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -35,7 +35,7 @@
     ],
 
 
-    "completeblankspace": [
+    "completeblankspace2": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -50,12 +50,12 @@
             ],
             "answers": [
                 {
-                    "text": "6",
+                    "text": "0",
                     "correct": true
                 },
                 {
-                    "text": "15",
-                    "correct": false
+                    "text": "3",
+                    "correct": true
                 },
                 {
                     "text": "12",

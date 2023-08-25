@@ -1,0 +1,57 @@
+{
+    "pedagogical": [
+        {
+            "title": "Argumentos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las funciones pueden tomar argumentos, que pueden utilizarse para generar la salida de la función"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")"
+                },
+                {
+                    "type": "hint",
+                    "text": "Como puedes ver en el ejemplo, el argumento se define dentro de los parentesis y se llama palabra."
+                }
+
+            ]
+        }
+    ],
+    
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def imprimir_doble(x):\n\tprint(2 * x)\n\nimprimir_doble(3)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "13",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+}
