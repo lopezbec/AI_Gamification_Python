@@ -1,0 +1,51 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "La practica hace la perfeccion!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Pon en práctica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Área de un rectángulo - Calcula el área del rectángulo a través de los árgumentos de la función."
+                }
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def sum(x):\n\tres = 0\nfor i in range(x):\n\t\tres+=i\n\treturn res\n\n\nprint(sum(4))\n"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "16",
+                    "correct": false
+                },
+                {
+                    "text": "24",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

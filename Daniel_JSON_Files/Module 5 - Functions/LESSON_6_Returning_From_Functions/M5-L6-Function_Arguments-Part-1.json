@@ -1,48 +1,49 @@
 {
     "pedagogical": [
         {
-            "title": "Argumentos",
+            "title": "Retorno de funciones",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Aún mejor, puedes definir funciones con más de un argumento; sepáralos con comas. Así:"
+                    "text": "Algunas funciones, como int o str, devuelven un valor en lugar de generarlo.\n\n El valor devuelto puede ser utilizado posteriormente en el código, por ejemplo, asignándolo a una variable.\n\nPara hacer esto para tus funciones generadas, puede utilizar la declaración return. Así:"
                 },
                 {
                     "type": "Consola",
-                    "text": "def imprimir_numero_dos_veces(x, y):\nprint(x + y)\nprint(x + y)\n\nimprimir_numero_dos_veces(5, 8)"
+                    "text": "def sum(x, y):\n\treturn x+y"
                 }
+
             ]
         }
     ],
-    
+
     "completeblankspace": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellene los espacios en blanco para definir una función que toma dos argumentos e imprime su multiplicación."
+                    "text": "Rellene los espacios en blanco para definir una función que devuelva el cuadrado de su argumento"
                 },
                 {
                     "type": "Consola",
-                    "text": "_____ print_mult(x, y)_____\n\n print(x*_____)"
+                    "text": "_____ cuadrado(x):\n\n _____ x**2"
                 }
             ],
             "answers": [
                 {
                     "text": ":",
-                    "correct": true
+                    "correct": false
                 },
                 {
                     "text": "def",
                     "correct": true
                 },
                 {
-                    "text": "z",
+                    "text": "y",
                     "correct": false
                 },
                 {
-                    "text": "y",
+                    "text": "return",
                     "correct": true
                 }
             ]

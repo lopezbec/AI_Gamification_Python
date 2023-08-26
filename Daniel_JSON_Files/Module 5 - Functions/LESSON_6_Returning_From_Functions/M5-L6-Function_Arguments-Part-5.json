@@ -1,48 +1,48 @@
 {
     "pedagogical": [
         {
-            "title": "Argumentos",
+            "title": "Retorno de funciones",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Aún mejor, puedes definir funciones con más de un argumento; sepáralos con comas. Así:"
+                    "text": "Una función sólo puede devolver una vez, por lo tanto, si necesitas devolver varios valores, puedes utilizar una lista."
                 },
                 {
                     "type": "Consola",
-                    "text": "def imprimir_numero_dos_veces(x, y):\nprint(x + y)\nprint(x + y)\n\nimprimir_numero_dos_veces(5, 8)"
+                    "text": "def doble(a, b):\n\treturn [a*2, b*2]\n\nx = double(6, 9)\nprint(x)\n"
                 }
             ]
         }
     ],
-    
-    "completeblankspace": [
+
+    "question": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellene los espacios en blanco para definir una función que toma dos argumentos e imprime su multiplicación."
+                    "text": "Adivina el resultado de este código:"
                 },
                 {
                     "type": "Consola",
-                    "text": "_____ print_mult(x, y)_____\n\n print(x*_____)"
+                    "text": "def calc(x, y):\n\treturn [x+y, x*y]\n\n\nres = calc(3, 4)\nprint(res[1])"
                 }
             ],
             "answers": [
                 {
-                    "text": ":",
-                    "correct": true
-                },
-                {
-                    "text": "def",
-                    "correct": true
-                },
-                {
-                    "text": "z",
+                    "text": "11",
                     "correct": false
                 },
                 {
-                    "text": "y",
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "12",
                     "correct": true
                 }
             ]
