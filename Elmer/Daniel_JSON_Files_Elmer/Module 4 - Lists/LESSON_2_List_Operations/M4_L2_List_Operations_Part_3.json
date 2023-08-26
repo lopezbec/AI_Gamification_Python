@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "nums = [1, 2, 3]\nprint(nums * 3)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nprint(nums * 3)"
                 },
                 {
                     "type": "hint",
@@ -30,7 +30,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = [2, 4]\n\nx = x * 3\n\nprint(x[3])"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [2, 4]\n\nx = x * 3\n\nprint(x[3])"
                 }
             ],
             "answers": [

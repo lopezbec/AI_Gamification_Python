@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "str = 'testing for loops'\ncount = 0\n\nfor x in str:\n  if x == 't':\n    count += 1\n\nprint(count)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nstr = 'testing for loops'\ncount = 0\n\nfor x in str:\n  if x == 't':\n    count += 1\n\nprint(count)"
                 },
                 {
                     "type": "info",
@@ -33,7 +33,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "____ x ____ str ____\n print(____)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n____ x ____ str ____\n print(____)"
                 }
             ],
             "answers": [

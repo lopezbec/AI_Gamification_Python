@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "text = 'some text'\nfor x in text:\n  if x == 'e':\n    break\n  print(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntext = 'some text'\nfor x in text:\n  if x == 'e':\n    break\n  print(x)"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "list = [2, 3, 4, 5, 6, 7]\n\nfor x in list:\n   if(x%2==1 and x>4):\n      print(x)\n      break"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = [2, 3, 4, 5, 6, 7]\n\nfor x in list:\n   if(x%2==1 and x>4):\n      print(x)\n      break"
                 }
             ],
             "answers": [

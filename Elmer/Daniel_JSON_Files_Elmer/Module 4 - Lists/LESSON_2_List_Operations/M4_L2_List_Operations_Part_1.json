@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "nums = [5, 8, 2]\nnums[1] = 42\n\nprint(nums)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [5, 8, 2]\nnums[1] = 42\n\nprint(nums)"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "nums = [1, 2, 3, 4, 5]\nnums[3] = nums[1]\nprint(nums[3])"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3, 4, 5]\nnums[3] = nums[1]\nprint(nums[3])"
                 }
             ],
             "answers": [

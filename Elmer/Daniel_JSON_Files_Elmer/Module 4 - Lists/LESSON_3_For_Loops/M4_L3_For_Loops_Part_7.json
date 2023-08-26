@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "nums = [1, 2, 3, 4]\nres = 0\n\nfor x in nums:\n    if x%2==0:\n        continue\n    else:\n        res += x\n\nprint(res)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3, 4]\nres = 0\n\nfor x in nums:\n    if x%2==0:\n        continue\n    else:\n        res += x\n\nprint(res)"
                 }
             ],
             "answers": [

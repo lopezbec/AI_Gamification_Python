@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "words = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "letras = ['a', 'b', 'c']\n____ x ____ letters ____ \n   print(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletras = ['a', 'b', 'c']\n____ x ____ letters ____ \n   print(x)"
                 }
             ],
             "answers": [
