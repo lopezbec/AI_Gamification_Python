@@ -34,7 +34,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "nums = [4, 7, 3, 1]\nfor x in nums:\n    print(x*2)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [4, 7, 3, 1]\nfor x in nums:\n    print(x*2)"
                 }
             ],
             "answers": [
