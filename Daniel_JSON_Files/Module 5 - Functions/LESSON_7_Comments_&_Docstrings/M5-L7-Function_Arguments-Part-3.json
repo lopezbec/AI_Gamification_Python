@@ -1,0 +1,44 @@
+{
+    "pedagogical": [
+        {
+            "title": "Docstrings",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los docstrings (cadenas de documentación) son similares a los comentarios, ya que están diseñados para explicar el código. Pero son más específicos y tienen una sintaxis diferente."
+                },
+                {
+                    "type": "info",
+                    "text": "Se crean poniendo una cadena de varias líneas que contiene una explicación de la función debajo de la primera línea de la función. Así:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def shout(word):\n\t'''\n\tEscriba la palabra con\n\tsigno de exclamación después de él.\n\t'''\n\tprint(word + \"!\")\n\nshout(\"spam\") "
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Puede un docstring contener varias líneas de texto?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Sí",
+                    "correct": true
+                },
+                {
+                    "text": "No",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
