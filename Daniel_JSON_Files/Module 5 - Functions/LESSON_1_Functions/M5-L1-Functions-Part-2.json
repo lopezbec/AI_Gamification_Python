@@ -1,0 +1,47 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una función tiene un nombre y puede tener argumentos.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print('Hello')"
+                },
+                {
+                    "type": "hint",
+                    "text": "Aquí, print es el nombre de la función y 'Hola' es el argumento."
+                }
+
+            ]
+        }
+    ],
+
+    "draganddropsecuence": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte desde las siguientes opciones para llamar a la función de impresión con\n42 como argumento:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "___ ( ___ )"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "print"
+                },
+                {
+                    "text": "42"
+                }
+            ],
+            "correctOrder": ["print", "42"]
+        }
+    ]
+}

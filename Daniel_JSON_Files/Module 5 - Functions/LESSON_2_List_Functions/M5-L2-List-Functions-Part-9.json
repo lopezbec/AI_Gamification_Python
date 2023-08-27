@@ -1,0 +1,35 @@
+{
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [2,4,8,9,5]\n\n\nnums.insert(1, 3)\n\nnums.remove(9)\n\nums.insert(0, nums.count(8))\n\nprint(nums[3])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

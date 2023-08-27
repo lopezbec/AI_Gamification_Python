@@ -1,0 +1,38 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Funciones - Rediseñe la función dada para que tome la entrada dada como el nombre del usuario y envíe el\nmensaje de bienvenida con ella."
+                }
+            ]
+        }
+    ],
+
+    
+    "practica": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Tenemos una función que genera 'Bienvenido, usuario', como se llama. Queremos hacerlo más\npersonalizado, así que rediseñe la función dada para que tome el nombre del usuario como entrada y\nenvíe el mensaje de bienvenida con él.\n\nEntrada de muestra\ntommy\n\nSalida de muestra\nBienvenido tommy"
+                },
+                {
+                    "type": "hint",
+                    "text": "No olvide sangrar la declaración en la función."
+                },
+                {
+                    "type": "Consola",
+                    "text": "def welcome():\n   user = input()\n   print(f'Welcome, {user}')\n\nwelcome()"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Gestión de colas - Escriba un programa para tomar una entrada, agregarla al final de la cola y generar la lista\nresultante para un sistema de gestión de colas."
+                }
+            ]
+        }
+    ],
+
+    
+    "practica": [
+        {
+            "title": "Funciones de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Está trabajando en un programa de gestión de colas .\nLa cola está representada por una lista. \nEscriba un programa para tomar una entrada, agregarla al final de la\ncola y generar la lista resultante."
+                },
+                {
+                    "type": "hint",
+                    "text": "El método append() se puede utilizar para agregar\nnuevos elementos a la lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "queue = ['John', 'Amy', 'Bob', 'Adam']\n\ntake_name = input()\n\nqueue.append(take_name)\n\nprint(queue)"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Entonces, una vez que hayas definido una función, puedes llamarla varias veces en tu\ncódigo.\n\nComo esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def hello():\n    print('Hello world!')\n\nhello()\nhello()\nhello()"
+                },
+                {
+                    "type": "hint",
+                    "text": "Tenga en cuenta que llamamos a una función usando su nombre y\nparéntesis."
+                }
+
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Reorganice el código para declarar una función sayHi() y llámela."
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "def sayHi():",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "  print('Hi!')",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "sayHi()",
+                    "text": "__________"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "sayHi()",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "  print('Hi!')",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "def sayHi():",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ]
+
+
+}

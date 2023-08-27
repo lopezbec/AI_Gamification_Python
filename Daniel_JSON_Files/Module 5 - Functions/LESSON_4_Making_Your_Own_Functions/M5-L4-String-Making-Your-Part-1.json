@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puede crear sus propias funciones utilizando la declaración def .\n\nA continuación se muestra un ejemplo de una función denominada my_func .\nNo requiere argumentos e imprime 'spam' tres veces."
+                },
+                {
+                    "type": "Consola",
+                    "text": "def my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para definir una función llamada hola:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "___ hello() ___\n   print('Hi!')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "def",
+                    "correct": true
+                },
+                {
+                    "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "cadabra",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
