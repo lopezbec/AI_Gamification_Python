@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "numbers = list(range(3, 8))\nprint(numbers)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumbers = list(range(3, 8))\nprint(numbers)"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "print(range(20) == range(0, 20))"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(range(20) == range(0, 20))"
                 }
             ],
             "answers": [

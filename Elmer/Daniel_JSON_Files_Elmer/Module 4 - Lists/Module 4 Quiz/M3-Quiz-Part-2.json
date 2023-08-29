@@ -62,7 +62,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "i = 0\n\nx = 0\n\nwhile i < 4:\n\n    x+=i\n\n    i+=1\n\n\n\n\nprint(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ni = 0\n\nx = 0\n\nwhile i < 4:\n\n    x+=i\n\n    i+=1\n\n\n\n\nprint(x)"
                 }
             ],
             "answers": [

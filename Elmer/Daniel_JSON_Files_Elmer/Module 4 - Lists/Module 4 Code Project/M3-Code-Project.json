@@ -17,7 +17,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "peso = int(input())\naltura = float(input())\nformula = (peso / altura**2)\ncalculo = formula\nif calculo < 18.5:\n    print('Underweight')\nif calculo >= 18.5 and calculo < 25:\n    print('Normal ')\nif calculo >= 25 and calculo < 30:\n    print('Overweight')\nif calculo >= 30:\n    print('Obesity')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\npeso = int(input())\naltura = float(input())\nformula = (peso / altura**2)\ncalculo = formula\nif calculo < 18.5:\n    print('Underweight')\nif calculo >= 18.5 and calculo < 25:\n    print('Normal ')\nif calculo >= 25 and calculo < 30:\n    print('Overweight')\nif calculo >= 30:\n    print('Obesity')"
                 }
             ]
         }

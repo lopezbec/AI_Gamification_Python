@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "for i in range(5):\n  print('hello!')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nfor i in range(5):\n  print('hello!')"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "____ i in range(0, 20,____):\n  print(____)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n____ i in range(0, 20,____):\n  print(____)"
                 }
             ],
             "answers": [

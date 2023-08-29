@@ -27,7 +27,7 @@
             "blocks": [
                 {
                     "type": "Consola",
-                    "text": "Complete los espacios en blanco para crear una variable is_online y asígnele el valor\n___ = ___"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nComplete los espacios en blanco para crear una variable is_online y asígnele el valor\n___ = ___"
                 }
             ],
             "answers": [
