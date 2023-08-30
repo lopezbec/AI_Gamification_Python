@@ -23,7 +23,6 @@
                     "type": "hint",
                     "text": "Al igual que los argumentos de range , el primer índice proporcionado\nen un segmento se incluye en el resultado, pero el segundo no."
                 }
-
             ]
         }
     ],

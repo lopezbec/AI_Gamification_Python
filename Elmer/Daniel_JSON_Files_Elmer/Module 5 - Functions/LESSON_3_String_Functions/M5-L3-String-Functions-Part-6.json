@@ -1,0 +1,52 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones de cadena",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "lower() y Upper() cambian el caso de una cadena a minúsculas y mayúsculas."
+                },
+                {
+                    "type": "Consola",
+                    "text": "print('This is a sentence.'.upper())\n\nprint('AN ALL CAPS SENTENCE'.lower())"
+                }
+
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para poner la cadena en mayúsculas."
+                },
+                {
+                    "type": "Consola",
+                    "text": "a = 'Spam'\nb = a.___()"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "upper",
+                    "correct": true
+                },
+                {
+                    "text": "!",
+                    "correct": false
+                },
+                {
+                    "text": ".",
+                    "correct": false
+                },
+                {
+                    "text": "sum",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

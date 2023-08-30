@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Argumentos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Aún mejor, puedes definir funciones con más de un argumento; sepáralos con comas. Así:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def imprimir_numero_dos_veces(x, y):\nprint(x + y)\nprint(x + y)\n\nimprimir_numero_dos_veces(5, 8)"
+                }
+            ]
+        }
+    ],
+    
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para definir una función que toma dos argumentos e imprime su multiplicación."
+                },
+                {
+                    "type": "Consola",
+                    "text": "_____ print_mult(x, y)_____\n\n print(x*_____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "def",
+                    "correct": true
+                },
+                {
+                    "text": "z",
+                    "correct": false
+                },
+                {
+                    "text": "y",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

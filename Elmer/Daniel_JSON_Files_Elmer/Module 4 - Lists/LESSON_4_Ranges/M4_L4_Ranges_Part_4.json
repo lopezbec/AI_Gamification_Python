@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "También hay un tercer argumento que puedes usar con range() , y es realmente útil.\nSe llama Paso y determina el intervalo de la secuencia producida. Echar un vistazo:"
+                    "text": "También hay un tercer argumento que puedes usar con range() , y es realmente útil. Se llama Paso y determina el intervalo de la secuencia producida. Echar un vistazo:"
                 },
                 {
                     "type": "Consola",

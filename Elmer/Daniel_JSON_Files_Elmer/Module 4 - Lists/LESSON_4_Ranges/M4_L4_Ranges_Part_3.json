@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Si se llama a range con un argumento, producirá un objeto con valores desde 0 hasta ese\nargumento.\n\nSi se llama con dos argumentos, producirá valores del primero al segundo.\n\nPor ejemplo:"
+                    "text": "Si se llama a range con un argumento, producirá un objeto con valores desde 0 hasta ese argumento.\n\nSi se llama con dos argumentos, producirá valores del primero al segundo.\n\nPor ejemplo:"
                 },
                 {
                     "type": "Consola",

@@ -1,0 +1,70 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Al igual que con las declaraciones if , el bloque de código dentro de cada función\ncomienza con dos puntos (:) y tiene sangría."
+                },
+                {
+                    "type": "Consola",
+                    "text": "def my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
+                }
+
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Reorganice el código para definir una función llamada 'test()', que genera:\n\nA\n\nB\n\nC"
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "def test():",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "  print('A')",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "  print('B')",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta4",
+                    "correctValue": "  print('C')",
+                    "text": "__________"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "  print('B')",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "  print('A')",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "def test():",
+                    "correctType": "pregunta1"
+                },
+                {
+                    "text": "  print('C')",
+                    "correctType": "pregunta4"
+                }
+            ]
+        }
+    ]
+
+
+}

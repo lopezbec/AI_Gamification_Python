@@ -297,7 +297,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M4_L4_Ranges_Part_2.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "MultipleChoice",
                     "json_number": 2
                 },
                 {
@@ -333,7 +333,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M4_L4_Ranges_Part_5.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "MultipleChoice",
                     "json_number": 5
                 },
                 {
@@ -380,7 +380,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M4_L5_List_Slices_Part_2.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "DragAndDrop",
                     "json_number": 2
                 },
                 {
@@ -392,7 +392,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M4_L5_List_Slices_Part_3.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "MultipleChoice",
                     "json_number": 3
                 },
                 {
@@ -428,7 +428,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M4_L5_List_Slices_Part_6.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "MultipleChoice",
                     "json_number": 6
                 },
                 {
@@ -446,7 +446,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M4_L5_List_Slices_Part_8.json",
-                    "page_type": "CompleteBlankSpace",
+                    "page_type": "MultipleChoice",
                     "json_number": 8
                 }
             ]

@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Formato de cadena",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "También puede nombrar los marcadores de posición, en lugar de los números de índice.\n\nEjemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "a = '{x}, {y}'.format(x=5, y=12)\nprint(a)"
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "str='{c}, {b}, {a}'.format(a=5, b=9, c=7)\n\nprint(str)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7, 9, 5",
+                    "correct": true
+                },
+                {
+                    "text": "9, 7, 5",
+                    "correct": false
+                },
+                {
+                    "text": "5, 9, 7",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

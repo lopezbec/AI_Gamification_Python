@@ -1,0 +1,35 @@
+{
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Recuerde, las cadenas también son listas. ¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "txt = 'hello'\n\nprint(max(txt))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "o",
+                    "correct": true
+                },
+                {
+                    "text": "s",
+                    "correct": false
+                },
+                {
+                    "text": "l",
+                    "correct": false
+                },
+                {
+                    "text": "e",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

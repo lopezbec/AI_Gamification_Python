@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_4_Boolean_Logic/' + filename, encoding='UTF-8') as json_file:
+        with open('LESSON_5_List_Slices/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 

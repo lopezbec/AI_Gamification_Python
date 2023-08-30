@@ -11,38 +11,37 @@
                     "type": "Consola",
                     "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[:7])"
                 }
-
             ]
         }
     ],
 
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Complete los espacios en blanco para tomar los dos primeros elementos de la lista:"
+                    "text": "arrastre y complete los espacios en blanco para tomar los dos primeros elementos de la lista:"
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = ['a', 'b', 'c', 'd']\na = list[0 ____ ]"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = ['a', 'b', 'c', 'd']\na = list[0______]"
                 }
             ],
             "answers": [
                 {
-                    "text": ":2",
-                    "correct": true
+                    "text": "2"
                 },
                 {
-                    "text": "2",
-                    "correct": false
+                    "text": ":"
                 },
                 {
-                    "text": "8",
-                    "correct": false
+                    "text": "8"
                 }
-            ]
+            ],
+            "correctOrder": [":", "2"]
         }
     ]
 }

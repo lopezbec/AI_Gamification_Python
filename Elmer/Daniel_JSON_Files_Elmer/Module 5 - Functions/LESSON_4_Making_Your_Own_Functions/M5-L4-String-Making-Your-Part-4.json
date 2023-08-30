@@ -1,0 +1,54 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La función debe definirse antes de poder llamarse. Llamar a una función antes de su\ndefinición provocará un error.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "hello()\ndef hello():\n  print('Hello world!')"
+                }
+
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántas líneas generará el siguiente código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def foo():\n\n   print(1)\n\n   print(2)\n\n\n\nfoo()\n\nfoo()"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+
+}

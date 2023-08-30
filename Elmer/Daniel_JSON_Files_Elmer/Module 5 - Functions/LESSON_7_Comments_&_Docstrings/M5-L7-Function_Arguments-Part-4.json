@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Docstrings",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los docstrings actúan como documentación para otros desarrolladores que utilizan su función."
+                },
+                {
+                    "type": "hint",
+                    "text": "A diferencia de los comentarios convencionales, los docstrings se conservan durante todo el tiempo de ejecución del programa. Esto permite al programador inspeccionar estos comentarios en tiempo de ejecución."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoiceplus": [
+        {
+            "title": "Reordena el código para crear un docstring válido para la función foo() que contiene el texto:",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "\n\nA\nB\nC"
+                },
+                {
+                    "type": "requerimiento",
+                    "text": " "
+                }
+            ],
+            "answers": [
+                {
+                    "text": "C'''",
+                    "correct": true
+                },
+                {
+                    "text": "B",
+                    "correct": true
+                },
+                {
+                    "text": "def foo():",
+                    "correct": true
+                },
+                {
+                    "text": " '''A ",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

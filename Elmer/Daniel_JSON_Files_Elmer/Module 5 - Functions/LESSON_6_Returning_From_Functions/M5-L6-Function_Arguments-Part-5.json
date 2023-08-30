@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Retorno de funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una función sólo puede devolver una vez, por lo tanto, si necesitas devolver varios valores, puedes utilizar una lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "def doble(a, b):\n\treturn [a*2, b*2]\n\nx = double(6, 9)\nprint(x)\n"
+                }
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Adivina el resultado de este código:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def calc(x, y):\n\treturn [x+y, x*y]\n\n\nres = calc(3, 4)\nprint(res[1])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "11",
+                    "correct": false
+                },
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

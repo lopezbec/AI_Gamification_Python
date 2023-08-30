@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_4_Boolean_Logic/' + filename, encoding='UTF-8') as json_file:
+        with open('LESSON_4_Ranges/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -140,8 +140,7 @@ class JsonWindow(QWidget):
     def title(self):
         title = QLabel(self.data[self.page_type.lower()][0]["title"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(
-            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
         title_font = QFont()
         title_font.setPointSize(self.styles["font_size_titles"])
         title.setFont(title_font)

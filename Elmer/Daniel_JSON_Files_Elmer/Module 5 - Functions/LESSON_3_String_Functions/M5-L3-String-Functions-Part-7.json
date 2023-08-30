@@ -1,0 +1,38 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Teclado roto - Reemplace todos los caracteres # con espacios y genere el resultado."
+                }
+            ]
+        }
+    ],
+
+    
+    "practica": [
+        {
+            "title": "Funciones de cadena",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Tu amigo te envió un mensaje, sin embargo, su teclado está roto y\nescribe un # en lugar de un espacio.\n\nReemplace todos los caracteres # en la entrada dada con espacios y\ngenere el resultado."
+                },
+                {
+                    "type": "hint",
+                    "text": "Puede utilizar la función replace() de una\ncadena para reemplazar una subcadena por otra."
+                },
+                {
+                    "type": "Consola",
+                    "text": "msg = input()\n\nconvertir = msg.replace('#',' ')\n\nprint(convertir)"
+                }
+            ]
+        }
+    ]
+}

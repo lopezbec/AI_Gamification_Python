@@ -11,7 +11,6 @@
                     "type": "Consola",
                     "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nfor i in range(5):\n  print('hello!')"
                 }
-
             ]
         }
     ],
@@ -19,34 +18,33 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Complete los espacios en blanco para crear un ciclo for que \nimprima solo los valores pares en el rango:"
+                    "text": "Complete los espacios en blanco para crear un ciclo for que imprima solo los valores pares en el rango:"
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n____ i in range(0, 20,____):\n  print(____)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ i in range(0, 20, ___):\n  print(___)"
                 }
             ],
             "answers": [
                 {
-                    "text": "for",
-                    "correct": true
+                    "text": "for"
                 },
                 {
-                    "text": "i",
-                    "correct": true
+                    "text": "i"
                 },
                 {
-                    "text": "i",
-                    "correct": true
+                    "text": "2"
                 },
                 {
-                    "text": "print",
-                    "correct": false
+                    "text": "print"
                 }
-            ]
+            ],
+            "correctOrder": ["for", "2", "i"]
         }
     ]
 }

@@ -1,0 +1,64 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La función append() se utiliza para agregar un elemento al final de la lista:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [1, 2, 3]\nnums.append(4)\nprint(nums)"
+                },
+                {
+                    "type": "hint",
+                    "text": "Tenga en cuenta que la función se llama utilizando el nombre de la\nlista, seguido de un punto."
+                }
+
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte desde las opciones siguientes para agregar 'z' al final de la lista e\nimprimir la longitud de la lista."
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "append",
+                    "text": "list.____('z')"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "len",
+                    "text": "print(____"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "list()",
+                    "text": "____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "list()",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "len",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "append",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ]
+
+}

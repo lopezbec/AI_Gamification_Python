@@ -1,7 +1,9 @@
 {
-    "dragandrop": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -9,27 +11,24 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = ____(____(0, 100))\nprint(____[4])"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = ___(___(0, 100))\nprint(___[4])"
                 }
             ],
             "answers": [
                 {
-                    "text": "list",
-                    "correct": true
+                    "text": "list"
                 },
                 {
-                    "text": "range",
-                    "correct": true
+                    "text": "range"
                 },
                 {
-                    "text": "print",
-                    "correct": false
+                    "text": "print"
                 },
                 {
-                    "text": "x",
-                    "correct": true
+                    "text": "x"
                 }
-            ]
+            ],
+            "correctOrder": ["list", "range", "x"]
         }
     ]
 }
