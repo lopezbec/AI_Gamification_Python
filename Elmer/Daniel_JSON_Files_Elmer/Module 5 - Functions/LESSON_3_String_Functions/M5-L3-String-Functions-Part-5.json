@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = 'Hello ME'\nprint(x.replace('ME', 'world'))"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 'Hello ME'\nprint(x.replace('ME', 'world'))"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = str.___('___',  '___')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = str.___('___',  '___')"
                 }
             ],
             "answers": [

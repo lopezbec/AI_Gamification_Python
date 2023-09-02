@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "letters = ['p', 'q', 'r', 's', 'p', 'u']\nprint(letters.index('r'))\nprint(letters.index('p'))\nprint(letters.index('q'))"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletters = ['p', 'q', 'r', 's', 'p', 'u']\nprint(letters.index('r'))\nprint(letters.index('p'))\nprint(letters.index('q'))"
                 },
                 {
                     "type": "hint",
@@ -30,7 +30,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = [2, 4, 5, 7, 4]\n\ny = x.index(4)\n\nprint(y)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [2, 4, 5, 7, 4]\n\ny = x.index(4)\n\nprint(y)"
                 }
             ],
             "answers": [

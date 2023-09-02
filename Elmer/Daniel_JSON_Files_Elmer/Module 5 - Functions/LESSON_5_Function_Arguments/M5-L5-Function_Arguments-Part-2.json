@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "def exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")\nexclamacion(\"eggs\")\nexclamacion(\"python\")"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")\nexclamacion(\"eggs\")\nexclamacion(\"python\")"
                 },
                 {
                     "type": "hint",
@@ -30,7 +30,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "def x(y):\n\tprint(y + 2)\n\nx(5)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef x(y):\n\tprint(y + 2)\n\nx(5)"
                 }
             ],
             "answers": [

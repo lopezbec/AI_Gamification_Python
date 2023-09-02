@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "def my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "___ hello() ___\n   print('Hi!')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ hello() ___\n   print('Hi!')"
                 }
             ],
             "answers": [

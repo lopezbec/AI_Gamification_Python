@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "print('This is a sentence.'.upper())\n\nprint('AN ALL CAPS SENTENCE'.lower())"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('This is a sentence.'.upper())\n\nprint('AN ALL CAPS SENTENCE'.lower())"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "a = 'Spam'\nb = a.___()"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\na = 'Spam'\nb = a.___()"
                 }
             ],
             "answers": [

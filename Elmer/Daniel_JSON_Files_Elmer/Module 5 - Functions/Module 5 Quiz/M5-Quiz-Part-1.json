@@ -10,7 +10,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "_____ min(x, y):\n   if x<=y _____\n      return x\n   else:\n_____ y"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n_____ min(x, y):\n   if x<=y _____\n      return x\n   else:\n_____ y"
                 }
             ],
             "answers": [

@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "def sum(x, y):\n\treturn x+y"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef sum(x, y):\n\treturn x+y"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "_____ cuadrado(x):\n\n _____ x**2"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n_____ cuadrado(x):\n\n _____ x**2"
                 }
             ],
             "answers": [

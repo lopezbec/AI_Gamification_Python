@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "def sum(x, y):\nreturn x + y\n\nres = sum(42, 7)\nprint(res)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef sum(x, y):\nreturn x + y\n\nres = sum(42, 7)\nprint(res)"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "def foo(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\n\nx = foo(4,7)\nprint(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef foo(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\n\nx = foo(4,7)\nprint(x)"
                 }
             ],
             "answers": [
