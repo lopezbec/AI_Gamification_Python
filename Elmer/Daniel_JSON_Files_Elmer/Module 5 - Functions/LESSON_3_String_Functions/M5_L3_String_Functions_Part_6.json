@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones de cadena",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "lower() y Upper() cambian el caso de una cadena a minúsculas y mayúsculas."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('This is a sentence.'.upper())\n\nprint('AN ALL CAPS SENTENCE'.lower())"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para poner la cadena en mayúsculas."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\na = 'Spam'\nb = a.___()"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "upper",
+                    "correct": true
+                },
+                {
+                    "text": "!",
+                    "correct": false
+                },
+                {
+                    "text": ".",
+                    "correct": false
+                },
+                {
+                    "text": "sum",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

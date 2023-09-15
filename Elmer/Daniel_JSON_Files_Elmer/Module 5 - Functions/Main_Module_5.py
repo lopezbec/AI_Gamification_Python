@@ -6,11 +6,13 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from LESSON_1_Lists.Main_Lesson_1 import main_lesson_1 as ml1
-from LESSON_2_List_Operations.Main_Lesson_2 import main_lesson_2 as ml2
-from LESSON_3_For_Loops.Main_Lesson_3 import main_lesson_3 as ml3
-from LESSON_4_Ranges.Main_Lesson_4 import main_lesson_4 as ml4
-from LESSON_5_List_Slices.Main_Lesson_5 import main_lesson_5 as ml5
+from LESSON_1_Functions.Main_Lesson_1 import main_lesson_1 as ml1
+from LESSON_2_List_Functions.Main_Lesson_2 import main_lesson_2 as ml2
+from LESSON_3_String_Functions.Main_Lesson_3 import main_lesson_3 as ml3
+from LESSON_4_Making_Your_Own_Functions.Main_Lesson_4 import main_lesson_4 as ml4
+from LESSON_5_Function_Arguments.Main_Lesson_5 import main_lesson_5 as ml5
+from LESSON_6_Returning_From_Functions.Main_Lesson_6 import main_lesson_6 as ml6
+from LESSON_7_Comments_and_Docstrings.Main_Lesson_7 import main_lesson_7 as ml7
 
 
 class Leccion:
@@ -97,6 +99,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lesson3_window = None
         self.lesson4_window = None
         self.lesson5_window = None
+        self.lesson6_window = None
+        self.lesson7_window = None
 
         self.styles = self.load_styles("styles.json")
 
@@ -142,11 +146,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
         self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))
         self.lecciones.append(Leccion("Lección 5", self.abrir_leccion5, lecciones_menu, self.lecciones[3]))
+        self.lecciones.append(Leccion("Lección 6", self.abrir_leccion6, lecciones_menu, self.lecciones[4]))
+        self.lecciones.append(Leccion("Lección 7", self.abrir_leccion7, lecciones_menu, self.lecciones[5]))
 
         self.lecciones[0].proxima_leccion = self.lecciones[1]
         self.lecciones[1].proxima_leccion = self.lecciones[2]
         self.lecciones[2].proxima_leccion = self.lecciones[3]
         self.lecciones[3].proxima_leccion = self.lecciones[4]
+        self.lecciones[4].proxima_leccion = self.lecciones[5]
+        self.lecciones[5].proxima_leccion = self.lecciones[6]
 
         self.curso = Curso(self.lecciones)
 
@@ -200,6 +208,22 @@ class MainWindow(QtWidgets.QMainWindow):
             return self.lesson5_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 5: {e}")
+
+    def abrir_leccion6(self):
+        try:
+            self.lesson6_window = ml6()
+            self.lesson6_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson6_window  # Retorna la ventana de la lección
+        except Exception as e:
+            print(f"Error al abrir la lección 6: {e}")
+
+    def abrir_leccion7(self):
+        try:
+            self.lesson7_window = ml7()
+            self.lesson7_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson7_window  # Retorna la ventana de la lección
+        except Exception as e:
+            print(f"Error al abrir la lección 7: {e}")
 
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)

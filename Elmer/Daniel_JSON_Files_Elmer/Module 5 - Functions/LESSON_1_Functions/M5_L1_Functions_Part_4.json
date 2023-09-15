@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las funciones pueden tener múltiples argumentos.\nPor ejemplo, range(2, 20) tiene dos argumentos, 2 y 20 ."
+                },
+                {
+                    "type": "hint",
+                    "text": "Los argumentos de las funciones deben estar separados por comas ."
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos argumentos hay en esta llamada a función?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nrange(0, 100, 5)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

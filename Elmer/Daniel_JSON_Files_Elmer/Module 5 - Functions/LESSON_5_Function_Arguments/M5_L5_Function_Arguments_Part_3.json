@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Argumentos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Aún mejor, puedes definir funciones con más de un argumento; sepáralos con comas. Así:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef imprimir_numero_dos_veces(x, y):\nprint(x + y)\nprint(x + y)\n\nimprimir_numero_dos_veces(5, 8)"
+                }
+            ]
+        }
+    ],
+    
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para definir una función que toma dos argumentos e imprime su multiplicación."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ print_mult(x, y)___\n\n print(x*___)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":"
+                },
+                {
+                    "text": "def"
+                },
+                {
+                    "text": "z"
+                },
+                {
+                    "text": "y"
+                }
+            ],
+            "CorrectOrder": ["def", ":", "y"]
+        }
+    ]
+}

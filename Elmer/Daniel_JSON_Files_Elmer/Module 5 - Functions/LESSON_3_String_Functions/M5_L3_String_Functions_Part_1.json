@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Formato de cadena",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las cadenas tienen una función format() , que permite incrustar valores en ellas,\nutilizando marcadores de posición.\n\nEjemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [4, 5, 6]\nmsg = 'Numbers: {0} {1} {2}'. format(nums[0], nums[1], nums[2])\nprint(msg)"
+                },
+                {
+                    "type": "hint",
+                    "text": "Cada argumento de la función de formato se coloca en la cadena en\nla posición correspondiente, que se determina mediante llaves { }."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('{0}{1}{0}'.format('abra', 'cad'))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "abracadabra",
+                    "correct": true
+                },
+                {
+                    "text": "abra",
+                    "correct": false
+                },
+                {
+                    "text": "cadabra",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

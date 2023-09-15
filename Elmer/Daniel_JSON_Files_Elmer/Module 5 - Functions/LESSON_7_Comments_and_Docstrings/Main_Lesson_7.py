@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_4_Ranges/' + filename, encoding='UTF-8') as json_file:
+        with open('LESSON_7_Comments_and_Docstrings/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -115,8 +115,7 @@ class JsonWindow(QWidget):
             self.create_pedagogical_layout()
 
         else:
-            print(
-                "Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
+            print("Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
 
         # Establecer el layout en el QWidget
         self.setWindowTitle('JsonWindow')
@@ -215,8 +214,7 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
-                block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
@@ -247,8 +245,7 @@ class JsonWindow(QWidget):
                     multiple_drops = False
 
                 if block_type == "Consola":
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
@@ -368,7 +365,7 @@ class MainWindow(QWidget):
         self.python_console_widget = None
         self.lesson_number = lesson_number
         self.styles = JsonLoader.load_json_styles()
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 3)
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 6)
         self.init_ui()
 
     def init_ui(self):
@@ -471,15 +468,15 @@ class MainWindow(QWidget):
 
     def save_log(self, log_type="time"):
         fieldnames = ['event', 'time']
-        filename = "Time_Lesson_4.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_4.csv"
+        filename = "Time_Lesson_7.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_7.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
         # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('LESSON_4_Ranges'):
-            os.makedirs('LESSON_4_Ranges')
+        if not os.path.exists('LESSON_7_Comments_and_Docstrings'):
+            os.makedirs('LESSON_7_Comments_and_Docstrings')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('LESSON_4_Ranges', filename)
+        filepath = os.path.join('LESSON_7_Comments_and_Docstrings', filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -693,7 +690,7 @@ class MainWindow(QWidget):
         self.current_page += 1  # Incrementar el número de la página actual
 
 
-def main_lesson_4():
-    main_window = MainWindow(lesson_number=4)
+def main_lesson_7():
+    main_window = MainWindow(lesson_number=7)
     main_window.show()
     return main_window

@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_4_Ranges/' + filename, encoding='UTF-8') as json_file:
+        with open('LESSON_4_Making_Your_Own_Functions/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -475,11 +475,11 @@ class MainWindow(QWidget):
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
         # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('LESSON_4_Ranges'):
-            os.makedirs('LESSON_4_Ranges')
+        if not os.path.exists('LESSON_4_Making_Your_Own_Functions'):
+            os.makedirs('LESSON_4_Making_Your_Own_Functions')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('LESSON_4_Ranges', filename)
+        filepath = os.path.join('LESSON_4_Making_Your_Own_Functions', filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)

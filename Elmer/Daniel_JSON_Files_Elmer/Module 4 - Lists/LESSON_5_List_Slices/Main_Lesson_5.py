@@ -369,7 +369,7 @@ class MainWindow(QWidget):
         self.python_console_widget = None
         self.lesson_number = lesson_number
         self.styles = JsonLoader.load_json_styles()
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 3)
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 4)
         self.init_ui()
 
     def init_ui(self):
@@ -472,15 +472,15 @@ class MainWindow(QWidget):
 
     def save_log(self, log_type="time"):
         fieldnames = ['event', 'time']
-        filename = "Time_Lesson_4.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_4.csv"
+        filename = "Time_Lesson_5.csv" if log_type == "time" else "Entradas_Salidas_Clics_Lesson_5.csv"
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
         # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('LESSON_4_Boolean_Logic'):
-            os.makedirs('LESSON_4_Boolean_Logic')
+        if not os.path.exists('LESSON_5_List_Slices'):
+            os.makedirs('LESSON_5_List_Slices')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('LESSON_4_Boolean_Logic', filename)
+        filepath = os.path.join('LESSON_5_List_Slices', filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)

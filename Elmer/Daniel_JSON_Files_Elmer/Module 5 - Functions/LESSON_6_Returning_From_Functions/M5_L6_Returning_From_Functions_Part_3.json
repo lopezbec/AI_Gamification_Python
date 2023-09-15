@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Retorno de funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puedes utilizar el valor devuelto en su código, por ejemplo, una declaración if:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef max(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\nif max(6,4) > 10:\n\tprint(\"Si\")\nelse:\n\tprint(\"No\")\n"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para definir una función que compare las longitudes de sus argumentos y devuelva el más corto."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef cadena_mas_corta(x, y):\n\tif len(x) <= ___ (y):\n\t\t___ x\n\telse:\n\t\treturn ___"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":"
+                },
+                {
+                    "text": "len"
+                },
+                {
+                    "text": "y"
+                },
+                {
+                    "text": "return"
+                }
+            ],
+            "CorrectOrder": ["len", "return", "y"]
+        }
+    ]
+}

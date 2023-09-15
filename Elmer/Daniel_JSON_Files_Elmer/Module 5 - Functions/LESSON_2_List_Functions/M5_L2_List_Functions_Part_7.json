@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "list.count(item) : devuelve un recuento de cuántas veces aparece un elemento en una lista.\nlist.remove(item) : elimina un elemento de una lista.\nlist.reverse() : invierte elementos en una lista.\n\nAlgunos ejemplos:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [2, 4, 6, 2, 7, 2, 9]\nprint(x.count(2))\n\nx.remove(4)\nprint(x)\n\nx.reverse()\nprint(x)"
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Adivina el resultado de este código:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = [8, 4, 2, 6]\nlist.remove(2)\nprint(len(list)+list.count(6))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
