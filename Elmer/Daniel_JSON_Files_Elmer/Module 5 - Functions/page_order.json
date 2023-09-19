@@ -220,7 +220,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M5_L3_String_Functions_Part_4.json",
-                    "page_type": "MultipleChoice",
+                    "page_type": "DragAndDrop",
                     "json_number": 4
                 },
                 {
@@ -415,7 +415,7 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M5_L6_Returning_From_Functions_Part_1.json",
-                    "page_type": "MultipleChoice",
+                    "page_type": "DragAndDrop",
                     "json_number": 1
                 },
                 {

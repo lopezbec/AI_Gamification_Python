@@ -21,7 +21,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Tenemos una función que genera 'Bienvenido, usuario', como se llama. Queremos hacerlo más\npersonalizado, así que rediseñe la función dada para que tome el nombre del usuario como entrada y\nenvíe el mensaje de bienvenida con él.\n\nEntrada de muestra\ntommy\n\nSalida de muestra\nBienvenido tommy"
+                    "text": "Tenemos una función que genera 'Bienvenido, usuario', como se llama. Queremos hacerlo más personalizado, así que rediseñe la función dada para \nque tome el nombre del usuario como entrada y envíe el mensaje de bienvenida con él.\n\nEntrada de muestra\ntommy\n\nSalida de muestra\nBienvenido tommy"
                 },
                 {
                     "type": "hint",

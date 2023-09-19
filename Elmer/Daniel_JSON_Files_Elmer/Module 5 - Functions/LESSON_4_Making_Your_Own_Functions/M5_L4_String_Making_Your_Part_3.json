@@ -13,9 +13,8 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Tenga en cuenta que llamamos a una función usando su nombre y\nparéntesis."
+                    "text": "Tenga en cuenta que llamamos a una función usando su nombre y paréntesis."
                 }
-
             ]
         }
     ],
@@ -23,43 +22,31 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
                     "text": "Reorganice el código para declarar una función sayHi() y llámela."
                 },
                 {
-                    "type": "pregunta1",
+                    "type": "Consola",
                     "correctValue": "def sayHi():",
-                    "text": "__________"
-                },
-                {
-                    "type": "pregunta2",
-                    "correctValue": "  print('Hi!')",
-                    "text": "__________"
-                },
-                {
-                    "type": "pregunta3",
-                    "correctValue": "sayHi()",
-                    "text": "__________"
+                    "text": "____\n____\n\n____"
                 }
             ],
             "answers": [
                 {
-                    "text": "sayHi()",
-                    "correctType": "pregunta3"
+                    "text": "sayHi()"
                 },
                 {
-                    "text": "  print('Hi!')",
-                    "correctType": "pregunta2"
+                    "text": "  print('Hi!')"
                 },
                 {
-                    "text": "def sayHi():",
-                    "correctType": "pregunta1"
+                    "text": "def sayHi():"
                 }
-            ]
+            ],
+            "correctOrder": ["def sayHi():", "  print('Hi!')", "sayHi()"]
         }
     ]
-
-
 }

@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "list.count(item) : devuelve un recuento de cuántas veces aparece un elemento en una lista.\nlist.remove(item) : elimina un elemento de una lista.\nlist.reverse() : invierte elementos en una lista.\n\nAlgunos ejemplos:"
+                    "text": "list.count(item) : devuelve un recuento de cuántas veces aparece un elemento en una lista. list.remove(item) : elimina un elemento de una lista.\nlist.reverse() : invierte elementos en una lista.\n\nAlgunos ejemplos:"
                 },
                 {
                     "type": "Consola",

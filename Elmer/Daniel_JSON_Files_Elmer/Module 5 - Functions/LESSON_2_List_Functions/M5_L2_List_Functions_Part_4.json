@@ -13,7 +13,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "El primer argumento es el índice de posición, mientras que el\nsegundo parámetro es el elemento a insertar en esa posición."
+                    "text": "El primer argumento es el índice de posición, mientras que el segundo parámetro es el elemento a insertar en esa posición."
                 }
             ]
         }

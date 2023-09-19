@@ -599,6 +599,8 @@ class MainWindow(QWidget):
                             sep_argument = re.findall(r"(sep)=(['\"]([^'\"]*)['\"])", dropped_text)
                             if sep_argument:
                                 dropped_answer = sep_argument[0][0] if correct_value == 'sep' else sep_argument[0][1]
+                                print("Value Dropped ", dropped_answer)
+
                                 if correct_value:
                                     if correct_value == dropped_answer:
                                         correct_count += 1

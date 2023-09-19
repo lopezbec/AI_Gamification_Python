@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Python tiene un montón de funciones integradas útiles para listas.\n\nlen() le permite obtener la cantidad de elementos en una lista. Como esto:"
+                    "text": "Python tiene un montón de funciones integradas útiles para listas. len() le permite obtener la cantidad de elementos en una lista. Como esto:"
                 },
                 {
                     "type": "Consola",
@@ -13,7 +13,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "A diferencia de los elementos de indexación, len no comienza con 0.\nLa lista anterior contiene 5 elementos, lo que significa que len\ndevolverá 5."
+                    "text": "A diferencia de los elementos de indexación, len no comienza con 0. La lista anterior contiene 5 elementos, lo que significa que len devolverá 5."
                 }
             ]
         }

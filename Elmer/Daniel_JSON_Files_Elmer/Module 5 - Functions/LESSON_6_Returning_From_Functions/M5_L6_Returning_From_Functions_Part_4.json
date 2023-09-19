@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Una vez que se devuelve un valor de una función, ésta deja de ejecutarse inmediatamente.\n\nCualquier código colocado después de la declaración return no será ejecutado.\n\nPor ejemplo\n\n\n"
+                    "text": "Una vez que se devuelve un valor de una función, ésta deja de ejecutarse inmediatamente. Cualquier código colocado después de la declaración return no será ejecutado.\n\nPor ejemplo\n\n\n"
                 },
                 {
                     "type": "Consola",

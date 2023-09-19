@@ -53,7 +53,7 @@
                     "text": "for"
                 }
             ],
-            "CorrectOrder": ["def", ":", "print", "else"]
+            "correctOrder": ["def", ":", "print", "else"]
         }
     ]
 }

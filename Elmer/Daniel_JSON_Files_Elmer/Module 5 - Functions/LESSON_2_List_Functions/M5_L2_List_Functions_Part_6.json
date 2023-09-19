@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "max(lista) : Devuelve el valor máximo.\nmin(lista) : Devuelve el valor mínimo."
+                    "text": "max(lista) : Devuelve el valor máximo. min(lista) : Devuelve el valor mínimo."
                 },
                 {
                     "type": "Consola",

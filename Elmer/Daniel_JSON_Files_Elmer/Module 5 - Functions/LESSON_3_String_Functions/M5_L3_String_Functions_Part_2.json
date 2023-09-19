@@ -30,16 +30,16 @@
             ],
             "answers": [
                 {
-                    "text": "7, 9, 5",
-                    "correct": true
-                },
-                {
                     "text": "9, 7, 5",
                     "correct": false
                 },
                 {
                     "text": "5, 9, 7",
                     "correct": false
+                },
+                {
+                    "text": "7, 9, 5",
+                    "correct": true
                 }
             ]
         }

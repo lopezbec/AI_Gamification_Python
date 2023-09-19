@@ -13,7 +13,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Se devuelve un error en caso de que el elemento especificado no se\nencuentre en la lista."
+                    "text": "Se devuelve un error en caso de que el elemento especificado no se encuentre en la lista."
                 }
             ]
         }

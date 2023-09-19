@@ -15,7 +15,6 @@
                     "type": "hint",
                     "text": "Aquí, print es el nombre de la función y 'Hola' es el argumento."
                 }
-
             ]
         }
     ],
@@ -28,11 +27,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre y suelte desde las siguientes opciones para llamar a la función de impresión con\n42 como argumento:"
+                    "text": "Arrastre y suelte desde las siguientes opciones para llamar a la función de impresión con 42 como argumento:"
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ ( ___ )"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___(___)"
                 }
             ],
             "answers": [
