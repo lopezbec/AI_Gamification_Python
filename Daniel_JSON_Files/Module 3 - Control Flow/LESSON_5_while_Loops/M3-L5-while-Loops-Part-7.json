@@ -2,7 +2,7 @@
 
     "pedagogical": [ 
         {
-            "title": "Hora de practicar",
+            "title": "Hora de practicar.",
             "blocks": [
                 {
                     "type": "info",
@@ -19,7 +19,7 @@
 
     "practica": [
         {
-            "title": "Bucles while",
+            "title": "Bucles while.",
             "blocks": [
                 {
                     "type": "info",
