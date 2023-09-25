@@ -13,9 +13,8 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Tenga en cuenta que la función se llama utilizando el nombre de la\nlista, seguido de un punto."
+                    "text": "Tenga en cuenta que la función se llama utilizando el nombre de la lista, seguido de un punto."
                 }
-
             ]
         }
     ],
@@ -23,42 +22,27 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre y suelte desde las opciones siguientes para agregar 'z' al final de la lista e\nimprimir la longitud de la lista."
+                    "text": "Arrastre y suelte desde las opciones siguientes para agregar 'z' al final de la lista e imprimir la longitud de la lista."
                 },
                 {
-                    "type": "pregunta1",
-                    "correctValue": "append",
-                    "text": "list.____('z')"
-                },
-                {
-                    "type": "pregunta2",
-                    "correctValue": "len",
-                    "text": "print(____"
-                },
-                {
-                    "type": "pregunta3",
-                    "correctValue": "list()",
-                    "text": "____)"
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist.___('z')\nprint(___.list())"
                 }
             ],
             "answers": [
                 {
-                    "text": "list()",
-                    "correctType": "pregunta3"
+                    "text": "len"
                 },
                 {
-                    "text": "len",
-                    "correctType": "pregunta2"
-                },
-                {
-                    "text": "append",
-                    "correctType": "pregunta1"
+                    "text": "append"
                 }
-            ]
+            ],
+            "correctOrder": ["append", "len"]
         }
     ]
-
 }

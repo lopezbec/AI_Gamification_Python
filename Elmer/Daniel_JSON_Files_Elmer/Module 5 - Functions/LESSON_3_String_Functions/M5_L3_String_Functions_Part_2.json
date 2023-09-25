@@ -11,12 +11,11 @@
                     "type": "Consola",
                     "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\na = '{x}, {y}'.format(x=5, y=12)\nprint(a)"
                 }
-
             ]
         }
     ],
 
-    "question": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -31,16 +30,16 @@
             ],
             "answers": [
                 {
-                    "text": "7, 9, 5",
-                    "correct": true
-                },
-                {
                     "text": "9, 7, 5",
                     "correct": false
                 },
                 {
                     "text": "5, 9, 7",
                     "correct": false
+                },
+                {
+                    "text": "7, 9, 5",
+                    "correct": true
                 }
             ]
         }

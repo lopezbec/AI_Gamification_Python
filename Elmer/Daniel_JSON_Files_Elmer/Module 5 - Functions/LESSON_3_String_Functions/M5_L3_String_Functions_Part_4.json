@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "split() es lo opuesto a join() . Convierte una cadena con un determinado separador en\nuna lista.\n\nPor ejemplo, dividamos una oración en palabras:"
+                    "text": "split() es lo opuesto a join() . Convierte una cadena con un determinado separador en una lista.\n\nPor ejemplo, dividamos una oración en palabras:"
                 },
                 {
                     "type": "Consola",
@@ -13,16 +13,17 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Usamos un espacio '' como separador de división para obtener todas\nlas palabras de la cadena como una lista."
+                    "text": "Usamos un espacio '' como separador de división para obtener todas las palabras de la cadena como una lista."
                 }
-
             ]
         }
     ],
 
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -35,22 +36,19 @@
             ],
             "answers": [
                 {
-                    "text": "split",
-                    "correct": true
+                    "text": "split"
                 },
                 {
-                    "text": "print",
-                    "correct": true
+                    "text": "print"
                 },
                 {
-                    "text": "1",
-                    "correct": true
+                    "text": "1"
                 },
                 {
-                    "text": "sum",
-                    "correct": false
+                    "text": "sum"
                 }
-            ]
+            ],
+            "correctOrder": ["split","1","print"]
         }
     ]
 }

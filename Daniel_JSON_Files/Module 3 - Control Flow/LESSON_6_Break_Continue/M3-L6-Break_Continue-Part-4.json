@@ -1,7 +1,7 @@
 {
     "pedagogical": [
         {
-            "title": "Continue",
+            "title": "Continue.",
             "blocks": [
                 {
                     "type": "info",
@@ -13,7 +13,7 @@
     ],
 
     
-    "question": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [

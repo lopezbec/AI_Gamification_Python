@@ -9,18 +9,17 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")\nexclamacion(\"eggs\")\nexclamacion(\"python\")"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef exclamación(palabra):\nprint(palabra + \"!\")\n\nexclamación(\"spam\")\nexclamación(\"eggs\")\nexclamación(\"python\")"
                 },
                 {
                     "type": "hint",
                     "text": "Los argumentos se utilizan para pasar información a la función. Esto nos permite reutilizar la lógica de la función para diferentes valores."
                 }
-
             ]
         }
     ],
     
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [

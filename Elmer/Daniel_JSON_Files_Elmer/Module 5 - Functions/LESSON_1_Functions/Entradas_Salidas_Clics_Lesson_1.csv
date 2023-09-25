@@ -1,0 +1,29 @@
+event,time
+Parte 1,12:22:10
+Checkbox Selected: True,12:22:13
+Parte 2,12:22:14
+Correct Drop Event: print,12:22:18
+Correct Drop Event: 42,12:22:18
+Parte 3,12:22:18
+Checkbox Selected: convierte su argumento en una cadena,12:22:22
+Parte 4,12:22:22
+Checkbox Selected: 3,12:22:24
+Parte 5,12:22:24
+Correct Drop Event: range,12:22:37
+Correct Drop Event: (,12:22:37
+Correct Drop Event: ),12:22:37
+
+Parte 1,12:53:47
+Checkbox Selected: True,12:53:50
+Parte 2,12:53:51
+Correct Drop Event: print,12:53:56
+Correct Drop Event: 42,12:53:56
+Parte 3,12:53:56
+Checkbox Selected: convierte su argumento en una cadena,12:53:59
+Parte 4,12:54:00
+Checkbox Selected: 3,12:54:04
+Parte 5,12:54:04
+Correct Drop Event: range,12:54:12
+Correct Drop Event: (,12:54:12
+Correct Drop Event: ),12:54:12
+

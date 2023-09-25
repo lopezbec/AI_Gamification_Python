@@ -474,11 +474,11 @@ class MainWindow(QWidget):
         log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
 
         # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('LESSON_1_Booleans_and_Comparisons'):
-            os.makedirs('LESSON_1_Booleans_and_Comparisons')
+        if not os.path.exists('LESSON_1_Lists'):
+            os.makedirs('LESSON_1_Lists')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('LESSON_1_Booleans_and_Comparisons', filename)
+        filepath = os.path.join('LESSON_1_Lists', filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)

@@ -1,7 +1,7 @@
 {
     "pedagogical": [ 
         {
-            "title": "La practica hace la perfeccion!",
+            "title": "La practica hace la perfección!",
             "blocks": [
                 {
                     "type": "info",
@@ -9,13 +9,13 @@
                 },
                 {
                     "type": "requerimiento",
-                    "text": "Área de un rectángulo - Calcula el área del rectángulo a través de los árgumentos de la función."
+                    "text": "Área de un rectángulo - Calcula el área del rectángulo a través de los argumentos de la función."
                 }
             ]
         }
     ],
 
-    "question": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [

@@ -15,9 +15,11 @@
         }
     ],
     
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -25,40 +27,33 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n_____ even(x)_____\n\n\tif(x%2) == 0:\n\t\t_____(\"Si\")\n\t______:\n\nprint(\"No\")"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ even(x)___\n\tif(x%2) == 0:\n\t\t___(\"Si\")\n\t___:\n\nprint(\"No\")"
                 }
             ],
             "answers": [
                 {
-                    "text": ":",
-                    "correct": true
+                    "text": ":"
                 },
                 {
-                    "text": "def",
-                    "correct": true
+                    "text": "def"
                 },
                 {
-                    "text": "print",
-                    "correct": true
+                    "text": "print"
                 },
                 {
-                    "text": "if",
-                    "correct": false
+                    "text": "if"
                 },
                 {
-                    "text": "elif",
-                    "correct": false
+                    "text": "elif"
                 },
                 {
-                    "text": "else",
-                    "correct": true
+                    "text": "else"
                 },
                 {
-                    "text": "for",
-                    "correct": false
+                    "text": "for"
                 }
-
-            ]
+            ],
+            "correctOrder": ["def", ":", "print", "else"]
         }
     ]
 }

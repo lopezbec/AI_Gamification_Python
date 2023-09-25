@@ -15,9 +15,11 @@
         }
     ],
 
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -25,27 +27,24 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef cadena_mas_corta(x, y):\n\n\tif len(x) <= _____ (y):\n\n\t\t_____ x\n\n\telse:\n\n\t\treturn ______"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef cadenaMasCorta(x, y):\n\tif len(x) <= ___ (y):\n\t\t___ x\n\telse:\n\t\treturn ___"
                 }
             ],
             "answers": [
                 {
-                    "text": ":",
-                    "correct": false
+                    "text": ":"
                 },
                 {
-                    "text": "len",
-                    "correct": true
+                    "text": "len"
                 },
                 {
-                    "text": "y",
-                    "correct": true
+                    "text": "y"
                 },
                 {
-                    "text": "return",
-                    "correct": true
+                    "text": "return"
                 }
-            ]
+            ],
+            "correctOrder": ["len", "return", "y"]
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
     "pedagogical": [
         {
-            "title": "Break",
+            "title": "Break.",
             "blocks": [
                 {
                     "type": "info",
@@ -19,7 +19,7 @@
     
     "completeblankspace": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "Selecciona la respuesta correcta.",
             "blocks": [
                 {
                     "type": "info",

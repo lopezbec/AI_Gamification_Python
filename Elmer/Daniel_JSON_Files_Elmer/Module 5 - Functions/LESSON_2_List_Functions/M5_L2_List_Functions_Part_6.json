@@ -5,18 +5,17 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "max(lista) : Devuelve el valor máximo.\nmin(lista) : Devuelve el valor mínimo."
+                    "text": "max(lista) : Devuelve el valor máximo. min(lista) : Devuelve el valor mínimo."
                 },
                 {
                     "type": "Consola",
                     "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [1, 8, 42, 3]\n\nprint(min(x))\nprint(max(x))"
                 }
-
             ]
         }
     ],
 
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [

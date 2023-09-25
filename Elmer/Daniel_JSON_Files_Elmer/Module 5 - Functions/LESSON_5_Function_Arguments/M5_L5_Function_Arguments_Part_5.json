@@ -1,7 +1,7 @@
 {
     "pedagogical": [ 
         {
-            "title": "La practica hace la perfeccion!",
+            "title": "La practica hace la perfección!",
             "blocks": [
                 {
                     "type": "info",
@@ -15,7 +15,7 @@
         }
     ],
 
-    "question": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [

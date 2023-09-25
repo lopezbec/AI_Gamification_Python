@@ -22,7 +22,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Tu amigo te envió un mensaje, sin embargo, su teclado está roto y\nescribe un # en lugar de un espacio.\n\nReemplace todos los caracteres # en la entrada dada con espacios y\ngenere el resultado."
+                    "text": "Tu amigo te envió un mensaje, sin embargo, su teclado está roto y escribe un # en lugar de un espacio.\n\nReemplace todos los caracteres # en la entrada dada con espacios y genere el resultado."
                 },
                 {
                     "type": "hint",
@@ -30,7 +30,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nmsg = input()\n\nconvertir = msg.replace('#',' ')\n\nprint(convertir)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nmsg = input()\nconvertir = msg.replace('#',' ')\nprint(convertir)"
                 }
             ]
         }

@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Las cadenas tienen una función format() , que permite incrustar valores en ellas,\nutilizando marcadores de posición.\n\nEjemplo:"
+                    "text": "Las cadenas tienen una función format() , que permite incrustar valores en ellas, utilizando marcadores de posición.\n\nEjemplo:"
                 },
                 {
                     "type": "Consola",
@@ -13,14 +13,13 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Cada argumento de la función de formato se coloca en la cadena en\nla posición correspondiente, que se determina mediante llaves { }."
+                    "text": "Cada argumento de la función de formato se coloca en la cadena en la posición correspondiente, que se determina mediante llaves { }."
                 }
-
             ]
         }
     ],
 
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -35,12 +34,12 @@
             ],
             "answers": [
                 {
-                    "text": "abracadabra",
-                    "correct": true
-                },
-                {
                     "text": "abra",
                     "correct": false
+                },
+                {
+                    "text": "abracadabra",
+                    "correct": true
                 },
                 {
                     "text": "cadabra",

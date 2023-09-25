@@ -15,12 +15,11 @@
                     "type": "hint",
                     "text": "¡Ejecute el código y vea cómo funciona!"
                 }
-
             ]
         }
     ],
 
-    "question": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -31,12 +30,12 @@
             ],
             "answers": [
                 {
-                    "text": "string",
-                    "correct": true
-                },
-                {
                     "text": "integer",
                     "correct": false
+                },
+                {
+                    "text": "string",
+                    "correct": true
                 },
                 {
                     "text": "list",

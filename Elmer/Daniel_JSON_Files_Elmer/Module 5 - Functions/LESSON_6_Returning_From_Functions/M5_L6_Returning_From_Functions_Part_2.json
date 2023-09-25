@@ -19,7 +19,7 @@
         }
     ],
     
-    "question": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -48,5 +48,4 @@
             ]
         }
     ]
-
 }

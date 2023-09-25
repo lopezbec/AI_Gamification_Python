@@ -1,0 +1,53 @@
+event,time
+Parte 1,13:40:03
+Checkbox Selected: abracadabra,13:40:06
+Parte 2,13:40:07
+"Checkbox Selected: 7, 9, 5",13:40:10
+Parte 3,13:40:10
+Checkbox Selected: string,13:40:13
+Parte 4,13:40:13
+Correct Drop Event: split,13:42:42
+Correct Drop Event: 1,13:42:42
+Correct Drop Event: print,13:42:42
+Parte 5,13:42:43
+Correct Drop Event: replace,13:42:59
+Correct Drop Event: !,13:42:59
+Correct Drop Event: .,13:42:59
+Parte 6,13:43:00
+Checkbox Selected: upper,13:43:32
+Parte 7,13:43:33
+Parte 8,13:44:31
+Checkbox Selected: o,13:45:36
+
+Parte 1,12:55:06
+Checkbox Selected: abracadabra,12:55:10
+Parte 2,12:55:10
+"Checkbox Selected: 7, 9, 5",12:55:14
+Parte 3,12:55:14
+Checkbox Selected: string,12:55:18
+Parte 4,12:55:19
+Correct Drop Event: split,12:55:32
+Correct Drop Event: 1,12:55:32
+Correct Drop Event: print,12:55:32
+Parte 5,12:55:33
+Incorrect Drop Event: replace,12:55:45
+Incorrect Drop Event: .,12:55:45
+Incorrect Drop Event: !,12:55:45
+Incorrect Drop Event: replace,12:55:52
+Incorrect Drop Event: .,12:55:52
+Incorrect Drop Event: !,12:55:52
+Incorrect Drop Event: replace,12:57:35
+Incorrect Drop Event: .,12:57:35
+Incorrect Drop Event: !,12:57:35
+Incorrect Drop Event: replace,12:57:45
+Incorrect Drop Event: .,12:57:45
+Incorrect Drop Event: !,12:57:45
+Correct Drop Event: replace,12:57:51
+Correct Drop Event: !,12:57:51
+Correct Drop Event: .,12:57:51
+Parte 6,12:57:52
+Checkbox Selected: upper,12:57:58
+Parte 7,12:57:59
+Parte 8,12:58:01
+Checkbox Selected: o,12:58:04
+

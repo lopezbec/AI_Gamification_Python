@@ -15,9 +15,11 @@
         }
     ],
     
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -25,27 +27,24 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n_____ print_mult(x, y)_____\n\n print(x*_____)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ print_mult(x, y)___\n print(x*___)"
                 }
             ],
             "answers": [
                 {
-                    "text": ":",
-                    "correct": true
+                    "text": ":"
                 },
                 {
-                    "text": "def",
-                    "correct": true
+                    "text": "def"
                 },
                 {
-                    "text": "z",
-                    "correct": false
+                    "text": "z"
                 },
                 {
-                    "text": "y",
-                    "correct": true
+                    "text": "y"
                 }
-            ]
+            ],
+            "correctOrder": ["def", ":", "y"]
         }
     ]
 }
