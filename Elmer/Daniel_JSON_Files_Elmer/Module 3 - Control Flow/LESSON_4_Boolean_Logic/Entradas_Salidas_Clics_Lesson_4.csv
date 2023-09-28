@@ -1,32 +1,20 @@
 event,time
-Parte 1,22:00:30
-Checkbox Selected: false,22:01:02
-Checkbox Selected: true,22:01:07
-Parte 2,22:01:08
-Correct Drop Event: or,22:03:43
-Correct Drop Event: print,22:03:43
-Parte 3,22:03:44
-Incorrect Drop Event: day,22:04:32
-Correct Drop Event: 20,22:05:02
-Correct Drop Event: or,22:05:02
-Correct Drop Event: day,22:05:02
-Parte 4,22:05:03
-Checkbox Selected: 3,22:05:12
-Checkbox Selected: 2,22:05:16
-Parte 5,22:05:17
-Checkbox Selected: False,22:05:21
-Checkbox Selected: True,22:05:24
-Parte 6,22:05:25
-Checkbox Selected: 6,22:05:29
-Checkbox Selected: 6,22:05:29
-Checkbox Selected: 1,22:05:32
-Checkbox Selected: 1,22:05:33
-Checkbox Selected: 4,22:05:36
-Parte 7,22:05:36
-Parte 8,22:05:41
-Checkbox Selected: 8,22:05:44
-Checkbox Selected: 4,22:05:47
-Checkbox Selected: 4,22:05:48
-Checkbox Selected: 2,22:05:50
-Checkbox Selected: 6,22:05:53
+Parte 1,18:16:00
+Checkbox Selected: true,18:17:07
+Parte 2,18:17:07
+Correct Drop Event: or,18:17:54
+Correct Drop Event: print,18:17:54
+Parte 3,18:17:54
+Correct Drop Event: 20,18:18:34
+Correct Drop Event: or,18:18:34
+Correct Drop Event: day,18:18:34
+Parte 4,18:18:34
+Checkbox Selected: 2,19:05:26
+Parte 5,19:05:27
+Checkbox Selected: True,19:06:17
+Parte 6,19:06:18
+Checkbox Selected: 4,19:06:53
+Parte 7,19:06:53
+Parte 8,19:06:56
+Checkbox Selected: 6,19:07:03
 
