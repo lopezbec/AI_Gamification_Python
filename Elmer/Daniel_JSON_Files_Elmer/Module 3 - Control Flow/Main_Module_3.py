@@ -10,6 +10,7 @@ from LESSON_1_Booleans_and_Comparisons.Main_Lesson_1 import main_lesson_1 as ml1
 from LESSON_2_If_Statements.Main_Lesson_2 import main_lesson_2 as ml2
 from LESSON_3_Else_Statements.Main_Lesson_3 import main_lesson_3 as ml3
 from LESSON_4_Boolean_Logic.Main_Lesson_4 import main_lesson_4 as ml4
+from LESSON_5_while_Loops.Main_Lesson_5 import main_lesson_5 as ml5
 
 
 class Leccion:
@@ -139,10 +140,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones.append(Leccion("Lección 2", self.abrir_leccion2, lecciones_menu, self.lecciones[0]))
         self.lecciones.append(Leccion("Lección 3", self.abrir_leccion3, lecciones_menu, self.lecciones[1]))
         self.lecciones.append(Leccion("Lección 4", self.abrir_leccion4, lecciones_menu, self.lecciones[2]))
+        self.lecciones.append(Leccion("Lección 5", self.abrir_leccion5, lecciones_menu, self.lecciones[3]))
 
         self.lecciones[0].proxima_leccion = self.lecciones[1]
         self.lecciones[1].proxima_leccion = self.lecciones[2]
         self.lecciones[2].proxima_leccion = self.lecciones[3]
+        self.lecciones[3].proxima_leccion = self.lecciones[4]
 
         self.curso = Curso(self.lecciones)
 
@@ -188,6 +191,14 @@ class MainWindow(QtWidgets.QMainWindow):
             return self.lesson4_window  # Retorna la ventana de la lección
         except Exception as e:
             print(f"Error al abrir la lección 4: {e}")
+
+    def abrir_leccion5(self):
+        try:
+            self.lesson5_window = ml5()
+            self.lesson5_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+            return self.lesson5_window  # Retorna la ventana de la lección
+        except Exception as e:
+            print(f"Error al abrir la lección 5: {e}")
 
     def abrir_guia_usuario(self):
         dialog = UserGuideDialog(self)
