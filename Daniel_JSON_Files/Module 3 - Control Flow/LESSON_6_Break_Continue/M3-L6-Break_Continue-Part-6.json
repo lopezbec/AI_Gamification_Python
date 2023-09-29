@@ -2,7 +2,7 @@
 
     "question": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "Selecciona la respuesta correcta.",
             "blocks": [
                 {
                     "type": "info",

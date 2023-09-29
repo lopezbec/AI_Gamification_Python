@@ -42,21 +42,5 @@
             ],
             "correctOrder": ["x","=","int(","input())","y","=","int(","input())","print(","x","+","y",")"]
         }
-    ],
-
-    "pedagogical": [
-        {
-            "title": "Entradas múltiples",
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Lo último que hay que mencionar es que puede usar input() varias veces para tomar\nvarias entradas de usuario.\n \nPor ejemplo:"
-                },
-                {
-                    "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nname = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
-                }
-            ]
-        }
     ]
 }

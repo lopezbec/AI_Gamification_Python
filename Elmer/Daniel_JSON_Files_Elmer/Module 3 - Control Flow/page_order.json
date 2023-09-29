@@ -331,6 +331,101 @@
                     "json_number": 8
                 }
             ]
+        },
+        {
+            "lesson_number": 5,
+            "pages": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_1.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_1.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 1
+                },
+               {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_2.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_2.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 2
+                },
+                 {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_3.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_3.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_4.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_4.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 4
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_5.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_5.json",
+                    "page_type": "CompleteBlankSpace",
+                    "json_number": 5
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_6.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_6.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 6
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_7.json",
+                    "page_type": "Pedagogical",
+                    "json_number": 7
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_7.json",
+                    "page_type": "Practica",
+                    "json_number": 7
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_L5_while_Loops_Part_8.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 8
+                }
+            ]
         }
     ]
 }
