@@ -347,6 +347,7 @@ class MainWindow(QWidget):
         self.last_page_number = None
         self.leaderboard_button = None
         self.python_console_widget = None
+        self.setWindowTitle("Aprendiendo Python - Lección 1")
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = lesson_number
         self.log_data = []

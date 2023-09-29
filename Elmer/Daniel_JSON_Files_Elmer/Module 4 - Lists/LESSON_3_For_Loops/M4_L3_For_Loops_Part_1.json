@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Hemos aprendido sobre el bucle while en las lecciones anteriores. Ahora es el momento\nde aprender sobre el bucle for .\n\nEl ciclo for se usa para iterar sobre una secuencia determinada, como listas o cadenas.\n\nEl siguiente código genera cada elemento de la lista y agrega un signo de exclamación al\nfinal:"
+                    "text": "Hemos aprendido sobre el bucle while en las lecciones anteriores. Ahora es el momento de aprender sobre el bucle for .El ciclo for se usa para iterar sobre una secuencia determinada, como listas o cadenas. \n\nEl siguiente código genera cada elemento de la lista y agrega un signo de exclamación al final:"
                 },
                 {
                     "type": "Consola",
@@ -18,6 +18,8 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
@@ -25,27 +27,24 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletras = ['a', 'b', 'c']\n____ x ____ letters ____ \n   print(x)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletras = ['a', 'b', 'c']\n___ x ___ letters ___ \n   print(x)"
                 }
             ],
             "answers": [
                 {
-                    "text": "for",
-                    "correct": true
+                    "text": "in"
                 },
                 {
-                    "text": "in",
-                    "correct": true
+                    "text": ":"
                 },
                 {
-                    "text": "x",
-                    "correct": true
+                    "text": "if"
                 },
                 {
-                    "text": "if",
-                    "correct": false
+                    "text": "for"
                 }
-            ]
+            ],
+            "correctOrder": ["for", "in", ":"]
         }
     ]
 }

@@ -100,7 +100,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.styles = self.load_styles("styles.json")
 
-        self.setWindowTitle("Mi Aplicación")
+        self.setWindowTitle("Menú - Módulo 4")
         self.setGeometry(100, 100, 800, 600)
 
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']};")

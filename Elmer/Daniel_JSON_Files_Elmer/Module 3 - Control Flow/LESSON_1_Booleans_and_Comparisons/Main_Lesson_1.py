@@ -366,6 +366,7 @@ class MainWindow(QWidget):
         self.leaderboard_button = None
         self.python_console_widget = None
         self.lesson_number = lesson_number
+        self.setWindowTitle("Aprendiendo Python - Lección 1")
         self.styles = JsonLoader.load_json_styles()
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
         self.init_ui()
