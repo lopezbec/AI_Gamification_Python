@@ -61,7 +61,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L1_Functions_Part_5.json",
                     "page_type": "DragAndDrop",
-                    "json_number": 5
+                    "json_number": 5,
+                    "lesson_completed": true
                 }
             ]
         },
@@ -168,7 +169,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L2_List_Functions_Part_9.json",
                     "page_type": "MultipleChoice",
-                    "json_number": 9
+                    "json_number": 9,
+                    "lesson_completed": true
                 }
             ]
         },
@@ -263,7 +265,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L3_String_Functions_Part_8.json",
                     "page_type": "MultipleChoice",
-                    "json_number": 8
+                    "json_number": 8,
+                    "lesson_completed": true
                 }
             ]
         },
@@ -334,7 +337,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L4_String_Making_Your_Part_6.json",
                     "page_type": "MultipleChoice",
-                    "json_number": 6
+                    "json_number": 6,
+                    "lesson_completed": true
                 }
             ]
         },
@@ -399,7 +403,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L5_Function_Arguments_Part_5.json",
                     "page_type": "MultipleChoice",
-                    "json_number": 5
+                    "json_number": 5,
+                    "lesson_completed": true
                 }
             ]
         },
@@ -476,7 +481,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L6_Returning_From_Functions_Part_6.json",
                     "page_type": "MultipleChoice",
-                    "json_number": 6
+                    "json_number": 6,
+                    "lesson_completed": true
                 }
             ]
         },
@@ -529,7 +535,8 @@
                     "type": "JsonWindow",
                     "filename": "M5_L7_Comments_and_Docstrings_Part_4.json",
                     "page_type": "DragAndDrop",
-                    "json_number": 4
+                    "json_number": 4,
+                    "lesson_completed": true
                 }
             ]
         }

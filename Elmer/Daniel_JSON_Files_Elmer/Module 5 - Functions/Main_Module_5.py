@@ -3,6 +3,7 @@ import os
 import json
 
 from pathlib import Path
+from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
@@ -234,6 +235,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 if __name__ == "__main__":
+
     app = QApplication(sys.argv)
     mainWin = MainWindow()
     mainWin.showMaximized()

@@ -33,7 +33,7 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, XP_Ganados):
+    def __init__(self, filename, page_type, json_number, XP_Ganados, lesson_completed):
         super().__init__()
 
         self.data = None
@@ -48,10 +48,11 @@ class JsonWindow(QWidget):
         self.current_text_state = None
         self.leaderboard_button = None
         self.original_hint_text = None
-        self.XP_Ganados = XP_Ganados
         self.filename = filename
-        self.feedback_label = QLabel(self)
         self.page_type = page_type
+        self.XP_Ganados = XP_Ganados
+        self.feedback_label = QLabel(self)
+        self.lesson_completed = lesson_completed
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
@@ -115,8 +116,7 @@ class JsonWindow(QWidget):
             self.create_pedagogical_layout()
 
         else:
-            print(
-                "Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
+            print("Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
 
         # Establecer el layout en el QWidget
         self.setWindowTitle('JsonWindow')
@@ -366,8 +366,10 @@ class MainWindow(QWidget):
         self.leaderboard_button = None
         self.python_console_widget = None
         self.lesson_number = lesson_number
+        self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.setWindowTitle("Aprendiendo Python - Lección 1")
+
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
         self.init_ui()
 
@@ -378,7 +380,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados)
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados, page.get("lesson_completed", False))
                 self.stacked_widget.addWidget(json_window)
 
         self.log_part_change()
@@ -418,6 +420,9 @@ class MainWindow(QWidget):
 
         self.setLayout(self.layout)
         self.showMaximized()
+
+    def lesson_completed(self):
+        return True
 
     def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
         current_widget = self.stacked_widget.currentWidget()
@@ -671,6 +676,11 @@ class MainWindow(QWidget):
         self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
+        current_widget = self.stacked_widget.currentWidget()
+        if hasattr(current_widget, "lesson_completed"):
+            self.lesson_finished_successfully = True
+
+
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
             self.progress_bar.increment_page()
@@ -685,11 +695,17 @@ class MainWindow(QWidget):
                 self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
             else:
                 self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
-        else:
+        elif not next_index < self.stacked_widget.count():
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.close()
+        # ...
+        else:
+            print("¡La leccion no se completó, se cerró!.")
+            self.close()
+
         self.current_page += 1  # Incrementar el número de la página actual
 
 
