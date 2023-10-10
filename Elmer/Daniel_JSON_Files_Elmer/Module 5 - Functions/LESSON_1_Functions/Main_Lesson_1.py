@@ -21,7 +21,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLa
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('LESSON_1_Functions/' + filename, encoding='UTF-8') as json_file:
+        with open(filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -232,6 +232,7 @@ class JsonWindow(QWidget):
         self.createResetBottom()
 
     def create_drag_and_drop_layout(self):
+        print("Entrando a create_drag_and_drop_layout")
         drop_labels = {}
         data_block = self.data[self.page_type.lower()][0]
 
@@ -246,8 +247,7 @@ class JsonWindow(QWidget):
                     multiple_drops = False
 
                 if block_type == "Consola":
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
@@ -282,13 +282,23 @@ class JsonWindow(QWidget):
 
         self.layout.addLayout(draggable_labels_layout)
         self.createResetBottom()
+        print("Saliendo de create_drag_and_drop_layout")
 
     def reset_button(self):
+        print("Entrando a reset_button")
         # Remove all current widgets from the layout
         while self.layout.count():
-            child = self.layout.takeAt(0)
+            child = self.layout.takeAt(self.layout.count() - 1)
             if child.widget():
                 child.widget().deleteLater()
+            elif child.layout():
+                # Optional: If you have nested layouts, you may need to recursively delete their contents as well.
+                while child.layout().count():
+                    subchild = child.layout().takeAt(child.layout().count() - 1)
+                    if subchild.widget():
+                        subchild.widget().deleteLater()
+
+        print("Número de widgets después de eliminar:", self.layout.count())
 
         # Add the puntos and leaderboard_button widgets back to the layout
         hlayout = QHBoxLayout()
@@ -313,6 +323,7 @@ class JsonWindow(QWidget):
             self.create_pedagogical_layout()
 
         self.create_feedback_label()
+        print("Saliendo de reset_button")
 
     def create_practice_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
@@ -680,7 +691,6 @@ class MainWindow(QWidget):
         if hasattr(current_widget, "lesson_completed"):
             self.lesson_finished_successfully = True
 
-
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
             self.progress_bar.increment_page()
@@ -709,7 +719,11 @@ class MainWindow(QWidget):
         self.current_page += 1  # Incrementar el número de la página actual
 
 
-def main_lesson_1():
-    main_window = MainWindow(lesson_number=1)
-    main_window.show()
-    return main_window
+def main():
+    app = QApplication(sys.argv) # Crear una instancia de QApplication
+    main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
+    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
+
+
+if __name__ == '__main__':
+    main() # Llamar a la función principal si el script se ejecuta como el programa principal
