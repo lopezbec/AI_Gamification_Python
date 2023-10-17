@@ -471,6 +471,19 @@ class MainWindow(QWidget):
                 return lesson["pages"]
 
         raise ValueError(f"Lesson {self.lesson_number} not found in page_order.json")
+    
+
+    def count_pages_per_lesson(self, json_file_path):
+        with open(json_file_path, 'r') as json_file:
+            data = json.load(json_file)
+            lessons = data.get('lessons', [])
+
+            for lesson in lessons:
+                lesson_number = lesson.get('lesson_number', None)
+                pages = lesson.get('pages', [])
+                page_count = len(pages)
+                return lesson_number, page_count
+    
 
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
@@ -678,3 +691,4 @@ def main_lesson_1():
     main_window = MainWindow(lesson_number=1)
     main_window.showMaximized()
     return main_window
+ 
