@@ -30,13 +30,14 @@
             ],
             "answers": [
                 {
-                    "text": "integer",
-                    "correct": false
-                },
-                {
                     "text": "string",
                     "correct": true
                 },
+                {
+                    "text": "integer",
+                    "correct": false
+                },
+
                 {
                     "text": "list",
                     "correct": false

@@ -30,16 +30,16 @@
             ],
             "answers": [
                 {
-                    "text": "2",
-                    "correct": true
-                },
-                {
                     "text": "3",
                     "correct": false
                 },
                 {
                     "text": "1",
                     "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
                 }
             ]
         }

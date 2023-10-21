@@ -37,10 +37,7 @@
                     "text": "5",
                     "correct": false
                 },
-                {
-                    "text": "7",
-                    "correct": true
-                },
+
                 {
                     "text": "8",
                     "correct": false
@@ -48,6 +45,10 @@
                 {
                     "text": "2",
                     "correct": false
+                },
+                {
+                    "text": "7",
+                    "correct": true
                 }
             ]
         }

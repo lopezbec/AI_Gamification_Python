@@ -35,7 +35,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Fantastico! Has completado la leccion. Has aprendido que:\nEl comando input() se usa para hacer que sus programas interactúen con el usuario.\nEl comando input() siempre devuelve una cadena, incluso si el usuario ingresa un\nPuede personalizar el mensaje que desea que el usuario vea cuando se necesita una entrada"
+                    "text": "Fantastico! Has completado la leccion. Has aprendido que: El comando input() se usa para hacer que sus programas interactúen con el usuario. El comando input() siempre devuelve una cadena, incluso si el usuario ingresa un\nPuede personalizar el mensaje que desea que el usuario vea cuando se necesita una entrada"
                 },
                 {
                     "type": "hint",

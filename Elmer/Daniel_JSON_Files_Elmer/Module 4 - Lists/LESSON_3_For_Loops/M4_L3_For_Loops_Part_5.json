@@ -11,7 +11,6 @@
                     "type": "hint",
                     "text": "Si bien los bucles for y while se pueden usar para lograr los mismos\nresultados, el bucle for tiene una sintaxis más limpia y corta, lo que lo\nconvierte en una mejor opción en la mayoría de los casos."
                 }
-
             ]
         }
     ],
@@ -27,16 +26,16 @@
             ],
             "answers": [
                 {
-                    "text": "Bucles",
-                    "correct": true
-                },
-                {
                     "text": "Declaraciones if",
                     "correct": false
                 },
                 {
                     "text": "Asignación de variables",
                     "correct": false
+                },
+                {
+                    "text": "Bucles",
+                    "correct": true
                 }
             ]
         }

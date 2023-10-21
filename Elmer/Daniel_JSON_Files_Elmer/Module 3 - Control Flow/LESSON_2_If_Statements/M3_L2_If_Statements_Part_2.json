@@ -26,16 +26,16 @@
             ],
             "answers": [
                 {
-                    "text": "Las declaraciones dentro de ella",
-                    "correct": true
-                },
-                {
                     "text": "None",
                     "correct": false
                 },
                 {
                     "text": "la primera línea",
                     "correct": false
+                },
+                {
+                    "text": "Las declaraciones dentro de ella",
+                    "correct": true
                 }
             ]
         }

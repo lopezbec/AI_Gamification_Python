@@ -33,11 +33,10 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, XP_Ganados):
+    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
         super().__init__()
 
         self.data = None
-        self.puntos = None
         self.layout = None
         self.hint_label = None
         self.progress_bar = None
@@ -48,10 +47,14 @@ class JsonWindow(QWidget):
         self.current_text_state = None
         self.leaderboard_button = None
         self.original_hint_text = None
-        self.XP_Ganados = XP_Ganados
+        self.main_window = main_window
+        self.puntos = QLabel()
+        self.update_points_display(self.main_window.XP_Ganados)
         self.filename = filename
-        self.feedback_label = QLabel(self)
         self.page_type = page_type
+        self.XP_Ganados = xp_ganados
+        self.feedback_label = QLabel(self)
+        self.lesson_completed = lesson_completed
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
@@ -125,16 +128,25 @@ class JsonWindow(QWidget):
     def get_current_hint_text(self):
         return self.hint_label.text()
 
-    def get_lesson_number(self, filename):
+    @staticmethod
+    def get_lesson_number(filename):
         base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
         lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
         return int(lesson_number)  # Convierte el número de lecciones a un entero
 
     def update_points(self, new_points):
-        self.XP_Ganados = new_points
-        self.puntos.setText(f"XP ganados: {self.XP_Ganados}")
+        if self.main_window is not None:
+            self.main_window.update_xp(new_points)
 
-    def abrir_leaderboard(self):
+    def update_points_display(self, new_points):
+        self.puntos.setText(f"XP ganados: {new_points}")
+
+    def showEvent(self, event):
+        super().showEvent(event)
+        self.update_points_display(self.main_window.XP_Ganados)
+
+    @staticmethod
+    def abrir_leaderboard():
         LeaderBoard()
 
     def title(self):
@@ -352,9 +364,11 @@ class MainWindow(QWidget):
         self.total_pages = 0
         self.completed = None
         self.current_page = 0
+        self.json_windows = []
         self.time_log_data = []
         self.mouse_log_data = []
         self.current_part = None
+        self.controlador = False
         self.button_layout = None
         self.submit_button = None
         self.stacked_widget = None
@@ -366,8 +380,9 @@ class MainWindow(QWidget):
         self.leaderboard_button = None
         self.python_console_widget = None
         self.lesson_number = lesson_number
-        self.setWindowTitle("Aprendiendo Python - Lección 1")
+        self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
+        self.setWindowTitle("Aprendiendo Python - Lección 1")
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
         self.init_ui()
 
@@ -378,7 +393,9 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados)
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
+                                         page.get("lesson_completed", False), main_window=self)
+                self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
         self.log_part_change()
@@ -419,24 +436,57 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
         self.showMaximized()
 
+    def update_xp(self, new_points):
+        self.XP_Ganados += new_points
+        for window in self.json_windows:
+            window.update_points_display(self.XP_Ganados)
+
+    @staticmethod
+    def lesson_completed():
+        return True
+
     def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
         current_widget = self.stacked_widget.currentWidget()
 
         if NoSeleciona:
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
-            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         elif Correcto:
-            self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
+            # Incrementa el XP en 2 puntos cuando la respuesta es acertada en el primer intento y tiene 0 xp (0 XP significa primera página con pregunta)
+            if self.current_xp == 0 and not self.controlador:
+                self.current_xp = 2
+            # Incrementa el XP en 1 punto cuando la respuesta es correcta en el segundo o más intentos y tiene 0 xp (0 XP significa primera página con pregunta)
+            elif self.current_xp == 0 and self.controlador:
+                self.current_xp = 1
+                self.controlador = False
+            # Disminuye el XP de 2 puntos a 1 punto cuando la primera respuesta fue acertada en el primer intento y ahora en el segundo o más intentos.
+            elif self.current_xp == 2 and self.controlador:
+                self.current_xp = 1
+                self.controlador = False
+            # Aumenta el XP de 1 punto a 2 puntos cuando la primera respuesta fue acertada en el segundo o más intentos y ahora en el primero
+            elif self.current_xp == 1 and not self.controlador:
+                self.current_xp = 2
+
+            if self.current_xp == 2:
+                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 2 puntos.")
+            else:
+                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
+
             current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
-            current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
-            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(
+                f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
         elif Incorrecto:
+            self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
-            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         else:
+            self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
-            current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            current_widget.feedback_label.setStyleSheet(
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
@@ -668,28 +718,47 @@ class MainWindow(QWidget):
 
     def switch_page(self):
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(
+            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
         next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
+
+        current_widget = self.stacked_widget.currentWidget()
+        if hasattr(current_widget, "lesson_completed"):
+            self.lesson_finished_successfully = True
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
+            # Antes de cambiar de página, añadimos un punto y log para debug.
+            self.XP_Ganados += 1
             self.progress_bar.increment_page()
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.log_event(
+                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True, False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+                self.SubmitHideContinueShow(True,
+                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False, True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False,
+                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
             else:
-                self.SubmitHideContinueShow(False, False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False,
+                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
-        else:
+        elif not next_index < self.stacked_widget.count():
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
+            self.XP_Ganados += 5  # 5 puntos por terminar la lección.
+            print(f"Page switched. Total XP: {self.XP_Ganados}")
             self.close()
+
+        else:
+            print("¡La leccion no se completó, se cerró!.")
+            self.close()
+
         self.current_page += 1  # Incrementar el número de la página actual
 
 

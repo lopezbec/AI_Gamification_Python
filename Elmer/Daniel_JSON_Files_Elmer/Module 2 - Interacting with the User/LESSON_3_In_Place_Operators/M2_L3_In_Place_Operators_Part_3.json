@@ -30,12 +30,12 @@
             ],
             "answers": [
                 {
-                    "text": "aaa",
-                    "correct": true
-                },
-                {
                     "text": "a3",
                     "correct": false
+                },
+                {
+                    "text": "aaa",
+                    "correct": true
                 },
                 {
                     "text": "3",

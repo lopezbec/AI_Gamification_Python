@@ -30,12 +30,12 @@
             ],
             "answers": [
                 {
-                    "text": "4",
-                    "correct": true
-                },
-                {
                     "text": "6",
                     "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": true
                 },
                 {
                     "text": "1",

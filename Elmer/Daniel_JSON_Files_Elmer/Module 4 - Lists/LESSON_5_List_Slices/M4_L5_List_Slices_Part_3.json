@@ -11,7 +11,6 @@
                     "type": "Consola",
                     "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[7:])"
                 }
-
             ]
         }
     ],
@@ -31,16 +30,16 @@
             ],
             "answers": [
                 {
-                    "text": "5",
-                    "correct": true
-                },
-                {
                     "text": "2",
                     "correct": false
                 },
                 {
                     "text": "8",
                     "correct": false
+                },
+                {
+                    "text": "5",
+                    "correct": true
                 }
             ]
         }

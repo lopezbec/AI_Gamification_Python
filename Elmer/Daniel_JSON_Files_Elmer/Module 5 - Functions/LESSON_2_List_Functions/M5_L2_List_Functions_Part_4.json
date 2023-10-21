@@ -34,16 +34,16 @@
             ],
             "answers": [
                 {
-                    "text": "7",
-                    "correct": true
-                },
-                {
                     "text": "2",
                     "correct": false
                 },
                 {
                     "text": "1",
                     "correct": false
+                },
+                {
+                    "text": "7",
+                    "correct": true
                 }
             ]
         }

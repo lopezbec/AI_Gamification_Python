@@ -30,12 +30,12 @@
             ],
             "answers": [
                 {
-                    "text": "if",
-                    "correct": true
-                },
-                {
                     "text": "None",
                     "correct": false
+                },
+                {
+                    "text": "if",
+                    "correct": true
                 },
                 {
                     "text": "3",

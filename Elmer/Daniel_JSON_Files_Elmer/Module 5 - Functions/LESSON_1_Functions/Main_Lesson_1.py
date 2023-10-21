@@ -6,22 +6,19 @@ import json
 import datetime
 import drag_drop
 
-from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtCore import Qt, QMimeData
-from qtconsole.manager import QtKernelManager
-from custom_console import CustomPythonConsole
+from PyQt6.QtGui import QFont
+from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, \
+    QRadioButton, QButtonGroup, QCheckBox
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open(filename, encoding='UTF-8') as json_file:
+        with open('LESSON_1_Functions/' + filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -33,29 +30,31 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, XP_Ganados, lesson_completed):
+    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
         super().__init__()
 
         self.data = None
-        self.puntos = None
         self.layout = None
         self.hint_label = None
+        self.puntos = QLabel()
         self.progress_bar = None
         self.button_group = None
+        self.filename = filename
         self.radio_buttons = None
+        self.page_type = page_type
         self.button_widgets = None
+        self.XP_Ganados = xp_ganados
         self.blank_space_index = None
         self.current_text_state = None
         self.leaderboard_button = None
         self.original_hint_text = None
-        self.filename = filename
-        self.page_type = page_type
-        self.XP_Ganados = XP_Ganados
+        self.json_number = json_number
+        self.main_window = main_window
         self.feedback_label = QLabel(self)
         self.lesson_completed = lesson_completed
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
-        self.json_number = json_number
+        self.update_points_display(self.main_window.XP_Ganados)
         self.init_ui()
 
     def init_ui(self):
@@ -116,7 +115,7 @@ class JsonWindow(QWidget):
             self.create_pedagogical_layout()
 
         else:
-            print("Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.")
+            print("""Lo siento no se encontró el tipo de página especificada, O el tipo de página que se especificó no se ha configurado su lógica todavía. Configurar la lógica y ponerla aquí.""")
 
         # Establecer el layout en el QWidget
         self.setWindowTitle('JsonWindow')
@@ -125,16 +124,25 @@ class JsonWindow(QWidget):
     def get_current_hint_text(self):
         return self.hint_label.text()
 
-    def get_lesson_number(self, filename):
+    @staticmethod
+    def get_lesson_number(filename):
         base = os.path.basename(filename)  # Obtén el nombre del archivo con la extensión
         lesson_number = os.path.splitext(base)[0][-1]  # Elimina la extensión y toma el último carácter
         return int(lesson_number)  # Convierte el número de lecciones a un entero
 
     def update_points(self, new_points):
-        self.XP_Ganados = new_points
-        self.puntos.setText(f"XP ganados: {self.XP_Ganados}")
+        if self.main_window is not None:
+            self.main_window.update_xp(new_points)
 
-    def abrir_leaderboard(self):
+    def update_points_display(self, new_points):
+        self.puntos.setText(f"XP ganados: {new_points}")
+
+    def showEvent(self, event):
+        super().showEvent(event)
+        self.update_points_display(self.main_window.XP_Ganados)
+
+    @staticmethod
+    def abrir_leaderboard():
         LeaderBoard()
 
     def title(self):
@@ -211,7 +219,6 @@ class JsonWindow(QWidget):
         answers_layout = QHBoxLayout()  # Nuevo layout horizontal para las respuestas
 
         for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
-            block_type = block["type"]
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
@@ -232,7 +239,6 @@ class JsonWindow(QWidget):
         self.createResetBottom()
 
     def create_drag_and_drop_layout(self):
-        print("Entrando a create_drag_and_drop_layout")
         drop_labels = {}
         data_block = self.data[self.page_type.lower()][0]
 
@@ -247,7 +253,8 @@ class JsonWindow(QWidget):
                     multiple_drops = False
 
                 if block_type == "Consola":
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
+                                                                  multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
@@ -262,7 +269,8 @@ class JsonWindow(QWidget):
 
                 if "correctValue" in block or "correctOrder" in data_block:
                     multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
+                                                                  multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 elif block_type == "Consola":
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
@@ -282,10 +290,8 @@ class JsonWindow(QWidget):
 
         self.layout.addLayout(draggable_labels_layout)
         self.createResetBottom()
-        print("Saliendo de create_drag_and_drop_layout")
 
     def reset_button(self):
-        print("Entrando a reset_button")
         # Remove all current widgets from the layout
         while self.layout.count():
             child = self.layout.takeAt(self.layout.count() - 1)
@@ -297,8 +303,6 @@ class JsonWindow(QWidget):
                     subchild = child.layout().takeAt(child.layout().count() - 1)
                     if subchild.widget():
                         subchild.widget().deleteLater()
-
-        print("Número de widgets después de eliminar:", self.layout.count())
 
         # Add the puntos and leaderboard_button widgets back to the layout
         hlayout = QHBoxLayout()
@@ -323,16 +327,17 @@ class JsonWindow(QWidget):
             self.create_pedagogical_layout()
 
         self.create_feedback_label()
-        print("Saliendo de reset_button")
 
     def create_practice_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
 
             if block["type"] == "hint":
-                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -342,9 +347,11 @@ class JsonWindow(QWidget):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
             if block["type"] == "hint":
-                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -363,9 +370,11 @@ class MainWindow(QWidget):
         self.total_pages = 0
         self.completed = None
         self.current_page = 0
+        self.json_windows = []
         self.time_log_data = []
         self.mouse_log_data = []
         self.current_part = None
+        self.controlador = False
         self.button_layout = None
         self.submit_button = None
         self.stacked_widget = None
@@ -391,7 +400,8 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados, page.get("lesson_completed", False))
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados, page.get("lesson_completed", False), main_window=self)
+                self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
         self.log_part_change()
@@ -432,7 +442,13 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
         self.showMaximized()
 
-    def lesson_completed(self):
+    def update_xp(self, new_points):
+        self.XP_Ganados += new_points
+        for window in self.json_windows:
+            window.update_points_display(self.XP_Ganados)
+
+    @staticmethod
+    def lesson_completed():
         return True
 
     def SubmitAnswers(self, NoSeleciona, Correcto, Incorrecto):
@@ -442,15 +458,35 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         elif Correcto:
-            self.current_xp += 1  # Incrementa el XP cuando la respuesta es correcta
+            # Incrementa el XP en 2 puntos cuando la respuesta es acertada en el primer intento y tiene 0 xp (0 XP significa primera página con pregunta)
+            if self.current_xp == 0 and not self.controlador:
+                self.current_xp = 2
+            # Incrementa el XP en 1 punto cuando la respuesta es correcta en el segundo o más intentos y tiene 0 xp (0 XP significa primera página con pregunta)
+            elif self.current_xp == 0 and self.controlador:
+                self.current_xp = 1
+                self.controlador = False
+            # Disminuye el XP de 2 puntos a 1 punto cuando la primera respuesta fue acertada en el primer intento y ahora en el segundo o más intentos.
+            elif self.current_xp == 2 and self.controlador:
+                self.current_xp = 1
+                self.controlador = False
+            # Aumenta el XP de 1 punto a 2 puntos cuando la primera respuesta fue acertada en el segundo o más intentos y ahora en el primero
+            elif self.current_xp == 1 and not self.controlador:
+                self.current_xp = 2
+
+            if self.current_xp == 2:
+                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 2 puntos.")
+            else:
+                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
+
             current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
-            current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
         elif Incorrecto:
+            self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
         else:
+            self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
             current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
@@ -620,7 +656,8 @@ class MainWindow(QWidget):
                                         correct_count += 1
                                         self.log_event(f"Correct Answer Selected: {dropped_answer}", event_type="mouse")
                                     else:
-                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}", event_type="mouse")
+                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}",
+                                                       event_type="mouse")
                         else:
                             if correct_value:
                                 if correct_value == dropped_text:
@@ -693,6 +730,8 @@ class MainWindow(QWidget):
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
+            # Antes de cambiar de página, añadimos un punto y log para debug.
+            self.XP_Ganados += 1
             self.progress_bar.increment_page()
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
@@ -710,8 +749,10 @@ class MainWindow(QWidget):
         elif not next_index < self.stacked_widget.count():
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
+            self.XP_Ganados += 5 # 5 puntos por terminar la lección.
+            print(f"Page switched. Total XP: {self.XP_Ganados}")
             self.close()
-        # ...
+
         else:
             print("¡La leccion no se completó, se cerró!.")
             self.close()
@@ -719,11 +760,7 @@ class MainWindow(QWidget):
         self.current_page += 1  # Incrementar el número de la página actual
 
 
-def main():
-    app = QApplication(sys.argv) # Crear una instancia de QApplication
-    main_window = MainWindow(lesson_number=1)  # Aquí puedes cambiar el número de lecciones que deseas cargar
-    sys.exit(app.exec()) # Ejecutar el bucle de eventos de la aplicación
-
-
-if __name__ == '__main__':
-    main() # Llamar a la función principal si el script se ejecuta como el programa principal
+def main_lesson_1():
+    main_window = MainWindow(lesson_number=1)
+    main_window.show()
+    return main_window

@@ -14,16 +14,16 @@
             ],
             "answers": [
                 {
-                    "text": "10",
-                    "correct": true
-                },
-                {
                     "text": "30",
                     "correct": false
                 },
                 {
                     "text": "20",
                     "correct": false
+                },
+                {
+                    "text": "10",
+                    "correct": true
                 },
                 {
                     "text": "0",

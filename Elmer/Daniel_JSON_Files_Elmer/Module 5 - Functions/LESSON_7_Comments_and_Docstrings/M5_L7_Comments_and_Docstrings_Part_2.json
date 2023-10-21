@@ -30,6 +30,10 @@
             ],
             "answers": [
                 {
+                    "text": "7",
+                    "correct": true
+                },
+                {
                     "text": "5",
                     "correct": false
                 },
@@ -37,10 +41,7 @@
                     "text": "6",
                     "correct": false
                 },
-                {
-                    "text": "7",
-                    "correct": true
-                },
+
                 {
                     "text": "8",
                     "correct": false

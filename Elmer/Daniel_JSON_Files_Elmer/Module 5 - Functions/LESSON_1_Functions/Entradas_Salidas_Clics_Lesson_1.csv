@@ -785,3 +785,37 @@ Correct Drop Event: range,16:52:43
 Correct Drop Event: (,16:52:43
 Correct Drop Event: ),16:52:43
 
+Parte 1,16:23:39
+Checkbox Selected: False,16:23:52
+Checkbox Selected: True,16:23:55
+Parte 2,16:23:56
+Correct Drop Event: print,16:23:59
+Correct Drop Event: 42,16:23:59
+Parte 3,16:24:00
+Checkbox Selected: convierte una lista de números en variables,16:24:03
+Checkbox Selected: convierte una lista de números en variables,16:24:03
+Checkbox Selected: convierte una lista de números en variables,16:24:04
+Checkbox Selected: convierte su argumento a un número entero,16:24:06
+Checkbox Selected: convierte su argumento en una cadena,16:24:08
+Parte 4,16:24:09
+Checkbox Selected: 3,16:24:12
+Parte 5,16:24:12
+Correct Drop Event: range,16:24:16
+Correct Drop Event: (,16:24:16
+Correct Drop Event: ),16:24:16
+
+Parte 1,11:15:12
+Checkbox Selected: True,11:15:15
+Parte 2,11:15:16
+Correct Drop Event: print,11:15:42
+Correct Drop Event: 42,11:15:42
+Parte 3,11:15:43
+Checkbox Selected: convierte una lista de números en variables,11:15:51
+Checkbox Selected: convierte su argumento en una cadena,11:15:53
+Parte 4,11:15:54
+Checkbox Selected: 3,11:15:57
+Parte 5,11:16:04
+Correct Drop Event: range,11:16:09
+Correct Drop Event: (,11:16:09
+Correct Drop Event: ),11:16:09
+

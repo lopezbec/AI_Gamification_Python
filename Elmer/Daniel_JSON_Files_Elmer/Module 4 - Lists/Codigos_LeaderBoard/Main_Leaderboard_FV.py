@@ -6,18 +6,6 @@ from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QMessageBox
 
 
-class UserGuideDialog(QtWidgets.QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Guía de Usuario")
-        self.setGeometry(100, 100, 800, 600)
-
-        layout = QtWidgets.QVBoxLayout(self)
-        label = QtWidgets.QLabel("Aquí va la guía de usuario...")
-        label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        layout.addWidget(label)
-
-
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()

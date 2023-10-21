@@ -11,15 +11,15 @@
             ],
             "answers": [
                 {
+                    "text": "'100'",
+                    "correct": true
+                },
+                {
                     "text": "9",
                     "correct": false
                 },
                 {
                     "text": "'Manzana'",
-                    "correct": true
-                },
-                {
-                    "text": "'100'",
                     "correct": true
                 }
             ]

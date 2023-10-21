@@ -26,12 +26,12 @@
             ],
             "answers": [
                 {
-                    "text": "elif",
-                    "correct": true
-                },
-                {
                     "text": "else",
                     "correct": false
+                },
+                {
+                    "text": "elif",
+                    "correct": true
                 }
             ]
         }

@@ -11,7 +11,6 @@
                     "type": "Consola",
                     "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumbers = list(range(10))\nprint(numbers)"
                 }
-
             ]
         }
     ],
@@ -31,12 +30,12 @@
             ],
             "answers": [
                 {
-                    "text": "4",
-                    "correct": true
-                },
-                {
                     "text": "2",
                     "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": true
                 },
                 {
                     "text": "8",

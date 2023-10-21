@@ -15,10 +15,10 @@
                     "type": "info",
                     "text": "Todo el mundo puede aprender a programar con Sololearn."
                 }
-
             ]
         }
     ],
+
     "pedagogical2": [
         {
             "title": "Salida",
@@ -43,7 +43,6 @@
                     "type": "hint",
                     "text": "La declaración print siempre va seguida de paréntesis que contienen la salida que queremos generar."
                 }
-
             ]
         }
     ]

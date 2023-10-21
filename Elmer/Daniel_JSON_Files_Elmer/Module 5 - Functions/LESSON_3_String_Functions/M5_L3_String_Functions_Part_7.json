@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     
     "practica": [
         {
@@ -26,7 +25,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Puede utilizar la función replace() de una\ncadena para reemplazar una subcadena por otra."
+                    "text": "Puede utilizar la función replace() de una cadena para reemplazar una subcadena por otra."
                 },
                 {
                     "type": "Consola",

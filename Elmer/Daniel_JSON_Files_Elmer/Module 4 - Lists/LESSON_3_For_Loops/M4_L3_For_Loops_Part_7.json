@@ -18,12 +18,12 @@
                     "correct": false
                 },
                 {
-                    "text": "3",
-                    "correct": false
-                },
-                {
                     "text": "4",
                     "correct": true
+                },
+                {
+                    "text": "3",
+                    "correct": false
                 }
             ]
         }

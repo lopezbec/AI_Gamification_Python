@@ -15,7 +15,6 @@
         }
     ],
 
-    
     "practica": [
         {
             "title": "Operaciones con listas",
@@ -35,6 +34,4 @@
             ]
         }
     ]
-
-  
 }

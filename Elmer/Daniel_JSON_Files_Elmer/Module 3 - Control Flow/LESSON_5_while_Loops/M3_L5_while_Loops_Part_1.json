@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "Por ejemplo, supongamos que necesitamos procesar múltiples\nentradas de usuario, de modo que cada vez que el usuario ingrese\nalgo, se debe ejecutar el mismo bloque de código."
+                    "text": "Por ejemplo, supongamos que necesitamos procesar múltiples entradas de usuario, de modo que cada vez que el usuario ingrese algo, se debe ejecutar el mismo bloque de código."
                 }
 
             ]

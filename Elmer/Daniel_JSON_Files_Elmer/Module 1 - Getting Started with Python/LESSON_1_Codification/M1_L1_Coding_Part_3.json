@@ -15,7 +15,6 @@
                     "type": "info",
                     "text": "El código nos permite dar instrucciones a las maquinas. Presionamos 'Ejecutar' cuando nuestras instrucciones están listas para ser ejecutadas. Esto frecuentemente resulta en la salida que podemos ver en la parte inferior de la pantalla."
                 }
-
             ]
         }
     ],
@@ -31,12 +30,12 @@
             ],
             "answers": [
                 {
-                    "text": "Falso",
-                    "correct": false
-                },
-                {
                     "text": "Verdadero",
                     "correct": true
+                },
+                {
+                    "text": "Falso",
+                    "correct": false
                 }
             ]
         }

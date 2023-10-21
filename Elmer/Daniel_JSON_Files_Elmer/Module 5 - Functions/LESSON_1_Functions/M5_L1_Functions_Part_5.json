@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "La función se llama usando su nombre, seguido de paréntesis , que encierran los argumentos.\nPor ejemplo, llamamos a la función de impresión con un argumento de cadena paragenerar salida:"
+                    "text": "La función se llama usando su nombre, seguido de paréntesis , que encierran los argumentos. Por ejemplo, llamamos a la función de impresión con un argumento de cadena paragenerar salida:"
                 },
                 {
                     "type": "Consola",
