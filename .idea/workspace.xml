@@ -6,14 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_1_Codification/Time_Lesson_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_1_Codification/Time_Lesson_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_2_Working_with_Numerical_Data/M1_L2_Working_Part_3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/Module 1 Code Project/M1-Code-Project.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/Module 1 Code Project/M1-Code-Project.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/styles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 2 - Interacting with the User/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 2 - Interacting with the User/styles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 3 - Control Flow/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 3 - Control Flow/styles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists/styles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 5 - Functions/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 5 - Functions/styles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assembled_prototype/game_features/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/assembled_prototype/game_features/styles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 2 - Interacting with the User/LESSON_2_Working_with_Input/M2_L2_Working_with_Input_Part_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 2 - Interacting with the User/LESSON_2_Working_with_Input/M2_L2_Working_with_Input_Part_2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists/LESSON_1_Booleans_and_Comparisons/Entradas_Salidas_Clics_Lesson_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists/LESSON_1_Booleans_and_Comparisons/Time_Lesson_1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists/LESSON_4_Boolean_Logic/Entradas_Salidas_Clics_Lesson_4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists/LESSON_4_Boolean_Logic/Time_Lesson_4.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +120,10 @@
       <workItem from="1696983501997" duration="3211000" />
       <workItem from="1697061198401" duration="6652000" />
       <workItem from="1697242035962" duration="2875000" />
+      <workItem from="1697497460977" duration="782000" />
+      <workItem from="1697594502228" duration="105000" />
+      <workItem from="1697594668702" duration="828000" />
+      <workItem from="1697669827352" duration="16441000" />
     </task>
     <servers />
   </component>
@@ -153,11 +158,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_1.coverage" NAME="Main_Module_1 Coverage Results" MODIFIED="1697061458619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python" />
+    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_1.coverage" NAME="Main_Module_1 Coverage Results" MODIFIED="1697755113034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python" />
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_5.coverage" NAME="Main_Module_5 Coverage Results" MODIFIED="1697245490834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 5 - Functions" />
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Lesson_5.coverage" NAME="Main_Lesson_5 Coverage Results" MODIFIED="1695768091391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 3 - Control Flow/LESSON_5_while_Loops" />
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_3.coverage" NAME="Main_Module_3 Coverage Results" MODIFIED="1697068904728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 3 - Control Flow" />
-    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_2.coverage" NAME="Main_Module_2 Coverage Results" MODIFIED="1697068957894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 2 - Interacting with the User" />
-    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_4.coverage" NAME="Main_Module_4 Coverage Results" MODIFIED="1697068840751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists" />
+    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_2.coverage" NAME="Main_Module_2 Coverage Results" MODIFIED="1697760875890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 2 - Interacting with the User" />
+    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_4.coverage" NAME="Main_Module_4 Coverage Results" MODIFIED="1697850583514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists" />
   </component>
 </project>
