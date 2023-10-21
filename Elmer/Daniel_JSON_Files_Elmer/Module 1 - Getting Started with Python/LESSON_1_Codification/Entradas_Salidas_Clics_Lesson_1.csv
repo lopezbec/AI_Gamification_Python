@@ -625,6 +625,7 @@ Correct Answer Selected: print(729),14:36:36
 Parte 5,14:36:37
 Checkbox Selected: comillas '' ,14:36:39
 
+<<<<<<< HEAD
 Parte 1,14:13:22
 Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,14:13:22
 Parte 3,14:13:28
@@ -633,4 +634,15 @@ Parte 4,14:13:28
 Correct Answer Selected: print(729),14:13:33
 Parte 5,14:13:40
 Checkbox Selected: comillas '' ,14:13:40
+=======
+Parte 1,17:56:33
+Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,17:56:36
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,17:56:38
+Parte 3,17:56:45
+Checkbox Selected: Verdadero,17:56:45
+Parte 4,17:57:09
+Correct Answer Selected: print(729),17:57:09
+Parte 5,17:57:22
+Checkbox Selected: comillas '' ,17:57:22
+>>>>>>> 153a5f9d97373591a140bd072f667ffa6db31104
 
