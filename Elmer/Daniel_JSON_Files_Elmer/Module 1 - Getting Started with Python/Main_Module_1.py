@@ -30,8 +30,10 @@ class Leccion:
         self.accion.setIcon(QtGui.QIcon(icono_inicial))
         menu.addAction(self.accion)
 
-    def abrir(self):
+    def abrir(self):    
         try:
+            l1 = ml1()
+            print(l1.lesson_number)
             if not self.bloqueada:
                 leccion_completada = self.funcion_apertura()  # Ahora `leccion_completada` será True o False
                 if leccion_completada:
@@ -58,23 +60,19 @@ class Leccion:
         self.bloqueada = False
         self.accion.setIcon(QtGui.QIcon(self.icono_abierto))  # Actualizar el icono al desbloquear la lección
 
-    def marcar_como_completada(self):
-        self.completada = True
-        self.accion.setIcon(QtGui.QIcon(self.icono_completado))
-        if self.proxima_leccion:
-            self.proxima_leccion.desbloquear()
-
 
 class Curso:
     def __init__(self, lecciones):
         self.lecciones = lecciones
         self.lecciones[0].desbloquear()  # Desbloqueamos la primera lección al inicio
-
+        
     def verificar_estado_lecciones(self):
         for i in range(len(self.lecciones) - 1):
             if self.lecciones[i].completada and not self.lecciones[i + 1].bloqueada:
                 self.lecciones[i + 1].desbloquear()
 
+    #print("total of page:", lesson1.count_pages_per_lesson("page_order.json"))
+    #print("current page: ", lesson1.current_page)
 
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -160,6 +158,22 @@ class MainWindow(QtWidgets.QMainWindow):
         with open(file, 'r') as json_file:
             data = json.load(json_file)
         return data
+    
+    def leccion_fue_completada(self, lesson_number):
+        lessons = {1:ml1(), 2:ml2(), 3:ml3(), 4:ml4(), 5:ml5()}
+        
+        current_lesson = lessons.get(str(lesson_number))
+        if (current_lesson.count_pages_per_lesson("page_order.json") == current_lesson.get_traking_page()):
+            return True
+        else:
+            return False
+    
+    def mostrar_advertencia(self, lesson_number):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+        msg.setWindowTitle("Lección Bloqueada")
+        msg.setText(f"Recuerda terminar la {lesson_number} para desbloquear esta leccion")
+        msg.exec()
 
     def abrir_leccion1(self):
         try:
@@ -171,9 +185,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def abrir_leccion2(self):
         try:
-            self.lesson2_window = ml2()
-            self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
-            return self.lesson2_window  # Retorna la ventana de la lección
+            lesson = ml2()
+            if self.leccion_fue_completada(lesson.lesson_number):
+                print(self.leccion_fue_completada())
+                self.lesson2_window = ml2()
+                self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
+                return self.lesson2_window  # Retorna la ventana de la lección
+            else:
+                print(self.lesson2_window.lesson_number)
+                #self.mostrar_advertencia(self.lesson2_window.lesson_number)
         except Exception as e:
             print(f"Error al abrir la lección 2: {e}")
 
