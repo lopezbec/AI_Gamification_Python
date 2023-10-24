@@ -483,16 +483,17 @@ class MainWindow(QWidget):
         raise ValueError(f"Lesson {self.lesson_number} not found in page_order.json")
     
 
-    def count_pages_per_lesson(self, json_file_path):
+    def count_pages_per_lesson(self, json_file_path, target_lesson):
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
             lessons = data.get('lessons', [])
-
+            
             for lesson in lessons:
                 lesson_number = lesson.get('lesson_number', None)
-                pages = lesson.get('pages', [])
-                page_count = len(pages)
-                return page_count
+                if lesson_number == target_lesson:
+                    pages = lesson.get('pages', [])
+                    page_count = len(pages)
+                    return page_count
     
 
     def submit_answer(self):

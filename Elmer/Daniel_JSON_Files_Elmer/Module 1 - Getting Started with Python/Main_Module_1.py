@@ -160,19 +160,25 @@ class MainWindow(QtWidgets.QMainWindow):
         return data
     
     def leccion_fue_completada(self, lesson_number):
-        lessons = {1:ml1(), 2:ml2(), 3:ml3(), 4:ml4(), 5:ml5()}
-        
-        current_lesson = lessons.get(str(lesson_number))
-        if (current_lesson.count_pages_per_lesson("page_order.json") == current_lesson.get_traking_page()):
-            return True
-        else:
-            return False
+        try:
+            lessons = {1:ml1(), 2:ml2(), 3:ml3(), 4:ml4(), 5:ml5()}
+            current_lesson = lessons.get(lesson_number)
+            print(f"esto devolvera count pages per lesson: {current_lesson.count_pages_per_lesson('page_order.json', lesson_number)}")
+            print(f"esto devolvera get_traking_page {current_lesson.get_traking_page()}")
+            print(f"y esto es de la comparacion de ambos: {current_lesson.count_pages_per_lesson('page_order.json', lesson_number) == current_lesson.get_traking_page()}")
+            if current_lesson.count_pages_per_lesson('page_order.json', lesson_number) == current_lesson.get_traking_page():
+                print("entraste al if de leccion_completada")
+                return True
+            else:
+                return False
+        except Exception as e: 
+            print(e)           
     
     def mostrar_advertencia(self, lesson_number):
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Icon.Warning)
         msg.setWindowTitle("Lección Bloqueada")
-        msg.setText(f"Recuerda terminar la {lesson_number} para desbloquear esta leccion")
+        msg.setText(f"Recuerda terminar la leccion {lesson_number} para desbloquear esta leccion")
         msg.exec()
 
     def abrir_leccion1(self):
@@ -186,14 +192,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def abrir_leccion2(self):
         try:
             lesson = ml2()
-            if self.leccion_fue_completada(lesson.lesson_number):
-                print(self.leccion_fue_completada())
+            if self.leccion_fue_completada(lesson.lesson_number - 1):
                 self.lesson2_window = ml2()
                 self.lesson2_window.destroyed.connect(self.curso.verificar_estado_lecciones)
                 return self.lesson2_window  # Retorna la ventana de la lección
             else:
-                print(self.lesson2_window.lesson_number)
-                #self.mostrar_advertencia(self.lesson2_window.lesson_number)
+                print("aun no habilitas esta leccion")
+                self.mostrar_advertencia(lesson.lesson_number - 1)
         except Exception as e:
             print(f"Error al abrir la lección 2: {e}")
 
