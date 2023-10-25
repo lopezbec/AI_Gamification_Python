@@ -17,7 +17,7 @@ from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 
-
+traking_page = 0
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
@@ -63,6 +63,7 @@ class JsonWindow(QWidget):
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
+        
 
         # Crear un nuevo layout horizontal
         hlayout = QHBoxLayout()
@@ -327,7 +328,6 @@ class JsonWindow(QWidget):
 
             self.layout.addWidget(block_label)  # Añadir el bloque al layout
 
-
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -361,6 +361,14 @@ class MainWindow(QWidget):
         self.setWindowTitle("Aprendiendo Python - Lección 2")
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 1)
         self.init_ui()
+
+    def get_traking_page(self):
+        return traking_page
+    
+   
+    def set_traking_page(self, nuevo_valor):
+        global traking_page
+        traking_page = nuevo_valor
 
     def init_ui(self):
         self.layout = QVBoxLayout()
@@ -521,6 +529,18 @@ class MainWindow(QWidget):
                 return lesson["pages"]
 
         raise ValueError(f"Lesson {self.lesson_number} not found in page_order.json")
+    
+    def count_pages_per_lesson(self, json_file_path, target_lesson):
+        with open(json_file_path, 'r') as json_file:
+            data = json.load(json_file)
+            lessons = data.get('lessons', [])
+            
+            for lesson in lessons:
+                lesson_number = lesson.get('lesson_number', None)
+                if lesson_number == target_lesson:
+                    pages = lesson.get('pages', [])
+                    page_count = len(pages)
+                    return page_count
 
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
