@@ -6,9 +6,9 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from LESSON_1_Taking_User_Input.Main_Lesson_1 import main_lesson_1 as ml1
-from LESSON_2_Working_with_Input.Main_Lesson_2 import main_lesson_2 as ml2
-from LESSON_3_In_Place_Operators.Main_Lesson_3 import main_lesson_3 as ml3
+from M2_LESSON_1_Taking_User_Input.M2_L1_Main import M2_L1_Main as ml1
+from M2_LESSON_2_Working_with_Input.M2_L2_Main import M2_L2_Main as ml2
+from M2_LESSON_3_In_Place_Operators.M2_L3_Main import M2_L3_Main as ml3
 
 
 class Leccion:

@@ -6,11 +6,11 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from LESSON_1_Codification.Main_Lesson_1 import main_lesson_1 as ml1
-from LESSON_2_Working_with_Numerical_Data.Main_Lesson_2 import main_lesson_2 as ml2
-from LESSON_3_Working_with_Text_Data.Main_Lesson_3 import main_lesson_3 as ml3
-from LESSON_4_Mixing_things_up.Main_Lesson_4 import main_lesson_4 as ml4
-from LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables.Main_Lesson_5 import main_lesson_5 as ml5
+from M1_LESSON_1_Codification.M1_L1_Main import M1_L1_Main as ml1
+from M1_LESSON_2_Working_with_Numerical_Data.M1_L2_Main import M1_L2_Main as ml2
+from M1_LESSON_3_Working_with_Text_Data.M1_L3_Main import M1_L3_Main as ml3
+from M1_LESSON_4_Mixing_things_up.M1_L4_Main import M1_L4_Main as ml4
+from M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables.M1_L5_Main import M1_L5_Main as ml5
 
 
 class Leccion:

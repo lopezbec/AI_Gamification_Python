@@ -7,13 +7,13 @@ from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from LESSON_1_Functions.Main_Lesson_1 import main_lesson_1 as ml1
-from LESSON_2_List_Functions.Main_Lesson_2 import main_lesson_2 as ml2
-from LESSON_3_String_Functions.Main_Lesson_3 import main_lesson_3 as ml3
-from LESSON_4_Making_Your_Own_Functions.Main_Lesson_4 import main_lesson_4 as ml4
-from LESSON_5_Function_Arguments.Main_Lesson_5 import main_lesson_5 as ml5
-from LESSON_6_Returning_From_Functions.Main_Lesson_6 import main_lesson_6 as ml6
-from LESSON_7_Comments_and_Docstrings.Main_Lesson_7 import main_lesson_7 as ml7
+from M5_LESSON_1_Functions.M5_L1_Main import M5_L1_Main as ml1
+from M5_LESSON_2_List_Functions.M5_L2_Main import M5_L2_Main as ml2
+from M5_LESSON_3_String_Functions.M5_L3_Main import M5_L3_Main as ml3
+from M5_LESSON_4_Making_Your_Own_Functions.M5_L4_Main import M5_L4_Main as ml4
+from M5_LESSON_5_Function_Arguments.M5_L5_Main import M5_L5_Main as ml5
+from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as ml6
+from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as ml7
 
 
 class Leccion:
