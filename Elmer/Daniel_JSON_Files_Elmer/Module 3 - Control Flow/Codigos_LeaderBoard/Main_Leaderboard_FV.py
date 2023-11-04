@@ -204,9 +204,16 @@ class MainWindow(QtWidgets.QMainWindow):
     # Dentro del método add_user_to_leaderboard
     def add_user_to_leaderboard(self, row, user):
         item_name = QtWidgets.QTableWidgetItem(user['name'])
+        item_name.setFlags(item_name.flags() & ~QtCore.Qt.ItemFlag.ItemIsEditable)
+
         item_points = QtWidgets.QTableWidgetItem(str(user['points']))
+        item_points.setFlags(item_points.flags() & ~QtCore.Qt.ItemFlag.ItemIsEditable)
+
         item_level = QtWidgets.QTableWidgetItem(self.get_level(user['points']))
+        item_level.setFlags(item_level.flags() & ~QtCore.Qt.ItemFlag.ItemIsEditable)
+
         item_last_active = QtWidgets.QTableWidgetItem(user.get('last_active', 'N/A'))
+        item_last_active.setFlags(item_last_active.flags() & ~QtCore.Qt.ItemFlag.ItemIsEditable)
 
         # Alineación del texto en la columna de puntos
         item_points.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)

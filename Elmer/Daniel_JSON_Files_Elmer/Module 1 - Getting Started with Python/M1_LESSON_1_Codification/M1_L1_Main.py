@@ -17,6 +17,7 @@ from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 
+traking_page = 0
 
 class JsonLoader:
     @staticmethod
@@ -362,6 +363,15 @@ class MainWindow(QWidget):
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
         self.init_ui()
 
+   
+    def get_traking_page(self):
+        return traking_page
+    
+   
+    def set_traking_page(self, nuevo_valor):
+        global traking_page
+        traking_page = nuevo_valor
+       
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']}")
@@ -520,16 +530,17 @@ class MainWindow(QWidget):
         raise ValueError(f"Lesson {self.lesson_number} not found in page_order.json")
     
 
-    def count_pages_per_lesson(self, json_file_path):
+    def count_pages_per_lesson(self, json_file_path, target_lesson):
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
             lessons = data.get('lessons', [])
-
+            
             for lesson in lessons:
                 lesson_number = lesson.get('lesson_number', None)
-                pages = lesson.get('pages', [])
-                page_count = len(pages)
-                return lesson_number, page_count
+                if lesson_number == target_lesson:
+                    pages = lesson.get('pages', [])
+                    page_count = len(pages)
+                    return page_count
     
 
     def submit_answer(self):
@@ -754,7 +765,10 @@ class MainWindow(QWidget):
             self.close()
 
         self.current_page += 1  # Incrementar el número de la página actual
+        main_window = MainWindow()
+        main_window.set_traking_page(self.current_page)
 
+        
 
 def M1_L1_Main():
     main_window = MainWindow(lesson_number=1)
