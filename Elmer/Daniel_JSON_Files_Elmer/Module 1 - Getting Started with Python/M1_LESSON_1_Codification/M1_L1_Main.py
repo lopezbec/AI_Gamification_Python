@@ -765,9 +765,6 @@ class MainWindow(QWidget):
             self.close()
 
         self.current_page += 1  # Incrementar el número de la página actual
-        main_window = MainWindow()
-        main_window.set_traking_page(self.current_page)
-
         
 
 def M1_L1_Main():
