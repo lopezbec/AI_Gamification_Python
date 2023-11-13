@@ -6,6 +6,15 @@ import io
 import subprocess
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit, QLabel
 
+"""
+Users input code in the text box. 
+A simple security check is run checking for no import statements (can be expanded).
+Code is saved in a .py script and then the file is run in a subprocess to give it its own scope and prevent effects on the application
+The output is saved to a text file, and then read and displaed to the output
+A simple time limit on the code execution (3s) is enforced, as well as an limit on the size of the output (1KB)
+These serve as basic sanity checks and in combination with the import statements should cover basic accidental misuse from non-malicious users
+"""
+
 class App(QWidget):
 
     def __init__(self):
@@ -34,7 +43,7 @@ class App(QWidget):
         layout.addWidget(self.result_display)
 
         self.setLayout(layout)
-        self.setWindowTitle('Correr código ')
+        self.setWindowTitle('Correr código')
         self.show()
 
 
@@ -56,7 +65,7 @@ class App(QWidget):
 def save_and_run_script(code_str) -> str:
     script_filename = 'user_script.py'
     output_filename = 'script_output.txt'
-    # max_output_size = 1024 * 1024 # In bytes (1 MB)
+    max_output_size = 1024 # In bytes (1 MB)
     # Save the script to a file
     with open(script_filename, 'w') as file:
         file.write(code_str)
@@ -68,11 +77,14 @@ def save_and_run_script(code_str) -> str:
         with open(output_filename, 'a') as output_file:
             output_file.write("\nCode execution exceeded time limit")        
 
+    if os.path.exists(output_filename) and os.path.getsize(output_filename) > max_output_size:
+        return 'Output exceeded size limit'
+
     # Read the output file
     with open(output_filename, 'r') as output_file:
         result_str = output_file.read()
 
-    if os.path.exists(output_filename):
+    if os.path.exists(output_filename): # Delete the output file
         os.remove(output_filename)
 
     return result_str
