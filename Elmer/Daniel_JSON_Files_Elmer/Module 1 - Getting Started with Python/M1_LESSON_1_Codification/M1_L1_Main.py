@@ -342,6 +342,7 @@ class MainWindow(QWidget):
         self.completed = None
         self.current_page = 0
         self.json_windows = []
+        self.back_button = None
         self.time_log_data = []
         self.mouse_log_data = []
         self.current_part = None
@@ -360,18 +361,10 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.setWindowTitle("Aprendiendo Python - Lección 1")
+
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
         self.init_ui()
 
-   
-    def get_traking_page(self):
-        return traking_page
-    
-   
-    def set_traking_page(self, nuevo_valor):
-        global traking_page
-        traking_page = nuevo_valor
-       
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']}")
@@ -379,8 +372,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
-                                         page.get("lesson_completed", False), main_window=self)
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados, page.get("lesson_completed", False), main_window=self)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
@@ -392,7 +384,15 @@ class MainWindow(QWidget):
         continue_button_font = QFont()
         continue_button_font.setPointSize(self.styles["font_size_buttons"])
         self.continue_button.setFont(continue_button_font)
-        self.continue_button.clicked.connect(self.switch_page)
+        self.continue_button.clicked.connect(lambda: self.switch_page(forward=True))
+
+        self.back_button = QPushButton("Retroceder")
+        self.back_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        back_button_font = QFont()
+        back_button_font.setPointSize(self.styles["font_size_buttons"])
+        self.back_button.setFont(continue_button_font)
+        self.back_button.clicked.connect(lambda: self.switch_page(forward=False))
+        self.back_button.hide()
 
         self.submit_button = QPushButton("Enviar")
         self.submit_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
@@ -411,6 +411,7 @@ class MainWindow(QWidget):
         self.practice_button.hide()
 
         self.button_layout = QHBoxLayout()
+        self.button_layout.addWidget(self.back_button)
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
@@ -479,9 +480,12 @@ class MainWindow(QWidget):
         print("La consola no está disponible por el momento.")
 
     def SubmitHideContinueShow(self, pedagogical, practica):
-        if pedagogical: self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show()
-        elif practica: self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide()
-        else: self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide()
+        if pedagogical:
+            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide()
+        elif practica:
+            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show()
+        else:
+            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show()
 
     def log_part_change(self):
         event_time = datetime.datetime.now().strftime("%H:%M:%S")
@@ -721,11 +725,17 @@ class MainWindow(QWidget):
                 self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
-    def switch_page(self):
+    def switch_page(self, forward=True):
+        current_index = self.stacked_widget.currentIndex()
+
+        if forward:
+            next_index = current_index + 1
+        else:
+            next_index = current_index - 1
+
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
         self.log_event(
             f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
-        next_index = self.stacked_widget.currentIndex() + 1  # Calcular el índice de la siguiente página
 
         current_widget = self.stacked_widget.currentWidget()
         if hasattr(current_widget, "lesson_completed"):
@@ -733,11 +743,18 @@ class MainWindow(QWidget):
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
+            if forward:
+                next_index = current_index + 1
+                self.XP_Ganados += 1
+                self.progress_bar.increment_page()
+            else:
+                next_index = current_index - 1
+                self.XP_Ganados -= 1
+                self.progress_bar.decrement_page()
             # Antes de cambiar de página, añadimos un punto y log para debug.
-            self.XP_Ganados += 1
-            self.progress_bar.increment_page()
             self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
             self.log_part_change()  # Registrar el cambio a la "Parte 1"
+
             current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
             self.log_event(
                 f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
@@ -765,7 +782,7 @@ class MainWindow(QWidget):
             self.close()
 
         self.current_page += 1  # Incrementar el número de la página actual
-        
+
 
 def M1_L1_Main():
     main_window = MainWindow(lesson_number=1)

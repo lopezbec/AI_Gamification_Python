@@ -65,8 +65,10 @@ class ProgressBar(QWidget):
             self.current_page += 1
             self.update_progress()
 
-    def Hola(self):
-        print("Hello world!")
+    def decrement_page(self):
+        if self.current_page > 0:
+            self.current_page -= 1
+            self.update_progress()
 
     def update_progress(self):
         total_pages = len(self.lesson_data["lessons"][self.current_lesson]["pages"])
