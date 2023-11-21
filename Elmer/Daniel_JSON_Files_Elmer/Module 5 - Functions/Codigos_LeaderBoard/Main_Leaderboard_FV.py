@@ -70,7 +70,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.leaderboard_table = QtWidgets.QTableWidget()
         self.layout.addWidget(self.leaderboard_table)
         self.leaderboard_table.setColumnCount(4)
-        self.leaderboard_table.setHorizontalHeaderLabels(["Nombre", "Nivel", "Puntos", "Última vez activo"])
+        self.leaderboard_table.setHorizontalHeaderLabels(["Nombre", "Puntos", "Nivel", "Última vez activo"])
         self.leaderboard_table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
 
         self.apply_theme(self.theme)
