@@ -5,11 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Impresionante! Has completado tu primera leccion. Recuerde los siguientes puntos importantes:"
-                },
-                {
-                    "type": "info",
-                    "text": "El comando print debe ir seguido de paréntesis, encerrando la salida que queremos enviar a la pantalla. Un mensaje de texto debe estar entre comillas. No necesitas comillas para generar números."
+                    "text": "Impresionante! Has completado tu primera leccion. Recuerde los siguientes puntos importantes:\n\nEl comando print debe ir seguido de paréntesis, encerrando la salida que queremos enviar a la pantalla. Un mensaje de texto debe estar entre comillas. No necesitas comillas para generar números."
                 },
                 {
                     "type": "hint",

@@ -28,18 +28,13 @@
             ]
         }
     ],
-
     "pedagogical": [
         {
             "title": "Division.",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "La division se realiza mediante una barra inclinada /:"
-                },
-                {
-                    "type": "info",
-                    "text": "Ejecute el codigo anterior para ver el resultado."
+                    "text": "La division se realiza mediante una barra inclinada /:\n\nEjecute el codigo anterior para ver el resultado."
                 },
                 {
                     "type": "Consola",

@@ -9,11 +9,7 @@
                 },
                 {
                     "type": "hint",
-                    "text": "En esta lección, aprenderá a usar variables para almacenar información en la memoria y operar con datos."
-                },
-                {
-                    "type": "hint",
-                    "text": "El signo igual también se llama operador de asignación."
+                    "text": "En esta lección, aprenderá a usar variables para almacenar información en la memoria y operar con datos.\n\nEl signo igual también se llama operador de asignación."
                 }
             ]
         }

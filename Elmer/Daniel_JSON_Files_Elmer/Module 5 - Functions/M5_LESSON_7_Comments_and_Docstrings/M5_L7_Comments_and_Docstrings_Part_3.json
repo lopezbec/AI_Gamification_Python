@@ -5,11 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Los docstrings (cadenas de documentación) son similares a los comentarios, ya que están diseñados para explicar el código. Pero son más específicos y tienen una sintaxis diferente."
-                },
-                {
-                    "type": "info",
-                    "text": "Se crean poniendo una cadena de varias líneas que contiene una explicación de la función debajo de la primera línea de la función. Así:"
+                    "text": "Los docstrings (cadenas de documentación) son similares a los comentarios, ya que están diseñados para explicar el código. Pero son más específicos y tienen una sintaxis diferente.\n\nSe crean poniendo una cadena de varias líneas que contiene una explicación de la función debajo de la primera línea de la función. Así:"
                 },
                 {
                     "type": "Consola",

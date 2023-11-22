@@ -5,11 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Bucles while"
-                },
-                {
-                    "type": "info",
-                    "text": "Aquí hay un bucle while que contiene una variable que cuenta de 1 a 5, momento en el\nque termina el bucle."
+                    "text": "Bucles while\n\nAquí hay un bucle while que contiene una variable que cuenta de 1 a 5, momento en el\nque termina el bucle."
                 },
                 {
                     "type": "Consola",
