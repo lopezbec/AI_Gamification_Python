@@ -60,6 +60,8 @@ class DropLabel(QWidget):
             text += self.base_text_parts[i]
             if i < len(self.dropped_texts):
                 text += self.dropped_texts[i]
+            elif i < len(self.base_text_parts) - 1:
+                text += "<Espacio para respuesta>"
         return text
 
     def dragEnterEvent(self, event):
@@ -69,21 +71,25 @@ class DropLabel(QWidget):
     def dropEvent(self, event):
         new_dropped_text = event.mimeData().text()
         if self.multiple:
+            # Si se permiten múltiples respuestas, añade el nuevo texto arrastrado
+            # a la lista de textos soltados y actualiza el QLabel correspondiente.
             if len(self.dropped_texts) < len(self.base_text_parts) - 1:
                 self.dropped_texts.append(new_dropped_text)
                 self.drop_area3.setText(self.get_current_text())
         else:
+            # Si solo se permite una respuesta, reemplaza el marcador de posición
+            # con el texto arrastrado y actualiza el QLabel correspondiente.
             if self.dropped_text is not None:
-                current_text = self.drop_area.text().replace(self.dropped_text, "____" if "____" in self.base_text else "_", 1)
+                # Si ya había un texto arrastrado, reemplázalo en el QLabel.
+                current_text = self.drop_area.text().replace(self.dropped_text, "<Espacio para respuesta>", 1)
                 self.drop_area.setText(current_text)
                 self.base_text = current_text
 
             self.dropped_text = new_dropped_text
 
-            if "____" in self.base_text:
-                self.drop_area.setText(self.base_text.replace("____", new_dropped_text, 1))
-                self.base_text = self.drop_area.text()
-            elif "_" in self.base_text:
-                self.drop_area.setText(self.base_text.replace("_", new_dropped_text, 1))
-                self.base_text = self.drop_area.text()
+            # Reemplaza el primer "<Espacio para respuesta>" con el texto arrastrado.
+            self.drop_area.setText(self.base_text.replace("<Espacio para respuesta>", new_dropped_text, 1))
+            self.base_text = self.drop_area.text()
+
         event.acceptProposedAction()
+
