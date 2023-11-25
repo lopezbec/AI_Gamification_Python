@@ -27,11 +27,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Complete los espacios en blanco para crear un bucle que incremente el valor de x en 2 e\nimprima los valores pares."
-                },
-                {
-                    "type": "info",
-                    "text": "x = 0\n_____x <=20_____\n   _____(X)\n   x + = 2"
+                    "text": "Complete los espacios en blanco para crear un bucle que incremente el valor de x en 2 e\nimprima los valores pares.\n\nx = 0\n_____x <=20_____\n   _____(X)\n   x + = 2"
                 }
             ],
             "answers": [

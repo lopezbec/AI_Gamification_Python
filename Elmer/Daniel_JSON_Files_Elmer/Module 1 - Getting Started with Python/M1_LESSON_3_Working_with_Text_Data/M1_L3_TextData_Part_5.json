@@ -5,11 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¡Increíble! Has completado la leccion. Has aprendido que:"
-                },
-                {
-                    "type": "info",
-                    "text": "Una cadena es el tipo de datos para texto.  Las cadenas requieren comillas simples o dobles para que las computadoras las entiendan.  Puedes unir dos o mas cadenas usando la concatenación (+)."
+                    "text": "¡Increíble! Has completado la leccion. Has aprendido que:\n\nUna cadena es el tipo de datos para texto.  Las cadenas requieren comillas simples o dobles para que las computadoras las entiendan.  Puedes unir dos o mas cadenas usando la concatenación (+)."
                 },
                 {
                     "type": "hint",

@@ -30,7 +30,6 @@
                 {
                     "type": "info",
                     "text": "Arrastre y suelte para crear una variable llamada ' edad ' y asígnele el valor 18:"
-                    
                 },
                 {
                     "type": "Consola",
