@@ -5,6 +5,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, QWidget
 from finish_window import FinishWindow
+from config import Config
 
 
 class QuestionWindow(QMainWindow):
@@ -18,7 +19,7 @@ class QuestionWindow(QMainWindow):
                             "radio_5", "radio_6", "radio_7"]
         super(QuestionWindow, self).__init__()
         
-        with open(r'./json/question_info.json') as question_info:
+        with open(r'./json/question_info.json', encoding='UTF-8') as question_info:
             data = json.load(question_info)
 
         #title
@@ -172,6 +173,8 @@ class QuestionWindow(QMainWindow):
         question_index.pop(index_in_list)
         self.next_button.setEnabled(False)
         
+        user_name = Config.get_user_name()
+        print(user_name)
         for radio in self.radio_buttons:
             getattr(self, radio).setAutoExclusive(False)
             getattr(self, radio).setChecked(False)

@@ -1,11 +1,13 @@
 import json
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from config import Config
 from question_window import QuestionWindow
-
+from Codigos_LeaderBoard import Main_Leaderboard_FV
 
 class NameWindow(QMainWindow):
+    nameEntered = pyqtSignal(str) 
     def __init__(self) -> None:
         super(NameWindow, self).__init__()
 
@@ -27,6 +29,10 @@ class NameWindow(QMainWindow):
         font.setPointSize(data["ask_name_font_size"])
         ask_name.setAlignment(Qt.AlignmentFlag.AlignCenter)
         ask_name.setMargin(data["ask_name_margin"])
+
+        open_leaderboard_button = QPushButton("Leaderboard", self)
+        open_leaderboard_button.clicked.connect(self.open_leaderboard)
+
         #input properties
         self.input = QLineEdit(self)
         self.input.setContentsMargins(data["input_margin"]["left"], data["input_margin"]["top"], 
@@ -40,6 +46,7 @@ class NameWindow(QMainWindow):
         #Add widgets to Layouts
             #Horizontal Layout
         layoutH.addWidget(ask_name)
+        layoutH.addWidget(open_leaderboard_button)
         #Form Layout
         layoutForm.addRow(layoutH)
         layout_V_Form.addWidget(self.input, alignment=Qt.AlignmentFlag.AlignHCenter)
@@ -58,8 +65,17 @@ class NameWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def show_survey(self):
+        Config.set_user_name(self.input.text())
         self.question_window = QuestionWindow()
         self.question_window.username = self.input.text()
         self.question_window.read_csv()
         self.question_window.show()
         self.hide()
+
+
+    def open_leaderboard(self):
+        self.nameEntered.emit(self.input.text())
+        Config.set_user_name(self.input.text())
+        Main_Leaderboard_FV.LeaderBoard()
+        # leaderboard_window.show()
+
