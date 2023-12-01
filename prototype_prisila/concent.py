@@ -17,9 +17,7 @@ class ConcentWindow(QMainWindow):
         title.setText(data["title_text"])
         title.adjustSize()
         font_title = QFont()
-        font_title.setBold(data["title_bold"])
         font_title.setPointSize(data["title_font_size"])
-        font_title.setFamily(data["title_font_family"])
         title.setFont(font_title)
         title.setWordWrap(data["title_word_wrap"])
         title.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop )
@@ -31,7 +29,7 @@ class ConcentWindow(QMainWindow):
 
         font_content = QFont()
         font_content.setPointSize(data["content_font_size"])
-        font_content.setFamily(data["content_font_family"])
+        #font_content.setFamily(data["content_font_family"])
         content.setFont(font_content)
         content.adjustSize()
         content.setWordWrap(data["content_word_wrap"])
@@ -39,11 +37,12 @@ class ConcentWindow(QMainWindow):
         content.setMargin(data["content_margin"])
 
         self.accept_terms = QCheckBox(data["accept_checkbox_text"])
+        self.accept_terms.setStyleSheet(f"font-size:{data['content_font_size']}px")
         self.accept_terms.stateChanged.connect(self.user_concent)
 
         self.button = QPushButton(data["button_text"])
-        self.button.setMaximumSize(data["button_width"], data["button_height"]);
         self.button.setEnabled(data["button_enabled"])
+        self.button.setStyleSheet(f"background-color: {data['continue_button_color']};color: white;font-size:{data['font_size_buttons']}px")
         self.button.clicked.connect(self.agree_btn_is_clicked)
      
         v_layout = QVBoxLayout()
@@ -51,7 +50,7 @@ class ConcentWindow(QMainWindow):
         v_layout.addWidget(title)
         v_layout.addWidget(content)
         v_layout.addWidget(self.accept_terms)
-        v_layout.addWidget(self.button, alignment=Qt.AlignmentFlag.AlignHCenter)
+        v_layout.addWidget(self.button)
         v_layout.setContentsMargins(5,10,5,10)
         
         widget = QWidget()

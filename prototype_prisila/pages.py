@@ -10,7 +10,7 @@ class MainPage(QMainWindow):
         super().__init__()
         self.data = data
         self.initUI()
-        self.setStyleSheet('background-color: #444444')
+        self.setStyleSheet('background-color: #EDF1F5')
 
     def initUI(self):
         self.showMaximized()
@@ -20,7 +20,7 @@ class MainPage(QMainWindow):
 
         for seccion in self.data['pedagogical']:
             titulo_label = QLabel(seccion['title'])
-            titulo_label.setStyleSheet('background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')
+            titulo_label.setStyleSheet('background-color: #3572A5; border: 1px solid #3572A5; padding: 5px; font-size: 18px; color: #000000;')
             ############################################
             titulo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             layout.addWidget(titulo_label)
@@ -28,15 +28,15 @@ class MainPage(QMainWindow):
         for block in self.data["pedagogical"][0]["blocks"]:
             if block["type"] == "info":
                 label = QLabel(block["text"])
-                label.setStyleSheet('font-size: 15px;')
+                label.setStyleSheet('font-size: 17px;')
                 layout.addWidget(label)
             if block["type"] == "syntax":
                 label = QLabel(block["text"])
-                label.setStyleSheet('background-color: #D3D3D3; border: 1px; font-size: 15px;')
+                label.setStyleSheet('background-color: #D3D3D3; border: 1px; font-size: 17px;')
                 layout.addWidget(label)
             if block["type"] == "hint1":
                 label = QLabel(block["text"])
-                label.setStyleSheet('font-size: 15px;')
+                label.setStyleSheet('font-size: 17px;')
                 layout.addWidget(label)
             if block["type"] == "hint":
                 label = QLabel(block["text"])
@@ -79,25 +79,25 @@ class QuestionPage(QMainWindow):
         # Crear la sección de títulos
         for seccion in self.data['question']:
             titulo_label = QLabel(seccion['title'])  # Crea un QLabel con el título de la sección actual
-            titulo_label.setStyleSheet('background-color: #ECF8FF; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #555555;')  # Establece el estilo del QLabel
+            titulo_label.setStyleSheet(f"background-color: #3572A5; border: 1px solid #B5E2FF; padding: 5px; font-size: 18px; color: #000000")  # Establece el estilo del QLabel
             titulo_label.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Centra el texto del QLabel
             layout.addWidget(titulo_label)  # Agrega el QLabel al layout vertical
 
         for block in self.data["question"][0]["blocks"]:
             if block["type"] == "info":
                 label = QLabel(block["text"])
-                label.setStyleSheet('font-size: 15px;')
+                label.setStyleSheet('font-size: 17px;')
                 layout.addWidget(label)
 
         self.radio_buttons = []
         for answer in self.data["question"][0]["answers"]:
             radio_button = QRadioButton(answer["text"])
-            radio_button.setStyleSheet("font-size: 15px")
+            radio_button.setStyleSheet("font-size: 17px")
             layout.addWidget(radio_button)
             self.radio_buttons.append(radio_button)
 
         submit_button = QPushButton("Enviar")
-        submit_button.setStyleSheet('font-size: 18px; color: #FFFFFF; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
+        submit_button.setStyleSheet('font-size: 18px; color: white; background-color: #00BFFF; padding: 10px 20px; border-radius: 5px;')
         submit_button.clicked.connect(self.check_answer)
         layout.addWidget(submit_button)
 
@@ -118,12 +118,12 @@ class QuestionPage(QMainWindow):
         if selected_answer is not None:
             if self.data["question"][0]["answers"][selected_answer]["correct"]:
                 self.feedback_label.setText("Correcto")
-                self.feedback_label.setStyleSheet("font-size: 15px; color: green; font-weight: bold")
-                self.radio_buttons[selected_answer].setStyleSheet("font-size: 15px; color: green")
+                self.feedback_label.setStyleSheet("font-size: 17px; color: green; font-weight: bold")
+                self.radio_buttons[selected_answer].setStyleSheet("font-size: 17px; color: green")
             else:
                 self.feedback_label.setText("Incorrecto")
-                self.feedback_label.setStyleSheet("font-size: 15px; color: red; font-weight: bold")
-                self.radio_buttons[selected_answer].setStyleSheet("font-size: 15px; color: red")
+                self.feedback_label.setStyleSheet("font-size: 17px; color: red; font-weight: bold")
+                self.radio_buttons[selected_answer].setStyleSheet("font-size: 17px; color: red")
         else:
             QMessageBox.warning(self, "Advertencia", "Selecciona una respuesta antes de enviar.")
 
