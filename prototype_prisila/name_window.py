@@ -74,7 +74,6 @@ class NameWindow(QMainWindow):
 
 
     def open_leaderboard(self):
-        self.nameEntered.emit(self.input.text())
         Config.set_user_name(self.input.text())
         Main_Leaderboard_FV.LeaderBoard()
         # leaderboard_window.show()

@@ -1,9 +1,11 @@
 import sys
+import geocoder
 import json
 import csv
 from PyQt6 import QtWidgets, QtGui, QtCore
 from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QMessageBox
+from config import Config
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -14,6 +16,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.levels = []
 
         self.load_data()  # Cargar los datos desde los archivos
+
+        self.current_player = {
+            "name": Config.get_user_name(),
+            "points": 0,
+            "country": geocoder.ip('me').country,
+            "city": geocoder.ip('me').city,
+            "friends": [],
+            "last_active": "2023-12-01 ; 11h:40m"
+        }
+
+        self.leaderboard.append(self.current_player)
 
         self.theme = 'light'  # tema por defecto
         self.setWindowTitle("Tabla de Clasificación")
@@ -63,10 +76,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.apply_theme(self.theme)
         self.apply_filter('Todos')
         self.apply_order()
-
-        from name_window import NameWindow
-        self.name_window = NameWindow()
-        self.name_window.nameEntered.connect(self.handle_new_username)
 
     def load_data(self):
         try:
@@ -276,6 +285,7 @@ class MainWindow(QtWidgets.QMainWindow):
         for row, user in enumerate(ordered_users):
             self.add_user_to_leaderboard(row, user)
 
+          
         # Ajustar automáticamente el ancho de la columna "Última vez activo" al contenido
         self.leaderboard_table.resizeColumnToContents(3)
 
@@ -323,9 +333,10 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog = UserGuideDialog(self)
         dialog.exec()
 
-    def handle_new_username(self, new_username):
+    def handle_new_username(self):
         
-        print(f"Nuevo nombre: {new_username}")
+        print(f"Nuevo nombre: {Config.get_user_name()}")
+        print(f"nombre en config: {Config.get_user_name()}")
 
 
 def LeaderBoard():
