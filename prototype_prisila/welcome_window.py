@@ -17,9 +17,7 @@ class WelcomeWindow(QMainWindow):
         title.setText(data["title_text"])
         title.adjustSize()
         font_title = QFont()
-        font_title.setBold(data["title_bold"])
         font_title.setPointSize(data["title_font_size"])
-        font_title.setFamily(data["title_font_family"])
         title.setFont(font_title)
         title.setWordWrap(data["content_word_wrap"])
         title.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignHCenter)
@@ -31,7 +29,7 @@ class WelcomeWindow(QMainWindow):
 
         font_content = QFont()
         font_content.setPointSize(data["content_font_size"])
-        font_content.setFamily(data["content_font_family"])
+
         content.setFont(font_content)
         content.adjustSize()
         content.setWordWrap(data["content_word_wrap"])
@@ -40,7 +38,7 @@ class WelcomeWindow(QMainWindow):
 
         next_button = QPushButton(self)
         next_button.setText(data["button_text"])
-        next_button.setFixedSize(data["button_width"], data["button_height"])
+        next_button.setStyleSheet(f"background-color: {data['continue_button_color']};color: white;font-size:{data['font_size_buttons']}px")
         next_button.clicked.connect(self.show_concent)
 
 
@@ -53,7 +51,7 @@ class WelcomeWindow(QMainWindow):
         h_layout.setSpacing(0)
         h_layout.setContentsMargins(-1,-1,-1,-1)
         v_layout.addLayout(h_layout)
-        v_layout.addWidget(next_button, alignment=Qt.AlignmentFlag.AlignHCenter)
+        v_layout.addWidget(next_button)
         v_layout.setSpacing(0)
         v_layout.setContentsMargins(-1,-1,-1,-1)
         

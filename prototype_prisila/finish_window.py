@@ -16,9 +16,7 @@ class FinishWindow(QMainWindow):
         title.setText(data["title_text"])
         title.adjustSize()
         font_title = QFont()
-        font_title.setBold(data["title_bold"])
         font_title.setPointSize(data["title_font_size"])
-        font_title.setFamily(data["title_font_family"])
         title.setFont(font_title)
         title.setWordWrap(data["title_word_wrap"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -26,12 +24,12 @@ class FinishWindow(QMainWindow):
 
         finish_button = QPushButton()
         finish_button.setText(data["finish_button_text"])
+        finish_button.setStyleSheet(f"background-color: {data['continue_button_color']};color: white;font-size:{data['font_size_buttons']}px")
         finish_button.clicked.connect(self.close_window)
-        finish_button.setFixedSize(data["finish_button_width"], data["finish_button_height"])
 
         v_layout = QVBoxLayout()
         v_layout.addWidget(title)
-        v_layout.addWidget(finish_button, alignment=Qt.AlignmentFlag.AlignHCenter)
+        v_layout.addWidget(finish_button)
 
         widget = QWidget()
         widget.setLayout(v_layout)
