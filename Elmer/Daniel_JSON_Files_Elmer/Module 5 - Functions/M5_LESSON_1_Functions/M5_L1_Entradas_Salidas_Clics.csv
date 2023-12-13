@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 event,time
 Parte 1,17:23:43
 Parte 2,17:23:49
@@ -6,43 +5,3 @@ Parte 3,17:23:56
 Parte 4,17:24:20
 Parte 5,17:24:24
 
-Parte 1,22:33:15
-Checkbox Selected: True,22:33:21
-Parte 2,22:33:21
-Correct Drop Event: print,22:33:29
-Correct Drop Event: 42,22:33:29
-Parte 3,22:33:30
-Checkbox Selected: convierte una lista de números en variables,22:33:37
-Checkbox Selected: convierte su argumento a un número entero,22:33:41
-Checkbox Selected: convierte su argumento en una cadena,22:33:44
-Parte 4,22:33:45
-Checkbox Selected: 3,22:33:50
-Parte 5,22:33:51
-Correct Drop Event: range,22:34:09
-Correct Drop Event: (,22:34:09
-Correct Drop Event: ),22:34:09
-
-Parte 1,22:50:38
-Checkbox Selected: True,22:50:42
-Parte 2,22:50:42
-Correct Drop Event: print,22:50:46
-Correct Drop Event: 42,22:50:46
-Parte 3,22:50:46
-Checkbox Selected: convierte su argumento a un número entero,22:50:48
-Checkbox Selected: convierte su argumento en una cadena,22:50:50
-Parte 4,22:50:50
-Checkbox Selected: 3,22:50:54
-Parte 5,22:50:54
-Correct Drop Event: range,22:51:01
-Correct Drop Event: (,22:51:01
-Correct Drop Event: ),22:51:01
-
-=======
-event,time
-Parte 1,17:23:43
-Parte 2,17:23:49
-Parte 3,17:23:56
-Parte 4,17:24:20
-Parte 5,17:24:24
-
->>>>>>> learboard_name
