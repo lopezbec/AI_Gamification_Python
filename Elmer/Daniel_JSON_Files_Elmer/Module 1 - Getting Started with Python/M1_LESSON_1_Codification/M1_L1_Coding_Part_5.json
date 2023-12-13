@@ -33,7 +33,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Las maquinas se negaran a entender sus instrucciones si hay errores. Incluso el error tipográfico más pequeño en su código resultara en un error.\n\nLa siguiente linea contiene un error. 'Ejecuta' el código para obtener el mensaje de error."
+                    "text": "Las maquinas se negaran a entender sus instrucciones si hay errores. Incluso el error tipográfico más pequeño en su código resultara en un error."
+                },
+                {
+                    "type": "info",
+                    "text": "La siguiente linea contiene un error. 'Ejecuta' el código para obtener el mensaje de error."
                 },
                 {
                     "type": "Consola",

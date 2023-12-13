@@ -6,18 +6,6 @@ from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QMessageBox
 
 
-class UserGuideDialog(QtWidgets.QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Guía de Usuario")
-        self.setGeometry(100, 100, 800, 600)
-
-        layout = QtWidgets.QVBoxLayout(self)
-        label = QtWidgets.QLabel("Aquí va la guía de usuario...")
-        label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        layout.addWidget(label)
-
-
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -152,54 +140,55 @@ class MainWindow(QtWidgets.QMainWindow):
         self.apply_order(order_type)
 
     def apply_theme(self, theme):
-        try:
-            theme_data = self.styles['themes'][theme]
+        theme_data = self.styles['themes'][theme]
 
-            # Establecer el estilo general de la ventana
-            self.setStyleSheet(
-                f"QMainWindow {{background-color: {theme_data['main_background_color']}; color: {theme_data['text_color']};}}"
-                f"QMenu {{background-color: {theme_data['menu_background_color']}; color: {theme_data['menu_text_color']};}}"
-                f"QMenu::item:selected {{background-color: {theme_data['menu_item_selected_background']}; color: {theme_data['menu_item_selected_text']};}}"
-            )
+        self.setStyleSheet(
+            f"MainWindow {{background-color: {theme_data['main_background_color']}; color: {theme_data['text_color']};}}"
+            f"QMenu {{background-color: {theme_data['menu_background_color']}; color: {theme_data['menu_text_color']};}}"
+            f"QMenu::item:selected {{background-color: {theme_data['menu_item_selected_background']}; color: {theme_data['menu_item_selected_text']};}}"
+        )
 
-            # Actualizar el estilo del título
-            self.title.setStyleSheet(
-                f"background-color: {theme_data['title_background_color']}; "
-                f"border-color: {theme_data['title_border_color']}; "
-                f"color: {theme_data['title_text_color']};"
-            )
+        self.title.setStyleSheet(
+            f"background-color: {theme_data['title_background_color']}; "
+            f"border-color: {theme_data['title_border_color']}; "
+            f"color: {theme_data['title_text_color']};"
+        )
+        """
+        self.user_combo_box.setStyleSheet(
+            f"background-color: {theme_data['header_border_color']};"
+            f"color: {theme_data['text_color']};"
+        )
+        """
+        self.leaderboard_table.horizontalHeader().setStyleSheet(
+            f"QHeaderView::section {{"
+            f"background-color: {theme_data['header_background_color']};"
+            f"color: {theme_data['text_color']};"
+            f"border: 1px solid {theme_data['header_border_color']};"
+            f"}}"
+        )
 
-            # Estilos para la tabla de clasificación y sus encabezados
-            self.leaderboard_table.horizontalHeader().setStyleSheet(
-                f"QHeaderView::section {{"
-                f"background-color: {theme_data['header_background_color']};"
-                f"color: {theme_data['text_color']};"
-                f"border: 1px solid {theme_data['header_border_color']};"
-                f"}}"
-            )
+        self.leaderboard_table.setStyleSheet(
+            f"QTableWidget {{"
+            f"background-color: {theme_data['main_background_color']};"
+            f"alternate-background-color: {theme_data['alternate_background_color']};"
+            f"color: {theme_data['text_color']};"
+            f"}}"
+        )
 
-            # Alternar colores de las filas de la tabla
-            self.leaderboard_table.setAlternatingRowColors(True)
-            self.leaderboard_table.setStyleSheet(
-                f"QTableWidget {{"
-                f"background-color: {theme_data['main_background_color']};"
-                f"color: {theme_data['text_color']};"
-                f"gridline-color: {theme_data['header_border_color']};"
-                f"}}"
-                f"QTableWidget::item {{"
-                f"background-color: {theme_data['table_row_even_color']};"
-                f"}}"
-                f"QTableWidget::item:alternate {{"
-                f"background-color: {theme_data['table_row_odd_color']};"
-                f"}}"
-                f"QTableWidget::item:hover {{"
-                f"background-color: {theme_data['hover_background_color']};"
-                f"}}"
-            )
+        self.leaderboard_table.setAlternatingRowColors(True)
 
-        except Exception as e:
-            print(f"Error al aplicar el tema: {e}")
-            QMessageBox.critical(self, "Error", f"Ocurrió un error al cambiar el tema: {e}")
+        # Calcula el color de sombreado intermedio
+        row_odd_color = QtGui.QColor(theme_data['table_row_odd_color'])
+        row_even_color = QtGui.QColor(theme_data['table_row_even_color'])
+        shadow_color = row_odd_color.darker(110)  # Ajusta la intensidad del color más oscuro
+
+        # Agrega el siguiente código después de setAlternatingRowColors(True)
+        self.leaderboard_table.setStyleSheet(
+            f"{self.leaderboard_table.styleSheet()}"
+            f"QTableWidget::item:hover {{"
+            f"background-color: {shadow_color.name()};"
+            f"}}"
+        )
 
     def populate_user_combo_box(self):
         self.user_combo_box.clear()

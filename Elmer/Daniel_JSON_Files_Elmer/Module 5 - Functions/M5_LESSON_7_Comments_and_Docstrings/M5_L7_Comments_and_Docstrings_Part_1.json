@@ -5,7 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¡Estas muy cerca de la meta! ¡Te felicitamos por llegar hasta aquí! Los comentarios son anotaciones al código utilizadas para facilitar su comprensión. \nNo afectan a la ejecución del código\n\nEn Python, un comentario se crea insertando un octógono (también conocido como signo de número o símbolo de almohadilla: #). Todo el texto que le sigue en esa línea se ignora.\n\nPor ejemplo:"
+                    "text": "¡Estas muy cerca de la meta! ¡Te felicitamos por llegar hasta aquí! Los comentarios son anotaciones al código utilizadas para facilitar su comprensión. \nNo afectan a la ejecución del código"
+                },
+                {
+                    "type": "info",
+                    "text": "En Python, un comentario se crea insertando un octógono (también conocido como signo de número o símbolo de almohadilla: #). Todo el texto que le sigue en esa línea se ignora.\n\nPor ejemplo:"
                 },
                 {
                     "type": "Consola",

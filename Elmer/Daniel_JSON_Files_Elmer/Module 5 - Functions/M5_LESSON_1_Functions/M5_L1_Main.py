@@ -176,7 +176,6 @@ class JsonWindow(QWidget):
     def create_feedback_label(self):
         # Añadir la etiqueta de retroalimentación al layout
         self.feedback_label = QLabel("")
-        self.feedback_label.setWordWrap(True)
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.feedback_label.setMinimumHeight(0)
         self.feedback_label.setMaximumHeight(50)  # Ajusta este valor según sea necesario
@@ -190,12 +189,10 @@ class JsonWindow(QWidget):
         for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
             if block["type"] == "info":
                 block_label = QLabel(block["text"])
-                block_label.setWordWrap(True)
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(block_label)
             elif block["type"] == "Consola":
                 self.hint_label = QLabel(block["text"])
-                self.hint_label.setWordWrap(True)
                 self.hint_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(self.hint_label)
                 self.blank_space_index = block["text"].find("_")
@@ -223,7 +220,6 @@ class JsonWindow(QWidget):
 
         for idx, block in enumerate(self.data[self.page_type.lower()][0]["blocks"]):
             block_label = QLabel(block["text"])
-            block_label.setWordWrap(True)
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
                 block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
@@ -262,7 +258,6 @@ class JsonWindow(QWidget):
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
-                    block_label.setWordWrap(True)
 
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(block_label)
@@ -281,7 +276,6 @@ class JsonWindow(QWidget):
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
                 else:
                     block_label = QLabel(block["text"])
-                    block_label.setWordWrap(True)
 
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(block_label)
@@ -300,49 +294,50 @@ class JsonWindow(QWidget):
     def reset_button(self):
         # Remove all current widgets from the layout
         while self.layout.count():
-            child = self.layout.takeAt(0)
+            child = self.layout.takeAt(self.layout.count() - 1)
             if child.widget():
                 child.widget().deleteLater()
+            elif child.layout():
+                # Optional: If you have nested layouts, you may need to recursively delete their contents as well.
+                while child.layout().count():
+                    subchild = child.layout().takeAt(child.layout().count() - 1)
+                    if subchild.widget():
+                        subchild.widget().deleteLater()
 
-        # Reiniciar la visualización de los puntos XP
-        self.update_points_display(self.main_window.XP_Ganados)
-
-        # Recrear los widgets y layouts
-        # Añadir el layout de puntos y leaderboard de nuevo
+        # Add the puntos and leaderboard_button widgets back to the layout
         hlayout = QHBoxLayout()
         hlayout.addWidget(self.puntos)
         hlayout.addWidget(self.leaderboard_button)
-        self.layout.addLayout(hlayout)
+        self.layout.insertLayout(0, hlayout)  # Insert at the beginning of the layout
 
-        # Restablecer el contenido del JsonWindow según el tipo de página
+        # Call the function that creates the initial layout again
         self.title()
         if self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
-        elif self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_layout(
-                is_multiple_choice_plus=self.data[self.page_type.lower()][0].get("multiplechoiceplus", False))
+
+        if self.page_type.lower() == "multiplechoice":
+            if self.data[self.page_type.lower()][0].get("multiplechoiceplus", False):
+                self.create_multiple_choice_layout(is_multiple_choice_plus=True)
+            else:
+                self.create_multiple_choice_layout(is_multiple_choice_plus=False)
+
         elif self.page_type.lower() == "completeblankspace":
             self.create_complete_blank_space_layout()
-        elif self.page_type.lower() == "pedagogical" or self.page_type.lower() == "pedagogical2":
-            self.create_pedagogical_layout()
         else:
-            # Otros tipos de página según sea necesario
-            print("No existe lógica para ese tipo de página.")
+            self.create_pedagogical_layout()
 
-        # Restablecer y mostrar la etiqueta de feedback
         self.create_feedback_label()
 
     def create_practice_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
-            block_label.setWordWrap(True)
 
             if block["type"] == "hint":
                 block_label.setStyleSheet(
                     f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
                 block_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']}; background-color: {self.styles['cmdExe_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -351,7 +346,6 @@ class JsonWindow(QWidget):
     def create_pedagogical_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
-            block_label.setWordWrap(True)
             if block["type"] == "hint":
                 block_label.setStyleSheet(
                     f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")

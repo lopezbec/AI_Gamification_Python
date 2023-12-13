@@ -5,7 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Python es uno de los lenguajes de programación mas populares del mundo. Se usa ampliamente en el desarrollo web y de juegos, análisis de datos, ciencia de datos, aprendizaje automático y mucho mas.\n\nPython tiene una sintaxis simple, lo que significa que es mas fácil de aprender. En este curso, comenzara a codificar sus propios programas en poco tiempo, para que pueda resolver problemas del mundo real y crear sus propias aplicaciones."
+                    "text": "Python es uno de los lenguajes de programación mas populares del mundo. Se usa ampliamente en el desarrollo web y de juegos, análisis de datos, ciencia de datos, aprendizaje automático y mucho mas."
+                },
+                {
+                    "type": "info",
+                    "text": "Python tiene una sintaxis simple, lo que significa que es mas fácil de aprender. En este curso, comenzara a codificar sus propios programas en poco tiempo, para que pueda resolver problemas del mundo real y crear sus propias aplicaciones."
                 }
 
             ]
