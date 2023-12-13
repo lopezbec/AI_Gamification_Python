@@ -35,7 +35,7 @@
             "hover_background_color": "#F5F5F5"
         },
         "dark": {
-            "hover_background_color": "#666666",
+            "hover_background_color": "#555555",
             "action_highlight_color": "#ffffff",
             "main_background_color": "#444444",
             "title_background_color": "#666666",
@@ -64,8 +64,8 @@
             "menu_text_color": "#FFFFFF",
             "menu_item_selected_background": "#00BFFF",
             "menu_item_selected_text": "#000000",
-            "table_row_odd_color": "#454545",
-            "table_row_even_color": "#555555"
+            "table_row_odd_color": "#666666",
+            "table_row_even_color": "#444444"
         }
     }
 }

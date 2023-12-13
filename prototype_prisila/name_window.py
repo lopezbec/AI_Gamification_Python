@@ -1,11 +1,13 @@
 import json
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from config import Config
 from question_window import QuestionWindow
-
+from Codigos_LeaderBoard import Main_Leaderboard_FV
 
 class NameWindow(QMainWindow):
+    nameEntered = pyqtSignal(str) 
     def __init__(self) -> None:
         super(NameWindow, self).__init__()
 
@@ -59,8 +61,16 @@ class NameWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def show_survey(self):
+        Config.set_user_name(self.input.text())
         self.question_window = QuestionWindow()
         self.question_window.username = self.input.text()
         self.question_window.read_csv()
         self.question_window.show()
         self.hide()
+
+
+    def open_leaderboard(self):
+        Config.set_user_name(self.input.text())
+        Main_Leaderboard_FV.LeaderBoard()
+        # leaderboard_window.show()
+

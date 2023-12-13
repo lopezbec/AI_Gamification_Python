@@ -5,7 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Muchos programas informáticos están diseñados para que otros usuarios puedan interactuar con ellos. Estos programas toman información de los usuarios. Por ejemplo, un juego puede solicitar el nombre y la edad del usuario como entrada para \nusar durante el juego.\n\nEn esta lección, aprenderá a escribir programas interactivos que toman información del usuario como entrada para trabajar."
+                    "text": "Muchos programas informáticos están diseñados para que otros usuarios puedan interactuar con ellos. Estos programas toman información de los usuarios. Por ejemplo, un juego puede solicitar el nombre y la edad del usuario como entrada para \nusar durante el juego."
+                },
+                {
+                    "type": "info",
+                    "text": "En esta lección, aprenderá a escribir programas interactivos que toman información del usuario como entrada para trabajar."
                 }
             ]
         }
