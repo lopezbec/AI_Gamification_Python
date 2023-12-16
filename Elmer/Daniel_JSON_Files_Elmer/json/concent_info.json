@@ -1,0 +1,16 @@
+{
+    "title_text": "Términos y condiciones",
+    "title_font_size": 20,
+    "title_word_wrap": true,
+    "title_margin": 5,
+    "content_text": "Aqui irá un texto para dar consentimiento a los terminos y condiciones",
+    "content_font_size": 17,
+    "content_word_wrap": true,
+    "content_margin": 10,
+    "accept_checkbox_text": "Aceptar términos y condiciones",
+    "button_text": "Acepto",
+    "button_enabled": false,
+    "continue_button_color": "#00BFFF",
+    "font_size_buttons":18
+
+}

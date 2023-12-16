@@ -7,7 +7,7 @@ import os
 
 
 class WelcomeWindow(QMainWindow):
-    def __init__(self) -> None:
+    def __init__(self):
         super(WelcomeWindow, self).__init__()
 
 
@@ -71,3 +71,4 @@ class WelcomeWindow(QMainWindow):
         self.concent_window = ConcentWindow()
         self.concent_window.show()
         self.hide()
+

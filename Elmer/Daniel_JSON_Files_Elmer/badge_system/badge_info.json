@@ -1,0 +1,9 @@
+{
+    "badge_text": "Felicidades! has conseguido una nueva insignia",
+    "badge_title": "Un pequeno, gran paso!",
+    "badge_font_size": 17,
+    "badge_font_family": "Lato",
+    "badge_margin": 10,
+    "badge_word_wrap": true,
+    "badge_bold": true
+}

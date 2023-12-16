@@ -1,14 +1,15 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-import welcome_window
+from welcome_window import WelcomeWindow
 
 
-app = QApplication(sys.argv)
-window = welcome_window.WelcomeWindow()
-window.showMaximized()
-window.show()
+class Intro_Pages(): #Clase para llamarla y ejecutar esto desde otro codigo.
+    app = QApplication(sys.argv)
+    window = WelcomeWindow()
+    window.showMaximized()
+    window.show()
 
-try:
-    app.exec()
-except KeyboardInterrupt:
-    print("shuting down...")
+    try:
+        app.exec()
+    except KeyboardInterrupt:
+        print("shuting down...")

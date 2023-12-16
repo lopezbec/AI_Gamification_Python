@@ -1,0 +1,17 @@
+{
+    "horizontal": {
+        "left": 1,
+        "right": 2,
+        "hcenter": 4,
+        "justify": 8,
+        "absolute_position": 256,
+        "justify_right": 512
+    },
+    "vertical": {
+        "top": 32,
+        "bottom": 64,
+        "vcenter": 128,
+        "justify": 256,
+        "absolute_position": 512
+    }
+}

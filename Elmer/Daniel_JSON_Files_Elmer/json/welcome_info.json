@@ -1,0 +1,16 @@
+{
+    "title_text": "Aprendizaje automatico y gamificacion para una aplicación educativa personalizada y adaptativa",
+    "title_font_size": 20,
+    "title_margin": 10,
+    "title_word_wrap": true,
+    "title_bold": true,
+
+    "content_text": "Este proyecto cuenta con el apoyo de la beca FONDOCyT (2022-3A1-112), y cuenta con la colaboración de la Universidad Nacional Pedro Henríquez Ureña (UNPHU) y la Asociación para la Creatividad, Innovación, Emprendimiento y Networking (A100%) de República Dominicana.\n\nEl proyecto tiene como objetivo explorar la implementación de algoritmos de Machine Learning en una aplicación educativa gamificada para personalizar sus elementos de juego y adaptar su contenido pedagógico. La aplicación se centrará en ayudar a sus usuarios a aprender a programar usando Python, ya que los desarrolladores de software de Python se encuentran entre las profesiones emergentes más demandadas.",
+    "content_font_size": 17,
+    "content_margin": 10,
+    "content_word_wrap":true,
+    
+    "button_text": "Siguiente",
+    "continue_button_color": "#00BFFF",
+    "font_size_buttons":18
+}

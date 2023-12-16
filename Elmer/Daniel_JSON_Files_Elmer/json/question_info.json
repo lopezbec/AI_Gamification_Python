@@ -1,0 +1,25 @@
+{
+    "title_text": "Pregunta #",
+    "title_font_size": 20,
+    "title_word_wrap": true,
+    "title_margin": 10,
+    "continue_button_color": "#00BFFF",
+    "font_size_buttons":18,
+
+    "content_font_size": 17,
+    "content_word_wrap": true,
+    "content_margin": 10,
+
+    "radio_text": {
+        "radio_1": "Totalmente en desacuerdo",
+        "radio_2": "En Desacuerdo",
+        "radio_3": "Ligeramente en Desacuerdo",
+        "radio_4": "Neutral",
+        "radio_5": "Ligeramente de acuerdo",
+        "radio_6": "De acuerdo",
+        "radio_7": "Totalmente de acuerdo"
+    },
+
+    "next_button_text": "Siguiente",
+    "next_button_enabled": false
+}
