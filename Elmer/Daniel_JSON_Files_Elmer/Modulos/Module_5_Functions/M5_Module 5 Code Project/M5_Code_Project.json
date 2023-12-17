@@ -1,0 +1,25 @@
+{
+    "practica": [
+        {
+            "title": "Buscador",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Estás trabajando en un motor de búsqueda. ¡Cuida tu espalda Google!\n\nEl código dado toma un texto y una palabra como entrada y los pasa a una función llamada search().\n\nLa search()función debería devolver 'Palabra encontrada' si la palabra está presente en el texto, o\n'Palabra no encontrada', si no lo está."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra\n'Esto es asombroso'\n'impresionante'\n\nSalida de muestra\npalabra encontrada" 
+                },
+                {
+                    "type": "hint",
+                    "text": "Defina la search()función para que el código proporcionado funcione como se\nesperaba." 
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntext = input()\nword = input()\n\nprint(search(text, word))"
+                }
+            ]
+        }
+    ]
+}

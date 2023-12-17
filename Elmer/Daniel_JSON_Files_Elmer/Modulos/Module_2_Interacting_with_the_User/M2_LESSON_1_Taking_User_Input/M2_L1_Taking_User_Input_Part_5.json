@@ -1,0 +1,37 @@
+{
+    "pedagogical": [
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real. Corrija el código para que produzca el resultado deseado."
+                },
+                {
+                    "type": "hint",
+                    "text": "Input. \n Corrija el código para que produzca el resultado deseado."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Input",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Imagina que estás trabajando en un nuevo sistema de gestión de contactos. Se requiere que el programa solicite al usuario el nombre y la edad. Se debe producir el siguiente resultado: ' el nombre tiene años de edad ',\ndonde el nombre y la edad son variables. Hay algo mal con el código dado, ¿puedes arreglarlo? Complete el código para que el usuario pueda proporcionar el nombre y la edad."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra:\nana\n18"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nname = input()\nage = input()\nprint(name + ' is ' + age + ' years old')\n>ana is 18 years old"
+                }
+            ]
+        }
+    ]
+}

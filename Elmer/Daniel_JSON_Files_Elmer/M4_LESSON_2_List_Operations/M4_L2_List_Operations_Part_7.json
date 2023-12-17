@@ -1,0 +1,37 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Bingo - Dada una lista de números, genera 'bingo' si contiene el número de entrada."
+                }
+            ]
+        }
+    ],
+
+    "practica": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Dada una lista de números, genera ' bingo ' si contiene el número de\nentrada."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [42, 8, 7, 1, 0, 124, 8897, 555, 3, 67, 99]\n\nnum = int(input())\n\nif num in x:\n    print('bingo')"
+                },
+                {
+                    "type": "hint",
+                    "text": "No envíe nada si no encuentra el número."
+                }
+            ]
+        }
+    ]
+}

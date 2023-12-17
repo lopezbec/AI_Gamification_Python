@@ -1,0 +1,47 @@
+{
+    "pedagogical": [
+        {
+            "title": "Comparación",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los valores booleanos se crean al comparar valores. Python tiene varios operadores de comparación: \nigual a == \nno igual a != \nmayor que > \nmenor que < \nmayor o igual a >= \nmenor o igual a <=\n\nVeamos algunos ejemplos:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 7\nprint(x != 8)\n>True\nprint(x > 5)\n>True\nprint(x < 2)\n>False\nprint(x >= 7)\n>True\nprint(x <= 7)\n>True"
+                },
+                {
+                    "type": "hint",
+                    "text": "Los operadores de comparación también se denominan operadores relacionales ."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(7!=8)\n>?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "True",
+                    "correct": true
+                },
+                {
+                    "text": "False",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

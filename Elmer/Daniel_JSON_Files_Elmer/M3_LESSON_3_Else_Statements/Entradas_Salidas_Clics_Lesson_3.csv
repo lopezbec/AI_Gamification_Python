@@ -1,0 +1,20 @@
+event,time
+Parte 1,23:03:14
+Checkbox Selected: if,23:03:24
+Checkbox Selected: else,23:03:27
+Parte 2,23:03:27
+Correct Drop Event: if,23:03:33
+Correct Drop Event: :,23:03:33
+Parte 3,23:03:33
+Correct Drop Event: if,23:04:22
+Correct Drop Event: :,23:04:22
+Parte 4,23:04:22
+Checkbox Selected: elif,23:04:29
+Parte 5,23:04:29
+Correct Drop Event: if,23:04:48
+Correct Drop Event: elif,23:04:48
+Correct Drop Event: :,23:04:48
+Parte 6,23:04:48
+Parte 7,23:04:52
+Checkbox Selected: 10,23:05:01
+

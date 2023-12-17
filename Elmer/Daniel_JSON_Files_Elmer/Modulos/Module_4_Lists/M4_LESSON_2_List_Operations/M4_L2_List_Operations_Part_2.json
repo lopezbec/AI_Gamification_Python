@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡La lista de cosas geniales que podemos hacer con las listas sigue creciendo!\nLas listas también se pueden agregar de la misma manera que las cadenas.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nprint(nums + [4, 5, 6])"
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Calcula el resultado de este código:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [2, 4]\nx += [6, 8]\nprint(x[2]//x[0])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

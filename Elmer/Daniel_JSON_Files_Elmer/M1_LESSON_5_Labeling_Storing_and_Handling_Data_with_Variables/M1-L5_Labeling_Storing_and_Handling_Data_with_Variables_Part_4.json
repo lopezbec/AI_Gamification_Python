@@ -1,0 +1,51 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Trabajar con variables",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una vez que haya creado una variable, puede usarla para realizar operaciones con ella,\ntal como lo hace con números y cadenas.."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprice = 15\nprint(price*3)\n>45"
+                },
+                {
+                    "type": "hint",
+                    "text": "Una variable almacena el valor a lo largo del programa."
+                }
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nyear = 2023\nprint(year + 5)\n>____"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "2023",
+                    "correct": false
+                },
+                {
+                    "text": "2028",
+                    "correct": true
+                },
+                {
+                    "text": "2025",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

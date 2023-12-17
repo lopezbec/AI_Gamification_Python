@@ -1,0 +1,42 @@
+{
+
+    "pedagogical": [ 
+        {
+            "title": "Hora de practicar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Grupos de edad - Dada la edad de una persona como entrada, genera su grupo de edad."
+                }
+            ]
+        }
+    ],
+
+    "practica": [
+        {
+            "title": "Lógica booleana",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Dada la edad de una persona como entrada, genera su grupo de edad.\n\nEstos son los grupos de edad que debe manejar:\nNiño : 0 a 11\nAdolescente : 12 a 17\nAdulto : 18 a 64"
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Entrada de muestra: 42\nSalida de muestra: Adulto"
+                },
+                {
+                    "type": "hint",
+                    "text": "Recuerde, puede usar el operador booleano y para\ncombinar condiciones, como x>0 y x<20." 
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nedad = int(input())\n\nif edad > 0 and edad <= 11:\n print('Child')\nelif edad >= 12 and edad <= 17:\n print('Teen')\nelif edad >= 18 and edad <= 64:\n print('Adult')"
+                }
+            ]
+        }
+    ]
+}

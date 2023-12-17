@@ -1,0 +1,47 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para hacer una declaración de entrada correcta."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntxt = ____ \n print(txt)\n>?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "float()",
+                    "correct": false
+                },
+                {
+                    "text": "input()",
+                    "correct": true
+                },
+                {
+                    "text": "print()",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Conclusiones de la leccion",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Fantastico! Has completado la leccion. Has aprendido que: El comando input() se usa para hacer que sus programas interactúen con el usuario. El comando input() siempre devuelve una cadena, incluso si el usuario ingresa un\nPuede personalizar el mensaje que desea que el usuario vea cuando se necesita una entrada"
+                },
+                {
+                    "type": "hint",
+                    "text": "Pista: En la próxima lección, aprenderá a convertir datos de entrada en diferentes formatos."
+                }
+            ]
+        }
+    ]
+}

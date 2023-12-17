@@ -1,0 +1,50 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Lineas Multiples",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Hay situaciones en las que es posible que desee utilizar el comando de impresión varias veces.\nCada instrucción de impresión genera texto en una nueva linea."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Name:')\nprint('Mary')\nprint('Balance:')\nprint('500')\n>Name:\n>Mary\n>Balance:\n>500"
+                },
+                {
+                    "type": "hint",
+                    "text": "Una linea de código se llama declaración . Usamos sentencias para dar instrucciones a la computadora. Puede incluir tantas lineas o declaraciones como necesite en su código. Cuando le da a la computadora muchas declaraciones, \nlas instrucciones se ejecutaran linea por linea, de arriba a abajo."
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "Arrastre y suelte para reorganizar el código y generar la letra de la canción popular como salida",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Nosotros somos los campeones amigos \nY seguiremos luchando hasta el final \nSomos los campeones."
+                },
+                {
+                    "type": "Consola",
+                    "text": "___\n___\n___ "
+                }
+            ],
+            "answers": [
+                {
+                    "text": "print('Nosotros somos los campeones amigos')"
+                },
+                {
+                    "text": "print('Y seguiremos luchando hasta el final')"
+                },
+                {
+                    "text": "print('Somos los campeones')"
+                }
+            ],
+            "correctOrder": ["print('Nosotros somos los campeones amigos')", "print('Y seguiremos luchando hasta el final')", "print('Somos los campeones')"]
+        }
+    ]
+}

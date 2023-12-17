@@ -1,0 +1,47 @@
+{
+    "pedagogical": [
+        {
+            "title": "Booleanos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El tipo de datos booleano tiene uno de los dos únicos valores posibles: True y False .\nTenga en cuenta que los valores deben comenzar con una letra mayúscula ."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nopen = True\nclosed = False"
+                }
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para generar el valor de la variable booleana abierta:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nopen = False\nprint(____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "open",
+                    "correct": true
+                },
+                {
+                    "text": "True",
+                    "correct": false
+                },
+                {
+                    "text": "close",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

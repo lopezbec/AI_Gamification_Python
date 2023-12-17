@@ -1,0 +1,56 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las listas y las cadenas comparten muchas similitudes; básicamente, puede pensar en\nlas cadenas como listas de caracteres que no se pueden cambiar.\nSimilar a las cadenas, una lista se puede multiplicar por un número entero:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nprint(nums * 3)"
+                },
+                {
+                    "type": "hint",
+                    "text": "Esto repite la lista el número especificado de veces."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [2, 4]\n\nx = x * 3\n\nprint(x[3])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "6",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+}

@@ -1,0 +1,56 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles en listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Desglosemos este código:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
+                },
+                {
+                    "type": "info",
+                    "text": "El bucle for define una variable que toma el valor del elemento actual de la lista en cada\niteración.\n\nEn el código anterior, la palabra variable representa el elemento correspondiente de la\nlista en cada iteración del ciclo."
+                },
+                {
+                    "type": "hint",
+                    "text": "Durante la primera iteración, palabra es igual a ' hola ', y durante la.\nsegunda iteración es igual a ' mundo ', y así sucesivamente."
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos números generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [4, 7, 3, 1]\nfor x in nums:\n    print(x*2)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

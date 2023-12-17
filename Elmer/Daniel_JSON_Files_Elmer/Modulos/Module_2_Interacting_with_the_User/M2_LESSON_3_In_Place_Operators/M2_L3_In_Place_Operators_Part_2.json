@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operadores In-Place",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Operadores In-Place los operadores se pueden usar para cualquier operación numérica (+, -, *, /, %, **, //)."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 8\nx -= 2\nprint(x)\n>6\nx /= 3\nprint(x)\n>2\nx **= 5\nprint(x)\n>64"
+                }
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 9\nx %= 2\nx += 3\nprint(x)\n>____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Lógica booleana",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Como puede ver, además de los valores, también puede comparar variables para formar\ncondiciones:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = 24\nlimit = 18\nheight = 191\n\nif age > limit and height > 180:\n  print('Yes')\n>Yes"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para mostrar 'Cerrado' si la variable de la hora es mayor que 20 o si la variable del día es igual a 'Domingo'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "if hour > ___ ___ ___  == 'Sunday':\n  print('Cerrado')\nelse:\n  print('Abierto')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "20"
+                },
+                {
+                    "text": "or"
+                },
+                {
+                    "text": "day"
+                },
+                {
+                    "text": "if"
+                }
+            ],
+            "correctOrder": ["20", "or", "day"]
+        }
+    ]
+}

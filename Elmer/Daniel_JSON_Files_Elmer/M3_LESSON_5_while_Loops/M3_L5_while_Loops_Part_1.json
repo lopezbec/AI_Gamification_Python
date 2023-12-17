@@ -1,0 +1,44 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los bucles le permiten repetir un bloque de código varias veces."
+                },
+                {
+                    "type": "hint",
+                    "text": "Por ejemplo, supongamos que necesitamos procesar múltiples entradas de usuario, de modo que cada vez que el usuario ingrese algo, se debe ejecutar el mismo bloque de código."
+                }
+
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Un bloque de código que pertenece a una declaración, como if/else, debe ser:"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "entre comillas",
+                    "correct": false
+                },
+                {
+                    "text": "entre paréntesis",
+                    "correct": false
+                },
+                {
+                    "text": "sangrado",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

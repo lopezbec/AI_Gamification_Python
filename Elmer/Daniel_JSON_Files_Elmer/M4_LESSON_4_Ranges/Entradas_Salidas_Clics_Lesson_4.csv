@@ -1,0 +1,74 @@
+event,time
+Parte 1,20:30:01
+Checkbox Selected: 4,20:30:25
+Checkbox Selected: 6,20:30:28
+Checkbox Selected: 5,20:30:32
+Parte 2,20:30:32
+Checkbox Selected: 8,20:30:40
+Checkbox Selected: 2,20:30:42
+Checkbox Selected: 4,20:30:45
+Parte 3,20:30:46
+Checkbox Selected: False,20:30:50
+Checkbox Selected: True,20:30:54
+Parte 4,20:30:55
+Checkbox Selected: 3,20:30:59
+Checkbox Selected: 3,20:31:00
+Checkbox Selected: 12,20:31:02
+Checkbox Selected: 0,20:31:05
+Checkbox Selected: 9,20:31:08
+Parte 5,20:31:09
+Checkbox Selected: 2,20:31:15
+Checkbox Selected: 3,20:31:19
+Parte 6,20:31:20
+Incorrect Drop Event: 2,20:32:18
+Incorrect Drop Event: i,20:32:18
+Incorrect Drop Event: 2,20:32:18
+Incorrect Drop Event: i,20:32:18
+Correct Drop Event: for,20:32:54
+Correct Drop Event: 2,20:32:54
+Correct Drop Event: i,20:32:54
+Parte 7,20:32:54
+Correct Drop Event: list,20:35:13
+Correct Drop Event: range,20:35:13
+Correct Drop Event: x,20:35:13
+
+Parte 1,19:13:36
+Checkbox Selected: 4,19:13:43
+Checkbox Selected: 6,19:13:45
+Checkbox Selected: 6,19:13:46
+Checkbox Selected: 5,19:13:50
+Parte 2,19:13:50
+Checkbox Selected: 2,19:13:55
+Checkbox Selected: 8,19:13:57
+Checkbox Selected: 4,19:14:00
+Parte 3,19:14:01
+Checkbox Selected: True,19:14:07
+Parte 4,19:14:08
+Checkbox Selected: 3,19:14:12
+Checkbox Selected: 0,19:14:15
+Checkbox Selected: 9,19:14:23
+Parte 5,19:14:24
+Checkbox Selected: 2,19:14:29
+Checkbox Selected: 3,19:14:32
+Parte 6,19:14:33
+Correct Drop Event: for,19:14:51
+Correct Drop Event: 2,19:14:51
+Correct Drop Event: i,19:14:51
+Parte 7,19:14:52
+Incorrect Drop Event: range,19:15:54
+Incorrect Drop Event: range,19:16:29
+Incorrect Drop Event: list,19:16:29
+Incorrect Drop Event: x,19:16:29
+Incorrect Drop Event: range,19:16:30
+Incorrect Drop Event: list,19:16:30
+Incorrect Drop Event: x,19:16:30
+Incorrect Drop Event: range,19:16:38
+Incorrect Drop Event: list,19:16:38
+Incorrect Drop Event: x,19:16:38
+Incorrect Drop Event: range,19:16:38
+Incorrect Drop Event: list,19:16:38
+Incorrect Drop Event: x,19:16:38
+Correct Drop Event: list,19:17:03
+Correct Drop Event: range,19:17:03
+Correct Drop Event: x,19:17:03
+

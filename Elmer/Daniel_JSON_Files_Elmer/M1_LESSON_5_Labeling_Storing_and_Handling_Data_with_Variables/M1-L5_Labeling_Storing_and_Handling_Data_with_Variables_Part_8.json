@@ -1,0 +1,47 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nmoney = 200\ncurrency = '€'\nprint('Balance:', currency, money)\n>?"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "Balance: currency money",
+                    "correct": false
+                },
+                {
+                    "text": "Balance: 200€",
+                    "correct": false
+                },
+                {
+                    "text": "Balance: € 200",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [ 
+        {
+            "title": "Conclusiones de la lección",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡Fantástico! Ha completado todas las lecciones del Módulo 1. En esta lección, ha aprendido que: \nPuedes almacenar información importante usando variables.\nPuedes hacer diferentes operaciones con variables\nPuede generar el valor de una variable."
+                },
+                {
+                    "type": "hint",
+                    "text": "En el siguiente módulo, llevará estos fundamentos de codificación al\nsiguiente nivel para crear programas que interactúen con el usuario."
+                }
+            ]
+        }
+    ]
+}

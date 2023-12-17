@@ -1,0 +1,47 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Reasignación de variables",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las variables se pueden reasignar tantas veces como sea necesario."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 8\nprint(x)\n>8\nx = 41\nprint(x)\n>41"
+                }
+            ]
+        }
+    ],
+    
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Adivina la salida de este código:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = 42\nage = 24\nprint(age)\n>?"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "24",
+                    "correct": true
+                },
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "42",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

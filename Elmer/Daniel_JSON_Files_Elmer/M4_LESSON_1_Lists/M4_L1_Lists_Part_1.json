@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Listas ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las listas se utilizan para almacenar artículos. Podemos crear una lista usando corchetes con comas que separan los elementos. Como esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\npalabras = ['Hello', 'world', '!']"
+                },
+                {
+                    "type": "hint",
+                    "text": "En este ejemplo, la lista de palabras contiene tres elementos de cadena: Hello, world y !."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos elementos hay en la siguiente lista?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnúmeros = [4, 3, 7, 1]\n>?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": true
+                },
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "5",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

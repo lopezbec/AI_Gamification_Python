@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Retorno de funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una vez que se devuelve un valor de una función, ésta deja de ejecutarse inmediatamente. Cualquier código colocado después de la declaración return no será ejecutado.\n\nPor ejemplo\n\n\n"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef sumar_numeros(x, y):\n\ttotal = x + y\n\treturn total\n\tprint(\"Esto no sera imprimido.\")\n\nprint(sumar_numeros(4, 5))\n"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el número más alto que se imprime esta función si se llama?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef imprimir_numeros():\n\tprint(1)\n\tprint(2)\n\treturn\n\tprint(4)\n\tprint(6)\n"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": false
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

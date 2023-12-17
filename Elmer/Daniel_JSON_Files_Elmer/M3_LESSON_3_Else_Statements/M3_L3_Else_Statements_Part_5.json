@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Declaraciones elif",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Y como puede ver en el ejemplo anterior, una serie de sentencias if elif puede tener un\nbloque else final , que se llama if none of the if o elif expressions is True ."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 8\nif num == 1:\n  print('One')\nelif num == 2:\n  print('Two')\nelif num == 3:\n  print('Three')\nelse:\n  print('Something else')\n>Something else"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una opción más corta para una declaración 'else if' es:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 42\n___ num < 0:\n  print('Negativo')\n___ num > 0:\n  print('Positive')\nelse___\n   print('Zero')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "elif"
+                },
+                {
+                    "text": "if"
+                },
+                {
+                    "text": ":"
+                },
+                {
+                    "text": "else"
+                }
+            ],
+            "correctOrder": ["if", "elif", ":"]
+        }
+    ]
+}

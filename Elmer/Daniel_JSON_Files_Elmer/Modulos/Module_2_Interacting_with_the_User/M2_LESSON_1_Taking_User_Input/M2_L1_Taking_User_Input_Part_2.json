@@ -1,0 +1,51 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para tomar la entrada del usuario, asignarla a una variable y generarla:"
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "'42'",
+                    "text": "text = ____"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "text",
+                    "text": "print(____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "text",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "'42'",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Input",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Incluso si el usuario ingresa un número como entrada, se procesa como una cadena:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumber = input()\nprint('You entered: ' + number)\n>You entered: ____"
+                }
+            ]
+        }
+    ]
+}

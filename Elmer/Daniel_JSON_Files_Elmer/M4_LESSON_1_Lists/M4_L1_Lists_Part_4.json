@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Listas ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡Pero las listas no son solo para ir de compras!\n\nPodemos hacer algunas cosas geniales con ellos en Python. Por ejemplo, podemos usar\nlistas anidadas para representar cuadrículas 2D, como matrices."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nm = [\n    [1, 2, 3],\n    [4, 5, 6]\n]"
+                },
+                {
+                    "type": "hint",
+                    "text": "Esto es útil porque una estructura similar a una matriz puede permitirle almacenar datos en formato fila-columna, como en los programas de emisión de boletos, que necesitan almacenar los números de\nasiento en una matriz, con sus filas y números correspondientes."
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para completar los espacios en blanco para crear una lista e imprimir su tercer elemento. "
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = ___42, 55, 67]\nprint(list[___])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7"
+                },
+                {
+                    "text": "["
+                },
+                {
+                    "text": "2"
+                }
+            ],
+            "correctOrder": ["[","2"]
+        }
+    ]
+}

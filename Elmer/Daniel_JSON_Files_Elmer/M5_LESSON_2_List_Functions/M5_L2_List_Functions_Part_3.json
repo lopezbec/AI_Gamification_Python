@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones de lista",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La función append() se utiliza para agregar un elemento al final de la lista:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nnums.append(4)\nprint(nums)"
+                },
+                {
+                    "type": "hint",
+                    "text": "Tenga en cuenta que la función se llama utilizando el nombre de la lista, seguido de un punto."
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte desde las opciones siguientes para agregar 'z' al final de la lista e imprimir la longitud de la lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist.___('z')\nprint(___.list())"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "len"
+                },
+                {
+                    "text": "append"
+                }
+            ],
+            "correctOrder": ["append", "len"]
+        }
+    ]
+}

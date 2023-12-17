@@ -1,0 +1,37 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "¡La practica hace la perfección!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Arreglar el código - Arreglemos el código para generar el resultado requerido."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Arreglar el código",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El código dado ha sido diseñado para generar 'Spider-Man'\n Algo esta mal. ¿Puedes arreglarlo?."
+                },
+                {
+                    "type": "hint",
+                    "text": "Pista: Recuerda que puedes personalizar el separador con cualquier carácter."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Corrija el código para generar el resultado requerido."
+                }
+            ]
+        }
+    ]
+}

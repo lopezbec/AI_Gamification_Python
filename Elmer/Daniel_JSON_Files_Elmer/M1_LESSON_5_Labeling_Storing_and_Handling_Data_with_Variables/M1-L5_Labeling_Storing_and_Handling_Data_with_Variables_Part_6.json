@@ -1,0 +1,52 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 10\ny = 2\nprint(x+y)",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 10\ny = 2\nprint(x+y)\n>?"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "3",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "12",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [ 
+        {
+            "title": "Nombres de variables",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puede nombrar las variables de diferentes maneras. Puede utilizar letras y guiones bajos.\nPuede usar números siempre que no comience el nombre de una variable con un número.\nNo puede usar caracteres especiales como %. Algunos ejemplos a continuación:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nStock-price\ntemperature_sensor\ncounter3"
+                },
+                {
+                    "type": "hint",
+                    "text": "Recuerde, Python es un lenguaje que distingue entre mayúsculas y minúsculas.\nLo que significa que Apellido y apellido son dos nombres de variables diferentes."
+                }
+            ]
+        }
+    ]
+}

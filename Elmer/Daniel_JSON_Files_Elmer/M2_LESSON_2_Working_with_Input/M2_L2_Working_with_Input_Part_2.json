@@ -1,0 +1,47 @@
+{
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para calcular y generar la suma de 2 y 4."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)\n>____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "33",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Convertir a flotante",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Similar a la función int() , la función float() convierte una cadena en un flotante:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nheight = float(input())\nprint(height)\n>?"
+                }
+            ]
+        }
+    ]
+}

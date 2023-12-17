@@ -1,0 +1,43 @@
+{
+    "pedagogical": [
+        {
+            "title": "for vs while",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Así que tenemos los bucles for y while , que se pueden usar para ejecutar un bloque de\ncódigo varias veces. Entonces, ¿cuál usamos y cuándo?\n\nPor lo general, usaríamos el ciclo for cuando el número de iteraciones es fijo. Por\nejemplo, iterar sobre una lista fija de artículos en una lista de compras.\n\nEl ciclo while es útil en los casos en que no se conoce el número de iteraciones y\ndepende de algunos cálculos y condiciones en el bloque de código del ciclo. Por\nejemplo, finalizar el ciclo cuando el usuario ingresa una entrada específica en un\nprograma de calculadora."
+                },
+                {
+                    "type": "hint",
+                    "text": "Si bien los bucles for y while se pueden usar para lograr los mismos\nresultados, el bucle for tiene una sintaxis más limpia y corta, lo que lo\nconvierte en una mejor opción en la mayoría de los casos."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué construcción se puede usar para iterar a través de una lista?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Declaraciones if",
+                    "correct": false
+                },
+                {
+                    "text": "Asignación de variables",
+                    "correct": false
+                },
+                {
+                    "text": "Bucles",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puede crear sus propias funciones utilizando la declaración def. A continuación se muestra un ejemplo de una función denominada my_func. No requiere argumentos e imprime 'spam' tres veces."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para definir una función llamada hola:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ hello()___\n   print('Hi!')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "def"
+                },
+                {
+                    "text": ":"
+                },
+                {
+                    "text": "cadabra"
+                }
+            ],
+            "correctOrder": ["def", ":"]
+        }
+    ]
+}

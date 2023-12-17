@@ -1,0 +1,23 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál de los siguientes representa el valor booleano Falso?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "0",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

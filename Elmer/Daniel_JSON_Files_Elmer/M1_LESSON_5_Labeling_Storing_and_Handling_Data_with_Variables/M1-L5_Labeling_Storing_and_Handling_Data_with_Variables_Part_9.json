@@ -1,0 +1,41 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "¡La práctica hace la perfección!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Es hora de poner en práctica tus conocimientos y escribir código real para resolver el\nsiguiente ejercicio."
+                },
+                {
+                    "type": "hint",
+                    "text": "Almacenamiento de datos\nModifique el código para generar el valor de la variable multiplicado por 5."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [ 
+        {
+            "title": "Almacenamiento de datos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El código dado declara una variable llamada num y genera su valor."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Cambie el código para que genere el valor multiplicado por 5."
+                },
+                {
+                    "type": "hint",
+                    "text": "Puede realizar diferentes operaciones con variables \ndirectamente en la declaración de impresión."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 4\nprint(num*5)\n>20"
+                }
+            ]
+        }
+    ]
+}

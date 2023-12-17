@@ -1,0 +1,17 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operadores In-Place",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Hemos cubierto una serie de temas importantes, como variables, entrada y operadores.\nEstos se pueden usar juntos para hacer un programa más complejo.\n\nPor ejemplo, hagamos un programa que tome millas como entrada\n y genere el valor de km correspondiente:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nmiles = int(input())\nkm = miles * 1.60934\nprint(km)"
+                }
+            ]
+        }
+    ]
+}

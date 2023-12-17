@@ -1,0 +1,44 @@
+{
+    "pedagogical": [
+        {
+            "title": "Booleanos ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Podemos crear valores booleanos comparando valores, usando el operador igual ==.\nComo esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nmy_boolean = True\nprint(my_boolean)\n>True\nprint(2 == 3)\n>False\nprint('hello' == 'hello')\n>True"
+                },
+                {
+                    "type": "hint",
+                    "text": "Tenga cuidado de no confundir la asignación (un signo igual) con la comparación (dos signos iguales)."
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nComplete los espacios en blanco para crear una variable is_online y asígnele el valor\n___ = ___"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "is_online"
+                },
+                {
+                    "text": "True"
+                }
+            ],
+            "correctOrder": ["is_online", "True"]
+        }
+    ]
+}

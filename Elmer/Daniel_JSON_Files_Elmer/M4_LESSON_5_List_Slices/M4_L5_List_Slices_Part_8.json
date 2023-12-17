@@ -1,0 +1,31 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos elementos devolverá este segmento si la lista de 'names' contiene 5 elementos?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnames[1:-1]"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

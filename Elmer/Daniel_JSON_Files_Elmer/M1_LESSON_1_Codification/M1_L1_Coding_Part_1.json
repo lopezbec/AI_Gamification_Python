@@ -1,0 +1,39 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bienvenido a Python",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Python es uno de los lenguajes de programación mas populares del mundo. Se usa ampliamente en el desarrollo web y de juegos, análisis de datos, ciencia de datos, aprendizaje automático y mucho mas."
+                },
+                {
+                    "type": "info",
+                    "text": "Python tiene una sintaxis simple, lo que significa que es mas fácil de aprender. En este curso, comenzara a codificar sus propios programas en poco tiempo, para que pueda resolver problemas del mundo real y crear sus propias aplicaciones."
+                }
+
+            ]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Que es un lenguaje de programación?"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.",
+                    "correct": false
+                },
+                {
+                    "text": "Un lenguaje utilizado por los humanos para comunicarse con las maquinas.",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "practica": [
+        {
+            "title": "Equipo de futbol",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Práctica: Necesitas calcular los puntos obtenidos por un equipo de futbol. El equipo gano 18 juegos y termino 7 juegos en empate."
+                },
+                {
+                    "type": "hint",
+                    "text": "Pista: Una victoria trae 3 puntos, mientras que un empate trae 1."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Cree un programa para calcular y generar el total de puntos ganados por el equipo." 
+                }
+            ]
+        }
+    ]
+}

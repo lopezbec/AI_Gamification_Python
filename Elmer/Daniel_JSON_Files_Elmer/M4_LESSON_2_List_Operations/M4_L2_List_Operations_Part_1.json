@@ -1,0 +1,47 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El elemento en un cierto índice en una lista se puede reasignar.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [5, 8, 2]\nnums[1] = 42\n\nprint(nums)"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3, 4, 5]\nnums[3] = nums[1]\nprint(nums[3])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

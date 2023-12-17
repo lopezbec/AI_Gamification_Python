@@ -1,0 +1,47 @@
+{
+    "pedagogical": [
+        {
+            "title": "Rango",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Python hace que sea muy fácil crear secuencias de números usando la función range() .\n\nDe forma predeterminada, comienza desde 0, aumenta en 1 y se detiene antes del número especificado.\n\nEl siguiente código genera una lista que contiene todos los números enteros, hasta 10."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumbers = range(10)"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántos números genera el siguiente rango?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = range(5)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "5",
+                    "correct": true
+                },
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

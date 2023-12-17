@@ -1,0 +1,69 @@
+{
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código??"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwhile False:\n\n  print('Looping...')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "0",
+                    "correct": true
+                },
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "Infinitamente muchas",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para romper el bucle infinito cuando el usuario ingresa '0'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwhile True:\n   x = input()\n   ____ x == '___':\n      _____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "continue",
+                    "correct": false
+                },
+                {
+                    "text": "0",
+                    "correct": true
+                },
+                {
+                    "text": "break",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+
+  
+}

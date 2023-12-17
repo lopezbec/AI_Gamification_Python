@@ -1,0 +1,23 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puedes llamar a la misma función varias veces."
+                }
+            ],
+            "answers": [
+                {
+                    "text": "False",
+                    "correct": false
+                },
+                {
+                    "text": "True",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "pedagogical": [
+        {
+            "title": "Declaraciones if",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Python usa sangría (ese espacio vacío al comienzo de una línea) para delimitar bloques de código. Dependiendo de la lógica del programa, la sangría puede ser obligatoria."
+                },
+                {
+                    "type": "hint",
+                    "text": "Las declaraciones en el si deben estar sangradas."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué parte de una instrucción if debe tener sangría?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "None",
+                    "correct": false
+                },
+                {
+                    "text": "la primera línea",
+                    "correct": false
+                },
+                {
+                    "text": "Las declaraciones dentro de ella",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

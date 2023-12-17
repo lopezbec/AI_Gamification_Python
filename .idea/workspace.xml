@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/prototype_prisila/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/prototype_prisila/app.py" afterDir="false" />
-    </list>
+    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +65,7 @@
       <recent name="C:\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer\Module 3 - Control Flow" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
     <configuration name="Main_Module_2" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="AI_Gamification_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,6 +144,7 @@
       <workItem from="1700699235062" duration="3559000" />
       <workItem from="1702439227250" duration="52000" />
       <workItem from="1702440072156" duration="836000" />
+      <workItem from="1702776190259" duration="307000" />
     </task>
     <servers />
   </component>

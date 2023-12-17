@@ -1,0 +1,100 @@
+{
+
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para romper el bucle infinito cuando el usuario ingresa '0'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n_____ min(x, y):\n   if x<=y _____\n      return x\n   else:\n_____ y"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "def",
+                    "correct": true
+                },
+                {
+                    "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "return",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Reorganice el código para definir una función que calcule la suma de todos los números\ndesde 0 hasta su argumento."
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "def sum(x):",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "res = 0",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "for i in range(x):",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta4",
+                    "correctValue": "res += i",
+                    "text": "__________"
+                },
+                {
+                    "type": "pregunta5",
+                    "correctValue": "return res",
+                    "text": "__________"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "for i in range(x):",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "res = 0",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "def sum(x):",
+                    "correctType": "pregunta1"
+                },
+                {
+                    "text": "res += i",
+                    "correctType": "pregunta4"
+                },
+                {
+                    "text": "return res",
+                    "correctType": "pregunta5"
+                }
+            ]
+        }
+    ]
+
+
+  
+}

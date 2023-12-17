@@ -1,0 +1,37 @@
+{
+    "pedagogical": [
+        {
+            "title": "Booleanos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los operadores mayor que y menor que también se pueden usar para comparar cadenas lexicográficamente (el orden alfabético de las palabras se basa en el orden alfabético de las letras que las componen).\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('a' > 'b')\n>True\nprint('Bob' > 'Dave')\n>True"
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Booleanos",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los valores booleanos verdadero y falso se pueden representar como números enteros 1 y 0, respectivamente.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = (7 > 5)\nprint(int(x))\n>1"
+                },
+                {
+                    "type": "hint",
+                    "text": "Tenga en cuenta que usamos la función int() para convertir el valor booleano en un número entero."
+                }
+            ]
+        }
+    ]
+}

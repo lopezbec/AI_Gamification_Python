@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Declaraciones else",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La sentencia else se puede utilizar para ejecutar algunas sentencias cuando la condición de la sentencia if es Falsa ."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 4\nif x == 5:\n   print('Yes')\nelse:\n   print('No')\n>No"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nif 1 + 1 == 2:\n   if 2 * 2 == 8:\n       print('if')\n   else:\n      print('else')\n>?"
+
+                }
+            ],
+            "answers": [
+                {
+                    "text": "else",
+                    "correct": true
+                },
+                {
+                    "text": "if",
+                    "correct": false
+                },
+                {
+                    "text": "No hay salida",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

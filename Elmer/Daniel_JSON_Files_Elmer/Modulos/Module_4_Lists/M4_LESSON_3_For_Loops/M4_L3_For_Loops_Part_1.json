@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles en listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Hemos aprendido sobre el bucle while en las lecciones anteriores. Ahora es el momento de aprender sobre el bucle for .El ciclo for se usa para iterar sobre una secuencia determinada, como listas o cadenas. \n\nEl siguiente código genera cada elemento de la lista y agrega un signo de exclamación al final:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear un bucle for válido."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletras = ['a', 'b', 'c']\n___ x ___ letters ___ \n   print(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "in"
+                },
+                {
+                    "text": ":"
+                },
+                {
+                    "text": "if"
+                },
+                {
+                    "text": "for"
+                }
+            ],
+            "correctOrder": ["for", "in", ":"]
+        }
+    ]
+}

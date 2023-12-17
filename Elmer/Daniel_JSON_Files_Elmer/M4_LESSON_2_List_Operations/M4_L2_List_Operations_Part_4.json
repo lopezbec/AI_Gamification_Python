@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Para verificar si un elemento está en una lista en particular, podemos usar el operador in .\nDevuelve True si el elemento aparece una o más veces en la lista y False en caso\ncontrario. Como esto:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['spam', 'egg', 'spam', 'sausage']\nprint('spam' in words)\nprint('egg' in words)\nprint('tomato' in words)"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el resultado de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [10, 9, 8, 7, 6, 5]\nnums[0] = nums[1] - 5\nif 4 in nums:\n  print(nums[3])\nelse:\n  print(nums[4])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+}

@@ -1,0 +1,51 @@
+{
+    "pedagogical": [
+        {
+            "title": "Retorno de funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Algunas funciones, como int o str, devuelven un valor en lugar de generarlo. El valor devuelto puede ser utilizado posteriormente en el código, \npor ejemplo, asignándolo a una variable. Para hacer esto para tus funciones generadas, puede utilizar la declaración return. Así:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef sum(x, y):\n\treturn x+y"
+                }
+
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para definir una función que devuelva el cuadrado de su argumento"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n____ cuadrado(x):\n\n ____ x**2"
+                }
+            ],
+            "answers": [
+                {
+                    "text": ":"
+                },
+                {
+                    "text": "def"
+                },
+                {
+                    "text": "y"
+                },
+                {
+                    "text": "return"
+                }
+            ],
+            "correctOrder": ["def", "return"]
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Al igual que con las declaraciones if , el bloque de código dentro de cada función comienza con dos puntos (:) y tiene sangría."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "requerimiento",
+                    "text": "Reorganice el código para definir una función llamada 'test()', que genera:\nA\nB\nC"
+                },
+                {
+                    "type": "Consola",
+                    "text": "____\n____\n____\n____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "  print('B')"
+                },
+                {
+                    "text": "  print('A')"
+                },
+                {
+                    "text": "def test():"
+                },
+                {
+                    "text": "  print('C')"
+                }
+            ],
+            "correctOrder": ["def test():", "  print('A')", "  print('B')", "  print('C')"]
+        }
+    ]
+}

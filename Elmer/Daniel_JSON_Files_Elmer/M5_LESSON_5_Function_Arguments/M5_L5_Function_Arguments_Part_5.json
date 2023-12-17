@@ -1,0 +1,51 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "La practica hace la perfección!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Pon en práctica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Llama a la función - Toma la entrada del usuario y llama a la función pasando la entrada como su argumento."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué hace este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef msg(num, ch):\nprint(ch+str(num))\n\nmsg(18, 'A')\n"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "A18",
+                    "correct": true
+                },
+                {
+                    "text": "18A",
+                    "correct": false
+                },
+                {
+                    "text": "18",
+                    "correct": false
+                },
+                {
+                    "text": "error",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

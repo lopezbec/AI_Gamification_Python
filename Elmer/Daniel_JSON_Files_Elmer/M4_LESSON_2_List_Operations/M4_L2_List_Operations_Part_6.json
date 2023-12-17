@@ -1,0 +1,48 @@
+{
+    "pedagogical": [
+        {
+            "title": "Operaciones con listas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "De manera similar, para verificar si un elemento no está en una lista, puede usar el\noperador not de una de las siguientes maneras:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nprint(not 4 in nums)\nprint(4 not in nums)\nprint(not 3 in nums)\nprint(3 not in nums)"
+                }
+
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para imprimir 'Sí' si la lista contiene 'z':"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletters = ['a', 'b', 'z']\n____ 'z' ____ letters:\n   print('Yes')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "if",
+                    "correct": true
+                },
+                {
+                    "text": "in",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

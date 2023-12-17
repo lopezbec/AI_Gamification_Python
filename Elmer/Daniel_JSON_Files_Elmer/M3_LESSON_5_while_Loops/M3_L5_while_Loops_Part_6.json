@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Bucles while.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Si la condición del bucle while sigue siendo True , el bucle se ejecutará indefinidamente,\nprovocando un bucle infinito.\n\nPor ejemplo:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = 8\n\nwhile x > 3:\n  print(x)"
+                },
+                {
+                    "type": "hint",
+                    "text": "Una forma breve de crear un bucle infinito es usar while True ."
+                }
+
+            ]
+        }
+    ],
+
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Este código da como resultado un bucle infinito?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x=1\n\nwhile x==1:\n\n   print('In the loop') "
+                }
+            ],
+            "answers": [
+                {
+                    "text": "No",
+                    "correct": false
+                },
+                {
+                    "text": "Yes",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+
+}

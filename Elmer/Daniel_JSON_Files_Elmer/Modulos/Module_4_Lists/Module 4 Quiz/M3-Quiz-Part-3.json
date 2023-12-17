@@ -1,0 +1,40 @@
+{
+
+
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código si el usuario ingresa 9 como entrada?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = int(input())\n\nif x > 5:\n\n    if x < 8:\n\n        print(x+1)\n\n    else:\n\n        print(x-1)\n\nelse:\n\n    print(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "9",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": true
+                },
+                {
+                    "text": "7",
+                    "correct": false
+                },
+                {
+                    "text": "10",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+
+  
+}

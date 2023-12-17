@@ -1,0 +1,46 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellene los espacios en blanco para producir un código válido, que toma los valores de las variables x e y de la entrada y genera su suma."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Empieza a arrastrar hasta aquí\n\n___ ___ ______\n___ ___ ______\n______ ___ ______"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "x"
+                },
+                {
+                    "text": "input())"
+                },
+                {
+                    "text": "print("
+                },
+                {
+                    "text": "+"
+                },
+                {
+                    "text": "int("
+                },
+                {
+                    "text": "y"
+                },
+                {
+                    "text": ")"
+                },
+                {
+                    "text": "="
+                }
+            ],
+            "correctOrder": ["x","=","int(","input())","y","=","int(","input())","print(","x","+","y",")"]
+        }
+    ]
+}

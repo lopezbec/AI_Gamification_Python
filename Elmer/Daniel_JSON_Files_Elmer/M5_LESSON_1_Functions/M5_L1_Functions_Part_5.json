@@ -1,0 +1,50 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La función se llama usando su nombre, seguido de paréntesis , que encierran los argumentos. Por ejemplo, llamamos a la función de impresión con un argumento de cadena paragenerar salida:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('some text')"
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para llamar a la función de rango con un argumento: 8."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n______8___"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "range"
+                },
+                {
+                    "text": "("
+                },
+                {
+                    "text": ")"
+                },
+                {
+                    "text": "6"
+                }
+            ],
+            "correctOrder": ["range", "(", ")"]
+        }
+    ]
+}

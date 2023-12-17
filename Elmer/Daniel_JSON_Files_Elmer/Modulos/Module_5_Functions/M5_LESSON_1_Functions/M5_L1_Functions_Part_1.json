@@ -1,0 +1,39 @@
+{
+    "pedagogical": [
+        {
+            "title": "Funciones ",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Una función es un grupo de declaraciones relacionadas que realiza una tarea específica. Las funciones ayudan a dividir nuestro programa en partes más pequeñas y modulares. A medida que nuestro programa crece cada vez más, las funciones \nlo hacen más organizado y manejable."
+                },
+                {
+                    "type": "hint",
+                    "text": "Además, evita repeticiones y hace que el código sea reutilizable."
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Verdadero o Falso: las funciones hacen que nuestro código sea reutilizable."
+                }
+            ],
+            "answers": [
+                {
+                    "text": "True",
+                    "correct": true
+                },
+                {
+                    "text": "False",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
