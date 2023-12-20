@@ -120,6 +120,43 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__()
 
         # Carga de estilos y configuración inicial de la ventana
+        # Módulo 1
+        self.m1_lesson1_window = None
+        self.m1_lesson2_window = None
+        self.m1_lesson3_window = None
+        self.m1_lesson4_window = None
+        self.m1_lesson5_window = None
+
+        # Módulo 2
+        self.m2_lesson1_window = None
+        self.m2_lesson2_window = None
+        self.m2_lesson3_window = None
+
+        # Módulo 3
+        self.m3_lesson1_window = None
+        self.m3_lesson2_window = None
+        self.m3_lesson3_window = None
+        self.m3_lesson4_window = None
+        self.m3_lesson5_window = None
+        self.m3_lesson6_window = None
+        self.m3_lesson7_window = None
+
+        # Módulo 4
+        self.m4_lesson1_window = None
+        self.m4_lesson2_window = None
+        self.m4_lesson3_window = None
+        self.m4_lesson4_window = None
+        self.m4_lesson5_window = None
+
+        # Módulo 5
+        self.m5_lesson1_window = None
+        self.m5_lesson2_window = None
+        self.m5_lesson3_window = None
+        self.m5_lesson4_window = None
+        self.m5_lesson5_window = None
+        self.m5_lesson6_window = None
+        self.m5_lesson7_window = None
+
         self.styles = self.load_styles("styles.json")
         self.setWindowTitle("Menú - Principal")
         self.setGeometry(100, 100, 800, 600)
@@ -222,60 +259,66 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if nombre_modulo == "Modulo 3":
                 if numero_leccion == 1:
-                    self.lesson1_window = m3l1()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson1_window = m3l1()
+                    self.m3_lesson1_window.showMaximized()
                 elif numero_leccion == 2:
-                    self.lesson1_window = m3l2()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson2_window = m3l2()
+                    self.m3_lesson2_window.showMaximized()
                 elif numero_leccion == 3:
-                    self.lesson1_window = m3l3()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson3_window = m3l3()
+                    self.m3_lesson3_window.showMaximized()
                 elif numero_leccion == 4:
-                    self.lesson1_window = m3l4()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson4_window = m3l4()
+                    self.m3_lesson4_window.showMaximized()
                 elif numero_leccion == 5:
-                    self.lesson1_window = m3l5()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson5_window = m3l5()
+                    self.m3_lesson5_window.showMaximized()
                 elif numero_leccion == 6:
-                    self.lesson1_window = m3l6()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson6_window = m3l6()
+                    self.m3_lesson6_window.showMaximized()
                 else:
-                    self.lesson1_window = m3l7()
-                    self.lesson1_window.showMaximized()
+                    self.m3_lesson7_window = m3l7()
+                    self.m3_lesson7_window.showMaximized()
 
             if nombre_modulo == "Modulo 4":
                 if numero_leccion == 1:
-                    self.lesson1_window = m4l1()
-                    self.lesson1_window.showMaximized()  # Asume que ml1 es un QWidget o QMainWindow
+                    self.m4_lesson1_window = m4l1()
+                    self.m4_lesson1_window.showMaximized()
                 elif numero_leccion == 2:
-                    self.lesson1_window = m4l2()
-                    self.lesson1_window.showMaximized()  # Asume que ml1 es un QWidget o QMainWindow
+                    self.m4_lesson2_window = m4l2()
+                    self.m4_lesson2_window.showMaximized()
                 elif numero_leccion == 3:
-                    self.lesson1_window = m4l3()
-                    self.lesson1_window.showMaximized()
+                    self.m4_lesson3_window = m4l3()
+                    self.m4_lesson3_window.showMaximized()
                 elif numero_leccion == 4:
-                    self.lesson1_window = m4l4()
-                    self.lesson1_window.showMaximized()
+                    self.m4_lesson4_window = m4l4()
+                    self.m4_lesson4_window.showMaximized()
                 else:
-                    self.lesson1_window = m4l5()
-                    self.lesson1_window.showMaximized()
+                    self.m4_lesson5_window = m4l5()
+                    self.m4_lesson5_window.showMaximized()
 
             if nombre_modulo == "Modulo 5":
                 if numero_leccion == 1:
-                    self.lesson1_window = m5l1()
-                    self.lesson1_window.showMaximized()  # Asume que ml1 es un QWidget o QMainWindow
+                    self.m5_lesson1_window = m5l1()
+                    self.m5_lesson1_window.showMaximized()
                 elif numero_leccion == 2:
-                    self.lesson1_window = m5l2()
-                    self.lesson1_window.showMaximized()  # Asume que ml1 es un QWidget o QMainWindow
+                    self.m5_lesson2_window = m5l2()
+                    self.m5_lesson2_window.showMaximized()
                 elif numero_leccion == 3:
-                    self.lesson1_window = m5l3()
-                    self.lesson1_window.showMaximized()
+                    self.m5_lesson3_window = m5l3()
+                    self.m5_lesson3_window.showMaximized()
                 elif numero_leccion == 4:
-                    self.lesson1_window = m5l4()
-                    self.lesson1_window.showMaximized()
+                    self.m5_lesson4_window = m5l4()
+                    self.m5_lesson4_window.showMaximized()
+                elif numero_leccion == 5:
+                    self.m5_lesson5_window = m5l5()
+                    self.m5_lesson5_window.showMaximized()
+                elif numero_leccion == 6:
+                    self.m5_lesson6_window = m5l6()
+                    self.m5_lesson6_window.showMaximized()
                 else:
-                    self.lesson1_window = m5l5()
-                    self.lesson1_window.showMaximized()
+                    self.m5_lesson7_window = m5l7()
+                    self.m5_lesson7_window.showMaximized()
 
         except Exception as e:
             print(f"Error al abrir {nombre_modulo} - Lección {numero_leccion}: {e}")

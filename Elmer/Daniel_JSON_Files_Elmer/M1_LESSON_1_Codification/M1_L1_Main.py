@@ -386,7 +386,8 @@ class MainWindow(QWidget):
         self.styles = JsonLoader.load_json_styles()
         self.setWindowTitle("Aprendiendo Python - Lección 1")
 
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "page_order.json")), 0)
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 0)
+
         self.init_ui()
 
     def init_ui(self):
@@ -548,15 +549,16 @@ class MainWindow(QWidget):
             csv_file.write('\n')
 
     def load_page_order(self):
-        with open("page_order.json", "r") as file:
+        file_path = os.path.join('Page_order', 'page_order_M1.json')
+
+        with open(file_path, "r") as file:
             data = json.load(file)
 
         for lesson in data["lessons"]:
             if lesson["lesson_number"] == self.lesson_number:
                 return lesson["pages"]
 
-        raise ValueError(f"Lesson {self.lesson_number} not found in page_order.json")
-    
+        raise ValueError(f"Lesson {self.lesson_number} not found in page_order_M1.json")
 
     def count_pages_per_lesson(self, json_file_path, target_lesson):
         with open(json_file_path, 'r') as json_file:
@@ -569,7 +571,6 @@ class MainWindow(QWidget):
                     pages = lesson.get('pages', [])
                     page_count = len(pages)
                     return page_count
-    
 
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
