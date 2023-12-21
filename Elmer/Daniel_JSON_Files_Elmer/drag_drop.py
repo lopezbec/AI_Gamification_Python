@@ -1,13 +1,11 @@
 from PyQt6.QtCore import Qt, QMimeData
-from PyQt6.QtGui import QDrag,  QPixmap, QPainter
+from PyQt6.QtGui import QDrag, QPixmap
 from PyQt6.QtWidgets import QLabel, QWidget, QVBoxLayout
-
 
 def create_pixmap_from_label(label):
     pixmap = QPixmap(label.size())
     label.render(pixmap)
     return pixmap
-
 
 class DraggableLabel(QLabel):
     def __init__(self, text):
@@ -28,7 +26,6 @@ class DraggableLabel(QLabel):
 
             drag.exec(Qt.DropAction.MoveAction)
 
-
 class DropLabel(QWidget):
     def __init__(self, text, styles, question_type=None, multiple=False):
         super().__init__()
@@ -43,16 +40,10 @@ class DropLabel(QWidget):
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(self.layout)
 
-        if multiple:
-            self.base_text_parts = text.split("___")
-            self.drop_area3 = QLabel(self.get_current_text())
-            self.drop_area3.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
-            self.layout.addWidget(self.drop_area3)
-        else:
-            self.base_text = text
-            self.drop_area = QLabel(text)
-            self.drop_area.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
-            self.layout.addWidget(self.drop_area)
+        self.base_text_parts = text.split("___")
+        self.drop_area = QLabel(self.get_current_text())
+        self.drop_area.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+        self.layout.addWidget(self.drop_area)
 
     def get_current_text(self):
         text = ""
@@ -70,26 +61,16 @@ class DropLabel(QWidget):
 
     def dropEvent(self, event):
         new_dropped_text = event.mimeData().text()
-        if self.multiple:
-            # Si se permiten múltiples respuestas, añade el nuevo texto arrastrado
-            # a la lista de textos soltados y actualiza el QLabel correspondiente.
-            if len(self.dropped_texts) < len(self.base_text_parts) - 1:
-                self.dropped_texts.append(new_dropped_text)
-                self.drop_area3.setText(self.get_current_text())
+        if len(self.dropped_texts) < len(self.base_text_parts) - 1:
+            self.dropped_texts.append(new_dropped_text)
+            self.drop_area.setText(self.get_current_text())
         else:
-            # Si solo se permite una respuesta, reemplaza el marcador de posición
-            # con el texto arrastrado y actualiza el QLabel correspondiente.
+            # Manejo para cuando solo se permite una respuesta
             if self.dropped_text is not None:
-                # Si ya había un texto arrastrado, reemplázalo en el QLabel.
                 current_text = self.drop_area.text().replace(self.dropped_text, "<Espacio para respuesta>", 1)
                 self.drop_area.setText(current_text)
-                self.base_text = current_text
 
             self.dropped_text = new_dropped_text
-
-            # Reemplaza el primer "<Espacio para respuesta>" con el texto arrastrado.
-            self.drop_area.setText(self.base_text.replace("<Espacio para respuesta>", new_dropped_text, 1))
-            self.base_text = self.drop_area.text()
+            self.drop_area.setText(self.get_current_text())
 
         event.acceptProposedAction()
-
