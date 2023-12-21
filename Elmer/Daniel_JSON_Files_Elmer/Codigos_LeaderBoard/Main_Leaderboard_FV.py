@@ -1,6 +1,8 @@
-import sys
-import json
 import csv
+import geocoder
+import json
+import sys
+from config import Config
 from PyQt6 import QtWidgets, QtGui, QtCore
 from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QMessageBox
@@ -27,6 +29,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.levels = []
 
         self.load_data()  # Cargar los datos desde los archivos
+
+        self.current_player = {
+            "name": Config.get_user_name(),
+            "points": 0,
+            "country": geocoder.ip('me').country,
+            "city": geocoder.ip('me').city,
+            "friends": [],
+            "last_active": "2023-12-01 ; 11h:40m"
+        }
+
+        self.leaderboard.append(self.current_player)
 
         self.theme = 'light'  # tema por defecto
         self.setWindowTitle("Tabla de Clasificación")

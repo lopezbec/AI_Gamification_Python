@@ -64,13 +64,11 @@ class NameWindow(QMainWindow):
         Config.set_user_name(self.input.text())
         self.question_window = QuestionWindow()
         self.question_window.username = self.input.text()
+        Config.set_user_name(self.input.text())
         self.question_window.read_csv()
         self.question_window.show()
         self.hide()
 
 
-    def open_leaderboard(self):
-        Config.set_user_name(self.input.text())
-        Main_Leaderboard_FV.LeaderBoard()
-        # leaderboard_window.show()
+    
 
