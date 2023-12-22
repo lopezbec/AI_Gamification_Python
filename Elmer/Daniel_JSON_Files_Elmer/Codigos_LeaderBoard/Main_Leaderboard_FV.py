@@ -282,7 +282,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             self.populate_leaderboard_table()
 
-    def apply_order(self, order_type='Nombre (A-Z)'):
+    def apply_order(self, order_type='Puntos (Descendente)'):
         self.current_order = order_type
         self.populate_leaderboard_table()
 
