@@ -164,7 +164,7 @@ class QuestionWindow(QMainWindow):
     # assing value to the radio button
     def pick_value(self, radio):
         global score
-        options = ["Totalmente en desacuerdo", "En Desacuerdo", "Ligeramente en desacuerdo",
+        options = ["Totalmente en desacuerdo", "En desacuerdo", "Ligeramente en desacuerdo",
                    "Neutral", "Ligeramente de acuerdo", "De acuerdo", "Totalmente de acuerdo"]
         value = [1, 2, 3, 4, 5, 6, 7]
         values_dict = dict(zip(options, value))
