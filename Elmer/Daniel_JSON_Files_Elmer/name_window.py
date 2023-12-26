@@ -6,6 +6,7 @@ from config import Config
 from question_window import QuestionWindow
 from Codigos_LeaderBoard import Main_Leaderboard_FV
 
+
 class NameWindow(QMainWindow):
     nameEntered = pyqtSignal(str) 
     def __init__(self) -> None:
@@ -60,15 +61,37 @@ class NameWindow(QMainWindow):
         self.showMaximized()
         self.setCentralWidget(widget)
 
+    def user_exists(self, username):
+        try:
+            with open('usernames.json', 'r', encoding='UTF-8') as file:
+                usernames = json.load(file)
+            return username in usernames
+        except FileNotFoundError:
+            return False
+
+    def add_username(self, username):
+        try:
+            with open('usernames.json', 'r', encoding='UTF-8') as file:
+                usernames = json.load(file)
+        except FileNotFoundError:
+            usernames = []
+
+        if username not in usernames:
+            usernames.append(username)
+            with open('usernames.json', 'w', encoding='UTF-8') as file:
+                json.dump(usernames, file)
+
     def show_survey(self):
-        Config.set_user_name(self.input.text())
-        self.question_window = QuestionWindow()
-        self.question_window.username = self.input.text()
-        Config.set_user_name(self.input.text())
-        self.question_window.read_csv()
-        self.question_window.show()
-        self.hide()
-
-
-    
-
+        username = self.input.text()
+        if not self.user_exists(username):
+            # Usuario nuevo: añadir el nombre y proceder a la siguiente ventana
+            self.add_username(username)
+            Config.set_user_name(username)
+            self.question_window = QuestionWindow()
+            self.question_window.username = username
+            self.question_window.read_csv()
+            self.question_window.show()
+            self.hide()
+        else:
+            # Usuario existente: cerrar la ventana
+            self.close()
