@@ -39,17 +39,17 @@
                 {
                     "type": "pregunta1",
                     "correctValue": "100",
-                    "text": "Entero:____"
+                    "text": "Entero: ___"
                 },
                 {
                     "type": "pregunta2",
                     "correctValue": "100.00",
-                    "text": "Flotante:____"
+                    "text": "Flotante: ___"
                 },
                 {
                     "type": "pregunta3",
                     "correctValue": "'cien'",
-                    "text": "Cadena:____"
+                    "text": "Cadena: ___"
                 }
             ],
             "answers": [

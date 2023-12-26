@@ -13,13 +13,12 @@
                 },
                 {
                     "type": "info",
-                    "text": "El bucle for define una variable que toma el valor del elemento actual de la lista en cada\niteración.\n\nEn el código anterior, la palabra variable representa el elemento correspondiente de la\nlista en cada iteración del ciclo."
+                    "text": "El bucle for define una variable que toma el valor del elemento actual de la lista en cada iteración.\n\nEn el código anterior, la palabra variable representa el elemento correspondiente de la lista en cada iteración del ciclo."
                 },
                 {
                     "type": "hint",
-                    "text": "Durante la primera iteración, palabra es igual a ' hola ', y durante la.\nsegunda iteración es igual a ' mundo ', y así sucesivamente."
+                    "text": "Durante la primera iteración, palabra es igual a ' hola ', y durante la. segunda iteración es igual a ' mundo ', y así sucesivamente."
                 }
-
             ]
         }
     ],

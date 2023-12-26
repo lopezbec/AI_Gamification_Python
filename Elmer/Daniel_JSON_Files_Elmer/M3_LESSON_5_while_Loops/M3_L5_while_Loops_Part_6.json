@@ -19,8 +19,6 @@
             ]
         }
     ],
-
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta.",
@@ -31,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x=1\n\nwhile x==1:\n\n   print('In the loop') "
+                    "text": "x=1\nwhile x==1:\n   print('In the loop') "
                 }
             ],
             "answers": [

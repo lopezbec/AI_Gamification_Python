@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "_Outputs a message \nprint('Have a good day!')"
+                    "text": "___ Outputs a message \nprint('Have a good day!')"
                 }
             ],
             "answers": [

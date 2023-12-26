@@ -38,7 +38,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "i = 1\n\nwhile i <=5:\n\n   print(i)\n\n   i = i + 1"
+                    "text": "i = 1\n\nwhile i <=5:\n   print(i)\n   i = i + 1"
                 }
             ],
             "answers": [

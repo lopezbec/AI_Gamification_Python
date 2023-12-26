@@ -24,17 +24,17 @@
                 {
                     "type": "pregunta1",
                     "correctValue": "Entero",
-                    "text": "Un numero entero:____"
+                    "text": "Un numero entero: ___"
                 },
                 {
                     "type": "pregunta2",
                     "correctValue": "Flotante",
-                    "text": "Un numero con un punto decimal:____"
+                    "text": "Un numero con un punto decimal: ___"
                 },
                 {
                     "type": "pregunta3",
                     "correctValue": "Cadena",
-                    "text": "Un trozo de texto:____"
+                    "text": "Un trozo de texto: ___"
                 }
             ],
             "answers": [

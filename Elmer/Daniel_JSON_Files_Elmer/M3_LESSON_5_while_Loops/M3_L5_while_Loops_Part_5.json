@@ -9,46 +9,42 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "x = 1\nwhile x < 10:\n  if x%2 == 0:\n    print(str(x) + ' is even')\n  else:\n    print(str(x) + ' is odd')\n\n  x += 1"
+                    "text": "x = 1\nwhile x < 10:\n  if x%2 == 0:\n    print(str(x) + ' is even')\n  else:\n    print(str(x) + ' is odd')\n  x += 1"
                 },
                 {
                     "type": "hint",
-                    "text": "str(x) se usa para convertir el número x en una cadena, de modo que\npueda usarse para la concatenación."
+                    "text": "str(x) se usa para convertir el número x en una cadena, de modo que pueda usarse para la concatenación."
                 }
-
             ]
         }
     ],
-
-
-    "completeblankspace": [
+    "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta.",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Complete los espacios en blanco para crear un bucle que incremente el valor de x en 2 e\nimprima los valores pares."
+                    "text": "Complete los espacios en blanco para crear un bucle que incremente el valor de x en 2 e imprima los valores pares."
                 },
                 {
-                    "type": "info",
-                    "text": "x = 0\n_____x <=20_____\n   _____(X)\n   x + = 2"
+                    "type": "Consola",
+                    "text": "x = 0\n___ x <= 20___\n   ___(X)\n   x + = 2"
                 }
             ],
             "answers": [
                 {
-                    "text": ":",
-                    "correct": true
+                    "text": ":"
                 },
                 {
-                    "text": "print",
-                    "correct": true
+                    "text": "print"
                 },
                 {
-                    "text": "while",
-                    "correct": true
+                    "text": "while"
                 }
-            ]
+            ],
+            "correctOrder": ["while",":","print"]
         }
     ]
-
 }

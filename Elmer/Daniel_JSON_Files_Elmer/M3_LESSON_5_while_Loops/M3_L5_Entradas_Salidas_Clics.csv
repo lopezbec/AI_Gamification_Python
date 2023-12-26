@@ -1,0 +1,8 @@
+event,time
+Parte 1,02:40:37
+Parte 8,02:40:39
+Correct Drop Event: while,02:40:54
+Correct Drop Event: x > 0:,02:40:54
+Correct Drop Event: print(x),02:40:54
+Correct Drop Event: x -= 1,02:40:54
+

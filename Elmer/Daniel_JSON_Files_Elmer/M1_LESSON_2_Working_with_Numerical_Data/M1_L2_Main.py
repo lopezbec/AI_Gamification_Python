@@ -15,9 +15,10 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from command_line_UI import CMD_Practica as CMDP
 
-traking_page = 0
+
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
@@ -63,7 +64,6 @@ class JsonWindow(QWidget):
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.data = JsonLoader.load_json_data(self.filename)
-        
 
         # Crear un nuevo layout horizontal
         hlayout = QHBoxLayout()
@@ -154,13 +154,25 @@ class JsonWindow(QWidget):
         title.setFont(title_font)
         self.layout.addWidget(title)
 
-    def handle_answer_click(self, answer_text):
-        # Restaurar el texto original de la pista
-        self.hint_label.setText(self.original_hint_text)
+    def handle_answer_click(self, answer_text, original_hint_text):
+        # Comprueba si ya se ha modificado el texto
+        if "___" in original_hint_text:
+            # Restablece el texto a su estado original si aún no se ha reemplazado
+            self.hint_label.setText(original_hint_text)
+            # Reemplaza los primeros cuatro guiones bajos encontrados por la respuesta seleccionada
+            new_text = original_hint_text.replace("___", answer_text, 1)
+        elif "<Espacio para respuesta>" in self.hint_label.text():
+            # Si ya se ha reemplazado una vez, utiliza el estado actual del texto
+            current_text = self.hint_label.text()
+            # Reemplaza "<Espacio para respuesta>" por la respuesta seleccionada
+            new_text = current_text.replace("<Espacio para respuesta>", answer_text, 1)
+        else:
+            # Si no hay más espacios para reemplazar, mantiene el texto actual
+            new_text = self.hint_label.text()
 
-        # Reemplazar el espacio en blanco con la respuesta seleccionada
-        updated_hint = self.hint_label.text()[:self.blank_space_index] + answer_text + self.hint_label.text()[self.blank_space_index + 1:]
-        self.hint_label.setText(updated_hint)
+        # Actualizar la etiqueta y el estado del texto
+        self.hint_label.setText(new_text)
+        self.current_text_state = new_text
 
     def create_feedback_label(self):
         # Añadir la etiqueta de retroalimentación al layout
@@ -189,7 +201,8 @@ class JsonWindow(QWidget):
                 self.layout.addWidget(block_label)
             elif block["type"] == "Consola":
                 self.hint_label = QLabel(block["text"])
-                self.hint_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                self.hint_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(self.hint_label)
                 self.blank_space_index = block["text"].find("_")
                 self.original_hint_text = block["text"]
@@ -201,7 +214,7 @@ class JsonWindow(QWidget):
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
             answer_button = QPushButton(answer["text"])
             answer_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            answer_button.clicked.connect(partial(self.handle_answer_click, answer["text"]))
+            answer_button.clicked.connect(partial(self.handle_answer_click, answer["text"], self.original_hint_text))
             answers_layout.addWidget(answer_button)
 
         # Añadir el layout horizontal de botones de respuesta al layout principal (vertical)
@@ -372,12 +385,27 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados, page.get("lesson_completed", False), main_window=self)
+                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
+                                         page.get("lesson_completed", False), main_window=self)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
         self.log_part_change()
         self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
+
+        self.python_console_widget = QTextEdit(self)
+        self.python_console_widget.setReadOnly(True)
+        self.layout.addWidget(self.python_console_widget)
+        self.python_console_widget.hide()
+
+        # Crea el botón "Abrir Consola"
+        self.btn_open_console = QPushButton("Abrir Consola")
+        self.btn_open_console.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        open_console_button_font = QFont()
+        open_console_button_font.setPointSize(self.styles["font_size_buttons"])
+        self.btn_open_console.setFont(open_console_button_font)
+        self.btn_open_console.clicked.connect(self.open_python_console)
+        self.btn_open_console.hide()
 
         self.continue_button = QPushButton("Continuar")
         self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
@@ -412,6 +440,7 @@ class MainWindow(QWidget):
 
         self.button_layout = QHBoxLayout()
         self.button_layout.addWidget(self.back_button)
+        self.button_layout.addWidget(self.btn_open_console)
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
@@ -477,18 +506,26 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
-        print("La consola no está disponible por el momento.")
+        try:
+            # Crear una instancia de la ventana de práctica
+            self.ventana_practica = CMDP()
+
+            # Mostrar la instancia de la ventana de práctica
+            self.ventana_practica.show()
+
+        except Exception as e:
+            print(f"Error al abrir la consola de práctica: {e}")
 
     def abrir_leaderboard(self):
         LeaderBoard()
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
-            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide()
+            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide(), self.btn_open_console.show()
         elif practica:
-            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show()
+            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
         else:
-            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show()
+            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
 
     def log_part_change(self):
         event_time = datetime.datetime.now().strftime("%H:%M:%S")
@@ -784,7 +821,6 @@ class MainWindow(QWidget):
 
 def M1_L2_Main():
     main_window = MainWindow(lesson_number=2)
-    main_window.showMaximized()
+    main_window.show()
     return main_window
-
 

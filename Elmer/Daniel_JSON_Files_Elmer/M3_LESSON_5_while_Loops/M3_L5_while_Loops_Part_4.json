@@ -9,14 +9,12 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "sum = 0\nx = 10\nwhile x > 0:\n  sum += x\n  x -= 1\n\nprint(sum)"
+                    "text": "sum = 0\nx = 10\nwhile x > 0:\n  sum += x\n  x -= 1\nprint(sum)"
                 }
 
             ]
         }
     ],
-
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta.",
@@ -27,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "i = 3\n\nwhile i>=0:\n\n   print(i)\n\n   i = i - 1"
+                    "text": "i = 3\nwhile i>=0:\n   print(i)\n   i = i - 1"
                 }
             ],
             "answers": [

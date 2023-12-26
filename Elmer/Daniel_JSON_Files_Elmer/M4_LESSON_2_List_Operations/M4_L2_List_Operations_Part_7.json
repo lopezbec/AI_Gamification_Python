@@ -21,7 +21,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Dada una lista de números, genera ' bingo ' si contiene el número de\nentrada."
+                    "text": "Dada una lista de números, genera ' bingo ' si contiene el número de entrada."
                 },
                 {
                     "type": "Consola",

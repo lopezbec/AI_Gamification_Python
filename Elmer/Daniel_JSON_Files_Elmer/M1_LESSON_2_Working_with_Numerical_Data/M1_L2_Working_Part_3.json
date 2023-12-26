@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "print(42 __ 3)"
+                    "text": "print(42 ___ 3)"
                 }
             ],
             "answers": [

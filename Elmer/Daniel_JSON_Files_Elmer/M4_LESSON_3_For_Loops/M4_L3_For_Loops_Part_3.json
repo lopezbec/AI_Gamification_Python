@@ -13,11 +13,11 @@
                 },
                 {
                     "type": "info",
-                    "text": "El código anterior define una variable de conteo , itera sobre la cadena y calcula el\nconteo de letras ' t ' en él. Durante cada iteración, la variable x representa la letra actual\nde la cadena."
+                    "text": "El código anterior define una variable de conteo , itera sobre la cadena y calcula el conteo de letras ' t ' en él. \nDurante cada iteración, la variable x representa la letra actual de la cadena."
                 },
                 {
                     "type": "hint",
-                    "text": "La variable de conteo se incrementa cada vez que se encuentra la letra 't', por lo que al final del ciclo, representa el número de letras 't'\nen la cadena."
+                    "text": "La variable de conteo se incrementa cada vez que se encuentra la letra 't', por lo que al final del ciclo, representa el número de letras 't' en la cadena."
                 }
             ]
         }
@@ -26,27 +26,25 @@
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Complete los espacios en blanco para iterar sobre la cadena 'str' ​​y generar cada carácter."
+                    "text": "Complete los espacios en blanco para iterar sobre la cadena 'str' ​​ y generar cada carácter."
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n____ x ____ str ____\n print(____)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ x ___ str___\n print(___)"
                 }
             ],
             "answers": [
                 {
-                    "text": "for",
-                    "correct": true
-                },
-                {
-                    "text": "in",
-                    "correct": true
-                },
-                {
                     "text": ":",
+                    "correct": true
+                },
+                {
+                    "text": "for",
                     "correct": true
                 },
                 {
@@ -54,10 +52,15 @@
                     "correct": true
                 },
                 {
+                    "text": "in",
+                    "correct": true
+                },
+                {
                     "text": "8",
                     "correct": false
                 }
-            ]
+            ],
+            "correctOrder": ["for", "in", ":", "x"]
         }
     ]
 }

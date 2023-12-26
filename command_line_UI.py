@@ -28,7 +28,7 @@ class App(QWidget):
         layout = QVBoxLayout()
 
         self.instr_label: QLabel = QLabel(self)
-        self.instr_label.setText('Escribe tu líneas de código aquí abajo, y luego has click en el botón de abajo')
+        self.instr_label.setText('Escribe tu líneas de código aquí abajo, y luego has click en el botón de "Correr"')
         layout.addWidget(self.instr_label)
         
         self.textbox: QTextEdit = QTextEdit(self)
@@ -45,7 +45,6 @@ class App(QWidget):
         self.setLayout(layout)
         self.setWindowTitle('Correr código')
         self.show()
-
 
     def close_window(self):
         self.close()
@@ -112,8 +111,6 @@ def save_and_run_script(code_str) -> str:
     # Checks that the thread has stopped (should always immediately return)
     # monitor_thread.join()
 
-
-
 def exec_str(code_str) -> str:
     result: str = ''
 
@@ -134,8 +131,6 @@ def exec_str(code_str) -> str:
 
     return result
 
-
-    
 def contains_import(code_str) -> bool:
     try:
         parsed = ast.parse(code_str)
@@ -150,6 +145,7 @@ def contains_import(code_str) -> bool:
     
     except SyntaxError:
         return False
+
     
 if __name__ == '__main__':
 

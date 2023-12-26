@@ -12,12 +12,12 @@
                 {
                     "type": "pregunta1",
                     "correctValue": "'42'",
-                    "text": "text = ____"
+                    "text": "text = ___"
                 },
                 {
                     "type": "pregunta2",
                     "correctValue": "text",
-                    "text": "print(____)"
+                    "text": "print(___)"
                 }
             ],
             "answers": [

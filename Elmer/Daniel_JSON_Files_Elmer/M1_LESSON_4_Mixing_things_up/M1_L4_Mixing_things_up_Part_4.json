@@ -31,12 +31,12 @@
                 {
                     "type": "pregunta1",
                     "correctValue": "sep",
-                    "text": "print('Spain', 'Madrid',____='-')"
+                    "text": "print('Spain', 'Madrid',___='-')"
                 },
                 {
                     "type": "pregunta2",
                     "correctValue": "'-'",
-                    "text": "print('Spain', 'Madrid',sep='____')"
+                    "text": "print('Spain', 'Madrid',sep='___')"
                 }
             ],
             "answers": [

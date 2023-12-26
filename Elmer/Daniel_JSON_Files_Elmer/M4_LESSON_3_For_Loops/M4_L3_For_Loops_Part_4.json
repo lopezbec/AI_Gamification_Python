@@ -5,7 +5,7 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "De forma similar a los bucles while , las sentencias break y continue se pueden utilizar\nen bucles for , para detener el bucle o pasar a la siguiente iteración."
+                    "text": "De forma similar a los bucles while , las sentencias break y continue se pueden utilizar en bucles for, \npara detener el bucle o pasar a la siguiente iteración."
                 },
                 {
                     "type": "Consola",
@@ -15,7 +15,7 @@
         }
     ],
 
-    "completeblankspace": [
+    "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
             "blocks": [
@@ -35,7 +35,7 @@
                 },
                 {
                     "text": "2",
-                    "correct": true
+                    "correct": false
                 },
                 {
                     "text": "8",

@@ -15,7 +15,8 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from command_line_UI import CMD_Practica as CMDP
 
 
 class JsonLoader:
@@ -405,6 +406,20 @@ class MainWindow(QWidget):
         self.log_part_change()
         self.log_event(f"{self.stacked_widget.currentWidget().page_type.capitalize()} Page Open Time", True)
 
+        self.python_console_widget = QTextEdit(self)
+        self.python_console_widget.setReadOnly(True)
+        self.layout.addWidget(self.python_console_widget)
+        self.python_console_widget.hide()
+
+        # Crea el botón "Abrir Consola"
+        self.btn_open_console = QPushButton("Abrir Consola")
+        self.btn_open_console.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        open_console_button_font = QFont()
+        open_console_button_font.setPointSize(self.styles["font_size_buttons"])
+        self.btn_open_console.setFont(open_console_button_font)
+        self.btn_open_console.clicked.connect(self.open_python_console)
+        self.btn_open_console.hide()
+
         self.continue_button = QPushButton("Continuar")
         self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
         continue_button_font = QFont()
@@ -438,6 +453,7 @@ class MainWindow(QWidget):
 
         self.button_layout = QHBoxLayout()
         self.button_layout.addWidget(self.back_button)
+        self.button_layout.addWidget(self.btn_open_console)
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
@@ -503,15 +519,23 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
-        print("La consola no está disponible por el momento.")
+        try:
+            # Crear una instancia de la ventana de práctica
+            self.ventana_practica = CMDP()
+
+            # Mostrar la instancia de la ventana de práctica
+            self.ventana_practica.show()
+
+        except Exception as e:
+            print(f"Error al abrir la consola de práctica: {e}")
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
-            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide()
+            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide(), self.btn_open_console.show()
         elif practica:
-            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show()
+            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
         else:
-            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show()
+            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
 
     def log_part_change(self):
         event_time = datetime.datetime.now().strftime("%H:%M:%S")

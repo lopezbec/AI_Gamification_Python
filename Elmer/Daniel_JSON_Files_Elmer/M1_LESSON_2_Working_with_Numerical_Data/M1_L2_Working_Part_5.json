@@ -9,12 +9,12 @@
                 },
                 {
                     "type": "pregunta1",
-                    "text": "Entero:____",
+                    "text": "Entero:___",
                     "correctValue": "2"
                 },
                 {
                     "type": "pregunta2",
-                    "text": "Flotante:____",
+                    "text": "Flotante:___",
                     "correctValue": "3.14"
                 }
             ],

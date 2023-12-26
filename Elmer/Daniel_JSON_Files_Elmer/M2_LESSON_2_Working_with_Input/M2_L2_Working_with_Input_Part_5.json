@@ -11,7 +11,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Empieza a arrastrar hasta aquí\n\n___ ___ ______\n___ ___ ______\n______ ___ ______"
+                    "text": "\n# Declara 'x' de tipo númerico y que espere una entrada por teclado\n___ ___ ______\n\n# Declara 'y' de tipo númerico y que espere una entrada por teclado\n___ ___ ______\n\nImprime por pantalla la suma de las variables que declaraste 'x' y 'y'\n______ ___ ______"
                 }
             ],
             "answers": [
