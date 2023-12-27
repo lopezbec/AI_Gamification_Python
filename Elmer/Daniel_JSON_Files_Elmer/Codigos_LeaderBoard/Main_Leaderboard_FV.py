@@ -38,13 +38,6 @@ class MainWindow(QtWidgets.QMainWindow):
             "last_active": "2023-12-01 ; 11h:40m"
         }
 
-        # for player in self.leaderboard:
-        #     if player["name"] == self.current_player["name"]:
-        #         print("Se encontro al usuario")
-        #         # Si encontramos al jugador, asignamos su puntuación actual
-        #         self.current_player["points"] = user_score
-        #         break
-
         self.leaderboard.append(self.current_player)
 
         self.theme = 'light'  # tema por defecto

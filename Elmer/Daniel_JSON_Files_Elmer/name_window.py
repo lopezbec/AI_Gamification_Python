@@ -121,12 +121,14 @@ class NameWindow(QMainWindow):
         self.update_current_user(username)  # Actualizar current_user.json con el usuario actual
 
         if not self.user_exists(username):
+            Config.set_user_name(username)
             # Usuario nuevo: añadir el nombre y proceder a la siguiente ventana
             self.add_username(username)
             self.question_window = QuestionWindow()
             self.question_window.username = username
             self.question_window.read_csv()
             self.question_window.show()
+            self.hide()
         else:
             # Usuario existente: solo cierra la ventana ya que el usuario ya fue agregado
             Config.set_user_name(username)
