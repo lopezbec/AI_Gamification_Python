@@ -373,7 +373,8 @@ class MainWindow(QWidget):
         self.lesson_number = lesson_number
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
-        self.setWindowTitle("Aprendiendo Python - Lección 2")
+        self.usuario_actual = self.load_current_user()
+        self.setWindowTitle("Aprendiendo Python - Módulo 1, Lección 2")
 
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 1)
         self.init_ui()
@@ -760,6 +761,39 @@ class MainWindow(QWidget):
                 self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
+    def actualizar_progreso_usuario(self, modulo, leccion_completada):
+        try:
+            # Cargar el archivo progreso.json
+            with open('progreso.json', 'r', encoding='UTF-8') as file:
+                progreso = json.load(file)
+
+            # Obtener el progreso del usuario actual (asegúrate de que self.usuario_actual esté correctamente definido)
+            progreso_usuario = progreso.get(self.usuario_actual, {})
+
+            # Calcula el número de la siguiente lección
+            numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
+            siguiente_leccion = 'Leccion' + str(numero_leccion_actual + 1)
+
+            # Actualizar el estado de la siguiente lección a True
+            if modulo in progreso_usuario and siguiente_leccion in progreso_usuario[modulo]:
+                progreso_usuario[modulo][siguiente_leccion] = True
+
+            # Guardar los cambios en el archivo progreso.json
+            with open('progreso.json', 'w', encoding='UTF-8') as file:
+                json.dump(progreso, file, indent=4)
+
+        except Exception as e:
+            print(f"Error al actualizar el progreso: {e}")
+
+    def load_current_user(self):
+        try:
+            with open('current_user.json', 'r', encoding='UTF-8') as file:
+                user_data = json.load(file)
+            return user_data.get("current_user")
+        except FileNotFoundError:
+            print("Archivo current_user.json no encontrado.")
+            return None
+
     def switch_page(self, forward=True):
         current_index = self.stacked_widget.currentIndex()
 
@@ -809,7 +843,7 @@ class MainWindow(QWidget):
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
-            print(f"Page switched. Total XP: {self.XP_Ganados}")
+            self.actualizar_progreso_usuario('Modulo1', 'Leccion2')
             self.close()
 
         else:
