@@ -14,7 +14,7 @@ from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, MainWindow as LeaderboardWindow
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 
 
@@ -382,6 +382,10 @@ class MainWindow(QWidget):
 
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 4)
         self.init_ui()
+
+    def set_user_score_leaderboard(self, puntos_obtenidos):
+       self.leaderboard_class = LeaderboardWindow()
+       self.leaderboard_class.set_user_score(puntos_obtenidos)
 
     def init_ui(self):
         self.layout = QVBoxLayout()
@@ -801,7 +805,12 @@ class MainWindow(QWidget):
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
+<<<<<<< HEAD
             self.actualizar_progreso_usuario('Modulo1', 'Leccion5')
+=======
+            print(f"Page switched. Total XP: {self.XP_Ganados}")
+            self.set_user_score_leaderboard(self.XP_Ganados)
+>>>>>>> b84f3c20114d787a2c4cda993af21cc3ccfd4d19
             self.close()
 
         else:

@@ -60,6 +60,9 @@ class ProgressBar(QWidget):
         }
         """
 
+    def get_total_pages_in_lesson(self):
+        return len(self.lesson_data["lessons"][self.current_lesson]["pages"])
+    
     def increment_page(self):
         if self.current_page < len(self.lesson_data["lessons"][self.current_lesson]["pages"]) - 1:
             self.current_page += 1

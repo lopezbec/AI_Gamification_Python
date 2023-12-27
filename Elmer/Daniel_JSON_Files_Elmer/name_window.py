@@ -128,7 +128,12 @@ class NameWindow(QMainWindow):
             self.question_window.read_csv()
             self.question_window.show()
         else:
+<<<<<<< HEAD
             # Usuario existente: solo cierra la ventana ya que el usuario ya fue agregado
+=======
+            Config.set_user_name(username)
+            # Usuario existente: cerrar la ventana
+>>>>>>> b84f3c20114d787a2c4cda993af21cc3ccfd4d19
             self.close()
 
     def recargar_progreso_usuario(self):
