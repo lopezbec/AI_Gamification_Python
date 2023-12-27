@@ -803,12 +803,9 @@ class MainWindow(QWidget):
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
-<<<<<<< HEAD
             self.actualizar_progreso_usuario('Modulo1', 'Leccion3')
-=======
             print(f"Page switched. Total XP: {self.XP_Ganados}")
             self.set_user_score_leaderboard(self.XP_Ganados)
->>>>>>> b84f3c20114d787a2c4cda993af21cc3ccfd4d19
             self.close()
 
         else:
