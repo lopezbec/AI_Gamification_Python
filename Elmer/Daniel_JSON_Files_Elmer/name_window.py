@@ -93,5 +93,6 @@ class NameWindow(QMainWindow):
             self.question_window.show()
             self.hide()
         else:
+            Config.set_user_name(username)
             # Usuario existente: cerrar la ventana
             self.close()
