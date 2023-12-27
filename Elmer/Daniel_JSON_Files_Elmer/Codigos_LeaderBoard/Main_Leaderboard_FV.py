@@ -353,10 +353,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def get_user_score(self):
         return self.current_player["points"]
 
-    def set_user_score(self, new_score):
-       print(f"Actualizando leadaerboard con {new_score} puntos")
+    def set_user_score(self, new_score):      
        Config.set_user_score(Config.get_user_score() + new_score)
-       print(f"Actual puntuacion de {self.current_player['name']} es {self.current_player['points']}")
 
 def LeaderBoard():
     window = MainWindow()
