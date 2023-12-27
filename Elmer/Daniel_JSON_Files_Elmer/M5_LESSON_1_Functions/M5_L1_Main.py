@@ -10,7 +10,7 @@ from functools import partial
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, MainWindow as LeaderboardWindow
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, \
     QRadioButton, QButtonGroup, QCheckBox
 
@@ -393,6 +393,10 @@ class MainWindow(QWidget):
 
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M5.json")), 0)
         self.init_ui()
+
+    def set_user_score_leaderboard(self, puntos_obtenidos):
+        self.leaderboard_class = LeaderboardWindow()
+        self.leaderboard_class.set_user_score(puntos_obtenidos)
 
     def init_ui(self):
         self.layout = QVBoxLayout()
