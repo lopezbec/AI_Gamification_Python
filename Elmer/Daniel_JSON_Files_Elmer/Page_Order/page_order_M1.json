@@ -318,7 +318,7 @@
             "lesson_number": 5,
             "pages": [
                 {
-                    "type": "JsonWindow",
+                    "type": "JsonWindowz",
                     "filename": "M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_1.json",
                     "page_type": "Pedagogical",
                     "json_number": 1

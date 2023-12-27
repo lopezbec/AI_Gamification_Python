@@ -47,3 +47,27 @@ Correct Drop Event: ),01:23:18
 Parte 6,01:23:19
 Checkbox Selected: 11,01:23:26
 
+Parte 1,04:05:27
+Parte 2,04:05:29
+Correct Answer Selected: 6,04:05:35
+Parte 3,04:05:36
+Checkbox Selected: 9,04:05:46
+Parte 4,04:05:47
+Checkbox Selected: '59',04:05:51
+Parte 5,04:05:52
+Correct Drop Event: x,04:06:19
+Correct Drop Event: =,04:06:19
+Correct Drop Event: int(,04:06:19
+Correct Drop Event: input()),04:06:19
+Correct Drop Event: y,04:06:19
+Correct Drop Event: =,04:06:19
+Correct Drop Event: int(,04:06:19
+Correct Drop Event: input()),04:06:19
+Correct Drop Event: print(,04:06:19
+Correct Drop Event: x,04:06:19
+Correct Drop Event: +,04:06:19
+Correct Drop Event: y,04:06:19
+Correct Drop Event: ),04:06:19
+Parte 6,04:06:19
+Checkbox Selected: 11,04:06:26
+
