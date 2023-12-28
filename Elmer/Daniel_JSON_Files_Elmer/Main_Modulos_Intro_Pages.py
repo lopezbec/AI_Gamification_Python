@@ -40,6 +40,7 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 
+
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -106,19 +107,24 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Configura la hoja de estilos para los menús aquí
         self.setStyleSheet("""
-                    QMenu {
-                        background-color: #87CEEB; /* Color de fondo de tu menú */
-                        border: none;
-                    }
-                    QMenu::item {
-                        padding: 5px 25px 5px 20px; /* Ajusta el espaciado como prefieras */
-                        background-color: transparent;
-                    }
-                    QMenu::item:selected { /* Cuando pasas el ratón por encima */
-                        background-color: #ADD8E6; /* Color de fondo al pasar el ratón por encima */
-                        color: black; /* Cambia esto al color de texto deseado */
-                    }
-                """)
+            /* Estilo general para el menú */
+            QMenu {
+                background-color: #87CEEB; /* Color de fondo */
+                border: none; /* Sin bordes */
+            }
+
+            /* Estilo para cada ítem del menú */
+            QMenu::item {
+                padding: 5px 25px 5px 20px; /* Espaciado alrededor del ítem */
+                background-color: transparent; /* Fondo transparente */
+            }
+
+            /* Estilo para el ítem del menú cuando está seleccionado (hover) */
+            QMenu::item:selected {
+                background-color: #ADD8E6; /* Color de fondo al pasar el ratón */
+                color: black; /* Color de texto */
+            }
+        """)
 
         # Configuración del widget central y layout principal
         central_widget = QtWidgets.QWidget()
@@ -155,7 +161,7 @@ class MainWindow(QtWidgets.QMainWindow):
         button_layout.addWidget(guia_usuario_btn)
 
         # Crear el botón de reinicio
-        reinicio_btn = QtWidgets.QPushButton("Reiniciar")
+        reinicio_btn = QtWidgets.QPushButton("Presionar al completar leccion")
         reinicio_btn.setStyleSheet("background-color: red; color: white;")  # Estilo del botón
         reinicio_btn.clicked.connect(self.reiniciar_aplicacion)  # Conectar el botón a la función de reinicio
         button_reset_layout.addWidget(reinicio_btn)

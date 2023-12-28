@@ -765,7 +765,8 @@ class MainWindow(QWidget):
         except Exception as e:
             print(f"Error al actualizar el progreso: {e}")
 
-    def load_current_user(self):
+    @staticmethod
+    def load_current_user():
         try:
             with open('current_user.json', 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
