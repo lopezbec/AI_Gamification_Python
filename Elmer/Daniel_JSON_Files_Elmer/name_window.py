@@ -3,6 +3,7 @@ from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from question_window import QuestionWindow
+from datetime import datetime
 
 
 class NameWindow(QMainWindow):
@@ -129,6 +130,7 @@ class NameWindow(QMainWindow):
         username = self.input.text().strip()
         if username:
             self.update_current_user(username)
+            self.update_user_last_active(username)
 
             if not self.user_exists_in_leaderboard(username):  # Verificar si existe en leaderboard.json
                 self.add_user_to_leaderboard(username)  # Agregar usuario a leaderboard.json
@@ -145,12 +147,44 @@ class NameWindow(QMainWindow):
         except FileNotFoundError:
             return False
 
+    def update_user_last_active(self, username):
+        current_datetime = datetime.now().strftime("%Y-%m-%d ; %Hh:%Mm")
+        try:
+            with open(self.leaderboard_file, 'r', encoding='UTF-8') as file:
+                users = json.load(file)
+
+            for user in users:
+                if user['name'] == username:
+                    user['last_active'] = current_datetime
+                    break
+            else:
+                # Si el usuario no existe, agrégalo.
+                users.append({
+                    "name": username,
+                    "points": 0,
+                    "last_active": current_datetime
+                })
+
+            with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
+                json.dump(users, file, indent=4)
+
+        except FileNotFoundError:
+            # Si el archivo no existe, crea uno nuevo con el usuario actual.
+            with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
+                json.dump([{
+                    "name": username,
+                    "points": 0,
+                    "last_active": current_datetime
+                }], file, indent=4)
+
     def add_user_to_leaderboard(self, username):
+        current_datetime = datetime.now().strftime("%Y-%m-%d ; %Hh:%Mm")  # Formato específico para fecha y hora
         new_user = {
             "name": username,
             "points": 0,
-            "last_active": ""
+            "last_active": current_datetime  # Fecha y hora actual en el formato específico
         }
+
         try:
             with open(self.leaderboard_file, 'r', encoding='UTF-8') as file:
                 users = json.load(file)

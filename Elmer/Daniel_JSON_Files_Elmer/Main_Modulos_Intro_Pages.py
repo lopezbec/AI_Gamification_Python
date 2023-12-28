@@ -37,8 +37,9 @@ from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
 from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
 
 from pathlib import Path
-from PyQt6.QtWidgets import QApplication
+from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
+from PyQt6.QtGui import QAction, QIcon
 
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -115,8 +116,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
             /* Estilo para cada ítem del menú */
             QMenu::item {
-                padding: 5px 25px 5px 20px; /* Espaciado alrededor del ítem */
-                background-color: transparent; /* Fondo transparente */
+        
+            background-color: white; /* Color de fondo blanco para coincidir con el ícono */
             }
 
             /* Estilo para el ítem del menú cuando está seleccionado (hover) */
@@ -171,6 +172,27 @@ class MainWindow(QtWidgets.QMainWindow):
 
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
+
+    # Función para actualizar los íconos de las lecciones en la interfaz de usuario
+    # Función para actualizar los íconos de las lecciones en la interfaz de usuario
+    def update_lesson_icons(self, estado_usuario):
+        # Itera a través de los módulos y lecciones para actualizar el estado y los íconos
+        for nombre_modulo, lecciones in estado_usuario.items():
+            for nombre_leccion, estado in lecciones.items():
+                # Genera el nombre de la variable de la ventana de la lección basado en la convención de nombres
+                nombre_ventana = f"m{nombre_modulo[-1]}_lesson{nombre_leccion[-1]}_window"
+                ventana_leccion = getattr(self, nombre_ventana, None)
+
+                if ventana_leccion:
+                    # Encuentra la acción del menú que corresponde a la ventana de la lección
+                    accion_leccion = ventana_leccion.menuAction()
+
+                    # Establece el ícono basado en si la lección está bloqueada o desbloqueada
+                    icon_path = 'Icons/cerrado_icon.jpg' if estado else 'Icons/cerrado_icon.jpg'
+                    accion_leccion.setIcon(QIcon(icon_path))
+
+                    # Actualiza otros aspectos de la lección si es necesario, por ejemplo, habilitar/deshabilitar la acción
+                    accion_leccion.setEnabled(estado)
 
     def reiniciar_aplicacion(self):
         self.close()  # Cierra la ventana actual
@@ -249,12 +271,25 @@ class MainWindow(QtWidgets.QMainWindow):
         }
 
     def añadir_submenu(self, nombre_modulo, numero_lecciones, menu_principal):
-        submenu = QtWidgets.QMenu(nombre_modulo, self)
+        submenu = QMenu(nombre_modulo, self)
+        estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""),
+                                                  {})  # Elimina espacios en el nombre del módulo
 
         # Añade acciones y conecta con funciones específicas para cada lección
         for leccion_numero in range(1, numero_lecciones + 1):
-            accion_leccion = submenu.addAction(f"Lección {leccion_numero}")
+            leccion_clave = f"Leccion{leccion_numero}"
+            estado_leccion = estado_modulo.get(leccion_clave, False)  # Estado de la lección actual
+            accion_leccion = QAction(f"Lección {leccion_numero}", self)
+
+            # Establece el ícono de candado abierto o cerrado dependiendo del estado de la lección
+            icono = 'Icons/abierto_icon.jpg' if estado_leccion else 'Icons/cerrado_icon.jpg'
+            accion_leccion.setIcon(QIcon(icono))
+
+            # Conecta la acción a una función
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
+
+            # Añade la acción al submenu
+            submenu.addAction(accion_leccion)
 
         menu_principal.addMenu(submenu)
 
@@ -410,6 +445,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         modulos_menu = QtWidgets.QMenu()
 
+        print(f"Usuario actual: {self.usuario_actual}")
+        print(f"Progreso del usuario actual: {self.progreso_usuario}")
+
         # Añadir submenús para cada módulo
         # Dentro de setup_modulos_menu o donde configures los submenús
         self.añadir_submenu("Modulo 1", 5, modulos_menu)
@@ -417,6 +455,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.añadir_submenu("Modulo 3", 5, modulos_menu)
         self.añadir_submenu("Modulo 4", 5, modulos_menu)
         self.añadir_submenu("Modulo 5", 7, modulos_menu)
+
+
 
         modulos_btn.setMenu(modulos_menu)
         modulos_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
