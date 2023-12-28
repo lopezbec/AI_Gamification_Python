@@ -1,0 +1,13 @@
+event,time
+Parte 1,00:09:49
+Checkbox Selected: #,00:09:59
+Parte 2,00:10:00
+Checkbox Selected: 7,00:10:13
+Parte 3,00:10:14
+Checkbox Selected: Sí,00:10:20
+Parte 4,00:10:20
+Correct Drop Event: def foo():,00:10:55
+Correct Drop Event:  '''A ,00:10:55
+Correct Drop Event: B,00:10:55
+Correct Drop Event: C''',00:10:55
+

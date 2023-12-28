@@ -1,34 +1,32 @@
 [
     {
-        "name": "Roberto Fulcar",
-        "points": 276,
-        "country": "Mexico",
-        "city": "Mexico City",
-        "friends": ["Pedro Alberto Ortega", "Agustin De Leon"],
-        "last_active": "2023-05-25 ; 14h:32m"
-    },
-    {
-        "name": "Agustin De Leon",
-        "points": 11670,
-        "country": "Canada",
-        "city": "Toronto",
-        "friends": ["Roberto Fulcar", "Pedro Alberto Ortega"],
+        "name": "Elmer",
+        "points": 1424,
         "last_active": "2023-03-20 ; 06h:45m"
     },
     {
-        "name": "Pedro Alberto Ortega",
-        "points": 1325,
-        "country": "United Kingdom",
-        "city": "London",
-        "friends": ["Alberto Guzman", "Agustin De Leon"],
+        "name": "Daniel",
+        "points": 147,
         "last_active": "2023-05-10 ; 23h:25m"
     },
     {
-        "name": "Alberto Guzman",
-        "points": 22450,
-        "country": "Germany",
-        "city": "Berlin",
-        "friends": ["Roberto Fulcar", "Pedro Alberto Ortega", "Agustin De Leon"],
-        "last_active": "2023-04-02 ; 11h:15m"
+        "name": "Marcos",
+        "points": 390,
+        "last_active": ""
+    },
+    {
+        "name": "Prisila",
+        "points": 150,
+        "last_active": ""
+    },
+    {
+        "name": "Juan",
+        "points": 23,
+        "last_active": ""
+    },
+    {
+        "name": "Luisa",
+        "points": 0,
+        "last_active": ""
     }
 ]

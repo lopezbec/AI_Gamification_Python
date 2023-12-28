@@ -773,6 +773,31 @@ class MainWindow(QWidget):
             print("Archivo current_user.json no encontrado.")
             return None
 
+    @staticmethod
+    def actualizar_puntos_en_leaderboard(usuario, puntos_ganados):
+        leaderboard_path = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
+
+        try:
+            with open(leaderboard_path, 'r', encoding='UTF-8') as file:
+                leaderboard = json.load(file)
+
+            usuario_existente = False
+            for user in leaderboard:
+                if user["name"] == usuario:
+                    user["points"] += puntos_ganados
+                    usuario_existente = True
+                    break
+
+            if not usuario_existente:
+                # Si el usuario no existe en el leaderboard, añadirlo con los puntos iniciales
+                leaderboard.append({"name": usuario, "points": puntos_ganados, "last_active": ""})
+
+            with open(leaderboard_path, 'w', encoding='UTF-8') as file:
+                json.dump(leaderboard, file, indent=4)
+
+        except FileNotFoundError:
+            print("Archivo leaderboard.json no encontrado.")
+
     def switch_page(self, forward=True):
         current_index = self.stacked_widget.currentIndex()
 
@@ -822,6 +847,7 @@ class MainWindow(QWidget):
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
+            self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo3', 'Leccion3')
             self.close()
 

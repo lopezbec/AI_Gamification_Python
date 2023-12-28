@@ -1,46 +1,18 @@
 [
   {
     "name": "Principiante",
-    "range": "<= 500"
+    "range": "<= 50"
   },
   {
     "name": "Intermedio",
-    "range": "501 - 1000"
+    "range": "51 - 199"
   },
   {
     "name": "Avanzado",
-    "range": "1001 - 1999"
+    "range": "200 - 399"
   },
   {
     "name": "Experto",
-    "range": "2000 - 2499"
-  },
-  {
-    "name": "Maestro I",
-    "range": "2500 - 2999"
-  },
-  {
-    "name": "Maestro II",
-    "range": "3000 - 3999"
-  },
-  {
-    "name": "Maestro III",
-    "range": "4000 - 5499"
-  },
-  {
-    "name": "Élite I",
-    "range": "5500 - 7999"
-  },
-  {
-    "name": "Élite II",
-    "range": "8000 - 9999"
-  },
-  {
-    "name": "Élite III",
-    "range": "10000 - 14999"
-  },
-  {
-    "name": "Legendario",
-    "range": ">= 15000"
+    "range": "399 - 2000"
   }
 ]

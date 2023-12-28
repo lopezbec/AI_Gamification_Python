@@ -14,6 +14,7 @@ class NameWindow(QMainWindow):
         self.question_window = None
         self._load_ui_data()
         self._setup_ui()
+        self.leaderboard_file = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
 
     def _load_ui_data(self):
         with open(r'./json/name_info.json', "r", encoding='UTF-8') as name_info:
@@ -129,11 +130,36 @@ class NameWindow(QMainWindow):
         if username:
             self.update_current_user(username)
 
-            if not self.user_exists(username):
-                self.add_username(username)
+            if not self.user_exists_in_leaderboard(username):  # Verificar si existe en leaderboard.json
+                self.add_user_to_leaderboard(username)  # Agregar usuario a leaderboard.json
+                self.add_username(username)  # Agregar usuario a los archivos existentes
                 self._open_question_window(username)
             else:
                 self.close()
+
+    def user_exists_in_leaderboard(self, username):
+        try:
+            with open(self.leaderboard_file, 'r', encoding='UTF-8') as file:
+                users = json.load(file)
+            return any(user['name'] == username for user in users)
+        except FileNotFoundError:
+            return False
+
+    def add_user_to_leaderboard(self, username):
+        new_user = {
+            "name": username,
+            "points": 0,
+            "last_active": ""
+        }
+        try:
+            with open(self.leaderboard_file, 'r', encoding='UTF-8') as file:
+                users = json.load(file)
+        except FileNotFoundError:
+            users = []
+
+        users.append(new_user)
+        with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
+            json.dump(users, file, indent=4)
 
     def _open_question_window(self, username):
         self.question_window = QuestionWindow()

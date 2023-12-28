@@ -28,20 +28,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.leaderboard = []
         self.levels = []
 
-        self.load_data()  # Cargar los datos desde los archivos
+        self.load_data()
 
-        self.current_player = {
-            "name": Config.get_user_name(),
-            "points": 0,
-            "country": geocoder.ip('me').country,
-            "city": geocoder.ip('me').city,
-            "friends": [],
-            "last_active": "2023-12-01 ; 11h:40m"
-        }
-
-        self.leaderboard.append(self.current_player)
-
-        self.theme = 'light'  # tema por defecto
+        self.theme = 'light'
         self.setWindowTitle("Tabla de Clasificación")
         self.current_user = 'Seleccionar Usuario'
         self.current_filter = 'Todos'
