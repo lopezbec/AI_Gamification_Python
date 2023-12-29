@@ -418,6 +418,14 @@ class MainWindow(QWidget):
         self.btn_open_console.clicked.connect(self.open_python_console)
         self.btn_open_console.hide()
 
+        self.terminar_button = QPushButton("Leccion Completada")
+        self.terminar_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        terminar_button_font = QFont()
+        terminar_button_font.setPointSize(self.styles["font_size_buttons"])
+        self.terminar_button.setFont(terminar_button_font)
+        self.terminar_button.clicked.connect(self.Leccion_Terminada)
+        self.terminar_button.hide()
+
         self.continue_button = QPushButton("Continuar")
         self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
         continue_button_font = QFont()
@@ -455,6 +463,7 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
+        self.button_layout.addWidget(self.terminar_button)
 
         self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
         self.layout.addWidget(self.stacked_widget)
@@ -462,6 +471,9 @@ class MainWindow(QWidget):
 
         self.setLayout(self.layout)
         self.showMaximized()
+
+    def Leccion_Terminada(self):
+        self.close()
 
     def update_xp(self, new_points):
         self.XP_Ganados += new_points
@@ -872,6 +884,8 @@ class MainWindow(QWidget):
 
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
+            self.continue_button.hide()
+            self.terminar_button.show()
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.

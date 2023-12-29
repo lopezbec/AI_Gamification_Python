@@ -387,12 +387,12 @@ class MainWindow(QWidget):
         self.python_console = None
         self.practice_button = None
         self.continue_button = None
+        self.terminar_button = None
         self.last_json_number = None
         self.last_page_number = None
         self.leaderboard_button = None
         self.python_console_widget = None
         self.lesson_number = lesson_number
-
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
@@ -436,6 +436,14 @@ class MainWindow(QWidget):
         self.back_button.clicked.connect(lambda: self.switch_page(forward=False))
         self.back_button.hide()
 
+        self.terminar_button = QPushButton("Leccion Completada")
+        self.terminar_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        terminar_button_font = QFont()
+        terminar_button_font.setPointSize(self.styles["font_size_buttons"])
+        self.terminar_button.setFont(terminar_button_font)
+        self.terminar_button.clicked.connect(self.Leccion_Terminada)
+        self.terminar_button.hide()
+
         self.submit_button = QPushButton("Enviar")
         self.submit_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
         submit_button_font = QFont()
@@ -457,6 +465,7 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
+        self.button_layout.addWidget(self.terminar_button)
 
         self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
         self.layout.addWidget(self.stacked_widget)
@@ -464,6 +473,9 @@ class MainWindow(QWidget):
 
         self.setLayout(self.layout)
         self.showMaximized()
+
+    def Leccion_Terminada(self):
+        self.close()
 
     def update_xp(self, new_points):
         self.XP_Ganados += new_points
@@ -519,10 +531,6 @@ class MainWindow(QWidget):
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
-        self.stacked_widget.setCurrentWidget(self.python_console_widget)
-        code_str = self.get_console_code()  # Implementa este método para obtener el código de la consola.
-        result_str = self.exec_text_input(code_str)
-        self.python_console_widget.setPlainText(result_str)
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
@@ -579,18 +587,6 @@ class MainWindow(QWidget):
                 return lesson["pages"]
 
         raise ValueError(f"Lesson {self.lesson_number} not found in page_order_M1.json")
-
-    def count_pages_per_lesson(self, json_file_path, target_lesson):
-        with open(json_file_path, 'r') as json_file:
-            data = json.load(json_file)
-            lessons = data.get('lessons', [])
-            
-            for lesson in lessons:
-                lesson_number = lesson.get('lesson_number', None)
-                if lesson_number == target_lesson:
-                    pages = lesson.get('pages', [])
-                    page_count = len(pages)
-                    return page_count
 
     def submit_answer(self):
         current_widget = self.stacked_widget.currentWidget()
@@ -874,6 +870,8 @@ class MainWindow(QWidget):
 
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
+            self.continue_button.hide()
+            self.terminar_button.show()
             self.save_log(log_type="time")
             self.save_log(log_type="mouse")
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
@@ -892,4 +890,3 @@ def M1_L1_Main():
     main_window = MainWindow(lesson_number=1)
     main_window.show()
     return main_window
- 

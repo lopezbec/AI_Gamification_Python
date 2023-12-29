@@ -445,9 +445,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
         modulos_menu = QtWidgets.QMenu()
 
-        print(f"Usuario actual: {self.usuario_actual}")
-        print(f"Progreso del usuario actual: {self.progreso_usuario}")
-
         # Añadir submenús para cada módulo
         # Dentro de setup_modulos_menu o donde configures los submenús
         self.añadir_submenu("Modulo 1", 5, modulos_menu)
@@ -455,8 +452,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.añadir_submenu("Modulo 3", 5, modulos_menu)
         self.añadir_submenu("Modulo 4", 5, modulos_menu)
         self.añadir_submenu("Modulo 5", 7, modulos_menu)
-
-
 
         modulos_btn.setMenu(modulos_menu)
         modulos_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)

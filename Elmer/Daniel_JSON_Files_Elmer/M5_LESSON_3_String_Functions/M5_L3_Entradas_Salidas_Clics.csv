@@ -1,0 +1,25 @@
+event,time
+Parte 1,02:03:17
+Checkbox Selected: abracadabra,02:05:19
+Parte 2,02:05:20
+"Checkbox Selected: 5, 9, 7",02:05:23
+"Checkbox Selected: 7, 9, 5",02:05:25
+Parte 3,02:05:26
+Checkbox Selected: string,02:05:29
+Parte 4,02:05:29
+Correct Drop Event: split,02:05:43
+Correct Drop Event: 1,02:05:43
+Correct Drop Event: print,02:05:43
+Parte 5,02:05:43
+Correct Drop Event: replace,02:05:52
+Correct Drop Event: !,02:05:52
+Correct Drop Event: .,02:05:52
+Parte 6,02:05:52
+Checkbox Selected: upper,02:05:57
+Parte 7,02:05:57
+Parte 8,02:06:02
+Checkbox Selected: s,02:06:06
+Checkbox Selected: e,02:06:08
+Checkbox Selected: l,02:06:10
+Checkbox Selected: o,02:06:12
+
