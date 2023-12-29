@@ -6,6 +6,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QGridLayout, QHBoxLayout, QLabel, QMainWindow, QPushButton, QRadioButton, QVBoxLayout, \
     QWidget
 from finish_window import FinishWindow
+import os
 
 
 class QuestionWindow(QMainWindow):
@@ -210,10 +211,22 @@ class QuestionWindow(QMainWindow):
         responses.append(dict({"question_index": question, "score": value}))
 
     def write_csv(self):
-        csv_columns = ['question_index', 'score']
-        final_responses = responses
         try:
-            with open('user_{}.csv'.format(self.username), 'w') as csv_file:
+            csv_columns = ['question_index', 'score']
+            final_responses = responses  # Asegúrate de que 'responses' esté definido correctamente
+
+            # Crear la carpeta si no existe
+            folder_path = 'Usuarios_respuestas_entrevista'
+            if not os.path.exists(folder_path):
+                os.makedirs(folder_path)
+
+            # Ruta del archivo CSV dentro de la carpeta
+            csv_file_path = os.path.join(folder_path, 'user_{}.csv'.format(self.username))
+        except Exception as e:
+            print(f"Error carpeta: {e}")
+
+        try:
+            with open(csv_file_path, 'w', newline='', encoding='utf-8') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=csv_columns, delimiter=',', quotechar='"',
                                         quoting=csv.QUOTE_MINIMAL)
                 writer.writeheader()

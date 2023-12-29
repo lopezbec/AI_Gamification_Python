@@ -132,8 +132,9 @@ class NameWindow(QMainWindow):
             self.update_current_user(username)
             self.update_user_last_active(username)
 
-            if not self.user_exists_in_leaderboard(username):  # Verificar si existe en leaderboard.json
+            if not self.user_exists(username):  # Verificar si existe en leaderboard.json
                 self.add_user_to_leaderboard(username)  # Agregar usuario a leaderboard.json
+                self.agregar_usuario_leccion_completada(username)
                 self.add_username(username)  # Agregar usuario a los archivos existentes
                 self._open_question_window(username)
             else:
@@ -143,7 +144,10 @@ class NameWindow(QMainWindow):
         try:
             with open(self.leaderboard_file, 'r', encoding='UTF-8') as file:
                 users = json.load(file)
-            return any(user['name'] == username for user in users)
+            for user in users:
+                if user['name'] == username:
+                    return True
+            return False
         except FileNotFoundError:
             return False
 
@@ -194,6 +198,32 @@ class NameWindow(QMainWindow):
         users.append(new_user)
         with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
             json.dump(users, file, indent=4)
+
+    @staticmethod
+    def agregar_usuario_leccion_completada(username):
+        # Añadir usuario a leccion_completada.json
+        try:
+            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+                progreso = json.load(file)
+        except Exception as e:
+            print(f"Error archivo: {e}")
+
+        try:
+
+            if username not in progreso:
+                progreso[username] = {
+                    "Modulo1": {f"Leccion_completada{i}": False for i in range(1, 6)},
+                    "Modulo2": {f"Leccion_completada{i}": False for i in range(1, 4)},
+                    "Modulo3": {f"Leccion_completada{i}": False for i in range(1, 6)},
+                    "Modulo4": {f"Leccion_completada{i}": False for i in range(1, 6)},
+                    "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)}
+                }
+
+                with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+                    json.dump(progreso, file, indent=4)
+
+        except Exception as e:
+            print(f"Error: {e}")
 
     def _open_question_window(self, username):
         self.question_window = QuestionWindow()

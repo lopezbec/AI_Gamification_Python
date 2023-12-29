@@ -2,12 +2,12 @@
     {
         "name": "Elmer",
         "points": 1688,
-        "last_active": "2023-12-29 ; 02h:02m"
+        "last_active": "2023-12-29 ; 03h:48m"
     },
     {
         "name": "Daniel",
         "points": 147,
-        "last_active": "2023-05-10 ; 23h:25m"
+        "last_active": "2023-12-29 ; 02h:17m"
     },
     {
         "name": "Marcos",
@@ -23,20 +23,5 @@
         "name": "Juan",
         "points": 23,
         "last_active": "2023-12-28 ; 16h:56m"
-    },
-    {
-        "name": "Luisa",
-        "points": 0,
-        "last_active": "2023-12-28 ; 16h:55m"
-    },
-    {
-        "name": "Aldelsa",
-        "points": 23,
-        "last_active": "2023-12-28 ; 16h:55m"
-    },
-    {
-        "name": "Pedro Mateo",
-        "points": 0,
-        "last_active": "2023-12-28 ; 16h:54m"
     }
 ]
