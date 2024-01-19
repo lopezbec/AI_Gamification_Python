@@ -128,12 +128,16 @@ class NameWindow(QMainWindow):
 
     def show_survey(self):
         username = self.input.text().strip()
+        print(f'name {username}')
         if username:
             self.update_current_user(username)
             self.update_user_last_active(username)
+            print("Actualizo el last active")
 
             if not self.user_exists(username):  # Verificar si existe en leaderboard.json
+                print('Usuario no existe, se va a agregar al leaderboard.json')
                 self.add_user_to_leaderboard(username)  # Agregar usuario a leaderboard.json
+                print('Usuario agregado')
                 self.agregar_usuario_leccion_completada(username)
                 self.add_username(username)  # Agregar usuario a los archivos existentes
                 self._open_question_window(username)
@@ -158,17 +162,25 @@ class NameWindow(QMainWindow):
             with open(self.leaderboard_file, 'r', encoding='UTF-8') as file:
                 users = json.load(file)
 
+            ''' AVISO: The else condition below was commented in order to resolve bug #48
+                (https://github.com/lopezbec/AI_Gamification_Python/issues/48)
+                If this else was added to resolve or control 
+                some type of scenario identified in the past, 
+                please mention it in the issue thread to be discussed and find a feasible solution 
+            '''
+            
             for user in users:
                 if user['name'] == username:
                     user['last_active'] = current_datetime
                     break
-            else:
-                # Si el usuario no existe, agrégalo.
-                users.append({
-                    "name": username,
-                    "points": 0,
-                    "last_active": current_datetime
-                })
+            # else:
+            #     # Si el usuario no existe, agrégalo.
+            #     users.append({
+            #         "name": username,
+            #         "points": 0,
+            #         "last_active": current_datetime
+            #     })
+            #     print("Agregaste un usuario desde last active")
 
             with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
                 json.dump(users, file, indent=4)
@@ -197,6 +209,7 @@ class NameWindow(QMainWindow):
             users = []
 
         users.append(new_user)
+        print("Agregaste un usuario desde el metodo add_user")
         with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
             json.dump(users, file, indent=4)
 
