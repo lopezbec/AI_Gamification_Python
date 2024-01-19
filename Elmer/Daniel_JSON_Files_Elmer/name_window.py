@@ -137,6 +137,7 @@ class NameWindow(QMainWindow):
                 self.agregar_usuario_leccion_completada(username)
                 self.add_username(username)  # Agregar usuario a los archivos existentes
                 self._open_question_window(username)
+                self.close()
             else:
                 self.close()
 
