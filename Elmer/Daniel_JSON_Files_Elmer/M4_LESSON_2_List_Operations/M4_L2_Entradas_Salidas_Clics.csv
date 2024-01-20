@@ -5,3 +5,30 @@ Correct Drop Event: if,14:01:24
 Correct Drop Event: in,14:01:24
 Correct Drop Event: print,14:01:24
 
+Parte 1,09:21:17
+Checkbox Selected: 2,09:25:45
+Parte 2,09:25:46
+Checkbox Selected: 3,09:30:10
+Parte 3,09:30:11
+Checkbox Selected: 4,09:32:24
+Parte 4,09:32:25
+Checkbox Selected: 7,09:51:01
+Parte 5,09:51:02
+Correct Drop Event: txt = input(),09:51:36
+Correct Drop Event: if('spam' in txt):,09:51:36
+Correct Drop Event: print('Yes'),09:51:36
+Correct Drop Event: else:,09:51:36
+Correct Drop Event: print('No'),09:51:36
+Parte 6,09:51:36
+"Correct Answer Selected: Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32
+Type ""help"", ""copyright"", ""credits"" or ""license"" for more information.
+
+letters = ['a', 'b', 'z']
+if 'z' in letters:
+   print('Yes')",09:51:51
+Parte 7,09:51:52
+Parte 8,09:51:58
+Correct Drop Event: if,09:57:36
+Correct Drop Event: in,09:57:36
+Correct Drop Event: print,09:57:36
+

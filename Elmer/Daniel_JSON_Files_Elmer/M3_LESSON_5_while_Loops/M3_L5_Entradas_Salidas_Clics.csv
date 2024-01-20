@@ -6,3 +6,51 @@ Correct Drop Event: x > 0:,02:40:54
 Correct Drop Event: print(x),02:40:54
 Correct Drop Event: x -= 1,02:40:54
 
+Parte 1,23:40:43
+Checkbox Selected: sangrado,23:41:11
+Parte 2,23:41:11
+Checkbox Selected: 5,23:41:29
+Parte 3,23:41:29
+Correct Drop Event: x=10,23:41:58
+Correct Drop Event: while x >= 0:,23:41:58
+Correct Drop Event: print(x),23:41:58
+Correct Drop Event: x-=1,23:41:58
+Parte 4,23:41:58
+Checkbox Selected: 4,23:42:17
+Parte 5,23:42:18
+Correct Drop Event: while,23:42:37
+Correct Drop Event: :,23:42:37
+Correct Drop Event: print,23:42:37
+Parte 6,23:42:38
+Checkbox Selected: Yes,23:43:25
+Parte 7,23:43:25
+Parte 8,23:43:27
+Correct Drop Event: while,23:44:09
+Correct Drop Event: x > 0:,23:44:09
+Correct Drop Event: print(x),23:44:09
+Correct Drop Event: x -= 1,23:44:09
+
+Parte 1,23:51:41
+Checkbox Selected: sangrado,23:51:44
+Parte 2,23:51:45
+Checkbox Selected: 5,23:52:00
+Parte 3,23:52:00
+Correct Drop Event: x=10,23:52:19
+Correct Drop Event: while x >= 0:,23:52:19
+Correct Drop Event: print(x),23:52:19
+Correct Drop Event: x-=1,23:52:19
+Parte 4,23:52:19
+Checkbox Selected: 4,23:52:25
+Parte 5,23:52:25
+Correct Drop Event: while,23:52:35
+Correct Drop Event: :,23:52:35
+Correct Drop Event: print,23:52:35
+Parte 6,23:52:35
+Checkbox Selected: Yes,23:52:41
+Parte 7,23:52:41
+Parte 8,23:52:46
+Correct Drop Event: while,23:53:03
+Correct Drop Event: x > 0:,23:53:03
+Correct Drop Event: print(x),23:53:03
+Correct Drop Event: x -= 1,23:53:03
+

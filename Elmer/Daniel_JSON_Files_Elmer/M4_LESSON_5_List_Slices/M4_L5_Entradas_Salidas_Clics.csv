@@ -117,3 +117,23 @@ Parte 8,01:56:32
 Checkbox Selected: 1,01:56:37
 Checkbox Selected: 3,01:56:39
 
+Parte 1,10:16:47
+"Checkbox Selected: [16, 25, 36, 49]",10:17:55
+"Checkbox Selected: [16, 25, 36, 49]",10:17:55
+"Checkbox Selected: [16, 25, 36]",10:18:22
+Parte 2,10:18:23
+Correct Drop Event: :,10:18:43
+Correct Drop Event: 2,10:18:43
+Parte 3,10:18:43
+Checkbox Selected: 5,10:20:00
+Parte 4,10:20:01
+"Checkbox Selected: [1, 25, 81]",10:50:32
+Parte 5,10:50:32
+Checkbox Selected: [49],10:51:05
+"Checkbox Selected: [49, 36]",10:51:23
+Parte 6,10:51:35
+Checkbox Selected: 4,10:51:52
+Parte 7,10:51:52
+Parte 8,10:51:59
+Checkbox Selected: 3,10:52:12
+

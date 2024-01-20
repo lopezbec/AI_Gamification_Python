@@ -21,3 +21,17 @@ Correct Drop Event: range,15:17:49
 Correct Drop Event: (,15:17:49
 Correct Drop Event: ),15:17:49
 
+Parte 1,11:15:52
+Checkbox Selected: True,11:16:00
+Parte 2,11:16:01
+Correct Drop Event: print,11:16:12
+Correct Drop Event: 42,11:16:12
+Parte 3,11:16:14
+Checkbox Selected: convierte su argumento en una cadena,11:16:26
+Parte 4,11:16:27
+Checkbox Selected: 3,11:16:42
+Parte 5,11:16:43
+Correct Drop Event: range,11:17:05
+Correct Drop Event: (,11:17:05
+Correct Drop Event: ),11:17:05
+

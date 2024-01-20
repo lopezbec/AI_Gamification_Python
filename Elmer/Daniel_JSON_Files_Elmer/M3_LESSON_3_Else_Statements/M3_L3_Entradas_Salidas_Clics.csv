@@ -37,3 +37,21 @@ Parte 6,17:40:28
 Parte 7,17:40:37
 Checkbox Selected: 10,17:40:52
 
+Parte 1,23:11:59
+Checkbox Selected: else,23:12:11
+Parte 2,23:12:11
+Correct Drop Event: if,23:12:29
+Correct Drop Event: :,23:12:29
+Parte 3,23:12:29
+Correct Drop Event: if,23:13:00
+Correct Drop Event: :,23:13:00
+Parte 4,23:13:00
+Checkbox Selected: elif,23:13:04
+Parte 5,23:13:05
+Correct Drop Event: if,23:13:33
+Correct Drop Event: elif,23:13:33
+Correct Drop Event: :,23:13:33
+Parte 6,23:13:33
+Parte 7,23:13:36
+Checkbox Selected: 10,23:13:46
+
