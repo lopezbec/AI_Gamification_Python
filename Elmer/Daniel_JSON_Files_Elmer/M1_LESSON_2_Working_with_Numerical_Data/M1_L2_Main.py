@@ -304,16 +304,32 @@ class JsonWindow(QWidget):
             if child.widget():
                 child.widget().deleteLater()
 
-        # Call the function that creates the initial layout again
+        # Reiniciar la visualización de los puntos XP
+        self.update_points_display(self.main_window.XP_Ganados)
+
+        # Recrear los widgets y layouts
+        # Añadir el layout de puntos y leaderboard de nuevo
+        hlayout = QHBoxLayout()
+        hlayout.addWidget(self.puntos)
+        hlayout.addWidget(self.leaderboard_button)
+        self.layout.addLayout(hlayout)
+
+        # Restablecer el contenido del JsonWindow según el tipo de página
         self.title()
         if self.page_type.lower() == "draganddrop":
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
-            self.create_multiple_choice_layout(is_multiple_choice_plus=False)
+            self.create_multiple_choice_layout(
+                is_multiple_choice_plus=self.data[self.page_type.lower()][0].get("multiplechoiceplus", False))
         elif self.page_type.lower() == "completeblankspace":
             self.create_complete_blank_space_layout()
-        else:
+        elif self.page_type.lower() == "pedagogical" or self.page_type.lower() == "pedagogical2":
             self.create_pedagogical_layout()
+        else:
+            # Otros tipos de página según sea necesario
+            print("No existe lógica para ese tipo de página.")
+
+        # Restablecer y mostrar la etiqueta de feedback
         self.create_feedback_label()
 
     def create_practice_layout(self):
