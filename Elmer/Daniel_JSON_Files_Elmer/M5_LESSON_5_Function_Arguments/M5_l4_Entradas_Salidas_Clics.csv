@@ -39,3 +39,19 @@ Checkbox Selected: error,14:37:04
 Checkbox Selected: error,14:37:04
 Checkbox Selected: A18,14:37:08
 
+Parte 1,12:12:18
+Checkbox Selected: 6,12:14:15
+Parte 2,12:14:16
+Checkbox Selected: 7,12:14:28
+Parte 3,12:14:28
+Correct Drop Event: def,12:14:55
+Correct Drop Event: :,12:14:55
+Correct Drop Event: y,12:14:55
+Parte 4,12:14:56
+Correct Drop Event: def,12:15:30
+Correct Drop Event: :,12:15:30
+Correct Drop Event: print,12:15:30
+Correct Drop Event: else,12:15:30
+Parte 5,12:15:31
+Checkbox Selected: A18,12:15:42
+

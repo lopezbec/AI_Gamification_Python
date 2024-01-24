@@ -35,3 +35,75 @@ Correct Drop Event:  '''A ,14:54:10
 Correct Drop Event: B,14:54:10
 Correct Drop Event: C''',14:54:10
 
+Parte 1,13:03:56
+Checkbox Selected: #,13:04:02
+Parte 2,13:04:03
+Checkbox Selected: 7,13:05:03
+Parte 3,13:05:03
+Checkbox Selected: Sí,13:05:34
+Parte 4,13:05:35
+Correct Drop Event: def foo():,13:06:07
+Correct Drop Event:  '''A ,13:06:07
+Correct Drop Event: B,13:06:07
+Correct Drop Event: C''',13:06:07
+
+Parte 1,14:46:46
+Checkbox Selected: #,14:46:53
+Parte 2,14:46:54
+Checkbox Selected: 7,14:47:02
+Parte 3,14:47:03
+Checkbox Selected: Sí,14:47:06
+Parte 4,14:47:06
+Correct Drop Event: def foo():,14:47:20
+Correct Drop Event:  '''A ,14:47:20
+Correct Drop Event: B,14:47:20
+Correct Drop Event: C''',14:47:20
+
+Parte 1,15:21:23
+Checkbox Selected: #,15:21:26
+Parte 2,15:21:26
+Checkbox Selected: 7,15:21:31
+Parte 3,15:21:32
+Checkbox Selected: Sí,15:21:34
+Parte 4,15:21:34
+Correct Drop Event: def foo():,15:43:34
+Correct Drop Event:  '''A ,15:43:34
+Correct Drop Event: B,15:43:34
+Correct Drop Event: C''',15:43:34
+
+Parte 1,16:25:37
+Checkbox Selected: #,16:25:42
+Parte 2,16:25:42
+Checkbox Selected: 7,16:25:47
+Parte 3,16:25:47
+Checkbox Selected: Sí,16:25:50
+Parte 4,16:25:51
+Correct Drop Event: def foo():,16:26:10
+Correct Drop Event:  '''A ,16:26:10
+Correct Drop Event: B,16:26:10
+Correct Drop Event: C''',16:26:10
+
+Parte 1,16:27:53
+Checkbox Selected: #,16:27:56
+Parte 2,16:27:57
+Checkbox Selected: 7,16:28:02
+Parte 3,16:28:02
+Checkbox Selected: Sí,16:28:04
+Parte 4,16:28:04
+Correct Drop Event: def foo():,16:28:15
+Correct Drop Event:  '''A ,16:28:15
+Correct Drop Event: B,16:28:15
+Correct Drop Event: C''',16:28:15
+
+Parte 1,12:25:04
+Checkbox Selected: #,12:25:19
+Parte 2,12:25:19
+Checkbox Selected: 7,12:25:37
+Parte 3,12:25:37
+Checkbox Selected: Sí,12:25:45
+Parte 4,12:25:46
+Correct Drop Event: def foo():,12:26:06
+Correct Drop Event:  '''A ,12:26:06
+Correct Drop Event: B,12:26:06
+Correct Drop Event: C''',12:26:06
+

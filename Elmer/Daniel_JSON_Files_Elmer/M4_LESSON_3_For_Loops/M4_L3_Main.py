@@ -383,6 +383,8 @@ class MainWindow(QWidget):
         self.last_page_number = None
         self.leaderboard_button = None
         self.python_console_widget = None
+        self.highest_page_reached = 0
+        self.is_rollback = False
         self.lesson_number = lesson_number
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
@@ -857,10 +859,12 @@ class MainWindow(QWidget):
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
             if forward:
+                self.update_highest_page(next_index)
                 next_index = current_index + 1
                 self.XP_Ganados += 1
                 self.progress_bar.increment_page()
             else:
+                self.is_rollback = True
                 next_index = current_index - 1
                 self.XP_Ganados -= 1
                 self.progress_bar.decrement_page()
@@ -897,8 +901,16 @@ class MainWindow(QWidget):
             print("¡La leccion no se completó, se cerró!.")
             self.close()
 
+        if next_index == self.highest_page_reached and self.is_rollback == True:
+                self.is_rollback = False
+                #Llamar al método de reinicio con el tipo de página correspondiente
+                self.json_windows[next_index].reset_button()
+
         self.current_page += 1  # Incrementar el número de la página actual
 
+    def update_highest_page(self, current_page):
+        if current_page > self.highest_page_reached:
+            self.highest_page_reached = current_page
 
 def M4_L3_Main():
     main_window = MainWindow(lesson_number=3)

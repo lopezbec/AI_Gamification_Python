@@ -56,3 +56,47 @@ print('Have a good day!')",22:06:06
 Parte 6,22:06:06
 Parte 7,22:06:07
 
+Parte 1,22:27:29
+Incorrect Answer Selected: Cadena,22:28:33
+Correct Answer Selected: Flotante,22:28:33
+Incorrect Answer Selected: Entero,22:28:33
+Incorrect Answer Selected: Cadena,22:28:33
+Correct Answer Selected: Flotante,22:28:33
+Incorrect Answer Selected: Entero,22:28:33
+Correct Answer Selected: Entero,22:28:41
+Correct Answer Selected: Flotante,22:28:41
+Correct Answer Selected: Cadena,22:28:41
+Parte 2,22:28:41
+Correct Drop Event: print('Nosotros somos los campeones amigos'),22:28:54
+Correct Drop Event: print('Y seguiremos luchando hasta el final'),22:28:54
+Correct Drop Event: print('Somos los campeones'),22:28:54
+Parte 3,22:28:55
+Correct Answer Selected: print,22:29:03
+Parte 4,22:29:04
+Correct Answer Selected: sep,22:29:17
+Correct Answer Selected: '-',22:29:17
+Parte 5,22:29:17
+"Correct Answer Selected: # Outputs a message 
+print('Have a good day!')",22:29:26
+Parte 6,22:29:26
+Parte 7,22:33:25
+
+Parte 1,16:06:57
+Correct Answer Selected: Entero,16:07:23
+Correct Answer Selected: Flotante,16:07:23
+Correct Answer Selected: Cadena,16:07:23
+Parte 2,16:07:40
+Correct Drop Event: print('Nosotros somos los campeones amigos'),16:07:57
+Correct Drop Event: print('Y seguiremos luchando hasta el final'),16:07:57
+Correct Drop Event: print('Somos los campeones'),16:07:57
+Parte 3,16:08:03
+Correct Answer Selected: print,16:08:14
+Parte 4,16:08:21
+Correct Answer Selected: sep,16:08:37
+Correct Answer Selected: '-',16:08:37
+Parte 5,16:08:44
+"Correct Answer Selected: # Outputs a message 
+print('Have a good day!')",16:08:51
+Parte 6,16:08:52
+Parte 7,16:08:53
+
