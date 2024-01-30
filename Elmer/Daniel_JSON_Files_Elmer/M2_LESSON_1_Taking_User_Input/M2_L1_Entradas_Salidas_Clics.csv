@@ -55,3 +55,23 @@ Parte 4,18:13:17
 Checkbox Selected: input(),18:13:23
 Parte 5,18:13:24
 
+Parte 1,10:31:10
+Parte 2,10:31:12
+Parte 1,10:31:25
+Parte 2,10:31:26
+Incorrect Answer Selected: text = text,10:31:30
+Incorrect Answer Selected: '42',10:31:30
+Incorrect Answer Selected: text = text,10:31:30
+Incorrect Answer Selected: '42',10:31:30
+Correct Answer Selected: '42',10:31:36
+Correct Answer Selected: text,10:31:36
+Parte 3,10:31:37
+Parte 2,10:31:43
+Parte 3,10:31:44
+Checkbox Selected: una cadena,10:31:46
+Parte 4,10:31:48
+Parte 3,10:31:54
+Parte 4,10:31:54
+Checkbox Selected: input(),10:31:56
+Parte 5,10:31:58
+

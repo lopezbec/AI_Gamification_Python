@@ -31,7 +31,12 @@ class JsonLoader:
         with open("styles.json") as styles_file:
             styles = json.load(styles_file)
         return styles
-
+    
+    @staticmethod
+    def load_active_widgets():
+        with open("./active_widgets/game_elements_visibility.json") as active_widgets:
+            widgets = json.load(active_widgets)
+        return widgets
 
 class JsonWindow(QWidget):
     def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
@@ -85,9 +90,10 @@ class JsonWindow(QWidget):
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
 
         # Añadir los widgets al layout horizontal
-        hlayout.addWidget(self.puntos)
-        hlayout.addWidget(self.progress_bar)  # Añade la barra de progreso aquí.
-        hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("points", True):
+            hlayout.addWidget(self.puntos)   
+        if JsonLoader.load_active_widgets().get("Leaderboard", True):
+            hlayout.addWidget(self.leaderboard_button)
 
         # Añadir el layout horizontal al layout vertical
         self.layout.addLayout(hlayout)
@@ -308,8 +314,10 @@ class JsonWindow(QWidget):
         # Recrear los widgets y layouts
         # Añadir el layout de puntos y leaderboard de nuevo
         hlayout = QHBoxLayout()
-        hlayout.addWidget(self.puntos)
-        hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("points", True):
+            hlayout.addWidget(self.puntos)   
+        if JsonLoader.load_active_widgets().get("Leaderboard", True):
+            hlayout.addWidget(self.leaderboard_button)
         self.layout.addLayout(hlayout)
 
         # Restablecer el contenido del JsonWindow según el tipo de página
@@ -471,7 +479,8 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.continue_button)
         self.button_layout.addWidget(self.terminar_button)
 
-        self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
+        if JsonLoader.load_active_widgets().get("progress", True):
+            self.layout.addWidget(self.progress_bar) 
         self.layout.addWidget(self.stacked_widget)
         self.layout.addLayout(self.button_layout)
 

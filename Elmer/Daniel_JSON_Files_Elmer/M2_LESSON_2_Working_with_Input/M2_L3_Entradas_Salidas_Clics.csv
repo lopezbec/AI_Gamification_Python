@@ -129,3 +129,48 @@ Correct Drop Event: ),21:58:18
 Parte 6,21:58:19
 Checkbox Selected: 11,21:58:35
 
+Parte 1,10:32:15
+Parte 2,10:32:17
+Parte 1,10:32:24
+Parte 2,10:32:25
+Correct Answer Selected: 6,10:32:27
+Parte 3,10:32:28
+Parte 2,10:33:54
+Parte 3,10:33:55
+Checkbox Selected: 9,10:33:57
+Parte 4,10:33:58
+Parte 3,10:34:05
+Parte 4,10:34:06
+Checkbox Selected: '59',10:34:08
+Parte 5,10:34:09
+Parte 4,10:34:20
+Parte 5,10:34:21
+Incorrect Drop Event: x,10:35:13
+Incorrect Drop Event: =,10:35:13
+Incorrect Drop Event: print(,10:35:13
+Incorrect Drop Event: input()),10:35:13
+Incorrect Drop Event: y,10:35:13
+Incorrect Drop Event: =,10:35:13
+Incorrect Drop Event: int(,10:35:13
+Incorrect Drop Event: input()),10:35:13
+Incorrect Drop Event: print(,10:35:13
+Incorrect Drop Event: x,10:35:13
+Incorrect Drop Event: +,10:35:13
+Incorrect Drop Event: y,10:35:13
+Incorrect Drop Event: ),10:35:13
+Correct Drop Event: x,10:36:02
+Correct Drop Event: =,10:36:02
+Correct Drop Event: int(,10:36:02
+Correct Drop Event: input()),10:36:02
+Correct Drop Event: y,10:36:02
+Correct Drop Event: =,10:36:02
+Correct Drop Event: int(,10:36:02
+Correct Drop Event: input()),10:36:02
+Correct Drop Event: print(,10:36:02
+Correct Drop Event: x,10:36:02
+Correct Drop Event: +,10:36:02
+Correct Drop Event: y,10:36:02
+Correct Drop Event: ),10:36:02
+Parte 6,10:36:02
+Checkbox Selected: 11,10:36:14
+
