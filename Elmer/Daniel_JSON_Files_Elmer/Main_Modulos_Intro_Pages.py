@@ -3,6 +3,7 @@ import sys
 import json
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
+from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import QMessageBox
 from name_window import NameWindow
 # Importar Lecciones modulo 1
@@ -230,7 +231,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return {}
 
     def actualizar_lecciones(self, estado_usuario):
-
+        
         # Modulo 1
         self.estado_lecciones = {
             "Modulo1": {
@@ -305,7 +306,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
                     elif numero_leccion == 2:
                         if not self.m1_lesson2_window:
-                            self.m1_lesson2_window = m1l2()
+                            self.m1_lesson2_window = m1l2()    
                         self.m1_lesson2_window.showMaximized()
 
                     elif numero_leccion == 3:

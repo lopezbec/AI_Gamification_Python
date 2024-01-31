@@ -9,7 +9,7 @@ import drag_drop
 from PyQt6 import QtWidgets
 from functools import partial
 from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtCore import Qt, QMimeData
+from PyQt6.QtCore import pyqtSignal, Qt, QMimeData
 from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
@@ -35,7 +35,6 @@ class JsonLoader:
     def load_active_widgets():
         with open("./active_widgets/game_elements_visibility.json") as active_widgets:
             widgets = json.load(active_widgets)
-            print(widgets)
         return widgets
 
 
@@ -551,7 +550,7 @@ class MainWindow(QWidget):
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
-            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide()
+            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.show()
         elif practica:
             self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show()
         else:

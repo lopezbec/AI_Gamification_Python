@@ -551,7 +551,7 @@ class MainWindow(QWidget):
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
-            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.hide(), self.btn_open_console.show()
+            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.show(), self.btn_open_console.show()
         elif practica:
             self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
         else:
