@@ -17,6 +17,7 @@ from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from command_line_UI import CMD_Practica as CMDP
+from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 
 class JsonLoader:
     @staticmethod
@@ -900,6 +901,12 @@ class MainWindow(QWidget):
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:
             self.highest_page_reached = current_page
+    
+    def closeEvent(self, event):
+        self.dashboard = Dashboard()
+        self.dashboard.showMaximized()
+        # Luego, cierra la ventana normalmente
+        super().closeEvent(event)
 
 def M4_L4_Main():
     main_window = MainWindow(lesson_number=4)

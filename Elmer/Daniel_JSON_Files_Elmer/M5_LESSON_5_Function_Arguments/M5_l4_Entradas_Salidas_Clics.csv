@@ -55,3 +55,33 @@ Correct Drop Event: else,12:15:30
 Parte 5,12:15:31
 Checkbox Selected: A18,12:15:42
 
+Parte 1,16:38:05
+Checkbox Selected: 6,16:38:39
+Parte 2,16:39:16
+Checkbox Selected: 7,16:39:25
+Parte 3,16:39:25
+Incorrect Drop Event: def,16:39:35
+Incorrect Drop Event: :,16:39:35
+Incorrect Drop Event: z,16:39:35
+Incorrect Drop Event: def,16:39:36
+Incorrect Drop Event: :,16:39:36
+Incorrect Drop Event: z,16:39:36
+Correct Drop Event: def,16:39:42
+Correct Drop Event: :,16:39:42
+Correct Drop Event: y,16:39:42
+Parte 4,16:39:42
+Incorrect Drop Event: if,16:39:57
+Incorrect Drop Event: :,16:39:57
+Incorrect Drop Event: print,16:39:57
+Incorrect Drop Event: else,16:39:57
+Incorrect Drop Event: if,16:39:57
+Incorrect Drop Event: :,16:39:57
+Incorrect Drop Event: print,16:39:57
+Incorrect Drop Event: else,16:39:57
+Correct Drop Event: def,16:40:08
+Correct Drop Event: :,16:40:08
+Correct Drop Event: print,16:40:08
+Correct Drop Event: else,16:40:08
+Parte 5,16:40:09
+Checkbox Selected: A18,16:40:17
+

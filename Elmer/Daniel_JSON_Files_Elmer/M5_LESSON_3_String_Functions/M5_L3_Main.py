@@ -11,7 +11,8 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import CMD_Practica as CMDP
 
 
@@ -917,6 +918,12 @@ class MainWindow(QWidget):
     def update_highest_page(self, current_page):
             if current_page > self.highest_page_reached:
                 self.highest_page_reached = current_page
+
+    def closeEvent(self, event):
+        self.dashboard = Dashboard()
+        self.dashboard.showMaximized()
+        # Luego, cierra la ventana normalmente
+        super().closeEvent(event)
 
 def M5_L3_Main():
     main_window = MainWindow(lesson_number=3)

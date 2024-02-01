@@ -54,3 +54,21 @@ Parte 5,12:11:52
 Parte 6,12:12:00
 Checkbox Selected: True,12:12:05
 
+Parte 1,16:37:28
+Correct Drop Event: def,16:37:33
+Correct Drop Event: :,16:37:33
+Parte 2,16:37:33
+Correct Drop Event: def test():,16:37:38
+Correct Drop Event:   print('A'),16:37:38
+Correct Drop Event:   print('B'),16:37:38
+Correct Drop Event:   print('C'),16:37:38
+Parte 3,16:37:38
+Correct Drop Event: def sayHi():,16:37:42
+Correct Drop Event:   print('Hi!'),16:37:42
+Correct Drop Event: sayHi(),16:37:42
+Parte 4,16:37:42
+Checkbox Selected: 4,16:37:48
+Parte 5,16:37:50
+Parte 6,16:37:53
+Checkbox Selected: True,16:37:57
+

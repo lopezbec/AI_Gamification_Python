@@ -6,37 +6,6 @@ from welcome_window import WelcomeWindow
 from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import QMessageBox
 from name_window import NameWindow
-# Importar Lecciones modulo 1
-from M1_LESSON_1_Codification.M1_L1_Main import M1_L1_Main as m1l1
-from M1_LESSON_2_Working_with_Numerical_Data.M1_L2_Main import M1_L2_Main as m1l2
-from M1_LESSON_3_Working_with_Text_Data.M1_L3_Main import M1_L3_Main as m1l3
-from M1_LESSON_4_Mixing_things_up.M1_L4_Main import M1_L4_Main as m1l4
-from M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables.M1_L5_Main import M1_L5_Main as m1l5
-# Importar Lecciones modulo 2
-from M2_LESSON_1_Taking_User_Input.M2_L1_Main import M2_L1_Main as m2l1
-from M2_LESSON_2_Working_with_Input.M2_L2_Main import M2_L2_Main as m2l2
-from M2_LESSON_3_In_Place_Operators.M2_L3_Main import M2_L3_Main as m2l3
-# Importar Lecciones modulo 3
-from M3_LESSON_1_Booleans_and_Comparisons.M3_L1_Main import M3_L1_Main as m3l1
-from M3_LESSON_2_If_Statements.M3_L2_Main import M3_L2_Main as m3l2
-from M3_LESSON_3_Else_Statements.M3_L3_Main import M3_L3_Main as m3l3
-from M3_LESSON_4_Boolean_Logic.M3_L4_Main import M3_L4_Main as m3l4
-from M3_LESSON_5_while_Loops.M3_L5_Main import M3_L5_Main as m3l5
-# Importar Lecciones modulo 4
-from M4_LESSON_1_Lists.M4_L1_Main import M4_L1_Main as m4l1
-from M4_LESSON_2_List_Operations.M4_L2_Main import M4_L2_Main as m4l2
-from M4_LESSON_3_For_Loops.M4_L3_Main import M4_L3_Main as m4l3
-from M4_LESSON_4_Ranges.M4_L4_Main import M4_L4_Main as m4l4
-from M4_LESSON_5_List_Slices.M4_L5_Main import M4_L5_Main as m4l5
-# Importar Lecciones modulo 5
-from M5_LESSON_1_Functions.M5_L1_Main import M5_L1_Main as m5l1
-from M5_LESSON_2_List_Functions.M5_L2_Main import M5_L2_Main as m5l2
-from M5_LESSON_3_String_Functions.M5_L3_Main import M5_L3_Main as m5l3
-from M5_LESSON_4_Making_Your_Own_Functions.M5_L4_Main import M5_L4_Main as m5l4
-from M5_LESSON_5_Function_Arguments.M5_L5_Main import M5_L5_Main as m5l5
-from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
-from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
-
 from pathlib import Path
 from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
@@ -162,12 +131,6 @@ class MainWindow(QtWidgets.QMainWindow):
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
         button_layout.addWidget(guia_usuario_btn)
 
-        # Crear el botón de reinicio
-        reinicio_btn = QtWidgets.QPushButton("Presionar al completar leccion")
-        reinicio_btn.setStyleSheet("background-color: red; color: white;")  # Estilo del botón
-        reinicio_btn.clicked.connect(self.reiniciar_aplicacion)  # Conectar el botón a la función de reinicio
-        button_reset_layout.addWidget(reinicio_btn)
-
         modulos_btn = self.setup_modulos_menu()
         button_layout.addWidget(modulos_btn)  # Añade modulos_btn al button_layout
 
@@ -231,7 +194,6 @@ class MainWindow(QtWidgets.QMainWindow):
             return {}
 
     def actualizar_lecciones(self, estado_usuario):
-        
         # Modulo 1
         self.estado_lecciones = {
             "Modulo1": {
@@ -295,137 +257,193 @@ class MainWindow(QtWidgets.QMainWindow):
         menu_principal.addMenu(submenu)
 
     def abrir_leccion(self, nombre_modulo, numero_leccion):
-        nombre_modulo_key = nombre_modulo.replace(" ", "")
         try:
+            # Importar Lecciones modulo 1
+            from M1_LESSON_1_Codification.M1_L1_Main import M1_L1_Main as m1l1
+            from M1_LESSON_2_Working_with_Numerical_Data.M1_L2_Main import M1_L2_Main as m1l2
+            from M1_LESSON_3_Working_with_Text_Data.M1_L3_Main import M1_L3_Main as m1l3
+            from M1_LESSON_4_Mixing_things_up.M1_L4_Main import M1_L4_Main as m1l4
+            from M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables.M1_L5_Main import M1_L5_Main as m1l5
+            # Importar Lecciones modulo 2
+            from M2_LESSON_1_Taking_User_Input.M2_L1_Main import M2_L1_Main as m2l1
+            from M2_LESSON_2_Working_with_Input.M2_L2_Main import M2_L2_Main as m2l2
+            from M2_LESSON_3_In_Place_Operators.M2_L3_Main import M2_L3_Main as m2l3
+            # Importar Lecciones modulo 3
+            from M3_LESSON_1_Booleans_and_Comparisons.M3_L1_Main import M3_L1_Main as m3l1
+            from M3_LESSON_2_If_Statements.M3_L2_Main import M3_L2_Main as m3l2
+            from M3_LESSON_3_Else_Statements.M3_L3_Main import M3_L3_Main as m3l3
+            from M3_LESSON_4_Boolean_Logic.M3_L4_Main import M3_L4_Main as m3l4
+            from M3_LESSON_5_while_Loops.M3_L5_Main import M3_L5_Main as m3l5
+            # Importar Lecciones modulo 4
+            from M4_LESSON_1_Lists.M4_L1_Main import M4_L1_Main as m4l1
+            from M4_LESSON_2_List_Operations.M4_L2_Main import M4_L2_Main as m4l2
+            from M4_LESSON_3_For_Loops.M4_L3_Main import M4_L3_Main as m4l3
+            from M4_LESSON_4_Ranges.M4_L4_Main import M4_L4_Main as m4l4
+            from M4_LESSON_5_List_Slices.M4_L5_Main import M4_L5_Main as m4l5
+            # Importar Lecciones modulo 5
+            from M5_LESSON_1_Functions.M5_L1_Main import M5_L1_Main as m5l1
+            from M5_LESSON_2_List_Functions.M5_L2_Main import M5_L2_Main as m5l2
+            from M5_LESSON_3_String_Functions.M5_L3_Main import M5_L3_Main as m5l3
+            from M5_LESSON_4_Making_Your_Own_Functions.M5_L4_Main import M5_L4_Main as m5l4
+            from M5_LESSON_5_Function_Arguments.M5_L5_Main import M5_L5_Main as m5l5
+            from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
+            from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
+
+            nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:
                 if nombre_modulo == "Modulo 1":
                     if numero_leccion == 1:
                         if not self.m1_lesson1_window:
                             self.m1_lesson1_window = m1l1()
+                        self.close()
                         self.m1_lesson1_window.showMaximized()
 
                     elif numero_leccion == 2:
                         if not self.m1_lesson2_window:
-                            self.m1_lesson2_window = m1l2()    
+                            self.m1_lesson2_window = m1l2() 
+                        self.close()   
                         self.m1_lesson2_window.showMaximized()
 
                     elif numero_leccion == 3:
                         if not self.m1_lesson3_window:
                             self.m1_lesson3_window = m1l3()
+                        self.close()
                         self.m1_lesson3_window.showMaximized()
 
                     elif numero_leccion == 4:
                         if not self.m1_lesson4_window:
                             self.m1_lesson4_window = m1l4()
+                        self.close()
                         self.m1_lesson4_window.showMaximized()
 
                     elif numero_leccion == 5:
                         if not self.m1_lesson5_window:
                             self.m1_lesson5_window = m1l5()
+                        self.close()
                         self.m1_lesson5_window.showMaximized()
 
                 elif nombre_modulo == "Modulo 2":
                     if numero_leccion == 1:
                         if not self.m2_lesson1_window:
                             self.m2_lesson1_window = m2l1()
+                        self.close()
                         self.m2_lesson1_window.showMaximized()
 
                     if numero_leccion == 2:
                         if not self.m2_lesson2_window:
                             self.m2_lesson2_window = m2l2()
+                        self.close()
                         self.m2_lesson2_window.showMaximized()
 
                     if numero_leccion == 3:
                         if not self.m2_lesson3_window:
                             self.m2_lesson3_window = m2l3()
+                        self.close()
                         self.m2_lesson3_window.showMaximized()
 
                 elif nombre_modulo == "Modulo 3":
                     if numero_leccion == 1:
                         if not self.m3_lesson1_window:
                             self.m3_lesson1_window = m3l1()
+                        self.close()
                         self.m3_lesson1_window.showMaximized()
 
                     if numero_leccion == 2:
                         if not self.m3_lesson2_window:
                             self.m3_lesson2_window = m3l2()
+                        self.close()
                         self.m3_lesson2_window.showMaximized()
 
                     if numero_leccion == 3:
                         if not self.m3_lesson3_window:
                             self.m3_lesson3_window = m3l3()
+                        self.close()
                         self.m3_lesson3_window.showMaximized()
 
                     if numero_leccion == 4:
                         if not self.m3_lesson4_window:
                             self.m3_lesson4_window = m3l4()
+                        self.close()
                         self.m3_lesson4_window.showMaximized()
 
                     if numero_leccion == 5:
                         if not self.m3_lesson5_window:
                             self.m3_lesson5_window = m3l5()
+                        self.close()
                         self.m3_lesson5_window.showMaximized()
 
                 elif nombre_modulo == "Modulo 4":
                     if numero_leccion == 1:
                         if not self.m4_lesson1_window:
                             self.m4_lesson1_window = m4l1()
+                        self.close()
                         self.m4_lesson1_window.showMaximized()
 
                     if numero_leccion == 2:
                         if not self.m4_lesson2_window:
                             self.m4_lesson2_window = m4l2()
+                        self.close()
                         self.m4_lesson2_window.showMaximized()
 
                     if numero_leccion == 3:
                         if not self.m4_lesson3_window:
                             self.m4_lesson3_window = m4l3()
+                        self.close()
                         self.m4_lesson3_window.showMaximized()
 
                     if numero_leccion == 4:
                         if not self.m4_lesson4_window:
                             self.m4_lesson4_window = m4l4()
+                        self.close()
                         self.m4_lesson4_window.showMaximized()
 
                     if numero_leccion == 5:
                         if not self.m4_lesson5_window:
                             self.m4_lesson5_window = m4l5()
+                        self.close()
                         self.m4_lesson5_window.showMaximized()
 
                 elif nombre_modulo == "Modulo 5":
                     if numero_leccion == 1:
                         if not self.m5_lesson1_window:
                             self.m5_lesson1_window = m5l1()
+                        self.close()
                         self.m5_lesson1_window.showMaximized()
 
                     if numero_leccion == 2:
                         if not self.m5_lesson2_window:
                             self.m5_lesson2_window = m5l2()
+                        self.close()
                         self.m5_lesson2_window.showMaximized()
 
                     if numero_leccion == 3:
                         if not self.m5_lesson3_window:
                             self.m5_lesson3_window = m5l3()
+                        self.close()
                         self.m5_lesson3_window.showMaximized()
 
                     if numero_leccion == 4:
                         if not self.m5_lesson4_window:
                             self.m5_lesson4_window = m5l4()
+                        self.close()
                         self.m5_lesson4_window.showMaximized()
 
                     if numero_leccion == 5:
                         if not self.m5_lesson5_window:
                             self.m5_lesson5_window = m5l5()
+                        self.close()
                         self.m5_lesson5_window.showMaximized()
 
                     if numero_leccion == 6:
                         if not self.m5_lesson6_window:
                             self.m5_lesson6_window = m5l6()
+                        self.close()
                         self.m5_lesson6_window.showMaximized()
 
                     if numero_leccion == 7:
                         if not self.m5_lesson7_window:
                             self.m5_lesson7_window = m5l7()
+                        self.close()
                         self.m5_lesson7_window.showMaximized()
             else:
                 self.mostrar_mensaje_bloqueado(nombre_modulo, numero_leccion)
@@ -470,7 +488,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def abrir_leaderboard(self):
         LeaderBoard()
-
 
 def open_main_window():
     mainWin = MainWindow()

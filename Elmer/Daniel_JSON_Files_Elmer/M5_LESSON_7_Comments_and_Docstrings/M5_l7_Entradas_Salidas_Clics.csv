@@ -119,3 +119,15 @@ Correct Drop Event:  '''A ,10:27:39
 Correct Drop Event: B,10:27:39
 Correct Drop Event: C''',10:27:39
 
+Parte 1,16:42:37
+Checkbox Selected: #,16:42:40
+Parte 2,16:42:40
+Checkbox Selected: 7,16:42:44
+Parte 3,16:42:44
+Checkbox Selected: Sí,16:42:47
+Parte 4,16:42:47
+Correct Drop Event: def foo():,16:42:52
+Correct Drop Event:  '''A ,16:42:52
+Correct Drop Event: B,16:42:52
+Correct Drop Event: C''',16:42:52
+
