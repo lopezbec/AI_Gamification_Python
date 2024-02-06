@@ -22,16 +22,24 @@ class NameWindow(QMainWindow):
             self.data = json.load(name_info)
 
     def _setup_ui(self):
-        self.setWindowTitle = self.data["window_title"]
+        self.setWindowTitle(self.data["window_title"])
         layoutV = QVBoxLayout()
         layoutV.setSpacing(10)
         layoutV.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
 
+        # Agregar el formulario al layout
         layoutV.addLayout(self._create_form_layout())
+
+
+        #Enable Keyboard Navigation: Allow Advance to Next Slide with Enter by Daniel.
+        self.input.returnPressed.connect(self.show_survey)
+
         widget = QWidget()
         widget.setLayout(layoutV)
         self.showMaximized()
         self.setCentralWidget(widget)
+
+
 
     def _create_form_layout(self):
         layoutForm = QFormLayout()
