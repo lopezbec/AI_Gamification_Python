@@ -394,7 +394,7 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
-        self.setWindowTitle("Aprendiendo Python - Módulo 1, Lección 4")
+        self.setWindowTitle("Mezclando cosas")
 
         self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 3)
         self.init_ui()
