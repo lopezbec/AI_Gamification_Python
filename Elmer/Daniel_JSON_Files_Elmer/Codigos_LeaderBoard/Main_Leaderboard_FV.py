@@ -197,6 +197,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 f"QTableWidget::item:hover {{"
                 f"background-color: {theme_data['hover_background_color']};"
                 f"}}"
+                f"QTableWidget::item:active {{"
+                f"color: {theme_data['text_color']};"
+                f"}}"
             )
 
         except Exception as e:
