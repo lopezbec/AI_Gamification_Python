@@ -3,6 +3,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QCheckBox, QLabel, QMainWindow, QPushButton, QScrollArea, QVBoxLayout, QWidget
 from name_window import NameWindow
+import sys
 
 
 class ConcentWindow(QMainWindow):
@@ -59,10 +60,22 @@ class ConcentWindow(QMainWindow):
         self.showMaximized()
 
     def user_concent(self):
-        if  self.accept_terms.isChecked():
+        # Tu lógica existente para manejar el estado del checkbox y el botón
+        if self.accept_terms.isChecked():
             self.button.setEnabled(True)
         else:
             self.button.setEnabled(False)
+
+    def agree_btn_is_clicked(self):
+        # Tu lógica existente para manejar el click en el botón
+        if self.button.isEnabled():
+            self.name_window = NameWindow()
+            self.name_window.show()
+            self.hide()
+
+    def closeEvent(self, event):
+        # Método sobrescrito llamado al intentar cerrar la ventana
+        sys.exit()  # Termina el programa
             
     def agree_btn_is_clicked(self):
         if self.button.isEnabled():

@@ -4,6 +4,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from concent import ConcentWindow
 import os
+import sys
 
 
 class WelcomeWindow(QMainWindow):
@@ -66,6 +67,15 @@ class WelcomeWindow(QMainWindow):
         widget = QWidget()
         widget.setLayout(v_layout)
         self.setCentralWidget(widget)
+
+    def show_concent(self):
+        self.concent_window = ConcentWindow()
+        self.concent_window.show()
+        self.hide()
+
+    def closeEvent(self, event):
+        # Llamado cuando se intenta cerrar la ventana
+        sys.exit()  # Termina el programa completamente
 
     def show_concent(self):
         self.concent_window = ConcentWindow()

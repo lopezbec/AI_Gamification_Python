@@ -4,6 +4,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from question_window import QuestionWindow
 from datetime import datetime
+import sys
 
 
 class NameWindow(QMainWindow):
@@ -13,6 +14,7 @@ class NameWindow(QMainWindow):
     def __init__(self) -> None:
         super(NameWindow, self).__init__()
         self.question_window = None
+        self.should_exit_on_close = True
         self._load_ui_data()
         self._setup_ui()
         self.leaderboard_file = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
@@ -30,7 +32,6 @@ class NameWindow(QMainWindow):
         # Agregar el formulario al layout
         layoutV.addLayout(self._create_form_layout())
 
-
         #Enable Keyboard Navigation: Allow Advance to Next Slide with Enter by Daniel.
         self.input.returnPressed.connect(self.show_survey)
 
@@ -38,8 +39,6 @@ class NameWindow(QMainWindow):
         widget.setLayout(layoutV)
         self.showMaximized()
         self.setCentralWidget(widget)
-
-
 
     def _create_form_layout(self):
         layoutForm = QFormLayout()
@@ -58,6 +57,7 @@ class NameWindow(QMainWindow):
         ask_name.setStyleSheet(f"font-size:{self.data['ask_name_font_size']}px")
         ask_name.setMargin(self.data["ask_name_margin"])
         return ask_name
+
 
     def _create_input_and_button(self):
         layout_V_Form = QVBoxLayout()
@@ -135,6 +135,7 @@ class NameWindow(QMainWindow):
                 json.dump(progreso, file, indent=4)
 
     def show_survey(self):
+        self.should_exit_on_close = False  # Cambia el comportamiento para no cerrar el programa al avanzar
         username = self.input.text().strip()
         if username:
             self.update_current_user(username)
@@ -148,6 +149,12 @@ class NameWindow(QMainWindow):
                 self.close()
             else:
                 self.close()
+
+    def closeEvent(self, event):
+        if self.should_exit_on_close:
+            sys.exit()  # Termina el programa si se cierra con la "X"
+        else:
+            event.accept()  # Solo cierra la ventana pero no termina el programa
 
     def user_exists_in_leaderboard(self, username):
         try:
