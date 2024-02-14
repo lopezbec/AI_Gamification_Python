@@ -56,12 +56,17 @@
     },
     {
         "name": "Pepe",
-        "points": 0,
-        "last_active": "2024-02-06 ; 23h:36m"
+        "points": 45,
+        "last_active": "2024-02-13 ; 21h:17m"
     },
     {
         "name": "Josefa",
         "points": 0,
         "last_active": "2024-02-13 ; 10h:40m"
+    },
+    {
+        "name": "Pedro",
+        "points": 0,
+        "last_active": "2024-02-13 ; 21h:01m"
     }
 ]
