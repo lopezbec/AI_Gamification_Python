@@ -1,8 +1,13 @@
 [
     {
         "name": "Elmer",
+<<<<<<< HEAD
         "points": 2488,
         "last_active": "2024-02-24 ; 01h:25m"
+=======
+        "points": 1688,
+        "last_active": "2024-02-13 ; 14h:19m"
+>>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
     },
     {
         "name": "Daniel",
@@ -27,7 +32,7 @@
     {
         "name": "Tomas",
         "points": 0,
-        "last_active": "2024-01-19 ; 14h:56m"
+        "last_active": "2024-02-13 ; 11h:40m"
     },
     {
         "name": "Carlos",
@@ -56,7 +61,45 @@
     },
     {
         "name": "Josefa",
+        "points": 22,
+        "last_active": "2024-02-13 ; 11h:43m"
+    },
+    {
+        "name": "Marrr",
+        "points": 137,
+        "last_active": "2024-02-13 ; 14h:37m"
+    },
+    {
+        "name": "MarcosPrueba",
+        "points": 23,
+        "last_active": "2024-02-13 ; 12h:00m"
+    },
+    {
+        "name": "df",
+        "points": 22,
+        "last_active": "2024-02-13 ; 12h:03m"
+    },
+    {
+        "name": "MS",
+        "points": 22,
+        "last_active": "2024-02-13 ; 12h:04m"
+    },
+    {
+        "name": "Maria",
+        "points": 89,
+        "last_active": "2024-02-13 ; 12h:11m"
+    },
+    {
+        "name": "Mariarrr",
         "points": 0,
+<<<<<<< HEAD
+        "last_active": "2024-02-13 ; 14h:07m"
+    },
+    {
+        "name": "marrr",
+        "points": 0,
+        "last_active": "2024-02-13 ; 14h:07m"
+=======
         "last_active": "2024-02-13 ; 10h:40m"
     },
     {
@@ -68,5 +111,74 @@
         "name": "Nana",
         "points": 0,
         "last_active": "2024-02-15 ; 20h:35m"
+<<<<<<< HEAD
+=======
+    },
+    {
+        "name": "Popo",
+        "points": 0,
+        "last_active": "2024-02-15 ; 20h:36m"
+    },
+    {
+        "name": "pipi",
+        "points": 0,
+        "last_active": "2024-02-15 ; 20h:44m"
+    },
+    {
+        "name": "tito",
+        "points": 0,
+        "last_active": "2024-02-15 ; 20h:47m"
+    },
+    {
+        "name": "pepe",
+        "points": 0,
+        "last_active": "2024-02-16 ; 21h:16m"
+    },
+    {
+        "name": "LOLO",
+        "points": 0,
+        "last_active": "2024-02-16 ; 21h:37m"
+    },
+    {
+        "name": "Patricio",
+        "points": 0,
+        "last_active": "2024-02-16 ; 21h:46m"
+    },
+    {
+        "name": "ll",
+        "points": 0,
+        "last_active": "2024-02-16 ; 21h:48m"
+    },
+    {
+        "name": "YOYO",
+        "points": 0,
+        "last_active": "2024-02-16 ; 21h:58m"
+    },
+    {
+        "name": "JOO",
+        "points": 0,
+        "last_active": "2024-02-16 ; 22h:00m"
+    },
+    {
+        "name": "FF",
+        "points": 0,
+        "last_active": "2024-02-16 ; 22h:01m"
+    },
+    {
+        "name": "TITO",
+        "points": 23,
+        "last_active": "2024-02-16 ; 22h:08m"
+    },
+    {
+        "name": "Lucia",
+        "points": 0,
+        "last_active": "2024-02-16 ; 22h:10m"
+    },
+    {
+        "name": "POPO",
+        "points": 0,
+        "last_active": "2024-02-16 ; 22h:11m"
+>>>>>>> f56bd0b4a11d27a85c60838a8c51c8d17006ec76
+>>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
     }
 ]

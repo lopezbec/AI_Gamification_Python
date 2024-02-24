@@ -68,6 +68,7 @@ Parte 5,14:16:33
 Parte 6,14:16:33
 Checkbox Selected: 0,14:16:38
 
+<<<<<<< HEAD
 Parte 1,00:33:03
 Checkbox Selected: True y False,00:33:07
 Parte 2,00:33:08
@@ -82,4 +83,18 @@ Checkbox Selected: True,00:33:35
 Parte 5,00:33:35
 Parte 6,00:33:36
 Checkbox Selected: 0,00:33:39
+=======
+Parte 1,14:07:39
+Checkbox Selected: True y False,14:07:45
+Parte 2,14:07:45
+Correct Drop Event: is_online,14:07:50
+Correct Drop Event: True,14:07:50
+Parte 3,14:07:50
+Correct Answer Selected: open,14:07:56
+Parte 4,14:07:56
+Checkbox Selected: True,14:08:01
+Parte 5,14:08:01
+Parte 6,14:08:02
+Checkbox Selected: 0,14:08:06
+>>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
 

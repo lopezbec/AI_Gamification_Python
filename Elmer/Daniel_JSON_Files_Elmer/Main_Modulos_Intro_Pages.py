@@ -264,7 +264,11 @@ class MainWindow(QtWidgets.QMainWindow):
             if leccion_completada:
                 icono = 'Icons/completado_icon.png'  # Ícono de lección completada
             elif estado_leccion:
+<<<<<<< HEAD
                 icono = 'Icons/abierto_icon.png'  # Ícono de lección disponible pero no completada
+=======
+                icono = 'Icons/abierto_icon.jpg'  # Ícono de lección disponible pero no completada
+>>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
             else:
                 icono = 'Icons/cerrado_icon.jpg'  # Ícono de lección bloqueada
 

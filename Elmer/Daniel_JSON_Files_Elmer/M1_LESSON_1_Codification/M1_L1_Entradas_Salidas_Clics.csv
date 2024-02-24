@@ -310,6 +310,76 @@ Correct Answer Selected: print(729),12:13:01
 Parte 5,12:13:03
 Checkbox Selected: comillas '' ,12:13:03
 
+<<<<<<< HEAD
+Parte 1,11:41:37
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:41:37
+Parte 3,11:41:44
+Checkbox Selected: Verdadero,11:41:44
+Parte 4,11:41:45
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:41:45
+Correct Answer Selected: print(729),11:41:48
+Parte 5,11:41:54
+Checkbox Selected: comillas '' ,11:41:54
+
+Parte 1,11:54:05
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:54:05
+Parte 3,11:54:08
+Checkbox Selected: Verdadero,11:54:08
+Parte 4,11:54:08
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:54:08
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:54:08
+Correct Answer Selected: print(729),11:54:10
+Parte 5,11:54:14
+Checkbox Selected: comillas '' ,11:54:14
+
+Parte 1,12:00:28
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,12:00:28
+Parte 3,12:00:31
+Checkbox Selected: Verdadero,12:00:31
+Parte 4,12:00:33
+Correct Answer Selected: print(729),12:00:33
+Parte 5,12:00:36
+Checkbox Selected: comillas '' ,12:00:36
+
+Parte 1,12:03:47
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,12:03:47
+Parte 3,12:03:50
+Checkbox Selected: Verdadero,12:03:50
+Parte 4,12:03:51
+Incorrect Answer Selected: <Espacio para respuesta>(729),12:03:51
+Correct Answer Selected: print(729),12:03:53
+Parte 5,12:03:57
+Checkbox Selected: comillas '' ,12:03:57
+
+Parte 1,12:04:56
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,12:04:59
+Parte 3,12:05:02
+Checkbox Selected: Verdadero,12:05:02
+Parte 4,12:05:02
+Incorrect Answer Selected: <Espacio para respuesta>(729),12:05:02
+Correct Answer Selected: print(729),12:05:04
+Parte 5,12:05:05
+Checkbox Selected: comillas '' ,12:05:07
+
+Parte 1,12:10:15
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,12:10:15
+Parte 3,12:10:18
+Checkbox Selected: Verdadero,12:10:18
+Parte 4,12:10:18
+Incorrect Answer Selected: <Espacio para respuesta>(729),12:10:18
+Correct Answer Selected: print(729),12:10:21
+Parte 5,12:10:24
+Checkbox Selected: comillas '' ,12:10:24
+
+Parte 1,14:02:05
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,14:02:07
+Parte 3,14:02:11
+Checkbox Selected: Verdadero,14:02:11
+Parte 4,14:02:14
+Correct Answer Selected: print(729),14:02:14
+Parte 5,14:02:16
+Checkbox Selected: comillas '' ,14:02:16
+=======
 Parte 1,21:03:41
 Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,21:03:41
 Parte 3,21:03:44
@@ -327,6 +397,7 @@ Parte 4,22:09:30
 Correct Answer Selected: print(729),22:09:30
 Parte 5,22:09:43
 Checkbox Selected: comillas '' ,22:09:43
+>>>>>>> f56bd0b4a11d27a85c60838a8c51c8d17006ec76
 
 Parte 1,00:13:20
 Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,00:13:22
