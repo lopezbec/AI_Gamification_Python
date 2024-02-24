@@ -480,49 +480,7 @@
             "Leccion_completada7": false
         }
     },
-<<<<<<< HEAD
-    "Marrr": {
-        "Modulo1": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo2": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false
-        },
-        "Modulo3": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo4": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo5": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false,
-            "Leccion_completada": true
-        }
-    },
-    "MarcosPrueba": {
-=======
     "Pedro": {
->>>>>>> f56bd0b4a11d27a85c60838a8c51c8d17006ec76
         "Modulo1": {
             "Leccion_completada1": false,
             "Leccion_completada2": false,
@@ -559,122 +517,7 @@
             "Leccion_completada7": false
         }
     },
-<<<<<<< HEAD
-    "df": {
-        "Modulo1": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo2": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false
-        },
-        "Modulo3": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo4": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo5": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false
-        }
-    },
-    "MS": {
-        "Modulo1": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo2": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false
-        },
-        "Modulo3": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo4": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo5": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false
-        }
-    },
-    "Maria": {
-        "Modulo1": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": true,
-            "Leccion_completada3": true,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo2": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false
-        },
-        "Modulo3": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo4": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo5": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false
-        }
-    },
-    "Mariarrr": {
-=======
     "Nana": {
->>>>>>> f56bd0b4a11d27a85c60838a8c51c8d17006ec76
         "Modulo1": {
             "Leccion_completada1": false,
             "Leccion_completada2": false,
@@ -711,9 +554,6 @@
             "Leccion_completada7": false
         }
     },
-<<<<<<< HEAD
-    "marrr": {
-=======
     "Popo": {
         "Modulo1": {
             "Leccion_completada1": false,
@@ -1157,46 +997,5 @@
             "Leccion_completada6": false,
             "Leccion_completada7": false
         }
-<<<<<<< HEAD
-=======
-    },
-    "POPO": {
->>>>>>> f56bd0b4a11d27a85c60838a8c51c8d17006ec76
-        "Modulo1": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo2": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false
-        },
-        "Modulo3": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo4": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
-        },
-        "Modulo5": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false
-        }
->>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
     }
 }

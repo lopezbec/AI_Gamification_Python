@@ -915,7 +915,7 @@ class MainWindow(QWidget):
             print("¡La leccion no se completó, se cerró!.")
             self.close()
 
-        if next_index == self.highest_page_reached and self.is_rollback:
+        if next_index == self.highest_page_reached and self.is_rollback == True:
             self.is_rollback = False
             # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()

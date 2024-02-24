@@ -399,7 +399,6 @@ class MainWindow(QWidget):
         self.submit_button = None
         self.stacked_widget = None
         self.python_console = None
-        self.terminar_button = None
         self.practice_button = None
         self.continue_button = None
         self.last_json_number = None

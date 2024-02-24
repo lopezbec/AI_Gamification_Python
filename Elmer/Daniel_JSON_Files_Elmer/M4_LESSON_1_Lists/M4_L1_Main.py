@@ -15,8 +15,7 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 
@@ -39,7 +38,6 @@ class JsonLoader:
         with open("./active_widgets/game_elements_visibility.json") as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
-
 
 class JsonWindow(QWidget):
     def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
@@ -94,7 +92,7 @@ class JsonWindow(QWidget):
 
         # Añadir los widgets al layout horizontal
         if JsonLoader.load_active_widgets().get("points", True):
-            hlayout.addWidget(self.puntos)
+            hlayout.addWidget(self.puntos)   
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
 
@@ -162,8 +160,7 @@ class JsonWindow(QWidget):
     def title(self):
         title = QLabel(self.data[self.page_type.lower()][0]["title"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(
-            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
         title_font = QFont()
         title_font.setPointSize(self.styles["font_size_titles"])
         title.setFont(title_font)
@@ -172,8 +169,7 @@ class JsonWindow(QWidget):
     def createResetBottom(self):
         # Add a reset button to the layout
         reset_button = QPushButton('Reiniciar')
-        reset_button.setStyleSheet(
-            f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+        reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
         self.layout.addWidget(reset_button)
         reset_button.clicked.connect(self.reset_button)
 
@@ -209,8 +205,7 @@ class JsonWindow(QWidget):
                 self.layout.addWidget(block_label)
             elif block["type"] == "Consola":
                 self.hint_label = QLabel(block["text"])
-                self.hint_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                self.hint_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(self.hint_label)
                 self.blank_space_index = block["text"].find("_")
                 self.original_hint_text = block["text"]
@@ -240,8 +235,7 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
-                block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
@@ -288,8 +282,7 @@ class JsonWindow(QWidget):
 
                 if "correctValue" in block or "correctOrder" in data_block:
                     multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 elif block_type == "Consola":
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
@@ -304,8 +297,7 @@ class JsonWindow(QWidget):
 
         for idx, answer in enumerate(data_block["answers"]):
             draggable_label = drag_drop.DraggableLabel(answer["text"])
-            draggable_label.setStyleSheet(
-                f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+            draggable_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
             draggable_labels_layout.addWidget(draggable_label)
 
         self.layout.addLayout(draggable_labels_layout)
@@ -325,7 +317,7 @@ class JsonWindow(QWidget):
         # Añadir el layout de puntos y leaderboard de nuevo
         hlayout = QHBoxLayout()
         if JsonLoader.load_active_widgets().get("points", True):
-            hlayout.addWidget(self.puntos)
+            hlayout.addWidget(self.puntos)   
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
         self.layout.addLayout(hlayout)
@@ -353,11 +345,9 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
 
             if block["type"] == "hint":
-                block_label.setStyleSheet(
-                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -367,11 +357,9 @@ class JsonWindow(QWidget):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
             if block["type"] == "hint":
-                block_label.setStyleSheet(
-                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -415,8 +403,7 @@ class MainWindow(QWidget):
         self.usuario_actual = self.load_current_user()
         self.setWindowTitle("Listas")
 
-        self.progress_bar = ProgressBar(
-            JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M4.json")), 0)
+        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M4.json")), 0)
         self.init_ui()
 
     def init_ui(self):
@@ -638,9 +625,7 @@ class MainWindow(QWidget):
             # Iterar sobre los botones
             for idx, button in enumerate(current_widget.button_widgets):
                 if button.isChecked():
-                    selected_answers.append({"text": button.text(),
-                                             "correct": current_widget.data[current_page_type][0]["answers"][idx][
-                                                 "correct"]})
+                    selected_answers.append({"text": button.text(), "correct": current_widget.data[current_page_type][0]["answers"][idx]["correct"]})
                     self.log_event(f"Checkbox Selected: {button.text()}", event_type="mouse")  # Log mouse event
 
             # Iterar sobre las respuestas
@@ -737,8 +722,7 @@ class MainWindow(QWidget):
                                         correct_count += 1
                                         self.log_event(f"Correct Answer Selected: {dropped_answer}", event_type="mouse")
                                     else:
-                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}",
-                                                       event_type="mouse")
+                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}", event_type="mouse")
                         else:
                             if correct_value:
                                 if correct_value == dropped_text:
@@ -758,11 +742,9 @@ class MainWindow(QWidget):
                         if correct_answer:
                             if correct_answer["text"] in full_dropped_text:
                                 correct_count += 1
-                                self.log_event(f"Correct Answer Selected: {full_dropped_text}",
-                                               event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                                self.log_event(f"Correct Answer Selected: {full_dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                             else:
-                                self.log_event(f"Incorrect Answer Selected: {full_dropped_text}",
-                                               event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                                self.log_event(f"Incorrect Answer Selected: {full_dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
@@ -793,13 +775,11 @@ class MainWindow(QWidget):
                     self.SubmitAnswers(True, False, False)
 
                 elif selected_answer == correct_answer_text:
-                    self.log_event(f"Correct Answer Selected: {correct_answer_text}",
-                                   event_type="mouse")  # Log mouse event
+                    self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
                     self.SubmitAnswers(False, True, False)
 
                 else:
-                    self.log_event(f"Incorrect Answer Selected: {selected_answer}",
-                                   event_type="mouse")  # Log mouse event
+                    self.log_event(f"Incorrect Answer Selected: {selected_answer}", event_type="mouse")  # Log mouse event
                     self.SubmitAnswers(False, False, True)
             except Exception as e:
                 print(f"Error {e}")
@@ -942,9 +922,9 @@ class MainWindow(QWidget):
             self.close()
 
         if next_index == self.highest_page_reached and self.is_rollback == True:
-            self.is_rollback = False
-            # Llamar al método de reinicio con el tipo de página correspondiente
-            self.json_windows[next_index].reset_button()
+                self.is_rollback = False
+                #Llamar al método de reinicio con el tipo de página correspondiente
+                self.json_windows[next_index].reset_button()
 
         self.current_page += 1  # Incrementar el número de la página actual
 
@@ -957,7 +937,6 @@ class MainWindow(QWidget):
         self.dashboard.showMaximized()
         # Luego, cierra la ventana normalmente
         super().closeEvent(event)
-
 
 def M4_L1_Main():
     main_window = MainWindow(lesson_number=1)

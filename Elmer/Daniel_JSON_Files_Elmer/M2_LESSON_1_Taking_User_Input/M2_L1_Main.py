@@ -800,12 +800,7 @@ class MainWindow(QWidget):
         except Exception as e:
             print(f"Error al actualizar lección completada: {e}")
 
-<<<<<<< HEAD
     def load_current_user(self):
-=======
-    @staticmethod
-    def load_current_user():
->>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
         try:
             with open('current_user.json', 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)

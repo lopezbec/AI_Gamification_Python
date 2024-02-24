@@ -382,7 +382,6 @@ class MainWindow(QWidget):
         self.XP_Ganados = 0
         self.click_data = []
         self.total_pages = 0
-        self.dashboard = None
         self.completed = None
         self.current_page = 0
         self.json_windows = []
@@ -905,11 +904,7 @@ class MainWindow(QWidget):
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo5', 'Leccion1')
-<<<<<<< HEAD
             self.actualizar_leccion_completada('Modulo5', 'Leccion1')
-=======
-            self.actualizar_leccion_completada('Modulo5', 'Leccion')
->>>>>>> 94ba42babc21ef237852d42db9b9e9c9485bc2ef
             self.close()
 
         else:
