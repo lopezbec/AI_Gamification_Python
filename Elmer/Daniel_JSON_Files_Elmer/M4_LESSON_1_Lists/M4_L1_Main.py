@@ -786,38 +786,43 @@ class MainWindow(QWidget):
 
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            # Cargar el archivo progreso.json
             with open('progreso.json', 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
 
-            # Obtener el progreso del usuario actual
             progreso_usuario = progreso.get(self.usuario_actual, {})
 
-            # Calcula el número de la siguiente lección
+            # Calcula el número de la siguiente lección para desbloquearla en progreso.json
             numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
-            siguiente_leccion = 'Leccion' + str(numero_leccion_actual + 1)
+            siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
 
-            # Definir el número total de lecciones en cada módulo
-            total_lecciones_por_modulo = {"Modulo1": 5, "Modulo2": 3, "Modulo3": 5, "Modulo4": 5, "Modulo5": 7}
+            if modulo in progreso_usuario:
+                progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
-            # Comprobar si es la última lección del módulo
-            if numero_leccion_actual < total_lecciones_por_modulo.get(modulo, 0):
-                # No es la última lección, desbloquear la siguiente
-                progreso_usuario[modulo][siguiente_leccion] = True
-            else:
-                # Es la última lección, desbloquear la primera lección del siguiente módulo
-                numero_modulo_actual = int(modulo.replace("Modulo", ""))
-                siguiente_modulo = 'Modulo' + str(numero_modulo_actual + 1)
-                if siguiente_modulo in total_lecciones_por_modulo:
-                    progreso_usuario.setdefault(siguiente_modulo, {})
-                    progreso_usuario[siguiente_modulo]['Leccion1'] = True
-
-            # Guardar los cambios en el archivo progreso.json
             with open('progreso.json', 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
             print(f"Error al actualizar el progreso: {e}")
+
+    def actualizar_leccion_completada(self, modulo, leccion_completada):
+        try:
+            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+                leccion_completada_data = json.load(file)
+
+            leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
+
+            # Marca la lección actual como completada en leccion_completada.json
+            if modulo not in leccion_completada_usuario:
+                leccion_completada_usuario[modulo] = {}
+            leccion_completada_usuario[modulo][f"Leccion_completada{leccion_completada.replace('Leccion', '')}"] = True
+
+            leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
+
+            with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+                json.dump(leccion_completada_data, file, indent=4)
+
+        except Exception as e:
+            print(f"Error al actualizar lección completada: {e}")
 
     @staticmethod
     def load_current_user():
@@ -909,6 +914,7 @@ class MainWindow(QWidget):
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo4', 'Leccion1')
+            self.actualizar_leccion_completada('Modulo4', 'Leccion1')
             self.close()
 
         else:

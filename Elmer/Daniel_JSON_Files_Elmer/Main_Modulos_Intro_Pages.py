@@ -31,6 +31,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Carga de estilos y configuración inicial de la ventana
         # Módulo 1
+        self.new_instance = None
         self.m1_lesson1_window = None
         self.m1_lesson2_window = None
         self.m1_lesson3_window = None
@@ -175,7 +176,8 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(f"Error al recargar el progreso del usuario: {e}")
 
-    def load_current_user(self):
+    @staticmethod
+    def load_current_user():
         try:
             with open('current_user.json', 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
@@ -184,7 +186,8 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Archivo current_user.json no encontrado.")
             return None
 
-    def load_user_progress(self, username):
+    @staticmethod
+    def load_user_progress(username):
         try:
             with open('progreso.json', 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
@@ -233,25 +236,41 @@ class MainWindow(QtWidgets.QMainWindow):
             }
         }
 
+    @staticmethod
+    def load_lesson_completed(username):
+        try:
+            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+                all_users_progress = json.load(file)
+            return all_users_progress.get(username, {})
+        except FileNotFoundError:
+            print("Archivo leccion_completada.json no encontrado.")
+            return {}
+
     def añadir_submenu(self, nombre_modulo, numero_lecciones, menu_principal):
         submenu = QMenu(nombre_modulo, self)
-        estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""),
-                                                  {})  # Elimina espacios en el nombre del módulo
+        estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+        estado_completado = self.load_lesson_completed(
+            self.usuario_actual)  # Carga el estado de lecciones completadas para el usuario actual
 
-        # Añade acciones y conecta con funciones específicas para cada lección
         for leccion_numero in range(1, numero_lecciones + 1):
             leccion_clave = f"Leccion{leccion_numero}"
-            estado_leccion = estado_modulo.get(leccion_clave, False)  # Estado de la lección actual
+            estado_leccion = estado_modulo.get(leccion_clave, False)  # Estado de la lección actual en progreso.json
+
+            # Comprueba si la lección ha sido completada en leccion_completada.json
+            leccion_completada = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
+                f"Leccion_completada{leccion_numero}", False)
+
+            # Establece el ícono de completado, abierto o cerrado dependiendo del estado de la lección
+            if leccion_completada:
+                icono = 'Icons/completado_icon.png'  # Ícono de lección completada
+            elif estado_leccion:
+                icono = 'Icons/abierto_icon.png'  # Ícono de lección disponible pero no completada
+            else:
+                icono = 'Icons/cerrado_icon.jpg'  # Ícono de lección bloqueada
+
             accion_leccion = QAction(f"Lección {leccion_numero}", self)
-
-            # Establece el ícono de candado abierto o cerrado dependiendo del estado de la lección
-            icono = 'Icons/abierto_icon.jpg' if estado_leccion else 'Icons/cerrado_icon.jpg'
             accion_leccion.setIcon(QIcon(icono))
-
-            # Conecta la acción a una función
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
-
-            # Añade la acción al submenu
             submenu.addAction(accion_leccion)
 
         menu_principal.addMenu(submenu)
@@ -450,7 +469,8 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             print(f"Error al abrir {nombre_modulo} - Lección {numero_leccion}: {e}")
 
-    def mostrar_mensaje_bloqueado(self, nombre_modulo, numero_leccion):
+    @staticmethod
+    def mostrar_mensaje_bloqueado(nombre_modulo, numero_leccion):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Icon.Warning)
         msg.setWindowTitle("Lección Bloqueada")
@@ -477,7 +497,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         return modulos_btn  # Retorna el botón configurado
 
-    def load_styles(self, file):
+    @staticmethod
+    def load_styles(file):
         with open(file, 'r') as json_file:
             data = json.load(json_file)
         return data
@@ -486,7 +507,8 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog = UserGuideDialog(self)
         dialog.exec()
 
-    def abrir_leaderboard(self):
+    @staticmethod
+    def abrir_leaderboard():
         LeaderBoard()
 
 def open_main_window():
