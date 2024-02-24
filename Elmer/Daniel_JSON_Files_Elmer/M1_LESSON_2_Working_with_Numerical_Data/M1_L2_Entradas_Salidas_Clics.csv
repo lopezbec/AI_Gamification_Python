@@ -86,3 +86,24 @@ Incorrect Answer Selected: Flotante:<Espacio para respuesta>,12:20:42
 Correct Answer Selected: Entero:2,12:20:44
 Correct Answer Selected: Flotante:3.14,12:20:44
 
+Parte 2,12:10:35
+Correct Answer Selected: +,12:10:35
+Parte 3,12:10:40
+Correct Answer Selected: print(42 * 3),12:10:40
+Parte 4,12:10:45
+Correct Answer Selected: 4.0,12:10:45
+Parte 5,12:10:50
+Correct Answer Selected: Entero:2,12:10:50
+Correct Answer Selected: Flotante:3.14,12:10:50
+
+Parte 2,12:11:49
+Correct Answer Selected: +,12:11:49
+Parte 3,12:11:50
+Incorrect Answer Selected: print(42 <Espacio para respuesta> 3),12:11:50
+Correct Answer Selected: print(42 * 3),12:11:54
+Parte 4,12:11:57
+Correct Answer Selected: 4.0,12:11:57
+Parte 5,12:12:01
+Correct Answer Selected: Entero:2,12:12:01
+Correct Answer Selected: Flotante:3.14,12:12:01
+
