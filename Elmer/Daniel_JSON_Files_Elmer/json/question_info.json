@@ -21,5 +21,6 @@
     },
 
     "next_button_text": "Siguiente",
-    "next_button_enabled": false
+    "next_button_enabled": false,
+    "Default_ConsentUser_button_color": "#9B9B9B"
 }
