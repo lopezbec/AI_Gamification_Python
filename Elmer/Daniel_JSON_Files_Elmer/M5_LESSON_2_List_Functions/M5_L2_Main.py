@@ -925,6 +925,11 @@ class MainWindow(QWidget):
                 self.SubmitHideContinueShow(False,
                                             False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
 
+            if not forward:
+                self.submit_button.hide()
+                self.continue_button.show()
+                self.back_button.hide()
+
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()

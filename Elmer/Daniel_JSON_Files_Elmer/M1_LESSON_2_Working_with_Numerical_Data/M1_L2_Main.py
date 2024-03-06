@@ -15,7 +15,8 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 
@@ -32,7 +33,7 @@ class JsonLoader:
         with open("styles.json") as styles_file:
             styles = json.load(styles_file)
         return styles
-    
+
     @staticmethod
     def load_active_widgets():
         with open("./active_widgets/game_elements_visibility.json") as active_widgets:
@@ -93,7 +94,7 @@ class JsonWindow(QWidget):
 
         # Añadir los widgets al layout horizontal
         if JsonLoader.load_active_widgets().get("points", True):
-            hlayout.addWidget(self.puntos)   
+            hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
 
@@ -156,7 +157,8 @@ class JsonWindow(QWidget):
     def title(self):
         title = QLabel(self.data[self.page_type.lower()][0]["title"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+        title.setStyleSheet(
+            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
         title_font = QFont()
         title_font.setPointSize(self.styles["font_size_titles"])
         title.setFont(title_font)
@@ -193,7 +195,8 @@ class JsonWindow(QWidget):
     def createResetBottom(self):
         # Add a reset button to the layout
         reset_button = QPushButton('Reiniciar')
-        reset_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+        reset_button.setStyleSheet(
+            f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
         self.layout.addWidget(reset_button)
         reset_button.clicked.connect(self.reset_button)
 
@@ -240,7 +243,8 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
@@ -270,7 +274,8 @@ class JsonWindow(QWidget):
                     multiple_drops = False
 
                 if block_type == "Consola":
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
+                                                                  multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
@@ -284,7 +289,8 @@ class JsonWindow(QWidget):
 
                 if "correctValue" in block or "correctOrder" in data_block:
                     multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
+                                                                  multiple=multiple_drops)
                     block_label = drop_labels[block_type]
                 elif block_type == "Consola":
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
@@ -299,7 +305,8 @@ class JsonWindow(QWidget):
 
         for idx, answer in enumerate(data_block["answers"]):
             draggable_label = drag_drop.DraggableLabel(answer["text"])
-            draggable_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+            draggable_label.setStyleSheet(
+                f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
             draggable_labels_layout.addWidget(draggable_label)
 
         self.layout.addLayout(draggable_labels_layout)
@@ -319,7 +326,7 @@ class JsonWindow(QWidget):
         # Añadir el layout de puntos y leaderboard de nuevo
         hlayout = QHBoxLayout()
         if JsonLoader.load_active_widgets().get("points", True):
-            hlayout.addWidget(self.puntos)   
+            hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
         self.layout.addLayout(hlayout)
@@ -347,9 +354,11 @@ class JsonWindow(QWidget):
             block_label = QLabel(block["text"])
 
             if block["type"] == "hint":
-                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -359,9 +368,11 @@ class JsonWindow(QWidget):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
             block_label = QLabel(block["text"])
             if block["type"] == "hint":
-                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                block_label.setStyleSheet(
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -404,7 +415,8 @@ class MainWindow(QWidget):
         self.usuario_actual = self.load_current_user()
         self.setWindowTitle("Trabajando con datos númericos")
 
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 1)
+        self.progress_bar = ProgressBar(
+            JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 1)
         self.init_ui()
 
     def init_ui(self):
@@ -612,7 +624,7 @@ class MainWindow(QWidget):
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
             lessons = data.get('lessons', [])
-            
+
             for lesson in lessons:
                 lesson_number = lesson.get('lesson_number', None)
                 if lesson_number == target_lesson:
@@ -625,7 +637,8 @@ class MainWindow(QWidget):
         current_page_type = current_widget.page_type.lower()
         json_number = current_widget.json_number
 
-        if hasattr(self, 'last_json_number') and self.last_json_number != json_number: self.log_event(f"Parte {json_number}", "mouse")
+        if hasattr(self, 'last_json_number') and self.last_json_number != json_number: self.log_event(
+            f"Parte {json_number}", "mouse")
         self.last_json_number = json_number
 
         if current_page_type == "multiplechoice":
@@ -640,14 +653,18 @@ class MainWindow(QWidget):
                 selected_answer_text = current_widget.data[current_page_type][0]["answers"][selected_answer_id]["text"]
                 if selected_answer_id == correct_answer_id:
                     current_widget.feedback_label.setText("Respuesta correcta")
-                    current_widget.feedback_label.setStyleSheet(f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"Correct Answer Selected: {selected_answer_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                    current_widget.feedback_label.setStyleSheet(
+                        f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+                    self.log_event(f"Correct Answer Selected: {selected_answer_text}",
+                                   event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                     self.SubmitHideContinueShow(True, False)
 
                 else:
                     current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
-                    current_widget.feedback_label.setStyleSheet(f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-                    self.log_event(f"Incorrect Answer Selected: {selected_answer_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                    current_widget.feedback_label.setStyleSheet(
+                        f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                    self.log_event(f"Incorrect Answer Selected: {selected_answer_text}",
+                                   event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
             else:
                 self.SubmitAnswers(True, False, False)
 
@@ -734,7 +751,8 @@ class MainWindow(QWidget):
                                         correct_count += 1
                                         self.log_event(f"Correct Answer Selected: {dropped_answer}", event_type="mouse")
                                     else:
-                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}", event_type="mouse")
+                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}",
+                                                       event_type="mouse")
                         else:
                             if correct_value:
                                 if correct_value == dropped_text:
@@ -754,9 +772,11 @@ class MainWindow(QWidget):
                         if correct_answer:
                             if correct_answer["text"] in full_dropped_text:
                                 correct_count += 1
-                                self.log_event(f"Correct Answer Selected: {full_dropped_text}", event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                                self.log_event(f"Correct Answer Selected: {full_dropped_text}",
+                                               event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
                             else:
-                                self.log_event(f"Incorrect Answer Selected: {full_dropped_text}", event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                                self.log_event(f"Incorrect Answer Selected: {full_dropped_text}",
+                                               event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
 
                 if unanswered == len(drop_labels):
                     self.SubmitAnswers(True, False, False)
@@ -912,6 +932,10 @@ class MainWindow(QWidget):
                 self.SubmitHideContinueShow(False,
                                             False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
 
+            if not forward:
+                self.submit_button.hide()
+                self.continue_button.show()
+                self.back_button.hide()
 
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
@@ -928,11 +952,11 @@ class MainWindow(QWidget):
         else:
             print("¡La leccion no se completó, se cerró!.")
             self.close()
-        
+
         if next_index == self.highest_page_reached and self.is_rollback == True:
-                self.is_rollback = False
-                #Llamar al método de reinicio con el tipo de página correspondiente
-                self.json_windows[next_index].reset_button()
+            self.is_rollback = False
+            # Llamar al método de reinicio con el tipo de página correspondiente
+            self.json_windows[next_index].reset_button()
 
         self.current_page += 1  # Incrementar el número de la página actual
 
@@ -946,8 +970,8 @@ class MainWindow(QWidget):
         # Luego, cierra la ventana normalmente
         super().closeEvent(event)
 
+
 def M1_L2_Main():
     main_window = MainWindow(lesson_number=2)
     main_window.show()
     return main_window
-
