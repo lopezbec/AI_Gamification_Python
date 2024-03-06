@@ -1,7 +1,7 @@
 import json
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget, QMessageBox
 from question_window import QuestionWindow
 from datetime import datetime
 import sys
@@ -135,20 +135,34 @@ class NameWindow(QMainWindow):
                 json.dump(progreso, file, indent=4)
 
     def show_survey(self):
-        self.should_exit_on_close = False  # Cambia el comportamiento para no cerrar el programa al avanzar
         username = self.input.text().strip()
-        if username:
-            self.update_current_user(username)
-            self.update_user_last_active(username)
+        if not username:
+            QMessageBox.warning(self, "Campo vacío", "El campo no puede estar vacío.")
+            self.input.setStyleSheet("border: 1px solid red;")
+            return  # Stop the method if the input is empty
 
-            if not self.user_exists(username):  # Verificar si existe en leaderboard.json
-                self.add_user_to_leaderboard(username)  # Agregar usuario a leaderboard.json
-                self.agregar_usuario_leccion_completada(username)
-                self.add_username(username)  # Agregar usuario a los archivos existentes
-                self._open_question_window(username)
-                self.close()
-            else:
-                self.close()
+        if not self.is_valid_username(username):
+            QMessageBox.warning(self, "Error de entrada", "El nombre solo puede tener letras.")
+            self.input.setStyleSheet("border: 1px solid red;")
+            return  # Stop the method if the input is invalid
+
+        # Reset the style if the input is valid
+        self.input.setStyleSheet("")
+        self.should_exit_on_close = False
+        self.update_current_user(username)
+        self.update_user_last_active(username)
+
+        if not self.user_exists(username):  # Check if exists in leaderboard.json
+            self.add_user_to_leaderboard(username)  # Add user to leaderboard.json
+            self.agregar_usuario_leccion_completada(username)
+            self.add_username(username)  # Add user to existing files
+            self._open_question_window(username)
+            self.close()
+        else:
+            self.close()
+
+    def is_valid_username(self, username):
+        return username.isalpha()  # Checks if the username contains only letters
 
     def closeEvent(self, event):
         if self.should_exit_on_close:
