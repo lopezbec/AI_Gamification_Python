@@ -1,6 +1,6 @@
 {
     "Leaderboard": false,
-    "points": false,
+    "points": true,
     "progress": true
 }
   

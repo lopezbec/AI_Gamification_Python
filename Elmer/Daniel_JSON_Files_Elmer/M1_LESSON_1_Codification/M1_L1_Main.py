@@ -91,7 +91,7 @@ class JsonWindow(QWidget):
         self.leaderboard_button.setFont(leaderboard_button_font)
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
 
-        # Añadir los widgets al layout horizontal   
+        # Añadir los widgets al layout horizontal
         if JsonLoader.load_active_widgets().get("points", True):
             hlayout.addWidget(self.puntos)
             # if JsonLoader.load_active_widgets().get("progress", True):
@@ -495,7 +495,7 @@ class MainWindow(QWidget):
         self.button_layout.addWidget(self.terminar_button)
 
         if JsonLoader.load_active_widgets().get("progress", True):
-            self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout   
+            self.layout.addWidget(self.progress_bar)  # Agrega la barra de progreso al layout
         self.layout.addWidget(self.stacked_widget)
         self.layout.addLayout(self.button_layout)
 
@@ -880,6 +880,8 @@ class MainWindow(QWidget):
         if forward:
             next_index = current_index + 1
         else:
+            self.submit_button.hide()
+            self.continue_button.show()
             next_index = current_index - 1
 
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
@@ -899,6 +901,8 @@ class MainWindow(QWidget):
                 self.progress_bar.increment_page()
             else:
                 self.is_rollback = True
+                self.submit_button.hide()
+                self.continue_button.show()
                 next_index = current_index - 1
                 self.XP_Ganados -= 1
                 self.progress_bar.decrement_page()
@@ -913,12 +917,18 @@ class MainWindow(QWidget):
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
                 self.SubmitHideContinueShow(True,
                                             False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+
             elif current_page_type == "practica":
                 self.SubmitHideContinueShow(False,
                                             True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
             else:
                 self.SubmitHideContinueShow(False,
                                             False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+
+            if not forward:
+                self.submit_button.hide()
+                self.continue_button.show()
+                self.back_button.hide()
 
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
