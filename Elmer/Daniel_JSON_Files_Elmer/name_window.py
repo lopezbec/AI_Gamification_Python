@@ -1,4 +1,5 @@
 import json
+import os
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget, QMessageBox
@@ -17,10 +18,14 @@ class NameWindow(QMainWindow):
         self.should_exit_on_close = True
         self._load_ui_data()
         self._setup_ui()
-        self.leaderboard_file = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
+        self.leaderboard_file =  os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Codigos_LeaderBoard', 'leaderboard.json')  # Ruta al archivo leaderboard.json
 
     def _load_ui_data(self):
-        with open(r'./json/name_info.json', "r", encoding='UTF-8') as name_info:
+        # Obtiene la ruta del directorio donde se encuentra el script actual
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'json', 'name_info.json')
+        with open(json_path, "r", encoding='UTF-8') as name_info:
             self.data = json.load(name_info)
 
     def _setup_ui(self):
@@ -234,7 +239,6 @@ class NameWindow(QMainWindow):
             users = []
 
         users.append(new_user)
-        print("Agregaste un usuario desde el metodo add_user")
         with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
             json.dump(users, file, indent=4)
 

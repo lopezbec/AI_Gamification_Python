@@ -22,19 +22,22 @@ from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M4_LESSON_4_Ranges/' + filename, encoding='UTF-8') as json_file:
-            data = json.load(json_file)
-        return data
+        try:
+            with open(filename, encoding='UTF-8') as json_file:
+                data = json.load(json_file)
+            return data
+        except Exception as e:
+            print(f"Error load_json_data linea {sys.exc_info()[2].tb_lineno}")
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
     
     @staticmethod
     def load_active_widgets():
-        with open("./active_widgets/game_elements_visibility.json") as active_widgets:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
 
@@ -402,7 +405,9 @@ class MainWindow(QWidget):
         self.usuario_actual = self.load_current_user()
         self.setWindowTitle("Range")
 
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M4.json")), 3)
+        self.progress_bar = ProgressBar( JsonLoader.load_json_data(
+                os.path.join(os.path.dirname(os.path.dirname(
+                    os.path.abspath(__file__))), "Page_order", "page_order_M4.json")), 3)
         self.init_ui()
 
     def init_ui(self):
@@ -412,7 +417,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
                                          page.get("lesson_completed", False), main_window=self)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
@@ -570,7 +575,7 @@ class MainWindow(QWidget):
             os.makedirs('M4_LESSON_4_Ranges')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('M4_LESSON_4_Ranges', filename)
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -580,7 +585,7 @@ class MainWindow(QWidget):
 
     def load_page_order(self):
         # Construir la ruta al archivo dentro de la carpeta 'Page_order'
-        file_path = os.path.join('Page_order', 'page_order_M4.json')
+        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Page_order', 'page_order_M4.json')
 
         with open(file_path, "r") as file:
             data = json.load(file)
@@ -762,7 +767,7 @@ class MainWindow(QWidget):
 
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
 
             progreso_usuario = progreso.get(self.usuario_actual, {})
@@ -774,7 +779,7 @@ class MainWindow(QWidget):
             if modulo in progreso_usuario:
                 progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
-            with open('progreso.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -782,7 +787,7 @@ class MainWindow(QWidget):
 
     def actualizar_leccion_completada(self, modulo, leccion_completada):
         try:
-            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 leccion_completada_data = json.load(file)
 
             leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
@@ -794,7 +799,7 @@ class MainWindow(QWidget):
 
             leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
 
-            with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
                 json.dump(leccion_completada_data, file, indent=4)
 
         except Exception as e:
@@ -803,7 +808,7 @@ class MainWindow(QWidget):
     @staticmethod
     def load_current_user():
         try:
-            with open('current_user.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'current_user.json'), 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
             return user_data.get("current_user")
         except FileNotFoundError:
@@ -812,7 +817,7 @@ class MainWindow(QWidget):
 
     @staticmethod
     def actualizar_puntos_en_leaderboard(usuario, puntos_ganados):
-        leaderboard_path = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
+        leaderboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Codigos_LeaderBoard', 'leaderboard.json')  # Ruta al archivo leaderboard.json
 
         try:
             with open(leaderboard_path, 'r', encoding='UTF-8') as file:

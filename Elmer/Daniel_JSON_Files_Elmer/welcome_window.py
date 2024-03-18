@@ -11,10 +11,8 @@ class WelcomeWindow(QMainWindow):
     def __init__(self):
         super(WelcomeWindow, self).__init__()
 
-
         # Obtiene la ruta del directorio donde se encuentra el script actual
         current_script_path = os.path.dirname(os.path.abspath(__file__))
-
         # Construye la ruta al archivo JSON usando os.path.join
         json_path = os.path.join(current_script_path, 'json', 'welcome_info.json')
 

@@ -1,4 +1,5 @@
 import json
+import os
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QCheckBox, QLabel, QMainWindow, QPushButton, QScrollArea, QVBoxLayout, QWidget
@@ -10,7 +11,11 @@ class ConcentWindow(QMainWindow):
     def __init__(self) -> None:
         super(ConcentWindow, self).__init__()
 
-        with open(r'./json/concent_info.json', "r", encoding='UTF-8') as f:
+        # Obtiene la ruta del directorio donde se encuentra el script actual
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'json', 'concent_info.json')
+        with open(json_path, "r", encoding='UTF-8') as f:
             data = json.load(f)
         
         #title

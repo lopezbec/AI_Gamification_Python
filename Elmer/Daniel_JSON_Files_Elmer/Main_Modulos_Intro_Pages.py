@@ -72,7 +72,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.progreso_usuario = self.load_user_progress(self.usuario_actual)  # Carga el progreso del usuario
         self.actualizar_lecciones(self.progreso_usuario)
 
-        self.styles = self.load_styles("styles.json")
+        self.styles = self.load_styles(os.path.join(os.path.dirname(os.path.abspath(__file__)), "styles.json"))
         self.setWindowTitle("Menú - Principal")
         self.setGeometry(100, 100, 800, 600)
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']};")
@@ -167,7 +167,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def recargar_progreso_usuario(self):
         try:
             # Cargar el progreso del usuario actualizado desde el archivo
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
             self.progreso_usuario = progreso.get(self.usuario_actual, {})
 
@@ -179,7 +179,7 @@ class MainWindow(QtWidgets.QMainWindow):
     @staticmethod
     def load_current_user():
         try:
-            with open('current_user.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
             return user_data.get("current_user")
         except FileNotFoundError:
@@ -189,7 +189,7 @@ class MainWindow(QtWidgets.QMainWindow):
     @staticmethod
     def load_user_progress(username):
         try:
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
             return progreso.get(username, {})
         except FileNotFoundError:
@@ -239,7 +239,7 @@ class MainWindow(QtWidgets.QMainWindow):
     @staticmethod
     def load_lesson_completed(username):
         try:
-            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 all_users_progress = json.load(file)
             return all_users_progress.get(username, {})
         except FileNotFoundError:
@@ -262,11 +262,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # Establece el ícono de completado, abierto o cerrado dependiendo del estado de la lección
             if leccion_completada:
-                icono = 'Icons/completado_icon.png'  # Ícono de lección completada
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')   # Ícono de lección completada
             elif estado_leccion:
-                icono = 'Icons/abierto_icon.png'  # Ícono de lección disponible pero no completada
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')  # Ícono de lección disponible pero no completada
             else:
-                icono = 'Icons/cerrado_icon.jpg'  # Ícono de lección bloqueada
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')  # Ícono de lección bloqueada
 
             accion_leccion = QAction(f"Lección {leccion_numero}", self)
             accion_leccion.setIcon(QIcon(icono))
@@ -468,6 +468,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.mostrar_mensaje_bloqueado(nombre_modulo, numero_leccion)
         except Exception as e:
             print(f"Error al abrir {nombre_modulo} - Lección {numero_leccion}: {e}")
+            print(f"Error en linea {sys.exc_info()[2].tb_lineno}")
 
     @staticmethod
     def mostrar_mensaje_bloqueado(nombre_modulo, numero_leccion):
