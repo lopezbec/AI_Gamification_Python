@@ -366,49 +366,46 @@ class JsonWindow(QWidget):
         self.commandLineWindow = App()
 
     def create_pedagogical_layout(self):
-        for block in self.data[self.page_type.lower()][0]["blocks"]:
-            if block["type"] == "Consola":
-                # Crear un QFrame como contenedor, manteniendo su estilo original
-                console_frame = QFrame()
-                console_frame.setStyleSheet(
-                    f"background-color: {self.styles['cmdExe_background_color']};")
-                # f"border: 1px solid {self.styles['cmdExe_border_color']};")  # Asegúrate de definir 'cmdExe_border_color' en tu diccionario de estilos
+        # Variable para acumular el texto de bloques "info".
+        accumulated_info_text = ""
 
-                # Crear un QVBoxLayout dentro del QFrame
+        for block in self.data[self.page_type.lower()][0]["blocks"]:
+            # Si el bloque es de tipo "info", acumula su texto.
+            if block["type"] == "info":
+                accumulated_info_text += block["text"] + "\n\n"
+
+            # Si el bloque es de tipo "Consola", procede como antes.
+            elif block["type"] == "Consola":
+                # Si hay texto acumulado de "info", créalo como QLabel antes del contenido de "Consola".
+                if accumulated_info_text:
+                    info_label = QLabel(accumulated_info_text.strip())
+                    info_label.setWordWrap(True)
+                    info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+                    self.layout.addWidget(info_label)
+                    accumulated_info_text = ""  # Restablece el texto acumulado.
+
+                # Crea los widgets de "Consola" como antes.
+                console_frame = QFrame()
+                console_frame.setStyleSheet(f"background-color: {self.styles['cmdExe_background_color']};")
                 console_layout = QVBoxLayout(console_frame)
                 console_layout.setContentsMargins(5, 5, 5, 5)
-
-                # Crear el QLabel para el texto de la consola
                 console_label = QLabel(block["text"])
                 console_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']};"
-                    f"font-size: {self.styles['font_size_normal']}px;")
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
                 console_label.setWordWrap(True)
-
-                # Añadir el QLabel al layout vertical
                 console_layout.addWidget(console_label)
-
-                # Crear un QHBoxLayout para el botón, asegurándonos de que se añade al final del QVBoxLayout
                 button_layout = QHBoxLayout()
-                button_layout.addStretch(1)  # Empujar el botón hacia la derecha
-
-                # Crear el QPushButton para "Ejecutar"
+                button_layout.addStretch(1)
                 execute_button = QPushButton("Haz clic para ejecutar")
                 execute_button.setStyleSheet(
                     "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
-                # Conectar el botón con la función que maneja la ejecución
                 execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
-
-                # Añadir el QPushButton al QHBoxLayout
                 button_layout.addWidget(execute_button)
-
-                # Añadir el QHBoxLayout al QVBoxLayout principal para asegurarse de que el botón se alinea a la derecha
                 console_layout.addLayout(button_layout)
-
-                # Añadir el QFrame al layout principal
                 self.layout.addWidget(console_frame)
+
+            # Maneja los otros tipos de bloques como antes.
             else:
-                # Manejo de los otros tipos de bloques...
                 block_label = QLabel(block["text"])
                 block_label.setWordWrap(True)
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
@@ -416,6 +413,14 @@ class JsonWindow(QWidget):
                     block_label.setStyleSheet(
                         f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;")
                 self.layout.addWidget(block_label)
+
+        # Si queda algún texto de "info" después de procesar todos los bloques, créalo como QLabel al final.
+        if accumulated_info_text:
+            info_label = QLabel(accumulated_info_text.strip())
+            info_label.setWordWrap(True)
+            info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+            self.layout.addWidget(info_label)
+
 
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):

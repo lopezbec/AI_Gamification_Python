@@ -15,9 +15,10 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QFrame, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from command_line_UI import App
 
 class JsonLoader:
     @staticmethod
@@ -353,18 +354,64 @@ class JsonWindow(QWidget):
 
             self.layout.addWidget(block_label)  # Añadir el bloque al layout
 
+    def openCommandLineUI(self, text):
+        self.commandLineWindow = App()
+
     def create_pedagogical_layout(self):
+        # Variable para acumular el texto de bloques "info".
+        accumulated_info_text = ""
+
         for block in self.data[self.page_type.lower()][0]["blocks"]:
-            block_label = QLabel(block["text"])
-            if block["type"] == "hint":
-                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+            # Si el bloque es de tipo "info", acumula su texto.
+            if block["type"] == "info":
+                accumulated_info_text += block["text"] + "\n\n"
+
+            # Si el bloque es de tipo "Consola", procede como antes.
             elif block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                # Si hay texto acumulado de "info", créalo como QLabel antes del contenido de "Consola".
+                if accumulated_info_text:
+                    info_label = QLabel(accumulated_info_text.strip())
+                    info_label.setWordWrap(True)
+                    info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+                    self.layout.addWidget(info_label)
+                    accumulated_info_text = ""  # Restablece el texto acumulado.
+
+                # Crea los widgets de "Consola" como antes.
+                console_frame = QFrame()
+                console_frame.setStyleSheet(f"background-color: {self.styles['cmdExe_background_color']};")
+                console_layout = QVBoxLayout(console_frame)
+                console_layout.setContentsMargins(5, 5, 5, 5)
+                console_label = QLabel(block["text"])
+                console_label.setStyleSheet(
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
+                console_label.setWordWrap(True)
+                console_layout.addWidget(console_label)
+                button_layout = QHBoxLayout()
+                button_layout.addStretch(1)
+                execute_button = QPushButton("Haz clic para ejecutar")
+                execute_button.setStyleSheet(
+                    "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+                execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
+                button_layout.addWidget(execute_button)
+                console_layout.addLayout(button_layout)
+                self.layout.addWidget(console_frame)
+
+            # Maneja los otros tipos de bloques como antes.
             else:
-                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+                block_label = QLabel(block["text"])
+                block_label.setWordWrap(True)
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+                if block["type"] == "hint":
+                    block_label.setStyleSheet(
+                        f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;")
+                self.layout.addWidget(block_label)
 
-            self.layout.addWidget(block_label)  # Añadir el bloque al layout
-
+        # Si queda algún texto de "info" después de procesar todos los bloques, créalo como QLabel al final.
+        if accumulated_info_text:
+            info_label = QLabel(accumulated_info_text.strip())
+            info_label.setWordWrap(True)
+            info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+            self.layout.addWidget(info_label)
 
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
