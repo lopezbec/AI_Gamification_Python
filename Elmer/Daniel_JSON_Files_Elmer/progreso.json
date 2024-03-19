@@ -411,7 +411,7 @@
             "Leccion1": true,
             "Leccion2": true,
             "Leccion3": true,
-            "Leccion4": false,
+            "Leccion4": true,
             "Leccion5": false
         },
         "Modulo2": {

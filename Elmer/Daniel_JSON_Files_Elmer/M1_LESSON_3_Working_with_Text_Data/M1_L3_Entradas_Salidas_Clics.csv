@@ -189,3 +189,23 @@ Correct Answer Selected: 'cien',12:23:54
 Parte 5,12:23:55
 Parte 6,12:23:56
 
+Parte 1,21:45:45
+Parte 2,21:45:48
+Checkbox Selected: 'Viernes',21:45:57
+Checkbox Selected: 'The Lord of the Rings',21:45:57
+Parte 3,21:45:58
+Incorrect Drop Event: Park,21:46:11
+Incorrect Drop Event: +,21:46:11
+Incorrect Drop Event: Water,21:46:11
+Correct Drop Event: Water,21:46:22
+Correct Drop Event: +,21:46:22
+Correct Drop Event: Park,21:46:22
+Parte 4,21:46:23
+Checkbox Selected: '100',21:46:30
+Checkbox Selected: 'Manzana',21:46:30
+Correct Answer Selected: 100,21:46:45
+Correct Answer Selected: 100.00,21:46:45
+Correct Answer Selected: 'cien',21:46:45
+Parte 5,21:46:45
+Parte 6,21:46:47
+

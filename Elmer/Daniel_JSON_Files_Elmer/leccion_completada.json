@@ -408,9 +408,9 @@
     },
     "Pepe": {
         "Modulo1": {
-            "Leccion_completada1": false,
+            "Leccion_completada1": true,
             "Leccion_completada2": false,
-            "Leccion_completada3": false,
+            "Leccion_completada3": true,
             "Leccion_completada4": false,
             "Leccion_completada5": false
         },

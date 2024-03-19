@@ -51,8 +51,8 @@
     },
     {
         "name": "Pepe",
-        "points": 45,
-        "last_active": "2024-02-13 ; 21h:17m"
+        "points": 333,
+        "last_active": "2024-03-18 ; 19h:36m"
     },
     {
         "name": "Josefa",
@@ -88,5 +88,10 @@
         "name": "Juand",
         "points": 0,
         "last_active": "2024-03-06 ; 10h:49m"
+    },
+    {
+        "name": "Pepe",
+        "points": 0,
+        "last_active": "2024-03-10 ; 13h:32m"
     }
 ]

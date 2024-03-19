@@ -16,9 +16,9 @@ from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
-
+from command_line_UI import App
 
 class JsonLoader:
     @staticmethod
@@ -363,18 +363,55 @@ class JsonWindow(QWidget):
 
     def create_pedagogical_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
-            block_label = QLabel(block["text"])
-            if block["type"] == "hint":
-                block_label.setStyleSheet(
-                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
-            elif block["type"] == "Consola":
-                block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+            if block["type"] == "Consola":
+                # Crear un QFrame como contenedor, manteniendo su estilo original
+                console_frame = QFrame()
+                console_frame.setStyleSheet(
+                    f"background-color: {self.styles['cmdExe_background_color']};")
+                # f"border: 1px solid {self.styles['cmdExe_border_color']};")  # Asegúrate de definir 'cmdExe_border_color' en tu diccionario de estilos
+
+                # Crear un QVBoxLayout dentro del QFrame
+                console_layout = QVBoxLayout(console_frame)
+                console_layout.setContentsMargins(5, 5, 5, 5)
+
+                # Crear el QLabel para el texto de la consola
+                console_label = QLabel(block["text"])
+                console_label.setStyleSheet(
+                    f"color: {self.styles['cmdExe_text_color']};"
+                    f"font-size: {self.styles['font_size_normal']}px;")
+                console_label.setWordWrap(True)
+
+                # Añadir el QLabel al layout vertical
+                console_layout.addWidget(console_label)
+
+                # Crear un QHBoxLayout para el botón, asegurándonos de que se añade al final del QVBoxLayout
+                button_layout = QHBoxLayout()
+                button_layout.addStretch(1)  # Empujar el botón hacia la derecha
+
+                # Crear el QPushButton para "Ejecutar"
+                execute_button = QPushButton("Haz clic para ejecutar")
+                execute_button.setStyleSheet(
+                    "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+                # Conectar el botón con la función que maneja la ejecución
+                execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
+
+                # Añadir el QPushButton al QHBoxLayout
+                button_layout.addWidget(execute_button)
+
+                # Añadir el QHBoxLayout al QVBoxLayout principal para asegurarse de que el botón se alinea a la derecha
+                console_layout.addLayout(button_layout)
+
+                # Añadir el QFrame al layout principal
+                self.layout.addWidget(console_frame)
             else:
-                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
-
-            self.layout.addWidget(block_label)  # Añadir el bloque al layout
-
+                # Manejo de los otros tipos de bloques...
+                block_label = QLabel(block["text"])
+                block_label.setWordWrap(True)
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+                if block["type"] == "hint":
+                    block_label.setStyleSheet(
+                        f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;")
+                self.layout.addWidget(block_label)
 
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
