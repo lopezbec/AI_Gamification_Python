@@ -21,13 +21,13 @@ traking_page = 0
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M1_LESSON_2_Working_with_Numerical_Data/' + filename, encoding='UTF-8') as json_file:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), filename), encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
 

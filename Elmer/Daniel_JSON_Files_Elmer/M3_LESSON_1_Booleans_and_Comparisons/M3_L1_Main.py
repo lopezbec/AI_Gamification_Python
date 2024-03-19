@@ -15,27 +15,29 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
+from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
-from command_line_UI import App
+
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M3_LESSON_1_Booleans_and_Comparisons/' + filename, encoding='UTF-8') as json_file:
-            data = json.load(json_file)
-        return data
+        try:
+            with open(filename, encoding='UTF-8') as json_file:
+                data = json.load(json_file)
+            return data
+        except Exception as e:
+            print(f"Error load_json_data linea {sys.exc_info()[2].tb_lineno}")
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
     
     @staticmethod
     def load_active_widgets():
-        with open("./active_widgets/game_elements_visibility.json") as active_widgets:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
 
@@ -356,55 +358,17 @@ class JsonWindow(QWidget):
 
     def create_pedagogical_layout(self):
         for block in self.data[self.page_type.lower()][0]["blocks"]:
-            if block["type"] == "Consola":
-                # Crear un QFrame como contenedor, manteniendo su estilo original
-                console_frame = QFrame()
-                console_frame.setStyleSheet(
-                    f"background-color: {self.styles['cmdExe_background_color']};")
-                # f"border: 1px solid {self.styles['cmdExe_border_color']};")  # Asegúrate de definir 'cmdExe_border_color' en tu diccionario de estilos
-
-                # Crear un QVBoxLayout dentro del QFrame
-                console_layout = QVBoxLayout(console_frame)
-                console_layout.setContentsMargins(5, 5, 5, 5)
-
-                # Crear el QLabel para el texto de la consola
-                console_label = QLabel(block["text"])
-                console_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']};"
-                    f"font-size: {self.styles['font_size_normal']}px;")
-                console_label.setWordWrap(True)
-
-                # Añadir el QLabel al layout vertical
-                console_layout.addWidget(console_label)
-
-                # Crear un QHBoxLayout para el botón, asegurándonos de que se añade al final del QVBoxLayout
-                button_layout = QHBoxLayout()
-                button_layout.addStretch(1)  # Empujar el botón hacia la derecha
-
-                # Crear el QPushButton para "Ejecutar"
-                execute_button = QPushButton("Haz clic para ejecutar")
-                execute_button.setStyleSheet(
-                    "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
-                # Conectar el botón con la función que maneja la ejecución
-                execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
-
-                # Añadir el QPushButton al QHBoxLayout
-                button_layout.addWidget(execute_button)
-
-                # Añadir el QHBoxLayout al QVBoxLayout principal para asegurarse de que el botón se alinea a la derecha
-                console_layout.addLayout(button_layout)
-
-                # Añadir el QFrame al layout principal
-                self.layout.addWidget(console_frame)
+            block_label = QLabel(block["text"])
+            if block["type"] == "hint":
+                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+            elif block["type"] == "Consola":
+                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             else:
-                # Manejo de los otros tipos de bloques...
-                block_label = QLabel(block["text"])
-                block_label.setWordWrap(True)
-                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
-                if block["type"] == "hint":
-                    block_label.setStyleSheet(
-                        f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;")
-                self.layout.addWidget(block_label)
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+
+            self.layout.addWidget(block_label)  # Añadir el bloque al layout
+
+
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -441,7 +405,12 @@ class MainWindow(QWidget):
         self.usuario_actual = self.load_current_user()
         self.setWindowTitle("Booleanos y comparaciones")
 
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M3.json")), 0)
+        self.progress_bar = ProgressBar(
+            JsonLoader.load_json_data(
+                 os.path.join(os.path.dirname(os.path.dirname(
+                    os.path.abspath(__file__))), "Page_order", "page_order_M3.json")
+                ), 
+                0)
         self.init_ui()
 
     def init_ui(self):
@@ -451,7 +420,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
                                          page.get("lesson_completed", False), main_window=self)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
@@ -614,7 +583,7 @@ class MainWindow(QWidget):
             os.makedirs('M3_LESSON_1_Booleans_and_Comparisons')
 
         # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('M3_LESSON_1_Booleans_and_Comparisons', filename)
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
 
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
@@ -624,7 +593,7 @@ class MainWindow(QWidget):
 
     def load_page_order(self):
         # Construir la ruta al archivo dentro de la carpeta 'Page_order'
-        file_path = os.path.join('Page_order', 'page_order_M3.json')
+        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Page_order', 'page_order_M3.json')
 
         with open(file_path, "r") as file:
             data = json.load(file)
@@ -806,7 +775,7 @@ class MainWindow(QWidget):
 
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
 
             progreso_usuario = progreso.get(self.usuario_actual, {})
@@ -818,7 +787,7 @@ class MainWindow(QWidget):
             if modulo in progreso_usuario:
                 progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
-            with open('progreso.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -826,7 +795,7 @@ class MainWindow(QWidget):
 
     def actualizar_leccion_completada(self, modulo, leccion_completada):
         try:
-            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 leccion_completada_data = json.load(file)
 
             leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
@@ -838,7 +807,7 @@ class MainWindow(QWidget):
 
             leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
 
-            with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
                 json.dump(leccion_completada_data, file, indent=4)
 
         except Exception as e:
@@ -847,7 +816,7 @@ class MainWindow(QWidget):
     @staticmethod
     def load_current_user():
         try:
-            with open('current_user.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'current_user.json'), 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
             return user_data.get("current_user")
         except FileNotFoundError:
@@ -856,7 +825,8 @@ class MainWindow(QWidget):
 
     @staticmethod
     def actualizar_puntos_en_leaderboard(usuario, puntos_ganados):
-        leaderboard_path = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
+        # Ruta al archivo leaderboard.json
+        leaderboard_path =  os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Codigos_LeaderBoard', 'leaderboard.json')  
 
         try:
             with open(leaderboard_path, 'r', encoding='UTF-8') as file:

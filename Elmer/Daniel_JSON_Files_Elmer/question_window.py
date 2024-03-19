@@ -20,7 +20,11 @@ class QuestionWindow(QMainWindow):
                               "radio_5", "radio_6", "radio_7"]
         super(QuestionWindow, self).__init__()
 
-        with open(r'./json/question_info.json', encoding='UTF-8') as question_info:
+        # Obtiene la ruta del directorio donde se encuentra el script actual
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'json', 'question_info.json')
+        with open(json_path, encoding='UTF-8') as question_info:
             data = json.load(question_info)
 
         # title
@@ -139,7 +143,10 @@ class QuestionWindow(QMainWindow):
         question_index = []  # store the index
         question_value = []  # store the questions itself
 
-        with open('Survey.csv', encoding='UTF-8') as csv_file:
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'Survey.csv')
+        with open(json_path, encoding='UTF-8') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', skipinitialspace=True)
             line = 0
             for row in csv_reader:

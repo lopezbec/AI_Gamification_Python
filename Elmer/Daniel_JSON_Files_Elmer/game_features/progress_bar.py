@@ -1,5 +1,6 @@
 # game_features/progress_bar.py
 import json
+import os
 import sys
 from PyQt6.QtWidgets import QApplication, QProgressBar, QLabel, QVBoxLayout, QWidget, QPushButton
 from PyQt6.QtCore import Qt
@@ -21,9 +22,12 @@ class ProgressBar(QWidget):
         self.initUI()
 
     def load_json_styles(self):
-        with open('styles.json') as f:
-            data = json.load(f)
-        return data
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'styles.json')) as f:
+                data = json.load(f)
+            return data
+        except Exception as e:
+            print("Error loading json styles for ProgressBar")
 
     def initUI(self):
         self.progress_bar = QProgressBar(self)
@@ -81,7 +85,8 @@ class ProgressBar(QWidget):
 
 
 if __name__ == '__main__':
-    with open('page_order.json') as f:
+    file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "page_order.json")
+    with open(file_path) as f:
         lesson_data = json.load(f)
 
     app = QApplication(sys.argv)

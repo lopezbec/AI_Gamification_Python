@@ -127,24 +127,24 @@
             "Leccion_completada1": true,
             "Leccion_completada2": true,
             "Leccion_completada3": true,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
+            "Leccion_completada4": true,
+            "Leccion_completada5": true
         },
         "Modulo4": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
+            "Leccion_completada1": true,
+            "Leccion_completada2": true,
+            "Leccion_completada3": true,
+            "Leccion_completada4": true,
+            "Leccion_completada5": true
         },
         "Modulo5": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false
+            "Leccion_completada1": true,
+            "Leccion_completada2": true,
+            "Leccion_completada3": true,
+            "Leccion_completada4": true,
+            "Leccion_completada5": true,
+            "Leccion_completada6": true,
+            "Leccion_completada7": true
         }
     },
     "Juan": {
@@ -1144,6 +1144,11 @@
             "Leccion_completada5": false,
             "Leccion_completada6": false,
             "Leccion_completada7": false
+        }
+    },
+    "null": {
+        "Modulo1": {
+            "Leccion_completada1": true
         }
     }
 }
