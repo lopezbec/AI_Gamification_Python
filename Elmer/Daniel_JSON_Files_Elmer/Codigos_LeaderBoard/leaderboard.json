@@ -2,7 +2,7 @@
     {
         "name": "Elmer",
         "points": 2511,
-        "last_active": "2024-03-19 ; 20h:08m"
+        "last_active": "2024-03-21 ; 16h:20m"
     },
     {
         "name": "Daniel",
@@ -11,12 +11,17 @@
     },
     {
         "name": "Jose",
-        "points": 390,
-        "last_active": "2023-12-28 ; 16h:55m"
+        "points": 412,
+        "last_active": "2024-03-20 ; 12h:48m"
     },
     {
         "name": "Prisila",
         "points": 2080,
         "last_active": "2024-03-18 ; 08h:28m"
+    },
+    {
+        "name": "Jose",
+        "points": 0,
+        "last_active": "2024-03-20 ; 12h:42m"
     }
 ]

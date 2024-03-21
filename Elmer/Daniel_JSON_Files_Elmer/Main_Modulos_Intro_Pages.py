@@ -132,8 +132,9 @@ class MainWindow(QtWidgets.QMainWindow):
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
         button_layout.addWidget(guia_usuario_btn)
 
-        modulos_btn = self.setup_modulos_menu()
-        button_layout.addWidget(modulos_btn)  # Añade modulos_btn al button_layout
+        # Agrega el widget que contiene los botones de módulos al layout principal
+        modulos_widget = self.setup_modulos_menu()
+        layout.addWidget(modulos_widget)
 
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
@@ -246,8 +247,12 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Archivo leccion_completada.json no encontrado.")
             return {}
 
+    def calcular_progreso_del_modulo(self, estado_modulo):
+        # Un ejemplo de cómo calcular el progreso de un módulo
+        lecciones_completadas = sum(estado == True for estado in estado_modulo.values())
+        return lecciones_completadas
+
     def añadir_submenu(self, nombre_modulo, numero_lecciones, menu_principal):
-        submenu = QMenu(nombre_modulo, self)
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(
             self.usuario_actual)  # Carga el estado de lecciones completadas para el usuario actual
@@ -262,18 +267,29 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # Establece el ícono de completado, abierto o cerrado dependiendo del estado de la lección
             if leccion_completada:
-                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')   # Ícono de lección completada
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons',
+                                     'completado_icon.png')  # Ícono de lección completada
             elif estado_leccion:
-                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')  # Ícono de lección disponible pero no completada
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons',
+                                     'abierto_icon.png')  # Ícono de lección disponible pero no completada
             else:
-                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')  # Ícono de lección bloqueada
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons',
+                                     'cerrado_icon.jpg')  # Ícono de lección bloqueada
 
             accion_leccion = QAction(f"Lección {leccion_numero}", self)
             accion_leccion.setIcon(QIcon(icono))
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
-            submenu.addAction(accion_leccion)
+            menu_principal.addAction(accion_leccion)
 
-        menu_principal.addMenu(submenu)
+        # Agrega una barra de progreso al final de cada menú
+        progreso = self.calcular_progreso_del_modulo(estado_modulo)
+        barra_progreso = QtWidgets.QProgressBar()
+        barra_progreso.setValue(progreso)
+        barra_progreso.setMaximum(numero_lecciones)
+        barra_progreso.setTextVisible(True)
+        barra_progreso_action = QtWidgets.QWidgetAction(self)
+        barra_progreso_action.setDefaultWidget(barra_progreso)
+        menu_principal.addAction(barra_progreso_action)
 
     def abrir_leccion(self, nombre_modulo, numero_leccion):
         try:
@@ -479,24 +495,29 @@ class MainWindow(QtWidgets.QMainWindow):
         msg.exec()
 
     def setup_modulos_menu(self):
-        modulos_btn = QtWidgets.QToolButton()
-        modulos_btn.setText("Modulos")
-        modulos_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+        # Creamos un layout horizontal para alinear los botones de módulos
+        modulos_layout = QtWidgets.QHBoxLayout()
 
-        modulos_menu = QtWidgets.QMenu()
+        # Creamos y configuramos cada botón de módulo
+        for i in range(1, 6):  # Suponiendo que hay 5 módulos
+            modulo_btn = QtWidgets.QToolButton()
+            modulo_btn.setText(f"Módulo {i}")
+            modulo_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            modulo_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
 
-        # Añadir submenús para cada módulo
-        # Dentro de setup_modulos_menu o donde configures los submenús
-        self.añadir_submenu("Modulo 1", 5, modulos_menu)
-        self.añadir_submenu("Modulo 2", 3, modulos_menu)
-        self.añadir_submenu("Modulo 3", 5, modulos_menu)
-        self.añadir_submenu("Modulo 4", 5, modulos_menu)
-        self.añadir_submenu("Modulo 5", 7, modulos_menu)
+            # Crea el menú específico para este módulo
+            modulos_menu = QtWidgets.QMenu()
+            lecciones_count = 5 if i != 5 else 7  # Asumiendo que los módulos 1-4 tienen 5 lecciones y el módulo 5 tiene 7
+            self.añadir_submenu(f"Módulo {i}", lecciones_count, modulos_menu)
+            modulo_btn.setMenu(modulos_menu)
 
-        modulos_btn.setMenu(modulos_menu)
-        modulos_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
+            # Añadimos el botón al layout
+            modulos_layout.addWidget(modulo_btn)
 
-        return modulos_btn  # Retorna el botón configurado
+        # Creamos un widget que contendrá el layout de botones
+        modulos_widget = QtWidgets.QWidget()
+        modulos_widget.setLayout(modulos_layout)
+        return modulos_widget
 
     @staticmethod
     def load_styles(file):
