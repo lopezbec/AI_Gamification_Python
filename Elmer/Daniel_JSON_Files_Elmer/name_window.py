@@ -84,7 +84,7 @@ class NameWindow(QMainWindow):
     @staticmethod
     def user_exists(username):
         try:
-            with open('usernames.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'usernames.json'), 'r', encoding='UTF-8') as file:
                 usernames = json.load(file)
             return username in usernames
         except FileNotFoundError:
@@ -100,21 +100,21 @@ class NameWindow(QMainWindow):
     def _update_current_user_json(username):
         try:
             current_user = {"current_user": username}
-            with open('current_user.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'w', encoding='UTF-8') as file:
                 json.dump(current_user, file)
         except Exception as e:
             print(f"Error al actualizar current_user.json: {e}")
 
     def _update_usernames_json(self, username):
         try:
-            with open('usernames.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'usernames.json'), 'r', encoding='UTF-8') as file:
                 usernames = json.load(file)
         except FileNotFoundError:
             usernames = []
 
         if username not in usernames:
             usernames.append(username)
-            with open('usernames.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'usernames.json'), 'w', encoding='UTF-8') as file:
                 json.dump(usernames, file)
 
     @staticmethod
@@ -129,14 +129,14 @@ class NameWindow(QMainWindow):
         }
 
         try:
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
         except FileNotFoundError:
             progreso = {}
 
         if username not in progreso:
             progreso[username] = progreso_inicial
-            with open('progreso.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
     def show_survey(self):
@@ -246,7 +246,7 @@ class NameWindow(QMainWindow):
     def agregar_usuario_leccion_completada(username):
         # Añadir usuario a leccion_completada.json
         try:
-            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
         except Exception as e:
             print(f"Error archivo: {e}")
@@ -262,7 +262,7 @@ class NameWindow(QMainWindow):
                     "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)}
                 }
 
-                with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+                with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
                     json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -278,7 +278,7 @@ class NameWindow(QMainWindow):
     def update_current_user(username):
         try:
             current_user = {"current_user": username}
-            with open('current_user.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'w', encoding='UTF-8') as file:
                 json.dump(current_user, file)
         except Exception as e:
             print(f"Error al actualizar current_user.json: {e}")
