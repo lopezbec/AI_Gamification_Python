@@ -559,4 +559,3 @@ if __name__ == "__main__":
     intro_pages.showMaximized()
     app.exec()
     open_main_window()
-    
