@@ -12,6 +12,14 @@ from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
 
 
+class JsonLoader:
+    @staticmethod
+    def load_active_widgets():
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "active_widgets", "game_elements_visibility.json")) as active_widgets:
+            widgets = json.load(active_widgets)
+        return widgets
+
+
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -20,7 +28,7 @@ class UserGuideDialog(QtWidgets.QDialog):
         self.setGeometry(100, 100, 800, 600)
 
         layout = QtWidgets.QVBoxLayout(self)
-        label = QtWidgets.QLabel("Sistema de puntos:\nCompletar una página = 1 punto\nResponder respuesta correctamente al primer intento = 2 puntos\nResponder respuesta correctamente al segundo o más intentos = 1 punto\nFinalizar una lessión = 5 puntos")
+        label = QtWidgets.QLabel("""Sistema de puntos:\nCompletar una página = 1 punto\nResponder respuesta correctamente al primer intento = 2 puntos\nResponder respuesta correctamente al segundo o más intentos = 1 punto\nFinalizar una lessión = 5 puntos""")
         label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(label)
 
@@ -119,18 +127,20 @@ class MainWindow(QtWidgets.QMainWindow):
         button_reset_layout = QtWidgets.QVBoxLayout()
 
         # Botón Leaderboard
-        leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
-        leaderboard_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
-        leaderboard_btn.clicked.connect(self.abrir_leaderboard)
-        leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))
-        button_layout.addWidget(leaderboard_btn)
+        if JsonLoader.load_active_widgets().get("Leaderboard", True):   
+            leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
+            leaderboard_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            leaderboard_btn.clicked.connect(self.abrir_leaderboard)
+            leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))
+            button_layout.addWidget(leaderboard_btn)
 
         # Botón Guía de usuarios
-        guia_usuario_btn = QtWidgets.QPushButton("Guía de usuarios")
-        guia_usuario_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
-        guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
-        guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
-        button_layout.addWidget(guia_usuario_btn)
+        if JsonLoader.load_active_widgets().get("points", True):
+            guia_usuario_btn = QtWidgets.QPushButton("Guía de usuarios")
+            guia_usuario_btn.setStyleSheet(f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
+            guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
+            button_layout.addWidget(guia_usuario_btn)
 
         modulos_btn = self.setup_modulos_menu()
         button_layout.addWidget(modulos_btn)  # Añade modulos_btn al button_layout
