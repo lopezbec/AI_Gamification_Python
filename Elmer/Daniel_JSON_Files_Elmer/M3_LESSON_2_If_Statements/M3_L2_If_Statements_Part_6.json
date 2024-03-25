@@ -8,7 +8,7 @@
                     "text": "Pon en práctica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "¡En el punto de ebullición! - Escriba un programa que compruebe si el agua está hirviendo."
                 }
             ]
@@ -28,7 +28,7 @@
                     "text": "Pista: No saque nada si el agua no está hirviendo."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Entrada de muestra: 105\nSalida de muestra: Hirviendo"
                 },
                 {
