@@ -525,3 +525,23 @@ Correct Answer Selected: print(729),12:42:36
 Parte 5,12:42:40
 Checkbox Selected: comillas '' ,12:42:40
 
+Parte 1,15:16:55
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,15:16:55
+Parte 3,15:17:01
+Checkbox Selected: Verdadero,15:17:02
+Parte 4,15:17:06
+Incorrect Answer Selected: run(729),15:17:06
+Correct Answer Selected: print(729),15:17:08
+Parte 5,15:17:09
+Checkbox Selected: comillas '' ,15:17:12
+
+Parte 1,15:35:30
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,15:35:30
+Parte 3,15:35:33
+Checkbox Selected: Verdadero,15:35:33
+Parte 4,15:35:33
+Incorrect Answer Selected: <Espacio para respuesta>(729),15:35:33
+Correct Answer Selected: print(729),15:35:50
+Parte 5,15:35:53
+Checkbox Selected: comillas '' ,15:35:53
+
