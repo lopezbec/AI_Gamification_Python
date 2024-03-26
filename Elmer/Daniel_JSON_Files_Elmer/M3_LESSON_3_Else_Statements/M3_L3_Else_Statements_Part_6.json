@@ -8,7 +8,7 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Declaración else - Escriba un programa para controlar la entrada a un club para que solo los huéspedes mayores de 18 años puedan ingresar."
                 }
             ]
@@ -24,7 +24,7 @@
                     "text": "Escribir un programa para controlar la entrada a un club. Solo las personas mayores de 18 años pueden ingresar al club. Su programa toma la edad de la persona que intenta ingresar y\nmuestra ' Permitido ' si se le permite ingresar al club, y ' Perdón ' si es menor de la edad permitida."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Entrada de muestra: 24\nSalida de muestra: Permitido"
                 },
                 {

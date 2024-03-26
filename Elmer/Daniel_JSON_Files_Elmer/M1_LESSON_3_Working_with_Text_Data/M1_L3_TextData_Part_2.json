@@ -9,7 +9,7 @@
                     "text": "Seleccione todas las opciones que representan una cadena: "
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Seleccione todas las respuestas correctas."
                 }
             ],

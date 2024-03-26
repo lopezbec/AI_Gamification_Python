@@ -8,7 +8,7 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Bingo - Dada una lista de números, genera 'bingo' si contiene el número de entrada."
                 }
             ]

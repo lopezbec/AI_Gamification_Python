@@ -24,7 +24,7 @@
                     "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Equipo de futbol - Crea un programa para calcular y generar el total de puntos ganados por un equipo de futbol. Continua con la siguiente leccion para ver mas"
                 }
             ]

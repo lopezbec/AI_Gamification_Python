@@ -8,7 +8,7 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Lista de Números - Dada una lista de números, calcule su suma usando un ciclo for."
                 }
             ]

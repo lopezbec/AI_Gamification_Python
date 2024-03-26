@@ -8,7 +8,7 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Listas - Escriba un programa que tome una cadena de entrada y emita el tercer carácter de la cadena."
                 }
             ]

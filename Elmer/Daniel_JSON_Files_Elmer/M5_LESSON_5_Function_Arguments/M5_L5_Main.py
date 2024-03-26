@@ -640,20 +640,34 @@ class MainWindow(QWidget):
             self.time_log_data.append({"event": event, "time": event_time})
 
     def save_log(self, log_type="time"):
+        user = self.load_current_user()
+        if user is None:
+            print("Usuario no encontrado.")
+            return
+
+        # Ajustar el nombre del archivo según el tipo de log
+        if log_type == "time":
+            filename = f"{user}_Respuestas_M5_L5.csv"
+        else:
+            filename = f"{user}_Times_M5_L5.csv"
+
+        # Crear la carpeta Usuarios_respuestas_lecciones si no existe
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        user_logs_dir = os.path.join(parent_dir, 'Usuarios_respuestas_lecciones')
+
+        # Crear una subcarpeta para el usuario
+        user_folder = os.path.join(user_logs_dir, f"Usuario {user}")
+        if not os.path.exists(user_folder):
+            os.makedirs(user_folder)
+
+        # Guardar el archivo en la subcarpeta del usuario
+        filepath = os.path.join(user_folder, filename)
+
         fieldnames = ['event', 'time']
-        filename = "M5_l4_Time.csv" if log_type == "time" else "M5_l4_Entradas_Salidas_Clics.csv"
-        log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
-
-        # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('M5_LESSON_5_Function_Arguments'):
-            os.makedirs('M5_LESSON_5_Function_Arguments')
-
-        # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('M5_LESSON_5_Function_Arguments', filename)
-
         with open(filepath, mode="a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             if csv_file.tell() == 0: writer.writeheader()
+            log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
             for log in log_data: writer.writerow(log)
             csv_file.write('\n')
 
