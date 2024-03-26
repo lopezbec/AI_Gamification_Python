@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nm = [\n    [1, 2, 3],\n    [4, 5, 6]\n]"
+                    "text": "\nm = [\n    [1, 2, 3],\n    [4, 5, 6]\n]"
                 },
                 {
                     "type": "hint",
@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = ___42, 55, 67]\nprint(list[___])"
+                    "text": "\nlist = ___42, 55, 67]\nprint(list[___])"
                 }
             ],
             "answers": [

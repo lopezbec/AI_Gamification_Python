@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nstr = 'some text goes here'\nx = str.split(' ')\nprint(x)"
+                    "text": "\nstr = 'some text goes here'\nx = str.split(' ')\nprint(x)"
                 },
                 {
                     "type": "hint",
@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = x.___(' ')\nres = words[___]\n___(res)"
+                    "text": "\nwords = x.___(' ')\nres = words[___]\n___(res)"
                 }
             ],
             "answers": [

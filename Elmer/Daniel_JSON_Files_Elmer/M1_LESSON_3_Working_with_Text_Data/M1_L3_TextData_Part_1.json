@@ -13,7 +13,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(2.71) \nprint(Octubre)\n>2.71\n>NameError: name 'Octubre' is not defined"
+                    "text": "\nprint(2.71) \nprint(Octubre)\n>2.71\n>NameError: name 'Octubre' is not defined"
                 }
             ]
         }
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Soy una cadena')\n>Soy una cadena"
+                    "text": "\nprint('Soy una cadena')\n>Soy una cadena"
                 },
                 {
                     "type": "hint",

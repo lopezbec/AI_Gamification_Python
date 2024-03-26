@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef doble(a, b):\n\treturn [a*2, b*2]\n\nx = double(6, 9)\nprint(x)\n"
+                    "text": "\ndef doble(a, b):\n\treturn [a*2, b*2]\n\nx = double(6, 9)\nprint(x)\n"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef calc(x, y):\n\treturn [x+y, x*y]\n\n\nres = calc(3, 4)\nprint(res[1])"
+                    "text": "\ndef calc(x, y):\n\treturn [x+y, x*y]\n\n\nres = calc(3, 4)\nprint(res[1])"
                 }
             ],
             "answers": [
