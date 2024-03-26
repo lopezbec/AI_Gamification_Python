@@ -1,4 +1,5 @@
 {
+    
     "pedagogical": [
         {
             "title": "Programación",
@@ -21,27 +22,19 @@
 
     "pedagogical2": [
         {
-            "title": "Salida",
+            "title": "Code Playground",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "El comando o instrucción print es la forma mas fácil de enviar un mensaje especifico a la pantalla u otro dispositivo de visualización."
-                },
-                {
-                    "type": "info",
-                    "text": "Este mensaje o salida puede ser un numero, texto o el resultado de un cálculo."
-                },
-                {
-                    "type": "info",
-                    "text": "Syntax:"
+                    "text": "Listo para escribir, ejecutar y probar código real? Abre Code Playground. Luego presione 'Ejecutar' para ver el resultado en la parte inferior de la pantalla."
                 },
                 {
                     "type": "Consola",
-                    "text": "\nprint(60)\n>60"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Bienvenido al Code playground')\n>Bienvenido al Code playground"
                 },
                 {
-                    "type": "hint",
-                    "text": "La declaración print siempre va seguida de paréntesis que contienen la salida que queremos generar."
+                    "type": "info",
+                    "text": "El código nos permite dar instrucciones a las maquinas. Presionamos 'Ejecutar' cuando nuestras instrucciones están listas para ser ejecutadas. Esto frecuentemente resulta en la salida que podemos ver en la parte inferior de la pantalla."
                 }
             ]
         }
