@@ -996,10 +996,12 @@ class MainWindow(QWidget):
             self.actualizar_progreso_usuario('Modulo3', 'Leccion1')
             self.actualizar_leccion_completada('Modulo3', 'Leccion1')
 
+            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         else:
             print("¡La leccion no se completó, se cerró!.")
+            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         if next_index == self.highest_page_reached and self.is_rollback == True:
@@ -1017,6 +1019,7 @@ class MainWindow(QWidget):
         self.dashboard = Dashboard()
         self.dashboard.showMaximized()
         # Luego, cierra la ventana normalmente
+        drag_drop.DraggableLabel.reset_draggable_labels()
         super().closeEvent(event)
 
 def M3_L1_Main():

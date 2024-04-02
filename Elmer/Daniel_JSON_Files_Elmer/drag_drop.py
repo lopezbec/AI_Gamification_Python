@@ -28,6 +28,9 @@ class DraggableLabel(QLabel):
 
             drag.exec(Qt.DropAction.MoveAction)
 
+    @staticmethod
+    def reset_draggable_labels():
+        DraggableLabel.draggable_labels = []
 class DropLabel(QWidget):
     def __init__(self, text, styles, question_type=None, multiple=False):
         super().__init__()
@@ -75,13 +78,13 @@ class DropLabel(QWidget):
 
             # Se verificaran si hay texto dropeado anteriormente y si se aceptan respuestas multiples (que no deberia)
             if self.dropped_text is not None and is_dropped_text and not self.multiple:
-                current_text = area_text.replace(last_drop_label_text, new_dropped_text)
+                current_text = area_text.replace(last_drop_label_text, new_dropped_text, 1)
                 self.dropped_text = current_text
                 self.drop_area.setText(current_text)
             
             # por si no dropped text es nulo pero si se ha dropeado texto y si se aceptan respuestas multiples (que no deberia)
             elif self.dropped_text is None and is_dropped_text and not self.multiple:
-                current_text = area_text.replace(last_drop_label_text, new_dropped_text)
+                current_text = area_text.replace(last_drop_label_text, new_dropped_text, 1)
                 self.dropped_text = current_text
                 self.drop_area.setText(current_text)
             
@@ -93,9 +96,9 @@ class DropLabel(QWidget):
 
     def find_drop_label_text_in_area(self):
         texto_area = self.drop_area.text()
-
         # Buscar coincidencias entre los textos/respuestas de la lista draggable_labels y el texto del área DropLabel
         for palabra in DraggableLabel.draggable_labels:
             if palabra in texto_area:
                 return True, palabra
         return False, None
+    

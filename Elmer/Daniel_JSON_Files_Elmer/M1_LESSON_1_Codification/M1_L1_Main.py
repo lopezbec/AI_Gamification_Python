@@ -1031,10 +1031,12 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion1')
             self.actualizar_leccion_completada('Modulo1', 'Leccion1')
+            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         else:
             print("¡La leccion no se completó, se cerró!.")
+            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         if next_index == self.highest_page_reached and self.is_rollback == True:
@@ -1051,7 +1053,9 @@ class MainWindow(QWidget):
     def closeEvent(self, event):
         self.dashboard = Dashboard()
         self.dashboard.showMaximized()
+        drag_drop.DraggableLabel.reset_draggable_labels()
         # Luego, cierra la ventana normalmente
+        drag_drop.DraggableLabel.reset_draggable_labels()
         super().closeEvent(event)
 
 
