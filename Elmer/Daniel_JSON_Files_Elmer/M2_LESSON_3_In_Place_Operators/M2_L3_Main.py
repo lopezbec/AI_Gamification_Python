@@ -378,7 +378,7 @@ class JsonWindow(QWidget):
                 console_layout.setContentsMargins(5, 5, 5, 5)
                 console_label = QLabel(block["text"])
                 console_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['cmd_font_size_normal']}px;")
                 console_label.setWordWrap(True)
                 console_layout.addWidget(console_label)
 
