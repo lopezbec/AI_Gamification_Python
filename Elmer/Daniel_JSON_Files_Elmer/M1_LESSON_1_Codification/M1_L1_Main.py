@@ -1053,7 +1053,6 @@ class MainWindow(QWidget):
     def closeEvent(self, event):
         self.dashboard = Dashboard()
         self.dashboard.showMaximized()
-        drag_drop.DraggableLabel.reset_draggable_labels()
         # Luego, cierra la ventana normalmente
         drag_drop.DraggableLabel.reset_draggable_labels()
         super().closeEvent(event)

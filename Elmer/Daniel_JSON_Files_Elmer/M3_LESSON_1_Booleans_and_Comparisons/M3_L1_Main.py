@@ -995,7 +995,6 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo3', 'Leccion1')
             self.actualizar_leccion_completada('Modulo3', 'Leccion1')
-
             drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
