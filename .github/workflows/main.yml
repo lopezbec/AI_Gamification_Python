@@ -12,15 +12,10 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Debug Environment Variables
-      run: |
-        echo "RUNNER_TOOL_CACHE: $RUNNER_TOOL_CACHE"
-        echo "AGENT_TOOLSDIRECTORY: $AGENT_TOOLSDIRECTORY"
-
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.7.1'
+        python-version: '3.7.13'
 
     - name: Install dependencies
       run: pip install pyinstaller
