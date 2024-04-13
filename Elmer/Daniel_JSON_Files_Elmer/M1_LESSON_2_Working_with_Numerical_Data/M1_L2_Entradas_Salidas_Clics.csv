@@ -1,0 +1,111 @@
+event,time
+Parte 2,16:43:13
+Correct Answer Selected: +,16:43:13
+Parte 3,16:43:22
+Correct Answer Selected: print(42 * 3),16:43:22
+Parte 4,16:43:27
+Correct Answer Selected: 4.0,16:43:27
+Parte 5,16:43:43
+Correct Answer Selected: Entero:2,16:43:43
+Correct Answer Selected: Flotante:3.14,16:43:43
+
+Parte 2,21:00:10
+Correct Answer Selected: +,21:00:10
+Parte 3,21:00:20
+Correct Answer Selected: print(42 * 3),21:00:20
+Parte 4,21:00:24
+Correct Answer Selected: 4.0,21:00:24
+Parte 5,21:00:28
+Correct Answer Selected: Entero:2,21:00:28
+Correct Answer Selected: Flotante:3.14,21:00:28
+
+Parte 2,22:21:44
+Correct Answer Selected: +,22:21:44
+Parte 3,22:22:03
+Correct Answer Selected: print(42 * 3),22:22:03
+Parte 4,22:22:07
+Correct Answer Selected: 4.0,22:22:07
+Parte 5,22:22:22
+Correct Answer Selected: Entero:2,22:22:22
+Correct Answer Selected: Flotante:3.14,22:22:22
+
+Parte 2,16:02:36
+Incorrect Answer Selected: *,16:02:36
+Correct Answer Selected: +,16:02:43
+Parte 3,16:02:58
+Correct Answer Selected: print(42 * 3),16:02:58
+Parte 4,16:03:02
+Correct Answer Selected: 4.0,16:03:02
+Parte 5,16:03:15
+Correct Answer Selected: Entero:2,16:03:15
+Correct Answer Selected: Flotante:3.14,16:03:15
+
+Parte 2,10:37:40
+Correct Answer Selected: +,10:37:40
+Parte 3,10:37:52
+Correct Answer Selected: print(42 * 3),10:37:52
+Parte 4,10:38:01
+Correct Answer Selected: 4.0,10:38:01
+Parte 5,10:38:20
+Correct Answer Selected: Entero:2,10:38:20
+Correct Answer Selected: Flotante:3.14,10:38:20
+
+Parte 2,20:01:56
+Correct Answer Selected: +,20:01:56
+Parte 3,20:02:06
+Correct Answer Selected: print(42 * 3),20:02:06
+Parte 4,20:02:08
+Correct Answer Selected: 4.0,20:02:11
+Parte 5,20:02:13
+Incorrect Answer Selected: Entero:<Espacio para respuesta>,20:02:13
+Incorrect Answer Selected: Flotante:<Espacio para respuesta>,20:02:13
+Correct Answer Selected: Entero:2,20:02:17
+Correct Answer Selected: Flotante:3.14,20:02:17
+
+Parte 2,12:06:22
+Correct Answer Selected: +,12:06:22
+Parte 3,12:06:28
+Correct Answer Selected: print(42 * 3),12:06:28
+Parte 4,12:06:32
+Correct Answer Selected: 4.0,12:06:32
+Parte 5,12:06:36
+Correct Answer Selected: Entero:2,12:06:36
+Correct Answer Selected: Flotante:3.14,12:06:36
+
+Parte 2,12:19:28
+Correct Answer Selected: +,12:19:28
+Blank Space Selected,12:19:30
+Correct Answer Selected: +,12:19:31
+Parte 3,12:20:38
+Correct Answer Selected: print(42 * 3),12:20:38
+Parte 4,12:20:41
+Correct Answer Selected: 4.0,12:20:41
+Parte 5,12:20:42
+Incorrect Answer Selected: Entero:<Espacio para respuesta>,12:20:42
+Incorrect Answer Selected: Flotante:<Espacio para respuesta>,12:20:42
+Correct Answer Selected: Entero:2,12:20:44
+Correct Answer Selected: Flotante:3.14,12:20:44
+
+Parte 2,21:04:29
+Incorrect Answer Selected: *,21:04:29
+Incorrect Answer Selected: -,21:04:33
+Correct Answer Selected: +,21:04:36
+Parte 3,21:04:50
+Correct Answer Selected: print(42 * 3),21:04:50
+Parte 4,21:05:09
+Correct Answer Selected: 4.0,21:05:09
+Parte 5,21:05:33
+Correct Answer Selected: Entero:2,21:05:33
+Correct Answer Selected: Flotante:3.14,21:05:33
+
+Parte 2,15:19:10
+Correct Answer Selected: +,15:19:10
+Parte 3,15:19:22
+Incorrect Answer Selected: print(42 # 3),15:19:22
+Correct Answer Selected: print(42 * 3),15:19:24
+Parte 4,15:19:28
+Correct Answer Selected: 4.0,15:19:28
+Parte 5,15:20:20
+Correct Answer Selected: Entero:2,15:20:20
+Correct Answer Selected: Flotante:3.14,15:20:20
+

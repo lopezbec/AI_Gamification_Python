@@ -1,0 +1,43 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Comentarios",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puede agregar comentarios a su código para agregar anotaciones y explicaciones. Los comentarios hacen que el código sea mas fácil de entender para los humanos. \nLas computadoras ignoran los comentarios. Un comentario en Python comienza con # :"
+                },
+
+                {
+                    "type": "Consola",
+                    "text": "\n#The line below adds two numbers \nprint(47+14)\n>61\n"
+                },
+                {
+                    "type": "hint",
+                    "text": "Los comentarios no afectan la forma en que se ejecuta el código o la salida que produce. Los comentarios generalmente explican lo que hace el código."
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para agregar un comentario que explique el código."
+                },
+                {
+                    "type": "Consola",
+                    "text": "_Outputs a message \nprint('Have a good day!')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "#",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

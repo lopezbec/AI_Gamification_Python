@@ -1,0 +1,52 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multiplechoiceplus": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Seleccione todas las opciones que representan una cadena: "
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Seleccione todas las respuestas correctas."
+                }
+            ],
+            "answers": [
+                {
+                    "text": "0",
+                    "correct": false
+                },
+                {
+                    "text": "55.8",
+                    "correct": false
+                },
+                {
+                    "text": "'Viernes'",
+                    "correct": true
+                },
+                {
+                    "text": "'The Lord of the Rings'",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [ 
+        {
+            "title": "Concatenación",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "En Python, algunos operadores aritméticos también se pueden aplicar a cadenas. Podemos unir dos cadenas, también conocido como concatenación , de la siguiente forma:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint('Parque ' + ' temático')\n>Parque temático"
+                }
+            ]
+        }
+    ]
+}

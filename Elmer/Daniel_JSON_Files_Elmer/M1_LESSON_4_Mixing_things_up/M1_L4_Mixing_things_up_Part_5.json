@@ -10,7 +10,7 @@
 
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n#The line below adds two numbers \nprint(47+14)\n>61\n"
+                    "text": "\n#The line below adds two numbers \nprint(47+14)\n>61\n"
                 },
                 {
                     "type": "hint",

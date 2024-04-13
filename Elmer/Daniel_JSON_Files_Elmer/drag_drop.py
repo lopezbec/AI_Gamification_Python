@@ -8,9 +8,11 @@ def create_pixmap_from_label(label):
     return pixmap
 
 class DraggableLabel(QLabel):
+    draggable_labels = []
     def __init__(self, text):
         super().__init__(text)
         self.setAcceptDrops(False)
+        DraggableLabel.draggable_labels.append(text)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
@@ -26,6 +28,9 @@ class DraggableLabel(QLabel):
 
             drag.exec(Qt.DropAction.MoveAction)
 
+    @staticmethod
+    def reset_draggable_labels():
+        DraggableLabel.draggable_labels = []
 class DropLabel(QWidget):
     def __init__(self, text, styles, question_type=None, multiple=False):
         super().__init__()
@@ -61,16 +66,39 @@ class DropLabel(QWidget):
 
     def dropEvent(self, event):
         new_dropped_text = event.mimeData().text()
+        area_text = self.drop_area.text()
         if len(self.dropped_texts) < len(self.base_text_parts) - 1:
             self.dropped_texts.append(new_dropped_text)
             self.drop_area.setText(self.get_current_text())
+            
         else:
             # Manejo para cuando solo se permite una respuesta
-            if self.dropped_text is not None:
-                current_text = self.drop_area.text().replace(self.dropped_text, "<Espacio para respuesta>", 1)
-                self.drop_area.setText(current_text)
+            # se maneja tambien el que se sobreescriba una respuesta de los DraggableLabel correctamente
+            is_dropped_text, last_drop_label_text = self.find_drop_label_text_in_area()
 
-            self.dropped_text = new_dropped_text
-            self.drop_area.setText(self.get_current_text())
+            # Se verificaran si hay texto dropeado anteriormente y si se aceptan respuestas multiples (que no deberia)
+            if self.dropped_text is not None and is_dropped_text and not self.multiple:
+                current_text = area_text.replace(last_drop_label_text, new_dropped_text, 1)
+                self.dropped_text = current_text
+                self.drop_area.setText(current_text)
+            
+            # por si no dropped text es nulo pero si se ha dropeado texto y si se aceptan respuestas multiples (que no deberia)
+            elif self.dropped_text is None and is_dropped_text and not self.multiple:
+                current_text = area_text.replace(last_drop_label_text, new_dropped_text, 1)
+                self.dropped_text = current_text
+                self.drop_area.setText(current_text)
+            
+            #para controlar los DropLabel de respuestas multiples que no aplican y cualquier otro escenario no previsto
+            else:
+                pass
 
         event.acceptProposedAction()
+
+    def find_drop_label_text_in_area(self):
+        texto_area = self.drop_area.text()
+        # Buscar coincidencias entre los textos/respuestas de la lista draggable_labels y el texto del área DropLabel
+        for palabra in DraggableLabel.draggable_labels:
+            if palabra in texto_area:
+                return True, palabra
+        return False, None
+    

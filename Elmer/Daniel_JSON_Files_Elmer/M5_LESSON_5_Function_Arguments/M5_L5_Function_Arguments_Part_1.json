@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")"
+                    "text": "\ndef exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef imprimir_doble(x):\n\tprint(2 * x)\n\nimprimir_doble(3)"
+                    "text": "\ndef imprimir_doble(x):\n\tprint(2 * x)\n\nimprimir_doble(3)"
                 }
             ],
             "answers": [

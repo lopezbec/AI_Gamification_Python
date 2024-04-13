@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Hello world!')\nrange(2, 20)\nstr(12)\nrange(10, 20, 3)"
+                    "text": "\nprint('Hello world!')\nrange(2, 20)\nstr(12)\nrange(10, 20, 3)"
                 }
             ]
         }

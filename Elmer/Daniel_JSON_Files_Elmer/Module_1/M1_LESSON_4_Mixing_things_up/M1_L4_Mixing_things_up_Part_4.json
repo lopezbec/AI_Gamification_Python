@@ -1,0 +1,54 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Separadores de salida",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Al imprimir multiples salidas, puede personalizar el separador usando el parámetro sep\n El código a continuación ya está ejecutado mire el resultado."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(2.71) \nprint('Iron', 'Man', sep ='-')\n>Iron-Man"
+                },
+                {
+                    "type": "hint",
+                    "text": "El parámetro sep siempre debe definirse después de los valores en el comando de impresión."
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastrar y soltar para generar Spain-Madrid"
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "sep",
+                    "text": "print('Spain', 'Madrid',____='-')"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "'-'",
+                    "text": "print('Spain', 'Madrid',sep='____')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "-",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "sep",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ]
+}

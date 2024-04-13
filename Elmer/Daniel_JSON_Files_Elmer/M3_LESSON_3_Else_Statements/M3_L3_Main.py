@@ -23,21 +23,30 @@ from command_line_UI import App
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M3_LESSON_3_Else_Statements/' + filename, encoding='UTF-8') as json_file:
-            data = json.load(json_file)
-        return data
+        try:
+            with open(filename, encoding='UTF-8') as json_file:
+                data = json.load(json_file)
+            return data
+        except Exception as e:
+            print(f"error load_json_data: {e}")
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
-            styles = json.load(styles_file)
-        return styles
+        try:
+            with open(print(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json"))) as styles_file:
+                styles = json.load(styles_file)
+            return styles
+        except Exception as e:
+            print(f"error in load_json_styles: {e}")
 
     @staticmethod
     def load_active_widgets():
-        with open("./active_widgets/game_elements_visibility.json") as active_widgets:
-            widgets = json.load(active_widgets)
-        return widgets
+        try:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
+                widgets = json.load(active_widgets)
+            return widgets
+        except Exception as e:
+            print(f"error en load_active_widgets: {e}")
 
 class JsonWindow(QWidget):
     def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
@@ -377,7 +386,7 @@ class JsonWindow(QWidget):
                 console_layout.setContentsMargins(5, 5, 5, 5)
                 console_label = QLabel(block["text"])
                 console_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['cmd_font_size_normal']}px;")
                 console_label.setWordWrap(True)
                 console_layout.addWidget(console_label)
 
@@ -487,7 +496,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
                                          page.get("lesson_completed", False), main_window=self)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
@@ -999,10 +1008,12 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo3', 'Leccion3')
             self.actualizar_leccion_completada('Modulo3', 'Leccion3')
+            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         else:
             print("¡La leccion no se completó, se cerró!.")
+            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         if next_index == self.highest_page_reached and self.is_rollback == True:
@@ -1020,6 +1031,7 @@ class MainWindow(QWidget):
         self.dashboard = Dashboard()
         self.dashboard.showMaximized()
         # Luego, cierra la ventana normalmente
+        drag_drop.DraggableLabel.reset_draggable_labels()
         super().closeEvent(event)
 
 def M3_L3_Main():

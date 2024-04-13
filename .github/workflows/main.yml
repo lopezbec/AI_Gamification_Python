@@ -1,0 +1,24 @@
+name: Build Executable
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.7.13'
+
+    - name: Install dependencies
+      run: pip install pyinstaller
+
+    - name: Build Executable
+      run: pyinstaller Elmer/Daniel_JSON_Files_Elmer/Main_Modulos_Intro_Pages.spec

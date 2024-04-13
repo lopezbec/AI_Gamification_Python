@@ -28,13 +28,13 @@ class App(QWidget):
         layout = QVBoxLayout()
 
         self.instr_label: QLabel = QLabel(self)
-        self.instr_label.setText('Escribe tu líneas de código aquí abajo, y luego has click en el botón de "Correr"')
+        self.instr_label.setText('Escribe tu líneas de código aquí abajo, y luego has click en el botón de "Ejecutar"')
         layout.addWidget(self.instr_label)
         
         self.textbox: QTextEdit = QTextEdit(self)
         layout.addWidget(self.textbox)
 
-        self.run_button: QPushButton = QPushButton('Correr', self)
+        self.run_button: QPushButton = QPushButton('Ejecutar', self)
         self.run_button.clicked.connect(self.exec_text_input)
         layout.addWidget(self.run_button)
 
@@ -43,7 +43,7 @@ class App(QWidget):
         layout.addWidget(self.result_display)
 
         self.setLayout(layout)
-        self.setWindowTitle('Correr código')
+        self.setWindowTitle('Ejecutar código')
         self.show()
 
     def close_window(self):
