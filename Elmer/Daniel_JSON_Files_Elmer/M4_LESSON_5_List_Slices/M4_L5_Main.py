@@ -411,6 +411,7 @@ class JsonWindow(QWidget):
         self.layout.addLayout(self.commandLineWidgetPlaceholder)
 
     def openCommandLineUI(self, text):
+        self.main_window.log_event("Playground Page Open", event_type="time")
         # Verificar si el widget ya ha sido creado y, si no, crearlo y añadirlo al layout.
         if not hasattr(self, 'commandLineWidget'):
             # Suponiendo que 'App' es una subclase de QWidget
@@ -424,6 +425,7 @@ class JsonWindow(QWidget):
             self.hideButton.clicked.connect(self.hideCommandLineWidget)
             self.commandLineWidgetPlaceholder.addWidget(self.hideButton)
             self.execute_button.hide()
+
         # Si el widget ya existe, mostrarlo si está oculto
         else:
             self.commandLineWidget.show()
@@ -431,6 +433,7 @@ class JsonWindow(QWidget):
             self.execute_button.hide()
 
     def hideCommandLineWidget(self):
+        self.main_window.log_event("Playground Page Close", event_type="time")
         # Esta función oculta el widget de la línea de comandos y el botón de ocultar.
         self.commandLineWidget.hide()
         self.hideButton.hide()
@@ -653,36 +656,47 @@ class MainWindow(QWidget):
         else:
             self.time_log_data.append({"event": event, "time": event_time})
 
-    def save_log(self, log_type="time"):
+    def save_log(self, modulo, leccion):
         user = self.load_current_user()
         if user is None:
             print("Usuario no encontrado.")
             return
 
-        # Ajustar el nombre del archivo según el tipo de log
-        if log_type == "time":
-            filename = f"{user}_Respuestas_M4_L5.csv"
-        else:
-            filename = f"{user}_Times_M4_L5.csv"
-
-        # Crear la carpeta Usuarios_respuestas_lecciones si no existe
+        filename = f"{user}_Respuestas_Tiempos.csv"
         parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         user_logs_dir = os.path.join(parent_dir, 'Usuarios_respuestas_lecciones')
+        if not os.path.exists(user_logs_dir):
+            os.makedirs(user_logs_dir)
 
-        # Crear una subcarpeta para el usuario
-        user_folder = os.path.join(user_logs_dir, f"Usuario {user}")
-        if not os.path.exists(user_folder):
-            os.makedirs(user_folder)
-
-        # Guardar el archivo en la subcarpeta del usuario
-        filepath = os.path.join(user_folder, filename)
+        filepath = os.path.join(user_logs_dir, filename)
 
         fieldnames = ['event', 'time']
-        with open(filepath, mode="a", newline="") as csv_file:
+        with open(filepath, mode="a", newline="", encoding='utf-8') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            if csv_file.tell() == 0: writer.writeheader()
-            log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
-            for log in log_data: writer.writerow(log)
+            writer.writerow({'event': f"Modulo {modulo}, Leccion {leccion}", 'time': ''})
+
+            # Escribe la cabecera si es un archivo nuevo
+            if csv_file.tell() == 0:
+                writer.writeheader()
+                # Escribe el módulo y la lección al inicio
+                csv_file.write(f"Modulo {modulo}, Leccion {leccion}\n")
+
+            combined_log_data = self.time_log_data + self.mouse_log_data
+            combined_log_data.sort(key=lambda x: x['time'])
+
+            parte_actual = ""
+            for log in combined_log_data:
+                # Verifica si el evento es un inicio de "Parte X"
+                if log['event'].startswith('Parte'):
+                    if log['event'] == parte_actual:
+                        # Omite la escritura si ya se registró el inicio de esta parte
+                        continue
+                    else:
+                        # Actualiza la parte actual y escribe el evento
+                        parte_actual = log['event']
+
+                writer.writerow(log)
+
             csv_file.write('\n')
 
     def load_page_order(self):
@@ -997,8 +1011,7 @@ class MainWindow(QWidget):
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()
             self.terminar_button.show()
-            self.save_log(log_type="time")
-            self.save_log(log_type="mouse")
+            self.save_log(modulo=4, leccion=5)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo4', 'Leccion5')

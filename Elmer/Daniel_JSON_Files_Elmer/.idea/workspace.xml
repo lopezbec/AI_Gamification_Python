@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M1_LESSON_1_Codification/M1_L1_Entradas_Salidas_Clics.csv" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_1_Codification/M1_L1_Entradas_Salidas_Clics.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M1_LESSON_1_Codification/M1_L1_Time.csv" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_1_Codification/M1_L1_Time.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Modulos_Intro_Pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Modulos_Intro_Pages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leccion_completada.json" beforeDir="false" afterPath="$PROJECT_DIR$/leccion_completada.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progreso.json" beforeDir="false" afterPath="$PROJECT_DIR$/progreso.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usernames.json" beforeDir="false" afterPath="$PROJECT_DIR$/usernames.json" afterDir="false" />
+    <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="Issue #71">
+      <changelist_data name="Elmerluis0129" email="113645268+elmerluis0129@users.noreply.github.com" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Elmerluis0129 &lt;113645268+elmerluis0129@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -43,31 +41,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.M1_L1_Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.M1_L4_Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.M2_L3_Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.M4_L1_Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.M4_L5_Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main_Modulos_Intro_Pages.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/AI_Gamification_Python/Elmer/Daniel_JSON_Files_Elmer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.M1_L1_Main.executor": "Run",
+    "Python.M1_L4_Main.executor": "Run",
+    "Python.M2_L3_Main.executor": "Run",
+    "Python.M4_L1_Main.executor": "Run",
+    "Python.M4_L5_Main.executor": "Run",
+    "Python.Main_Module_5.executor": "Run",
+    "Python.Main_Modulos_Intro_Pages.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/AI_Gamification_Python/Elmer/Daniel_JSON_Files_Elmer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\elmer\Escritorio\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer\Module 5 - Functions\LESSON_7_Comments_&amp;_Docstrings" />
@@ -209,6 +208,8 @@
       <workItem from="1710872913022" duration="17899000" />
       <workItem from="1710952146176" duration="3200000" />
       <workItem from="1711043912000" duration="2700000" />
+      <workItem from="1711131606590" duration="9751000" />
+      <workItem from="1712841861728" duration="15535000" />
     </task>
     <servers />
   </component>
@@ -228,6 +229,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Issue #71" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue #71" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M1_L2_Main.coverage" NAME="M1_L2_Main Coverage Results" MODIFIED="1703618483191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M1_LESSON_2_Working_with_Numerical_Data" />
@@ -237,7 +240,7 @@
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Module_5.coverage" NAME="Main_Module_5 Coverage Results" MODIFIED="1703643823818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\elmer\Escritorio\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1702247345342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Ejemplo___Seguridad.coverage" NAME="Ejemplo - Seguridad Coverage Results" MODIFIED="1697574769043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Module 5 - Functions" />
-    <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M1_L1_Main.coverage" NAME="M1_L1_Main Coverage Results" MODIFIED="1710887807044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M1_LESSON_1_Codification" />
+    <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M1_L1_Main.coverage" NAME="M1_L1_Main Coverage Results" MODIFIED="1711136543922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M1_LESSON_1_Codification" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Leaderboard_FV.coverage" NAME="Main_Leaderboard_FV Coverage Results" MODIFIED="1697901443401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Module 5 - Functions/Codigos_LeaderBoard" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M5_L1_Main.coverage" NAME="M5_L1_Main Coverage Results" MODIFIED="1700884065510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Module 5 - Functions/M5_LESSON_1_Functions" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Module_4.coverage" NAME="Main_Module_4 Coverage Results" MODIFIED="1700885948876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Module 4 - Lists" />
@@ -246,8 +249,8 @@
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M1_L5_Main.coverage" NAME="M1_L5_Main Coverage Results" MODIFIED="1708750073893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Lesson_1.coverage" NAME="Main_Lesson_1 Coverage Results" MODIFIED="1697833911212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Module 5 - Functions/LESSON_1_Functions" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$welcome_window.coverage" NAME="welcome_window Coverage Results" MODIFIED="1703622373738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Modulos_Intro_Pages.coverage" NAME="Main_Modulos_Intro_Pages Coverage Results" MODIFIED="1711052175330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M2_L3_Main.coverage" NAME="M2_L3_Main Coverage Results" MODIFIED="1710880989693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M2_LESSON_3_In_Place_Operators" />
+    <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Modulos_Intro_Pages.coverage" NAME="Main_Modulos_Intro_Pages Coverage Results" MODIFIED="1712865673459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M2_L3_Main.coverage" NAME="M2_L3_Main Coverage Results" MODIFIED="1712850505720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M2_LESSON_3_In_Place_Operators" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$command_line_UI.coverage" NAME="command_line_UI Coverage Results" MODIFIED="1703557958417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M1_LESSON_2_Working_with_Numerical_Data" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$M1_L4_Main.coverage" NAME="M1_L4_Main Coverage Results" MODIFIED="1710881808761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/M1_LESSON_4_Mixing_things_up" />
     <SUITE FILE_PATH="coverage/Daniel_JSON_Files_Elmer$Main_Module_2.coverage" NAME="Main_Module_2 Coverage Results" MODIFIED="1700878935649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Module 2 - Interacting with the User" />
