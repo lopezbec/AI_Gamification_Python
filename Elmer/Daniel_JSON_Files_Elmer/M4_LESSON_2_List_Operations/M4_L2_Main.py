@@ -556,7 +556,7 @@ class MainWindow(QWidget):
 
         self.button_layout = QHBoxLayout()
         self.button_layout.addWidget(self.back_button)
-        self.button_layout.addWidget(self.btn_open_console)
+        #self.button_layout.addWidget(self.btn_open_console)
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
@@ -626,16 +626,11 @@ class MainWindow(QWidget):
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
     def open_python_console(self):
-        self.SubmitHideContinueShow(True, False)
         try:
-            # Crear una instancia de la ventana de práctica
-            self.ventana_practica = CMDP()
-
-            # Mostrar la instancia de la ventana de práctica
-            self.ventana_practica.show()
-
+            print("Hay que eliminar este boton con esta funcion")
         except Exception as e:
             print(f"Error al abrir la consola de práctica: {e}")
+
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:

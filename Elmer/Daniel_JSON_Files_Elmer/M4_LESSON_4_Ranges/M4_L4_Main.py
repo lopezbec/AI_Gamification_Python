@@ -602,8 +602,10 @@ class MainWindow(QWidget):
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
 
     def open_python_console(self):
-        self.SubmitHideContinueShow(True, False)
-        print("La consola no está disponible por el momento.")
+        try:
+            print("Hay que eliminar este boton con esta funcion")
+        except Exception as e:
+            print(f"Error al abrir la consola de práctica: {e}")
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
