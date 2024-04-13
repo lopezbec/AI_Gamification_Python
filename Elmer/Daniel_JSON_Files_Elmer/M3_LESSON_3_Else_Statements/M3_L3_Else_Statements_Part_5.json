@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nnum = 8\nif num == 1:\n  print('One')\nelif num == 2:\n  print('Two')\nelif num == 3:\n  print('Three')\nelse:\n  print('Something else')\n>Something else"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 8\nif num == 1:\n  print('One')\nelif num == 2:\n  print('Two')\nelif num == 3:\n  print('Three')\nelse:\n  print('Something else')\n>Something else"
                 }
             ]
         }
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nnum = 42\n___ num < 0:\n  print('Negativo')\n___ num > 0:\n  print('Positive')\nelse___\n   print('Zero')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 42\n___ num < 0:\n  print('Negativo')\n___ num > 0:\n  print('Positive')\nelse___\n   print('Zero')"
                 }
             ],
             "answers": [

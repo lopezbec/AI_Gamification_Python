@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nage = int(input())\nprint(age)\n>?"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = int(input())\nprint(age)\n>?"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nx = input()\nprint(x)\n>?"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = input()\nprint(x)\n>?"
                 }
             ]
         }

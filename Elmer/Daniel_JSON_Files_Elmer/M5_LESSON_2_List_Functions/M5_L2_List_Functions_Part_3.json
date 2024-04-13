@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nnums = [1, 2, 3]\nnums.append(4)\nprint(nums)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nnums.append(4)\nprint(nums)"
                 },
                 {
                     "type": "hint",
@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nlist.___('z')\nprint(___.list())"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist.___('z')\nprint(___.list())"
                 }
             ],
             "answers": [

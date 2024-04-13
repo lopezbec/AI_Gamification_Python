@@ -21,4 +21,4 @@ jobs:
       run: pip install pyinstaller
 
     - name: Build Executable
-      run: pyinstaller Elmer/Daniel_JSON_Files_Elmer/Main_Modulos_Intro_Pages.spec
+      run: pyinstaller Elmer\Daniel_JSON_Files_Elmer\Main_Modulos_Intro_Pages.spec

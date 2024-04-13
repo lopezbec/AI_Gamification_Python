@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\ncountry = 'US'\nage = 42\n\nif(country == 'US' or country == 'GB') and (age > 0 and age < 100):\n  print('Cool')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ncountry = 'US'\nage = 42\n\nif(country == 'US' or country == 'GB') and (age > 0 and age < 100):\n  print('Cool')"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nif hora > 12 and day <= 15 or hour < 10"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nif hora > 12 and day <= 15 or hour < 10"
                 }
             ],
             "answers": [

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
     "pedagogical": [ 
         {
@@ -37,44 +36,4 @@
     ]
 
   
-=======
-{
-    "pedagogical": [ 
-        {
-            "title": "Hora de practicar",
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
-                },
-                {
-                    "type": "info",
-                    "text": "Lista de Números - Dada una lista de números, calcule su suma usando un ciclo for."
-                }
-            ]
-        }
-    ],
-    
-    "practica": [
-        {
-            "title": "Listas en Bucles",
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Los bucles for le permiten iterar fácilmente a través de listas.\n\nDada una lista de números, calcule su suma usando un bucle for ."
-                },
-                {
-                    "type": "hint",
-                    "text": "Salida de la suma después del bucle."
-                },
-                {
-                    "type": "Consola",
-                    "text": "\nx = [42, 8, 7, 1, 0, 124, 8897, 555, 3, 67, 99]\n\ntotal = 0\n\n\nfor num in x:\n    total = num + total\nprint(total)"
-                }
-            ]
-        }
-    ]
-
-  
->>>>>>> e427cf8fae449c749474fafdfc4d5a16a48b5ff4
 }

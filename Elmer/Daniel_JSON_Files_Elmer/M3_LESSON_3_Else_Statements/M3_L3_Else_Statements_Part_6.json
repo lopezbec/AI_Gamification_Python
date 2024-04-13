@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
     "pedagogical": [ 
         {
@@ -35,42 +34,4 @@
             ]
         }
     ]
-=======
-{
-    "pedagogical": [ 
-        {
-            "title": "Hora de practicar",
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
-                },
-                {
-                    "type": "info",
-                    "text": "Declaración else - Escriba un programa para controlar la entrada a un club para que solo los huéspedes mayores de 18 años puedan ingresar."
-                }
-            ]
-        }
-    ],
-
-    "practica": [
-        {
-            "title": "Declaraciones else",
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Escribir un programa para controlar la entrada a un club. Solo las personas mayores de 18 años pueden ingresar al club. Su programa toma la edad de la persona que intenta ingresar y\nmuestra ' Permitido ' si se le permite ingresar al club, y ' Perdón ' si es menor de la edad permitida."
-                },
-                {
-                    "type": "info",
-                    "text": "Entrada de muestra: 24\nSalida de muestra: Permitido"
-                },
-                {
-                    "type": "Consola",
-                    "text": "\nage = int(input())\nif age >= 18:\n    print('Permitido')\nelse:\n    print('Lo siento')\n>Permitido"
-                }
-            ]
-        }
-    ]
->>>>>>> e427cf8fae449c749474fafdfc4d5a16a48b5ff4
 }

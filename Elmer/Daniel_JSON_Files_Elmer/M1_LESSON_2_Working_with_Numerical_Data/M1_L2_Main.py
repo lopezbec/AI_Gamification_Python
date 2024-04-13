@@ -391,7 +391,7 @@ class JsonWindow(QWidget):
                 console_layout.setContentsMargins(5, 5, 5, 5)
                 console_label = QLabel(block["text"])
                 console_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['cmd_font_size_normal']}px;")
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
                 console_label.setWordWrap(True)
                 console_layout.addWidget(console_label)
 
@@ -1051,12 +1051,10 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion2')
             self.actualizar_leccion_completada('Modulo1', 'Leccion2')
-            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         else:
             print("¡La leccion no se completó, se cerró!.")
-            drag_drop.DraggableLabel.reset_draggable_labels()
             self.close()
 
         if next_index == self.highest_page_reached and self.is_rollback == True:
@@ -1074,7 +1072,6 @@ class MainWindow(QWidget):
         self.dashboard = Dashboard()
         self.dashboard.showMaximized()
         # Luego, cierra la ventana normalmente
-        drag_drop.DraggableLabel.reset_draggable_labels()
         super().closeEvent(event)
 
 

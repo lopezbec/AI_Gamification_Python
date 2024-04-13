@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\npalabras = ['Hello', 'world', '!']"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\npalabras = ['Hello', 'world', '!']"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nnúmeros = [4, 3, 7, 1]\n>?"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnúmeros = [4, 3, 7, 1]\n>?"
                 }
             ],
             "answers": [

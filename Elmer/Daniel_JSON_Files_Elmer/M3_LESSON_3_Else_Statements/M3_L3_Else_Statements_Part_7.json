@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nx = 10\ny = 20\nif x > y:\n   print(x+y)\nelse:\n   print(y-x)\n>?"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 10\ny = 20\nif x > y:\n   print(x+y)\nelse:\n   print(y-x)\n>?"
                 }
             ],
             "answers": [
