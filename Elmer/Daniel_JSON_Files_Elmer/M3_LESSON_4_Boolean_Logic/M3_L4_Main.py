@@ -13,6 +13,7 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QTextEdit, QWidget, QFrame, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import App
+from congratulation_Feature import CongratulationWindow
 
 class JsonLoader:
     @staticmethod
@@ -592,6 +593,7 @@ class MainWindow(QWidget):
                 current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 2 puntos.")
             else:
                 current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
+            CongratulationWindow.correct_response()
 
             current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
             current_widget.feedback_label.setStyleSheet(
@@ -602,6 +604,7 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            CongratulationWindow.incorrect_response()
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
