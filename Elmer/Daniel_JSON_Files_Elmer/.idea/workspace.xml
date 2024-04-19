@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="Issue #71">
       <changelist_data name="Elmerluis0129" email="113645268+elmerluis0129@users.noreply.github.com" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +211,7 @@
       <workItem from="1711043912000" duration="2700000" />
       <workItem from="1711131606590" duration="9751000" />
       <workItem from="1712841861728" duration="15535000" />
+      <workItem from="1713554980230" duration="297000" />
     </task>
     <servers />
   </component>
