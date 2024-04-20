@@ -12,10 +12,25 @@ class CongratulationWindow:
         # Crear una ventana emergente (popup)
         popup = tk.Tk()
         popup.title("Mensaje")
-
+        label_font = ('Helvetica', 16)
+        popup.configure(bg="#00BFFF")
         # Crear una etiqueta con el mensaje
-        label = tk.Label(popup, text=message)
-        label.pack(pady=30, padx=40)
+        label = tk.Label(popup, text=message,font=label_font,bg="#00BFFF")
+        label.pack(pady=110, padx=250)
+
+        # Actualizar la ventana para asegurarse de que tenga sus dimensiones antes de calcular las coordenadas
+        popup.update_idletasks()
+
+        # Obtener las dimensiones de la pantalla del dispositivo
+        screen_width = popup.winfo_screenwidth()
+        screen_height = popup.winfo_screenheight()
+
+        # Calcular las coordenadas para centrar la ventana emergente
+        popup_width = popup.winfo_width()
+        popup_height = popup.winfo_height()
+        x_coordinate = (screen_width - popup_width) // 2
+        y_coordinate = (screen_height - popup_height) // 2
+        popup.geometry(f"{popup_width}x{popup_height}+{x_coordinate}+{y_coordinate}")
 
         # Configurar un temporizador para cerrar el popup después de 'duration' milisegundos
         popup.after(self.duration, popup.destroy)
