@@ -1,41 +1,26 @@
 import sys
 import os
-import threading
-import ast
-import io
 import subprocess
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit, QLabel
-
-"""
-Users input code in the text box. 
-A simple security check is run checking for no import statements (can be expanded).
-Code is saved in a .py script and then the file is run in a subprocess to give it its own scope and prevent effects on the application
-The output is saved to a text file, and then read and displaed to the output
-A simple time limit on the code execution (3s) is enforced, as well as an limit on the size of the output (1KB)
-These serve as basic sanity checks and in combination with the import statements should cover basic accidental misuse from non-malicious users
-"""
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit
 
 class App(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.result_display = None
         self.textbox = None
         self.run_button = None
+        self.result_display = None
         self.init_ui()
 
     def init_ui(self):
         layout = QVBoxLayout()
 
-        self.instr_label: QLabel = QLabel(self)
-        self.instr_label.setText('Escribe tu líneas de código aquí abajo, y luego has click en el botón de "Correr"')
-        layout.addWidget(self.instr_label)
-        
         self.textbox: QTextEdit = QTextEdit(self)
+        self.textbox.setPlaceholderText('Escribe tu código aquí. Usa "# input" seguido de tus entradas en líneas separadas.')
         layout.addWidget(self.textbox)
 
         self.run_button: QPushButton = QPushButton('Correr', self)
-        self.run_button.clicked.connect(self.exec_text_input)
+        self.run_button.clicked.connect(self.run_script)
         layout.addWidget(self.run_button)
 
         self.result_display: QTextEdit = QTextEdit(self)
@@ -43,48 +28,50 @@ class App(QWidget):
         layout.addWidget(self.result_display)
 
         self.setLayout(layout)
-        self.setWindowTitle('Correr código')
+        self.setWindowTitle('Run Python Code')
         self.show()
 
-    def close_window(self):
-        self.close()
-        
-    def exec_text_input(self):
-
-        code_str: str = self.textbox.toPlainText()
-
-        if contains_import(code_str): # Small security vulnerability check
-            result_str = "Error: Import statements are not allowed"
-        else:
-            result_str = save_and_run_script(code_str)
-
+    def run_script(self):
+        full_text = self.textbox.toPlainText()
+        code_str, input_str = self.split_code_and_input(full_text)
+        result_str = save_and_run_script(code_str, input_str)
         self.result_display.setText(result_str)
 
+    def split_code_and_input(self, full_text):
+        parts = full_text.split('# input')
+        code_str = parts[0].strip()
+        input_str = '\n'.join(part.strip() for part in parts[1:])  # Handle multiple inputs
+        return code_str, input_str
 
-def save_and_run_script(code_str) -> str:
+def save_and_run_script(code_str, input_data=""):
     script_filename = 'user_script.py'
-    output_filename = 'script_output.txt'
-    max_output_size = 1024 # In bytes (1 MB)
-    # Save the script to a file
+    max_output_size = 1024  # 1KB limit
+
     with open(script_filename, 'w') as file:
         file.write(code_str)
 
+    result_str = ""
     try:
-        with open(output_filename, 'w') as output_file:
-            subprocess.run([sys.executable, script_filename], stdout=output_file, stderr=subprocess.STDOUT, timeout=3)
+        process = subprocess.Popen([sys.executable, '-u', script_filename],
+                                   stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT,
+                                   text=True)
+        output, _ = process.communicate(input=input_data, timeout=3)
+
+        if len(output) > max_output_size:
+            result_str = 'Output exceeded size limit'
+        else:
+            result_str = output
+
     except subprocess.TimeoutExpired:
-        with open(output_filename, 'a') as output_file:
-            output_file.write("\nCode execution exceeded time limit")
+        process.kill()
+        result_str = "\nCode execution exceeded time limit"
+    except Exception as e:
+        result_str = f"Error running script: {e}"
 
-    if os.path.exists(output_filename) and os.path.getsize(output_filename) > max_output_size:
-        return 'Output exceeded size limit'
-
-    # Read the output file
-    with open(output_filename, 'r') as output_file:
-        result_str = output_file.read()
-
-    if os.path.exists(output_filename): # Delete the output file
-        os.remove(output_filename)
+    if os.path.exists(script_filename):
+        os.remove(script_filename)
 
     return result_str
 
