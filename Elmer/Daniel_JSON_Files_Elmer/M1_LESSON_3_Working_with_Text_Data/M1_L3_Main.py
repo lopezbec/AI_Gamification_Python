@@ -15,26 +15,31 @@ from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from command_line_UI import App
 
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M1_LESSON_3_Working_with_Text_Data/' + filename, encoding='UTF-8') as json_file:
-            data = json.load(json_file)
-        return data
+        try:
+            with open(filename, encoding='UTF-8') as json_file:
+                data = json.load(json_file)
+            return data
+        except Exception as e:
+            print(f"Error load_json_data linea {sys.exc_info()[2].tb_lineno}")
 
     @staticmethod
     def load_json_styles():
-        with open("styles.json") as styles_file:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
     
     @staticmethod
     def load_active_widgets():
-        with open("./active_widgets/game_elements_visibility.json") as active_widgets:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
 
@@ -346,16 +351,93 @@ class JsonWindow(QWidget):
             self.layout.addWidget(block_label)  # Añadir el bloque al layout
 
     def create_pedagogical_layout(self):
-        for block in self.data[self.page_type.lower()][0]["blocks"]:
-            block_label = QLabel(block["text"])
-            if block["type"] == "hint":
-                block_label.setStyleSheet(f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
-            elif block["type"] == "Consola":
-                block_label.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
-            else:
-                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
+        # Variable para acumular el texto de bloques "info".
+        accumulated_info_text = ""
 
-            self.layout.addWidget(block_label)  # Añadir el bloque al layout
+        for block in self.data[self.page_type.lower()][0]["blocks"]:
+            # Si el bloque es de tipo "info", acumula su texto.
+            if block["type"] == "info":
+                accumulated_info_text += block["text"] + "\n\n"
+
+            # Si el bloque es de tipo "Consola", procede como antes.
+            elif block["type"] == "Consola":
+                # Si hay texto acumulado de "info", créalo como QLabel antes del contenido de "Consola".
+                if accumulated_info_text:
+                    info_label = QLabel(accumulated_info_text.strip())
+                    info_label.setWordWrap(True)
+                    info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+                    self.layout.addWidget(info_label)
+                    accumulated_info_text = ""  # Restablece el texto acumulado.
+
+                # Crea los widgets de "Consola" como antes.
+                console_frame = QFrame()
+                console_frame.setStyleSheet(f"background-color: {self.styles['cmdExe_background_color']};")
+                console_layout = QVBoxLayout(console_frame)
+                console_layout.setContentsMargins(5, 5, 5, 5)
+                console_label = QLabel(block["text"])
+                console_label.setStyleSheet(
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
+                console_label.setWordWrap(True)
+                console_layout.addWidget(console_label)
+
+                # Botón que desencadenará la adición del widget de la clase 'App'.
+                self.execute_button = QPushButton("Haz clic para ejecutar")
+                self.execute_button.setStyleSheet(
+                    "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+                self.execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
+
+                console_layout.addWidget(self.execute_button)
+                self.layout.addWidget(console_frame)
+
+            # Maneja los otros tipos de bloques como antes.
+            else:
+                block_label = QLabel(block["text"])
+                block_label.setWordWrap(True)
+                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+                if block["type"] == "hint":
+                    block_label.setStyleSheet(
+                        f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;")
+                self.layout.addWidget(block_label)
+
+        # Si queda algún texto de "info" después de procesar todos los bloques, créalo como QLabel al final.
+        if accumulated_info_text:
+            info_label = QLabel(accumulated_info_text.strip())
+            info_label.setWordWrap(True)
+            info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
+            self.layout.addWidget(info_label)
+
+        # Crea un contenedor para el widget de la clase 'App' que será añadido al hacer clic en el botón.
+        self.commandLineWidgetPlaceholder = QVBoxLayout()
+        self.layout.addLayout(self.commandLineWidgetPlaceholder)
+
+    def openCommandLineUI(self, text):
+        self.main_window.log_event("Playground Page Open", event_type="time")
+        # Verificar si el widget ya ha sido creado y, si no, crearlo y añadirlo al layout.
+        if not hasattr(self, 'commandLineWidget'):
+            # Suponiendo que 'App' es una subclase de QWidget
+            self.commandLineWidget = App()
+            self.commandLineWidgetPlaceholder.addWidget(self.commandLineWidget)
+
+            # Crear botón para ocultar el widget de la línea de comandos
+            self.hideButton = QPushButton("Ocultar")
+            self.hideButton.setStyleSheet(
+                "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+            self.hideButton.clicked.connect(self.hideCommandLineWidget)
+            self.commandLineWidgetPlaceholder.addWidget(self.hideButton)
+            self.execute_button.hide()
+
+        # Si el widget ya existe, mostrarlo si está oculto
+        else:
+            self.commandLineWidget.show()
+            self.hideButton.show()
+            self.execute_button.hide()
+
+    def hideCommandLineWidget(self):
+        self.main_window.log_event("Playground Page Close", event_type="time")
+        # Esta función oculta el widget de la línea de comandos y el botón de ocultar.
+        self.commandLineWidget.hide()
+        self.hideButton.hide()
+        self.execute_button.show()
 
 
 class MainWindow(QWidget):
@@ -392,9 +474,14 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
-        self.setWindowTitle("Aprendiendo Python - Módulo 1, Lección 3")
+        self.setWindowTitle("Trabajando con datos de texto")
 
-        self.progress_bar = ProgressBar(JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M1.json")), 2)
+        self.progress_bar = ProgressBar(
+            JsonLoader.load_json_data(
+                os.path.join(os.path.dirname(os.path.dirname(
+                    os.path.abspath(__file__))), "Page_order", "page_order_M1.json")
+                    )
+                    , 2)
         self.init_ui()
 
     def init_ui(self):
@@ -404,7 +491,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
                                          page.get("lesson_completed", False), main_window=self)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
@@ -557,27 +644,52 @@ class MainWindow(QWidget):
         else:
             self.time_log_data.append({"event": event, "time": event_time})
 
-    def save_log(self, log_type="time"):
+    def save_log(self, modulo, leccion):
+        user = self.load_current_user()
+        if user is None:
+            print("Usuario no encontrado.")
+            return
+
+        filename = f"{user}_Respuestas_Tiempos.csv"
+        parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        user_logs_dir = os.path.join(parent_dir, 'Usuarios_respuestas_lecciones')
+        if not os.path.exists(user_logs_dir):
+            os.makedirs(user_logs_dir)
+
+        filepath = os.path.join(user_logs_dir, filename)
+
         fieldnames = ['event', 'time']
-        filename = "M1_L3_Time.csv" if log_type == "time" else "M1_L3_Entradas_Salidas_Clics.csv"
-        log_data = self.time_log_data if log_type == "time" else self.mouse_log_data
-
-        # Asegurarte de que el directorio existe, si no, lo crea
-        if not os.path.exists('M1_LESSON_3_Working_with_Text_Data'):
-            os.makedirs('M1_LESSON_3_Working_with_Text_Data')
-
-        # Guardar el archivo en la carpeta especificada
-        filepath = os.path.join('M1_LESSON_3_Working_with_Text_Data', filename)
-
-        with open(filepath, mode="a", newline="") as csv_file:
+        with open(filepath, mode="a", newline="", encoding='utf-8') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            if csv_file.tell() == 0: writer.writeheader()
-            for log in log_data: writer.writerow(log)
+            writer.writerow({'event': f"Modulo {modulo}, Leccion {leccion}", 'time': ''})
+
+            # Escribe la cabecera si es un archivo nuevo
+            if csv_file.tell() == 0:
+                writer.writeheader()
+                # Escribe el módulo y la lección al inicio
+                csv_file.write(f"Modulo {modulo}, Leccion {leccion}\n")
+
+            combined_log_data = self.time_log_data + self.mouse_log_data
+            combined_log_data.sort(key=lambda x: x['time'])
+
+            parte_actual = ""
+            for log in combined_log_data:
+                # Verifica si el evento es un inicio de "Parte X"
+                if log['event'].startswith('Parte'):
+                    if log['event'] == parte_actual:
+                        # Omite la escritura si ya se registró el inicio de esta parte
+                        continue
+                    else:
+                        # Actualiza la parte actual y escribe el evento
+                        parte_actual = log['event']
+
+                writer.writerow(log)
+
             csv_file.write('\n')
 
     def load_page_order(self):
         # Construir la ruta al archivo dentro de la carpeta 'Page_order'
-        file_path = os.path.join('Page_order', 'page_order_M1.json')
+        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Page_order', 'page_order_M1.json')
 
         with open(file_path, "r") as file:
             data = json.load(file)
@@ -739,6 +851,8 @@ class MainWindow(QWidget):
                     correct_answer_text = answer["text"]
                     break
 
+            current_hint_text = current_widget.hint_label.text()
+            selected_symbol = current_hint_text[current_widget.blank_space_index]
             if selected_symbol == "_":
                 self.log_event(f"Blank Space Selected", event_type="mouse")  # Log mouse event
                 self.SubmitAnswers(True, False, False)
@@ -753,31 +867,47 @@ class MainWindow(QWidget):
 
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            # Cargar el archivo progreso.json
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
 
-            # Obtener el progreso del usuario actual (asegúrate de que self.usuario_actual esté correctamente definido)
             progreso_usuario = progreso.get(self.usuario_actual, {})
 
-            # Calcula el número de la siguiente lección
+            # Calcula el número de la siguiente lección para desbloquearla en progreso.json
             numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
-            siguiente_leccion = 'Leccion' + str(numero_leccion_actual + 1)
+            siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
 
-            # Actualizar el estado de la siguiente lección a True
-            if modulo in progreso_usuario and siguiente_leccion in progreso_usuario[modulo]:
-                progreso_usuario[modulo][siguiente_leccion] = True
+            if modulo in progreso_usuario:
+                progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
-            # Guardar los cambios en el archivo progreso.json
-            with open('progreso.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
             print(f"Error al actualizar el progreso: {e}")
 
+    def actualizar_leccion_completada(self, modulo, leccion_completada):
+        try:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+                leccion_completada_data = json.load(file)
+
+            leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
+
+            # Marca la lección actual como completada en leccion_completada.json
+            if modulo not in leccion_completada_usuario:
+                leccion_completada_usuario[modulo] = {}
+            leccion_completada_usuario[modulo][f"Leccion_completada{leccion_completada.replace('Leccion', '')}"] = True
+
+            leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
+
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+                json.dump(leccion_completada_data, file, indent=4)
+
+        except Exception as e:
+            print(f"Error al actualizar lección completada: {e}")
+
     def load_current_user(self):
         try:
-            with open('current_user.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'current_user.json'), 'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
             return user_data.get("current_user")
         except FileNotFoundError:
@@ -786,7 +916,7 @@ class MainWindow(QWidget):
 
     @staticmethod
     def actualizar_puntos_en_leaderboard(usuario, puntos_ganados):
-        leaderboard_path = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
+        leaderboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Codigos_LeaderBoard', 'leaderboard.json')
 
         try:
             with open(leaderboard_path, 'r', encoding='UTF-8') as file:
@@ -855,15 +985,20 @@ class MainWindow(QWidget):
                 self.SubmitHideContinueShow(False,
                                             False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
 
+            if not forward:
+                self.submit_button.hide()
+                self.continue_button.show()
+                self.back_button.hide()
+
         # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()
             self.terminar_button.show()
-            self.save_log(log_type="time")
-            self.save_log(log_type="mouse")
+            self.save_log(modulo=1, leccion=3)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion3')
+            self.actualizar_leccion_completada('Modulo1', 'Leccion3')
             self.close()
 
         else:

@@ -1,4 +1,5 @@
 import csv
+import os
 import geocoder
 import json
 import sys
@@ -82,9 +83,9 @@ class MainWindow(QtWidgets.QMainWindow):
     def load_data(self):
         try:
             # Usa rutas de archivo relativas que apunten desde Carpeta principal a Codigos_LeaderBoard
-            styles_path = "Codigos_LeaderBoard/styles_leaderboard.json"
-            leaderboard_path = "Codigos_LeaderBoard/leaderboard.json"
-            levels_path = "Codigos_LeaderBoard/levels.json"
+            styles_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "styles_leaderboard.json")
+            leaderboard_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "leaderboard.json")
+            levels_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "levels.json") 
 
             # Ahora, puedes cargar los archivos JSON normalmente
             with open(styles_path, encoding='utf-8') as styles_file:
@@ -196,6 +197,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 f"}}"
                 f"QTableWidget::item:hover {{"
                 f"background-color: {theme_data['hover_background_color']};"
+                f"}}"
+                f"QTableWidget::item:active {{"
+                f"color: {theme_data['text_color']};"
                 f"}}"
             )
 

@@ -1,8 +1,8 @@
 import json
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, \
+from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLabel, QPushButton, QRadioButton, QWidget, \
     QScrollArea, QMessageBox
-from PyQt5.QtCore import Qt
+from PyQt6.QtCore import Qt
 sys.path.append(r"C:/Users/Admin/VSCode/AI_Gamification_Python")
 app = QApplication(sys.argv)
 

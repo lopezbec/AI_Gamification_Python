@@ -8,7 +8,7 @@
                     "text": "Pon en práctica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Área de un rectángulo - Calcula el área del rectángulo a través de los argumentos de la función."
                 }
             ]

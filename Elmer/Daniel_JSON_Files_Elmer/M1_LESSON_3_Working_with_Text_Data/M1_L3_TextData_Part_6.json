@@ -8,7 +8,7 @@
                     "text": "El programa dado esta diseñado para generar el texto: El conocimiento es poder \n Pero falta la ultima palabra. ¿Puedes arreglarlo?"
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Complete el código para generar el resultado requerido."
                 },
                 {

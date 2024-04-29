@@ -1,57 +1,27 @@
 [
     {
         "name": "Elmer",
-        "points": 1688,
-        "last_active": "2023-12-29 ; 03h:48m"
+        "points": 3000,
+        "last_active": "2024-04-19 ; 16h:14m"
     },
     {
         "name": "Daniel",
-        "points": 147,
-        "last_active": "2023-12-29 ; 02h:17m"
+        "points": 172,
+        "last_active": "2024-04-19 ; 15h:34m"
     },
     {
-        "name": "Marcos",
-        "points": 390,
-        "last_active": "2023-12-28 ; 16h:55m"
+        "name": "Jose",
+        "points": 433,
+        "last_active": "2024-03-22 ; 15h:44m"
     },
     {
         "name": "Prisila",
-        "points": 2024,
-        "last_active": "2024-01-31 ; 15h:09m"
+        "points": 2080,
+        "last_active": "2024-03-18 ; 08h:28m"
     },
     {
-        "name": "Juan",
-        "points": 161,
-        "last_active": "2024-01-19 ; 21h:53m"
-    },
-    {
-        "name": "Tomas",
+        "name": "Jose",
         "points": 0,
-        "last_active": "2024-01-19 ; 14h:56m"
-    },
-    {
-        "name": "Carlos",
-        "points": 0,
-        "last_active": "2024-01-19 ; 14h:57m"
-    },
-    {
-        "name": "Guillermo",
-        "points": 932,
-        "last_active": "2024-02-01 ; 14h:55m"
-    },
-    {
-        "name": "Hector",
-        "points": 0,
-        "last_active": "2024-01-19 ; 15h:26m"
-    },
-    {
-        "name": "Prisilla",
-        "points": 0,
-        "last_active": "2024-01-26 ; 19h:36m"
-    },
-    {
-        "name": "Alberto",
-        "points": 0,
-        "last_active": "2024-02-06 ; 18h:29m"
+        "last_active": "2024-03-20 ; 12h:42m"
     }
 ]

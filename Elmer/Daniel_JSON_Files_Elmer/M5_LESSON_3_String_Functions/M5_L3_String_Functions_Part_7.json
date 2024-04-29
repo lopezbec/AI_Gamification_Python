@@ -8,14 +8,14 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info   ",
                     "text": "Teclado roto - Reemplace todos los caracteres # con espacios y genere el resultado."
                 }
             ]
         }
     ],
     
-    "practica": [
+    "pedagogical2": [
         {
             "title": "Funciones de cadena",
             "blocks": [

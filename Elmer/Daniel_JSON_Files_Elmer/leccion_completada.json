@@ -127,24 +127,24 @@
             "Leccion_completada1": true,
             "Leccion_completada2": true,
             "Leccion_completada3": true,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
+            "Leccion_completada4": true,
+            "Leccion_completada5": true
         },
         "Modulo4": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false
+            "Leccion_completada1": true,
+            "Leccion_completada2": true,
+            "Leccion_completada3": true,
+            "Leccion_completada4": true,
+            "Leccion_completada5": true
         },
         "Modulo5": {
-            "Leccion_completada1": false,
-            "Leccion_completada2": false,
-            "Leccion_completada3": false,
-            "Leccion_completada4": false,
-            "Leccion_completada5": false,
-            "Leccion_completada6": false,
-            "Leccion_completada7": false
+            "Leccion_completada1": true,
+            "Leccion_completada2": true,
+            "Leccion_completada3": true,
+            "Leccion_completada4": true,
+            "Leccion_completada5": true,
+            "Leccion_completada6": true,
+            "Leccion_completada7": true
         }
     },
     "Juan": {
@@ -372,6 +372,825 @@
     "Alberto": {
         "Modulo1": {
             "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Pepe": {
+        "Modulo1": {
+            "Leccion_completada1": true,
+            "Leccion_completada2": false,
+            "Leccion_completada3": true,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Josefa": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Pedro": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Nana": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Popo": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "pipi": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "tito": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "pepe": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "LOLO": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Patricio": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "ll": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "YOYO": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "JOO": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "FF": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "TITO": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Lucia": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "majska": {
+        "Modulo1": {
+            "Leccion_completada1": true,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "!!": {
+        "Modulo1": {
+            "Leccion_completada1": true,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Elmer12": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Juand": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "null": {
+        "Modulo1": {
+            "Leccion_completada1": true
+        }
+    },
+    "Elemr": {
+        "Modulo1": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo2": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false
+        },
+        "Modulo3": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo4": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false
+        },
+        "Modulo5": {
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
+            "Leccion_completada4": false,
+            "Leccion_completada5": false,
+            "Leccion_completada6": false,
+            "Leccion_completada7": false
+        }
+    },
+    "Jose": {
+        "Modulo1": {
+            "Leccion_completada1": true,
             "Leccion_completada2": false,
             "Leccion_completada3": false,
             "Leccion_completada4": false,

@@ -8,7 +8,7 @@
                     "text": "Pon en práctica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Llama a la función - Toma la entrada del usuario y llama a la función pasando la entrada como su argumento."
                 }
             ]

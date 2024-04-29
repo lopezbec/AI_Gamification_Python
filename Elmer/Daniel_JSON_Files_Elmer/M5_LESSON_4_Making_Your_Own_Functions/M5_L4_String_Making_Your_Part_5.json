@@ -8,14 +8,14 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Funciones - Rediseñe la función dada para que tome la entrada dada como el nombre del usuario y envíe el\nmensaje de bienvenida con ella."
                 }
             ]
         }
     ],
     
-    "practica": [
+    "pedagogical2": [
         {
             "title": "Funciones",
             "blocks": [

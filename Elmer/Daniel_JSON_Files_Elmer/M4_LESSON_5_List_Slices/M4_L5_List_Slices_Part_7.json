@@ -8,14 +8,14 @@
                     "text": "Use nuestro ejercicio Code Coach a continuación para practicar y escribir código real."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "El último personaje - Escriba un programa que tome una cadena como entrada y emita el último carácter de esa cadena."
                 }
             ]
         }
     ],
     
-    "practica": [
+    "pedagogical2": [
         {
             "title": "Listas en Bucles",
             "blocks": [

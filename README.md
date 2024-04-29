@@ -106,6 +106,21 @@ There you will see all the leasson we have at the moment. You can select whichev
 
 ___________________________________________________
 
+#  How to Run the executable APP
+___________________________________________________
+
+1- Go to the folder named 'Elmer'
+
+2- Go to the folder named 'Daniel_JSON_Files_Elmer'
+
+2- Go to the folder named 'dist'
+
+3- click in the Main_Modulos_Intro_Pages.exe
+
+The first window will open with the same abstract that you read at the beginning of the README.
+
+___________________________________________________
+
 #  Data and more
 ___________________________________________________
 

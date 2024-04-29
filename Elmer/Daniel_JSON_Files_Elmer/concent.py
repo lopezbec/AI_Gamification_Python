@@ -1,15 +1,21 @@
 import json
+import os
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QCheckBox, QLabel, QMainWindow, QPushButton, QScrollArea, QVBoxLayout, QWidget
 from name_window import NameWindow
+import sys
 
 
 class ConcentWindow(QMainWindow):
     def __init__(self) -> None:
         super(ConcentWindow, self).__init__()
 
-        with open(r'./json/concent_info.json', "r", encoding='UTF-8') as f:
+        # Obtiene la ruta del directorio donde se encuentra el script actual
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'json', 'concent_info.json')
+        with open(json_path, "r", encoding='UTF-8') as f:
             data = json.load(f)
         
         #title
@@ -40,17 +46,17 @@ class ConcentWindow(QMainWindow):
         self.accept_terms.setStyleSheet(f"font-size:{data['content_font_size']}px")
         self.accept_terms.stateChanged.connect(self.user_concent)
 
-        self.button = QPushButton(data["button_text"])
-        self.button.setEnabled(data["button_enabled"])
-        self.button.setStyleSheet(f"background-color: {data['continue_button_color']};color: white;font-size:{data['font_size_buttons']}px")
-        self.button.clicked.connect(self.agree_btn_is_clicked)
+        #self.button = QPushButton(data["button_text"])
+        #self.button.setEnabled(data["button_enabled"])
+        #self.button.setStyleSheet(f"background-color: {data['continue_button_color']};color: white;font-size:{data['font_size_buttons']}px")
+        #self.button.clicked.connect(self.agree_btn_is_clicked)
      
         v_layout = QVBoxLayout()
 
         v_layout.addWidget(title)
         v_layout.addWidget(content)
         v_layout.addWidget(self.accept_terms)
-        v_layout.addWidget(self.button)
+        #v_layout.addWidget(self.button)
         v_layout.setContentsMargins(5,10,5,10)
         
         widget = QWidget()
@@ -59,13 +65,28 @@ class ConcentWindow(QMainWindow):
         self.showMaximized()
 
     def user_concent(self):
-        if  self.accept_terms.isChecked():
-            self.button.setEnabled(True)
-        else:
-            self.button.setEnabled(False)
-            
-    def agree_btn_is_clicked(self):
-        if self.button.isEnabled():
+        # Tu lógica existente para manejar el estado del checkbox y el botón
+        if self.accept_terms.isChecked():
             self.name_window = NameWindow()
             self.name_window.show()
             self.hide()
+            #self.button.setEnabled(True)
+        #else:
+            #self.button.setEnabled(False)
+
+    #def agree_btn_is_clicked(self):
+        # Tu lógica existente para manejar el click en el botón
+        #if self.button.isEnabled():
+            #self.name_window = NameWindow()
+            #self.name_window.show()
+            #self.hide()
+
+    def closeEvent(self, event):
+        # Método sobrescrito llamado al intentar cerrar la ventana
+        sys.exit()  # Termina el programa
+            
+    #def agree_btn_is_clicked(self):
+        #if self.button.isEnabled():
+            #self.name_window = NameWindow()
+            #self.name_window.show()
+            #self.hide()

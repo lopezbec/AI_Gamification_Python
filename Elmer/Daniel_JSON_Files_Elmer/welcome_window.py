@@ -4,16 +4,15 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from concent import ConcentWindow
 import os
+import sys
 
 
 class WelcomeWindow(QMainWindow):
     def __init__(self):
         super(WelcomeWindow, self).__init__()
 
-
         # Obtiene la ruta del directorio donde se encuentra el script actual
         current_script_path = os.path.dirname(os.path.abspath(__file__))
-
         # Construye la ruta al archivo JSON usando os.path.join
         json_path = os.path.join(current_script_path, 'json', 'welcome_info.json')
 
@@ -66,6 +65,15 @@ class WelcomeWindow(QMainWindow):
         widget = QWidget()
         widget.setLayout(v_layout)
         self.setCentralWidget(widget)
+
+    def show_concent(self):
+        self.concent_window = ConcentWindow()
+        self.concent_window.show()
+        self.hide()
+
+    def closeEvent(self, event):
+        # Llamado cuando se intenta cerrar la ventana
+        sys.exit()  # Termina el programa completamente
 
     def show_concent(self):
         self.concent_window = ConcentWindow()

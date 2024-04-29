@@ -8,7 +8,7 @@
                     "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Arreglar el código - Arreglemos el código para generar el resultado requerido."
                 }
             ]
@@ -28,7 +28,7 @@
                     "text": "Pista: Recuerda que puedes personalizar el separador con cualquier carácter."
                 },
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Corrija el código para generar el resultado requerido."
                 }
             ]

@@ -22,7 +22,7 @@
             "draganddropSecuence": true,
             "blocks": [
                 {
-                    "type": "requerimiento",
+                    "type": "info",
                     "text": "Reorganice el código para definir una función llamada 'test()', que genera:\nA\nB\nC"
                 },
                 {

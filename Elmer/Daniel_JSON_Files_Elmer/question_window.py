@@ -19,8 +19,12 @@ class QuestionWindow(QMainWindow):
         self.radio_buttons = ["radio_1", "radio_2", "radio_3", "radio_4",
                               "radio_5", "radio_6", "radio_7"]
         super(QuestionWindow, self).__init__()
-        
-        with open(r'./json/question_info.json', encoding='UTF-8') as question_info:
+
+        # Obtiene la ruta del directorio donde se encuentra el script actual
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'json', 'question_info.json')
+        with open(json_path, encoding='UTF-8') as question_info:
             data = json.load(question_info)
 
         # title
@@ -29,9 +33,9 @@ class QuestionWindow(QMainWindow):
         self.title.setText(data["title_text"] + str(question_number))
         self.title.adjustSize()
         font_title = QFont()
-        #font_title.setBold(data["title_bold"])
+        # font_title.setBold(data["title_bold"])
         font_title.setPointSize(data["title_font_size"])
-        #font_title.setFamily(data["title_font_family"])
+        # font_title.setFamily(data["title_font_family"])
         self.title.setFont(font_title)
         self.title.setWordWrap(data["title_word_wrap"])
         self.title.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignHCenter)
@@ -43,7 +47,7 @@ class QuestionWindow(QMainWindow):
 
         font_content = QFont()
         font_content.setPointSize(data["content_font_size"])
-        #font_content.setFamily(data["content_font_family"])
+        # font_content.setFamily(data["content_font_family"])
         self.content.setFont(font_content)
         self.content.adjustSize()
         self.content.setWordWrap(data["content_word_wrap"])
@@ -100,8 +104,9 @@ class QuestionWindow(QMainWindow):
 
         self.next_button = QPushButton(self)
         self.next_button.setText(data["next_button_text"])
-        #self.next_button.setFixedSize(data["next_button_width"], data["next_button_height"])
-        self.next_button.setStyleSheet(f"background-color: {data['continue_button_color']};color: white;font-size:{data['font_size_buttons']}px")
+        # self.next_button.setFixedSize(data["next_button_width"], data["next_button_height"])
+        self.next_button.setStyleSheet(
+            f"background-color: {data['Default_ConsentUser_button_color']};color: white;font-size:{data['font_size_buttons']}px")
         self.next_button.setEnabled(data["next_button_enabled"])
         self.next_button.clicked.connect(self.next_question)
 
@@ -138,7 +143,10 @@ class QuestionWindow(QMainWindow):
         question_index = []  # store the index
         question_value = []  # store the questions itself
 
-        with open('Survey.csv', encoding='UTF-8') as csv_file:
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'Survey.csv')
+        with open(json_path, encoding='UTF-8') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',', skipinitialspace=True)
             line = 0
             for row in csv_reader:
@@ -173,12 +181,18 @@ class QuestionWindow(QMainWindow):
         if radio.isChecked() and radio.text() in options:
             score = values_dict.get(radio.text())
             self.next_button.setEnabled(True)
+            self.next_button.setStyleSheet(
+                f"background-color: #00BFFF;color: white;font-size:18px")
+        else:
+            self.next_button.setEnabled(False)
+            self.next_button.setStyleSheet(
+                f"background-color: #9B9B9B;color: white;font-size:18px")
 
     def next_question(self):
         index_in_list = question_index.index(random_index)
         question_index.pop(index_in_list)
         self.next_button.setEnabled(False)
-        
+
         for radio in self.radio_buttons:
             getattr(self, radio).setAutoExclusive(False)
             getattr(self, radio).setChecked(False)

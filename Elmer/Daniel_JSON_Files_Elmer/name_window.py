@@ -1,9 +1,11 @@
 import json
+import os
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QFont
-from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QFormLayout, QHBoxLayout, QLabel, QLineEdit, QMainWindow, QPushButton, QVBoxLayout, QWidget, QMessageBox
 from question_window import QuestionWindow
 from datetime import datetime
+import sys
 
 
 class NameWindow(QMainWindow):
@@ -13,12 +15,17 @@ class NameWindow(QMainWindow):
     def __init__(self) -> None:
         super(NameWindow, self).__init__()
         self.question_window = None
+        self.should_exit_on_close = True
         self._load_ui_data()
         self._setup_ui()
-        self.leaderboard_file = './Codigos_LeaderBoard/leaderboard.json'  # Ruta al archivo leaderboard.json
+        self.leaderboard_file =  os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Codigos_LeaderBoard', 'leaderboard.json')  # Ruta al archivo leaderboard.json
 
     def _load_ui_data(self):
-        with open(r'./json/name_info.json', "r", encoding='UTF-8') as name_info:
+        # Obtiene la ruta del directorio donde se encuentra el script actual
+        current_script_path = os.path.dirname(os.path.abspath(__file__))
+        # Construye la ruta al archivo JSON usando os.path.join
+        json_path = os.path.join(current_script_path, 'json', 'name_info.json')
+        with open(json_path, "r", encoding='UTF-8') as name_info:
             self.data = json.load(name_info)
 
     def _setup_ui(self):
@@ -30,7 +37,6 @@ class NameWindow(QMainWindow):
         # Agregar el formulario al layout
         layoutV.addLayout(self._create_form_layout())
 
-
         #Enable Keyboard Navigation: Allow Advance to Next Slide with Enter by Daniel.
         self.input.returnPressed.connect(self.show_survey)
 
@@ -38,8 +44,6 @@ class NameWindow(QMainWindow):
         widget.setLayout(layoutV)
         self.showMaximized()
         self.setCentralWidget(widget)
-
-
 
     def _create_form_layout(self):
         layoutForm = QFormLayout()
@@ -58,6 +62,7 @@ class NameWindow(QMainWindow):
         ask_name.setStyleSheet(f"font-size:{self.data['ask_name_font_size']}px")
         ask_name.setMargin(self.data["ask_name_margin"])
         return ask_name
+
 
     def _create_input_and_button(self):
         layout_V_Form = QVBoxLayout()
@@ -79,7 +84,7 @@ class NameWindow(QMainWindow):
     @staticmethod
     def user_exists(username):
         try:
-            with open('usernames.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'usernames.json'), 'r', encoding='UTF-8') as file:
                 usernames = json.load(file)
             return username in usernames
         except FileNotFoundError:
@@ -95,21 +100,21 @@ class NameWindow(QMainWindow):
     def _update_current_user_json(username):
         try:
             current_user = {"current_user": username}
-            with open('current_user.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'w', encoding='UTF-8') as file:
                 json.dump(current_user, file)
         except Exception as e:
             print(f"Error al actualizar current_user.json: {e}")
 
     def _update_usernames_json(self, username):
         try:
-            with open('usernames.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'usernames.json'), 'r', encoding='UTF-8') as file:
                 usernames = json.load(file)
         except FileNotFoundError:
             usernames = []
 
         if username not in usernames:
             usernames.append(username)
-            with open('usernames.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'usernames.json'), 'w', encoding='UTF-8') as file:
                 json.dump(usernames, file)
 
     @staticmethod
@@ -124,30 +129,51 @@ class NameWindow(QMainWindow):
         }
 
         try:
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
         except FileNotFoundError:
             progreso = {}
 
         if username not in progreso:
             progreso[username] = progreso_inicial
-            with open('progreso.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
     def show_survey(self):
         username = self.input.text().strip()
-        if username:
-            self.update_current_user(username)
-            self.update_user_last_active(username)
+        if not username:
+            QMessageBox.warning(self, "Campo vacío", "El campo no puede estar vacío.")
+            self.input.setStyleSheet("border: 1px solid red;")
+            return  # Stop the method if the input is empty
 
-            if not self.user_exists(username):  # Verificar si existe en leaderboard.json
-                self.add_user_to_leaderboard(username)  # Agregar usuario a leaderboard.json
-                self.agregar_usuario_leccion_completada(username)
-                self.add_username(username)  # Agregar usuario a los archivos existentes
-                self._open_question_window(username)
-                self.close()
-            else:
-                self.close()
+        if not self.is_valid_username(username):
+            QMessageBox.warning(self, "Error de entrada", "El nombre solo puede tener letras.")
+            self.input.setStyleSheet("border: 1px solid red;")
+            return  # Stop the method if the input is invalid
+
+        # Reset the style if the input is valid
+        self.input.setStyleSheet("")
+        self.should_exit_on_close = False
+        self.update_current_user(username)
+        self.update_user_last_active(username)
+
+        if not self.user_exists(username):  # Check if exists in leaderboard.json
+            self.add_user_to_leaderboard(username)  # Add user to leaderboard.json
+            self.agregar_usuario_leccion_completada(username)
+            self.add_username(username)  # Add user to existing files
+            self._open_question_window(username)
+            self.close()
+        else:
+            self.close()
+
+    def is_valid_username(self, username):
+        return username.isalpha()  # Checks if the username contains only letters
+
+    def closeEvent(self, event):
+        if self.should_exit_on_close:
+            sys.exit()  # Termina el programa si se cierra con la "X"
+        else:
+            event.accept()  # Solo cierra la ventana pero no termina el programa
 
     def user_exists_in_leaderboard(self, username):
         try:
@@ -213,7 +239,6 @@ class NameWindow(QMainWindow):
             users = []
 
         users.append(new_user)
-        print("Agregaste un usuario desde el metodo add_user")
         with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
             json.dump(users, file, indent=4)
 
@@ -221,7 +246,7 @@ class NameWindow(QMainWindow):
     def agregar_usuario_leccion_completada(username):
         # Añadir usuario a leccion_completada.json
         try:
-            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 progreso = json.load(file)
         except Exception as e:
             print(f"Error archivo: {e}")
@@ -237,7 +262,7 @@ class NameWindow(QMainWindow):
                     "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)}
                 }
 
-                with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+                with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
                     json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -253,7 +278,7 @@ class NameWindow(QMainWindow):
     def update_current_user(username):
         try:
             current_user = {"current_user": username}
-            with open('current_user.json', 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'w', encoding='UTF-8') as file:
                 json.dump(current_user, file)
         except Exception as e:
             print(f"Error al actualizar current_user.json: {e}")
