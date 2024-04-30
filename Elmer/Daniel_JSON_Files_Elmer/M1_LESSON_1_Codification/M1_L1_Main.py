@@ -19,6 +19,7 @@ from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBox
     QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame, QGridLayout
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import App
+from badge_system.badge_verification import BadgeVerification
 
 
 class JsonLoader:
@@ -495,6 +496,7 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
+        self.badge_verification = BadgeVerification()
         self.setWindowTitle("Programar: tu nuevo superpoder")
 
         self.progress_bar = ProgressBar(
@@ -1043,6 +1045,7 @@ class MainWindow(QWidget):
             self.is_rollback = False
             # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
+    
 
         self.current_page += 1  # Incrementar el número de la página actual
 
@@ -1057,7 +1060,7 @@ class MainWindow(QWidget):
         drag_drop.DraggableLabel.reset_draggable_labels()
         super().closeEvent(event)
 
-
+  
 def M1_L1_Main():
     main_window = MainWindow(lesson_number=1)
     main_window.show()

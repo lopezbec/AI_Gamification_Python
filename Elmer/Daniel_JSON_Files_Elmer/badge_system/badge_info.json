@@ -1,9 +1,79 @@
-{
-    "badge_text": "Felicidades! has conseguido una nueva insignia",
-    "badge_title": "Un pequeno, gran paso!",
-    "badge_font_size": 17,
-    "badge_font_family": "Lato",
-    "badge_margin": 10,
-    "badge_word_wrap": true,
-    "badge_bold": true
-}
+[
+    {
+        "badge_id": "gran_paso",
+        "badge_text": "Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Un pequeno, gran paso!",
+        "badge_description": "completa tu primera pregunta",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    {
+        "badge_id": "hello_world",
+        "badge_text": "Felicidades! has conseguido una nueva insignia",
+        "badge_title": "print('Hello World!')",
+        "badge_description": "Utiliza el code \"playground\" por primera vez",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    {
+        "badge_id": "5_correctas",
+        "badge_text": "Felicidades! has conseguido una nueva insignia",
+        "badge_title": "5 Seguidas Correctas!",
+        "badge_description": "Consigue 5 respuestas correctas seguidas",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    {
+        "badge_id": "10_correctas",
+        "badge_text": "Felicidades! has conseguido una nueva insignia",
+        "badge_title": "10 en Racha",
+        "badge_description": "Consigue 10 respuestas correctas seguidas",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    {
+        "badge_id": "intermedio",
+        "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
+        "badge_title": "Habilidoso en Programación",
+        "badge_description": "¡Felicidades! Has alcanzado el nivel intermedio en tus habilidades de programación. Tu dedicación y esfuerzo te han llevado a este punto. ¡Sigue así!",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    {
+        "badge_id": "avanzado",
+        "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
+        "badge_title": "Maestro Programador",
+        "badge_description": "¡Felicidades! Has alcanzado el nivel intermedio en tus habilidades de programación. Tu dedicación y esfuerzo te han llevado a este punto. ¡Sigue así!¡Enhorabuena! Te has convertido en un maestro programador al alcanzar el nivel avanzado. Tu dominio del código es impresionante. ¡Sigue desafiándote a ti mismo y alcanzarás nuevas alturas!",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    },
+    {
+        "badge_id": "experto",
+        "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
+        "badge_title": "Gurú del Código",
+        "badge_description": "¡Increíble! Has alcanzado el nivel experto y te has convertido en un verdadero gurú del código. Tu conocimiento profundo y tu capacidad para resolver problemas te destacan entre los demás. ¡Eres un ejemplo a seguir para aspirantes a programadores en todas partes!",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+    }
+]

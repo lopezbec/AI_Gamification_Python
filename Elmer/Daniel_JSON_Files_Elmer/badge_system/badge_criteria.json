@@ -1,0 +1,25 @@
+[
+    {
+        "badge_id": "gran_paso",
+        "criteria": "first_correct_answer"
+    },
+    {
+        "badge_id":"hello_world",
+        "criteria":"first_playground_usage"
+    },
+    {
+        "badge_id": "5_correctas",
+        "criteria": ">",
+        "value": 5
+    },
+    {
+        "badge_id": "10_correctas",
+        "criteria": ">",
+        "value": 10
+    },
+    {
+        "badge_id": "20_correctas",
+        "criteria": ">",
+        "value": 20
+    }
+]

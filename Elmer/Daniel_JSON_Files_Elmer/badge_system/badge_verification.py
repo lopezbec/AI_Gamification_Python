@@ -3,57 +3,64 @@ import os
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap
-from PyQt6.QtWidgets import  QLabel, QMainWindow, QVBoxLayout, QWidget
-sys.path.append(r"C:\Users\Admin\VSCode\AI_Gamification_Python")
+from PyQt6.QtWidgets import QApplication, QDialog, QLabel, QMainWindow, QVBoxLayout, QWidget
 
-class BadgeVerification(QMainWindow):
-    def __init__(self) -> None:
+
+class BadgeVerification(QDialog):
+    def __init__(self, badge_id: str) -> None:
         super(BadgeVerification, self).__init__()
+        self.badge_id = badge_id  # Asignar badge_id como propiedad de la clase
 
+        try:
+            # Cargar los criterios de las insignias desde el archivo JSON
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json"), "r", encoding='UTF-8') as file:
+                self.badge_criteria = json.load(file)
 
-        with open("badge_info.json", "r") as finish_info:
-            data = json.load(finish_info)
+            # Cargar la información de la insignia específica usando el badge_id
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_info.json"), "r", encoding='UTF-8') as finish_info:
+                data = json.load(finish_info)
 
-        #Window properties
-        self.setWindowTitle = data["badge_text"]
-        #Layouts
-        layoutV = QVBoxLayout()
-      
-        #Label properties
-        badge = QLabel(self)
-        badge_title = data["badge_title"]
-        badge.setText(badge_title.encode('utf-8').decode('unicode_escape'))
-        font = QFont()
-        font.setFamily(data["badge_font_family"])
-        badge.setFont(font)
-        font.setPointSize(data["badge_font_size"])
-        badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        badge.setMargin(data["badge_margin"])
+            # Seleccionar la información de la insignia específica basada en badge_id
+            badge_info = next((badge for badge in data if badge["badge_id"] == self.badge_id), None)
 
-        label = QLabel()
-        image_path = 'medal_5.jpg'
-        pixmap = QPixmap(image_path)
+            if badge_info:
+                # Window properties
+                self.setWindowTitle(badge_info["badge_text"])
+                # Layouts
+                layoutV = QVBoxLayout()
+                # Label properties
+                badge = QLabel(self)
+                badge_title = badge_info["badge_title"]
+                badge_description = badge_info["badge_description"]
+                badge.setText(badge_title + '\n' + badge_description)
+                font = QFont()
+                font.setFamily(badge_info["badge_font_family"])
+                badge.setFont(font)
+                font.setPointSize(badge_info["badge_font_size"])
+                badge.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                badge.setMargin(badge_info["badge_margin"])
 
-        # Establecer la imagen en la etiqueta
-        label.setPixmap(pixmap)
+                label = QLabel()
+                image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'medal_icon.png')
+                pixmap = QPixmap(image_path)
 
-        # Ajustar el tamaño de la etiqueta a la imagen
-        label.setFixedSize(pixmap.width(), pixmap.height())
+                if not pixmap.isNull():
+                    label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                    pixmap = pixmap.scaledToWidth(200)
+                    label.setPixmap(pixmap)
+                    label.setFixedSize(pixmap.width(), pixmap.height())
 
-        #Add widgets to Layouts
-            #Horizontal Layout
-      
-        #Vertical layout
-        layoutV.setSpacing(10)
-        layoutV.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
-        layoutV.addWidget(badge)
-        layoutV.addWidget(label)
-        #Widget/Container initialization
-        widget = QWidget()
-        widget.setLayout(layoutV)
-        self.setCentralWidget(widget)
+                    # Vertical layout
+                    layoutV.setSpacing(10)
+                    layoutV.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
+                    layoutV.addWidget(badge)
+                    layoutV.addWidget(label)
+                    self.setLayout(layoutV)
+                else:
+                    print("imagen no encontrada en el path especificado")
+            else:
+                print(f"No se encontró información para la insignia con ID '{self.badge_id}'")
+        except Exception as e:
+            print(f"Fallo en la creación de la clase: {e}")
+            print(f"Error en linea {sys.exc_info()[2].tb_lineno}")
 
-    def check_badge(page_type):
-        if page_type == 'multiplechoice' or page_type == 'draganddrop':
-            return "Felicidades! Conseguiste la medalla \"Un pequeño, gran paso\" (completa tu primera pregunta)"
-        
