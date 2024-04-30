@@ -625,16 +625,6 @@ Correct Answer Selected: print(729),14:36:36
 Parte 5,14:36:37
 Checkbox Selected: comillas '' ,14:36:39
 
-<<<<<<< HEAD
-Parte 1,14:13:22
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,14:13:22
-Parte 3,14:13:28
-Checkbox Selected: Verdadero,14:13:28
-Parte 4,14:13:28
-Correct Answer Selected: print(729),14:13:33
-Parte 5,14:13:40
-Checkbox Selected: comillas '' ,14:13:40
-=======
 Parte 1,17:56:33
 Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,17:56:36
 Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,17:56:38
@@ -644,29 +634,7 @@ Parte 4,17:57:09
 Correct Answer Selected: print(729),17:57:09
 Parte 5,17:57:22
 Checkbox Selected: comillas '' ,17:57:22
->>>>>>> 153a5f9d97373591a140bd072f667ffa6db31104
 
-<<<<<<< HEAD:Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/M1_LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv
-Parte 1,14:45:25
-Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,14:45:25
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,14:45:29
-Parte 3,14:45:57
-Checkbox Selected: Verdadero,14:45:57
-Parte 4,14:46:01
-Correct Answer Selected: print(729),14:46:01
-Parte 5,14:46:07
-Checkbox Selected: comillas '' ,14:46:07
-
-Parte 1,14:46:17
-Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,14:46:19
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,14:46:22
-Parte 3,14:46:28
-Checkbox Selected: Verdadero,14:46:28
-Parte 4,14:46:29
-Correct Answer Selected: print(729),14:46:32
-Parte 5,14:46:39
-Checkbox Selected: comillas '' ,14:46:39
-=======
 Parte 1,15:47:39
 Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,15:47:39
 Parte 3,15:47:46
@@ -959,5 +927,4 @@ Parte 4,19:36:52
 Correct Answer Selected: print(729),19:36:55
 Parte 5,19:37:00
 Checkbox Selected: comillas '' ,19:37:00
->>>>>>> 758859b9a3b54f5e74bd870f891492b5f9a5e2c4:Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python/LESSON_1_Codification/Entradas_Salidas_Clics_Lesson_1.csv
 

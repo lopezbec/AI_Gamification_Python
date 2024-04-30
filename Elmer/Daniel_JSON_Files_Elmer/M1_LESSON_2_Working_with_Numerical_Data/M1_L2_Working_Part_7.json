@@ -1,5 +1,5 @@
 {
-    "practica": [
+    "pedagogical": [
         {
             "title": "Equipo de futbol",
             "blocks": [
@@ -12,7 +12,7 @@
                     "text": "Pista: Una victoria trae 3 puntos, mientras que un empate trae 1."
                 },
                 {
-                    "type": "info",
+                    "type": "Consola",
                     "text": "Cree un programa para calcular y generar el total de puntos ganados por el equipo." 
                 }
             ]

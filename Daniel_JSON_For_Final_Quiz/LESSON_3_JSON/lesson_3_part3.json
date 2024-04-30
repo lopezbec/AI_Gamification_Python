@@ -1,0 +1,27 @@
+{
+    "multiplechoice": [
+        {
+            "title": "¿Qué generará este código?",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántas líneas imprimirá este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "x = int(input())\n\nif x > 5:\n\n    if x < 8:\n\n        print(x+1)\n\n    else:\n\n        print(x-1)\n\nelse:\n\n    print(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "8",
+                    "correct": true
+                },
+                {
+                    "text": "5",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

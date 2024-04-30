@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nprint( 1 == 1 or 2 == 2 )\n>True\nprint( 1 == 1 or 2 == 3 )\n>True\nprint( 1 != 1 or 2 == 2 )\n>True\nprint( 2 < 1 or 3 > 6 )\n>False"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint( 1 == 1 or 2 == 2 )\n>True\nprint( 1 == 1 or 2 == 3 )\n>True\nprint( 1 != 1 or 2 == 2 )\n>True\nprint( 2 < 1 or 3 > 6 )\n>False"
                 }
             ]
         }
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nage = 15\nmoney = 500\nif age > 18 ___ money > 100:\n    ___('Welcome')"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = 15\nmoney = 500\nif age > 18 ___ money > 100:\n    ___('Welcome')"
                 }
             ],
             "answers": [

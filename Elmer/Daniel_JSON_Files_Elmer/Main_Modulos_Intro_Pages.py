@@ -158,8 +158,6 @@ class MainWindow(QtWidgets.QMainWindow):
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
         button_layout.addWidget(guia_usuario_btn)
 
-
-
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
 

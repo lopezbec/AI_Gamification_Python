@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[::2])\nprint(squares[2:8:3])"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[::2])\nprint(squares[2:8:3])"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "\nsqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\nprint(sqs[1::4])"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsqs = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\nprint(sqs[1::4])"
                 }
             ],
             "answers": [
