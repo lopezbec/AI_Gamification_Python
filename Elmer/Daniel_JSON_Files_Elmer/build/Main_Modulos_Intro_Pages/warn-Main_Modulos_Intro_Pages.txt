@@ -21,7 +21,7 @@ missing module named grp - imported by shutil (delayed, optional), tarfile (opti
 missing module named urllib.quote_plus - imported by urllib (delayed, conditional), geocoder.baidu (delayed, conditional)
 missing module named urllib.quote - imported by urllib (delayed, conditional), geocoder.baidu (delayed, conditional)
 missing module named urllib.urlencode - imported by urllib (delayed, conditional), geocoder.baidu (delayed, conditional), geocoder.google (delayed, conditional)
-missing module named posix - imported by os (conditional, optional), posixpath (optional), shutil (conditional), importlib._bootstrap_external (conditional)
+missing module named posix - imported by posixpath (optional), shutil (conditional), importlib._bootstrap_external (conditional), os (conditional, optional)
 missing module named resource - imported by posix (top-level), IPython.utils.timing (optional)
 missing module named _frozen_importlib_external - imported by importlib._bootstrap (delayed), importlib (optional), importlib.abc (optional), zipimport (top-level)
 excluded module named _frozen_importlib - imported by importlib (optional), importlib.abc (optional), zipimport (top-level)
