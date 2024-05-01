@@ -1,0 +1,52 @@
+{
+    "draganddrop2": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para generar la suma de las variables a y b"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(___ ___ ___)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "'42'"
+                },
+                {
+                    "text": "+"
+                },
+                {
+                    "text": "'5'"
+                }
+            ],
+            "correctOrder": ["'42'", "+", "'5'"]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál de los siguientes es un float (decimal)?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Ninguno",
+                    "correct": true
+                },
+                {
+                    "text": "100",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

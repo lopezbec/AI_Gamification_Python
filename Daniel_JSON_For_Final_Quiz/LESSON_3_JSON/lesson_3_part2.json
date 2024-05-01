@@ -1,0 +1,63 @@
+{
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellena los espacios en blanco para tomar un número de entrada y generar 'Pass',  si es mayor de 70."
+                    
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "int",
+                    "text": "grade = ___(input())"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "70",
+                    "text": "if grade > ___:\nprint('Pass')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "70",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "int",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ],
+
+    "multiplechoice": [
+        {
+            "title": "¿Qué generará este código?",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuántas líneas imprimirá este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "i = 0\n\nx = 0\n\nwhile i < 4:\n\n    x+=i\n\n    i+=1\n\n\n\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": true
+                },
+                {
+                    "text": "12",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
