@@ -92,12 +92,13 @@ ___________________________________________________
 
  3- Install Anaconda enviroment:
  
- - Open the Anaconda prompt (you can use the search option on your computer)
+ - Open the Anaconda prompt (in a Mac open the Terminal)
  - Once it is open you will type "cd" and subsequently paste the directory path of the repo you downloaded and decompressed in the previous part (it should be something like ".../AI_Gamification_Python") and press ENTER
- - Now type "conda create --name pyqt --file environment.txt"  (this will install all the necessary libraries needed to run the prototype)
+ - If Python is not installed already, you would need to install it by typing "conda install python"
+ - Now type "conda create --name pyqt --file environment.txt" ( "conda create --name pyqt --file environmentMac.txt" for a Mac). This will install all the necessary libraries needed to run the prototype.
    
   4- Run the prototype:
-   - In the same Anaconda prompt window, now type: "conda activate pyqt"
+   - In the same Anaconda prompt window (or Terminal), now type: "conda activate pyqt"
    - Now type  "cd ./Elmer/Daniel_JSON_Files_Elmer" and press ENTER
    - Now type "Python Main_Modulos_Intro_Pages.py" and press ENTER. This will run the prototype
 
