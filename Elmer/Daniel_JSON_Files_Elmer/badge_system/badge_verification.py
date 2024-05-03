@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import QApplication, QDialog, QLabel, QMainWindow, QVBoxLay
 
 class BadgeVerification(QDialog):
     def __init__(self, badge_id: str) -> None:
-        super(BadgeVerification, self).__init__()
+        super().__init__()
         self.badge_id = badge_id  # Asignar badge_id como propiedad de la clase
 
         try:

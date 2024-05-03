@@ -14,7 +14,7 @@ from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame, QGridLayout
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
@@ -471,8 +471,8 @@ class MainWindow(QWidget):
 
         self.log_data = []
         self.layout = None
-        self.current_xp = 0
-        self.XP_Ganados = 0
+        self.current_xp = 0 #puntos ganados en la respuesta actual 1 a 2 (por respuesta correcta)
+        self.XP_Ganados = 0 #puntos ganados por el jugador durante la leccion (acumulativo)
         self.click_data = []
         self.total_pages = 0
         self.completed = None
@@ -500,7 +500,7 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
-        self.badge_verification = BadgeVerification()
+        self.leaderboard_window_instace = get_instance()
         self.setWindowTitle("Programar: tu nuevo superpoder")
 
         self.progress_bar = ProgressBar(
@@ -1060,6 +1060,12 @@ class MainWindow(QWidget):
     
 
         self.current_page += 1  # Incrementar el número de la página actual
+        
+        #Badge verification
+        if self.leaderboard_window_instace.get_current_user_score() < 3:
+            if self.XP_Ganados > 0 and self.XP_Ganados <= 2:
+                badge = BadgeVerification('gran_paso')
+                badge.exec()
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:
