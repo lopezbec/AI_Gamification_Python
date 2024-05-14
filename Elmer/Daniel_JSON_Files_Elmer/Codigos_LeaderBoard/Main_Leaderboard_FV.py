@@ -339,8 +339,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def get_current_user_score(self):
         
-        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "current_user.json")) as styles_file:
-            data = json.load(styles_file)
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "current_user.json")) as current_user:
+            data = json.load(current_user)
         
         for user in self.leaderboard:
             if user['name'] == data['current_user']:

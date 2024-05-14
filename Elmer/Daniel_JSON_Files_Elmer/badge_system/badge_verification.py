@@ -57,9 +57,10 @@ class BadgeVerification(QDialog):
                     layoutV.addWidget(label)
                     self.setLayout(layoutV)
                 else:
-                    print("imagen no encontrada en el path especificado")
+                    raise FileNotFoundError("Ruta de la imagen no encontrada")
             else:
-                print(f"No se encontró información para la insignia con ID '{self.badge_id}'")
+                raise Exception(f"No se encontró información para la insignia con ID '{self.badge_id}'")
+                
         except Exception as e:
             print(f"Fallo en la creación de la clase: {e}")
             print(f"Error en linea {sys.exc_info()[2].tb_lineno}")

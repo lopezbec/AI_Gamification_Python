@@ -5,7 +5,6 @@ import csv
 import json
 import datetime
 import drag_drop
-
 from PyQt6 import QtWidgets
 from functools import partial
 from PyQt6.QtGui import QFont, QDrag
@@ -20,6 +19,7 @@ from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBox
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import App
 from badge_system.badge_verification import BadgeVerification
+from badge_system.badge_criteria_streak import BadgeCriteriaStreak, check_badges
 
 
 class JsonLoader:
@@ -501,6 +501,7 @@ class MainWindow(QWidget):
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
         self.leaderboard_window_instace = get_instance()
+        self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
         self.setWindowTitle("Programar: tu nuevo superpoder")
 
         self.progress_bar = ProgressBar(
@@ -629,11 +630,13 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
+            self.streak.correct_answer() #se suma una pregunta correcta a la racha
         elif Incorrecto:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            self.streak.incorrect_answer()
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
@@ -1057,15 +1060,16 @@ class MainWindow(QWidget):
             self.is_rollback = False
             # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
-    
-
+        print(self.streak.get_current_streak())
         self.current_page += 1  # Incrementar el número de la página actual
         
-        #Badge verification
+        #Badge verification first correct answer
         if self.leaderboard_window_instace.get_current_user_score() < 3:
             if self.XP_Ganados > 0 and self.XP_Ganados <= 2:
                 badge = BadgeVerification('gran_paso')
                 badge.exec()
+        #Badge verification correct anwers streak
+        check_badges(self.streak.get_current_streak())
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:
@@ -1077,7 +1081,6 @@ class MainWindow(QWidget):
         # Luego, cierra la ventana normalmente
         super().closeEvent(event)
 
-  
 def M1_L1_Main():
     main_window = MainWindow(lesson_number=1)
     main_window.show()
