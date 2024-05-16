@@ -1,6 +1,6 @@
 import csv
 import os
-import geocoder
+##import geocoder
 import json
 import sys
 from config import Config
