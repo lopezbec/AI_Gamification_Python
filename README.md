@@ -79,7 +79,7 @@ ___________________________________________________
 #  How to run the prototype of the application:
 ___________________________________________________
 
-1- Install Anaconda distribution:
+1- Install Anaconda distribution (If you have Anaconda already, skip this step):
 
 - Go to this link and follow the instructions: [https://www.anaconda.com/download](https://www.anaconda.com/download)
 
