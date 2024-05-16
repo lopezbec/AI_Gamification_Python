@@ -94,35 +94,21 @@ ___________________________________________________
  
  - Open the Anaconda prompt (in a Mac open the Terminal)
  - Once it is open you will type "cd" and subsequently paste the directory path of the repo you downloaded and decompressed in the previous part (it should be something like ".../AI_Gamification_Python") and press ENTER
- - If Python is not installed already, you would need to install it by typing "conda install python"
- - Now type "conda create --name pyqt --file environment.txt" ( "conda create --name pyqt --file environmentMac.txt" for a Mac). This will install all the necessary libraries needed to run the prototype.
+ - Create a new conda environment with python by typing "conda create --name test python" and press ENTER
+ - Type "conda activate test" and press ENTER
+ - Install PyQT6 in the environment by typing "pip install PyQt6-tools" and press ENTER.
    
   4- Run the prototype:
-   - In the same Anaconda prompt window (or Terminal), now type: "conda activate pyqt"
    - Now type  "cd ./Elmer/Daniel_JSON_Files_Elmer" and press ENTER
    - Now type "Python Main_Modulos_Intro_Pages.py" and press ENTER. This will run the prototype
 
 *After following all these steps the prototype will open. If you exit the prototype and would like to open it again you can:
 
  - Open the Anaconda prompt window
+ - Type "conda activate test" and press ENTER
  - Type "cd" followed by the directory path of the folder you downloaded above
  - Now follows the step #4 above
 
-
-___________________________________________________
-
-#  How to Run the executable APP
-___________________________________________________
-
-1- Go to the folder named 'Elmer'
-
-2- Go to the folder named 'Daniel_JSON_Files_Elmer'
-
-2- Go to the folder named 'dist'
-
-3- click in the Main_Modulos_Intro_Pages.exe
-
-The first window will open with the same abstract that you read at the beginning of the README.
 
 ___________________________________________________
 
