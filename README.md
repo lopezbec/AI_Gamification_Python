@@ -82,6 +82,8 @@ ___________________________________________________
 1- Install Anaconda distribution (If you have Anaconda already, skip this step):
 
 - Go to this link and follow the instructions: [https://www.anaconda.com/download](https://www.anaconda.com/download)
+- 
+  (If you have issues installing the latest version of Anaconda, you can download a previous/older version here:  [https://repo.anaconda.com/archive/](https://repo.anaconda.com/archive/))
 
  2- Download the repo:
  
