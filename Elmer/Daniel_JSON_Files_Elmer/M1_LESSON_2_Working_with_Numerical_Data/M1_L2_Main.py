@@ -19,9 +19,9 @@ from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBox
     QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
+read_stored_streak, update_streak, check_badges
 from command_line_UI import App
-from badge_system.badge_verification import BadgeVerification
-from badge_system.badge_criteria_streak import BadgeCriteriaStreak, check_badges
 
 
 class JsonLoader:
@@ -627,6 +627,7 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
             self.streak.incorrect_answer()
+            reset_streak(self.usuario_actual)
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
@@ -1056,6 +1057,10 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion2')
             self.actualizar_leccion_completada('Modulo1', 'Leccion2')
+            if self.streak.get_current_streak() >= 1:
+                update_streak(self.usuario_actual, self.streak.get_current_streak())
+            #Badge verification correct anwers streak
+            check_badges(int(read_stored_streak(self.usuario_actual)))
             self.close()
 
         else:
@@ -1066,10 +1071,7 @@ class MainWindow(QWidget):
             self.is_rollback = False
             # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
-        print(self.streak.get_current_streak())
         self.current_page += 1  # Incrementar el número de la página actual
-        #Badge verification correct anwers streak
-        check_badges(self.streak.get_current_streak())
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:

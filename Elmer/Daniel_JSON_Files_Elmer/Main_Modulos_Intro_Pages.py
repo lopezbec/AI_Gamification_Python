@@ -10,6 +10,7 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
+from badge_system.badge_criteria_streak import save_badge_progress_per_user
 
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -72,6 +73,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.usuario_actual = self.load_current_user()  # Carga el usuario actual
         self.progreso_usuario = self.load_user_progress(self.usuario_actual)  # Carga el progreso del usuario
         self.actualizar_lecciones(self.progreso_usuario)
+        save_badge_progress_per_user(self.usuario_actual)
 
         self.menuBar().clear()  # Limpia la barra de menús actual
 

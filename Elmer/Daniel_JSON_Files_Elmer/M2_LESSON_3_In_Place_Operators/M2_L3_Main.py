@@ -13,6 +13,8 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
+read_stored_streak, update_streak, check_badges
 from command_line_UI import App
 
 
@@ -474,6 +476,7 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
+        self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
         self.setWindowTitle("Operadores In-Place")
 
         self.progress_bar = ProgressBar(
@@ -602,11 +605,14 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
+            self.streak.correct_answer()
         elif Incorrecto:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            self.streak.incorrect_answer()
+            reset_streak(self.usuario_actual)
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
@@ -1008,6 +1014,10 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo2', 'Leccion3')
             self.actualizar_leccion_completada('Modulo2', 'Leccion3')
+            if self.streak.get_current_streak() >= 1:
+                update_streak(self.usuario_actual, self.streak.get_current_streak())
+            #Badge verification correct anwers streak
+            check_badges(int(read_stored_streak(self.usuario_actual)))
             self.close()
 
         else:
