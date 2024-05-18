@@ -1,13 +1,13 @@
 {
-    "draganddrop2": [
+    "draganddrop": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - UNIDAD 1 - SEGUNDA PARTE",
             "multipleResponses": true,
             "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastre y suelte para generar la suma de las variables a y b"
+                    "text": "Arrastre y suelte para generar la suma de '42' mas '5'"
                 },
                 {
                     "type": "Consola",

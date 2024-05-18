@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_3_2024_9_51_p__m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_3_2024_9_51_p_ m__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AI_Gamification_Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AI_Gamification_Python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_1_Codification/M1_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_1_Codification/M1_L1_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_2_Working_with_Numerical_Data/M1_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_2_Working_with_Numerical_Data/M1_L2_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_3_Working_with_Text_Data/M1_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_3_Working_with_Text_Data/M1_L3_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_4_Mixing_things_up/M1_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_4_Mixing_things_up/M1_L4_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1_L5_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M2_LESSON_1_Taking_User_Input/M2_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M2_LESSON_1_Taking_User_Input/M2_L1_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M2_LESSON_2_Working_with_Input/M2_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M2_LESSON_2_Working_with_Input/M2_L2_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M2_LESSON_3_In_Place_Operators/M2_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M2_LESSON_3_In_Place_Operators/M2_L3_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_1_Booleans_and_Comparisons/M3_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_1_Booleans_and_Comparisons/M3_L1_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_2_If_Statements/M3_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_2_If_Statements/M3_L2_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_3_Else_Statements/M3_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_3_Else_Statements/M3_L3_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_4_Boolean_Logic/M3_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_4_Boolean_Logic/M3_L4_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_5_while_Loops/M3_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M3_LESSON_5_while_Loops/M3_L5_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_1_Lists/M4_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_1_Lists/M4_L1_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_2_List_Operations/M4_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_2_List_Operations/M4_L2_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_3_For_Loops/M4_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_3_For_Loops/M4_L3_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_4_Ranges/M4_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_4_Ranges/M4_L4_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_5_List_Slices/M4_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M4_LESSON_5_List_Slices/M4_L5_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_1_Functions/M5_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_1_Functions/M5_L1_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_2_List_Functions/M5_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_2_List_Functions/M5_L2_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_3_String_Functions/M5_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_3_String_Functions/M5_L3_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_4_Making_Your_Own_Functions/M5_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_4_Making_Your_Own_Functions/M5_L4_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_5_Function_Arguments/M5_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_5_Function_Arguments/M5_L5_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_6_Returning_From_Functions/M5_L6_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_6_Returning_From_Functions/M5_L6_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_7_Comments_and_Docstrings/M5_L7_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M5_LESSON_7_Comments_and_Docstrings/M5_L7_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/current_user.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/current_user.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/leccion_completada.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/leccion_completada.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/progreso.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/progreso.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/styles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +122,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>

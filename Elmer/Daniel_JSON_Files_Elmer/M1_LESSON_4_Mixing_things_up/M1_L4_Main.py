@@ -118,7 +118,7 @@ class JsonWindow(QWidget):
             self.create_complete_blank_space_layout()
             self.create_feedback_label()
 
-        elif self.page_type.lower() == "draganddrop":
+        elif self.page_type.lower() == "draganddrop" or self.page_type.lower() == "draganddrop2":
             self.create_drag_and_drop_layout()
             self.create_feedback_label()
 
@@ -331,7 +331,7 @@ class JsonWindow(QWidget):
 
         # Restablecer el contenido del JsonWindow según el tipo de página
         self.title()
-        if self.page_type.lower() == "draganddrop":
+        if self.page_type.lower() == "draganddrop" or self.page_type.lower() == "draganddrop2":
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
             self.create_multiple_choice_layout(
@@ -748,7 +748,7 @@ class MainWindow(QWidget):
             else:
                 self.SubmitAnswers(True, False, False)  # Respuesta no seleccionada
 
-        elif current_page_type == "draganddrop":
+        elif current_page_type == "draganddrop" or current_page_type == "draganddrop2":
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
             correct_count = 0
             unanswered = 0
