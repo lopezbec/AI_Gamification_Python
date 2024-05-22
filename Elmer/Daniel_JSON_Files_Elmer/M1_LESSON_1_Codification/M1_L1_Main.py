@@ -20,7 +20,7 @@ from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import App
 from badge_system.badge_verification import BadgeVerification
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
-read_stored_streak, update_streak, check_badges
+read_stored_streak, update_streak, check_badges, update_badge_progress
 
 
 class JsonLoader:
@@ -1054,7 +1054,7 @@ class MainWindow(QWidget):
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
-            check_badges(int(read_stored_streak(self.usuario_actual)))
+            check_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             self.close()
         else:
             print("¡La leccion no se completó, se cerró!.")
@@ -1071,6 +1071,7 @@ class MainWindow(QWidget):
             if self.XP_Ganados > 0 and self.XP_Ganados <= 2:
                 badge = BadgeVerification('gran_paso')
                 badge.exec()
+                update_badge_progress(self.usuario_actual, 'gran_paso')
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:

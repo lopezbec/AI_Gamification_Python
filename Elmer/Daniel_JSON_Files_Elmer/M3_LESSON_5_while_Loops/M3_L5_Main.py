@@ -1032,7 +1032,7 @@ class MainWindow(QWidget):
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
-            check_badges(int(read_stored_streak(self.usuario_actual)))
+            check_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             self.close()
 
         else:

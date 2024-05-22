@@ -1,0 +1,10 @@
+{
+    "streak": 4,
+    "gran_paso": true,
+    "hello_world": false,
+    "5_correctas": true,
+    "10_correctas": false,
+    "intermedio": false,
+    "avanzado": false,
+    "experto": false
+}
