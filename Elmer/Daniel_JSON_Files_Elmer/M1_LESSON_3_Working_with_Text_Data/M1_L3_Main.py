@@ -606,7 +606,7 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setStyleSheet(
             f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)    
-            self.streak.correct_answer()          
+            self.streak.correct_answer()   
         elif Incorrecto:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
@@ -1006,9 +1006,8 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion3')
             self.actualizar_leccion_completada('Modulo1', 'Leccion3')
-            if self.streak.get_current_streak() >= 1:
+            if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
-            
             self.close()
 
         else:

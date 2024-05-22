@@ -1005,7 +1005,7 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo3', 'Leccion4')
             self.actualizar_leccion_completada('Modulo3', 'Leccion4')
-            if self.streak.get_current_streak() >= 1:
+            if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_badges(int(read_stored_streak(self.usuario_actual)))
