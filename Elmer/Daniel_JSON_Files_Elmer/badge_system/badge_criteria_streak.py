@@ -102,33 +102,69 @@ def display_badge(badge_details):
     badge_window.exec()
 
 def save_badge_progress_per_user(username):
-    # Nombre del directorio
-    directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
-    # Nombre del archivo json
-    filename = f'{username}_badge_progress.json'
-    # Path completo al archivo
-    filepath = os.path.join(directory, filename)
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
+        # Nombre del archivo json
+        filename = f'{username}_badge_progress.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
 
-    # Crear el directorio si no existe
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+        # Crear el directorio si no existe
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
-    # Verificar si el archivo json ya existe
-    if not os.path.exists(filepath):
-        # Crear un diccionario con los valores iniciales de cada badge
-        badge_data = {
-            "streak": 0,
-            "gran_paso": False,
-            "hello_world": False,
-            "5_correctas": False,
-            "10_correctas": False,
-            "intermedio": False,
-            "avanzado": False,
-            "experto": False
-        }
+        # Verificar si el archivo json ya existe
+        if not os.path.exists(filepath):
+            # Crear un diccionario con los valores iniciales de cada badge
+            badge_data = {
+                "streak": 0,
+                "gran_paso": False,
+                "hello_world": False,
+                "5_correctas": False,
+                "10_correctas": False,
+                "intermedio": False,
+                "avanzado": False,
+                "experto": False
+            }
 
-        # Escribir el diccionario en el archivo json
+            # Escribir el diccionario en el archivo json
+            with open(filepath, 'w') as file:
+                json.dump(badge_data, file, indent=4)
+    except OSError as e:
+        print(f"Error al crear el directorio o archivo: {e}")
+
+def update_badge_progress(username, badge_name):
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
+        # Nombre del archivo json
+        filename = f'{username}_badge_progress.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+
+        # Verificar si el archivo json ya existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            badge_data = json.load(file)
+
+        # Verificar si el badge_name existe en el diccionario
+        if badge_name not in badge_data:
+            raise KeyError(f'El badge {badge_name} no existe.')
+
+        # Actualizar el valor del badge a True
+        badge_data[badge_name] = True
+
+        # Escribir el diccionario actualizado en el archivo JSON
         with open(filepath, 'w') as file:
             json.dump(badge_data, file, indent=4)
-    else:
-        pass
+
+    except FileNotFoundError as e:
+        print(f'Error: {e}')
+    except KeyError as e:
+        print(f'Error: {e}')
+    except OSError as e:
+        print(f'Error al leer o escribir el archivo: {e}')
