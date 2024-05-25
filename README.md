@@ -111,6 +111,7 @@ ___________________________________________________
  - Type "cd" followed by the directory path of the folder you downloaded above
  - Now follows the step #4 above
 
+## How to video for Windows OS [HERE](https://youtu.be/CAHyiyaBh3U)
 ## How to video for Mac OS [HERE](https://youtu.be/IxdrbJuCo0g)
 ___________________________________________________
 
