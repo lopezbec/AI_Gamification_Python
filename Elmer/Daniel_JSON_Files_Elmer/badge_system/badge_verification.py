@@ -59,9 +59,34 @@ class BadgeVerification(QDialog):
                 else:
                     raise FileNotFoundError("Ruta de la imagen no encontrada")
             else:
-                raise Exception(f"No se encontró información para la insignia con ID '{self.badge_id}'")
-                
+                raise Exception(f"No se encontró información para la insignia con ID '{self.badge_id}'")        
         except Exception as e:
             print(f"Fallo en la creación de la clase: {e}")
             print(f"Error en linea {sys.exc_info()[2].tb_lineno}")
 
+    def display_badge(badge_id):
+        badge_window = BadgeVerification(badge_id)
+        badge_window.exec()
+
+    def get_badge_level(self, levels, score):
+        try:
+            for level in levels:
+                # Verificar si el nivel tiene el atributo 'range'
+                if 'range' not in level:
+                    continue
+
+                range_str = level["range"]
+                if "<=" in range_str:
+                    max_score = int(range_str.split('<=')[1].strip())
+                    if score <= max_score:
+                        self.display_badge(level["badge_id"])
+                        return level
+                elif "-" in range_str:
+                    min_score, max_score = map(int, range_str.split('-'))
+                    if min_score <= score <= max_score:
+                        self.display_badge(level["badge_id"])
+                        return level
+            return None
+        except (ValueError, IndexError) as e:
+            print(f"Error al procesar el rango del nivel: {e}")
+            return None

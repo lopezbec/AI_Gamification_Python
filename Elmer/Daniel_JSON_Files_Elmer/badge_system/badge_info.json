@@ -45,6 +45,7 @@
     },
     {
         "badge_id": "intermedio",
+        "range": "51 - 199",
         "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
         "badge_title": "Habilidoso en Programación",
         "badge_description": "¡Felicidades! Has alcanzado el nivel intermedio en tus habilidades de programación. Tu dedicación y esfuerzo te han llevado a este punto. ¡Sigue así!",
@@ -56,6 +57,7 @@
     },
     {
         "badge_id": "avanzado",
+        "range": "200 - 399",
         "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
         "badge_title": "Maestro Programador",
         "badge_description": "¡Felicidades! Has alcanzado el nivel intermedio en tus habilidades de programación. Tu dedicación y esfuerzo te han llevado a este punto. ¡Sigue así!¡Enhorabuena! Te has convertido en un maestro programador al alcanzar el nivel avanzado. Tu dominio del código es impresionante. ¡Sigue desafiándote a ti mismo y alcanzarás nuevas alturas!",
@@ -67,6 +69,7 @@
     },
     {
         "badge_id": "experto",
+        "range": "399 - 2000",
         "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
         "badge_title": "Gurú del Código",
         "badge_description": "¡Increíble! Has alcanzado el nivel experto y te has convertido en un verdadero gurú del código. Tu conocimiento profundo y tu capacidad para resolver problemas te destacan entre los demás. ¡Eres un ejemplo a seguir para aspirantes a programadores en todas partes!",
