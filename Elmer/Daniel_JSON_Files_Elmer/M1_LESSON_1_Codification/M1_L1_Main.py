@@ -1,27 +1,29 @@
-import re
-import os
-import sys
-import csv
-import json
-import datetime
-import drag_drop
-from PyQt6 import QtWidgets
-from functools import partial
-from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtCore import pyqtSignal, Qt, QMimeData
-from qtconsole.manager import QtKernelManager
-from custom_console import CustomPythonConsole
-from game_features.progress_bar import ProgressBar
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
-from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame, QGridLayout
-from Main_Modulos_Intro_Pages import MainWindow as Dashboard
-from command_line_UI import App
-from badge_system.badge_verification import BadgeVerification
-from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
-read_stored_streak, update_streak, check_badges, update_badge_progress
-
+try:
+    import re
+    import os
+    import sys
+    import csv
+    import json
+    import datetime
+    import drag_drop
+    from PyQt6 import QtWidgets
+    from functools import partial
+    from PyQt6.QtGui import QFont, QDrag
+    from PyQt6.QtCore import pyqtSignal, Qt, QMimeData
+    from qtconsole.manager import QtKernelManager
+    from custom_console import CustomPythonConsole
+    from game_features.progress_bar import ProgressBar
+    from qtconsole.rich_jupyter_widget import RichJupyterWidget
+    from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
+    from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+        QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame, QGridLayout
+    from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+    from command_line_UI import App
+    from badge_system.badge_verification import BadgeVerification, get_badge_level, check_badges, update_badge_progress
+    from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
+    read_stored_streak, update_streak
+except Exception as e:
+    print(f"Error en importancion de modulos: {e}")
 
 class JsonLoader:
     @staticmethod
@@ -1055,6 +1057,7 @@ class MainWindow(QWidget):
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
+            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())           
             self.close()
         else:
             print("¡La leccion no se completó, se cerró!.")

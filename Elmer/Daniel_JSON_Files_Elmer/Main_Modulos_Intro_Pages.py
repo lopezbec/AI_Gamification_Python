@@ -10,7 +10,7 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
-from badge_system.badge_criteria_streak import save_badge_progress_per_user
+from badge_system.badge_verification import save_badge_progress_per_user
 
 
 class UserGuideDialog(QtWidgets.QDialog):
