@@ -348,6 +348,8 @@ class MainWindow(QtWidgets.QMainWindow):
             from M5_LESSON_5_Function_Arguments.M5_L5_Main import M5_L5_Main as m5l5
             from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
             from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
+            # Importar otros modulos solo necesarios en este metodo
+            from badge_system.badge_verification import are_lessons_completed_same_day
 
             nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:

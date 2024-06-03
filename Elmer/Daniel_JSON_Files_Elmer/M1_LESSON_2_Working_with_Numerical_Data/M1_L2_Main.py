@@ -20,9 +20,9 @@ from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBox
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
-read_stored_streak, update_streak
+read_stored_streak, update_streak, check_streak_badges
 from command_line_UI import App
-from badge_system.badge_verification import check_badges, get_badge_level
+from badge_system.badge_verification import get_badge_level
 
 
 class JsonLoader:
@@ -1061,7 +1061,7 @@ class MainWindow(QWidget):
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
-            check_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
+            check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())           
             self.close()
 

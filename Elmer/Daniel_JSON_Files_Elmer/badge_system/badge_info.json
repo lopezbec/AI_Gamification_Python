@@ -79,5 +79,27 @@
         "badge_margin": 10,
         "badge_word_wrap": true,
         "badge_bold": true
-    }
+    },
+    {
+        "badge_id": "doble_aprendizaje",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Doble Aprendizaje",
+        "badge_description": "Completa dos lecciones en un día",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+      },
+      {
+        "badge_id": "modulo_rapido",
+        "badge_text": "¡Felicidades! has conseguido una nueva insignia",
+        "badge_title": "Rápido como el Rayo",
+        "badge_description": "Completa un módulo en un día",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+      }
 ]

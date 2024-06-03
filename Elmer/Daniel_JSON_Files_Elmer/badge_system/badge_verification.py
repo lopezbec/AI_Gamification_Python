@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import sys
@@ -76,17 +77,6 @@ def load_badges_criteria():
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json")) as content:
         return json.load(content)
 
-def check_badges(streak, username):
-    """
-    check and display a certain badge based on the current streak of the users.
-    """
-    badges_criteria = load_badges_criteria()
-    for criteria in badges_criteria:
-        if streak >= criteria.get("value", 0):
-            if not is_badge_earned(username, criteria.get("badge_id")):
-                display_badge(criteria.get("badge_id"))
-                update_badge_progress(username, criteria.get("badge_id"))
-
 def save_badge_progress_per_user(username):
     try:
         # Nombre del directorio
@@ -112,7 +102,9 @@ def save_badge_progress_per_user(username):
                 "20_correctas": False,
                 "intermedio": False,
                 "avanzado": False,
-                "experto": False
+                "experto": False,
+                "doble_aprendizaje": False,
+                "modulo_rapido": False
             }
 
             # Escribir el diccionario en el archivo json
@@ -204,13 +196,13 @@ def get_badge_level(self, score):
             range_str = level["range"]
             if "<=" in range_str:
                 max_score = int(range_str.split('<=')[1].strip())
-                if score <= max_score:
+                if score <= max_score and is_badge_earned(self.usuario_actual, level["badge_id"]):
                     display_badge(level["badge_id"])
                     update_badge_progress(self.usuario_actual, level["badge_id"])
                     return
             elif "-" in range_str:
                 min_score, max_score = map(int, range_str.split('-'))
-                if min_score <= score <= max_score:
+                if min_score <= score <= max_score and is_badge_earned(self.usuario_actual, level["badge_id"]):
                     display_badge(level["badge_id"])
                     update_badge_progress(self.usuario_actual, level["badge_id"])
                     return
@@ -218,3 +210,193 @@ def get_badge_level(self, score):
     except (ValueError, IndexError) as e:
         print(f"Error al procesar el rango del nivel: {e}")
         return None
+
+def are_lessons_completed_same_day(username, module_name) -> bool:
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
+        # Nombre del archivo JSON
+        filename = 'lessons_date_completion.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+
+        # Verificar si el archivo json existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            lesson_data = json.load(file)
+
+        # Verificar si el módulo_name existe en el diccionario
+        if module_name not in lesson_data:
+            raise KeyError(f'El módulo {module_name} no existe.')
+
+       # Obtener las lecciones completadas del módulo
+        completed_lessons = lesson_data[module_name]
+
+        # Obtener la fecha de hoy
+        today_date = datetime.now().date()
+
+        # Verificar si todas las lecciones completadas del módulo fueron en la misma fecha
+        for completed_date in completed_lessons.values():
+            if completed_date != today_date.isoformat():
+                return False
+
+        return True
+
+    except FileNotFoundError as e:
+        print(f'Error: {e}')
+        return False
+    except KeyError as e:
+        print(f'Error: {e}')
+        return False
+    except Exception as e:
+        print(f'Error: {e}')
+        return False
+    
+def create_lessons_date_completion(username):
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
+        # Nombre del archivo JSON
+        filename = 'lessons_date_completion.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+
+        # Verificar si el archivo ya existe
+        if not os.path.exists(filepath):
+            # Crear la estructura inicial
+            data = {username: {
+                "Modulo1": {
+                    "Leccion_completada1": "",
+                    "Leccion_completada2": "",
+                    "Leccion_completada3": "",
+                    "Leccion_completada4": "",
+                    "Leccion_completada5": ""
+                },
+                "Modulo2": {
+                    "Leccion_completada1": "",
+                    "Leccion_completada2": "",
+                    "Leccion_completada3": ""
+                },
+                "Modulo3": {
+                    "Leccion_completada1": "",
+                    "Leccion_completada2": "",
+                    "Leccion_completada3": "",
+                    "Leccion_completada4": "",
+                    "Leccion_completada5": ""
+                },
+                "Modulo4": {
+                    "Leccion_completada1": "",
+                    "Leccion_completada2": "",
+                    "Leccion_completada3": "",
+                    "Leccion_completada4": "",
+                    "Leccion_completada5": ""
+                },
+                "Modulo5": {
+                    "Leccion_completada1": "",
+                    "Leccion_completada2": "",
+                    "Leccion_completada3": "",
+                    "Leccion_completada4": "",
+                    "Leccion_completada5": "",
+                    "Leccion_completada6": "",
+                    "Leccion_completada7": ""
+                }
+            }}
+            
+            # Guardar la estructura inicial en el archivo JSON
+            with open(filepath, 'w') as file:
+                json.dump(data, file)
+
+            print(f'Se creó el archivo {filename} con la estructura inicial para el usuario {username}.')
+        else:
+            # Leer el contenido del archivo JSON
+            with open(filepath, 'r') as file:
+                lesson_dates = json.load(file)
+            
+            # Verificar si el usuario ya existe en el archivo
+            if username not in lesson_dates:
+                # Agregar el nuevo usuario al final del diccionario
+                lesson_dates[username] = {
+                    "Modulo1": {
+                        "Leccion_completada1": "",
+                        "Leccion_completada2": "",
+                        "Leccion_completada3": "",
+                        "Leccion_completada4": "",
+                        "Leccion_completada5": ""
+                    },
+                    "Modulo2": {
+                        "Leccion_completada1": "",
+                        "Leccion_completada2": "",
+                        "Leccion_completada3": ""
+                    },
+                    "Modulo3": {
+                        "Leccion_completada1": "",
+                        "Leccion_completada2": "",
+                        "Leccion_completada3": "",
+                        "Leccion_completada4": "",
+                        "Leccion_completada5": ""
+                    },
+                    "Modulo4": {
+                        "Leccion_completada1": "",
+                        "Leccion_completada2": "",
+                        "Leccion_completada3": "",
+                        "Leccion_completada4": "",
+                        "Leccion_completada5": ""
+                    },
+                    "Modulo5": {
+                        "Leccion_completada1": "",
+                        "Leccion_completada2": "",
+                        "Leccion_completada3": "",
+                        "Leccion_completada4": "",
+                        "Leccion_completada5": "",
+                        "Leccion_completada6": "",
+                        "Leccion_completada7": ""
+                    }
+                }
+                
+                # Guardar el diccionario actualizado en el archivo JSON
+                with open(filepath, 'w') as file:
+                    json.dump(lesson_dates, file)
+
+                print(f'Se agregó el usuario {username} al archivo {filename}.')
+            else:
+                print(f'El usuario {username} ya existe en el archivo, no se hizo nada.')
+    except Exception as e:
+        print(f'Error: {e}')
+
+def update_lesson_dates(username, module, lesson):
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
+        # Nombre del archivo JSON
+        filename = 'lessons_date_completion.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            lesson_dates = json.load(file)
+
+        # Obtener la fecha actual en formato YYYY-MM-DD
+        current_date = datetime.date.today().isoformat()
+
+        # Verificar si el usuario tiene un módulo registrado en el archivo
+        if username not in lesson_dates:
+            lesson_dates[username] = {}
+
+        # Verificar si el módulo tiene lecciones registradas en el archivo
+        if module not in lesson_dates[username]:
+            lesson_dates[username][module] = {}
+
+        # Actualizar la fecha de la lección completada
+        lesson_dates[username][module][lesson] = current_date
+
+        # Guardar el diccionario actualizado en el archivo JSON
+        with open(filepath, 'w') as file:
+            json.dump(lesson_dates, file)
+
+        print(f'Se actualizó el archivo {filename} con la lección {lesson} del módulo {module} para el usuario {username}.')
+    except Exception as e:
+        print(f'Error: {e}')

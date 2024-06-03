@@ -1,6 +1,7 @@
 import json
 import os
-from badge_system.badge_verification import BadgeVerification
+from badge_system.badge_verification import update_badge_progress,\
+    load_badges_criteria, display_badge, is_badge_earned
 
 
 class BadgeCriteriaStreak:
@@ -82,3 +83,14 @@ def update_streak(username, new_streak):
             json.dump(badge_data, file, indent=4)
     else:
         print(f"El archivo {filename} no existe.")
+
+def check_streak_badges(streak, username):
+    """
+    check and display a certain badge based on the current streak of the users.
+    """
+    badges_criteria = load_badges_criteria()
+    for criteria in badges_criteria:
+        if streak >= criteria.get("value", 0):
+            if not is_badge_earned(username, criteria.get("badge_id")):
+                display_badge(criteria.get("badge_id"))
+                update_badge_progress(username, criteria.get("badge_id"))
