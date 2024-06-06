@@ -163,3 +163,89 @@ Checkbox Selected: 100,23:26:44
 Checkbox Selected: Ninguno,23:26:47
 Multiplechoice Page Close Time,23:26:49
 
+"Modulo 1, Leccion 1",
+Parte 1,15:24:40
+Pedagogical Page Open Time,15:24:40
+Pedagogical Page Close Time,15:24:41
+Multiplechoice Page Open Time,15:24:41
+Multiplechoice Page Close Time,15:24:45
+Parte 2,15:24:45
+Pedagogical Page Open Time,15:24:45
+Parte 1,15:24:45
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,15:24:45
+Pedagogical Page Close Time,15:24:46
+Pedagogical2 Page Open Time,15:24:46
+Pedagogical2 Page Close Time,15:24:47
+Pedagogical Page Open Time,15:24:47
+Pedagogical Page Close Time,15:24:48
+Pedagogical2 Page Open Time,15:24:48
+Playground Page Open,15:24:49
+Playground Page Close,15:24:51
+Pedagogical2 Page Close Time,15:24:52
+Parte 3,15:24:52
+Pedagogical Page Open Time,15:24:52
+Pedagogical Page Close Time,15:24:52
+Multiplechoice Page Open Time,15:24:52
+Checkbox Selected: Verdadero,15:24:54
+Multiplechoice Page Close Time,15:24:55
+Parte 4,15:24:55
+Draganddrop Page Open Time,15:24:55
+Incorrect Answer Selected: <Espacio para respuesta>(729),15:24:55
+Draganddrop Page Close Time,15:24:57
+Pedagogical Page Open Time,15:24:57
+Correct Answer Selected: print(729),15:24:57
+Pedagogical Page Close Time,15:24:58
+Parte 5,15:24:58
+Multiplechoice Page Open Time,15:24:58
+Checkbox Selected: comillas '' ,15:25:00
+Multiplechoice Page Close Time,15:25:01
+Pedagogical Page Open Time,15:25:01
+Pedagogical Page Close Time,15:25:01
+Parte 6,15:25:01
+Pedagogical Page Open Time,15:25:01
+Pedagogical Page Close Time,15:25:02
+
+"Modulo 1, Leccion 2",
+Parte 1,15:25:05
+Pedagogical Page Open Time,15:25:05
+Pedagogical Page Close Time,15:25:06
+Pedagogical2 Page Open Time,15:25:06
+Playground Page Open,15:25:07
+Playground Page Close,15:25:08
+Pedagogical2 Page Close Time,15:25:10
+Parte 2,15:25:10
+Completeblankspace Page Open Time,15:25:10
+Completeblankspace Page Close Time,15:25:16
+Pedagogical Page Open Time,15:25:16
+Correct Answer Selected: +,15:25:16
+Pedagogical Page Close Time,15:25:17
+Parte 3,15:25:17
+Draganddrop Page Open Time,15:25:17
+Correct Answer Selected: print(42 * 3),15:25:21
+Draganddrop Page Close Time,15:25:22
+Pedagogical Page Open Time,15:25:22
+Pedagogical Page Close Time,15:25:22
+Parte 4,15:25:22
+Multiplechoice Page Open Time,15:25:22
+Multiplechoice Page Close Time,15:25:25
+Pedagogical Page Open Time,15:25:25
+Pedagogical Page Close Time,15:25:25
+Parte 5,15:25:25
+Draganddrop Page Open Time,15:25:25
+Parte 4,15:25:25
+Correct Answer Selected: 4.0,15:25:25
+Draganddrop Page Close Time,15:25:30
+Pedagogical Page Open Time,15:25:30
+Parte 5,15:25:30
+Correct Answer Selected: Entero:2,15:25:30
+Correct Answer Selected: Flotante:3.14,15:25:30
+Pedagogical Page Close Time,15:25:33
+Parte 6,15:25:33
+Pedagogical Page Open Time,15:25:33
+Pedagogical Page Close Time,15:25:34
+Pedagogical2 Page Open Time,15:25:34
+Pedagogical2 Page Close Time,15:25:35
+Parte 7,15:25:35
+Pedagogical Page Open Time,15:25:35
+Pedagogical Page Close Time,15:25:37
+

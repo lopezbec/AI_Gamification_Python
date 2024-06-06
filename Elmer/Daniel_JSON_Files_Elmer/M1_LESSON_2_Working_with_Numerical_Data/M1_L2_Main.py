@@ -1,25 +1,19 @@
 import re
 import os
-import sys
 import csv
 import json
 import datetime
-import drag_drop
+import Elmer.Daniel_JSON_Files_Elmer.drag_drop as drag_drop
 
-from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtCore import Qt, QMimeData
-from qtconsole.manager import QtKernelManager
-from custom_console import CustomPythonConsole
-from game_features.progress_bar import ProgressBar
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
-from command_line_UI import CMD_Practica as CMDP
-from Main_Modulos_Intro_Pages import MainWindow as Dashboard
-from command_line_UI import App
+from PyQt6.QtGui import QFont
+from PyQt6.QtCore import Qt
+from Elmer.Daniel_JSON_Files_Elmer.game_features.progress_bar import ProgressBar
+from Elmer.Daniel_JSON_Files_Elmer.Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from PyQt6.QtWidgets import QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+    QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
+from Elmer.Daniel_JSON_Files_Elmer.Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from Elmer.Daniel_JSON_Files_Elmer.command_line_UI import App, CMD_Practica as CMDP
 
 
 class JsonLoader:
