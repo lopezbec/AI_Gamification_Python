@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="Issue #81 Partially completed!">
+    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="Issue #81 partially completed!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/M1_LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_8.json" afterDir="false" />
@@ -195,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717702668850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Issue #81 partially completed!">
+      <option name="closed" value="true" />
+      <created>1717765087240</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717765087240</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +238,9 @@
     <MESSAGE value="Adding some Init" />
     <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Issue #81 Partially completed!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue #81 Partially completed!" />
+    <MESSAGE value="Issue #81 partially completed!&#10;&#10;Issue #81 partially completed!" />
+    <MESSAGE value="Issue #81 partially completed!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue #81 partially completed!" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Leaderboard_FV.coverage" NAME="Main_Leaderboard_FV Coverage Results" MODIFIED="1707276662325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard" />
