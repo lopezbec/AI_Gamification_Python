@@ -1,0 +1,64 @@
+{
+    "completeblankspace": [
+        {
+            "title": "QUIZ - MODULO 2 - SEGUNDA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 5\ny = x + 3\ny = int(str(y) + '2')\nprint(y)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "82",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 2 - SEGUNDA PARTE CONTINUACION",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastra y suelta en los espacios en blanco para declarar una variable, sumarle 5 e imprimir su valor.:"
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "x = 4\nx___= 5",
+                    "correctValue": "+"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "print___",
+                    "correctValue": "(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "(x)",
+                    "correctType": "pregunta2",
+                    "correct": true
+                },
+                {
+                    "text": "+",
+                    "correctType": "pregunta1",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

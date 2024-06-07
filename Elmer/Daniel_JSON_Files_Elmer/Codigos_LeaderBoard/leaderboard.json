@@ -1,8 +1,8 @@
 [
     {
         "name": "Elmer",
-        "points": 3073,
-        "last_active": "2024-06-06 ; 15h:24m"
+        "points": 3095,
+        "last_active": "2024-06-06 ; 15h:55m"
     },
     {
         "name": "Daniel",
@@ -23,5 +23,10 @@
         "name": "Jose",
         "points": 0,
         "last_active": "2024-03-20 ; 12h:42m"
+    },
+    {
+        "name": "eLMER",
+        "points": 0,
+        "last_active": "2024-06-06 ; 15h:45m"
     }
 ]

@@ -3,11 +3,8 @@ import sys
 import json
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
-from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import QMessageBox
-from name_window import NameWindow
-from pathlib import Path
-from PyQt6.QtWidgets import QApplication, QMenu
+from PyQt6.QtWidgets import QApplication
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
 
@@ -21,7 +18,9 @@ class UserGuideDialog(QtWidgets.QDialog):
 
         layout = QtWidgets.QVBoxLayout(self)
         label = QtWidgets.QLabel(
-            "Sistema de puntos:\nCompletar una página = 1 punto\nResponder respuesta correctamente al primer intento = 2 puntos\nResponder respuesta correctamente al segundo o más intentos = 1 punto\nFinalizar una lessión = 5 puntos")
+            "Sistema de puntos:\nCompletar una página = 1 punto\nResponder respuesta correctamente al primer intento "
+            "= 2 puntos\nResponder respuesta correctamente al segundo o más intentos = 1 punto\nFinalizar una lessión "
+            "= 5 puntos")
         label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(label)
 

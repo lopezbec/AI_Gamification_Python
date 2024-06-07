@@ -315,13 +315,13 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_L4_Mixing_things_up_Part_8.json",
-                    "page_type": "DragAndDrop2",
+                    "page_type": "DragAndDrop",
                     "json_number": 8
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M1_L4_Mixing_things_up_Part_8.json",
-                    "page_type": "DragAndDrop",
+                    "page_type": "DragAndDrop2",
                     "json_number": 8
                 }
             ]

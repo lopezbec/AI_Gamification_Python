@@ -249,3 +249,46 @@ Parte 7,15:25:35
 Pedagogical Page Open Time,15:25:35
 Pedagogical Page Close Time,15:25:37
 
+"Modulo 1, Leccion 4",
+Parte 7,15:48:55
+Pedagogical2 Page Open Time,15:48:55
+Pedagogical2 Page Close Time,15:48:57
+Parte 8,15:48:57
+Draganddrop Page Open Time,15:48:57
+Correct Drop Event: a,15:49:01
+Correct Drop Event: +,15:49:01
+Correct Drop Event: b,15:49:01
+Draganddrop Page Close Time,15:49:02
+Parte 9,15:49:02
+Draganddrop Page Open Time,15:49:02
+Correct Drop Event: 15,15:49:11
+Correct Drop Event: years,15:49:11
+Draganddrop Page Close Time,15:49:12
+
+"Modulo 1, Leccion 5",
+Parte 9,15:54:26
+Pedagogical2 Page Open Time,15:54:26
+Pedagogical2 Page Close Time,15:54:27
+Parte 10,15:54:27
+Draganddrop Page Open Time,15:54:27
+Correct Drop Event: '42',15:54:35
+Correct Drop Event: +,15:54:35
+Correct Drop Event: '5',15:54:35
+Draganddrop Page Close Time,15:54:36
+Parte 9,15:54:36
+Pedagogical2 Page Open Time,15:54:36
+Pedagogical2 Page Close Time,15:54:37
+Parte 10,15:54:37
+Draganddrop Page Open Time,15:54:37
+Incorrect Drop Event: +,15:54:40
+Incorrect Drop Event: '5',15:54:40
+Incorrect Drop Event: '42',15:54:40
+Draganddrop Page Close Time,15:54:45
+Multiplechoice Page Open Time,15:54:45
+Correct Drop Event: '42',15:54:45
+Correct Drop Event: +,15:54:45
+Correct Drop Event: '5',15:54:45
+Checkbox Selected: 100,15:54:54
+Checkbox Selected: Ninguno,15:54:57
+Multiplechoice Page Close Time,15:54:59
+
