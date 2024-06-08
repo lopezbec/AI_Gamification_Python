@@ -142,11 +142,11 @@ def update_badge_progress(username, badge_name):
             json.dump(badge_data, file, indent=4)
 
     except FileNotFoundError as e:
-        print(f'Error: {e}')
+        print(f'Error in update_badge_progress: {e}')
     except KeyError as e:
-        print(f'Error: {e}')
+        print(f'Error in update_badge_progress: {e}')
     except OSError as e:
-        print(f'Error al leer o escribir el archivo: {e}')
+        print(f'Error al leer o escribir el archivo in update_badge_progress: {e}')
 
 def is_badge_earned(username, badge_name) -> bool:
     try:
@@ -173,13 +173,13 @@ def is_badge_earned(username, badge_name) -> bool:
         return badge_data[badge_name]
 
     except FileNotFoundError as e:
-        print(f'Error: {e}')
+        print(f'Error in is_badge_earned: {e}')
         return False
     except KeyError as e:
-        print(f'Error: {e}')
+        print(f'Error in is_badge_earned: {e}')
         return False
     except OSError as e:
-        print(f'Error al leer el archivo: {e}')
+        print(f'Error al leer el archivo in is_badge_earned: {e}')
         return False
 
 def get_badge_level(self, score):
@@ -228,31 +228,34 @@ def are_lessons_completed_same_day(username, module_name) -> bool:
         with open(filepath, 'r') as file:
             lesson_data = json.load(file)
 
-        # Verificar si el módulo_name existe en el diccionario
-        if module_name not in lesson_data:
-            raise KeyError(f'El módulo {module_name} no existe.')
+        # Verificar si el usuario existe en el diccionario
+        if username not in lesson_data:
+            raise KeyError(f'El usuario {username} no existe.')
+
+        # Verificar si el módulo_name existe en el diccionario del usuario
+        if module_name not in lesson_data[username]:
+            raise KeyError(f'El módulo {module_name} no existe para el usuario {username}.')
 
        # Obtener las lecciones completadas del módulo
-        completed_lessons = lesson_data[module_name]
-
-        # Obtener la fecha de hoy
-        today_date = datetime.now().date()
+        completed_lessons = lesson_data[username][module_name]
 
         # Verificar si todas las lecciones completadas del módulo fueron en la misma fecha
-        for completed_date in completed_lessons.values():
-            if completed_date != today_date.isoformat():
-                return False
+        completion_dates = set(completed_lessons.values())
 
-        return True
+        # Si hay algún valor vacío, devuelve False
+        if "" in completion_dates:
+            return False
+
+        return len(completion_dates) == 1
 
     except FileNotFoundError as e:
-        print(f'Error: {e}')
+        print(f'Error in are_lessons_completed_same_day File not Found: {e}')
         return False
     except KeyError as e:
-        print(f'Error: {e}')
+        print(f'Error in are_lessons_completed_same_day Key not found: {e}')
         return False
     except Exception as e:
-        print(f'Error: {e}')
+        print(f'Error in are_lessons_completed_same_day Other Exception: {e}')
         return False
     
 def create_lessons_date_completion(username):
@@ -307,7 +310,7 @@ def create_lessons_date_completion(username):
             
             # Guardar la estructura inicial en el archivo JSON
             with open(filepath, 'w') as file:
-                json.dump(data, file)
+                json.dump(data, file, indent=4)
 
             print(f'Se creó el archivo {filename} con la estructura inicial para el usuario {username}.')
         else:
@@ -358,13 +361,9 @@ def create_lessons_date_completion(username):
                 
                 # Guardar el diccionario actualizado en el archivo JSON
                 with open(filepath, 'w') as file:
-                    json.dump(lesson_dates, file)
-
-                print(f'Se agregó el usuario {username} al archivo {filename}.')
-            else:
-                print(f'El usuario {username} ya existe en el archivo, no se hizo nada.')
+                    json.dump(lesson_dates, file, indent=4)
     except Exception as e:
-        print(f'Error: {e}')
+        print(f'Error in create_lessons_date_completion: {e}')
 
 def update_lesson_dates(username, module, lesson):
     try:
@@ -395,8 +394,8 @@ def update_lesson_dates(username, module, lesson):
 
         # Guardar el diccionario actualizado en el archivo JSON
         with open(filepath, 'w') as file:
-            json.dump(lesson_dates, file)
+            json.dump(lesson_dates, file, indent=4)
 
         print(f'Se actualizó el archivo {filename} con la lección {lesson} del módulo {module} para el usuario {username}.')
     except Exception as e:
-        print(f'Error: {e}')
+        print(f'Error in update_lesson_dates: {e}')

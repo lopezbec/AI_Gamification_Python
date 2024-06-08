@@ -1,11 +1,13 @@
 {
-    "streak": 4,
+    "streak": 27,
     "gran_paso": false,
     "hello_world": false,
-    "5_correctas": false,
-    "10_correctas": false,
-    "20_correctas": false,
+    "5_correctas": true,
+    "10_correctas": true,
+    "20_correctas": true,
     "intermedio": false,
     "avanzado": false,
-    "experto": false
+    "experto": false,
+    "doble_aprendizaje": false,
+    "modulo_rapido": true
 }

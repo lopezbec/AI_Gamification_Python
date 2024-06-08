@@ -7,5 +7,7 @@
     "20_correctas": true,
     "intermedio": true,
     "avanzado": false,
-    "experto": false
+    "experto": false,
+    "doble_aprendizaje": false,
+    "modulo_rapido": false
 }

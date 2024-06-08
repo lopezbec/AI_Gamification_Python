@@ -10,7 +10,7 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
-from badge_system.badge_verification import save_badge_progress_per_user
+from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion
 
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -74,6 +74,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.progreso_usuario = self.load_user_progress(self.usuario_actual)  # Carga el progreso del usuario
         self.actualizar_lecciones(self.progreso_usuario)
         save_badge_progress_per_user(self.usuario_actual)
+        create_lessons_date_completion(self.usuario_actual)
 
         self.menuBar().clear()  # Limpia la barra de menús actual
 
@@ -349,7 +350,6 @@ class MainWindow(QtWidgets.QMainWindow):
             from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
             from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
             # Importar otros modulos solo necesarios en este metodo
-            from badge_system.badge_verification import are_lessons_completed_same_day
 
             nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:

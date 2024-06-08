@@ -14,7 +14,7 @@ from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
@@ -484,6 +484,7 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
+        self.leaderboard_window_instace = get_instance()
         self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
         self.setWindowTitle("Trabajando con entradas")
 

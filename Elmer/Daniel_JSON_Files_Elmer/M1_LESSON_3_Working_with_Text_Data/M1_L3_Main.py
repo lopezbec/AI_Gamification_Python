@@ -14,14 +14,14 @@ from qtconsole.manager import QtKernelManager
 from custom_console import CustomPythonConsole
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import App
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
-from badge_system.badge_verification import get_badge_level, update_badge_progress
+from badge_system.badge_verification import get_badge_level, update_lesson_dates
 from command_line_UI import App
 
 
@@ -478,6 +478,7 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
+        self.leaderboard_window_instace = get_instance()
         self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
         self.setWindowTitle("Trabajando con datos de texto")
 
@@ -1011,7 +1012,8 @@ class MainWindow(QWidget):
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
-            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())           
+            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())
+            update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada3")           
             self.close()
 
         else:
