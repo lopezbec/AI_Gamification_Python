@@ -15,7 +15,7 @@ from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
-from badge_system.badge_verification import get_badge_level, update_badge_progress
+from badge_system.badge_verification import get_badge_level, update_lesson_dates, update_badge_progress
 from command_line_UI import App
 
 class JsonLoader:
@@ -1039,6 +1039,7 @@ class MainWindow(QWidget):
             #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())           
+            update_lesson_dates(self.usuario_actual, "Modulo4", "Leccion_completada2")           
             self.close()
 
         else:
