@@ -258,6 +258,62 @@ def are_lessons_completed_same_day(username, module_name) -> bool:
         print(f'Error in are_lessons_completed_same_day Other Exception: {e}')
         return False
     
+def are_two_lessons_completed_same_day(username, module_name) -> bool:
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lesson_progress')
+        # Nombre del archivo JSON
+        filename = 'lessons_date_completion.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+
+        # Verificar si el archivo json existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            lesson_data = json.load(file)
+
+        # Verificar si el usuario existe en el diccionario
+        if username not in lesson_data:
+            raise KeyError(f'El usuario {username} no existe.')
+
+        # Verificar si el módulo_name existe en el diccionario del usuario
+        if module_name not in lesson_data[username]:
+            raise KeyError(f'El módulo {module_name} no existe para el usuario {username}.')
+
+        # Obtener las lecciones completadas del módulo
+        completed_lessons = lesson_data[username][module_name]
+
+        # Filtrar las fechas de lecciones completadas
+        completion_dates = [date for date in completed_lessons.values() if date]
+
+        # Contar las ocurrencias de cada fecha
+        date_counts = {}
+        for date in completion_dates:
+            if date in date_counts:
+                date_counts[date] += 1
+            else:
+                date_counts[date] = 1
+
+        # Verificar si hay al menos una fecha con dos o más lecciones completadas
+        for count in date_counts.values():
+            if count >= 2:
+                return True
+
+        return False
+
+    except FileNotFoundError as e:
+        print(f'Error in are_two_lessons_completed_same_day File not Found: {e}')
+        return False
+    except KeyError as e:
+        print(f'Error in are_two_lessons_completed_same_day Key not found: {e}')
+        return False
+    except Exception as e:
+        print(f'Error in are_two_lessons_completed_same_day Other Exception: {e}')
+        return False
+
 def create_lessons_date_completion(username):
     try:
         # Nombre del directorio
