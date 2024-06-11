@@ -1,5 +1,5 @@
 {
-    "streak": 27,
+    "streak": 10,
     "gran_paso": false,
     "hello_world": false,
     "5_correctas": true,
@@ -8,6 +8,6 @@
     "intermedio": false,
     "avanzado": false,
     "experto": false,
-    "doble_aprendizaje": false,
+    "doble_aprendizaje": true,
     "modulo_rapido": true
 }

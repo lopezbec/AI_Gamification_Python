@@ -261,7 +261,7 @@ def are_lessons_completed_same_day(username, module_name) -> bool:
 def are_two_lessons_completed_same_day(username, module_name) -> bool:
     try:
         # Nombre del directorio
-        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lesson_progress')
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
         # Nombre del archivo JSON
         filename = 'lessons_date_completion.json'
         # Path completo al archivo
