@@ -101,5 +101,27 @@
         "badge_margin": 10,
         "badge_word_wrap": true,
         "badge_bold": true
+      },
+     {
+        "badge_id": "dominador_modulo",
+        "badge_text": "¡Felicidades! has respondido todas las preguntas de este modulo correctamente.",
+        "badge_title": "Excelencia sin duda",
+        "badge_description": "Completa todas las preguntas correctas de un modulo",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+      },
+    {
+        "badge_id": "super_estudiante",
+        "badge_text": "¡Felicidades! has todos los modulos disponibles",
+        "badge_title": "Final del recorrido",
+        "badge_description": "Completa todos los modulos disponibles",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
       }
 ]

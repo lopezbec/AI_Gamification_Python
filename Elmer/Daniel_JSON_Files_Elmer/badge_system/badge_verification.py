@@ -104,7 +104,10 @@ def save_badge_progress_per_user(username):
                 "avanzado": False,
                 "experto": False,
                 "doble_aprendizaje": False,
-                "modulo_rapido": False
+                "modulo_rapido": False,
+                "dominador_modulo": False,
+                "super_estudiante": False,
+
             }
 
             # Escribir el diccionario en el archivo json
