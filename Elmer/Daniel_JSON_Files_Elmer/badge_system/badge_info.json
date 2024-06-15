@@ -123,5 +123,27 @@
         "badge_margin": 10,
         "badge_word_wrap": true,
         "badge_bold": true
+      },
+     {
+        "badge_id": "Maestro_desafiante",
+        "badge_text": "¡Felicidades! has logrado completar tu primer desafio con exito",
+        "badge_title": "Desafio superado",
+        "badge_description": "Completa el primer desafio/prueba",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
+      },
+    {
+        "badge_id": "Explorador_curioso",
+        "badge_text": "¡Felicidades! has completado 3 modulos",
+        "badge_title": "3 modulos superado",
+        "badge_description": "Completa 3 modulos",
+        "badge_font_size": 17,
+        "badge_font_family": "Lato",
+        "badge_margin": 10,
+        "badge_word_wrap": true,
+        "badge_bold": true
       }
 ]

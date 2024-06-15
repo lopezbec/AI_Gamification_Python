@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="">
+    <list default="true" id="0dfd89b6-be66-4be2-9bbf-21b3c43d1527" name="Changes" comment="Adding insignias">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/badge_system/badge_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/badge_system/badge_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/badge_system/badge_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/badge_system/badge_verification.py" afterDir="false" />
@@ -50,26 +50,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.Main_Modulos_Intro_Pages.executor": "Run",
-    "Python.question_window.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "badge__system",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/AI_Gamification_Python",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.Main_Modulos_Intro_Pages.executor&quot;: &quot;Run&quot;,
+    &quot;Python.question_window.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;badge__system&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/AI_Gamification_Python&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer\Module 3 - Control Flow\LESSON_5_while_Loops" />
@@ -167,8 +167,18 @@
       <workItem from="1707957545390" duration="9327000" />
       <workItem from="1708745789272" duration="8000" />
       <workItem from="1712017654382" duration="1250000" />
-      <workItem from="1718154359564" duration="597000" />
+      <workItem from="1718154359564" duration="1974000" />
+      <workItem from="1718412210341" duration="1098000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding insignias">
+      <option name="closed" value="true" />
+      <created>1718158037807</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718158037807</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +210,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Adding insignias" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding insignias" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Leaderboard_FV.coverage" NAME="Main_Leaderboard_FV Coverage Results" MODIFIED="1707276662325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Codigos_LeaderBoard" />

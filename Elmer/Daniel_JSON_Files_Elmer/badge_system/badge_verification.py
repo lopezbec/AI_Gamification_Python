@@ -107,6 +107,8 @@ def save_badge_progress_per_user(username):
                 "modulo_rapido": False,
                 "dominador_modulo": False,
                 "super_estudiante": False,
+                "Maestro_desafiante": False,
+                "Explorador_curioso": False
 
             }
 
