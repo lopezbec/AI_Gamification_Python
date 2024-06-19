@@ -32,7 +32,17 @@
         "badge_word_wrap": true,
         "badge_bold": true
     },
-   
+    {
+      "badge_id": "10_correctas",
+      "badge_text": "¡Increíble! Has conseguido una nueva insignia",
+      "badge_title": "Maestro de la Precisión",
+      "badge_description": "Has respondido correctamente 10 preguntas consecutivas.",
+      "badge_font_size": 17,
+      "badge_font_family": "Lato",
+      "badge_margin": 10,
+      "badge_word_wrap": true,
+      "badge_bold": true
+    },
     {
         "badge_id": "20_correctas",
         "badge_text": "Felicidades! has conseguido una nueva insignia",

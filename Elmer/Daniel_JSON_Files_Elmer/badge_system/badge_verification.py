@@ -70,11 +70,11 @@ def display_badge(badge_id):
         badge_window.exec()
     
 def load_badges():
-    with open("badge_info.json", "r") as file:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_info.json"), "r", encoding='UTF-8') as file:
         return json.load(file)
     
 def load_badges_criteria():
-    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json")) as content:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json", enconding='UTF-8')) as content:
         return json.load(content)
 
 def save_badge_progress_per_user(username):
