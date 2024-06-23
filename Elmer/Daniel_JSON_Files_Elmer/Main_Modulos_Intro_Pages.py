@@ -11,7 +11,7 @@ from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion
-
+from badge_system.display_cabinet import BadgeDisplayCabinet
 
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -160,6 +160,14 @@ class MainWindow(QtWidgets.QMainWindow):
         guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
         button_layout.addWidget(guia_usuario_btn)
+
+        #boton para Vitrina (display cabinet)
+        display_cabinet_btn = QtWidgets.QPushButton("Tus insignias")
+        display_cabinet_btn.setStyleSheet(
+            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+        display_cabinet_btn.clicked.connect(self.abrir_display_cabinet)
+        display_cabinet_btn.setIcon(QtGui.QIcon('Icons/display_cabinet_icon.png'))
+        button_layout.addWidget(display_cabinet_btn)
 
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
@@ -533,6 +541,10 @@ class MainWindow(QtWidgets.QMainWindow):
         modulos_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
 
         return modulos_btn
+    
+    def abrir_display_cabinet(self, username):
+        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
+        self.display_cabinet.show()
 
     @staticmethod
     def load_styles(file):
