@@ -26,7 +26,15 @@ class UserGuideDialog(QtWidgets.QDialog):
         label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(label)
 
+class Config():
+    def __init__(self):
+        super().__init__()
 
+    @staticmethod
+    def load_active_widgets():
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "active_widgets", "game_elements_visibility.json")) as active_widgets:
+            widgets = json.load(active_widgets)
+        return widgets
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -151,7 +159,7 @@ class MainWindow(QtWidgets.QMainWindow):
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         leaderboard_btn.clicked.connect(self.abrir_leaderboard)
         leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))
-        button_layout.addWidget(leaderboard_btn)
+        #button_layout.addWidget(leaderboard_btn)
 
         # Botón Guía de usuarios
         guia_usuario_btn = QtWidgets.QPushButton("Guía de usuarios")
@@ -162,17 +170,21 @@ class MainWindow(QtWidgets.QMainWindow):
         button_layout.addWidget(guia_usuario_btn)
 
         #boton para Vitrina (display cabinet)
-        display_cabinet_btn = QtWidgets.QPushButton("Tus insignias")
+        display_cabinet_btn = QtWidgets.QPushButton("Mis insignias")
         display_cabinet_btn.setStyleSheet(
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         display_cabinet_btn.clicked.connect(self.abrir_display_cabinet)
         display_cabinet_btn.setIcon(QtGui.QIcon('Icons/display_cabinet_icon.png'))
-        button_layout.addWidget(display_cabinet_btn)
+        #button_layout.addWidget(display_cabinet_btn)
+
+        if Config.load_active_widgets().get("Leaderboard", True):
+            button_layout.addWidget(leaderboard_btn)
+        if Config.load_active_widgets().get("display_cabinet", True):
+            button_layout.addWidget(display_cabinet_btn)
 
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
 
-    # Función para actualizar los íconos de las lecciones en la interfaz de usuario
     # Función para actualizar los íconos de las lecciones en la interfaz de usuario
     def update_lesson_icons(self, estado_usuario):
         # Itera a través de los módulos y lecciones para actualizar el estado y los íconos

@@ -1,6 +1,7 @@
 {
     "Leaderboard": true,
     "points": true,
-    "progress": true
+    "progress": true,
+    "display_cabinet": true
 }
   

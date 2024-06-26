@@ -21,7 +21,8 @@ from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
 from badge_system.badge_verification import BadgeVerification, get_badge_level, update_badge_progress, \
-        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, update_badge_progress
+        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge
+from badge_system.display_cabinet import BadgeDisplayCabinet
 from command_line_UI import App
 
 
@@ -48,7 +49,7 @@ class JsonLoader:
         return widgets
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
+    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None, usuario_actual=None):
         super().__init__()
 
         self.data = None
@@ -96,13 +97,23 @@ class JsonWindow(QWidget):
         leaderboard_button_font = QFont()
         leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
         self.leaderboard_button.setFont(leaderboard_button_font)
-        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
+        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
+
+        #boton para Vitrina (display cabinet)
+        self.display_cabinet = QPushButton("Mis insignias")
+        self.display_cabinet.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        display_cabinet_font = QFont()
+        display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
+        self.display_cabinet.setFont(display_cabinet_font)
+        self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
 
         # Añadir los widgets al layout horizontal
         if JsonLoader.load_active_widgets().get("points", True):
-            hlayout.addWidget(self.puntos)   
+            hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("display_cabinet", True):
+            hlayout.addWidget(self.display_cabinet)
 
         # Añadir el layout horizontal al layout vertical
         self.layout.addLayout(hlayout)
@@ -155,6 +166,10 @@ class JsonWindow(QWidget):
 
     def update_points_display(self, new_points):
         self.puntos.setText(f"XP ganados: {new_points}")
+    
+    def abrir_display_cabinet(self):
+        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
+        self.display_cabinet.show()
 
     def showEvent(self, event):
         super().showEvent(event)
