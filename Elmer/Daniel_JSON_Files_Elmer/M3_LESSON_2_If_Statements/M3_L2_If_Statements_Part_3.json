@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 42\nif x > 5:\n   print('x is greater than 5')\n>x is greater than 5"
+                    "text": "x = 42\nif x > 5:\n   print('x is greater than 5')\n>x is greater than 5"
                 },
                 {
                     "type": "hint",
@@ -18,7 +18,6 @@
             ]
         }
     ],
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -29,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nspam = 7\n\nif spam > 5:\n   print('Cinco')\nif spam > 8:\n   print('Ocho')"
+                    "text": "spam = 7\n\nif spam > 5:\n   print('Cinco')\nif spam > 8:\n   print('Ocho')"
                 }
             ],
             "answers": [

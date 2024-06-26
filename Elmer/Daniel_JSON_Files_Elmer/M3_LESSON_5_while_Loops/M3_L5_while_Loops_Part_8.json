@@ -24,7 +24,12 @@
                     "text": "while"
                 }
             ],
-            "correctOrder": ["while","x > 0:","print(x)","x -= 1"]
+            "correctOrder": [
+                "while",
+                "x > 0:",
+                "print(x)",
+                "x -= 1"
+            ]
         }
     ]
 }

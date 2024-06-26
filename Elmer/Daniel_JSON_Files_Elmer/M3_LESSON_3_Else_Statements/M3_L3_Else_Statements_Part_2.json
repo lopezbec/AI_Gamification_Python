@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -27,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ngrado = 87\n___ grado>=75___\n   print('¡Aprobado!')\nelse:\n   print('Error')"
+                    "text": "grado = 87\n___ grado>=75___\n   print('¡Aprobado!')\nelse:\n   print('Error')"
                 }
             ],
             "answers": [
@@ -41,7 +40,10 @@
                     "text": "None"
                 }
             ],
-            "correctOrder": ["if",":"]
+            "correctOrder": [
+                "if",
+                ":"
+            ]
         }
     ]
 }

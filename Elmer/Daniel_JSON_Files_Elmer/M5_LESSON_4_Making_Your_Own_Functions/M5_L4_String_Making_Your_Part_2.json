@@ -9,12 +9,11 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
+                    "text": "def my_func():\n  print('spam')\n  print('spam')\n  print('spam')"
                 }
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -44,7 +43,12 @@
                     "text": "  print('C')"
                 }
             ],
-            "correctOrder": ["def test():", "  print('A')", "  print('B')", "  print('C')"]
+            "correctOrder": [
+                "def test():",
+                "  print('A')",
+                "  print('B')",
+                "  print('C')"
+            ]
         }
     ]
 }

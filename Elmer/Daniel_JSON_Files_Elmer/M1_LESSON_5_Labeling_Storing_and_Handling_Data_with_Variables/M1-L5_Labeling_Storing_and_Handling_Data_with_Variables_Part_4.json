@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "Trabajar con variables",
             "blocks": [
@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprice = 15\nprint(price*3)\n>45"
+                    "text": "price = 15\nprint(price*3)\n>45"
                 },
                 {
                     "type": "hint",
@@ -18,7 +18,6 @@
             ]
         }
     ],
-
     "completeblankspace": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -29,9 +28,9 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nyear = 2023\nprint(year + 5)\n>____"
+                    "text": "year = 2023\nprint(year + 5)\n>____"
                 }
-                    ],
+            ],
             "answers": [
                 {
                     "text": "2023",

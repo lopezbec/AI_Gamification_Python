@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "Reasignación de variables",
             "blocks": [
@@ -9,12 +9,11 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 8\nprint(x)\n>8\nx = 41\nprint(x)\n>41"
+                    "text": "x = 8\nprint(x)\n>8\nx = 41\nprint(x)\n>41"
                 }
             ]
         }
     ],
-    
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -25,9 +24,9 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = 42\nage = 24\nprint(age)\n>?"
+                    "text": "age = 42\nage = 24\nprint(age)\n>?"
                 }
-                    ],
+            ],
             "answers": [
                 {
                     "text": "24",

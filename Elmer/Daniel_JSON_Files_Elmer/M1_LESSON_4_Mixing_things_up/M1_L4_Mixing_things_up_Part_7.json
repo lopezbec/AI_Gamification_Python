@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "¡La practica hace la perfección!",
             "blocks": [
@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     "pedagogical2": [
         {
             "title": "Arreglar el código",

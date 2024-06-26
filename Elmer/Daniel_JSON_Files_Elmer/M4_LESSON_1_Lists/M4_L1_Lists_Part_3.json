@@ -9,12 +9,11 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = ['a', 'b', 'c']\ny = [1, 2, 3, 4, 5]\nprint(x[1])\n>b\nprint(y[3])\n>4"
+                    "text": "x = ['a', 'b', 'c']\ny = [1, 2, 3, 4, 5]\nprint(x[1])\n>b\nprint(y[3])\n>4"
                 }
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -27,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nn = ___8, 42, 7, 0___"
+                    "text": "n = ___8, 42, 7, 0___"
                 }
             ],
             "answers": [
@@ -41,7 +40,10 @@
                     "text": "]"
                 }
             ],
-            "correctOrder": ["[","]"]
+            "correctOrder": [
+                "[",
+                "]"
+            ]
         }
     ]
 }

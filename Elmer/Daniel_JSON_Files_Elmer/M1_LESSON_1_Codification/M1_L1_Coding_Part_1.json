@@ -11,7 +11,6 @@
                     "type": "info",
                     "text": "Python tiene una sintaxis simple, lo que significa que es mas fácil de aprender. En este curso, comenzara a codificar sus propios programas en poco tiempo, para que pueda resolver problemas del mundo real y crear sus propias aplicaciones."
                 }
-
             ]
         }
     ],
@@ -23,7 +22,7 @@
                     "type": "info",
                     "text": "Que es un lenguaje de programación?"
                 }
-                    ],
+            ],
             "answers": [
                 {
                     "text": "Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.",

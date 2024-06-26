@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nm = [\n    [1, 2, 3],\n    [4, 5, 6]\n]\n\nprint(m[1][2])\n>6"
+                    "text": "m = [\n    [1, 2, 3],\n    [4, 5, 6]\n]\n\nprint(m[1][2])\n>6"
                 },
                 {
                     "type": "hint",
@@ -18,7 +18,6 @@
             ]
         }
     ],
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -29,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nthings = ['text', 0, [1, 2, 8], 4.56]\nprint(things[2][2])"
+                    "text": "things = ['text', 0, [1, 2, 8], 4.56]\nprint(things[2][2])"
                 }
             ],
             "answers": [

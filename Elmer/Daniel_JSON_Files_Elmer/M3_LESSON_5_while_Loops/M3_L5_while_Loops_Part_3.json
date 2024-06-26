@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta.",
@@ -44,7 +43,12 @@
                     "text": "while x >= 0:"
                 }
             ],
-            "correctOrder": ["x=10","while x >= 0:","print(x)", "x-=1"]
+            "correctOrder": [
+                "x=10",
+                "while x >= 0:",
+                "print(x)",
+                "x-=1"
+            ]
         }
     ]
 }

@@ -25,11 +25,14 @@
                     "text": "Water"
                 }
             ],
-            "correctOrder": ["Water", "+", "Park"]
+            "correctOrder": [
+                "Water",
+                "+",
+                "Park"
+            ]
         }
     ],
-
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "Cadenas",
             "blocks": [
@@ -39,7 +42,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('28 ' + ' 6')\n>\"28 6\""
+                    "text": "print('28 ' + ' 6')\n>\"28 6\""
                 },
                 {
                     "type": "hint",

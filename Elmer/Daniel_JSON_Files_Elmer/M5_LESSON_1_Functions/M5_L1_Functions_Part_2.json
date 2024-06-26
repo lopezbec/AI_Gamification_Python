@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Hello')"
+                    "text": "print('Hello')"
                 },
                 {
                     "type": "hint",
@@ -18,7 +18,6 @@
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -31,7 +30,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___(___)"
+                    "text": "___(___)"
                 }
             ],
             "answers": [
@@ -42,7 +41,10 @@
                     "text": "42"
                 }
             ],
-            "correctOrder": ["print", "42"]
+            "correctOrder": [
+                "print",
+                "42"
+            ]
         }
     ]
 }

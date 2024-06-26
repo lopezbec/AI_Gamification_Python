@@ -7,7 +7,7 @@
                     "type": "info",
                     "text": "Una variable tiene un nombre y un:"
                 }
-                    ],
+            ],
             "answers": [
                 {
                     "text": "apodo.",
@@ -20,7 +20,6 @@
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -30,7 +29,6 @@
                 {
                     "type": "info",
                     "text": "Arrastre y suelte para crear una variable llamada ' edad ' y asígnele el valor 18:"
-                    
                 },
                 {
                     "type": "Consola",
@@ -45,7 +43,10 @@
                     "text": "edad"
                 }
             ],
-            "correctOrder": ["edad", "18"]
+            "correctOrder": [
+                "edad",
+                "18"
+            ]
         }
     ]
 }

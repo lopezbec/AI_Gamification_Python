@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "La practica hace la perfección!",
             "blocks": [
@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -25,7 +24,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef msg(num, ch):\nprint(ch+str(num))\n\nmsg(18, 'A')\n"
+                    "text": "def msg(num, ch):\nprint(ch+str(num))\n\nmsg(18, 'A')\n"
                 }
             ],
             "answers": [

@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\na = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)\n>____"
+                    "text": "a = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)\n>____"
                 }
             ],
             "answers": [
@@ -32,7 +32,6 @@
             ]
         }
     ],
-
     "pedagogical": [
         {
             "title": "Entradas múltiples",
@@ -43,7 +42,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nname = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
+                    "text": "name = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
                 }
             ]
         }

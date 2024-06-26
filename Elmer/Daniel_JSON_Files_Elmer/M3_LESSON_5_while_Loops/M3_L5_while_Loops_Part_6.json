@@ -15,7 +15,6 @@
                     "type": "hint",
                     "text": "Una forma breve de crear un bucle infinito es usar while True ."
                 }
-
             ]
         }
     ],
@@ -44,5 +43,4 @@
             ]
         }
     ]
-
 }

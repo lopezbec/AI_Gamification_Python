@@ -9,12 +9,11 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef max(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\nif max(6,4) > 10:\n\tprint(\"Si\")\nelse:\n\tprint(\"No\")\n"
+                    "text": "def max(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\nif max(6,4) > 10:\n\tprint(\"Si\")\nelse:\n\tprint(\"No\")\n"
                 }
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -27,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef cadenaMasCorta(x, y):\n\tif len(x) <= ___ (y):\n\t\t___ x\n\telse:\n\t\treturn ___"
+                    "text": "def cadenaMasCorta(x, y):\n\tif len(x) <= ___ (y):\n\t\t___ x\n\telse:\n\t\treturn ___"
                 }
             ],
             "answers": [
@@ -44,7 +43,11 @@
                     "text": "return"
                 }
             ],
-            "correctOrder": ["len", "return", "y"]
+            "correctOrder": [
+                "len",
+                "return",
+                "y"
+            ]
         }
     ]
 }

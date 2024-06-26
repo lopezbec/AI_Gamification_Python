@@ -26,7 +26,11 @@
                     "text": "if"
                 }
             ],
-            "correctOrder": ["if", "in", "print"]
+            "correctOrder": [
+                "if",
+                "in",
+                "print"
+            ]
         }
     ]
 }

@@ -28,7 +28,6 @@
             ]
         }
     ],
-
     "pedagogical": [
         {
             "title": "Imprimiendo texto",
@@ -39,7 +38,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Programar es tu nuevo super poder.')\n>Programar es tu nuevo super poder."
+                    "text": "print('Programar es tu nuevo super poder.')\n>Programar es tu nuevo super poder."
                 },
                 {
                     "type": "info",
@@ -49,7 +48,6 @@
                     "type": "hint",
                     "text": "Las comillas que encierran el texto deben ser las mismas, ya sea que use comillas simples o dobles. Si olvida agregar las comillas o si las comillas no son las mismas, Python devolverá un error."
                 }
-
             ]
         }
     ]

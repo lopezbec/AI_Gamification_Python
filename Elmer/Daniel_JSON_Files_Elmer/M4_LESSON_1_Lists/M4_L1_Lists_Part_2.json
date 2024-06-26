@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\npalabras = ['Hello', 'world', '!']\nprint(palabras[0])\n>Hello\nprint(palabras[1])\n>world\nprint(palabras[2])\n>!"
+                    "text": "palabras = ['Hello', 'world', '!']\nprint(palabras[0])\n>Hello\nprint(palabras[1])\n>world\nprint(palabras[2])\n>!"
                 },
                 {
                     "type": "hint",
@@ -18,7 +18,6 @@
             ]
         }
     ],
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -29,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [5, 4, 3, 2, 1]\nprint(nums[2])\n>?"
+                    "text": "nums = [5, 4, 3, 2, 1]\nprint(nums[2])\n>?"
                 }
             ],
             "answers": [

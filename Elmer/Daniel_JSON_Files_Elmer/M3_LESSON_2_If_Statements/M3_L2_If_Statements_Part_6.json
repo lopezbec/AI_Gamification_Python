@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "La practica hace la perfección!",
             "blocks": [
@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     "pedagogical2": [
         {
             "title": "Declaraciones if",
@@ -33,7 +32,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ntemp = int(input())\n\nif temp >= 100:\n print('Hirviendo')"
+                    "text": "temp = int(input())\n\nif temp >= 100:\n print('Hirviendo')"
                 }
             ]
         }

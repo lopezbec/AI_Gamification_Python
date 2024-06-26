@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef exclamación(palabra):\nprint(palabra + \"!\")\n\nexclamación(\"spam\")\nexclamación(\"eggs\")\nexclamación(\"python\")"
+                    "text": "def exclamación(palabra):\nprint(palabra + \"!\")\n\nexclamación(\"spam\")\nexclamación(\"eggs\")\nexclamación(\"python\")"
                 },
                 {
                     "type": "hint",
@@ -18,7 +18,6 @@
             ]
         }
     ],
-    
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -29,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef x(y):\n\tprint(y + 2)\n\nx(5)"
+                    "text": "def x(y):\n\tprint(y + 2)\n\nx(5)"
                 }
             ],
             "answers": [
@@ -37,7 +36,6 @@
                     "text": "5",
                     "correct": false
                 },
-
                 {
                     "text": "8",
                     "correct": false

@@ -40,7 +40,21 @@
                     "text": "="
                 }
             ],
-            "correctOrder": ["x","=","int(","input())","y","=","int(","input())","print(","x","+","y",")"]
+            "correctOrder": [
+                "x",
+                "=",
+                "int(",
+                "input())",
+                "y",
+                "=",
+                "int(",
+                "input())",
+                "print(",
+                "x",
+                "+",
+                "y",
+                ")"
+            ]
         }
     ]
 }

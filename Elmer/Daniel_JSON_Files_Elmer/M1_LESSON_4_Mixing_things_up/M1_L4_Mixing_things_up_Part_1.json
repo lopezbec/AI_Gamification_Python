@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "Trabajar con datos mixtos",
             "blocks": [
@@ -19,7 +19,6 @@
                 {
                     "type": "info",
                     "text": "Arrastre y suelte para definir los tipos de datos:"
-                    
                 },
                 {
                     "type": "pregunta1",

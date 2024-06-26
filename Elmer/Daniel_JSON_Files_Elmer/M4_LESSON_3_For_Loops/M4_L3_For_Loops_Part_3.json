@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nstr = 'testing for loops'\ncount = 0\n\nfor x in str:\n  if x == 't':\n    count += 1\n\nprint(count)"
+                    "text": "str = 'testing for loops'\ncount = 0\n\nfor x in str:\n  if x == 't':\n    count += 1\n\nprint(count)"
                 },
                 {
                     "type": "info",
@@ -22,7 +22,6 @@
             ]
         }
     ],
-
     "draganddrop": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -35,7 +34,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ x ___ str___\n print(___)"
+                    "text": "___ x ___ str___\n print(___)"
                 }
             ],
             "answers": [
@@ -60,7 +59,12 @@
                     "correct": false
                 }
             ],
-            "correctOrder": ["for", "in", ":", "x"]
+            "correctOrder": [
+                "for",
+                "in",
+                ":",
+                "x"
+            ]
         }
     ]
 }

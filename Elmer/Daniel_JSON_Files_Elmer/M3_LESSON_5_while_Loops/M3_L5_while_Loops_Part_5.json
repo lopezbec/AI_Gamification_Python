@@ -44,7 +44,11 @@
                     "text": "while"
                 }
             ],
-            "correctOrder": ["while",":","print"]
+            "correctOrder": [
+                "while",
+                ":",
+                "print"
+            ]
         }
     ]
 }

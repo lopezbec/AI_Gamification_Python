@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "Comentarios",
             "blocks": [
@@ -7,10 +7,9 @@
                     "type": "info",
                     "text": "Puede agregar comentarios a su código para agregar anotaciones y explicaciones. Los comentarios hacen que el código sea mas fácil de entender para los humanos. \nLas computadoras ignoran los comentarios. Un comentario en Python comienza con # :"
                 },
-
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n#The line below adds two numbers \nprint(47+14)\n>61\n"
+                    "text": "#The line below adds two numbers \nprint(47+14)\n>61\n"
                 },
                 {
                     "type": "hint",

@@ -23,11 +23,9 @@
                     "type": "hint",
                     "text": "Entonces, el bucle ejecutará la declaración de impresión 5 veces."
                 }
-
             ]
         }
     ],
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta.",

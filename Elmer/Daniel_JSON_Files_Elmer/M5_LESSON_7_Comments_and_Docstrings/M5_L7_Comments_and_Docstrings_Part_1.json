@@ -13,12 +13,11 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 365\ny = 7\n\nprint(x % y) # encontrar el resto"
+                    "text": "x = 365\ny = 7\n\nprint(x % y) # encontrar el resto"
                 }
             ]
         }
     ],
-
     "multiplechoice": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -29,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 8\n _____ imprimiendo x\nprint(x)"
+                    "text": "x = 8\n _____ imprimiendo x\nprint(x)"
                 }
             ],
             "answers": [

@@ -1,5 +1,5 @@
 {
-    "pedagogical": [ 
+    "pedagogical": [
         {
             "title": "Hora de practicar",
             "blocks": [
@@ -14,7 +14,6 @@
             ]
         }
     ],
-
     "pedagogical2": [
         {
             "title": "Funciones de lista",
@@ -29,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nqueue = ['John', 'Amy', 'Bob', 'Adam']\n\ntake_name = input()\n\nqueue.append(take_name)\n\nprint(queue)"
+                    "text": "queue = ['John', 'Amy', 'Bob', 'Adam']\n\ntake_name = input()\n\nqueue.append(take_name)\n\nprint(queue)"
                 }
             ]
         }

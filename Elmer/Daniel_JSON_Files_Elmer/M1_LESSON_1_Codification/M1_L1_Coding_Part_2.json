@@ -18,7 +18,6 @@
             ]
         }
     ],
-
     "pedagogical2": [
         {
             "title": "Salida",
@@ -37,7 +36,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(60)\n>60"
+                    "text": "print(60)\n>60"
                 },
                 {
                     "type": "hint",

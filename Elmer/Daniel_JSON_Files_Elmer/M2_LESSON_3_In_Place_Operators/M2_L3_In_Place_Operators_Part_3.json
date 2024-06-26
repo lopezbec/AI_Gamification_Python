@@ -9,12 +9,11 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 'spam'\nprint(x)\n>spam\nx += 'eggs'\nprint(x)\n>spam eggs"
+                    "text": "x = 'spam'\nprint(x)\n>spam\nx += 'eggs'\nprint(x)\n>spam eggs"
                 }
             ]
         }
     ],
-
     "completeblankspace": [
         {
             "title": "Selecciona la respuesta correcta",
@@ -25,7 +24,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 'a'\nx *= 3\nprint(x)\n>____"
+                    "text": "x = 'a'\nx *= 3\nprint(x)\n>____"
                 }
             ],
             "answers": [
