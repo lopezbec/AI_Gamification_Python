@@ -331,13 +331,15 @@ class JsonWindow(QWidget):
         # Reiniciar la visualización de los puntos XP
         self.update_points_display(self.main_window.XP_Ganados)
 
-        # Recrear los widgets y layouts
+       # Recrear los widgets y layouts
         # Añadir el layout de puntos y leaderboard de nuevo
         hlayout = QHBoxLayout()
         if JsonLoader.load_active_widgets().get("points", True):
-            hlayout.addWidget(self.puntos)   
+            hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("display_cabinet", True):
+            hlayout.addWidget(self.display_cabinet)
         self.layout.addLayout(hlayout)
 
         # Restablecer el contenido del JsonWindow según el tipo de página
@@ -498,7 +500,6 @@ class MainWindow(QWidget):
         self.leaderboard_window_instace = get_instance()
         self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
         self.setWindowTitle("Operadores In-Place")
-
         self.progress_bar = ProgressBar(
             JsonLoader.load_json_data(
                 os.path.join(os.path.dirname(os.path.dirname(
@@ -515,7 +516,7 @@ class MainWindow(QWidget):
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
                 json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
-                                         page.get("lesson_completed", False), main_window=self)
+                                         page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 

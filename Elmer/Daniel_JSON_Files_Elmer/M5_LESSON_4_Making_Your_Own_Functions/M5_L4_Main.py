@@ -24,7 +24,7 @@ from command_line_UI import App
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M5_LESSON_4_Making_Your_Own_Functions/' + filename, encoding='UTF-8') as json_file:
+        with open(filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -344,6 +344,8 @@ class JsonWindow(QWidget):
             hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("display_cabinet", True):
+            hlayout.addWidget(self.display_cabinet)
         self.layout.addLayout(hlayout)
 
         # Restablecer el contenido del JsonWindow según el tipo de página
@@ -507,7 +509,11 @@ class MainWindow(QWidget):
         self.setWindowTitle("Creando tus propias funciones")
 
         self.progress_bar = ProgressBar(
-            JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M5.json")), 3)
+            JsonLoader.load_json_data(
+                os.path.join(os.path.dirname(os.path.dirname(
+                    os.path.abspath(__file__))), "Page_order", "page_order_M5.json")
+                    )
+                    , 3)
         self.init_ui()
 
     def init_ui(self):
@@ -517,8 +523,8 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
-                                         page.get("lesson_completed", False), main_window=self)
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
+                                         page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 

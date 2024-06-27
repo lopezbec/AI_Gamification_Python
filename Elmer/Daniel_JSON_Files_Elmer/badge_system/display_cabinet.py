@@ -1,13 +1,16 @@
-import json
-import os
-import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QVBoxLayout, QScrollArea, QFrame
-from PyQt6.QtGui import QPixmap, QFont
-from PyQt6.QtCore import Qt
-from badge_system.badge_verification import load_badges
+try:
+    import json
+    import os
+    import sys
+    from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QVBoxLayout, QScrollArea, QFrame
+    from PyQt6.QtGui import QPixmap, QFont
+    from PyQt6.QtCore import Qt
+    from badge_system.badge_verification import load_badges
 
 
-insignias_app = load_badges()
+    insignias_app = load_badges()
+except Exception as e:
+    print(f"Error in display cabinet class - linea {sys.exc_info()[2].tb_lineno} \n Detalle: {e}")
 
 class BadgeWidget(QFrame):
     def __init__(self, badge):
