@@ -13,27 +13,40 @@ except Exception as e:
     print(f"Error in display cabinet class - linea {sys.exc_info()[2].tb_lineno} \n Detalle: {e}")
 
 class BadgeWidget(QFrame):
-    def __init__(self, badge):
+    def __init__(self, badge, obtained=True):
         super().__init__()
+        border_color = '#3498db'
+        outer_border_color = '#f39c12' if obtained else '#7f8c8d'  # Dorado si ha sido obtenida
+        icon_border_color = '#f39c12' if obtained else '#7f8c8d'  # Dorado para el icono si ha sido obtenida
 
-        self.setStyleSheet("""
-            QFrame {
-                border: 2px solid #3498db;
+        self.setStyleSheet(f"""
+            QFrame {{
+                border: 2px solid {outer_border_color};
                 border-radius: 10px;
                 padding: 10px;
                 background-color: #ecf0f1;
-            }
-            QLabel {
+            }}
+            QLabel {{
                 font-family: 'Lato';
-            }
+            }}
+            QLabel#icon {{
+                border: 2px solid {icon_border_color};
+                border-radius: 10px;
+            }}
+            QLabel#description {{
+                border: 2px solid {border_color};
+                border-radius: 10px;
+            }}
         """)
+        image_file = "medal_icon.png" if obtained else "question_mark_icon.png"
 
         layout = QVBoxLayout()
         self.setLayout(layout)
 
         # Añadir la imagen de la insignia
         image_label = QLabel(self)
-        pixmap = QPixmap(os.path.join(os.path.dirname(os.path.abspath(__file__)), "medal_icon.png"))
+        image_label.setObjectName("icon")
+        pixmap = QPixmap(os.path.join(os.path.dirname(os.path.abspath(__file__)), image_file))
         image_label.setPixmap(pixmap)
         image_label.setScaledContents(True)
         image_label.setFixedSize(100, 100)
@@ -41,6 +54,7 @@ class BadgeWidget(QFrame):
 
         # Añadir el título y la descripción en un solo QLabel
         title_desc_label = QLabel(f"<b>{badge['badge_title']}</b><br>{badge['badge_description']}", self)
+        title_desc_label.setObjectName("description")
         title_desc_label.setFont(QFont('Lato', 14))
         title_desc_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title_desc_label.setWordWrap(True)
@@ -64,12 +78,23 @@ class BadgeDisplayCabinet(QWidget):
         with open(user_badges_file, "r", encoding='UTF-8') as file:
             user_badges = json.load(file)
         
+         # Cargar todas las insignias disponibles
+        all_badges = insignias_app
+        
+        # Insignias ganadas por el usuario
+        user_badges_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "badge_progress", f"{nombre_usuario}_badge_progress.json") 
+        with open(user_badges_file, "r", encoding='UTF-8') as file:
+            user_badges = json.load(file)
+        
         # Filtrar las insignias
         earned_badges = []
         for badge in all_badges:
             badge_id = badge['badge_id']
             if badge_id in user_badges and user_badges[badge_id]:
-                earned_badges.append(badge)
+                badge['obtained'] = True
+            else:
+                badge['obtained'] = False
+            earned_badges.append(badge)
         return earned_badges
 
     def initUI(self):
@@ -93,10 +118,10 @@ class BadgeDisplayCabinet(QWidget):
         grid_layout = QGridLayout()
         grid_layout.setSpacing(10)
 
-        # Añadir insignias al layout
+         # Añadir insignias al layout
         row, col = 0, 0
         for i, insignia in enumerate(self.insignias):
-            badge_widget = BadgeWidget(insignia)
+            badge_widget = BadgeWidget(insignia, obtained=insignia['obtained'])
             grid_layout.addWidget(badge_widget, row, col)
 
             col += 1
