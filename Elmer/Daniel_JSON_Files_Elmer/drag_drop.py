@@ -42,7 +42,7 @@ class DropLabel(QWidget):
 
         self.base_text_parts = text.split("___")
         self.drop_area = QLabel(self.get_current_text())
-        self.drop_area.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+        self.drop_area.setStyleSheet(f"color: {self.styles.get('cmd_text_color', '#000000')}; background-color: {self.styles.get('cmd_background_color', '#FFFFFF')}; font-size: {self.styles.get('font_size_normal', 12)}px")
         self.layout.addWidget(self.drop_area)
 
     def get_current_text(self):

@@ -4,16 +4,16 @@ import sys
 import csv
 import json
 import datetime
-import Elmer.Daniel_JSON_Files_Elmer.drag_drop as drag_drop
+import drag_drop as drag_drop
 
 from functools import partial
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
-from Elmer.Daniel_JSON_Files_Elmer.game_features.progress_bar import ProgressBar
-from Elmer.Daniel_JSON_Files_Elmer.Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from game_features.progress_bar import ProgressBar
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from PyQt6.QtWidgets import QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
-from Elmer.Daniel_JSON_Files_Elmer.Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from command_line_UI import App
 
 

@@ -1,7 +1,7 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
-            "title": "QUIZ - MODULO 2 - SEGUNDA PARTE",
+            "title": "QUIZ - MODULO 2 - TERCERA PARTE",
             "blocks": [
                 {
                     "type": "info",
@@ -9,20 +9,20 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 5\ny = x + 3\ny = int(str(y) + '2')\nprint(y)"
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 3\nnum = 17\nprint(num % x)"
                 }
             ],
             "answers": [
                 {
-                    "text": "5",
+                    "text": "1",
                     "correct": false
                 },
                 {
-                    "text": "8",
+                    "text": "0",
                     "correct": false
                 },
                 {
-                    "text": "82",
+                    "text": "2",
                     "correct": true
                 }
             ]
@@ -30,31 +30,31 @@
     ],
     "draganddrop": [
         {
-            "title": "QUIZ - MODULO 2 - SEGUNDA PARTE CONTINUACION",
+            "title": "QUIZ - MODULO 2 - TERCERA PARTE CONTINUACION",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Arrastra y suelta en los espacios en blanco para declarar una variable, sumarle 5 e imprimir su valor.:"
+                    "text": "Arrastra y suelta en los espacios en blanco para para tomar un nombre como entrada y generar un mensaje de bienvenida, que contenga la entrada."
                 },
                 {
                     "type": "pregunta1",
-                    "text": "x = 4\nx___= 5",
-                    "correctValue": "+"
+                    "text": "name =___",
+                    "correctValue": "input()"
                 },
                 {
                     "type": "pregunta2",
-                    "text": "print___",
-                    "correctValue": "(x)"
+                    "text": "print('Welcome'+ ___)",
+                    "correctValue": "name"
                 }
             ],
             "answers": [
                 {
-                    "text": "(x)",
+                    "text": "name",
                     "correctType": "pregunta2",
                     "correct": true
                 },
                 {
-                    "text": "+",
+                    "text": "input()",
                     "correctType": "pregunta1",
                     "correct": true
                 }
