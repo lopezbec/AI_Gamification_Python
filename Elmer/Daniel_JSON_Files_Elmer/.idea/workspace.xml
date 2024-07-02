@@ -6,26 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="edb879ce-5aae-45bd-9f22-3b7469269f90" name="Changes" comment="Quiz completed! #81">
       <changelist_data name="Elmerluis0129" email="es21-1354@unphu.edu.do" />
-      <change afterPath="$PROJECT_DIR$/M1_LESSON_4_Mixing_things_up/styles.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main_Modulos_Quizzes_Window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Daniel_JSON_Files_Elmer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Daniel_JSON_Files_Elmer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Codigos_LeaderBoard/leaderboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/Codigos_LeaderBoard/leaderboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Codigos_LeaderBoard/levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/Codigos_LeaderBoard/levels.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M1_LESSON_1_Codification/M1_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_1_Codification/M1_L1_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M1_LESSON_4_Mixing_things_up/M1_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_4_Mixing_things_up/M1_L4_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M1_LESSON_4_Mixing_things_up/M1_L4_Mixing_things_up_Part_8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M1_Q1_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M1_Q2_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M2_LESSON_1_Taking_User_Input/M2_L1_Taking_User_Input_Part_6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M2_Q1_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M2_LESSON_2_Working_with_Input/M2_L2_Working_with_Input_Part_7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M2_Q2_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M2_LESSON_3_In_Place_Operators/M2_L3_In_Place_Operators_Part_5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M2_Q3_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M3_LESSON_3_Else_Statements/M3_L3_Else_Statements_Part_8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M3_Q1_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M3_LESSON_4_Boolean_Logic/M3_L4_Boolean_Logic_Part_9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M3_Q2_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/M3_LESSON_5_while_Loops/M3_L5_while_Loops_Part_9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Quizzes/M3_Q3_Main.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Modulos_Intro_Pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Modulos_Intro_Pages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drag_drop.py" beforeDir="false" afterPath="$PROJECT_DIR$/drag_drop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.json" beforeDir="false" afterPath="$PROJECT_DIR$/styles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M1_LESSON_2_Working_with_Numerical_Data/M1_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_2_Working_with_Numerical_Data/M1_L2_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M1_LESSON_3_Working_with_Text_Data/M1_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_3_Working_with_Text_Data/M1_L3_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M1_LESSON_5_Labeling_Storing_and_Handling_Data_with_Variables/M1_L5_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2_LESSON_1_Taking_User_Input/M2_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M2_LESSON_1_Taking_User_Input/M2_L1_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2_LESSON_2_Working_with_Input/M2_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M2_LESSON_2_Working_with_Input/M2_L2_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M2_LESSON_3_In_Place_Operators/M2_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M2_LESSON_3_In_Place_Operators/M2_L3_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M3_LESSON_1_Booleans_and_Comparisons/M3_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M3_LESSON_1_Booleans_and_Comparisons/M3_L1_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M3_LESSON_2_If_Statements/M3_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M3_LESSON_2_If_Statements/M3_L2_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M3_LESSON_3_Else_Statements/M3_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M3_LESSON_3_Else_Statements/M3_L3_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M3_LESSON_4_Boolean_Logic/M3_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M3_LESSON_4_Boolean_Logic/M3_L4_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M3_LESSON_5_while_Loops/M3_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M3_LESSON_5_while_Loops/M3_L5_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M4_LESSON_1_Lists/M4_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M4_LESSON_1_Lists/M4_L1_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M4_LESSON_2_List_Operations/M4_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M4_LESSON_2_List_Operations/M4_L2_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M4_LESSON_3_For_Loops/M4_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M4_LESSON_3_For_Loops/M4_L3_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M4_LESSON_4_Ranges/M4_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M4_LESSON_4_Ranges/M4_L4_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M4_LESSON_5_List_Slices/M4_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M4_LESSON_5_List_Slices/M4_L5_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_1_Functions/M5_L1_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_1_Functions/M5_L1_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_2_List_Functions/M5_L2_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_2_List_Functions/M5_L2_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_3_String_Functions/M5_L3_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_3_String_Functions/M5_L3_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_4_Making_Your_Own_Functions/M5_L4_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_4_Making_Your_Own_Functions/M5_L4_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_5_Function_Arguments/M5_L5_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_5_Function_Arguments/M5_L5_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_6_Returning_From_Functions/M5_L6_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_6_Returning_From_Functions/M5_L6_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/M5_LESSON_7_Comments_and_Docstrings/M5_L7_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/M5_LESSON_7_Comments_and_Docstrings/M5_L7_Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
