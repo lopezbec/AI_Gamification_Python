@@ -38,8 +38,9 @@ class BadgeWidget(QFrame):
                 border-radius: 10px;
             }}
         """)
-        image_file = "medal_icon.png" if obtained else "question_mark_icon.png"
-
+        badge_icon = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img" , badge['badge_icon'])
+        question_mark = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img" , "question_mark_icon.png")
+        image_file = badge_icon if obtained else question_mark
         layout = QVBoxLayout()
         self.setLayout(layout)
 
