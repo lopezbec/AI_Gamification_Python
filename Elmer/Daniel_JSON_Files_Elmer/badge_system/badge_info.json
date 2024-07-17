@@ -9,7 +9,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": "photo-output.png"
+      "badge_icon": "photo-output-2.png"
   },
   {
       "badge_id": "hello_world",
@@ -45,7 +45,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": "photo-output-copy-2.png"
+      "badge_icon": "photo-output 4.png"
   },
   {
       "badge_id": "20_correctas",
@@ -108,7 +108,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": ""
+      "badge_icon": "photo-output 8.png"
   },
   {
       "badge_id": "modulo_rapido",
@@ -120,7 +120,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": ""
+      "badge_icon": "photo-output 6.png"
   },
   {
       "badge_id": "dominador_modulo",
@@ -132,7 +132,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": ""
+      "badge_icon": "photo-output 4.png"
   },
   {
       "badge_id": "super_estudiante",
@@ -144,7 +144,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": ""
+      "badge_icon": "photo-output 7.png"
   },
   {
       "badge_id": "Maestro_desafiante",
@@ -156,7 +156,7 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": ""
+      "badge_icon": "photo-output 9.png"
   },
   {
       "badge_id": "Explorador_curioso",
@@ -168,6 +168,6 @@
       "badge_margin": 10,
       "badge_word_wrap": true,
       "badge_bold": true,
-      "badge_icon": ""
+      "badge_icon": "photo-output 4.png"
   }
 ]

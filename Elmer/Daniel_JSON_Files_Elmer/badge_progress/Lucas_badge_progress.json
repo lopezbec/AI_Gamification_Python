@@ -9,5 +9,9 @@
     "avanzado": false,
     "experto": false,
     "doble_aprendizaje": false,
-    "modulo_rapido": false
+    "modulo_rapido": false,
+    "dominador_modulo": false,
+    "super_estudiante": false,
+    "Maestro_desafiante": false,
+    "Explorador_curioso": false
 }
