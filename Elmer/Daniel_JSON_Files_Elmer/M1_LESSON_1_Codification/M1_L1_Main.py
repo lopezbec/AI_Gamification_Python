@@ -19,7 +19,7 @@ try:
         QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame, QGridLayout
     from Main_Modulos_Intro_Pages import MainWindow as Dashboard
     from command_line_UI import App
-    from badge_system.badge_verification import BadgeVerification, get_badge_level, \
+    from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
         update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, update_badge_progress
     from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
     read_stored_streak, update_streak, check_streak_badges
@@ -1090,18 +1090,19 @@ class MainWindow(QWidget):
             print("¡La leccion no se completó, se cerró!.")
             self.close()
 
+        
         if next_index == self.highest_page_reached and self.is_rollback == True:
             self.is_rollback = False
             # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
         self.current_page += 1  # Incrementar el número de la página actual
-        
+
         #Badge verification first correct answer
-        if self.leaderboard_window_instace.get_current_user_score() < 3:
-            if self.XP_Ganados > 0 and self.XP_Ganados <= 2:
-                badge = BadgeVerification('gran_paso')
-                badge.exec()
+        if self.current_page == 2 and not is_badge_earned(self.usuario_actual, 'gran_paso'):
+            if self.XP_Ganados > 0 and self.XP_Ganados <= 4:
+                display_badge('gran_paso')
                 update_badge_progress(self.usuario_actual, 'gran_paso')
+               
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:

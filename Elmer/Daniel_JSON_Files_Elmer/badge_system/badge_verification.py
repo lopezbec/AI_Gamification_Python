@@ -42,7 +42,7 @@ class BadgeVerification(QDialog):
                 badge.setMargin(badge_info["badge_margin"])
 
                 label = QLabel()
-                image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'medal_icon.png')
+                image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', badge_info['badge_icon'])
                 pixmap = QPixmap(image_path)
 
                 if not pixmap.isNull():
@@ -74,7 +74,7 @@ def load_badges():
         return json.load(file)
     
 def load_badges_criteria():
-    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json", enconding='UTF-8')) as content:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json"), "r", encoding='UTF-8') as content:
         return json.load(content)
 
 def save_badge_progress_per_user(username):
@@ -153,7 +153,7 @@ def update_badge_progress(username, badge_name):
     except OSError as e:
         print(f'Error al leer o escribir el archivo in update_badge_progress: {e}')
 
-def is_badge_earned(username, badge_name) -> bool:
+def is_level_badge_earned(username, badge_name) -> bool:
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
@@ -186,6 +186,40 @@ def is_badge_earned(username, badge_name) -> bool:
     except OSError as e:
         print(f'Error al leer el archivo in is_badge_earned: {e}')
         return False
+    
+def is_badge_earned(username, badge_name) -> bool:
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
+        # Nombre del archivo json
+        filename = f'{username}_badge_progress.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+
+        # Verificar si el archivo json ya existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            badge_data = json.load(file)
+
+        # Verificar si el badge_name existe en el diccionario
+        if badge_name not in badge_data:
+            raise KeyError(f'El badge {badge_name} no existe.')
+
+        # Retornar el valor del badge
+        return True
+
+    except FileNotFoundError as e:
+        print(f'Error in is_badge_earned: {e}')
+        return False
+    except KeyError as e:
+        print(f'Error in is_badge_earned: {e}')
+        return False
+    except OSError as e:
+        print(f'Error al leer el archivo in is_badge_earned: {e}')
+        return False
 
 def get_badge_level(self, score):
     try:
@@ -201,13 +235,13 @@ def get_badge_level(self, score):
             range_str = level["range"]
             if "<=" in range_str:
                 max_score = int(range_str.split('<=')[1].strip())
-                if score <= max_score and is_badge_earned(self.usuario_actual, level["badge_id"]):
+                if score <= max_score and is_level_badge_earned(self.usuario_actual, level["badge_id"]):
                     display_badge(level["badge_id"])
                     update_badge_progress(self.usuario_actual, level["badge_id"])
                     return
             elif "-" in range_str:
                 min_score, max_score = map(int, range_str.split('-'))
-                if min_score <= score <= max_score and is_badge_earned(self.usuario_actual, level["badge_id"]):
+                if min_score <= score <= max_score and is_level_badge_earned(self.usuario_actual, level["badge_id"]):
                     display_badge(level["badge_id"])
                     update_badge_progress(self.usuario_actual, level["badge_id"])
                     return
