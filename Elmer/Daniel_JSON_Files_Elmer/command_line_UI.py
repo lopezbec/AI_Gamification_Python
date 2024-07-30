@@ -1,122 +1,108 @@
 import sys
 import os
 import subprocess
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit
+import ast
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit, QLabel
+
 
 class App(QWidget):
 
     def __init__(self):
         super().__init__()
+        self.result_display = None
         self.textbox = None
         self.run_button = None
-        self.result_display = None
+        self.input_box = None
         self.init_ui()
 
     def init_ui(self):
         layout = QVBoxLayout()
 
-        self.textbox: QTextEdit = QTextEdit(self)
-        self.textbox.setPlaceholderText('Escribe tu código aquí. Usa "# input" seguido de tus entradas en líneas separadas.')
+        self.instr_label = QLabel(self)
+        self.instr_label.setText('Escribe tu código aquí abajo, y luego haz clic en el botón de "Correr"')
+        layout.addWidget(self.instr_label)
+
+        self.textbox = QTextEdit(self)
+        self.textbox.setPlaceholderText('Escribe tu código aquí.')
+        # Ajustar tamaño del área de código
+        self.textbox.setMaximumHeight(100)  # Ajusta según sea necesario
         layout.addWidget(self.textbox)
 
-        self.run_button: QPushButton = QPushButton('Correr', self)
+        self.input_box = QTextEdit(self)
+        self.input_box.setPlaceholderText('Proporciona tu entrada aquí antes de presionar Correr.')
+        # Ajustar tamaño del área de entrada
+        self.input_box.setMaximumHeight(75)  # Ajusta según sea necesario
+        layout.addWidget(self.input_box)
+
+        self.run_button = QPushButton('Correr', self)
         self.run_button.clicked.connect(self.run_script)
         layout.addWidget(self.run_button)
 
-        self.result_display: QTextEdit = QTextEdit(self)
+        self.result_display = QTextEdit(self)
         self.result_display.setReadOnly(True)
+        # Ajustar tamaño del área de resultados
+        self.result_display.setMaximumHeight(75)  # Ajusta según sea necesario
         layout.addWidget(self.result_display)
 
         self.setLayout(layout)
-        self.setWindowTitle('Run Python Code')
+        self.setWindowTitle('Correr código')
         self.show()
 
     def run_script(self):
-        full_text = self.textbox.toPlainText()
-        code_str, input_str = self.split_code_and_input(full_text)
-        result_str = save_and_run_script(code_str, input_str)
+        code_str = self.textbox.toPlainText().strip()
+        input_str = self.input_box.toPlainText().strip()
+
+        if contains_import(code_str):  # Chequeo de seguridad
+            result_str = "Error: No se permiten declaraciones de importación"
+        else:
+            result_str = save_and_run_script(code_str, input_str)
+
         self.result_display.setText(result_str)
 
-    def split_code_and_input(self, full_text):
-        parts = full_text.split('# input')
-        code_str = parts[0].strip()
-        input_str = '\n'.join(part.strip() for part in parts[1:])  # Handle multiple inputs
-        return code_str, input_str
 
-def save_and_run_script(code_str, input_data=""):
+def save_and_run_script(code_str, input_str) -> str:
     script_filename = 'user_script.py'
-    max_output_size = 1024  # 1KB limit
+    output_filename = 'script_output.txt'
+    max_output_size = 1024  # En bytes (1 KB)
 
+    # Guardar el script en un archivo
     with open(script_filename, 'w') as file:
         file.write(code_str)
 
-    result_str = ""
     try:
-        process = subprocess.Popen([sys.executable, '-u', script_filename],
-                                   stdin=subprocess.PIPE,
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.STDOUT,
-                                   text=True)
-        output, _ = process.communicate(input=input_data, timeout=3)
+        with open(output_filename, 'w') as output_file:
+            proc = subprocess.Popen(
+                [sys.executable, script_filename],
+                stdin=subprocess.PIPE,
+                stdout=output_file,
+                stderr=subprocess.STDOUT,
+                text=True
+            )
+            try:
+                proc.communicate(input=input_str, timeout=3)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+                result_str = "\nLa ejecución del código superó el límite de tiempo"
+            except EOFError:
+                result_str = "\nError: Ingrese las entradas requeridas en el cuadro de entrada."
 
-        if len(output) > max_output_size:
-            result_str = 'Output exceeded size limit'
+        # Verificar el tamaño del archivo de salida
+        if os.path.exists(output_filename) and os.path.getsize(output_filename) > max_output_size:
+            result_str = 'La salida superó el límite de tamaño'
         else:
-            result_str = output
+            # Leer el archivo de salida
+            with open(output_filename, 'r') as output_file:
+                result_str = output_file.read()
 
-    except subprocess.TimeoutExpired:
-        process.kill()
-        result_str = "\nCode execution exceeded time limit"
     except Exception as e:
-        result_str = f"Error running script: {e}"
+        result_str = f"Ocurrió un error: {e}"
 
-    if os.path.exists(script_filename):
-        os.remove(script_filename)
+    finally:
+        if os.path.exists(output_filename):  # Eliminar el archivo de salida
+            os.remove(output_filename)
 
     return result_str
 
-    # def terminate_with_log(message):
-    #     with open(output_filename, 'a') as output_file:
-    #         output_file.write(f'\n{message}')
-    #     exec_process.terminate()
-
-    # # Terminates the user input execution when the output file exceeds the limit
-    # def monitor_output_size():
-    #     while exec_process.poll() is None:
-    #         if os.path.exists(output_filename) and os.path.getsize(output_filename) > max_output_size:
-    #             terminate_with_log("Output size limit exceeded.")
-    #             break
-
-    # monitor_thread = threading.Thread(target=monitor_output_size)
-    # monitor_thread.start()
-
-    # try: # Terminates the user input execution after the time limit has passed
-    #     exec_process.wait(timeout=3)
-    # except subprocess.TimeoutExpired:
-    #     terminate_with_log("Code execution time limit exceeded.")
-
-    # Checks that the thread has stopped (should always immediately return)
-    # monitor_thread.join()
-
-def exec_str(code_str) -> str:
-    result: str = ''
-
-    try:
-        old_stdout: io.TextIO = sys.stdout
-        sys.stdout = io.StringIO()
-        output: io.StringIO = sys.stdout
-
-        exec(code_str)
-
-        sys.stdout = old_stdout
-        result = output.getvalue()
-
-    except SyntaxError as e:
-        result = f'Syntax Error: {e}'
-    except Exception as e:
-        result = f'Error: {e}'
-
-    return result
 
 def contains_import(code_str) -> bool:
     try:
@@ -124,23 +110,17 @@ def contains_import(code_str) -> bool:
         for node in ast.walk(parsed):
             if isinstance(node, ast.Import) or isinstance(node, ast.ImportFrom):
                 return True
-            # if isinstance(node, ast.While):
-            #     return False
-            # if isinstance(node, ast.FunctionDef):
-            #     return False
         return False
-
     except SyntaxError:
         return False
 
-    
+
 def CMD_Practica():
     ex = App()
     return ex
 
-# El siguiente bloque solo se ejecutará si este archivo se ejecuta como un script independiente,
-# no cuando se importa como un módulo.
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     ventana = CMD_Practica()
     ventana.show()
