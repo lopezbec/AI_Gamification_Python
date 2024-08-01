@@ -10,7 +10,8 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication, QMenu
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtGui import QAction, QIcon
-from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion
+from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
+    add_user_streak_per_module
 from badge_system.display_cabinet import BadgeDisplayCabinet
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -83,6 +84,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actualizar_lecciones(self.progreso_usuario)
         save_badge_progress_per_user(self.usuario_actual)
         create_lessons_date_completion(self.usuario_actual)
+        add_user_streak_per_module(self.usuario_actual)
 
         self.menuBar().clear()  # Limpia la barra de menús actual
 
@@ -299,7 +301,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
         # Eliminamos la creación de un submenú adicional y en su lugar
         # añadimos las acciones directamente al botón del módulo.
-
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(self.usuario_actual)
 
@@ -309,7 +310,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             leccion_completada = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
                 f"Leccion_completada{leccion_numero}", False)
-
+            
             if leccion_completada:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
             elif estado_leccion:

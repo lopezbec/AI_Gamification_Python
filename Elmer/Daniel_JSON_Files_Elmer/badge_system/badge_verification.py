@@ -208,9 +208,10 @@ def is_badge_earned(username, badge_name) -> bool:
         if badge_name not in badge_data:
             raise KeyError(f'El badge {badge_name} no existe.')
 
-        # Retornar el valor del badge
-        return True
-
+        if badge_data[badge_name]:
+            return True
+        return False
+    
     except FileNotFoundError as e:
         print(f'Error in is_badge_earned: {e}')
         return False
@@ -353,6 +354,86 @@ def are_two_lessons_completed_same_day(username, module_name) -> bool:
         print(f'Error in are_two_lessons_completed_same_day Other Exception: {e}')
         return False
 
+def are_three_modules_completed_same_day(username: str) -> bool:
+    try:
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress', 'lessons_date_completion.json')
+        # Verificar si el archivo json existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            data = json.load(file)
+
+        # Verificar si el usuario existe en el diccionario
+        if username not in data:
+            raise KeyError(f'El usuario {username} no existe.')
+
+        completion_dates = []
+
+        # Recorrer todos los módulos del usuario
+        for module in data[username].values():
+            module_dates = set(module.values())
+
+            # Si hay algún valor vacío, el módulo no está completamente completado
+            if "" in module_dates:
+                continue
+
+            # Si todas las lecciones de un módulo están completadas en la misma fecha, agregar la fecha a completion_dates
+            if len(module_dates) == 1:
+                completion_dates.append(next(iter(module_dates)))
+
+        # Verificar si hay al menos 3 módulos completados el mismo día
+        date_counts = {date: completion_dates.count(date) for date in set(completion_dates)}
+        for date, count in date_counts.items():
+            if count >= 3:
+                return True
+
+        return False
+
+    except FileNotFoundError as e:
+        print(f'Error: {e}')
+        return False
+    except KeyError as e:
+        print(f'Error: {e}')
+        return False
+    except Exception as e:
+        print(f'Error: {e}')
+        return False
+
+def are_all_lessons_completed(username: str) -> bool:
+    try:
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'progreso.json')
+        # Verificar si el archivo json existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            data = json.load(file)
+
+        # Verificar si el usuario existe en el diccionario
+        if username not in data:
+            raise KeyError(f'El usuario {username} no existe.')
+
+        # Recorrer todos los módulos y lecciones del usuario
+        for module in data[username].values():
+            for lesson_completed in module.values():
+                if not lesson_completed:
+                    return False
+
+        return True
+
+    except FileNotFoundError as e:
+        print(f'Error: {e}')
+        return False
+    except KeyError as e:
+        print(f'Error: {e}')
+        return False
+    except Exception as e:
+        print(f'Error: {e}')
+        return False
+
 def create_lessons_date_completion(username):
     try:
         # Nombre del directorio
@@ -406,8 +487,6 @@ def create_lessons_date_completion(username):
             # Guardar la estructura inicial en el archivo JSON
             with open(filepath, 'w') as file:
                 json.dump(data, file, indent=4)
-
-            print(f'Se creó el archivo {filename} con la estructura inicial para el usuario {username}.')
         else:
             # Leer el contenido del archivo JSON
             with open(filepath, 'r') as file:
@@ -490,7 +569,109 @@ def update_lesson_dates(username, module, lesson):
         # Guardar el diccionario actualizado en el archivo JSON
         with open(filepath, 'w') as file:
             json.dump(lesson_dates, file, indent=4)
-
-        print(f'Se actualizó el archivo {filename} con la lección {lesson} del módulo {module} para el usuario {username}.')
     except Exception as e:
         print(f'Error in update_lesson_dates: {e}')
+
+def streak_per_lesson_structure() -> dict:
+    return {
+        "Modulo1": {
+            "Leccion1": {"all_correct": False},
+            "Leccion2": {"all_correct": False},
+            "Leccion3": {"all_correct": False},
+            "Leccion4": {"all_correct": False},
+            "Leccion5": {"all_correct": False}
+        },
+        "Modulo2": {
+            "Leccion1": {"all_correct": False},
+            "Leccion2": {"all_correct": False},
+            "Leccion3": {"all_correct": False}
+        },
+        "Modulo3": {
+            "Leccion1": {"all_correct": False},
+            "Leccion2": {"all_correct": False},
+            "Leccion3": {"all_correct": False},
+            "Leccion4": {"all_correct": False},
+            "Leccion5": {"all_correct": False}
+        },
+        "Modulo4": {
+            "Leccion1": {"all_correct": False},
+            "Leccion2": {"all_correct": False},
+            "Leccion3": {"all_correct": False},
+            "Leccion4": {"all_correct": False},
+            "Leccion5": {"all_correct": False}
+        },
+        "Modulo5": {
+            "Leccion1": {"all_correct": False},
+            "Leccion2": {"all_correct": False},
+            "Leccion3": {"all_correct": False},
+            "Leccion4": {"all_correct": False},
+            "Leccion5": {"all_correct": False},
+            "Leccion6": {"all_correct": False},
+            "Leccion7": {"all_correct": False}
+        }
+    }
+
+def add_user_streak_per_module(username: str):
+    # Verificar si el archivo existe
+    filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress', 'lessons_streak_completion.json')
+    if not os.path.exists(filepath):
+        # Crear la estructura inicial del archivo
+        data = {}
+        with open(filepath, 'w') as file:
+            json.dump(data, file, indent=4)
+
+    # Leer el contenido del archivo JSON
+    with open(filepath, 'r') as file:
+        data = json.load(file)
+
+    # Agregar la estructura del nuevo usuario si no existe
+    if username not in data:
+        data[username] = streak_per_lesson_structure()
+
+    # Guardar los cambios en el archivo
+    with open(filepath, 'w') as file:
+        json.dump(data, file, indent=4)
+
+def update_lesson_status(username: str, module_name: str, lesson_name: str, all_correct: bool):
+    try:
+        # Nombre del directorio
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
+        # Nombre del archivo JSON
+        filename = 'lessons_streak_completion.json'
+        # Path completo al archivo
+        filepath = os.path.join(directory, filename)
+        # Verificar si el archivo existe
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f'El archivo {filepath} no existe.')
+
+        # Leer el contenido del archivo JSON
+        with open(filepath, 'r') as file:
+            data = json.load(file)
+
+        # Verificar si el usuario existe en el diccionario
+        if username not in data:
+            raise KeyError(f'El usuario {username} no existe.')
+
+        # Verificar si el módulo existe en el diccionario del usuario
+        if module_name not in data[username]:
+            raise KeyError(f'El módulo {module_name} no existe para el usuario {username}.')
+
+        # Verificar si la lección existe en el diccionario del módulo
+        if lesson_name not in data[username][module_name]:
+            raise KeyError(f'La lección {lesson_name} no existe en el módulo {module_name} para el usuario {username}.')
+
+        # Actualizar el valor booleano
+        data[username][module_name][lesson_name]['all_correct'] = all_correct
+
+        # Guardar los cambios en el archivo
+        with open(filepath, 'w') as file:
+            json.dump(data, file, indent=4)
+
+        print(f"Actualización exitosa: {username} - {module_name} - {lesson_name} -> {all_correct}")
+
+    except FileNotFoundError as e:
+        print(f'Error: {e}')
+    except KeyError as e:
+        print(f'Error: {e}')
+    except Exception as e:
+        print(f'Error inesperado: {e}')

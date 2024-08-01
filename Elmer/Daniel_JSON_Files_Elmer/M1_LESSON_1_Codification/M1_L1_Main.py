@@ -20,10 +20,10 @@ try:
     from Main_Modulos_Intro_Pages import MainWindow as Dashboard
     from command_line_UI import App
     from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
-        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, update_badge_progress
+        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
+            update_badge_progress, are_three_modules_completed_same_day
     from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
     read_stored_streak, update_streak, check_streak_badges
-
     from badge_system.display_cabinet import BadgeDisplayCabinet
 except Exception as e:
     print(f"error en importacion de modulos {e} \n linea {sys.exc_info()[2].tb_lineno}")
@@ -524,6 +524,7 @@ class MainWindow(QWidget):
         self.usuario_actual = self.load_current_user()
         self.leaderboard_window_instace = get_instance()
         self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
+        self.all_correct = True
         self.setWindowTitle("Programar: tu nuevo superpoder")
         self.progress_bar = ProgressBar(
             JsonLoader.load_json_data(
@@ -659,6 +660,7 @@ class MainWindow(QWidget):
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
             self.streak.incorrect_answer()
             reset_streak(self.usuario_actual)
+            self.all_correct = False
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
@@ -1071,20 +1073,22 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion1')
             self.actualizar_leccion_completada('Modulo1', 'Leccion1')
+            
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())
             update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada1")
-            
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo1"):
+            if are_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
                     display_badge('modulo_rapido')
-                    update_badge_progress(self.usuario_actual, 'modulo_rapido')
-            
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo1"):
+                    update_badge_progress(self.usuario_actual, 'modulo_rapido')            
+            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
                 display_badge('doble_aprendizaje')
-                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')      
+                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
+            if are_three_modules_completed_same_day(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
+                display_badge('Explorador_curioso')
+                update_badge_progress(self.usuario_actual, 'Explorador_curioso')
             self.close()
         else:
             print("¡La leccion no se completó, se cerró!.")

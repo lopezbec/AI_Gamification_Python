@@ -15,8 +15,9 @@ from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
-from badge_system.badge_verification import BadgeVerification, get_badge_level, update_badge_progress, \
-        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge
+from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
+    update_badge_progress, update_lesson_dates, are_lessons_completed_same_day, \
+    are_two_lessons_completed_same_day, display_badge, are_three_modules_completed_same_day
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from command_line_UI import App
 
@@ -1057,20 +1058,22 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo4', 'Leccion2')
             self.actualizar_leccion_completada('Modulo4', 'Leccion2')
+                        
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())           
             update_lesson_dates(self.usuario_actual, "Modulo4", "Leccion_completada2")           
-
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo4"):
+            if are_lessons_completed_same_day(self.usuario_actual, "Modulo4") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
                     display_badge('modulo_rapido')
                     update_badge_progress(self.usuario_actual, 'modulo_rapido')
-            
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo4"):
+            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo4") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
                 display_badge('doble_aprendizaje')
-                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')      
+                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
+            if are_three_modules_completed_same_day(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
+                display_badge('Explorador_curioso')
+                update_badge_progress(self.usuario_actual, 'Explorador_curioso')      
             self.close()
 
         else:
