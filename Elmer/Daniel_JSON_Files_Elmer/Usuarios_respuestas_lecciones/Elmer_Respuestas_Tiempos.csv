@@ -292,3 +292,76 @@ Checkbox Selected: 100,15:54:54
 Checkbox Selected: Ninguno,15:54:57
 Multiplechoice Page Close Time,15:54:59
 
+"Modulo 1, Leccion 1",
+Parte 1,13:23:52
+Pedagogical Page Open Time,13:23:52
+Pedagogical Page Close Time,13:23:54
+Multiplechoice Page Open Time,13:23:54
+Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,13:23:57
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,13:23:59
+Multiplechoice Page Close Time,13:24:00
+Parte 2,13:24:00
+Pedagogical Page Open Time,13:24:00
+Pedagogical Page Close Time,13:24:00
+Pedagogical2 Page Open Time,13:24:00
+Pedagogical2 Page Close Time,13:24:02
+Parte 3,13:24:02
+Pedagogical Page Open Time,13:24:02
+Pedagogical Page Close Time,13:24:03
+Multiplechoice Page Open Time,13:24:03
+Checkbox Selected: Verdadero,13:24:05
+Multiplechoice Page Close Time,13:24:06
+Parte 4,13:24:06
+Draganddrop Page Open Time,13:24:06
+Draganddrop Page Close Time,13:24:08
+Pedagogical Page Open Time,13:24:08
+Correct Answer Selected: print(729),13:24:08
+Pedagogical Page Close Time,13:24:09
+Parte 5,13:24:09
+Multiplechoice Page Open Time,13:24:09
+Checkbox Selected: comillas '' ,13:24:11
+Multiplechoice Page Close Time,13:24:12
+Pedagogical Page Open Time,13:24:12
+Pedagogical Page Close Time,13:24:12
+Parte 6,13:24:12
+Pedagogical Page Open Time,13:24:12
+Pedagogical Page Close Time,13:24:13
+
+"Modulo 1, Leccion 1",
+Parte 1,13:24:19
+Pedagogical Page Open Time,13:24:19
+Pedagogical Page Close Time,13:24:20
+Multiplechoice Page Open Time,13:24:20
+Multiplechoice Page Close Time,13:24:23
+Parte 2,13:24:23
+Pedagogical Page Open Time,13:24:23
+Parte 1,13:24:23
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,13:24:23
+Pedagogical Page Close Time,13:24:25
+Pedagogical2 Page Open Time,13:24:25
+Pedagogical2 Page Close Time,13:24:26
+Parte 3,13:24:26
+Pedagogical Page Open Time,13:24:26
+Pedagogical Page Close Time,13:24:27
+Multiplechoice Page Open Time,13:24:27
+Multiplechoice Page Close Time,13:24:29
+Parte 4,13:24:29
+Draganddrop Page Open Time,13:24:29
+Parte 3,13:24:29
+Checkbox Selected: Verdadero,13:24:29
+Parte 4,13:24:29
+Incorrect Answer Selected: <Espacio para respuesta>(729),13:24:29
+Correct Answer Selected: print(729),13:24:31
+Draganddrop Page Close Time,13:24:32
+Pedagogical Page Open Time,13:24:32
+Pedagogical Page Close Time,13:24:32
+Parte 5,13:24:32
+Multiplechoice Page Open Time,13:24:32
+Checkbox Selected: comillas '' ,13:24:35
+Multiplechoice Page Close Time,13:24:36
+Pedagogical Page Open Time,13:24:36
+Pedagogical Page Close Time,13:24:37
+Parte 6,13:24:37
+Pedagogical Page Open Time,13:24:37
+Pedagogical Page Close Time,13:24:43
+

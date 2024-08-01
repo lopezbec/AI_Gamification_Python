@@ -1,7 +1,33 @@
 {
-    "draganddrop": [
+    "multiplechoice": [
         {
             "title": "QUIZ - MODULO 1 - PRIMERA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Seleccione la respuesta correcta para asignar el valor 15 a la variable años y obtener el número de meses (años multiplicados por 12):"
+
+                },
+                {
+                    "type": "Consola",
+                    "text": "years = 15\nprint(___*12)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Years",
+                    "correct": false
+                },
+                {
+                    "text": "years",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 1 - PRIMERA PARTE  CONTINUACIÓN",
             "multipleResponses": true,
             "draganddropSecuence": true,
             "blocks": [
@@ -26,33 +52,6 @@
                 }
             ],
             "correctOrder": ["a", "+", "b"]
-        }
-    ],
-    "draganddrop2": [
-        {
-            "title": "QUIZ - MODULO 1 - PRIMERA PARTE CONTINUACION",
-            "multipleResponses": true,
-            "draganddropSecuence": true,
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Arrastre y suelte los espacios en blanco para asignar el valor 15 a la variable años y obtener el número de meses (años multiplicados por 12):"
-
-                },
-                {
-                    "type": "Consola",
-                    "text": "years = ___\nprint(___*12)"
-                }
-            ],
-            "answers": [
-                {
-                    "text": "years"
-                },
-                {
-                    "text": "15"
-                }
-            ],
-            "correctOrder": ["15", "years"]
         }
     ]
 }

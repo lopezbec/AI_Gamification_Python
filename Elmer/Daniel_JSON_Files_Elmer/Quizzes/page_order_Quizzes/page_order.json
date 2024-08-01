@@ -1,0 +1,38 @@
+{
+    "quizzes": [
+        {
+            "quiz_number": 1,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1_Q1_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1_Q1_Main.json",
+                    "page_type": "draganddrop",
+                    "section_number": 1
+                }
+            ]
+        },
+        {
+            "quiz_number": 2,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1_Q2_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 1
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1_Q2_Main.json",
+                    "page_type": "completeblankspace",
+                    "section_number": 1
+                }
+            ]
+        }
+    ]
+}

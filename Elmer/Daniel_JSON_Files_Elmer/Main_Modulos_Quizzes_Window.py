@@ -2,7 +2,7 @@ import sys
 import os
 import json
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, \
-    QCheckBox, QRadioButton
+    QRadioButton
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
@@ -33,87 +33,202 @@ class JsonLoader:
             return {}
 
 
-class Main_Modulos_Quizzes_Window(QWidget):
-    def __init__(self, filename):
-        super().__init__()
-        self.filename = filename
-        self.data = JsonLoader.load_json_data(filename)
-        self.styles = JsonLoader.load_json_styles()
-        self.page_type = self.detect_page_type()
-        self.init_ui()
+class QuizLoader:
+    def __init__(self, layout, styles, quiz_file, page_order_file):
+        self.layout = layout
+        self.styles = styles
+        self.quiz_file = quiz_file
+        self.page_order_file = page_order_file
+        self.current_section_index = 0
+        self.load_page_order()
+        self.feedback_label = QLabel('')
+        self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.layout.addWidget(self.feedback_label)
+        self.current_user = self.load_current_user()
 
-    def init_ui(self):
-        self.layout = QVBoxLayout()
+    def load_page_order(self):
+        if not os.path.isfile(self.page_order_file):
+            raise FileNotFoundError(f"Archivo no encontrado: {self.page_order_file}")
+        with open(self.page_order_file, "r", encoding='UTF-8') as file:
+            self.page_order = json.load(file)["quizzes"]
+        self.current_quiz_index = 0
+        self.current_section_in_quiz_index = 0
 
-        if not self.data:
-            error_label = QLabel("Error al cargar el archivo JSON. Por favor, verifica que el archivo exista y sea válido.")
-            error_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            error_label.setStyleSheet("color: red; font-size: 16px")
-            self.layout.addWidget(error_label)
-            self.setLayout(self.layout)
-            return
+    def load_quiz_section(self):
+        self.clear_layout()
 
-        title = QLabel(self.data[self.page_type][0]["title"])
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(
-            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
-        title_font = QFont()
-        title_font.setPointSize(self.styles["font_size_titles"])
-        title.setFont(title_font)
-        self.layout.addWidget(title)
+        print("Cargando nueva sección...")
+        try:
+            quiz_file_path = self.quiz_file
+            if not os.path.isfile(quiz_file_path):
+                raise FileNotFoundError(f"Archivo no encontrado: {quiz_file_path}")
+            with open(quiz_file_path, "r", encoding='UTF-8') as file:
+                quiz_data = json.load(file)
 
-        if self.page_type == 'multiplechoice':
-            self.create_multiple_choice_layout()
-        elif self.page_type == 'completeblankspace':
-            self.create_complete_blank_space_layout()
-        elif self.page_type == 'draganddrop':
-            self.create_drag_and_drop_layout()
+            current_quiz = self.page_order[self.current_quiz_index]
+            current_section = current_quiz["sections"][self.current_section_in_quiz_index]
+            page_type = current_section["page_type"]
+            section_number = current_section["section_number"]
 
-        self.create_feedback_label()
+            self.section = quiz_data[page_type][section_number - 1]
+            self.page_type = page_type
 
-        self.submit_button = QPushButton('Enviar')
-        self.submit_button.setStyleSheet(
-            f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
-        self.submit_button.clicked.connect(self.check_answers)
-        self.layout.addWidget(self.submit_button)
+            if self.page_type not in quiz_data:
+                raise KeyError(f"La clave '{self.page_type}' no existe en el JSON")
 
-        self.reset_button = QPushButton('Reiniciar')
-        self.reset_button.setStyleSheet(
-            f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
-        self.reset_button.clicked.connect(self.reset_layout)
-        self.layout.addWidget(self.reset_button)
+            if not quiz_data[self.page_type]:
+                raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
 
-        self.continue_button = QPushButton('Continuar')
-        self.continue_button.setStyleSheet(
-            f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
-        self.continue_button.clicked.connect(self.close_quiz)
-        self.continue_button.setVisible(False)  # Oculto por defecto
-        self.layout.addWidget(self.continue_button)
+            section_data = self.section
 
-        self.setLayout(self.layout)
+            title = QLabel(section_data["title"])
+            title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            title.setStyleSheet(
+                f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+            title_font = QFont()
+            title_font.setPointSize(self.styles["font_size_titles"])
+            title.setFont(title_font)
+            self.layout.addWidget(title)
 
-    def detect_page_type(self):
-        if 'multiplechoice' in self.data:
-            return 'multiplechoice'
-        elif 'completeblankspace' in self.data:
-            return 'completeblankspace'
-        elif 'draganddrop' in self.data:
-            return 'draganddrop'
-        else:
-            raise ValueError("Tipo de página no soportado en el archivo JSON")
+            if self.page_type == 'multiplechoice':
+                self.create_multiple_choice_layout(section_data)
+            elif self.page_type == 'completeblankspace':
+                self.create_complete_blank_space_layout(section_data)
+            elif self.page_type == 'draganddrop':
+                self.create_drag_and_drop_layout(section_data)
+
+            self.create_feedback_label()
+
+            button_layout = QHBoxLayout()
+
+            self.submit_button = QPushButton('Enviar')
+            self.submit_button.setStyleSheet(
+                f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
+            self.submit_button.clicked.connect(self.check_answers)
+            button_layout.addWidget(self.submit_button)
+
+            self.reset_button = QPushButton('Reiniciar')
+            self.reset_button.setStyleSheet(
+                f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
+            self.reset_button.clicked.connect(self.reset_layout)
+            button_layout.addWidget(self.reset_button)
+
+            self.continue_button = QPushButton('Continuar')
+            self.continue_button.setStyleSheet(
+                f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
+            self.continue_button.clicked.connect(self.load_next_section)
+            self.continue_button.setVisible(False)
+            button_layout.addWidget(self.continue_button)
+
+            self.complete_button = QPushButton('Completar')
+            self.complete_button.setStyleSheet(
+                f"background-color: {self.styles.get('complete_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
+            self.complete_button.clicked.connect(self.complete_quiz)
+            self.complete_button.setVisible(False)
+            button_layout.addWidget(self.complete_button)
+
+            self.layout.addLayout(button_layout)
+        except KeyError as e:
+            print(f"Error al acceder a una clave en el JSON: {e}")
+        except ValueError as e:
+            print(f"Error de valor: {e}")
+        except Exception as e:
+            print(f"Error al cargar la sección: {e}")
+
+    def load_next_section(self):
+        self.current_section_in_quiz_index += 1
+        current_quiz = self.page_order[self.current_quiz_index]
+        if self.current_section_in_quiz_index >= len(current_quiz["sections"]):
+            self.current_quiz_index += 1
+            self.current_section_in_quiz_index = 0
+            if self.current_quiz_index >= len(self.page_order):
+                self.submit_button.setVisible(False)
+                self.reset_button.setVisible(False)
+                self.continue_button.setVisible(False)
+                self.complete_button.setVisible(True)
+                return
+        self.clear_layout()
+        self.load_quiz_section()
+
+    def complete_quiz(self):
+        self.mark_quiz_complete()
+        self.layout.parentWidget().close()
+
+    def mark_quiz_complete(self):
+        try:
+            user = self.current_user
+            if user is None:
+                print("Usuario no encontrado.")
+                return
+
+            progress_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json')
+            completion_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json')
+
+            module_key = f"Modulo{self.current_quiz_index + 1}"
+            quiz_key = f"Quiz{self.current_quiz_index + 1}"
+            quiz_completion_key = f"Quiz_completado{self.current_quiz_index + 1}"
+
+            # Actualizar progreso.json
+            with open(progress_file_path, 'r', encoding='UTF-8') as file:
+                progress_data = json.load(file)
+
+            if module_key not in progress_data[user]:
+                progress_data[user][module_key] = {}
+            progress_data[user][module_key][quiz_key] = True
+
+            # Desbloquear la siguiente lección o quiz en progreso.json
+            numero_leccion_actual = int(quiz_key.replace("Quiz", ""))
+            siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
+            if module_key in progress_data[user]:
+                progress_data[user][module_key][siguiente_leccion] = True
+
+            with open(progress_file_path, 'w', encoding='UTF-8') as file:
+                json.dump(progress_data, file, indent=4)
+
+            # Actualizar leccion_completada.json
+            with open(completion_file_path, 'r', encoding='UTF-8') as file:
+                completion_data = json.load(file)
+
+            if module_key not in completion_data[user]:
+                completion_data[user][module_key] = {}
+            completion_data[user][module_key][quiz_completion_key] = True
+
+            with open(completion_file_path, 'w', encoding='UTF-8') as file:
+                json.dump(completion_data, file, indent=4)
+
+            print(f"{quiz_key} completado para {user} en {module_key}")
+        except Exception as e:
+            print(f"Error al marcar el quiz como completado: {e}")
+
+    @staticmethod
+    def load_current_user():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'r', encoding='UTF-8') as file:
+                user_data = json.load(file)
+            return user_data.get("current_user")
+        except FileNotFoundError:
+            print("Archivo current_user.json no encontrado.")
+            return None
+
+    def clear_layout(self):
+        while self.layout.count():
+            child = self.layout.takeAt(0)
+            if child.widget():
+                child.widget().deleteLater()
+        self.layout.update()
 
     def create_feedback_label(self):
         self.feedback_label = QLabel('')
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
 
-    def create_multiple_choice_layout(self):
+    def create_multiple_choice_layout(self, section):
         self.button_widgets = []
         self.button_group = QButtonGroup()
 
         answers_layout = QHBoxLayout()
 
-        for block in self.data['multiplechoice'][0]['blocks']:
+        for block in section['blocks']:
             block_type = block['type']
             block_label = QLabel(block['text'])
             block_label.setWordWrap(True)
@@ -123,7 +238,7 @@ class Main_Modulos_Quizzes_Window(QWidget):
                     f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
             self.layout.addWidget(block_label)
 
-        for answer in self.data['multiplechoice'][0]['answers']:
+        for answer in section['answers']:
             button_widget = QRadioButton(answer["text"])
             button_widget.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
             self.button_widgets.append(button_widget)
@@ -132,11 +247,11 @@ class Main_Modulos_Quizzes_Window(QWidget):
 
         self.layout.addLayout(answers_layout)
 
-    def create_complete_blank_space_layout(self):
+    def create_complete_blank_space_layout(self, section):
         self.blank_space_index = -1
         self.original_hint_text = ""
 
-        for block in self.data['completeblankspace'][0]['blocks']:
+        for block in section['blocks']:
             block_type = block['type']
             if block_type == "info":
                 block_label = QLabel(block["text"])
@@ -153,7 +268,7 @@ class Main_Modulos_Quizzes_Window(QWidget):
 
         answers_layout = QHBoxLayout()
 
-        for answer in self.data['completeblankspace'][0]['answers']:
+        for answer in section['answers']:
             answer_button = QPushButton(answer["text"])
             answer_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
             answer_button.clicked.connect(lambda checked, text=answer["text"]: self.handle_answer_click(text))
@@ -161,50 +276,28 @@ class Main_Modulos_Quizzes_Window(QWidget):
 
         self.layout.addLayout(answers_layout)
 
-    def create_drag_and_drop_layout(self):
-        drop_labels = {}
-        data_block = self.data['draganddrop'][0]
+    def create_drag_and_drop_layout(self, section):
+        drop_labels = []
 
-        if "draganddropSecuence" in data_block and data_block["draganddropSecuence"]:
-            for block in data_block["blocks"]:
-                block_type = block["type"]
+        for block in section["blocks"]:
+            block_type = block["type"]
 
-                if "correctOrder" in data_block:
-                    multiple_drops = len(data_block["correctOrder"]) > 1
-                else:
-                    multiple_drops = False
-
-                if block_type == "Consola":
-                    drop_labels[block_type] = DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
-                    block_label = drop_labels[block_type]
-                else:
-                    block_label = QLabel(block["text"])
-                    block_label.setWordWrap(True)
-
+            if block_type == "Consola":
+                drop_label = DropLabel(block["text"], self.styles, question_type=block_type, multiple=True)
+                drop_labels.append(drop_label)
+                self.layout.addWidget(drop_label)
+            else:
+                block_label = QLabel(block["text"])
+                block_label.setWordWrap(True)
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(block_label)
 
-        else:
-            for block in data_block["blocks"]:
-                block_type = block["type"]
-
-                if "correctValue" in block or "correctOrder" in data_block:
-                    multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = DropLabel(block["text"], self.styles, question_type=block_type, multiple=multiple_drops)
-                    block_label = drop_labels[block_type]
-                elif block_type == "Consola":
-                    block_label = DropLabel(block["text"], self.styles)
-                else:
-                    block_label = QLabel(block["text"])
-                    block_label.setWordWrap(True)
-
-                block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
-                self.layout.addWidget(block_label)
+        self.drop_labels = drop_labels
 
         draggable_labels_layout = QHBoxLayout()
         draggable_labels_layout.setSpacing(50)
 
-        for answer in data_block["answers"]:
+        for answer in section["answers"]:
             draggable_label = DraggableLabel(answer["text"])
             draggable_label.setStyleSheet(
                 f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
@@ -226,94 +319,99 @@ class Main_Modulos_Quizzes_Window(QWidget):
             self.check_complete_blank_space_answers()
 
     def check_drag_and_drop_answers(self):
-        drop_labels = self.findChildren(DropLabel)
-        correct_order = self.data['draganddrop'][0]['correctOrder']
         user_order = []
 
-        for label in drop_labels:
+        for label in self.drop_labels:
             user_order.extend(label.dropped_texts)
+
+        correct_order = self.section['correctOrder']
 
         if user_order == correct_order:
             self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             self.submit_button.setVisible(False)
-            self.continue_button.setVisible(True)  # Mostrar botón "Continuar" si la respuesta es correcta
+            if self.is_last_section():
+                self.complete_button.setVisible(True)
+            else:
+                self.continue_button.setVisible(True)
         else:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
-            self.feedback_label.setStyleSheet(f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
 
     def check_multiple_choice_answers(self):
         selected_answers = [btn.text() for btn in self.button_widgets if btn.isChecked()]
-        correct_answers = [answer["text"] for answer in self.data['multiplechoice'][0]["answers"] if answer.get("correct", False)]
+        correct_answers = [answer["text"] for answer in self.section["answers"] if answer.get("correct", False)]
 
         if selected_answers == correct_answers:
             self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             self.submit_button.setVisible(False)
-            self.continue_button.setVisible(True)  # Mostrar botón "Continuar" si la respuesta es correcta
+            if self.is_last_section():
+                self.complete_button.setVisible(True)
+            else:
+                self.continue_button.setVisible(True)
         else:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
-            self.feedback_label.setStyleSheet(f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
 
     def check_complete_blank_space_answers(self):
         user_text = self.hint_label.text()
-        correct_text = self.original_hint_text.replace("___", self.data['completeblankspace'][0]["correctValue"])
+        correct_text = self.section["correctValue"]
 
         if user_text == correct_text:
             self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             self.submit_button.setVisible(False)
-            self.continue_button.setVisible(True)  # Mostrar botón "Continuar" si la respuesta es correcta
+            if self.is_last_section():
+                self.complete_button.setVisible(True)
+            else:
+                self.continue_button.setVisible(True)
         else:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
-            self.feedback_label.setStyleSheet(f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
 
     def reset_layout(self):
-        while self.layout.count():
-            child = self.layout.takeAt(0)
-            if child.widget():
-                child.widget().deleteLater()
+        self.load_quiz_section()
 
-        title = QLabel(self.data[self.page_type][0]["title"])
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        title.setStyleSheet(
-            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
-        title_font = QFont()
-        title_font.setPointSize(self.styles["font_size_titles"])
-        title.setFont(title_font)
-        self.layout.addWidget(title)
+    def load_next_section(self):
+        self.current_section_in_quiz_index += 1
+        current_quiz = self.page_order[self.current_quiz_index]
+        if self.current_section_in_quiz_index >= len(current_quiz["sections"]):
+            self.current_quiz_index += 1
+            self.current_section_in_quiz_index = 0
+            if self.current_quiz_index >= len(self.page_order):
+                return
+        self.clear_layout()
+        self.load_quiz_section()
 
-        if self.page_type == 'multiplechoice':
-            self.create_multiple_choice_layout()
-        elif self.page_type == 'completeblankspace':
-            self.create_complete_blank_space_layout()
-        elif self.page_type == 'draganddrop':
-            self.create_drag_and_drop_layout()
-
-        self.create_feedback_label()
-
-        self.submit_button = QPushButton('Enviar')
-        self.submit_button.setStyleSheet(
-            f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
-        self.submit_button.clicked.connect(self.check_answers)
-        self.layout.addWidget(self.submit_button)
-
-        self.reset_button = QPushButton('Reiniciar')
-        self.reset_button.setStyleSheet(
-            f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
-        self.reset_button.clicked.connect(self.reset_layout)
-        self.layout.addWidget(self.reset_button)
-
-        self.continue_button = QPushButton('Continuar')
-        self.continue_button.setStyleSheet(
-            f"background-color: {self.styles.get('continue_button_color', '#4CAF50')}; color: white; font-size: {self.styles.get('font_size_buttons', 12)}px")
-        self.continue_button.clicked.connect(self.close_quiz)
-        self.continue_button.setVisible(False)  # Oculto por defecto
-        self.layout.addWidget(self.continue_button)
-
-        self.setLayout(self.layout)
+    def is_last_section(self):
+        current_quiz = self.page_order[self.current_quiz_index]
+        return self.current_section_in_quiz_index == len(current_quiz["sections"]) - 1
 
     def close_quiz(self):
-        self.close()
+        self.layout.parentWidget().close()
+
+
+class Main_Modulos_Quizzes_Window(QWidget):
+    def __init__(self, quiz_file):
+        super().__init__()
+        self.styles = JsonLoader.load_json_styles()
+        self.quiz_file = quiz_file
+        self.init_ui()
+
+    def init_ui(self):
+        self.layout = QVBoxLayout()
+        self.setLayout(self.layout)
+
+        # Ubicación fija para page_order_file
+        page_order_file = r"C:\Users\DELL\OneDrive\Escritorio\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer\Quizzes\page_order_Quizzes\page_order.json"
+        self.quiz_loader = QuizLoader(self.layout, self.styles, self.quiz_file, page_order_file)
+        self.quiz_loader.load_quiz_section()
 
 
