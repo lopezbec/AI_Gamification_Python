@@ -33,7 +33,7 @@ The google collab grants you via forms, a visual cue of how the reviews are gath
 </table>
 <br><br></br>
 
-This notebook allows you to get the sentiment (positive, negative or neutral) of the reviews that were scraped stored on the repo, in both Spanish or English. The interactive colab forms provides visual indicators of what reviews are analyzed. 
+This notebook allows you to get the sentiment (positive, negative, or neutral) of the reviews that were scraped and stored on the repo, in both Spanish and English. The interactive colab forms provide visual indicators of what reviews are analyzed. 
 
 <table align="left">
   <td>
@@ -42,7 +42,7 @@ This notebook allows you to get the sentiment (positive, negative or neutral) of
 </table>
 <br><br></br>
 
-This notebook allows you to perform NER (Name Entity Recognition) analysis on the reviews that were scraped stored on the repo. The interactive colab forms provides visual indicators of what reviews are analyzed. 
+This notebook allows you to perform NER (Name Entity Recognition) analysis on the reviews that were scraped and stored on the repo. The interactive colab forms provide visual indicators of what reviews are analyzed. 
 
 ## Bigram Networks of Reviews
 
@@ -59,7 +59,7 @@ ___________________________________________________
 #  Prototype of Application   
 ___________________________________________________
 ## Example of Application Hexad Player type and User Data Interface
-This is a example of the "intro page" for the app and study itself (v 3_26_23)
+This is an example of the "intro page" for the app and study itself (v 3_26_23)
 
 [Screencast from 04-07-2023 11:55:59 AM.webm](https://user-images.githubusercontent.com/106645242/230639504-9ef200a2-7bbb-4cf5-857b-179b8565507a.webm)
 
@@ -76,49 +76,43 @@ Lesson 2 Complete
 
 ___________________________________________________
 
-#  How to clone the repository and use it  
+#  How to run the prototype of the application:
 ___________________________________________________
 
-## Tutorial:
+1- Install Anaconda distribution (If you have Anaconda already, skip this step):
 
-https://github.com/lopezbec/AI_Gamification_Python/assets/113645268/3003e86e-7db8-4f83-95bb-852a0a035651
+- Go to this link and follow the instructions: [https://www.anaconda.com/download](https://www.anaconda.com/download)
+- 
+  (If you have issues installing the latest version of Anaconda, you can download a previous/older version here:  [https://repo.anaconda.com/archive/](https://repo.anaconda.com/archive/))
 
-## Steps shown on the video above:
-Steps for use/execute the apps
+ 2- Download the repo:
+ 
+ - Go to the "<> Code" button on the top right corner of this screen (you will need to scroll up)
+ - Click the "Download Zip" option (this will download the whole repo to your computer)
+ - Find the location where the file was downloaded, and decompress the file (like right-click and "extract all" if in Windows)
+ - Copy and paste the directory path of this folder (see video how-to for [Windows](https://www.youtube.com/watch?v=QZUpzuQ0X5I) or [Mac](https://www.youtube.com/watch?v=kIhGavBqXYc) 
 
-Must have git installed.
+ 3- Install Anaconda enviroment:
+ 
+ - Open the Anaconda prompt (in a Mac open the Terminal)
+ - Once it is open you will type "cd" and subsequently paste the directory path of the repo you downloaded and decompressed in the previous part (it should be something like ".../AI_Gamification_Python") and press ENTER
+ - Create a new conda environment with python by typing "conda create --name test python=3.9" and press ENTER
+ - Type "conda activate test" and press ENTER
+ - Install PyQT6 in the environment by typing "pip install PyQt6-tools==6.4.2.3.3" and press ENTER.
+   
+  4- Run the prototype:
+   - Now type  "cd ./Elmer/Daniel_JSON_Files_Elmer" and press ENTER
+   - Now type "Python Main_Modulos_Intro_Pages.py" and press ENTER. This will run the prototype
 
-1- Clone the repository.
+*After following all these steps the prototype will open. If you exit the prototype and would like to open it again you can:
 
-	1.1 - Go to Github and sign up
-	1.2 - Search for the repository by: lopezbec / Then: AI_Gamification_Python
-	1.3 - Go to the '<> Code' Button (Green)
-	1.4 - Coppy the HTTPS link
-	1.5 - Create a folder, or go to the path you want to clone the repository (Must be a clear folder, i suggest a new one)
-	1.6 - Open a cmd in the folder
-	1.7 - Clone the repository by typping this comand: Git clone https://github.com/lopezbec/AI_Gamification_Python.git
+ - Open the Anaconda prompt window
+ - Type "conda activate test" and press ENTER
+ - Type "cd" followed by the directory path of the folder you downloaded above
+ - Now follows the step #4 above
 
-2- Go to the folder named 'Elmer'
-
-3- Go to the folder named 'Daniel_JSON_Files_Elmer'
-
-There you will see all the leasson we have at the moment. You can select whichever you want and open the file named: Main_Lesson_#.py then execute that code.
-
-___________________________________________________
-
-#  How to Run the executable APP
-___________________________________________________
-
-1- Go to the folder named 'Elmer'
-
-2- Go to the folder named 'Daniel_JSON_Files_Elmer'
-
-2- Go to the folder named 'dist'
-
-3- click in the Main_Modulos_Intro_Pages.exe
-
-The first window will open with the same abstract that you read at the beginning of the README.
-
+## How to video for Windows OS [HERE](https://youtu.be/CAHyiyaBh3U)
+## How to video for Mac OS [HERE](https://youtu.be/IxdrbJuCo0g)
 ___________________________________________________
 
 #  Data and more

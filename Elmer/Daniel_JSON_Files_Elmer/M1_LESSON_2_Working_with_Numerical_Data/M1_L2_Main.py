@@ -22,6 +22,7 @@ from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
 from command_line_UI import App
+from congratulation_Feature import CongratulationWindow
 from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
     update_badge_progress, update_lesson_dates, are_lessons_completed_same_day, \
     are_two_lessons_completed_same_day, display_badge, are_three_modules_completed_same_day
@@ -617,6 +618,7 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            CongratulationWindow.incorrect_response()
         elif Correcto:
             # Incrementa el XP en 2 puntos cuando la respuesta es acertada en el primer intento y tiene 0 xp (0 XP significa primera página con pregunta)
             if self.current_xp == 0 and not self.controlador:
@@ -643,6 +645,7 @@ class MainWindow(QWidget):
                 f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
             self.streak.correct_answer()
+            CongratulationWindow.correct_response()
         elif Incorrecto:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
@@ -650,11 +653,13 @@ class MainWindow(QWidget):
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
             self.streak.incorrect_answer()
             reset_streak(self.usuario_actual)
+            CongratulationWindow.incorrect_response()
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            CongratulationWindow.incorrect_response()
 
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)

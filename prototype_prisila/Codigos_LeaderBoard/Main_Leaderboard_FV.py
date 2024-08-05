@@ -1,5 +1,4 @@
 import sys
-import geocoder
 import json
 import csv
 from PyQt6 import QtWidgets, QtGui, QtCore
