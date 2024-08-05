@@ -1,0 +1,49 @@
+{
+    "pedagogical": [
+        {
+            "title": "Programación",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los humanos utilizan programas informáticos para comunicarse con las maquinas. Sin programas de computadora, no tendríamos teléfonos inteligentes, sitios web o incluso exploración en el espacio exterior."
+                },
+                {
+                    "type": "info",
+                    "text": "Aprender algo de codificación puede ayudarlo a innovar y crear diferentes soluciones a los problemas, lo que le brinda una ventaja competitiva en este mundo impulsado por la tecnología."
+                },
+                {
+                    "type": "info",
+                    "text": "Todo el mundo puede aprender a programar con Sololearn."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [
+        {
+            "title": "Salida",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El comando o instrucción print es la forma mas fácil de enviar un mensaje especifico a la pantalla u otro dispositivo de visualización."
+                },
+                {
+                    "type": "info",
+                    "text": "Este mensaje o salida puede ser un numero, texto o el resultado de un cálculo."
+                },
+                {
+                    "type": "info",
+                    "text": "Syntax:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(60)\n>60"
+                },
+                {
+                    "type": "hint",
+                    "text": "La declaración print siempre va seguida de paréntesis que contienen la salida que queremos generar."
+                }
+            ]
+        }
+    ]
+}

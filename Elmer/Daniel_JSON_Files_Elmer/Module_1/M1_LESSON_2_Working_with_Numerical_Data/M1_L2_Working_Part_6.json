@@ -1,0 +1,33 @@
+{
+    "pedagogical": [
+        {
+            "title": "Conclusiones de la leccion",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Fantastico! Has completado la leccion. Has aprendido que: Puedes realizar operaciones aritmeticas con Python usando +, -, *, /,  Los dos tipos de datos numéricos mas utilizados son los números enteros para los números enteros y los flotantes \npara los números con decimales."
+                },
+                {
+                    "type": "hint",
+                    "text": "Pista: En la proxima leccion, comenzara a trabajar con datos de texto para ampliar su conocimiento de los tipos de datos."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [ 
+        {
+            "title": "La practica hace la perfección!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Equipo de futbol - Crea un programa para calcular y generar el total de puntos ganados por un equipo de futbol. Continua con la siguiente leccion para ver mas"
+                }
+            ]
+        }
+    ]
+}

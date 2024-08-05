@@ -1,0 +1,21 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "El conocimiento es poder",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El programa dado esta diseñado para generar el texto: El conocimiento es poder \n Pero falta la ultima palabra. ¿Puedes arreglarlo?"
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Complete el código para generar el resultado requerido."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint('Conocimiento ' + 'es poder')\n>'Conocimiento es poder'"
+                }
+            ]
+        }
+    ]
+}

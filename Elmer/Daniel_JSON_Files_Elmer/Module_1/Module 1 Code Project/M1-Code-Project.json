@@ -1,0 +1,30 @@
+{
+
+
+    "pedagogical": [ 
+        {
+            "title": "Tiempo de vuelo",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Estás en el aeropuerto y necesitas calcular el tiempo de\nvuelo de un próximo viaje. Estás volando de Los Ángeles a\nSydney, cubriendo una distancia de 7425 millas, y el avión\nvuela a una velocidad promedio de 550 millas por hora."
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Calcule y emita el tiempo total de vuelo en horas."
+                },
+                {
+                    "type": "hint",
+                    "text": "El resultado debe ser un flotador."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nmiles_an_hour = 550\nmiles = 7425\nprint(miles/miles_an_hour)"
+                }
+            ]
+        }
+    ]
+
+
+   
+}

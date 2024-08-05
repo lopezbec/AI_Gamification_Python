@@ -1,0 +1,37 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Mantener la información en la memoria",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los datos vienen en diferentes formas y formas. Si está interesado en trabajar con una parte de los datos, necesita encontrar una manera para que su programa mantenga esta información en su memoria. \nLas variables nos permiten hacer eso. Las piezas de información se pueden etiquetar, almacenar y acceder con variables."
+                },
+                {
+                    "type": "hint",
+                    "text": "En esta lección, aprenderá a usar variables para almacenar información en la memoria y operar con datos."
+                },
+                {
+                    "type": "hint",
+                    "text": "El signo igual también se llama operador de asignación."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [ 
+        {
+            "title": "¿Qué es una variable?",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Puedes pensar en una variable como un cuadro que contiene algo. Una variable tiene una etiqueta o nombre y contiene un valor . Te permite almacenar un valor asignándolo a un nombre. \nEl nombre se puede utilizar para hacer referencia al valor más adelante en el programa."
+                },
+                {
+                    "type": "hint",
+                    "text": "Por ejemplo, puede utilizar una variable para almacenar el precio de una acción."
+                }
+            ]
+        }
+    ]
+}

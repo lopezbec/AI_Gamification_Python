@@ -1,0 +1,32 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Comentarios",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El siguiente código contiene dos lineas:\n\n  -El primero es una explicación para los humanos que trabajan en el programa.\n  -El segundo es una instrucción para la maquina.\n\n Hay un error en el código. Observa el código para obtener el mensaje de error."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(2.71) \n//Calculate the number of hours in a week \nprint(24*7)\n>//Calculate the number of hours in a week \n^^\nSyntaxError: invalid syntax"
+                }
+            ]
+        }
+    ],
+    "pedagogical2": [
+        {
+            "title": "Conclusiones de la leccion",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡Increíble! Has completado la leccion. Has aprendido que:\n Puede agregar muchas declaraciones (o lineas de código) a sus programas\n Puede imprimir varios datos en la misma linea, separándolos con comas o un separador personalizado en la declaración de impresión.\n Puedes usar comentarios para explicar lo que hace el código."
+                },
+                {
+                    "type": "hint",
+                    "text": "En la proxima leccion, aprenderá a etiquetar, almacenar y manejar\n diferentes tipos de datos para resolver problemas mas complejos."
+                }
+            ]
+        }
+    ]
+}

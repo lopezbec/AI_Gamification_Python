@@ -1,0 +1,51 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para generar ' WaterPark '. "
+                },
+                {
+                    "type": "Consola",
+                    "text": "print('___ ___ ___')"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Park"
+                },
+                {
+                    "text": "+"
+                },
+                {
+                    "text": "Water"
+                }
+            ],
+            "correctOrder": ["Water", "+", "Park"]
+        }
+    ],
+
+    "pedagogical": [ 
+        {
+            "title": "Cadenas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Cualquier cosa entre comillas es una cadena, incluso números. Los números entre comillas se trataran como datos de texto y no podrá realizar operaciones aritmeticas con ellos. \n Ejecute el siguiente código y verifique la salida:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint('28 ' + ' 6')\n>\"28 6\""
+                },
+                {
+                    "type": "hint",
+                    "text": "En el código anterior, 28 y 6 son cadenas, no números. La computadora entendió que queremos que estos valores se comporten como piezas de texto."
+                }
+            ]
+        }
+    ]
+}

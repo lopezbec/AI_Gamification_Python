@@ -1,0 +1,39 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál de estos es un nombre de variable válido en Python?"
+                }
+                    ],
+            "answers": [
+                {
+                    "text": "un_nombre_variable",
+                    "correct": true
+                },
+                {
+                    "text": "% de humedad ambiental",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [ 
+        {
+            "title": "Producción",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Como ha visto, puede usar variables en la declaración de impresión para generar sus valores.\nSi necesita generar múltiples variables en la misma línea, \npuede separarlas con comas en la declaración de impresión:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nresult = 798\ncurrency = '$'\nprint('Total:', currency, result)\n>Total: $ 798"
+                }
+            ]
+        }
+    ]
+}
