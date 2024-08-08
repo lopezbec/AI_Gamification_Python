@@ -4,7 +4,6 @@ import subprocess
 import ast
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit, QLabel
 
-
 class App(QWidget):
 
     def __init__(self):
@@ -17,35 +16,31 @@ class App(QWidget):
 
     def init_ui(self):
         layout = QVBoxLayout()
+        #layout.setContentsMargins(10, 10, 10, 10)
+        layout.setSpacing(1)
 
-        self.instr_label = QLabel(self)
-        self.instr_label.setText('Escribe tu código aquí abajo, y luego haz clic en el botón de "Correr"')
-        layout.addWidget(self.instr_label)
-
-        self.textbox = QTextEdit(self)
+        self.textbox: QTextEdit = QTextEdit(self)
         self.textbox.setPlaceholderText('Escribe tu código aquí.')
-        # Ajustar tamaño del área de código
-        self.textbox.setMaximumHeight(100)  # Ajusta según sea necesario
+        self.textbox.setMaximumHeight(70)  # Ajustar altura del área de código
         layout.addWidget(self.textbox)
 
-        self.input_box = QTextEdit(self)
+        self.input_box: QTextEdit = QTextEdit(self)
         self.input_box.setPlaceholderText('Proporciona tu entrada aquí antes de presionar Correr.')
-        # Ajustar tamaño del área de entrada
-        self.input_box.setMaximumHeight(75)  # Ajusta según sea necesario
-        layout.addWidget(self.input_box)
+        self.input_box.setMaximumHeight(50)  # Ajustar altura del área de entrada
 
+        layout.addWidget(self.input_box)
         self.run_button = QPushButton('Correr', self)
         self.run_button.clicked.connect(self.run_script)
         layout.addWidget(self.run_button)
 
-        self.result_display = QTextEdit(self)
+        self.result_display: QTextEdit = QTextEdit(self)
         self.result_display.setReadOnly(True)
-        # Ajustar tamaño del área de resultados
-        self.result_display.setMaximumHeight(75)  # Ajusta según sea necesario
+        self.result_display.setMaximumHeight(50)  # Ajustar altura del área de resultados
         layout.addWidget(self.result_display)
 
         self.setLayout(layout)
         self.setWindowTitle('Correr código')
+        #self.resize(600, 400)  # Ajustar tamaño inicial de la ventana
         self.show()
 
     def run_script(self):
@@ -58,7 +53,6 @@ class App(QWidget):
             result_str = save_and_run_script(code_str, input_str)
 
         self.result_display.setText(result_str)
-
 
 def save_and_run_script(code_str, input_str) -> str:
     script_filename = 'user_script.py'
@@ -103,7 +97,6 @@ def save_and_run_script(code_str, input_str) -> str:
 
     return result_str
 
-
 def contains_import(code_str) -> bool:
     try:
         parsed = ast.parse(code_str)
@@ -114,11 +107,9 @@ def contains_import(code_str) -> bool:
     except SyntaxError:
         return False
 
-
 def CMD_Practica():
     ex = App()
     return ex
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
