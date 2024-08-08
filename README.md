@@ -96,9 +96,9 @@ ___________________________________________________
  
  - Open the Anaconda prompt (in a Mac open the Terminal)
  - Once it is open you will type "cd" and subsequently paste the directory path of the repo you downloaded and decompressed in the previous part (it should be something like ".../AI_Gamification_Python") and press ENTER
- - Create a new conda environment with python by typing "conda create --name test python" and press ENTER
+ - Create a new conda environment with python by typing "conda create --name test python=3.9" and press ENTER
  - Type "conda activate test" and press ENTER
- - Install PyQT6 in the environment by typing "pip install PyQt6-tools==6.4.2" and press ENTER.
+ - Install PyQT6 in the environment by typing "pip install PyQt6-tools==6.4.2.3.3" and press ENTER.
    
   4- Run the prototype:
    - Now type  "cd ./Elmer/Daniel_JSON_Files_Elmer" and press ENTER

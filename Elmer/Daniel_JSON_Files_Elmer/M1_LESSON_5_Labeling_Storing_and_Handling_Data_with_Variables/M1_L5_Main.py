@@ -874,7 +874,7 @@ class MainWindow(QWidget):
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
             with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'r', encoding='UTF-8') as file:
-                progreso = json.load(file)
+                progreso = datos = json.load(file)
 
             progreso_usuario = progreso.get(self.usuario_actual, {})
 
@@ -882,9 +882,31 @@ class MainWindow(QWidget):
             numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
             siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
 
-            if modulo in progreso_usuario:
+            if siguiente_leccion in progreso_usuario[modulo]:
                 progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
+            else:
+                # Obtener la lista de módulos del usuario
+                modulos_usuario = datos.get(self.usuario_actual, {})
+
+                # Verificar si el módulo actual existe en los datos
+                if modulo not in modulos_usuario:
+                    raise KeyError(f'El módulo {modulo} no existe para el usuario {self.usuario_actual}.')
+
+                # Obtener las lecciones del módulo actual
+                lecciones = modulos_usuario[modulo]
+
+                # Verificar si todas las lecciones del módulo están completadas
+                todas_completadas = all(lecciones.values())
+
+                if todas_completadas:
+                    # Habilitar la primera lección del siguiente módulo
+                    numero_modulo_actual = int(modulo[-1])
+                    siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
+
+                    if siguiente_modulo in modulos_usuario:
+                        progreso_usuario[siguiente_modulo]["Leccion1"] = True
+            
             with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
