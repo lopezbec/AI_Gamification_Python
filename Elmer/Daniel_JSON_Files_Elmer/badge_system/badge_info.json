@@ -77,7 +77,7 @@
       "range": "200 - 399",
       "badge_text": "Felicidades! has conseguido una nueva insignia de nivel",
       "badge_title": "Maestro Programador",
-      "badge_description": "¡Felicidades! Has alcanzado el nivel intermedio en tus habilidades de programación. \nTu dedicación y esfuerzo te han llevado a este punto. ¡Sigue así!¡Enhorabuena! Te has convertido en un maestro programador al alcanzar el nivel avanzado. Tu dominio del código es impresionante. ¡Sigue desafiándote a ti mismo y alcanzarás nuevas alturas!",
+      "badge_description": "¡Felicidades! Has alcanzado el nivel avanzado en tus habilidades de programación. \nTu dedicación y esfuerzo te han llevado a este punto. ¡Sigue así!¡Enhorabuena! Te has convertido en un maestro programador al alcanzar el nivel avanzado. Tu dominio del código es impresionante. ¡Sigue desafiándote a ti mismo y alcanzarás nuevas alturas!",
       "badge_font_size": 17,
       "badge_font_family": "Lato",
       "badge_margin": 10,
@@ -136,7 +136,7 @@
   },
   {
       "badge_id": "super_estudiante",
-      "badge_text": "¡Felicidades! has todos los modulos disponibles",
+      "badge_text": "¡Felicidades! has completado todos los modulos disponibles",
       "badge_title": "Final del recorrido",
       "badge_description": "Completa todos los modulos disponibles",
       "badge_font_size": 17,

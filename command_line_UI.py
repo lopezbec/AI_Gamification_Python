@@ -5,6 +5,8 @@ import ast
 import io
 import subprocess
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit, QLabel
+from .Elmer.Daniel_JSON_Files_Elmer.badge_system.badge_verification import display_badge, is_badge_earned, update_badge_progress
+import pdb; pdb.set_trace()
 
 """
 Users input code in the text box. 
@@ -16,9 +18,9 @@ These serve as basic sanity checks and in combination with the import statements
 """
 
 class App(QWidget):
-
-    def __init__(self):
+    def __init__(self, current_user:str=''):
         super().__init__()
+        self.current_user = current_user
         self.result_display = None
         self.textbox = None
         self.run_button = None
@@ -57,6 +59,9 @@ class App(QWidget):
             result_str = "Error: Import statements are not allowed"
         else:
             result_str = save_and_run_script(code_str)
+            if not is_badge_earned(self.current_user, 'hello_world'):
+                display_badge('hello_world')
+                update_badge_progress(username=self.current_user, badge_name='hello_world')
         
         self.result_display.setText(result_str)
 
@@ -145,10 +150,3 @@ def contains_import(code_str) -> bool:
     
     except SyntaxError:
         return False
-
-    
-if __name__ == '__main__':
-
-    app: QApplication = QApplication(sys.argv)
-    ex = App()
-    sys.exit(app.exec())

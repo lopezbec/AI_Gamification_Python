@@ -1,12 +1,16 @@
-import sys
+import ast
+import io
 import os
 import subprocess
+import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit
+from badge_system.badge_verification import display_badge, is_badge_earned, update_badge_progress
 
 class App(QWidget):
 
-    def __init__(self):
+    def __init__(self, current_user:str=''):
         super().__init__()
+        self.current_user = current_user
         self.textbox = None
         self.run_button = None
         self.result_display = None
@@ -36,6 +40,9 @@ class App(QWidget):
         code_str, input_str = self.split_code_and_input(full_text)
         result_str = save_and_run_script(code_str, input_str)
         self.result_display.setText(result_str)
+        if not is_badge_earned(self.current_user, 'hello_world'):
+                display_badge('hello_world')
+                update_badge_progress(username=self.current_user, badge_name='hello_world')
 
     def split_code_and_input(self, full_text):
         parts = full_text.split('# input')

@@ -4,7 +4,7 @@ import os
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont, QPixmap
-from PyQt6.QtWidgets import QApplication, QDialog, QLabel, QMainWindow, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QDialog, QLabel, QVBoxLayout
 
 
 class BadgeVerification(QDialog):
@@ -34,6 +34,7 @@ class BadgeVerification(QDialog):
                 badge_title = badge_info["badge_title"]
                 badge_description = badge_info["badge_description"]
                 badge.setText(badge_title + '\n' + badge_description)
+                badge.setWordWrap(True)
                 font = QFont()
                 font.setFamily(badge_info["badge_font_family"])
                 badge.setFont(font)
@@ -65,7 +66,7 @@ class BadgeVerification(QDialog):
             print(f"Fallo en la creación de la clase: {e}")
             print(f"Error en linea {sys.exc_info()[2].tb_lineno}")
 
-def display_badge(badge_id):
+def display_badge(badge_id: str):
         badge_window = BadgeVerification(badge_id)
         badge_window.exec()
     
@@ -77,7 +78,7 @@ def load_badges_criteria():
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "badge_criteria.json"), "r", encoding='UTF-8') as content:
         return json.load(content)
 
-def save_badge_progress_per_user(username):
+def save_badge_progress_per_user(username: str):
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
@@ -118,7 +119,7 @@ def save_badge_progress_per_user(username):
     except OSError as e:
         print(f"Error al crear el directorio o archivo: {e}")
 
-def update_badge_progress(username, badge_name):
+def update_badge_progress(username:str, badge_name:str):
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
@@ -153,7 +154,7 @@ def update_badge_progress(username, badge_name):
     except OSError as e:
         print(f'Error al leer o escribir el archivo in update_badge_progress: {e}')
 
-def is_level_badge_earned(username, badge_name) -> bool:
+def is_level_badge_earned(username:str, badge_name:str) -> bool:
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
@@ -187,7 +188,7 @@ def is_level_badge_earned(username, badge_name) -> bool:
         print(f'Error al leer el archivo in is_badge_earned: {e}')
         return False
     
-def is_badge_earned(username, badge_name) -> bool:
+def is_badge_earned(username:str, badge_name:str) -> bool:
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'badge_progress')
@@ -236,13 +237,13 @@ def get_badge_level(self, score):
             range_str = level["range"]
             if "<=" in range_str:
                 max_score = int(range_str.split('<=')[1].strip())
-                if score <= max_score and is_level_badge_earned(self.usuario_actual, level["badge_id"]):
+                if score <= max_score and not is_level_badge_earned(self.usuario_actual, level["badge_id"]):
                     display_badge(level["badge_id"])
                     update_badge_progress(self.usuario_actual, level["badge_id"])
                     return
             elif "-" in range_str:
                 min_score, max_score = map(int, range_str.split('-'))
-                if min_score <= score <= max_score and is_level_badge_earned(self.usuario_actual, level["badge_id"]):
+                if min_score <= score <= max_score and not is_level_badge_earned(self.usuario_actual, level["badge_id"]):
                     display_badge(level["badge_id"])
                     update_badge_progress(self.usuario_actual, level["badge_id"])
                     return
@@ -251,7 +252,7 @@ def get_badge_level(self, score):
         print(f"Error al procesar el rango del nivel: {e}")
         return None
 
-def are_lessons_completed_same_day(username, module_name) -> bool:
+def are_lessons_completed_same_day(username:str, module_name:str) -> bool:
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
@@ -298,7 +299,7 @@ def are_lessons_completed_same_day(username, module_name) -> bool:
         print(f'Error in are_lessons_completed_same_day Other Exception: {e}')
         return False
     
-def are_two_lessons_completed_same_day(username, module_name) -> bool:
+def are_two_lessons_completed_same_day(username:str, module_name:str) -> bool:
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
@@ -354,41 +355,36 @@ def are_two_lessons_completed_same_day(username, module_name) -> bool:
         print(f'Error in are_two_lessons_completed_same_day Other Exception: {e}')
         return False
 
-def are_three_modules_completed_same_day(username: str) -> bool:
+def are_three_modules_completed(username: str) -> bool:
     try:
-        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress', 'lessons_date_completion.json')
+        # Ruta al archivo progreso.json
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'leccion_completada.json')
+
         # Verificar si el archivo json existe
         if not os.path.exists(filepath):
             raise FileNotFoundError(f'El archivo {filepath} no existe.')
 
         # Leer el contenido del archivo JSON
-        with open(filepath, 'r') as file:
+        with open(filepath, 'r', encoding='UTF-8') as file:
             data = json.load(file)
 
         # Verificar si el usuario existe en el diccionario
         if username not in data:
             raise KeyError(f'El usuario {username} no existe.')
 
-        completion_dates = []
+        completed_modules_count = 0
 
         # Recorrer todos los módulos del usuario
-        for module in data[username].values():
-            module_dates = set(module.values())
+        for module, lessons in data[username].items():
+            # Verificar si todas las lecciones del módulo están completadas (todas son True)
+            if all(lessons.values()):
+                completed_modules_count += 1
 
-            # Si hay algún valor vacío, el módulo no está completamente completado
-            if "" in module_dates:
-                continue
-
-            # Si todas las lecciones de un módulo están completadas en la misma fecha, agregar la fecha a completion_dates
-            if len(module_dates) == 1:
-                completion_dates.append(next(iter(module_dates)))
-
-        # Verificar si hay al menos 3 módulos completados el mismo día
-        date_counts = {date: completion_dates.count(date) for date in set(completion_dates)}
-        for date, count in date_counts.items():
-            if count >= 3:
+            # Si ya se han completado al menos 3 módulos, se puede retornar True
+            if completed_modules_count >= 3:
                 return True
 
+        # Si no se completaron al menos 3 módulos, retornar False
         return False
 
     except FileNotFoundError as e:
@@ -434,7 +430,7 @@ def are_all_lessons_completed(username: str) -> bool:
         print(f'Error: {e}')
         return False
 
-def create_lessons_date_completion(username):
+def create_lessons_date_completion(username:str):
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
@@ -539,7 +535,7 @@ def create_lessons_date_completion(username):
     except Exception as e:
         print(f'Error in create_lessons_date_completion: {e}')
 
-def update_lesson_dates(username, module, lesson):
+def update_lesson_dates(username:str, module:str, lesson:str):
     try:
         # Nombre del directorio
         directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'badge_progress')
@@ -632,6 +628,33 @@ def add_user_streak_per_module(username: str):
     with open(filepath, 'w') as file:
         json.dump(data, file, indent=4)
 
+def check_module_streak_per_user(usuario: str) -> bool:
+    try:
+        # Cargar el progreso actual desde el archivo JSON
+        progreso_filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 
+                                         'badge_progress', 'lessons_streak_completion.json')
+        with open(progreso_filepath, 'r', encoding='UTF-8') as file:
+            progreso = json.load(file)
+
+        # Obtener el progreso del usuario especificado
+        progreso_usuario = progreso.get(usuario, {})
+
+        # Verificar cada módulo del usuario
+        for modulo, lecciones in progreso_usuario.items():
+            if all(leccion.get('all_correct', False) for leccion in lecciones.values()):
+                return True
+        return False
+
+    except FileNotFoundError:
+        print(f"El archivo progreso.json no existe.")
+        return None
+    except KeyError as e:
+        print(f"Clave no encontrada: {e}")
+        return None
+    except Exception as e:
+        print(f"Error al verificar el progreso: {e}")
+        return None
+
 def update_lesson_status(username: str, module_name: str, lesson_name: str, all_correct: bool):
     try:
         # Nombre del directorio
@@ -666,8 +689,6 @@ def update_lesson_status(username: str, module_name: str, lesson_name: str, all_
         # Guardar los cambios en el archivo
         with open(filepath, 'w') as file:
             json.dump(data, file, indent=4)
-
-        print(f"Actualización exitosa: {username} - {module_name} - {lesson_name} -> {all_correct}")
 
     except FileNotFoundError as e:
         print(f'Error: {e}')

@@ -21,7 +21,7 @@ try:
     from command_line_UI import App
     from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
         update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
-            update_badge_progress, are_three_modules_completed_same_day
+            update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
     from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
     read_stored_streak, update_streak, check_streak_badges
     from badge_system.display_cabinet import BadgeDisplayCabinet
@@ -464,7 +464,7 @@ class JsonWindow(QWidget):
         # Verificar si el widget ya ha sido creado y, si no, crearlo y añadirlo al layout.
         if not hasattr(self, 'commandLineWidget'):
             # Suponiendo que 'App' es una subclase de QWidget
-            self.commandLineWidget = App()
+            self.commandLineWidget = App(self.usuario_actual)
             self.commandLineWidgetPlaceholder.addWidget(self.commandLineWidget)
 
             # Crear botón para ocultar el widget de la línea de comandos
@@ -1079,12 +1079,13 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo1', 'Leccion1')
             self.actualizar_leccion_completada('Modulo1', 'Leccion1')
+            update_lesson_status(self.usuario_actual, 'Modulo1', 'Leccion1', self.all_correct)
             
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
-            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score())
+            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)
             update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada1")
             if are_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
                     display_badge('modulo_rapido')
@@ -1092,9 +1093,12 @@ class MainWindow(QWidget):
             if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
                 display_badge('doble_aprendizaje')
                 update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
-            if are_three_modules_completed_same_day(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
+            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
                 display_badge('Explorador_curioso')
                 update_badge_progress(self.usuario_actual, 'Explorador_curioso')
+            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'dominador_modulo'):
+                display_badge('dominador_modulo')
+                update_badge_progress(self.usuario_actual, 'dominador_modulo')
             self.close()
         else:
             print("¡La leccion no se completó, se cerró!.")
