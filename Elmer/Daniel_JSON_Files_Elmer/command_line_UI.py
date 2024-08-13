@@ -40,6 +40,8 @@ class App(QWidget):
         code_str, input_str = self.split_code_and_input(full_text)
         result_str = save_and_run_script(code_str, input_str)
         self.result_display.setText(result_str)
+        
+        #Validation for hello world badge
         if not is_badge_earned(self.current_user, 'hello_world'):
                 display_badge('hello_world')
                 update_badge_progress(username=self.current_user, badge_name='hello_world')
