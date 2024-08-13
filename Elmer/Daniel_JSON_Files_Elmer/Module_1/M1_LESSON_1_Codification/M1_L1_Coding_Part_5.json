@@ -1,0 +1,57 @@
+{
+
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "El texto en una declaración print debe estar encerrado en:"
+                }
+            ],
+            "answers": [
+
+                {
+                    "text": "comillas '' ",
+                    "correct": true
+                },
+                {
+                    "text": "punto y coma ;",
+                    "correct": false
+                },
+                {
+                    "text": "barra inclinada /",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Mensajes de error",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las maquinas se negaran a entender sus instrucciones si hay errores. Incluso el error tipográfico más pequeño en su código resultara en un error."
+                },
+                {
+                    "type": "info",
+                    "text": "La siguiente linea contiene un error. 'Ejecuta' el código para obtener el mensaje de error."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint('Ahora eres el detective de códigos.)\n>SyntaxError: print('Ahora eres el detective de códigos.), Did you mean print('Ahora eres el detective de códigos.')?"
+                },
+                {
+                    "type": "requerimiento",
+                    "text": "Solucione el error agregando las comillas de cierre que faltan, luego presione 'Ejecutar' nuevamente."
+                },
+                {
+                    "type": "hint",
+                    "text": "Incluso los programadores experimentados obtienen errores de codificación todo el tiempo. La clave para convertirse en codificador es aceptar esto como una parte normal y esperada de escribir código. Entonces, si estas cometiendo errores, esta bien! Estas en el camino correcto."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cual es la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(8/2)\n>?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "6",
+                    "correct": false
+                },
+                {
+                    "text": "4.0",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Tipos de datos numéricos.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las computadoras tratan diferentes tipos de datos de diferentes maneras. El tipo de datos le dice a una computadora como interpretar, almacenar y operar con el valor."
+                },
+                {
+                    "type": "info",
+                    "text": "Los tipos de datos numéricos mas utilizados son:"
+                },
+                {
+                    "type": "info",
+                    "text": "Numero entero: un numero entero, sin punto decimal, que puede ser positivo (1,2,3,...), negativo (-1,-2,-3,…) o cero."
+                },
+                {
+                    "type": "info",
+                    "text": "Flotante: numero que tiene decimales, también puede ser positivo (1.5, 3.14, 5.5) o negativo (-1.5, -3.14)."
+                }
+            ]
+        }
+    ]
+}

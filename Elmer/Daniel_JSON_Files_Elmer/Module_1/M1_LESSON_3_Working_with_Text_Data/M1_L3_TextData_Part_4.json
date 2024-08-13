@@ -1,0 +1,71 @@
+{
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multiplechoiceplus": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Seleccione todas las opciones que representan una cadena: "
+                }
+            ],
+            "answers": [
+                {
+                    "text": "'100'",
+                    "correct": true
+                },
+                {
+                    "text": "9",
+                    "correct": false
+                },
+                {
+                    "text": "'Manzana'",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "multipleResponses": true,
+            "multipleResponseVariant": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Has aprendido acerca de 3 de los tipos de datos mas importantes. \n Arrastra y suelta para clasificar los siguientes datos:"
+                },
+                {
+                    "type": "pregunta1",
+                    "correctValue": "100",
+                    "text": "Entero:____"
+                },
+                {
+                    "type": "pregunta2",
+                    "correctValue": "100.00",
+                    "text": "Flotante:____"
+                },
+                {
+                    "type": "pregunta3",
+                    "correctValue": "'cien'",
+                    "text": "Cadena:____"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "'cien'",
+                    "correctType": "pregunta3"
+                },
+                {
+                    "text": "100.00",
+                    "correctType": "pregunta2"
+                },
+                {
+                    "text": "100",
+                    "correctType": "pregunta1"
+                }
+            ]
+        }
+    ]
+}

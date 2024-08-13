@@ -1,0 +1,21 @@
+{
+    "pedagogical": [
+        {
+            "title": "Leccion aprendidas",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Impresionante! Has completado tu primera leccion. Recuerde los siguientes puntos importantes:"
+                },
+                {
+                    "type": "info",
+                    "text": "El comando print debe ir seguido de paréntesis, encerrando la salida que queremos enviar a la pantalla. Un mensaje de texto debe estar entre comillas. No necesitas comillas para generar números."
+                },
+                {
+                    "type": "hint",
+                    "text": "En la proxima leccion, comenzara a trabajar con datos numéricos para que pueda resolver tu primer reto Code Coach!"
+                }
+            ]
+        }
+    ]
+}

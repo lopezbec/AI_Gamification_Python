@@ -1,0 +1,37 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Conclusiones de la leccion",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¡Increíble! Has completado la leccion. Has aprendido que:"
+                },
+                {
+                    "type": "info",
+                    "text": "Una cadena es el tipo de datos para texto.  Las cadenas requieren comillas simples o dobles para que las computadoras las entiendan.  Puedes unir dos o mas cadenas usando la concatenación (+)."
+                },
+                {
+                    "type": "hint",
+                    "text": "En la proxima leccion, pondrá en practica lo que ha aprendido."
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [ 
+        {
+            "title": "¡La practica hace la perfección!",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Pon en practica tus conocimientos y escribe código real para resolver el siguiente ejercicio."
+                },
+                {
+                    "type": "hint",
+                    "text": "El conocimiento es poder. Complete el código para generar el resultado requerido."
+                }
+            ]
+        }
+    ]
+}

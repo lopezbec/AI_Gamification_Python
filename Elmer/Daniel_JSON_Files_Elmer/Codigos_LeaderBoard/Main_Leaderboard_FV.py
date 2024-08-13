@@ -337,6 +337,17 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog = UserGuideDialog(self)
         dialog.exec()
 
+    def get_current_user_score(self):
+        
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "current_user.json")) as current_user:
+            data = json.load(current_user)
+        
+        for user in self.leaderboard:
+            if user['name'] == data['current_user']:
+                return int(user['points'])
+
+def get_instance():
+    return MainWindow()
 
 def LeaderBoard():
     app = QtWidgets.QApplication.instance()

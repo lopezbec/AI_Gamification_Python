@@ -1,0 +1,56 @@
+{
+    "draganddrop": [
+        {
+            "title": "Arrastra la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para escribir una linea de código que genere el numero 729."
+                },
+                {
+                    "type": "Consola",
+                    "text": "____(729)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "run",
+                    "correct": false
+                },
+                {
+                    "text": "print",
+                    "correct": true
+                },
+                {
+                    "text": "output",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Imprimiendo texto",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las computadoras tratan el texto y los números de manera diferente. Al imprimir salidas de texto, debe encerrar el texto entre comillas simples o dobles:"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint('Programar es tu nuevo super poder.')\n>Programar es tu nuevo super poder."
+                },
+                {
+                    "type": "info",
+                    "text": "Puedes cambiar el código para mostrar un mensaje diferente?"
+                },
+                {
+                    "type": "hint",
+                    "text": "Las comillas que encierran el texto deben ser las mismas, ya sea que use comillas simples o dobles. Si olvida agregar las comillas o si las comillas no son las mismas, Python devolverá un error."
+                }
+
+            ]
+        }
+    ]
+}
