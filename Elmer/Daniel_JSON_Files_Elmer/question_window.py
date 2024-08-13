@@ -209,12 +209,12 @@ class QuestionWindow(QMainWindow):
             self.content.setText(self.pick_question())
 
         if len(question_index) == 1:
-            self.next_button.setText("finalizar")
+            self.next_button.setText("Finalizar")
             # self.next_button.clicked.connect( self.show_pages)
             # Sself.hide()
 
         if len(question_index) == 0:
-            self.next_button.setText("finalizar")
+            self.next_button.setText("Finalizar")
 
         for radio in self.radio_buttons:
             getattr(self, radio).setAutoExclusive(True)
