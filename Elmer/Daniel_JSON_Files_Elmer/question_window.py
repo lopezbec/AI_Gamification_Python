@@ -27,6 +27,8 @@ class QuestionWindow(QMainWindow):
         with open(json_path, encoding='UTF-8') as question_info:
             data = json.load(question_info)
 
+        # window title
+        self.setWindowTitle(data["window_title"])
         # title
         self.title = QLabel(self)
         question_number = self.get_number_question()

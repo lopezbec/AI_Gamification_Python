@@ -18,6 +18,8 @@ class ConcentWindow(QMainWindow):
         with open(json_path, "r", encoding='UTF-8') as f:
             data = json.load(f)
         
+        #window title
+        self.setWindowTitle(data["window_title"])
         #title
         title = QLabel(self)
         title.setText(data["title_text"])

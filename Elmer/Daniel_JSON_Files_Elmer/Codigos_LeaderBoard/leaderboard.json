@@ -42,6 +42,21 @@
     {
         "name": "Jack",
         "points": 429,
-        "last_active": "2024-08-11 ; 17h:28m"
+        "last_active": "2024-08-13 ; 13h:10m"
+    },
+    {
+        "name": "Jack",
+        "points": 0,
+        "last_active": "2024-08-13 ; 13h:10m"
+    },
+    {
+        "name": "Gary",
+        "points": 0,
+        "last_active": "2024-08-13 ; 13h:18m"
+    },
+    {
+        "name": "Mario",
+        "points": 0,
+        "last_active": "2024-08-13 ; 13h:21m"
     }
 ]
