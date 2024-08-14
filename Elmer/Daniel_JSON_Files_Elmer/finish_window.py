@@ -9,9 +9,10 @@ class FinishWindow(QMainWindow):
     def __init__(self) -> None:
         super(FinishWindow, self).__init__()
 
-        with open(r'./json/finish_info.json', "r") as finish_info:
+        with open(r'./json/finish_info.json', "r", encoding='UTF-8') as finish_info:
             data = json.load(finish_info)
 
+        self.setWindowTitle(data['window_title'])
         title = QLabel()
         title.setText(data["title_text"])
         title.adjustSize()
