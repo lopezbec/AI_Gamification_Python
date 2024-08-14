@@ -27,6 +27,8 @@ class QuestionWindow(QMainWindow):
         with open(json_path, encoding='UTF-8') as question_info:
             data = json.load(question_info)
 
+        # window title
+        self.setWindowTitle(data["window_title"])
         # title
         self.title = QLabel(self)
         question_number = self.get_number_question()
@@ -209,12 +211,12 @@ class QuestionWindow(QMainWindow):
             self.content.setText(self.pick_question())
 
         if len(question_index) == 1:
-            self.next_button.setText("finalizar")
+            self.next_button.setText("Finalizar")
             # self.next_button.clicked.connect( self.show_pages)
             # Sself.hide()
 
         if len(question_index) == 0:
-            self.next_button.setText("finalizar")
+            self.next_button.setText("Finalizar")
 
         for radio in self.radio_buttons:
             getattr(self, radio).setAutoExclusive(True)

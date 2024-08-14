@@ -19,6 +19,9 @@ class WelcomeWindow(QMainWindow):
         with open(json_path, 'r', encoding='UTF-8') as welcome_data:
             data = json.load(welcome_data)
 
+        #window title
+        self.setWindowTitle(data["window_title"])
+        
         #title
         title = QLabel(self)
         title.setText(data["title_text"])
