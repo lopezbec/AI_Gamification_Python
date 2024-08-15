@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [42, 8, 7, 1, 0, 124, 8897, 555, 3, 67, 99]\n\ntotal = 0\n\n\nfor num in x:\n    total = num + total\nprint(total)"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [42, 8, 7, 1, 0, 124, 8897, 555, 3, 67, 99]\n\ntotal = 0\n\n\nfor num in x:\n    total = num + total\nprint(total)"
                 }
             ]
         }

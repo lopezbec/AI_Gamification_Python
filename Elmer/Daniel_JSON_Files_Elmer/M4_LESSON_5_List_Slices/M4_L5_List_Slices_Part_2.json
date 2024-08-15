@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[:7])"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[:7])"
                 }
             ]
         }
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = ['a', 'b', 'c', 'd']\na = list[0______]"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = ['a', 'b', 'c', 'd']\na = list[0______]"
                 }
             ],
             "answers": [

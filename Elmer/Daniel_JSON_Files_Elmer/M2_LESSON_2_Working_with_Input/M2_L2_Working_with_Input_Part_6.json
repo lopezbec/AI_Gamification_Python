@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwidth = input()\nheight = input()\narea = int(width) * int(height)\nprint(area-9)\n>____"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwidth = input()\nheight = input()\narea = int(width) * int(height)\nprint(area-9)\n>____"
                 }
             ],
             "answers": [

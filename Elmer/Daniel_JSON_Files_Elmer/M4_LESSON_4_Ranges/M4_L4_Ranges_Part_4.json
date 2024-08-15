@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumbers = list(range(5, 20, 2))\nprint(numbers)\n>5,7,9,11,13,15,17,19"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumbers = list(range(5, 20, 2))\nprint(numbers)\n>5,7,9,11,13,15,17,19"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = list(range(3, 15, 3))\n\nprint(nums[2])"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = list(range(3, 15, 3))\n\nprint(nums[2])"
                 }
             ],
             "answers": [

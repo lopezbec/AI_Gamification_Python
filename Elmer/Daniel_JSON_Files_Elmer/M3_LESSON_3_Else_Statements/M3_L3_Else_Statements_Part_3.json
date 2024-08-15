@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 3\nif num == 1:\n  print('One')\nelse:\n  if num == 2:\n    print('Two')\n  else:\n    if num == 3:\n      print('Three')\n    else:\n      print('Something else')\n>Three"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 3\nif num == 1:\n  print('One')\nelse:\n  if num == 2:\n    print('Two')\n  else:\n    if num == 3:\n      print('Three')\n    else:\n      print('Something else')\n>Three"
                 },
                 {
                     "type": "hint",
@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nX = 10\ny = 20\n___ x > y___\n   print('if statement')\nelse:\n   print('else statement')\n>else statement"
+                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nX = 10\ny = 20\n___ x > y___\n   print('if statement')\nelse:\n   print('else statement')\n>else statement"
                 }
             ],
             "answers": [
