@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Bienvenido al Code playground')\n>Bienvenido al Code playground"
+                    "text": "Código de Python:\n\nprint('Bienvenido al Code playground')\n>Bienvenido al Code playground"
                 },
                 {
                     "type": "info",

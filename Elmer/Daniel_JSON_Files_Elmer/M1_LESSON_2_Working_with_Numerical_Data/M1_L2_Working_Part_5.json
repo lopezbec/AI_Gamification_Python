@@ -43,7 +43,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(100*100\n>SyntaxError: print(100*100, Did you mean print(100*100)?"
+                    "text": "Código de Python:\n\nprint(100*100\n>SyntaxError: print(100*100, Did you mean print(100*100)?"
                 },
                 {
                     "type": "hint",

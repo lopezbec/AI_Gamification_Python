@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(2.71) \nprint('Iron', 'Man', sep ='-')\n>Iron-Man"
+                    "text": "Código de Python:\n\nprint(2.71) \nprint('Iron', 'Man', sep ='-')\n>Iron-Man"
                 },
                 {
                     "type": "hint",

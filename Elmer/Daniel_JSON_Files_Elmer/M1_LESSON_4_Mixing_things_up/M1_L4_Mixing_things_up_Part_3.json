@@ -28,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n____('Puntaje:', 95)\n>Puntaje: 95\n"
+                    "text": "Código de Python:\n\n____('Puntaje:', 95)\n>Puntaje: 95\n"
                 }
             ],
             "answers": [

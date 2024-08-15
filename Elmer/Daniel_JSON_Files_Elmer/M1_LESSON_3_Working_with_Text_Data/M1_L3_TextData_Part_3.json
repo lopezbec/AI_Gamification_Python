@@ -39,7 +39,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('28 ' + ' 6')\n>\"28 6\""
+                    "text": "Código de Python:\n\nprint('28 ' + ' 6')\n>\"28 6\""
                 },
                 {
                     "type": "hint",
