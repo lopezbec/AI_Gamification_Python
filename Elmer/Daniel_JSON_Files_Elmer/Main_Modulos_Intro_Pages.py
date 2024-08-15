@@ -135,7 +135,7 @@ class MainWindow(QtWidgets.QMainWindow):
         modulos_layout = QtWidgets.QHBoxLayout(self.modulos_menu_widget)
 
         # Crear y añadir los botones de módulo al layout de módulos
-        self.modulo1_btn = self.setup_modulos_menu("Modulo 1", 5)
+        self.modulo1_btn = self.setup_modulos_menu("Módulo 1", 5)
         self.modulo2_btn = self.setup_modulos_menu("Módulo 2", 3)
         self.modulo3_btn = self.setup_modulos_menu("Módulo 3", 5)
         self.modulo4_btn = self.setup_modulos_menu("Módulo 4", 5)
@@ -374,7 +374,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:
-                if nombre_modulo == "Modulo 1":
+                if nombre_modulo == "Módulo 1":
                     if numero_leccion == 1:
                         if not self.m1_lesson1_window:
                             self.m1_lesson1_window = m1l1()
@@ -405,7 +405,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m1_lesson5_window.showMaximized()
 
-                elif nombre_modulo == "Modulo 2":
+                elif nombre_modulo == "Módulo 2":
                     if numero_leccion == 1:
                         if not self.m2_lesson1_window:
                             self.m2_lesson1_window = m2l1()
@@ -424,7 +424,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m2_lesson3_window.showMaximized()
 
-                elif nombre_modulo == "Modulo 3":
+                elif nombre_modulo == "Módulo 3":
                     if numero_leccion == 1:
                         if not self.m3_lesson1_window:
                             self.m3_lesson1_window = m3l1()
@@ -455,7 +455,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m3_lesson5_window.showMaximized()
 
-                elif nombre_modulo == "Modulo 4":
+                elif nombre_modulo == "Módulo 4":
                     if numero_leccion == 1:
                         if not self.m4_lesson1_window:
                             self.m4_lesson1_window = m4l1()
@@ -486,7 +486,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m4_lesson5_window.showMaximized()
 
-                elif nombre_modulo == "Modulo 5":
+                elif nombre_modulo == "Módulo 5":
                     if numero_leccion == 1:
                         if not self.m5_lesson1_window:
                             self.m5_lesson1_window = m5l1()
