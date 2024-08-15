@@ -135,11 +135,11 @@ class MainWindow(QtWidgets.QMainWindow):
         modulos_layout = QtWidgets.QHBoxLayout(self.modulos_menu_widget)
 
         # Crear y añadir los botones de módulo al layout de módulos
-        self.modulo1_btn = self.setup_modulos_menu("Módulo 1", 5)
-        self.modulo2_btn = self.setup_modulos_menu("Módulo 2", 3)
-        self.modulo3_btn = self.setup_modulos_menu("Módulo 3", 5)
-        self.modulo4_btn = self.setup_modulos_menu("Módulo 4", 5)
-        self.modulo5_btn = self.setup_modulos_menu("Módulo 5", 7)
+        self.modulo1_btn = self.setup_modulos_menu("Modulo 1", 5)
+        self.modulo2_btn = self.setup_modulos_menu("Modulo 2", 3)
+        self.modulo3_btn = self.setup_modulos_menu("Modulo 3", 5)
+        self.modulo4_btn = self.setup_modulos_menu("Modulo 4", 5)
+        self.modulo5_btn = self.setup_modulos_menu("Modulo 5", 7)
 
         # Añadir los botones al layout horizontal
         modulos_layout.addWidget(self.modulo1_btn)
@@ -250,40 +250,40 @@ class MainWindow(QtWidgets.QMainWindow):
     def actualizar_lecciones(self, estado_usuario):
         # Modulo 1
         self.estado_lecciones = {
-            "Módulo1": {
-                "Leccion1": estado_usuario.get("Módulo1", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Módulo1", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Módulo1", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Módulo1", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Módulo1", {}).get("Leccion5", False),
+            "Modulo1": {
+                "Leccion1": estado_usuario.get("Modulo1", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo1", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo1", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo1", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo1", {}).get("Leccion5", False),
             },
-            "Módulo2": {
-                "Leccion1": estado_usuario.get("Módulo2", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Módulo2", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Módulo2", {}).get("Leccion3", False),
+            "Modulo2": {
+                "Leccion1": estado_usuario.get("Modulo2", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo2", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo2", {}).get("Leccion3", False),
             },
-            "Módulo3": {
-                "Leccion1": estado_usuario.get("Módulo3", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Módulo3", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Módulo3", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Módulo3", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Módulo3", {}).get("Leccion5", False),
+            "Modulo3": {
+                "Leccion1": estado_usuario.get("Modulo3", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo3", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo3", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo3", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo3", {}).get("Leccion5", False),
             },
-            "Módulo4": {
-                "Leccion1": estado_usuario.get("Módulo4", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Módulo4", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Módulo4", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Módulo4", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Módulo4", {}).get("Leccion5", False),
+            "Modulo4": {
+                "Leccion1": estado_usuario.get("Modulo4", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo4", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo4", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo4", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo4", {}).get("Leccion5", False),
             },
-            "Módulo5": {
-                "Leccion1": estado_usuario.get("Módulo5", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Módulo5", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Módulo5", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Módulo5", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Módulo5", {}).get("Leccion5", False),
-                "Leccion6": estado_usuario.get("Módulo5", {}).get("Leccion6", False),
-                "Leccion7": estado_usuario.get("Módulo5", {}).get("Leccion7", False)
+            "Modulo5": {
+                "Leccion1": estado_usuario.get("Modulo5", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo5", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo5", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo5", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo5", {}).get("Leccion5", False),
+                "Leccion6": estado_usuario.get("Modulo5", {}).get("Leccion6", False),
+                "Leccion7": estado_usuario.get("Modulo5", {}).get("Leccion7", False)
             }
         }
 
@@ -374,7 +374,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:
-                if nombre_modulo == "Módulo 1":
+                if nombre_modulo == "Modulo 1":
                     if numero_leccion == 1:
                         if not self.m1_lesson1_window:
                             self.m1_lesson1_window = m1l1()
@@ -405,7 +405,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m1_lesson5_window.showMaximized()
 
-                elif nombre_modulo == "Módulo 2":
+                elif nombre_modulo == "Modulo 2":
                     if numero_leccion == 1:
                         if not self.m2_lesson1_window:
                             self.m2_lesson1_window = m2l1()
@@ -424,7 +424,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m2_lesson3_window.showMaximized()
 
-                elif nombre_modulo == "Módulo 3":
+                elif nombre_modulo == "Modulo 3":
                     if numero_leccion == 1:
                         if not self.m3_lesson1_window:
                             self.m3_lesson1_window = m3l1()
@@ -455,7 +455,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m3_lesson5_window.showMaximized()
 
-                elif nombre_modulo == "Módulo 4":
+                elif nombre_modulo == "Modulo 4":
                     if numero_leccion == 1:
                         if not self.m4_lesson1_window:
                             self.m4_lesson1_window = m4l1()
@@ -486,7 +486,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m4_lesson5_window.showMaximized()
 
-                elif nombre_modulo == "Módulo 5":
+                elif nombre_modulo == "Modulo 5":
                     if numero_leccion == 1:
                         if not self.m5_lesson1_window:
                             self.m5_lesson1_window = m5l1()
