@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = [2, 4, 6, 2, 7, 2, 9]\nprint(x.count(2))\n\nx.remove(4)\nprint(x)\n\nx.reverse()\nprint(x)"
+                    "text": "Código de Python:\n\nx = [2, 4, 6, 2, 7, 2, 9]\nprint(x.count(2))\n\nx.remove(4)\nprint(x)\n\nx.reverse()\nprint(x)"
                 }
 
             ]
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = [8, 4, 2, 6]\nlist.remove(2)\nprint(len(list)+list.count(6))"
+                    "text": "Código de Python:\n\nlist = [8, 4, 2, 6]\nlist.remove(2)\nprint(len(list)+list.count(6))"
                 }
             ],
             "answers": [

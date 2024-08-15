@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 12\nif num > 5:\n   print('Bigger than 5')\n>Bigger tan 5\n   if num <= 47:\n      print('Between 5 and 47')\n>Between 5 and 47"
+                    "text": "Código de Python:\n\nnum = 12\nif num > 5:\n   print('Bigger than 5')\n>Bigger tan 5\n   if num <= 47:\n      print('Between 5 and 47')\n>Between 5 and 47"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnum = 7\nif num > 3:\n   print('3')\n   if num < 5:\n      print('5')\n      if num ==7:\n         print('7')\n"
+                    "text": "Código de Python:\n\nnum = 7\nif num > 3:\n   print('3')\n   if num < 5:\n      print('5')\n      if num ==7:\n         print('7')\n"
                 }
             ],
             "answers": [

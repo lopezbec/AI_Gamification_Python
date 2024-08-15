@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)\n>____"
+                    "text": "Código de Python:\n\nx = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)\n>____"
                 }
             ],
             "answers": [
@@ -39,7 +39,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nheight = float(input())\nprint(height)\n>?"
+                    "text": "Código de Python:\n\nheight = float(input())\nprint(height)\n>?"
                 }
             ]
         }

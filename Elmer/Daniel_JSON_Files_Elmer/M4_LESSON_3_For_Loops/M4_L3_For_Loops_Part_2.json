@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
+                    "text": "Código de Python:\n\nwords = ['hello', 'world', 'spam', 'eggs']\nfor word in words:\n  print(word + '!')"
                 },
                 {
                     "type": "info",
@@ -33,7 +33,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [4, 7, 3, 1]\nfor x in nums:\n    print(x*2)"
+                    "text": "Código de Python:\n\nnums = [4, 7, 3, 1]\nfor x in nums:\n    print(x*2)"
                 }
             ],
             "answers": [

@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef sum(x, y):\n\treturn x+y"
+                    "text": "Código de Python:\n\ndef sum(x, y):\n\treturn x+y"
                 }
 
             ]
@@ -28,7 +28,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ cuadrado(x):\n\n ___ x**2"
+                    "text": "Código de Python:\n\n___ cuadrado(x):\n\n ___ x**2"
                 }
             ],
             "answers": [

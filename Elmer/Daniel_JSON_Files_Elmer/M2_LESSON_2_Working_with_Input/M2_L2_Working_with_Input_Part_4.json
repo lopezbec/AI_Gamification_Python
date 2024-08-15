@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\na = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)\n>____"
+                    "text": "Código de Python:\n\na = 5\nb = 9\nx = str(a)\ny = str(b)\nprint(x+y)\n>____"
                 }
             ],
             "answers": [
@@ -43,7 +43,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nname = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
+                    "text": "Código de Python:\n\nname = input()\nage = input()\nprint(name + ' is ' + age)\n>'name' is 'age'"
                 }
             ]
         }

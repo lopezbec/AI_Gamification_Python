@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 'a'\nif x < 'c':\n    x += 'b'\nif x > 'z':\n    x += 'c'\n\nprint(x)\n>?"
+                    "text": "Código de Python:\n\nx = 'a'\nif x < 'c':\n    x += 'b'\nif x > 'z':\n    x += 'c'\n\nprint(x)\n>?"
                 }
             ],
             "answers": [

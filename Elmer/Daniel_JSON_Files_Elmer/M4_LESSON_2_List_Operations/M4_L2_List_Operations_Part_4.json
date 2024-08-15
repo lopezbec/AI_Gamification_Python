@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['spam', 'egg', 'spam', 'sausage']\nprint('spam' in words)\nprint('egg' in words)\nprint('tomato' in words)"
+                    "text": "Código de Python:\n\nwords = ['spam', 'egg', 'spam', 'sausage']\nprint('spam' in words)\nprint('egg' in words)\nprint('tomato' in words)"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [10, 9, 8, 7, 6, 5]\nnums[0] = nums[1] - 5\nif 4 in nums:\n  print(nums[3])\nelse:\n  print(nums[4])"
+                    "text": "Código de Python:\n\nnums = [10, 9, 8, 7, 6, 5]\nnums[0] = nums[1] - 5\nif 4 in nums:\n  print(nums[3])\nelse:\n  print(nums[4])"
                 }
             ],
             "answers": [

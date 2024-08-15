@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = ['Python', 'fun']\nwords.insert(1, 'is')\nprint(words)"
+                    "text": "Código de Python:\n\nwords = ['Python', 'fun']\nwords.insert(1, 'is')\nprint(words)"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [9, 8, 7, 6, 5]\nnums.append(4)\nnums.insert(2, 11)\nprint(len(nums))"
+                    "text": "Código de Python:\n\nnums = [9, 8, 7, 6, 5]\nnums.append(4)\nnums.insert(2, 11)\nprint(len(nums))"
                 }
             ],
             "answers": [

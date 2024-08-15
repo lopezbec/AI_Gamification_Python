@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n#your code goes here\ncadena = input()\n\nprint(cadena[-1])"
+                    "text": "Código de Python:\n\n#your code goes here\ncadena = input()\n\nprint(cadena[-1])"
                 }
             ]
         }

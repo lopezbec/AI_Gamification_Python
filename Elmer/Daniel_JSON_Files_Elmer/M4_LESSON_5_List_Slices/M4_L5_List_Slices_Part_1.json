@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[2:6])\nprint(squares[3:8])\nprint(squares[0:1])"
+                    "text": "Código de Python:\n\nsquares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\nprint(squares[2:6])\nprint(squares[3:8])\nprint(squares[0:1])"
                 },
                 {
                     "type": "info",
@@ -17,7 +17,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n>>>\n[4, 9, 16, 25]\n[9, 16, 25, 36, 49]\n[0]\n>>>"
+                    "text": "Código de Python:\n\n>>>\n[4, 9, 16, 25]\n[9, 16, 25, 36, 49]\n[0]\n>>>"
                 },
                 {
                     "type": "hint",
@@ -37,7 +37,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nsqs = [0, 1, 4, 9, 16, 25, 36, 49, 64]\n\nprint(sqs[4:7])"
+                    "text": "Código de Python:\n\nsqs = [0, 1, 4, 9, 16, 25, 36, 49, 64]\n\nprint(sqs[4:7])"
                 }
             ],
             "answers": [

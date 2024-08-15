@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nstr = 'some text goes here'\nx = str.split(' ')\nprint(x)"
+                    "text": "Código de Python:\n\nstr = 'some text goes here'\nx = str.split(' ')\nprint(x)"
                 },
                 {
                     "type": "hint",
@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nwords = x.___(' ')\nres = words[___]\n___(res)"
+                    "text": "Código de Python:\n\nwords = x.___(' ')\nres = words[___]\n___(res)"
                 }
             ],
             "answers": [

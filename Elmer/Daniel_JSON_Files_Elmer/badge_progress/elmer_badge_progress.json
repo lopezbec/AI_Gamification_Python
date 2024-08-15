@@ -1,6 +1,6 @@
 {
     "streak": 0,
-    "gran_paso": false,
+    "gran_paso": true,
     "hello_world": false,
     "5_correctas": false,
     "10_correctas": false,

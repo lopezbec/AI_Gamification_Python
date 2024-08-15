@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nqueue = ['John', 'Amy', 'Bob', 'Adam']\n\ntake_name = input()\n\nqueue.append(take_name)\n\nprint(queue)"
+                    "text": "Código de Python:\n\nqueue = ['John', 'Amy', 'Bob', 'Adam']\n\ntake_name = input()\n\nqueue.append(take_name)\n\nprint(queue)"
                 }
             ]
         }

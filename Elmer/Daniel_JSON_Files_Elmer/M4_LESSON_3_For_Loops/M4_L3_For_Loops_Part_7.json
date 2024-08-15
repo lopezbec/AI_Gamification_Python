@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3, 4]\nres = 0\n\nfor x in nums:\n    if x%2==0:\n        continue\n    else:\n        res += x\n\nprint(res)"
+                    "text": "Código de Python:\n\nnums = [1, 2, 3, 4]\nres = 0\n\nfor x in nums:\n    if x%2==0:\n        continue\n    else:\n        res += x\n\nprint(res)"
                 }
             ],
             "answers": [

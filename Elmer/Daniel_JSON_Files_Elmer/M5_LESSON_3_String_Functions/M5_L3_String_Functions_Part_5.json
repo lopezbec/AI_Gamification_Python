@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 'Hello ME'\nprint(x.replace('ME', 'world'))"
+                    "text": "Código de Python:\n\nx = 'Hello ME'\nprint(x.replace('ME', 'world'))"
                 }
             ]
         }
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = str.___('___',  '___')"
+                    "text": "Código de Python:\n\nx = str.___('___',  '___')"
                 }
             ],
             "answers": [

@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ngrado = 87\n___ grado>=75___\n   print('¡Aprobado!')\nelse:\n   print('Error')"
+                    "text": "Código de Python:\n\ngrado = 87\n___ grado>=75___\n   print('¡Aprobado!')\nelse:\n   print('Error')"
                 }
             ],
             "answers": [

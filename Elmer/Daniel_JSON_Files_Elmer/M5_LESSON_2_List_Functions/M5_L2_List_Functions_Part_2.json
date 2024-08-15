@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nstr = 'some text'\nx = len(str)\nprint(x)"
+                    "text": "Código de Python:\n\nstr = 'some text'\nx = len(str)\nprint(x)"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx ='abc'\nx *= 2\nprint(len(x))"
+                    "text": "Código de Python:\n\nx ='abc'\nx *= 2\nprint(len(x))"
                 }
             ],
             "answers": [

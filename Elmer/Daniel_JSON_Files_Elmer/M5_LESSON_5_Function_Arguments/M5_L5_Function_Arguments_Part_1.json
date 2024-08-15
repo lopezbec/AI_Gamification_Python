@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")"
+                    "text": "Código de Python:\n\ndef exclamacion(palabra):\nprint(palabra + \"!\")\n\nexclamacion(\"spam\")"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef imprimir_doble(x):\n\tprint(2 * x)\n\nimprimir_doble(3)"
+                    "text": "Código de Python:\n\ndef imprimir_doble(x):\n\tprint(2 * x)\n\nimprimir_doble(3)"
                 }
             ],
             "answers": [

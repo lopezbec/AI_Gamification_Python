@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef max(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\nif max(6,4) > 10:\n\tprint(\"Si\")\nelse:\n\tprint(\"No\")\n"
+                    "text": "Código de Python:\n\ndef max(x, y):\n\tif x >= y:\n\t\treturn x\n\telse:\n\t\treturn y\n\nif max(6,4) > 10:\n\tprint(\"Si\")\nelse:\n\tprint(\"No\")\n"
                 }
             ]
         }
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef cadenaMasCorta(x, y):\n\tif len(x) <= ___ (y):\n\t\t___ x\n\telse:\n\t\treturn ___"
+                    "text": "Código de Python:\n\ndef cadenaMasCorta(x, y):\n\tif len(x) <= ___ (y):\n\t\t___ x\n\telse:\n\t\treturn ___"
                 }
             ],
             "answers": [

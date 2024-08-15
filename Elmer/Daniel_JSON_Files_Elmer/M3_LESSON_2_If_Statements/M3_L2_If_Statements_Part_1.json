@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nif condition:\n    statements"
+                    "text": "Código de Python:\n\nif condition:\n    statements"
                 }
             ]
         }

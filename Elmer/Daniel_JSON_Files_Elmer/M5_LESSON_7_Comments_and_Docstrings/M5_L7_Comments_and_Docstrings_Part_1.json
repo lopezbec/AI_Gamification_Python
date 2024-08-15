@@ -13,7 +13,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 365\ny = 7\n\nprint(x % y) # encontrar el resto"
+                    "text": "Código de Python:\n\nx = 365\ny = 7\n\nprint(x % y) # encontrar el resto"
                 }
             ]
         }
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 8\n _____ imprimiendo x\nprint(x)"
+                    "text": "Código de Python:\n\nx = 8\n _____ imprimiendo x\nprint(x)"
                 }
             ],
             "answers": [

@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Hello world!')\nrange(2, 20)\nstr(12)\nrange(10, 20, 3)"
+                    "text": "Código de Python:\n\nprint('Hello world!')\nrange(2, 20)\nstr(12)\nrange(10, 20, 3)"
                 }
             ]
         }

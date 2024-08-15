@@ -34,7 +34,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nedad = int(input())\n\nif edad > 0 and edad <= 11:\n print('Child')\nelif edad >= 12 and edad <= 17:\n print('Teen')\nelif edad >= 18 and edad <= 64:\n print('Adult')"
+                    "text": "Código de Python:\n\nedad = int(input())\n\nif edad > 0 and edad <= 11:\n print('Child')\nelif edad >= 12 and edad <= 17:\n print('Teen')\nelif edad >= 18 and edad <= 64:\n print('Adult')"
                 }
             ]
         }
