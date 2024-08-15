@@ -135,11 +135,11 @@ class MainWindow(QtWidgets.QMainWindow):
         modulos_layout = QtWidgets.QHBoxLayout(self.modulos_menu_widget)
 
         # Crear y añadir los botones de módulo al layout de módulos
-        self.modulo1_btn = self.setup_modulos_menu("Modulo 1", 5)
-        self.modulo2_btn = self.setup_modulos_menu("Modulo 2", 3)
-        self.modulo3_btn = self.setup_modulos_menu("Modulo 3", 5)
-        self.modulo4_btn = self.setup_modulos_menu("Modulo 4", 5)
-        self.modulo5_btn = self.setup_modulos_menu("Modulo 5", 7)
+        self.modulo1_btn = self.setup_modulos_menu("Módulo 1", 5)
+        self.modulo2_btn = self.setup_modulos_menu("Módulo 2", 3)
+        self.modulo3_btn = self.setup_modulos_menu("Módulo 3", 5)
+        self.modulo4_btn = self.setup_modulos_menu("Módulo 4", 5)
+        self.modulo5_btn = self.setup_modulos_menu("Módulo 5", 7)
 
         # Añadir los botones al layout horizontal
         modulos_layout.addWidget(self.modulo1_btn)
