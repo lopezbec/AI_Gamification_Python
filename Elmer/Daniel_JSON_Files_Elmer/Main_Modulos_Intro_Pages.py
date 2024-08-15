@@ -542,11 +542,21 @@ class MainWindow(QtWidgets.QMainWindow):
         msg.setText(f"Lo siento, el {nombre_modulo}, Lección {numero_leccion}, está bloqueado.")
         msg.exec()
 
+    # Estilos de los botones del Main (Comments by Daniel)
     def setup_modulos_menu(self, nombre_modulo, numero_lecciones):
         modulos_btn = QtWidgets.QToolButton()
         modulos_btn.setText(nombre_modulo)
         modulos_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            f"""
+            background-color: {self.styles['submit_button_color']};
+            font-size: {self.styles['font_size_buttons']}px;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            """
+        )
+        # Para cambiar las dimensiones de los botones Modulo.
+        modulos_btn.setFixedSize(171, 80)  # Ajusta el tamaño (ancho, alto) // Botones Modulo 1, Modulo 2, etc.
 
         modulos_menu = QtWidgets.QMenu()
         self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
