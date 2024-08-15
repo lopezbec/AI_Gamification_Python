@@ -250,40 +250,40 @@ class MainWindow(QtWidgets.QMainWindow):
     def actualizar_lecciones(self, estado_usuario):
         # Modulo 1
         self.estado_lecciones = {
-            "Modulo1": {
-                "Leccion1": estado_usuario.get("Modulo1", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo1", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo1", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo1", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo1", {}).get("Leccion5", False),
+            "Módulo1": {
+                "Leccion1": estado_usuario.get("Módulo1", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Módulo1", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Módulo1", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Módulo1", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Módulo1", {}).get("Leccion5", False),
             },
-            "Modulo2": {
-                "Leccion1": estado_usuario.get("Modulo2", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo2", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo2", {}).get("Leccion3", False),
+            "Módulo2": {
+                "Leccion1": estado_usuario.get("Módulo2", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Módulo2", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Módulo2", {}).get("Leccion3", False),
             },
-            "Modulo3": {
-                "Leccion1": estado_usuario.get("Modulo3", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo3", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo3", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo3", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo3", {}).get("Leccion5", False),
+            "Módulo3": {
+                "Leccion1": estado_usuario.get("Módulo3", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Módulo3", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Módulo3", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Módulo3", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Módulo3", {}).get("Leccion5", False),
             },
-            "Modulo4": {
-                "Leccion1": estado_usuario.get("Modulo4", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo4", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo4", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo4", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo4", {}).get("Leccion5", False),
+            "Módulo4": {
+                "Leccion1": estado_usuario.get("Módulo4", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Módulo4", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Módulo4", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Módulo4", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Módulo4", {}).get("Leccion5", False),
             },
-            "Modulo5": {
-                "Leccion1": estado_usuario.get("Modulo5", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo5", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo5", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo5", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo5", {}).get("Leccion5", False),
-                "Leccion6": estado_usuario.get("Modulo5", {}).get("Leccion6", False),
-                "Leccion7": estado_usuario.get("Modulo5", {}).get("Leccion7", False)
+            "Módulo5": {
+                "Leccion1": estado_usuario.get("Módulo5", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Módulo5", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Módulo5", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Módulo5", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Módulo5", {}).get("Leccion5", False),
+                "Leccion6": estado_usuario.get("Módulo5", {}).get("Leccion6", False),
+                "Leccion7": estado_usuario.get("Módulo5", {}).get("Leccion7", False)
             }
         }
 
