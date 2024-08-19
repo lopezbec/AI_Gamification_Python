@@ -1,11 +1,13 @@
 import sys
 import os
 import json
-from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, \
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, \
     QRadioButton
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+
 
 
 class JsonLoader:
@@ -56,8 +58,6 @@ class QuizLoader:
 
     def load_quiz_section(self):
         self.clear_layout()
-
-        print("Cargando nueva sección...")
         try:
             quiz_file_path = self.quiz_file
             if not os.path.isfile(quiz_file_path):
@@ -78,6 +78,13 @@ class QuizLoader:
 
             if not quiz_data[self.page_type]:
                 raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
+
+            self.leaderboard_button = QPushButton("Leaderboard")
+            self.leaderboard_button.setStyleSheet(
+                f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
+            )
+            self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
+            self.layout.addWidget(self.leaderboard_button)
 
             section_data = self.section
 
@@ -152,6 +159,7 @@ class QuizLoader:
 
     def complete_quiz(self):
         self.mark_quiz_complete()
+        self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
         self.layout.parentWidget().close()
 
     def mark_quiz_complete(self):
@@ -199,6 +207,33 @@ class QuizLoader:
             print(f"{quiz_key} completado para {user} en {module_key}")
         except Exception as e:
             print(f"Error al marcar el quiz como completado: {e}")
+
+    def abrir_leaderboard(self):
+        LeaderBoard()
+
+    def actualizar_puntos_en_leaderboard(self, puntos_ganados):
+        leaderboard_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Codigos_LeaderBoard', 'leaderboard.json')
+
+        try:
+            with open(leaderboard_path, 'r', encoding='UTF-8') as file:
+                leaderboard = json.load(file)
+
+            usuario_existente = False
+            for user in leaderboard:
+                if user["name"] == self.current_user:
+                    user["points"] += puntos_ganados
+                    usuario_existente = True
+                    break
+
+            if not usuario_existente:
+                leaderboard.append({"name": self.current_user, "points": puntos_ganados})
+
+            with open(leaderboard_path, 'w', encoding='UTF-8') as file:
+                json.dump(leaderboard, file, indent=4)
+
+        except FileNotFoundError:
+            print("Archivo leaderboard.json no encontrado.")
+
 
     @staticmethod
     def load_current_user():
