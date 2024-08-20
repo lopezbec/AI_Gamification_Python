@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef msg(num, ch):\nprint(ch+str(num))\n\nmsg(18, 'A')\n"
+                    "text": "Código de Python:\n\ndef msg(num, ch):\nprint(ch+str(num))\n\nmsg(18, 'A')\n"
                 }
             ],
             "answers": [

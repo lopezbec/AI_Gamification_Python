@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef imprimir_numero_dos_veces(x, y):\nprint(x + y)\nprint(x + y)\n\nimprimir_numero_dos_veces(5, 8)"
+                    "text": "Código de Python:\n\ndef imprimir_numero_dos_veces(x, y):\nprint(x + y)\nprint(x + y)\n\nimprimir_numero_dos_veces(5, 8)"
                 }
             ]
         }
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\n___ print_mult(x, y)___\n print(x*___)"
+                    "text": "Código de Python:\n\n___ print_mult(x, y)___\n print(x*___)"
                 }
             ],
             "answers": [

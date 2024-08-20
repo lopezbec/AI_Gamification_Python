@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)\n>____"
+                    "text": "Código de Python:\n\nx = '2'\ny = '4'\nz = int(x) + int(y)\nprint(z)\n>____"
                 }
             ],
             "answers": [
@@ -39,7 +39,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nheight = float(input())\nprint(height)\n>?"
+                    "text": "Código de Python:\n\nheight = float(input())\nprint(height)\n>?"
                 }
             ]
         }

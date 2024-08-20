@@ -34,7 +34,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nedad = int(input())\n\nif edad > 0 and edad <= 11:\n print('Child')\nelif edad >= 12 and edad <= 17:\n print('Teen')\nelif edad >= 18 and edad <= 64:\n print('Adult')"
+                    "text": "Código de Python:\n\nedad = int(input())\n\nif edad > 0 and edad <= 11:\n print('Child')\nelif edad >= 12 and edad <= 17:\n print('Teen')\nelif edad >= 18 and edad <= 64:\n print('Adult')"
                 }
             ]
         }

@@ -5,8 +5,17 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout,
 from PyQt6.QtGui import QIcon, QAction
 from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from welcome_window import WelcomeWindow  # Asegúrate de que esta importación es correcta
-from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
+from welcome_window import WelcomeWindow
+from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtWidgets import QMessageBox
+from name_window import NameWindow
+from pathlib import Path
+from PyQt6.QtWidgets import QApplication, QMenu
+from PyQt6 import QtWidgets, QtCore, QtGui
+from PyQt6.QtGui import QAction, QIcon
+from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
+    add_user_streak_per_module
+from badge_system.display_cabinet import BadgeDisplayCabinet
 
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -21,6 +30,15 @@ class UserGuideDialog(QtWidgets.QDialog):
         label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(label)
 
+class Config():
+    def __init__(self):
+        super().__init__()
+
+    @staticmethod
+    def load_active_widgets():
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "active_widgets", "game_elements_visibility.json")) as active_widgets:
+            widgets = json.load(active_widgets)
+        return widgets
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -58,10 +76,13 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.estado_lecciones = {}
 
-        self.usuario_actual = self.load_current_user()
-        self.progreso_usuario = self.load_user_progress(self.usuario_actual)
+        self.usuario_actual = self.load_current_user()  # Carga el usuario actual
+        self.progreso_usuario = self.load_user_progress(self.usuario_actual)  # Carga el progreso del usuario
+        self.lecciones_completadas_usuario = self.load_lesson_completed(self.usuario_actual)
         self.actualizar_lecciones(self.progreso_usuario)
-        self.actualizar_quizzes()
+        save_badge_progress_per_user(self.usuario_actual)
+        create_lessons_date_completion(self.usuario_actual)
+        add_user_streak_per_module(self.usuario_actual)
 
         self.menuBar().clear()
 
@@ -127,7 +148,7 @@ class MainWindow(QtWidgets.QMainWindow):
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         leaderboard_btn.clicked.connect(self.abrir_leaderboard)
         leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))
-        button_layout.addWidget(leaderboard_btn)
+        #button_layout.addWidget(leaderboard_btn)
 
         guia_usuario_btn = QtWidgets.QPushButton("Guía de usuarios")
         guia_usuario_btn.setStyleSheet(
@@ -136,9 +157,23 @@ class MainWindow(QtWidgets.QMainWindow):
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
         button_layout.addWidget(guia_usuario_btn)
 
+        #boton para Vitrina (display cabinet)
+        display_cabinet_btn = QtWidgets.QPushButton("Mis insignias")
+        display_cabinet_btn.setStyleSheet(
+            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+        display_cabinet_btn.clicked.connect(self.abrir_display_cabinet)
+        display_cabinet_btn.setIcon(QtGui.QIcon('Icons/display_cabinet_icon.png'))
+        #button_layout.addWidget(display_cabinet_btn)
+
+        if Config.load_active_widgets().get("Leaderboard", True):
+            button_layout.addWidget(leaderboard_btn)
+        if Config.load_active_widgets().get("display_cabinet", True):
+            button_layout.addWidget(display_cabinet_btn)
+
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
 
+    # Función para actualizar los íconos de las lecciones en la interfaz de usuario
     def update_lesson_icons(self, estado_usuario):
         for nombre_modulo, lecciones in estado_usuario.items():
             for nombre_leccion, estado in lecciones.items():
@@ -271,7 +306,10 @@ class MainWindow(QtWidgets.QMainWindow):
             return {}
 
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
+        # Eliminamos la creación de un submenú adicional y en su lugar
+        # añadimos las acciones directamente al botón del módulo.
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+        estado_progreso_modulo = self.lecciones_completadas_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(self.usuario_actual)
 
         for leccion_numero in range(1, numero_lecciones + 1):
@@ -280,7 +318,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             leccion_completada = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
                 f"Leccion_completada{leccion_numero}", False)
-
+            
             if leccion_completada:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
             elif estado_leccion:
@@ -294,8 +332,9 @@ class MainWindow(QtWidgets.QMainWindow):
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
             boton_modulo.addAction(accion_leccion)
 
-        progreso = self.calcular_progreso_del_modulo(estado_modulo)
-        barra_progreso = QProgressBar()
+        # Agrega una barra de progreso al final de cada menú desplegable
+        progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo)
+        barra_progreso = QtWidgets.QProgressBar()
         barra_progreso.setValue(progreso)
         barra_progreso.setMaximum(numero_lecciones)
         barra_progreso.setTextVisible(True)
@@ -413,6 +452,7 @@ class MainWindow(QtWidgets.QMainWindow):
             from M5_LESSON_5_Function_Arguments.M5_L5_Main import M5_L5_Main as m5l5
             from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
             from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
+            # Importar otros modulos solo necesarios en este metodo
 
             nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:
@@ -560,11 +600,21 @@ class MainWindow(QtWidgets.QMainWindow):
         msg.setText(f"Lo siento, {nombre_modulo} está bloqueado. {motivo}")
         msg.exec()
 
-    def setup_modulos_menu(self, nombre_modulo, numero_lecciones, numero_quizzes):
+    # Estilos de los botones del Main (Comments by Daniel)
+    def setup_modulos_menu(self, nombre_modulo, numero_lecciones):
         modulos_btn = QtWidgets.QToolButton()
         modulos_btn.setText(nombre_modulo)
         modulos_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            f"""
+            background-color: {self.styles['submit_button_color']};
+            font-size: {self.styles['font_size_buttons']}px;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            """
+        )
+        # Para cambiar las dimensiones de los botones Modulo.
+        modulos_btn.setFixedSize(171, 80)  # Ajusta el tamaño (ancho, alto) // Botones Modulo 1, Modulo 2, etc.
 
         quizzes_btn = QtWidgets.QToolButton()
         quizzes_btn.setText(f"Quizzes {nombre_modulo}")
@@ -580,14 +630,11 @@ class MainWindow(QtWidgets.QMainWindow):
         modulos_btn.setMenu(modulos_menu)
         modulos_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
 
-        quizzes_btn.setMenu(quizzes_menu)
-        quizzes_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
-
-        return modulos_btn, quizzes_btn
-
-    def add_module_buttons_to_grid_layout(self, layout, row, modulo_btn, quizzes_btn, col):
-        layout.addWidget(modulo_btn, row, col, 1, 1)
-        layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
+        return modulos_btn
+    
+    def abrir_display_cabinet(self, username):
+        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
+        self.display_cabinet.show()
 
     @staticmethod
     def load_styles(file):

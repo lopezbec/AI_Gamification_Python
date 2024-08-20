@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef sum(x, y):\nreturn x + y\n\nres = sum(42, 7)\nprint(res)"
+                    "text": "Código de Python:\n\ndef sum(x, y):\nreturn x + y\n\nres = sum(42, 7)\nprint(res)"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ndef foo(x, y):\n   if x >= y:\n      return x\n   else:\n      return y\n\nx = foo(4,7)\nprint(x)"
+                    "text": "Código de Python:\n\ndef foo(x, y):\n   if x >= y:\n      return x\n   else:\n      return y\n\nx = foo(4,7)\nprint(x)"
                 }
             ],
             "answers": [

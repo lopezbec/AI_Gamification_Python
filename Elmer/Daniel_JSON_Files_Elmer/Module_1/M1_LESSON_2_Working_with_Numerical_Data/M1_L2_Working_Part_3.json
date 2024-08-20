@@ -1,0 +1,55 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para generar el resultado de una operación de multiplicación."
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(42 __ 3)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "*",
+                    "correct": true
+                },
+                {
+                    "text": "x",
+                    "correct": false
+                },
+                {
+                    "text": "#",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Division.",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "La division se realiza mediante una barra inclinada /:"
+                },
+                {
+                    "type": "info",
+                    "text": "Ejecute el codigo anterior para ver el resultado."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(8 / 2)\n>4.0"
+                },
+                {
+                    "type": "info",
+                    "text": "Importante: Usar una barra oblicua para dividir números siempre produce un numero decimal."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "draganddrop": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastra y suelta para clasificar los datos numéricos:"
+                },
+                {
+                    "type": "pregunta1",
+                    "text": "Entero:____",
+                    "correctValue": "2"
+                },
+                {
+                    "type": "pregunta2",
+                    "text": "Flotante:____",
+                    "correctValue": "3.14"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "3.14",
+                    "correctType": "pregunta2",
+                    "correct": true
+                },
+                {
+                    "text": "2",
+                    "correctType": "pregunta1",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+
+    "pedagogical": [
+        {
+            "title": "Depurar",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Los errores en el código también se conocen como bugs. Depurar(debugging) es el proceso de encontrar y corregir errores en el código. La siguiente linea de código contiene algunos errores. Encuentra y Arregla los errores (bugs) en el código."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(100*100\n>SyntaxError: print(100*100, Did you mean print(100*100)?"
+                },
+                {
+                    "type": "hint",
+                    "text": "Pista: Recuerda que el comando print requiere paréntesis para funcionar sin errores."
+                }
+            ]
+        }
+    ]
+}

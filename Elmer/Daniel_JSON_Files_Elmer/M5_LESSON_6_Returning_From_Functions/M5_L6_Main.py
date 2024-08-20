@@ -9,16 +9,23 @@ from functools import partial
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
+from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
+read_stored_streak, update_streak, check_streak_badges
+from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
+        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
+            update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
+from badge_system.display_cabinet import BadgeDisplayCabinet
 from command_line_UI import App
+from congratulation_Feature import CongratulationWindow
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
-        with open('M5_LESSON_6_Returning_From_Functions/' + filename, encoding='UTF-8') as json_file:
+        with open(filename, encoding='UTF-8') as json_file:
             data = json.load(json_file)
         return data
 
@@ -36,7 +43,7 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None):
+    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None, usuario_actual=None):
         super().__init__()
 
         self.data = None
@@ -50,6 +57,7 @@ class JsonWindow(QWidget):
         self.current_text_state = None
         self.leaderboard_button = None
         self.original_hint_text = None
+        self.display_cabinet = None
         self.main_window = main_window
         self.puntos = QLabel()
         self.update_points_display(self.main_window.XP_Ganados)
@@ -61,6 +69,7 @@ class JsonWindow(QWidget):
         self.styles = JsonLoader.load_json_styles()
         self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
+        self.usuario_actual = usuario_actual
         self.init_ui()
 
     def init_ui(self):
@@ -84,13 +93,23 @@ class JsonWindow(QWidget):
         leaderboard_button_font = QFont()
         leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
         self.leaderboard_button.setFont(leaderboard_button_font)
-        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)  # Esta función necesita ser definida
+        self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
+
+        #boton para Vitrina (display cabinet)
+        self.display_cabinet = QPushButton("Mis insignias")
+        self.display_cabinet.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        display_cabinet_font = QFont()
+        display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
+        self.display_cabinet.setFont(display_cabinet_font)
+        self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
 
         # Añadir los widgets al layout horizontal
         if JsonLoader.load_active_widgets().get("points", True):
             hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("display_cabinet", True):
+            hlayout.addWidget(self.display_cabinet)
 
         # Añadir el layout horizontal al layout vertical
         self.layout.addLayout(hlayout)
@@ -144,6 +163,10 @@ class JsonWindow(QWidget):
 
     def update_points_display(self, new_points):
         self.puntos.setText(f"XP ganados: {new_points}")
+    
+    def abrir_display_cabinet(self):
+        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
+        self.display_cabinet.show()
 
     def showEvent(self, event):
         super().showEvent(event)
@@ -321,6 +344,8 @@ class JsonWindow(QWidget):
             hlayout.addWidget(self.puntos)
         if JsonLoader.load_active_widgets().get("Leaderboard", True):
             hlayout.addWidget(self.leaderboard_button)
+        if JsonLoader.load_active_widgets().get("display_cabinet", True):
+            hlayout.addWidget(self.display_cabinet)
         self.layout.addLayout(hlayout)
 
         # Restablecer el contenido del JsonWindow según el tipo de página
@@ -421,7 +446,7 @@ class JsonWindow(QWidget):
         # Verificar si el widget ya ha sido creado y, si no, crearlo y añadirlo al layout.
         if not hasattr(self, 'commandLineWidget'):
             # Suponiendo que 'App' es una subclase de QWidget
-            self.commandLineWidget = App()
+            self.commandLineWidget = App(current_user=self.usuario_actual)
             self.commandLineWidgetPlaceholder.addWidget(self.commandLineWidget)
 
             # Crear botón para ocultar el widget de la línea de comandos
@@ -479,10 +504,16 @@ class MainWindow(QWidget):
         self.lesson_finished_successfully = False
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
+        self.leaderboard_window_instace = get_instance()
+        self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
+        self.all_correct = True
         self.setWindowTitle("Retornando desde una función")
-
-        self.progress_bar = ProgressBar(
-            JsonLoader.load_json_data(os.path.join("..", "Page_order", "page_order_M5.json")), 5)
+        self.progress_bar =  ProgressBar(
+            JsonLoader.load_json_data(
+                os.path.join(os.path.dirname(os.path.dirname(
+                    os.path.abspath(__file__))), "Page_order", "page_order_M5.json")
+                    )
+                    , 5)
         self.init_ui()
 
     def init_ui(self):
@@ -492,8 +523,8 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(page["filename"], page["page_type"], page["json_number"], self.XP_Ganados,
-                                         page.get("lesson_completed", False), main_window=self)
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
+                                         page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
@@ -573,6 +604,7 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            CongratulationWindow.incorrect_response()
         elif Correcto:
             # Incrementa el XP en 2 puntos cuando la respuesta es acertada en el primer intento y tiene 0 xp (0 XP significa primera página con pregunta)
             if self.current_xp == 0 and not self.controlador:
@@ -598,17 +630,23 @@ class MainWindow(QWidget):
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
             self.SubmitHideContinueShow(True, False)
+            self.streak.correct_answer()
+            CongratulationWindow.correct_response()
         elif Incorrecto:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+            self.streak.incorrect_answer()
+            reset_streak(self.usuario_actual)
+            self.all_correct = False
+            CongratulationWindow.incorrect_response()
         else:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
             current_widget.feedback_label.setStyleSheet(
                 f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
-
+            CongratulationWindow.incorrect_response()
     def open_python_console(self):
         self.SubmitHideContinueShow(True, False)
         print("La consola no está disponible por el momento.")
@@ -1007,6 +1045,26 @@ class MainWindow(QWidget):
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
             self.actualizar_progreso_usuario('Modulo5', 'Leccion6')
             self.actualizar_leccion_completada('Modulo5', 'Leccion6')
+            update_lesson_status(self.usuario_actual, 'Modulo5', 'Leccion6', self.all_correct)
+                        
+            if self.streak.get_current_streak() > 0:
+                update_streak(self.usuario_actual, self.streak.get_current_streak())
+            #Badge verification correct anwers streak
+            check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
+            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)           
+            update_lesson_dates(self.usuario_actual, "Modulo5", "Leccion_completada6")           
+            if are_lessons_completed_same_day(self.usuario_actual, "Modulo5") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
+                    display_badge('modulo_rapido')
+                    update_badge_progress(self.usuario_actual, 'modulo_rapido')
+            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo5") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
+                display_badge('doble_aprendizaje')
+                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
+            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
+                display_badge('Explorador_curioso')
+                update_badge_progress(self.usuario_actual, 'Explorador_curioso')
+            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'dominador_modulo'):
+                display_badge('dominador_modulo')
+                update_badge_progress(self.usuario_actual, 'dominador_modulo')
             self.close()
 
         else:

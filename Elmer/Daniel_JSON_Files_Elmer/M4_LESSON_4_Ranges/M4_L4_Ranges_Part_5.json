@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = list(range(7, 3, -1))\nprint(x)"
+                    "text": "Código de Python:\n\nx = list(range(7, 3, -1))\nprint(x)"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnumbers = list(range(5, 10, 2))"
+                    "text": "Código de Python:\n\nnumbers = list(range(5, 10, 2))"
                 }
             ],
             "answers": [

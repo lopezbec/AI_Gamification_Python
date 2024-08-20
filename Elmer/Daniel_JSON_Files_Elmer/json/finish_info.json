@@ -1,5 +1,6 @@
 {
-    "title_text": "Questionario finalizado, estas listo para aprender?",
+    "window_title": "Cuestionario Hexad-12",
+    "title_text": "Cuestionario finalizado, estas listo para aprender?",
     "title_font_size": 20,
     "title_margin": 10,
     "title_word_wrap": true,

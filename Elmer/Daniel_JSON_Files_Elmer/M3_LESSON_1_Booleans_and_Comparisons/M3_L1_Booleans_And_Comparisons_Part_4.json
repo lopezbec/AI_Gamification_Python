@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nx = 7\nprint(x != 8)\n>True\nprint(x > 5)\n>True\nprint(x < 2)\n>False\nprint(x >= 7)\n>True\nprint(x <= 7)\n>True"
+                    "text": "Código de Python:\n\nx = 7\nprint(x != 8)\n>True\nprint(x > 5)\n>True\nprint(x < 2)\n>False\nprint(x >= 7)\n>True\nprint(x <= 7)\n>True"
                 },
                 {
                     "type": "hint",
@@ -29,7 +29,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint(7!=8)\n>?"
+                    "text": "Código de Python:\n\nprint(7!=8)\n>?"
                 }
             ],
             "answers": [

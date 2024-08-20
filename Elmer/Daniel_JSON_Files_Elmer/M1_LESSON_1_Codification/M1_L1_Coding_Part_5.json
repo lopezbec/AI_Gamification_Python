@@ -41,7 +41,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nprint('Ahora eres el detective de códigos.)\n>SyntaxError: print('Ahora eres el detective de códigos.), Did you mean print('Ahora eres el detective de códigos.')?"
+                    "text": "Código de Python\n\nprint('Ahora eres el detective de códigos.)\n>SyntaxError: print('Ahora eres el detective de códigos.), Did you mean print('Ahora eres el detective de códigos.')?"
                 },
                 {
                     "type": "info",

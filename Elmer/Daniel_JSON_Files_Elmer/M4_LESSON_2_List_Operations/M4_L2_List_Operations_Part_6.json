@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nnums = [1, 2, 3]\nprint(not 4 in nums)\nprint(4 not in nums)\nprint(not 3 in nums)\nprint(3 not in nums)"
+                    "text": "Código de Python:\n\nnums = [1, 2, 3]\nprint(not 4 in nums)\nprint(4 not in nums)\nprint(not 3 in nums)\nprint(3 not in nums)"
                 }
             ]
         }
@@ -25,7 +25,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nletters = ['a', 'b', 'z']\n___ 'z' ___ letters:\n   print('Yes')"
+                    "text": "Código de Python:\n\nletters = ['a', 'b', 'z']\n___ 'z' ___ letters:\n   print('Yes')"
                 }
             ],
             "answers": [

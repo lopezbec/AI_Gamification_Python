@@ -1,0 +1,41 @@
+{
+    "pedagogical": [ 
+        {
+            "title": "Texto vs Números",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "En la Leccion 1, aprendió a usar el comando de impresión para enviar mensajes a la pantalla.  El siguiente código contiene dos lineas:  \n \n- Un numero es la salida en la primera linea. \n- Un fragmento de texto es la salida en la segunda linea."
+                },
+                {
+                    "type": "info",
+                    "text": "Hay algo mal con la segunda linea de código y devuelve un error. ¿Puedes arreglarlo?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint(2.71) \nprint(Octubre)\n>2.71\n>NameError: name 'Octubre' is not defined"
+                }
+            ]
+        }
+    ],
+
+    "pedagogical2": [ 
+        {
+            "title": "Tipo de datos de cadena",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Las computadoras procesan el texto y los números de manera diferente. Un fragmento de datos de texto se denomina cadena. \n Puede crear una cadena ingresando texto entre dos comillas simples o dobles."
+                },
+                {
+                    "type": "Consola",
+                    "text": "\nprint('Soy una cadena')\n>Soy una cadena"
+                },
+                {
+                    "type": "hint",
+                    "text": "Usamos comillas para decirle a Python que estamos trabajando con un dato de texto o una cadena. Elegir comillas dobles o simples ' no afecta el comportamiento de la cadena de ninguna manera."
+                }
+            ]
+        }
+    ]
+}
