@@ -1,27 +1,23 @@
-import sys
 import os
+import sys
 import json
-from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QToolButton, QMenu, QWidgetAction, QProgressBar, QMessageBox, QGridLayout
-from PyQt6.QtGui import QIcon, QAction
-from PyQt6 import QtWidgets, QtCore, QtGui
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
-from PyQt6.QtCore import pyqtSignal
-from PyQt6.QtWidgets import QMessageBox
-from name_window import NameWindow
-from pathlib import Path
-from PyQt6.QtWidgets import QApplication, QMenu
+from PyQt6.QtCore import pyqtSignal, Qt  
+from PyQt6.QtWidgets import QMessageBox, QMenu, QApplication, QMainWindow, QToolButton, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QWidgetAction, QProgressBar, QGridLayout  # Se agrega QGridLayout
+from PyQt6.QtGui import QAction, QIcon 
 from PyQt6 import QtWidgets, QtCore, QtGui
-from PyQt6.QtGui import QAction, QIcon
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
     add_user_streak_per_module
 from badge_system.display_cabinet import BadgeDisplayCabinet
+from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
+
 
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Guía de Usuario")
-        self.setWindowIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
+        self.setWindowIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))  # Establece el ícono de la ventana
         self.setGeometry(100, 100, 800, 600)
 
         layout = QtWidgets.QVBoxLayout(self)
@@ -29,6 +25,7 @@ class UserGuideDialog(QtWidgets.QDialog):
             "Sistema de puntos:\nCompletar una página = 1 punto\nResponder respuesta correctamente al primer intento = 2 puntos\nResponder respuesta correctamente al segundo o más intentos = 1 punto\nFinalizar una lección = 5 puntos")
         label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(label)
+
 
 class Config():
     def __init__(self):
@@ -39,45 +36,20 @@ class Config():
         with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "active_widgets", "game_elements_visibility.json")) as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
+
+
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
 
+        # Inicialización de módulos y configuración de lecciones
         self.new_instance = None
-        self.m1_lesson1_window = None
-        self.m1_lesson2_window = None
-        self.m1_lesson3_window = None
-        self.m1_lesson4_window = None
-        self.m1_lesson5_window = None
-
-        self.m2_lesson1_window = None
-        self.m2_lesson2_window = None
-        self.m2_lesson3_window = None
-
-        self.m3_lesson1_window = None
-        self.m3_lesson2_window = None
-        self.m3_lesson3_window = None
-        self.m3_lesson4_window = None
-        self.m3_lesson5_window = None
-
-        self.m4_lesson1_window = None
-        self.m4_lesson2_window = None
-        self.m4_lesson3_window = None
-        self.m4_lesson4_window = None
-        self.m4_lesson5_window = None
-
-        self.m5_lesson1_window = None
-        self.m5_lesson2_window = None
-        self.m5_lesson3_window = None
-        self.m5_lesson4_window = None
-        self.m5_lesson5_window = None
-        self.m5_lesson6_window = None
-        self.m5_lesson7_window = None
+        self.init_modules()
 
         self.estado_lecciones = {}
 
-        self.usuario_actual = self.load_current_user()  # Carga el usuario actual
-        self.progreso_usuario = self.load_user_progress(self.usuario_actual)  # Carga el progreso del usuario
+        self.usuario_actual = self.load_current_user()
+        self.progreso_usuario = self.load_user_progress(self.usuario_actual)
         self.lecciones_completadas_usuario = self.load_lesson_completed(self.usuario_actual)
         self.actualizar_lecciones(self.progreso_usuario)
         save_badge_progress_per_user(self.usuario_actual)
@@ -91,28 +63,51 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setGeometry(100, 100, 800, 600)
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']};")
 
+        # Configuración de la UI
         self.setup_ui()
 
+    def init_modules(self):
+        # Módulo 1
+        self.m1_lesson1_window = None
+        self.m1_lesson2_window = None
+        self.m1_lesson3_window = None
+        self.m1_lesson4_window = None
+        self.m1_lesson5_window = None
+
+        # Módulo 2
+        self.m2_lesson1_window = None
+        self.m2_lesson2_window = None
+        self.m2_lesson3_window = None
+
+        # Módulo 3
+        self.m3_lesson1_window = None
+        self.m3_lesson2_window = None
+        self.m3_lesson3_window = None
+        self.m3_lesson4_window = None
+        self.m3_lesson5_window = None
+
+        # Módulo 4
+        self.m4_lesson1_window = None
+        self.m4_lesson2_window = None
+        self.m4_lesson3_window = None
+        self.m4_lesson4_window = None
+        self.m4_lesson5_window = None
+
+        # Módulo 5
+        self.m5_lesson1_window = None
+        self.m5_lesson2_window = None
+        self.m5_lesson3_window = None
+        self.m5_lesson4_window = None
+        self.m5_lesson5_window = None
+        self.m5_lesson6_window = None
+        self.m5_lesson7_window = None
+
     def setup_ui(self):
-        self.setStyleSheet("""
-            QMenu {
-                background-color: #87CEEB;
-                border: none;
-            }
-            QMenu::item {
-                background-color: white;
-            }
-            QMenu::item:selected {
-                background-color: #ADD8E6;
-                color: black;
-            }
-        """)
-
-        central_widget = QtWidgets.QWidget()
+        central_widget = QWidget()
         self.setCentralWidget(central_widget)
-        layout = QtWidgets.QVBoxLayout(central_widget)
+        layout = QVBoxLayout(central_widget)
 
-        title = QtWidgets.QLabel("Menú - Módulos")
+        title = QLabel("Menú - Módulos")
         title.setStyleSheet(
             f"background-color: {self.styles['title_background_color']};"
             f"border: 1px solid {self.styles['title_border_color']};"
@@ -122,7 +117,7 @@ class MainWindow(QtWidgets.QMainWindow):
         title.setFixedHeight(50)
         layout.addWidget(title)
 
-        self.modulos_menu_widget = QtWidgets.QWidget()
+        self.modulos_menu_widget = QWidget()
         modulos_layout = QGridLayout(self.modulos_menu_widget)
 
         self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Modulo 1", 5, 2)
@@ -131,7 +126,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 2)
         self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Modulo 5", 7, 2)
 
-        # Reorganizar los botones de los módulos y quizzes
         self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo1_btn, self.modulo1_quiz_btn, 0)
         self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo2_btn, self.modulo2_quiz_btn, 1)
         self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo3_btn, self.modulo3_quiz_btn, 2)
@@ -140,152 +134,104 @@ class MainWindow(QtWidgets.QMainWindow):
 
         layout.addWidget(self.modulos_menu_widget)
 
-        button_layout = QtWidgets.QHBoxLayout()
-        button_reset_layout = QtWidgets.QVBoxLayout()
+        button_layout = QHBoxLayout()
+        button_reset_layout = QVBoxLayout()
 
         leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
         leaderboard_btn.setStyleSheet(
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         leaderboard_btn.clicked.connect(self.abrir_leaderboard)
         leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))
-        #button_layout.addWidget(leaderboard_btn)
 
+        # Botón de Guía de Usuarios
         guia_usuario_btn = QtWidgets.QPushButton("Guía de usuarios")
         guia_usuario_btn.setStyleSheet(
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
-        button_layout.addWidget(guia_usuario_btn)
 
-        #boton para Vitrina (display cabinet)
+        # Botón Display Cabinet
         display_cabinet_btn = QtWidgets.QPushButton("Mis insignias")
         display_cabinet_btn.setStyleSheet(
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
         display_cabinet_btn.clicked.connect(self.abrir_display_cabinet)
         display_cabinet_btn.setIcon(QtGui.QIcon('Icons/display_cabinet_icon.png'))
-        #button_layout.addWidget(display_cabinet_btn)
+        
 
         if Config.load_active_widgets().get("Leaderboard", True):
             button_layout.addWidget(leaderboard_btn)
+        if Config.load_active_widgets().get("Guía de usuarios", True):
+            button_layout.addWidget(guia_usuario_btn)
         if Config.load_active_widgets().get("display_cabinet", True):
             button_layout.addWidget(display_cabinet_btn)
+
+        
 
         layout.addLayout(button_layout)
         layout.addLayout(button_reset_layout)
 
-    # Función para actualizar los íconos de las lecciones en la interfaz de usuario
-    def update_lesson_icons(self, estado_usuario):
-        for nombre_modulo, lecciones in estado_usuario.items():
-            for nombre_leccion, estado in lecciones.items():
-                nombre_ventana = f"m{nombre_modulo[-1]}_lesson{nombre_leccion[-1]}_window"
-                ventana_leccion = getattr(self, nombre_ventana, None)
 
-                if ventana_leccion:
-                    accion_leccion = ventana_leccion.menuAction()
-                    icon_path = 'Icons/cerrado_icon.jpg' if estado else 'Icons/cerrado_icon.jpg'
-                    accion_leccion.setIcon(QIcon(icon_path))
-                    accion_leccion.setEnabled(estado)
-
-    def reiniciar_aplicacion(self):
-        self.close()
-        self.new_instance = MainWindow()
-        self.new_instance.showMaximized()
-
-    def recargar_progreso_usuario(self):
+    def abrir_quiz_con_motivo(self, nombre_modulo, numero_quiz, motivo):
         try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r',
-                      encoding='UTF-8') as file:
-                progreso = json.load(file)
-            self.progreso_usuario = progreso.get(self.usuario_actual, {})
-            self.actualizar_lecciones(self.progreso_usuario)
-            self.actualizar_quizzes()
-        except Exception as e:
-            print(f"Error al recargar el progreso del usuario: {e}")
+            estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+            quiz_clave = f"Quiz{numero_quiz}"
+            estado_quiz = estado_modulo.get(quiz_clave, False)
 
-    @staticmethod
-    def load_current_user():
-        try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'r',
-                      encoding='UTF-8') as file:
-                user_data = json.load(file)
-            return user_data.get("current_user")
-        except FileNotFoundError:
-            print("Archivo current_user.json no encontrado.")
-            return None
+            if numero_quiz == 1 and not self.desbloquear_quiz1(estado_modulo):
+                self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Quiz {numero_quiz}", motivo)
+                return
+            elif numero_quiz == 2 and not self.desbloquear_quiz2(estado_modulo):
+                self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Quiz {numero_quiz}", motivo)
+                return
 
-    @staticmethod
-    def load_user_progress(username):
-        try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r',
-                      encoding='UTF-8') as file:
-                progreso = json.load(file)
-            return progreso.get(username, {})
-        except FileNotFoundError:
-            print("Archivo progreso.json no encontrado.")
-            return {}
-
-    def actualizar_lecciones(self, estado_usuario):
-        self.estado_lecciones = {
-            "Modulo1": {
-                "Leccion1": estado_usuario.get("Modulo1", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo1", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo1", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo1", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo1", {}).get("Leccion5", False),
-                "Quiz1": estado_usuario.get("Modulo1", {}).get("Quiz1", False),
-                "Quiz2": estado_usuario.get("Modulo1", {}).get("Quiz2", False)
-            },
-            "Modulo2": {
-                "Leccion1": estado_usuario.get("Modulo2", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo2", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo2", {}).get("Leccion3", False),
-                "Quiz1": estado_usuario.get("Modulo2", {}).get("Quiz1", False),
-                "Quiz2": estado_usuario.get("Modulo2", {}).get("Quiz2", False)
-            },
-            "Modulo3": {
-                "Leccion1": estado_usuario.get("Modulo3", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo3", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo3", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo3", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo3", {}).get("Leccion5", False),
-                "Quiz1": estado_usuario.get("Modulo3", {}).get("Quiz1", False),
-                "Quiz2": estado_usuario.get("Modulo3", {}).get("Quiz2", False)
-            },
-            "Modulo4": {
-                "Leccion1": estado_usuario.get("Modulo4", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo4", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo4", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo4", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo4", {}).get("Leccion5", False),
-                "Quiz1": estado_usuario.get("Modulo4", {}).get("Quiz1", False),
-                "Quiz2": estado_usuario.get("Modulo4", {}).get("Quiz2", False)
-            },
-            "Modulo5": {
-                "Leccion1": estado_usuario.get("Modulo5", {}).get("Leccion1", False),
-                "Leccion2": estado_usuario.get("Modulo5", {}).get("Leccion2", False),
-                "Leccion3": estado_usuario.get("Modulo5", {}).get("Leccion3", False),
-                "Leccion4": estado_usuario.get("Modulo5", {}).get("Leccion4", False),
-                "Leccion5": estado_usuario.get("Modulo5", {}).get("Leccion5", False),
-                "Leccion6": estado_usuario.get("Modulo5", {}).get("Leccion6", False),
-                "Leccion7": estado_usuario.get("Modulo5", {}).get("Leccion7", False),
-                "Quiz1": estado_usuario.get("Modulo5", {}).get("Quiz1", False),
-                "Quiz2": estado_usuario.get("Modulo5", {}).get("Quiz2", False)
+            quiz_mapping = {
+                "Modulo 1": ["M1_Q1_Main.json", "M1_Q2_Main.json"],
+                "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json"],
+                "Modulo 3": ["M3_Q1_Main.json", "M3_Q2_Main.json"],
+                "Modulo 4": ["M4_Q1_Main.json", "M4_Q2_Main.json"],
+                "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json"]
             }
-        }
 
-    def actualizar_quizzes(self):
-        for modulo, lecciones in self.estado_lecciones.items():
-            for i in range(1, len(lecciones) // 2 + 1):
-                if i < len(lecciones) // 2:
-                    leccion_actual = f"Leccion{i}"
-                    leccion_siguiente = f"Leccion{i+1}"
-                    if lecciones[leccion_actual] and not lecciones[leccion_siguiente]:
-                        lecciones[leccion_siguiente] = True
-                else:
-                    quiz_actual = f"Quiz{i - len(lecciones) // 2 + 1}"
-                    if lecciones[f"Leccion{i}"] and not lecciones[quiz_actual]:
-                        lecciones[quiz_actual] = True
+            if nombre_modulo in quiz_mapping and numero_quiz <= len(quiz_mapping[nombre_modulo]):
+                quiz_file = quiz_mapping[nombre_modulo][numero_quiz - 1]
+                quiz_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', quiz_file)
+                self.quiz_window = MMQW(quiz_path)
+                self.quiz_window.showMaximized()
+            else:
+                print(f"Quiz {numero_quiz} no disponible para {nombre_modulo}")
+        except Exception as e:
+            print(f"Error al abrir {nombre_modulo} - Quiz {numero_quiz}: {e}")
+            print(f"Error en línea {sys.exc_info()[2].tb_lineno}")
 
+
+
+    def setup_modulos_menu(self, nombre_modulo, numero_lecciones, numero_quizzes):
+        modulos_btn = QToolButton()
+        modulos_btn.setText(nombre_modulo)
+        modulos_btn.setStyleSheet(
+            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;"
+            "border: 2px solid black; border-radius: 10px; padding: 5px;")
+        modulos_btn.setFixedSize(171, 80)
+
+        quizzes_btn = QToolButton()
+        quizzes_btn.setText(f"Quizzes {nombre_modulo}")
+        quizzes_btn.setStyleSheet(
+            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+
+        modulos_menu = QMenu()
+        quizzes_menu = QMenu()
+
+        self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
+        self.añadir_submenu_quiz(nombre_modulo, quizzes_menu, numero_quizzes)
+
+        modulos_btn.setMenu(modulos_menu)
+        modulos_btn.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
+
+        quizzes_btn.setMenu(quizzes_menu)
+        quizzes_btn.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
+
+        return modulos_btn, quizzes_btn
+    
     def desbloquear_quiz1(self, estado_modulo):
         todas_lecciones_completadas = all(estado for clave, estado in estado_modulo.items() if 'Leccion' in clave)
         return todas_lecciones_completadas
@@ -294,20 +240,26 @@ class MainWindow(QtWidgets.QMainWindow):
         quiz1_completado = estado_modulo.get("Quiz1", False)
         return quiz1_completado
 
-    @staticmethod
-    def load_lesson_completed(username):
+    
+    def calcular_progreso_del_modulo(self, estado_modulo):
+        lecciones_completadas = sum(estado == True for estado in estado_modulo.values())
+        return lecciones_completadas
+
+
+    def load_lesson_completed(self, username):
         try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r',
-                      encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 all_users_progress = json.load(file)
             return all_users_progress.get(username, {})
         except FileNotFoundError:
             print("Archivo leccion_completada.json no encontrado.")
             return {}
 
+    def add_module_buttons_to_grid_layout(self, layout, row, modulo_btn, quizzes_btn, col):
+        layout.addWidget(modulo_btn, row, col, 1, 1)
+        layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
+
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
-        # Eliminamos la creación de un submenú adicional y en su lugar
-        # añadimos las acciones directamente al botón del módulo.
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_progreso_modulo = self.lecciones_completadas_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(self.usuario_actual)
@@ -318,7 +270,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             leccion_completada = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
                 f"Leccion_completada{leccion_numero}", False)
-            
+
             if leccion_completada:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
             elif estado_leccion:
@@ -328,13 +280,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
             accion_leccion = QAction(f"Lección {leccion_numero}", self)
             accion_leccion.setIcon(QIcon(icono))
-            accion_leccion.setEnabled(estado_leccion)
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
             boton_modulo.addAction(accion_leccion)
 
-        # Agrega una barra de progreso al final de cada menú desplegable
         progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo)
-        barra_progreso = QtWidgets.QProgressBar()
+        barra_progreso = QProgressBar()
         barra_progreso.setValue(progreso)
         barra_progreso.setMaximum(numero_lecciones)
         barra_progreso.setTextVisible(True)
@@ -382,51 +332,108 @@ class MainWindow(QtWidgets.QMainWindow):
 
             boton_quiz.addAction(accion_quiz)
 
-    def mostrar_mensaje_no_disponible(self, nombre_modulo, numero_quiz):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Icon.Information)
-        msg.setWindowTitle("Quiz No Disponible")
-        msg.setText(f"Lo siento, el {nombre_modulo} - Quiz {numero_quiz} no está disponible. ¡Muy pronto!")
-        msg.exec()
+    def abrir_display_cabinet(self, username):
+        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
+        self.display_cabinet.show()
 
-    def abrir_quiz_con_motivo(self, nombre_modulo, numero_quiz, motivo):
+    def abrir_leaderboard(self):
+        LeaderBoard()
+
+    def reiniciar_aplicacion(self):
+        self.close()
+        self.new_instance = MainWindow()
+        self.new_instance.showMaximized()
+
+    def recargar_progreso_usuario(self):
         try:
-            estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
-            quiz_clave = f"Quiz{numero_quiz}"
-            estado_quiz = estado_modulo.get(quiz_clave, False)
-
-            if numero_quiz == 1 and not self.desbloquear_quiz1(estado_modulo):
-                self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Quiz {numero_quiz}", motivo)
-                return
-            elif numero_quiz == 2 and not self.desbloquear_quiz2(estado_modulo):
-                self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Quiz {numero_quiz}", motivo)
-                return
-
-            quiz_mapping = {
-                "Modulo 1": ["M1_Q1_Main.json", "M1_Q2_Main.json"],
-                "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json"],
-                "Modulo 3": ["M3_Q1_Main.json", "M3_Q2_Main.json"],
-                "Modulo 4": ["M4_Q1_Main.json", "M4_Q2_Main.json"],
-                "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json"]
-            }
-
-            if nombre_modulo in quiz_mapping and numero_quiz <= len(quiz_mapping[nombre_modulo]):
-                quiz_file = quiz_mapping[nombre_modulo][numero_quiz - 1]
-                quiz_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', quiz_file)
-                self.quiz_window = MMQW(quiz_path)
-                self.quiz_window.showMaximized()
-            else:
-                print(f"Quiz {numero_quiz} no disponible para {nombre_modulo}")
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
+                progreso = json.load(file)
+            self.progreso_usuario = progreso.get(self.usuario_actual, {})
+            self.actualizar_lecciones(self.progreso_usuario)
+            self.actualizar_quizzes()
         except Exception as e:
-            print(f"Error al abrir {nombre_modulo} - Quiz {numero_quiz}: {e}")
-            print(f"Error en línea {sys.exc_info()[2].tb_lineno}")
+            print(f"Error al recargar el progreso del usuario: {e}")
 
-    def calcular_progreso_del_modulo(self, estado_modulo):
-        lecciones_completadas = sum(estado == True for estado in estado_modulo.values())
-        return lecciones_completadas
+    @staticmethod
+    def load_current_user():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'current_user.json'), 'r',
+                      encoding='UTF-8') as file:
+                user_data = json.load(file)
+            return user_data.get("current_user")
+        except FileNotFoundError:
+            print("Archivo current_user.json no encontrado.")
+            return None
+
+    @staticmethod
+    def load_user_progress(username):
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
+                progreso = json.load(file)
+            return progreso.get(username, {})
+        except FileNotFoundError:
+            print("Archivo progreso.json no encontrado.")
+            return {}
+
+    def actualizar_lecciones(self, estado_usuario):
+        # Modulo 1
+        self.estado_lecciones = {
+            "Modulo1": {
+                "Leccion1": estado_usuario.get("Modulo1", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo1", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo1", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo1", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo1", {}).get("Leccion5", False),
+            },
+            "Modulo2": {
+                "Leccion1": estado_usuario.get("Modulo2", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo2", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo2", {}).get("Leccion3", False),
+            },
+            "Modulo3": {
+                "Leccion1": estado_usuario.get("Modulo3", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo3", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo3", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo3", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo3", {}).get("Leccion5", False),
+            },
+            "Modulo4": {
+                "Leccion1": estado_usuario.get("Modulo4", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo4", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo4", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo4", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo4", {}).get("Leccion5", False),
+            },
+            "Modulo5": {
+                "Leccion1": estado_usuario.get("Modulo5", {}).get("Leccion1", False),
+                "Leccion2": estado_usuario.get("Modulo5", {}).get("Leccion2", False),
+                "Leccion3": estado_usuario.get("Modulo5", {}).get("Leccion3", False),
+                "Leccion4": estado_usuario.get("Modulo5", {}).get("Leccion4", False),
+                "Leccion5": estado_usuario.get("Modulo5", {}).get("Leccion5", False),
+                "Leccion6": estado_usuario.get("Modulo5", {}).get("Leccion6", False),
+                "Leccion7": estado_usuario.get("Modulo5", {}).get("Leccion7", False)
+            }
+        }
+
+    def actualizar_quizzes(self):
+        for modulo, lecciones in self.estado_lecciones.items():
+            for i in range(1, len(lecciones) // 2 + 1):
+                if i < len(lecciones) // 2:
+                    leccion_actual = f"Leccion{i}"
+                    leccion_siguiente = f"Leccion{i+1}"
+                    if lecciones[leccion_actual] and not lecciones[leccion_siguiente]:
+                        lecciones[leccion_siguiente] = True
+                else:
+                    quiz_actual = f"Quiz{i - len(lecciones) // 2 + 1}"
+                    if lecciones[f"Leccion{i}"] and not lecciones[quiz_actual]:
+                        lecciones[quiz_actual] = True
 
     def abrir_leccion(self, nombre_modulo, numero_leccion):
         try:
+            # Aquí mantendremos las importaciones necesarias como se manejan en ambos códigos
+            # Importar Lecciones
             from M1_LESSON_1_Codification.M1_L1_Main import M1_L1_Main as m1l1
             from M1_LESSON_2_Working_with_Numerical_Data.M1_L2_Main import M1_L2_Main as m1l2
             from M1_LESSON_3_Working_with_Text_Data.M1_L3_Main import M1_L3_Main as m1l3
@@ -452,7 +459,6 @@ class MainWindow(QtWidgets.QMainWindow):
             from M5_LESSON_5_Function_Arguments.M5_L5_Main import M5_L5_Main as m5l5
             from M5_LESSON_6_Returning_From_Functions.M5_L6_Main import M5_L6_Main as m5l6
             from M5_LESSON_7_Comments_and_Docstrings.M5_L7_Main import M5_L7_Main as m5l7
-            # Importar otros modulos solo necesarios en este metodo
 
             nombre_modulo_key = nombre_modulo.replace(" ", "")
             if self.estado_lecciones[nombre_modulo_key]["Leccion" + str(numero_leccion)]:
@@ -482,106 +488,110 @@ class MainWindow(QtWidgets.QMainWindow):
                             self.m1_lesson5_window = m1l5()
                         self.close()
                         self.m1_lesson5_window.showMaximized()
+                
                 elif nombre_modulo == "Modulo 2":
                     if numero_leccion == 1:
                         if not self.m2_lesson1_window:
                             self.m2_lesson1_window = m2l1()
                         self.close()
                         self.m2_lesson1_window.showMaximized()
-                    if numero_leccion == 2:
+                    elif numero_leccion == 2:
                         if not self.m2_lesson2_window:
                             self.m2_lesson2_window = m2l2()
                         self.close()
                         self.m2_lesson2_window.showMaximized()
-                    if numero_leccion == 3:
+                    elif numero_leccion == 3:
                         if not self.m2_lesson3_window:
                             self.m2_lesson3_window = m2l3()
                         self.close()
                         self.m2_lesson3_window.showMaximized()
+                
                 elif nombre_modulo == "Modulo 3":
                     if numero_leccion == 1:
                         if not self.m3_lesson1_window:
                             self.m3_lesson1_window = m3l1()
                         self.close()
                         self.m3_lesson1_window.showMaximized()
-                    if numero_leccion == 2:
+                    elif numero_leccion == 2:
                         if not self.m3_lesson2_window:
                             self.m3_lesson2_window = m3l2()
                         self.close()
                         self.m3_lesson2_window.showMaximized()
-                    if numero_leccion == 3:
+                    elif numero_leccion == 3:
                         if not self.m3_lesson3_window:
                             self.m3_lesson3_window = m3l3()
                         self.close()
                         self.m3_lesson3_window.showMaximized()
-                    if numero_leccion == 4:
+                    elif numero_leccion == 4:
                         if not self.m3_lesson4_window:
                             self.m3_lesson4_window = m3l4()
                         self.close()
                         self.m3_lesson4_window.showMaximized()
-                    if numero_leccion == 5:
+                    elif numero_leccion == 5:
                         if not self.m3_lesson5_window:
                             self.m3_lesson5_window = m3l5()
                         self.close()
                         self.m3_lesson5_window.showMaximized()
+                
                 elif nombre_modulo == "Modulo 4":
                     if numero_leccion == 1:
                         if not self.m4_lesson1_window:
                             self.m4_lesson1_window = m4l1()
                         self.close()
                         self.m4_lesson1_window.showMaximized()
-                    if numero_leccion == 2:
+                    elif numero_leccion == 2:
                         if not self.m4_lesson2_window:
                             self.m4_lesson2_window = m4l2()
                         self.close()
                         self.m4_lesson2_window.showMaximized()
-                    if numero_leccion == 3:
+                    elif numero_leccion == 3:
                         if not self.m4_lesson3_window:
                             self.m4_lesson3_window = m4l3()
                         self.close()
                         self.m4_lesson3_window.showMaximized()
-                    if numero_leccion == 4:
+                    elif numero_leccion == 4:
                         if not self.m4_lesson4_window:
                             self.m4_lesson4_window = m4l4()
                         self.close()
                         self.m4_lesson4_window.showMaximized()
-                    if numero_leccion == 5:
+                    elif numero_leccion == 5:
                         if not self.m4_lesson5_window:
                             self.m4_lesson5_window = m4l5()
                         self.close()
                         self.m4_lesson5_window.showMaximized()
+                
                 elif nombre_modulo == "Modulo 5":
                     if numero_leccion == 1:
                         if not self.m5_lesson1_window:
                             self.m5_lesson1_window = m5l1()
                         self.close()
                         self.m5_lesson1_window.showMaximized()
-                    if numero_leccion == 2:
+                    elif numero_leccion == 2:
                         if not self.m5_lesson2_window:
                             self.m5_lesson2_window = m5l2()
                         self.close()
                         self.m5_lesson2_window.showMaximized()
-                    if numero_leccion == 3:
+                    elif numero_leccion == 3:
                         if not self.m5_lesson3_window:
                             self.m5_lesson3_window = m5l3()
                         self.close()
                         self.m5_lesson3_window.showMaximized()
-                    if numero_leccion == 4:
+                    elif numero_leccion == 4:
                         if not self.m5_lesson4_window:
                             self.m5_lesson4_window = m5l4()
                         self.close()
                         self.m5_lesson4_window.showMaximized()
-                    if numero_leccion == 5:
+                    elif numero_leccion == 5:
                         if not self.m5_lesson5_window:
                             self.m5_lesson5_window = m5l5()
                         self.close()
                         self.m5_lesson5_window.showMaximized()
-                    if numero_leccion == 6:
+                    elif numero_leccion == 6:
                         if not self.m5_lesson6_window:
                             self.m5_lesson6_window = m5l6()
                         self.close()
                         self.m5_lesson6_window.showMaximized()
-                    if numero_leccion == 7:
+                    elif numero_leccion == 7:
                         if not self.m5_lesson7_window:
                             self.m5_lesson7_window = m5l7()
                         self.close()
@@ -600,42 +610,6 @@ class MainWindow(QtWidgets.QMainWindow):
         msg.setText(f"Lo siento, {nombre_modulo} está bloqueado. {motivo}")
         msg.exec()
 
-    # Estilos de los botones del Main (Comments by Daniel)
-    def setup_modulos_menu(self, nombre_modulo, numero_lecciones):
-        modulos_btn = QtWidgets.QToolButton()
-        modulos_btn.setText(nombre_modulo)
-        modulos_btn.setStyleSheet(
-            f"""
-            background-color: {self.styles['submit_button_color']};
-            font-size: {self.styles['font_size_buttons']}px;
-            border: 2px solid black;
-            border-radius: 10px;
-            padding: 5px;
-            """
-        )
-        # Para cambiar las dimensiones de los botones Modulo.
-        modulos_btn.setFixedSize(171, 80)  # Ajusta el tamaño (ancho, alto) // Botones Modulo 1, Modulo 2, etc.
-
-        quizzes_btn = QtWidgets.QToolButton()
-        quizzes_btn.setText(f"Quizzes {nombre_modulo}")
-        quizzes_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
-
-        modulos_menu = QtWidgets.QMenu()
-        quizzes_menu = QtWidgets.QMenu()
-
-        self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
-        self.añadir_submenu_quiz(nombre_modulo, quizzes_menu, numero_quizzes)
-
-        modulos_btn.setMenu(modulos_menu)
-        modulos_btn.setPopupMode(QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup)
-
-        return modulos_btn
-    
-    def abrir_display_cabinet(self, username):
-        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
-        self.display_cabinet.show()
-
     @staticmethod
     def load_styles(file):
         with open(file, 'r') as json_file:
@@ -646,14 +620,15 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog = UserGuideDialog(self)
         dialog.exec()
 
-    @staticmethod
-    def abrir_leaderboard():
+    def abrir_leaderboard(self):
         LeaderBoard()
+
 
 def open_main_window():
     mainWin = MainWindow()
     mainWin.showMaximized()
     sys.exit(app.exec())
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -661,3 +636,4 @@ if __name__ == "__main__":
     intro_pages.showMaximized()
     app.exec()
     open_main_window()
+

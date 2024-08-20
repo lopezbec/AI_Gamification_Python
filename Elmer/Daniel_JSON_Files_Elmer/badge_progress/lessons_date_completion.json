@@ -368,5 +368,116 @@
             "Leccion_completada6": "",
             "Leccion_completada7": ""
         }
+    },
+    "Juan": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
+    },
+    "Marcos": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
+    },
+    "ElmerL": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
     }
 }
