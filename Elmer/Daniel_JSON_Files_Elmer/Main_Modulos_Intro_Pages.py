@@ -81,6 +81,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.usuario_actual = self.load_current_user()  # Carga el usuario actual
         self.progreso_usuario = self.load_user_progress(self.usuario_actual)  # Carga el progreso del usuario
+        self.lecciones_completadas_usuario = self.load_lesson_completed(self.usuario_actual)
         self.actualizar_lecciones(self.progreso_usuario)
         save_badge_progress_per_user(self.usuario_actual)
         create_lessons_date_completion(self.usuario_actual)
@@ -302,6 +303,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Eliminamos la creación de un submenú adicional y en su lugar
         # añadimos las acciones directamente al botón del módulo.
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+        estado_progreso_modulo = self.lecciones_completadas_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(self.usuario_actual)
 
         for leccion_numero in range(1, numero_lecciones + 1):
@@ -324,7 +326,7 @@ class MainWindow(QtWidgets.QMainWindow):
             boton_modulo.addAction(accion_leccion)  # Añadimos la acción directamente al botón del módulo.
 
         # Agrega una barra de progreso al final de cada menú desplegable
-        progreso = self.calcular_progreso_del_modulo(estado_modulo)
+        progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo)
         barra_progreso = QtWidgets.QProgressBar()
         barra_progreso.setValue(progreso)
         barra_progreso.setMaximum(numero_lecciones)
