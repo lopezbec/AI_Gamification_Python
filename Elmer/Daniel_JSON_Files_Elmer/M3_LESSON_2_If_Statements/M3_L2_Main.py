@@ -4,7 +4,7 @@ import sys
 import csv
 import json
 import datetime
-import drag_drop
+import drag_drop as drag_drop
 
 from functools import partial
 from PyQt6.QtGui import QFont

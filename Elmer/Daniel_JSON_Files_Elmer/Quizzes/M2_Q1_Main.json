@@ -1,0 +1,56 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 2 - PRIMERA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "spam = '7'\nspam = spam + '0'\neggs = int(spam) + 3\nprint(float(eggs))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "73.0",
+                    "correct": true
+                },
+                {
+                    "text": "10.0",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "completeblankspace": [
+        {
+            "title": "QUIZ - MODULO 2 - PRIMERA PARTE CONTINUACION",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la salida de este código si el usuario introduce '42' como entrada?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nage = int(input())\nprint(age+8)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "8",
+                    "correct": false
+                },
+                {
+                    "text": "42",
+                    "correct": false
+                },
+                {
+                    "text": "50",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

@@ -120,12 +120,12 @@ class NameWindow(QMainWindow):
     @staticmethod
     def _update_progress_json(username):
         progreso_inicial = {
-            "Modulo1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False},
-            "Modulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False},
-            "Modulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False},
-            "Modulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False},
+            "Modulo1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "Modulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False},
+            "Modulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "Modulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
             "Modulo5": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False,
-                        "Leccion6": False, "Leccion7": False}
+                        "Leccion6": False, "Leccion7": False, "Quiz1": False, "Quiz2": False}
         }
 
         try:
@@ -246,23 +246,30 @@ class NameWindow(QMainWindow):
     def agregar_usuario_leccion_completada(username):
         # Añadir usuario a leccion_completada.json
         try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r',
+                      encoding='UTF-8') as file:
                 progreso = json.load(file)
         except Exception as e:
             print(f"Error archivo: {e}")
+            progreso = {}
 
         try:
-
             if username not in progreso:
                 progreso[username] = {
-                    "Modulo1": {f"Leccion_completada{i}": False for i in range(1, 6)},
-                    "Modulo2": {f"Leccion_completada{i}": False for i in range(1, 4)},
-                    "Modulo3": {f"Leccion_completada{i}": False for i in range(1, 6)},
-                    "Modulo4": {f"Leccion_completada{i}": False for i in range(1, 6)},
-                    "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)}
+                    "Modulo1": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
+                                                                                         for i in range(1, 3)},
+                    "Modulo2": {f"Leccion_completada{i}": False for i in range(1, 4)} | {f"Quiz_completado{i}": False
+                                                                                         for i in range(1, 3)},
+                    "Modulo3": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
+                                                                                         for i in range(1, 3)},
+                    "Modulo4": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
+                                                                                         for i in range(1, 3)},
+                    "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)} | {f"Quiz_completado{i}": False
+                                                                                         for i in range(1, 3)}
                 }
 
-                with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+                with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w',
+                          encoding='UTF-8') as file:
                     json.dump(progreso, file, indent=4)
 
         except Exception as e:

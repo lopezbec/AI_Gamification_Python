@@ -1,0 +1,56 @@
+{
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 1 - SEGUNDA PARTE",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para generar la suma de '42' mas '5'"
+                },
+                {
+                    "type": "Consola",
+                    "text": "print(___ ___ ___)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "'42'"
+                },
+                {
+                    "text": "+"
+                },
+                {
+                    "text": "'5'"
+                }
+            ],
+            "correctOrder": ["'42'", "+", "'5'"]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 1 - SEGUNDA PARTE CONTINUACION",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál de los siguientes es un float (decimal)?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Ninguno",
+                    "correct": true
+                },
+                {
+                    "text": "100",
+                    "correct": false
+                },
+                {
+                    "text": "1.-1",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

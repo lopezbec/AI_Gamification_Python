@@ -3,7 +3,7 @@ import os
 import csv
 import json
 import datetime
-import drag_drop
+import drag_drop as drag_drop
 
 from functools import partial
 from PyQt6.QtGui import QFont
@@ -12,7 +12,6 @@ from game_features.progress_bar import ProgressBar
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
-from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
