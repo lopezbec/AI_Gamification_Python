@@ -3,17 +3,17 @@ import sys
 import json
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
-from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtCore import pyqtSignal, Qt
 from PyQt6.QtWidgets import QMessageBox
 from name_window import NameWindow
 from pathlib import Path
-from PyQt6.QtWidgets import QApplication, QMenu
+from PyQt6.QtWidgets import QApplication, QMenu, QLabel
 from PyQt6 import QtWidgets, QtCore, QtGui
-from PyQt6.QtGui import QAction, QIcon
+from PyQt6.QtGui import QAction, QIcon, QFont
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
     add_user_streak_per_module
 from badge_system.display_cabinet import BadgeDisplayCabinet
-
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -39,6 +39,8 @@ class Config():
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        leaderboard_instance = get_instance()
+        self.user_score = leaderboard_instance.get_current_user_score()
 
         # Carga de estilos y configuración inicial de la ventana
         # Módulo 1
@@ -131,6 +133,18 @@ class MainWindow(QtWidgets.QMainWindow):
         title.setFixedHeight(50)
         layout.addWidget(title)
 
+        #Añadir Elemento de juego de puntos
+        # Crear el widget de puntos
+        self.puntos = QLabel(f"Puntuación Actual: {self.user_score}")
+        self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
+        puntos_font = QFont()
+        puntos_font.setPointSize(self.styles["font_size_normal"])
+        self.puntos.setFont(puntos_font)
+        self.puntos.setFixedHeight(60)
+        self.puntos.setMargin(10)
+        layout.addWidget(self.puntos)
+        
         # Añadir botones de módulo debajo del título
         self.modulos_menu_widget = QtWidgets.QWidget()
         modulos_layout = QtWidgets.QHBoxLayout(self.modulos_menu_widget)
