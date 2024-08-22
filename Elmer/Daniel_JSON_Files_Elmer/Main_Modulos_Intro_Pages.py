@@ -107,25 +107,53 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(central_widget)
         layout = QVBoxLayout(central_widget)
 
+        # Layout para manejar la alineación del título y el nombre del usuario
+        title_layout = QHBoxLayout()
+
+        # Título del menú
         title = QLabel("Menú - Módulos")
         title.setStyleSheet(
-            f"background-color: {self.styles['title_background_color']};"
-            f"border: 1px solid {self.styles['title_border_color']};"
-            f"color: {self.styles['title_text_color']};"
-            f"font-size: {self.styles['font_size_titles']}px;")
-        title.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            "background-color: #1E88E5;"
+            "border: none;"
+            "color: white;"
+            "font-size: 24px;"
+            "font-weight: bold;"
+            "padding: 10px;")
+        title.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         title.setFixedHeight(50)
-        layout.addWidget(title)
 
+        # Nombre del usuario alineado a la derecha
+        user_name = QLabel(f"Bienvenido, {self.usuario_actual}")
+        user_name.setStyleSheet(
+            "background-color: #1E88E5;"
+            "color: white;"
+            "font-size: 18px;"
+            "padding-right: 15px;")
+        user_name.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
+        user_name.setFixedHeight(50)
+
+        # Agregar el título y el nombre del usuario al layout
+        title_layout.addWidget(title)
+        title_layout.addWidget(user_name)
+        layout.addLayout(title_layout)
+
+        # Widget para los módulos
         self.modulos_menu_widget = QWidget()
         modulos_layout = QGridLayout(self.modulos_menu_widget)
+        modulos_layout.setHorizontalSpacing(30)
+        modulos_layout.setVerticalSpacing(30)
 
-        self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Modulo 1", 5, 2)
-        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 3, 2)
-        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 2)
-        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 2)
-        self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Modulo 5", 7, 2)
+        self.usuario_actual = self.cargar_usuario_actual()
+        self.lecciones_completadas_usuario = self.cargar_lecciones_completadas()
 
+        # Configurar menús de módulos con estilo moderno
+        self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Modulo 1", 5, 2, True)
+        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 5, 2, self.is_modulo_completado("Modulo 1"))
+        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 2, self.is_modulo_completado("Modulo 2"))
+        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 2, self.is_modulo_completado("Modulo 3"))
+        self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Modulo 5", 7, 2, self.is_modulo_completado("Modulo 4"))
+
+        # Añadir los botones de los módulos y quizzes al layout de la cuadrícula
         self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo1_btn, self.modulo1_quiz_btn, 0)
         self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo2_btn, self.modulo2_quiz_btn, 1)
         self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo3_btn, self.modulo3_quiz_btn, 2)
@@ -134,30 +162,41 @@ class MainWindow(QtWidgets.QMainWindow):
 
         layout.addWidget(self.modulos_menu_widget)
 
+        # Layout horizontal para los botones inferiores
         button_layout = QHBoxLayout()
-        button_reset_layout = QVBoxLayout()
+        button_layout.setSpacing(30)
 
         leaderboard_btn = QtWidgets.QPushButton("Leaderboard")
         leaderboard_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            "background-color: #26A69A;"
+            "color: white;"
+            "font-size: 16px;"
+            "border-radius: 15px;"
+            "padding: 8px 20px;")
         leaderboard_btn.clicked.connect(self.abrir_leaderboard)
         leaderboard_btn.setIcon(QtGui.QIcon('Icons/leaderboard_icon.png'))
 
-        # Botón de Guía de Usuarios
         guia_usuario_btn = QtWidgets.QPushButton("Guía de usuarios")
         guia_usuario_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            "background-color: #26A69A;"
+            "color: white;"
+            "font-size: 16px;"
+            "border-radius: 15px;"
+            "padding: 8px 20px;")
         guia_usuario_btn.clicked.connect(self.abrir_guia_usuario)
         guia_usuario_btn.setIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
 
-        # Botón Display Cabinet
         display_cabinet_btn = QtWidgets.QPushButton("Mis insignias")
         display_cabinet_btn.setStyleSheet(
-            f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;")
+            "background-color: #26A69A;"
+            "color: white;"
+            "font-size: 16px;"
+            "border-radius: 15px;"
+            "padding: 8px 20px;")
         display_cabinet_btn.clicked.connect(self.abrir_display_cabinet)
         display_cabinet_btn.setIcon(QtGui.QIcon('Icons/display_cabinet_icon.png'))
-        
 
+        # Agregar botones al layout solo si están activos en la configuración
         if Config.load_active_widgets().get("Leaderboard", True):
             button_layout.addWidget(leaderboard_btn)
         if Config.load_active_widgets().get("Guía de usuarios", True):
@@ -165,10 +204,29 @@ class MainWindow(QtWidgets.QMainWindow):
         if Config.load_active_widgets().get("display_cabinet", True):
             button_layout.addWidget(display_cabinet_btn)
 
-        
-
         layout.addLayout(button_layout)
-        layout.addLayout(button_reset_layout)
+
+
+
+    def cargar_usuario_actual(self):
+        # Cargar el usuario actual desde el archivo JSON
+        with open("current_user.json", "r") as file:
+            data = json.load(file)
+        return data["current_user"]
+
+    def cargar_lecciones_completadas(self):
+        # Cargar el progreso de lecciones completadas del usuario actual
+        with open("leccion_completada.json", "r") as file:
+            data = json.load(file)
+        return data.get(self.usuario_actual, {})
+
+    def is_modulo_completado(self, nombre_modulo):
+        lecciones = self.lecciones_completadas_usuario.get(nombre_modulo, {})
+        for key, value in lecciones.items():
+            if not value:
+                return False
+        return True
+
 
 
     def abrir_quiz_con_motivo(self, nombre_modulo, numero_quiz, motivo):
@@ -205,7 +263,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 
-    def setup_modulos_menu(self, nombre_modulo, numero_lecciones, numero_quizzes):
+    def setup_modulos_menu(self, nombre_modulo, numero_lecciones, numero_quizzes, modulo_anterior_completado):
         modulos_btn = QToolButton()
         modulos_btn.setText(nombre_modulo)
         modulos_btn.setStyleSheet(
@@ -221,8 +279,15 @@ class MainWindow(QtWidgets.QMainWindow):
         modulos_menu = QMenu()
         quizzes_menu = QMenu()
 
-        self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
-        self.añadir_submenu_quiz(nombre_modulo, quizzes_menu, numero_quizzes)
+        if modulo_anterior_completado:
+            self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
+            self.añadir_submenu_quiz(nombre_modulo, quizzes_menu, numero_quizzes)
+        else:
+            # Mostrar mensaje de advertencia si el módulo anterior no está completado
+            modulos_btn.setEnabled(False)
+            quizzes_btn.setEnabled(False)
+            modulos_btn.setToolTip("Debes completar el módulo anterior para desbloquear este módulo.")
+            quizzes_btn.setToolTip("Debes completar el módulo anterior para desbloquear los quizzes.")
 
         modulos_btn.setMenu(modulos_menu)
         modulos_btn.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
@@ -231,14 +296,15 @@ class MainWindow(QtWidgets.QMainWindow):
         quizzes_btn.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
 
         return modulos_btn, quizzes_btn
-    
+        
     def desbloquear_quiz1(self, estado_modulo):
-        todas_lecciones_completadas = all(estado for clave, estado in estado_modulo.items() if 'Leccion' in clave)
+        todas_lecciones_completadas = all(estado for clave, estado in estado_modulo.items() if 'Leccion_completada' in clave)
         return todas_lecciones_completadas
 
     def desbloquear_quiz2(self, estado_modulo):
-        quiz1_completado = estado_modulo.get("Quiz1", False)
+        quiz1_completado = estado_modulo.get("Quiz_completado1", False)
         return quiz1_completado
+
 
     
     def calcular_progreso_del_modulo(self, estado_modulo):
@@ -255,21 +321,29 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Archivo leccion_completada.json no encontrado.")
             return {}
 
+
     def add_module_buttons_to_grid_layout(self, layout, row, modulo_btn, quizzes_btn, col):
         layout.addWidget(modulo_btn, row, col, 1, 1)
         layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
 
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
+        # Obtener el estado de progreso del usuario
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_progreso_modulo = self.lecciones_completadas_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(self.usuario_actual)
 
+        todas_bloqueadas = True
+
+        # Iterar sobre las lecciones para crear acciones y establecer íconos
         for leccion_numero in range(1, numero_lecciones + 1):
             leccion_clave = f"Leccion{leccion_numero}"
             estado_leccion = estado_modulo.get(leccion_clave, False)
 
             leccion_completada = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
                 f"Leccion_completada{leccion_numero}", False)
+
+            if leccion_completada or estado_leccion:
+                todas_bloqueadas = False
 
             if leccion_completada:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
@@ -278,11 +352,13 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
 
+            # Crear la acción para la lección con el ícono correspondiente
             accion_leccion = QAction(f"Lección {leccion_numero}", self)
             accion_leccion.setIcon(QIcon(icono))
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
             boton_modulo.addAction(accion_leccion)
 
+        # Calcular y agregar la barra de progreso
         progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo)
         barra_progreso = QProgressBar()
         barra_progreso.setValue(progreso)
@@ -291,6 +367,8 @@ class MainWindow(QtWidgets.QMainWindow):
         barra_progreso_action = QWidgetAction(self)
         barra_progreso_action.setDefaultWidget(barra_progreso)
         boton_modulo.addAction(barra_progreso_action)
+
+        return todas_bloqueadas
 
     def añadir_submenu_quiz(self, nombre_modulo, boton_quiz, numero_quizzes):
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
