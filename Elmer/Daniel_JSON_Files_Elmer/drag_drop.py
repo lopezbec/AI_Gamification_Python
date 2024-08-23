@@ -44,7 +44,6 @@ class DropLabel(QWidget):
         self.drop_area = QLabel(self.get_current_text())
         self.drop_area.setStyleSheet(f"color: {self.styles.get('cmd_text_color', '#000000')}; background-color: {self.styles.get('cmd_background_color', '#FFFFFF')}; font-size: {self.styles.get('font_size_normal', 12)}px")
         self.layout.addWidget(self.drop_area)
-        print(f"DropLabel creado con texto: {text}")
 
     def get_current_text(self):
         text = ""

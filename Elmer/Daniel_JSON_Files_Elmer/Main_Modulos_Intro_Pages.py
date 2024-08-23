@@ -5,14 +5,14 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
 from PyQt6.QtCore import pyqtSignal, Qt  
 from PyQt6.QtWidgets import QMessageBox, QMenu, QApplication, QMainWindow, QToolButton, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QWidgetAction, QProgressBar, QGridLayout  # Se agrega QGridLayout
-from PyQt6.QtGui import QAction, QIcon 
+from PyQt6.QtGui import QAction, QIcon, QFont 
 from PyQt6 import QtWidgets, QtCore, QtGui
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
     add_user_streak_per_module
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
 
-
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -41,6 +41,8 @@ class Config():
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        leaderboard_instance = get_instance()
+        self.user_score = leaderboard_instance.get_current_user_score()
 
         # Inicialización de módulos y configuración de lecciones
         self.new_instance = None
@@ -117,6 +119,18 @@ class MainWindow(QtWidgets.QMainWindow):
         title.setFixedHeight(50)
         layout.addWidget(title)
 
+        #Añadir Elemento de juego de puntos
+        # Crear el widget de puntos
+        self.puntos = QLabel(f"Puntuación Actual: {self.user_score}")
+        self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
+        puntos_font = QFont()
+        puntos_font.setPointSize(self.styles["font_size_normal"])
+        self.puntos.setFont(puntos_font)
+        self.puntos.setFixedHeight(60)
+        self.puntos.setMargin(10)
+        layout.addWidget(self.puntos)
+        
         self.modulos_menu_widget = QWidget()
         modulos_layout = QGridLayout(self.modulos_menu_widget)
 

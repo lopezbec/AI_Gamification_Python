@@ -12,6 +12,7 @@ from game_features.progress_bar import ProgressBar
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
+from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
@@ -43,7 +44,7 @@ class JsonLoader:
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None, usuario_actual=None):
+    def __init__(self, filename, page_type, json_number, xp_ganados, user_score, lesson_completed, main_window=None, usuario_actual=None):
         super().__init__()
 
         self.data = None
@@ -59,6 +60,7 @@ class JsonWindow(QWidget):
         self.original_hint_text = None
         self.display_cabinet = None
         self.main_window = main_window
+        self.user_score = user_score
         self.puntos = QLabel()
         self.update_points_display(self.main_window.XP_Ganados)
         self.filename = filename
@@ -80,7 +82,7 @@ class JsonWindow(QWidget):
         hlayout = QHBoxLayout()
 
         # Crear el widget de puntos
-        self.puntos = QLabel(f"XP ganados: {self.XP_Ganados}")
+        self.puntos = QLabel(f"XP ganados: {self.user_score + self.XP_Ganados}")
         self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
         puntos_font = QFont()
@@ -162,7 +164,7 @@ class JsonWindow(QWidget):
             self.main_window.update_xp(new_points)
 
     def update_points_display(self, new_points):
-        self.puntos.setText(f"XP ganados: {new_points}")
+        self.puntos.setText(f"XP ganados: {self.user_score + new_points}")
     
     def abrir_display_cabinet(self):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
@@ -511,6 +513,7 @@ class MainWindow(QWidget):
                     os.path.abspath(__file__))), "Page_order", "page_order_M5.json")
                     )
                     , 1)
+        self.user_score = self.leaderboard_window_instace.get_current_user_score() #puntos ganados por el jugador en todo el juego (acumulativo)
         self.init_ui()
 
     def init_ui(self):
@@ -520,8 +523,8 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
-                                         page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados, self.user_score, 
+                                             page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
