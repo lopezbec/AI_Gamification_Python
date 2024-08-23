@@ -39,3 +39,209 @@ Multiplechoice Page Open Time,16:03:04
 Checkbox Selected: 0,16:03:08
 Multiplechoice Page Close Time,16:03:09
 
+"Modulo 3, Leccion 2",
+Parte 1,09:41:16
+Pedagogical Page Open Time,09:41:16
+Pedagogical Page Close Time,09:41:18
+Multiplechoice Page Open Time,09:41:18
+Multiplechoice Page Close Time,09:41:24
+Parte 2,09:41:24
+Pedagogical Page Open Time,09:41:24
+Checkbox Selected: True,09:41:24
+Pedagogical Page Close Time,09:41:25
+Multiplechoice Page Open Time,09:41:25
+Checkbox Selected: Las declaraciones dentro de ella,09:41:31
+Multiplechoice Page Close Time,09:41:32
+Parte 3,09:41:32
+Pedagogical Page Open Time,09:41:32
+Pedagogical Page Close Time,09:41:33
+Multiplechoice Page Open Time,09:41:33
+Multiplechoice Page Close Time,09:41:36
+Parte 4,09:41:36
+Pedagogical Page Open Time,09:41:36
+Checkbox Selected: Cinco,09:41:36
+Pedagogical Page Close Time,09:41:37
+Multiplechoice Page Open Time,09:41:37
+Multiplechoice Page Close Time,09:41:41
+Parte 5,09:41:41
+Pedagogical Page Open Time,09:41:41
+Pedagogical Page Close Time,09:41:41
+Multiplechoice Page Open Time,09:41:41
+Checkbox Selected: if,09:41:41
+Multiplechoice Page Close Time,09:41:45
+Parte 6,09:41:45
+Pedagogical Page Open Time,09:41:45
+Checkbox Selected: 3,09:41:45
+Pedagogical Page Close Time,09:41:46
+Pedagogical2 Page Open Time,09:41:46
+Pedagogical2 Page Close Time,09:41:46
+Parte 7,09:41:46
+Multiplechoice Page Open Time,09:41:46
+Checkbox Selected: as,09:41:48
+Multiplechoice Page Close Time,09:41:50
+Checkbox Selected: ab,09:41:50
+
+"Modulo 3, Leccion 3",
+Parte 1,09:45:14
+Pedagogical Page Open Time,09:45:14
+Pedagogical Page Close Time,09:45:26
+Multiplechoice Page Open Time,09:45:26
+Checkbox Selected: if,09:45:30
+Checkbox Selected: else,09:45:32
+Multiplechoice Page Close Time,09:45:33
+Parte 2,09:45:33
+Pedagogical Page Open Time,09:45:33
+Pedagogical Page Close Time,09:45:34
+Draganddrop Page Open Time,09:45:34
+Correct Drop Event: if,09:45:42
+Correct Drop Event: :,09:45:42
+Draganddrop Page Close Time,09:45:43
+Parte 3,09:45:43
+Pedagogical Page Open Time,09:45:43
+Pedagogical Page Close Time,09:45:44
+Draganddrop Page Open Time,09:45:44
+Draganddrop Page Close Time,09:45:56
+Parte 4,09:45:56
+Pedagogical Page Open Time,09:45:56
+Correct Drop Event: if,09:45:56
+Correct Drop Event: :,09:45:56
+Pedagogical Page Close Time,09:45:57
+Multiplechoice Page Open Time,09:45:57
+Multiplechoice Page Close Time,09:46:00
+Parte 5,09:46:00
+Pedagogical Page Open Time,09:46:00
+Checkbox Selected: elif,09:46:00
+Pedagogical Page Close Time,09:46:01
+Draganddrop Page Open Time,09:46:01
+Draganddrop Page Close Time,09:46:12
+Parte 6,09:46:12
+Pedagogical Page Open Time,09:46:12
+Correct Drop Event: if,09:46:12
+Correct Drop Event: elif,09:46:12
+Correct Drop Event: :,09:46:12
+Pedagogical Page Close Time,09:46:13
+Pedagogical2 Page Open Time,09:46:13
+Pedagogical2 Page Close Time,09:46:14
+Parte 7,09:46:14
+Multiplechoice Page Open Time,09:46:14
+Checkbox Selected: 10,09:46:18
+Multiplechoice Page Close Time,09:46:23
+
+"Modulo 3, Leccion 4",
+Parte 1,10:54:48
+Pedagogical Page Open Time,10:54:48
+Pedagogical Page Close Time,10:54:49
+Multiplechoice Page Open Time,10:54:49
+Checkbox Selected: true,10:54:52
+Multiplechoice Page Close Time,10:54:53
+Parte 2,10:54:53
+Pedagogical Page Open Time,10:54:53
+Pedagogical Page Close Time,10:54:54
+Draganddrop Page Open Time,10:54:54
+Draganddrop Page Close Time,10:54:59
+Parte 3,10:54:59
+Pedagogical Page Open Time,10:54:59
+Correct Drop Event: or,10:54:59
+Correct Drop Event: print,10:54:59
+Pedagogical Page Close Time,10:55:01
+Draganddrop Page Open Time,10:55:01
+Correct Drop Event: 20,10:55:07
+Correct Drop Event: or,10:55:07
+Correct Drop Event: day,10:55:07
+Draganddrop Page Close Time,10:55:08
+Parte 4,10:55:08
+Pedagogical Page Open Time,10:55:08
+Pedagogical Page Close Time,10:55:08
+Multiplechoice Page Open Time,10:55:08
+Checkbox Selected: 3,10:55:12
+Checkbox Selected: 1,10:55:14
+Checkbox Selected: 1,10:55:14
+Multiplechoice Page Close Time,10:55:16
+Parte 5,10:55:16
+Pedagogical Page Open Time,10:55:16
+Checkbox Selected: 2,10:55:16
+Pedagogical Page Close Time,10:55:17
+Multiplechoice Page Open Time,10:55:17
+Checkbox Selected: True,10:55:19
+Multiplechoice Page Close Time,10:55:20
+Parte 6,10:55:20
+Pedagogical Page Open Time,10:55:20
+Pedagogical Page Close Time,10:55:20
+Multiplechoice Page Open Time,10:55:20
+Checkbox Selected: 4,10:55:22
+Multiplechoice Page Close Time,10:55:23
+Parte 7,10:55:23
+Pedagogical Page Open Time,10:55:23
+Pedagogical Page Close Time,10:55:23
+Pedagogical2 Page Open Time,10:55:23
+Pedagogical2 Page Close Time,10:55:24
+Parte 8,10:55:24
+Multiplechoice Page Open Time,10:55:24
+Checkbox Selected: 4,10:55:26
+Checkbox Selected: 6,10:55:28
+Multiplechoice Page Close Time,10:55:29
+
+"Modulo 3, Leccion 5",
+Parte 1,10:55:32
+Pedagogical Page Open Time,10:55:32
+Pedagogical Page Close Time,10:55:33
+Multiplechoice Page Open Time,10:55:33
+Checkbox Selected: entre comillas,10:55:35
+Checkbox Selected: entre comillas,10:55:36
+Checkbox Selected: entre paréntesis,10:55:37
+Checkbox Selected: sangrado,10:55:38
+Multiplechoice Page Close Time,10:55:39
+Parte 2,10:55:39
+Pedagogical Page Open Time,10:55:39
+Pedagogical Page Close Time,10:55:39
+Multiplechoice Page Open Time,10:55:39
+Checkbox Selected: 4,10:55:41
+Checkbox Selected: 4,10:55:42
+Checkbox Selected: 6,10:55:43
+Checkbox Selected: 6,10:55:43
+Checkbox Selected: 6,10:55:44
+Checkbox Selected: 5,10:55:45
+Multiplechoice Page Close Time,10:55:46
+Parte 3,10:55:46
+Pedagogical Page Open Time,10:55:46
+Pedagogical Page Close Time,10:55:46
+Draganddrop Page Open Time,10:55:46
+Correct Drop Event: x=10,10:56:01
+Correct Drop Event: while x >= 0:,10:56:01
+Correct Drop Event: print(x),10:56:01
+Correct Drop Event: x-=1,10:56:01
+Draganddrop Page Close Time,10:56:02
+Parte 4,10:56:02
+Pedagogical Page Open Time,10:56:02
+Pedagogical Page Close Time,10:56:03
+Multiplechoice Page Open Time,10:56:03
+Checkbox Selected: 6,10:56:07
+Multiplechoice Page Close Time,10:56:09
+Parte 5,10:56:09
+Pedagogical Page Open Time,10:56:09
+Checkbox Selected: 4,10:56:09
+Pedagogical Page Close Time,10:56:10
+Draganddrop Page Open Time,10:56:10
+Correct Drop Event: while,10:56:16
+Correct Drop Event: :,10:56:16
+Correct Drop Event: print,10:56:16
+Draganddrop Page Close Time,10:56:17
+Parte 6,10:56:17
+Pedagogical Page Open Time,10:56:17
+Pedagogical Page Close Time,10:56:17
+Multiplechoice Page Open Time,10:56:17
+Multiplechoice Page Close Time,10:56:21
+Parte 7,10:56:21
+Pedagogical Page Open Time,10:56:21
+Checkbox Selected: Yes,10:56:21
+Pedagogical Page Close Time,10:56:22
+Pedagogical2 Page Open Time,10:56:22
+Pedagogical2 Page Close Time,10:56:22
+Parte 8,10:56:22
+Draganddrop Page Open Time,10:56:22
+Correct Drop Event: while,10:56:29
+Correct Drop Event: x > 0:,10:56:29
+Correct Drop Event: print(x),10:56:29
+Correct Drop Event: x -= 1,10:56:29
+Draganddrop Page Close Time,10:56:30
+

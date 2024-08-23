@@ -1,17 +1,13 @@
-import re
 import os
 import sys
 import csv
 import json
 import datetime
-import drag_drop
+import drag_drop as drag_drop
 
-from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtCore import Qt, QMimeData
-from qtconsole.manager import QtKernelManager
-from custom_console import CustomPythonConsole
+from PyQt6.QtGui import QFont
+from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance

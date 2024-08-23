@@ -1,17 +1,14 @@
 import re
 import os
-import sys
 import csv
+import sys
 import json
 import datetime
-import drag_drop
+import drag_drop as drag_drop
 
-from PyQt6 import QtWidgets
 from functools import partial
-from PyQt6.QtGui import QFont, QDrag
-from PyQt6.QtCore import Qt, QMimeData
-from qtconsole.manager import QtKernelManager
-from custom_console import CustomPythonConsole
+from PyQt6.QtGui import QFont
+from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
 from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
@@ -137,7 +134,7 @@ class JsonWindow(QWidget):
             self.create_complete_blank_space_layout()
             self.create_feedback_label()
 
-        elif self.page_type.lower() == "draganddrop":
+        elif self.page_type.lower() == "draganddrop" or self.page_type.lower() == "draganddrop2":
             self.create_drag_and_drop_layout()
             self.create_feedback_label()
 
@@ -356,7 +353,7 @@ class JsonWindow(QWidget):
 
         # Restablecer el contenido del JsonWindow según el tipo de página
         self.title()
-        if self.page_type.lower() == "draganddrop":
+        if self.page_type.lower() == "draganddrop" or self.page_type.lower() == "draganddrop2":
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
             self.create_multiple_choice_layout(
@@ -783,7 +780,7 @@ class MainWindow(QWidget):
             else:
                 self.SubmitAnswers(True, False, False)  # Respuesta no seleccionada
 
-        elif current_page_type == "draganddrop":
+        elif current_page_type == "draganddrop" or current_page_type == "draganddrop2":
             drop_labels = current_widget.findChildren(drag_drop.DropLabel)
             correct_count = 0
             unanswered = 0
