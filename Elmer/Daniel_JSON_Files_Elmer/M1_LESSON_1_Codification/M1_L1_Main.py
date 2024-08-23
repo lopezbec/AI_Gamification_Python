@@ -8,15 +8,14 @@ try:
     import drag_drop
     from PyQt6 import QtWidgets
     from functools import partial
-    from PyQt6.QtGui import QFont, QDrag
-    from PyQt6.QtCore import pyqtSignal, Qt, QMimeData
+    from PyQt6.QtGui import QFont
+    from PyQt6.QtCore import Qt, QTimer
     from qtconsole.manager import QtKernelManager
-    from custom_console import CustomPythonConsole
     from game_features.progress_bar import ProgressBar
     from qtconsole.rich_jupyter_widget import RichJupyterWidget
     from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
-    from PyQt6.QtWidgets import QApplication, QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-        QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame, QGridLayout
+    from PyQt6.QtWidgets import QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+        QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
     from Main_Modulos_Intro_Pages import MainWindow as Dashboard
     from command_line_UI import App
     from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
@@ -177,10 +176,6 @@ class JsonWindow(QWidget):
     def showEvent(self, event):
         super().showEvent(event)
         self.update_points_display(self.main_window.XP_Ganados)
-
-    @staticmethod
-    def abrir_leaderboard():
-        LeaderBoard()
 
     def title(self):
         title = QLabel(self.data[self.page_type.lower()][0]["title"])
@@ -481,6 +476,11 @@ class JsonWindow(QWidget):
             self.hideButton.show()
             self.execute_button.hide()
 
+    def abrir_leaderboard(self):
+        # Registrar el evento de apertura del Leaderboard
+        self.main_window.log_event("Leaderboard Page Open", event_type="time")
+        LeaderBoard()
+        
     def hideCommandLineWidget(self):
         self.main_window.log_event("Playground Page Close", event_type="time")
         # Esta función oculta el widget de la línea de comandos y el botón de ocultar.
@@ -701,6 +701,20 @@ class MainWindow(QWidget):
             self.mouse_log_data.append({"event": event, "time": event_time})
         else:
             self.time_log_data.append({"event": event, "time": event_time})
+
+        # Verificar si se trata del cierre de la lección incompleta
+        if event == "Lesson Closed Incomplete":
+            self.save_log(modulo=1, leccion=1)
+
+    def closeEvent(self, event):
+        # Registrar el evento de cierre de la lección incompleta si no se terminó
+        if not self.lesson_finished_successfully:
+            self.log_event("Lesson Closed Incomplete", event_type="time")
+        else:
+            # Guardar el log si la lección se completó correctamente
+            self.save_log(modulo=1, leccion=1)
+        super().closeEvent(event)
+
 
     def save_log(self, modulo, leccion):
         user = self.load_current_user()
@@ -1026,12 +1040,13 @@ class MainWindow(QWidget):
             next_index = current_index - 1
 
         current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(
-            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
 
         current_widget = self.stacked_widget.currentWidget()
         if hasattr(current_widget, "lesson_completed"):
             self.lesson_finished_successfully = True
+        else:
+            self.closeEvent(None)
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
@@ -1047,30 +1062,27 @@ class MainWindow(QWidget):
                 next_index = current_index - 1
                 self.XP_Ganados -= 1
                 self.progress_bar.decrement_page()
-            # Antes de cambiar de página, añadimos un punto y log para debug.
-            self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
-            self.log_part_change()  # Registrar el cambio a la "Parte 1"
 
-            current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(
-                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            # Cambiar a la siguiente página
+            self.stacked_widget.setCurrentIndex(next_index)
+            self.log_part_change()  # Registrar el cambio de parte
+
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True,
-                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
-
+                self.SubmitHideContinueShow(True, False)
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False,
-                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False, True)
             else:
-                self.SubmitHideContinueShow(False,
-                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False, False)
 
             if not forward:
                 self.submit_button.hide()
                 self.continue_button.show()
                 self.back_button.hide()
-        # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
+
+        # Si se alcanzó el final de las páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()
             self.terminar_button.show()
@@ -1083,7 +1095,6 @@ class MainWindow(QWidget):
             
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
-            #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)
             update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada1")
@@ -1102,20 +1113,17 @@ class MainWindow(QWidget):
             self.close()
         else:
             print("¡La leccion no se completó, se cerró!.")
-            self.close()
-
-        
+            
         if next_index == self.highest_page_reached and self.is_rollback == True:
             self.is_rollback = False
-            # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
         self.current_page += 1  # Incrementar el número de la página actual
 
-        #Badge verification first correct answer
         if self.current_page == 2 and not is_badge_earned(self.usuario_actual, 'gran_paso'):
             if self.XP_Ganados > 0 and self.XP_Ganados <= 4:
                 display_badge('gran_paso')
                 update_badge_progress(self.usuario_actual, 'gran_paso')
+
                
 
     def update_highest_page(self, current_page):

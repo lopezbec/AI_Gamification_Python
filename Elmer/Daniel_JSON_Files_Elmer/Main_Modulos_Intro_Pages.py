@@ -3,8 +3,7 @@ import sys
 import json
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
-from PyQt6.QtCore import pyqtSignal, Qt  
-from PyQt6.QtWidgets import QMessageBox, QMenu, QApplication, QMainWindow, QToolButton, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QWidgetAction, QProgressBar, QGridLayout  # Se agrega QGridLayout
+from PyQt6.QtWidgets import QMessageBox, QMenu, QApplication, QToolButton, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QWidgetAction, QProgressBar, QGridLayout  # Se agrega QGridLayout
 from PyQt6.QtGui import QAction, QIcon 
 from PyQt6 import QtWidgets, QtCore, QtGui
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
@@ -226,7 +225,6 @@ class MainWindow(QtWidgets.QMainWindow):
             if not value:
                 return False
         return True
-
 
 
     def abrir_quiz_con_motivo(self, nombre_modulo, numero_quiz, motivo):

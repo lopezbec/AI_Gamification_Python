@@ -355,4 +355,5 @@ def LeaderBoard():
         app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
     window.showMaximized()
-    return app.exec()
+    return window  # Retornar la ventana en lugar de ejecutar la aplicación
+

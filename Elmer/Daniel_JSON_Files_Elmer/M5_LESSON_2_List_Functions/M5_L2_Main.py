@@ -9,6 +9,7 @@ from functools import partial
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
+from command_line_UI import CMD_Practica as CMDP
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
@@ -173,6 +174,8 @@ class JsonWindow(QWidget):
         self.update_points_display(self.main_window.XP_Ganados)
 
     def abrir_leaderboard(self):
+        # Registrar el evento de apertura del Leaderboard
+        self.main_window.log_event("Leaderboard Page Open", event_type="time")
         LeaderBoard()
 
     def title(self):
