@@ -311,6 +311,18 @@
                     "filename": "M1_L4_Mixing_things_up_Part_7.json",
                     "page_type": "Pedagogical2",
                     "json_number": 7
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1_L4_Mixing_things_up_Part_8.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 8
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1_L4_Mixing_things_up_Part_8.json",
+                    "page_type": "DragAndDrop2",
+                    "json_number": 8
                 }
             ]
         },
@@ -318,7 +330,7 @@
             "lesson_number": 5,
             "pages": [
                 {
-                    "type": "JsonWindowz",
+                    "type": "JsonWindow",
                     "filename": "M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_1.json",
                     "page_type": "Pedagogical",
                     "json_number": 1
@@ -424,6 +436,18 @@
                     "filename": "M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_9.json",
                     "page_type": "Pedagogical2",
                     "json_number": 9
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_10.json",
+                    "page_type": "DragAndDrop",
+                    "json_number": 10
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M1-L5_Labeling_Storing_and_Handling_Data_with_Variables_Part_10.json",
+                    "page_type": "MultipleChoice",
+                    "json_number": 10
                 }
             ]
         }
