@@ -1,0 +1,17 @@
+{
+    "logros": [
+        {
+            "nombre": "Master de Módulo 1",
+            "descripcion": "Completa todos los quizzes y lecciones del Módulo 1.",
+            "criterio": "completar_modulo",
+            "modulo": "Modulo 1",
+            "desbloqueado": false
+        },
+        {
+            "nombre": "Quiz Master",
+            "descripcion": "Completa todos los quizzes de todos los módulos.",
+            "criterio": "completar_todos_quizzes",
+            "desbloqueado": false
+        }
+    ]
+}

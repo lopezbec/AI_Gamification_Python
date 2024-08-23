@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "name": "Elmer",
@@ -89,4 +90,102 @@
         "points": 23,
         "last_active": "2024-08-15 ; 08h:39m"
     }
+=======
+[
+    {
+        "name": "Elmer",
+        "points": 3000,
+        "last_active": "2024-08-22 ; 12h:02m"
+    },
+    {
+        "name": "Daniel",
+        "points": 285,
+        "last_active": "2024-07-24 ; 14h:22m"
+    },
+    {
+        "name": "Jose",
+        "points": 433,
+        "last_active": "2024-03-22 ; 15h:44m"
+    },
+    {
+        "name": "Prisila",
+        "points": 4238,
+        "last_active": "2024-08-22 ; 20h:31m"
+    },
+    {
+        "name": "Jose",
+        "points": 0,
+        "last_active": "2024-03-20 ; 12h:42m"
+    },
+    {
+        "name": "Pepe",
+        "points": 124,
+        "last_active": ""
+    },
+    {
+        "name": "Lucas",
+        "points": 93,
+        "last_active": "2024-06-24 ; 22h:17m"
+    },
+    {
+        "name": "Luca",
+        "points": 0,
+        "last_active": "2024-06-24 ; 21h:38m"
+    },
+    {
+        "name": "Jack",
+        "points": 429,
+        "last_active": "2024-08-13 ; 13h:10m"
+    },
+    {
+        "name": "Jack",
+        "points": 0,
+        "last_active": "2024-08-13 ; 13h:10m"
+    },
+    {
+        "name": "Gary",
+        "points": 0,
+        "last_active": "2024-08-13 ; 13h:18m"
+    },
+    {
+        "name": "Mario",
+        "points": 0,
+        "last_active": "2024-08-13 ; 13h:21m"
+    },
+    {
+        "name": "test",
+        "points": 0,
+        "last_active": "2024-08-15 ; 08h:24m"
+    },
+    {
+        "name": "elmer",
+        "points": 0,
+        "last_active": "2024-08-15 ; 08h:15m"
+    },
+    {
+        "name": "testc",
+        "points": 131,
+        "last_active": "2024-08-15 ; 08h:18m"
+    },
+    {
+        "name": "testcc",
+        "points": 0,
+        "last_active": "2024-08-15 ; 08h:27m"
+    },
+    {
+        "name": "testcccccasdasda",
+        "points": 0,
+        "last_active": "2024-08-15 ; 08h:28m"
+    },
+    {
+        "name": "ewrgtgghfgfds",
+        "points": 23,
+        "last_active": "2024-08-15 ; 08h:39m"
+    },
+    {
+        "name": "ElmerL",
+        "points": 0,
+        "last_active": "2024-08-20 ; 14h:40m"
+    }
+>>>>>>> 1f7098760362ee31ae8aa497a919a84f1989e144
 ]

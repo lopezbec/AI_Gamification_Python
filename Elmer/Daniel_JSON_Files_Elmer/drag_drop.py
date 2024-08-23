@@ -42,7 +42,7 @@ class DropLabel(QWidget):
 
         self.base_text_parts = text.split("___")
         self.drop_area = QLabel(self.get_current_text())
-        self.drop_area.setStyleSheet(f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+        self.drop_area.setStyleSheet(f"color: {self.styles.get('cmd_text_color', '#000000')}; background-color: {self.styles.get('cmd_background_color', '#FFFFFF')}; font-size: {self.styles.get('font_size_normal', 12)}px")
         self.layout.addWidget(self.drop_area)
 
     def get_current_text(self):
@@ -61,16 +61,16 @@ class DropLabel(QWidget):
 
     def dropEvent(self, event):
         new_dropped_text = event.mimeData().text()
+        print(f"Texto arrastrado: {new_dropped_text}")  # Agregar print para verificar el texto arrastrado
         if len(self.dropped_texts) < len(self.base_text_parts) - 1:
             self.dropped_texts.append(new_dropped_text)
-            self.drop_area.setText(self.get_current_text())
         else:
-            # Manejo para cuando solo se permite una respuesta
             if self.dropped_text is not None:
                 current_text = self.drop_area.text().replace(self.dropped_text, "<Espacio para respuesta>", 1)
                 self.drop_area.setText(current_text)
-
             self.dropped_text = new_dropped_text
-            self.drop_area.setText(self.get_current_text())
+            self.dropped_texts = [self.dropped_text]  # Reemplaza el texto anterior
 
+        self.drop_area.setText(self.get_current_text())
+        print(f"Estado actual de dropped_texts: {self.dropped_texts}")  # Agregar print para verificar dropped_texts
         event.acceptProposedAction()
