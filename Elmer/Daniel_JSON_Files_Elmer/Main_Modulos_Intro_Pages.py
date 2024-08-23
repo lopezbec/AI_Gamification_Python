@@ -4,12 +4,15 @@ import json
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from welcome_window import WelcomeWindow
 from PyQt6.QtWidgets import QMessageBox, QMenu, QApplication, QToolButton, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QWidgetAction, QProgressBar, QGridLayout  # Se agrega QGridLayout
-from PyQt6.QtGui import QAction, QIcon 
+from PyQt6.QtGui import QAction, QIcon, QFont
 from PyQt6 import QtWidgets, QtCore, QtGui
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
     add_user_streak_per_module
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
+from PyQt6.QtCore import Qt
+
 
 
 class UserGuideDialog(QtWidgets.QDialog):
@@ -40,6 +43,8 @@ class Config():
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        leaderboard_instance = get_instance()
+        self.user_score = leaderboard_instance.get_current_user_score()
 
         # Inicialización de módulos y configuración de lecciones
         self.new_instance = None
@@ -136,6 +141,16 @@ class MainWindow(QtWidgets.QMainWindow):
         title_layout.addWidget(user_name)
         layout.addLayout(title_layout)
 
+        self.puntos = QLabel(f"Puntuación Actual: {self.user_score}")
+        self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.puntos.setStyleSheet("background-color: grey; color: white; border: 2px solid black")
+        puntos_font = QFont()
+        puntos_font.setPointSize(self.styles["font_size_normal"])
+        self.puntos.setFont(puntos_font)
+        self.puntos.setFixedHeight(60)
+        self.puntos.setMargin(10)
+        layout.addWidget(self.puntos)
+
         # Widget para los módulos
         self.modulos_menu_widget = QWidget()
         modulos_layout = QGridLayout(self.modulos_menu_widget)
@@ -147,7 +162,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Configurar menús de módulos con estilo moderno
         self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Modulo 1", 5, 2, True)
-        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 5, 2, self.is_modulo_completado("Modulo 1"))
+        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 3, 2, self.is_modulo_completado("Modulo 1"))
         self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 2, self.is_modulo_completado("Modulo 2"))
         self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 2, self.is_modulo_completado("Modulo 3"))
         self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Modulo 5", 7, 2, self.is_modulo_completado("Modulo 4"))
@@ -204,7 +219,6 @@ class MainWindow(QtWidgets.QMainWindow):
             button_layout.addWidget(display_cabinet_btn)
 
         layout.addLayout(button_layout)
-
 
 
     def cargar_usuario_actual(self):
@@ -330,6 +344,14 @@ class MainWindow(QtWidgets.QMainWindow):
         estado_progreso_modulo = self.lecciones_completadas_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_completado = self.load_lesson_completed(self.usuario_actual)
 
+        # Ajustar el número de lecciones según el módulo
+        if nombre_modulo == "Modulo 2":
+            numero_lecciones = 3
+        elif nombre_modulo == "Modulo 5":
+            numero_lecciones = 7
+        else:
+            numero_lecciones = 5
+
         todas_bloqueadas = True
 
         # Iterar sobre las lecciones para crear acciones y establecer íconos
@@ -367,6 +389,7 @@ class MainWindow(QtWidgets.QMainWindow):
         boton_modulo.addAction(barra_progreso_action)
 
         return todas_bloqueadas
+
 
     def añadir_submenu_quiz(self, nombre_modulo, boton_quiz, numero_quizzes):
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
