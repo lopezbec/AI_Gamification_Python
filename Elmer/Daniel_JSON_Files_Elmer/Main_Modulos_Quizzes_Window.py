@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayo
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 
 
 
@@ -47,6 +47,7 @@ class QuizLoader:
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
         self.current_user = self.load_current_user()
+        self.current_score = 0
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
@@ -96,6 +97,19 @@ class QuizLoader:
             title_font.setPointSize(self.styles["font_size_titles"])
             title.setFont(title_font)
             self.layout.addWidget(title)
+
+            self.leaderboard_instace = get_instance()
+            self.total_score = self.leaderboard_instace.get_current_user_score()
+
+            # Crear el widget de puntaje total
+            self.puntaje_total = QLabel(f"Puntaje total: {self.total_score + self.current_score}")
+            self.puntaje_total.setStyleSheet("background-color: grey; color: white; border: 2px solid black")
+
+            # Ajustar la fuente del widget de puntaje total
+            puntaje_total_font = QFont()
+            puntaje_total_font.setPointSize(self.styles["font_size_normal"])
+            self.puntaje_total.setFont(puntaje_total_font)
+            self.layout.addWidget(self.puntaje_total)
 
             if self.page_type == 'multiplechoice':
                 self.create_multiple_choice_layout(section_data)
@@ -160,6 +174,7 @@ class QuizLoader:
     def complete_quiz(self):
         self.mark_quiz_complete()
         self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
+        self.current_score = 5
         self.layout.parentWidget().close()
 
     def mark_quiz_complete(self):
@@ -445,7 +460,7 @@ class Main_Modulos_Quizzes_Window(QWidget):
         self.setLayout(self.layout)
 
         # Ubicación fija para page_order_file
-        page_order_file = r"C:\Users\DELL\OneDrive\Escritorio\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer\Quizzes\page_order_Quizzes\page_order.json"
+        page_order_file =os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'page_order_Quizzes', 'page_order.json')
         self.quiz_loader = QuizLoader(self.layout, self.styles, self.quiz_file, page_order_file)
         self.quiz_loader.load_quiz_section()
 
