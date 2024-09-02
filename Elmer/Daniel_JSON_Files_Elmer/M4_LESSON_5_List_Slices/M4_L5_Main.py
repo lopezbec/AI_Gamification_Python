@@ -938,8 +938,8 @@ class MainWindow(QWidget):
                 if modulo not in modulos_usuario:
                     raise KeyError(f'El módulo {modulo} no existe para el usuario {self.usuario_actual}.')
 
-                # Obtener las lecciones del módulo actual
-                lecciones = modulos_usuario[modulo]
+                # Obtener las lecciones del módulo actual e ignorar las claves de Quiz
+                lecciones = {clave: valor for clave, valor in modulos_usuario[modulo].items() if not clave.startswith("Quiz")}
 
                 # Verificar si todas las lecciones del módulo están completadas
                 todas_completadas = all(lecciones.values())
