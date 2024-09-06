@@ -20,7 +20,7 @@ from badge_system.badge_verification import BadgeVerification, get_badge_level, 
         update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
             update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
 from badge_system.display_cabinet import BadgeDisplayCabinet
-from command_line_UI import App
+from command_line_ui_input import App
 from congratulation_Feature import CongratulationWindow
 
 class JsonLoader:
