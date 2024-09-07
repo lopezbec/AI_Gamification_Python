@@ -221,17 +221,8 @@ class QuizLoader:
 
             # Desbloquear la siguiente lección o quiz en progreso.json
             siguiente_quiz = f'Quiz{int(self.current_quiz_index) + 1}'
-            siguiente_modulo = f"Modulo{int(self.current_module_index) + 1}"
             # Verificar si el módulo actual tiene el siguiente quiz
-            if siguiente_quiz not in progress_data[user].get(module_key, {}):
-                # Si no existe el siguiente quiz en el módulo actual, desbloquear el primer quiz del siguiente módulo
-                if siguiente_modulo in progress_data[user]:
-                    progress_data[user][siguiente_modulo]["Quiz1"] = True
-                else:
-                    raise KeyError(f"El siguiente módulo ({siguiente_modulo}) no existe en el progreso del usuario.")
-            else:
-                # Si existe, desbloquear el siguiente quiz en el módulo actual
-                progress_data[user][module_key][siguiente_quiz] = True
+            progress_data[user][module_key][siguiente_quiz] = True
 
             #Se escribe progreso.json con la nueva información
             with open(progress_file_path, 'w', encoding='UTF-8') as file:
