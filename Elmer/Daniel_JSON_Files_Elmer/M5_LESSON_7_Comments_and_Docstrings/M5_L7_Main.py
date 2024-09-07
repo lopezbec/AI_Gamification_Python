@@ -22,6 +22,8 @@ from badge_system.badge_verification import BadgeVerification, get_badge_level, 
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from command_line_UI import App
 from congratulation_Feature import CongratulationWindow
+from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
+
 
 class JsonLoader:
     @staticmethod
@@ -41,6 +43,27 @@ class JsonLoader:
         with open("./active_widgets/game_elements_visibility.json") as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
+    
+    @staticmethod
+    def load_lesson_completed():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+                all_users_progress = json.load(file)
+            return all_users_progress
+        except FileNotFoundError:
+            print("Archivo leccion_completada.json no encontrado.")
+            return {}
+    
+    @staticmethod
+    def load_user_progress():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
+                progreso = json.load(file)
+            return progreso
+        except FileNotFoundError:
+            print("Archivo progreso.json no encontrado.")
+            return {}
 
 
 class JsonWindow(QWidget):
@@ -1072,6 +1095,11 @@ class MainWindow(QWidget):
             self.actualizar_progreso_usuario('Modulo5', 'Leccion7')
             self.actualizar_leccion_completada('Modulo5', 'Leccion7')
             update_lesson_status(self.usuario_actual, 'Modulo5', 'Leccion7', self.all_correct)
+            MMQW.unlock_module_first_quiz(
+                JsonLoader.load_user_progress(), 
+                JsonLoader.load_lesson_completed(), 
+                'Modulo5', 
+                self.usuario_actual)
             
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())

@@ -277,7 +277,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 quiz_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', quiz_file)
                 #Se instancia la venta de Quizzes con esta ruta, el numero del quiz y el numero del modulo
                 #NOTA: si el nombre modulo es "Modulo1" o "Modulo 1" con hacer nombre_modulo[-1] obtenemos el numero
-                self.quiz_window = MMQW(quiz_path, numero_quiz, nombre_modulo[-1])
+                self.quiz_window = MMQW(quiz_path, numero_quiz, nombre_modulo[-1], self.usuario_actual)
                 #Se muestra la ventana completa
                 self.quiz_window.showMaximized()
                 #Se cierra el menu principal para liberar recursos y actualizar el menu al final de cada quizz/leccion

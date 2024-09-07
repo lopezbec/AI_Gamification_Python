@@ -483,10 +483,10 @@ class QuizLoader:
         self.dashboard = Dashboard()
         self.dashboard.showMaximized()
         self.main_window.close()
-  
+
 
 class Main_Modulos_Quizzes_Window(QWidget):
-    def __init__(self, quiz_file, current_quiz_index, current_module_index):
+    def __init__(self, quiz_file, current_quiz_index, current_module_index, username):
         super().__init__()
         self.styles = JsonLoader.load_json_styles()
         self.quiz_file = quiz_file
@@ -511,4 +511,37 @@ class Main_Modulos_Quizzes_Window(QWidget):
         # Luego, cierra la ventana normalmente
         super().closeEvent(event)
 
+    @classmethod
+    def unlock_module_first_quiz(cls, progreso_usuario, leccion_completada, nombre_modulo, username):
+        # Obtener el estado del módulo para el usuario actual
+        estado_modulo = progreso_usuario.get(username, {}).get(nombre_modulo.replace(" ", ""), {})
+        # Cargar las lecciones completadas del módulo
+        estado_completado = leccion_completada.get(username, {})
 
+        # Obtener todas las claves que siguen el patrón "Leccion_completadaX" en el estado completado
+        lecciones_completadas_claves = [
+            clave for clave in estado_completado.get(nombre_modulo.replace(" ", ""), {})
+            if clave.startswith("Leccion_completada")
+        ]
+
+        # Verificar si todas las lecciones del módulo han sido completadas
+        todas_las_lecciones_completadas = all(
+            estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(clave, False)
+            for clave in lecciones_completadas_claves
+        )
+
+        # Desbloquear el primer quiz si todas las lecciones han sido completadas
+        if todas_las_lecciones_completadas and not estado_modulo.get("Quiz1", True):
+            estado_modulo["Quiz1"] = True  # Desbloquea el primer quiz
+            progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
+
+            # Aquí podrías añadir un mensaje o una acción adicional si es necesario
+            print(f"El primer quiz del módulo {nombre_modulo} ha sido desbloqueado para el usuario {username}.")
+
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
+                json.dump(progreso_usuario, file, indent=4)
+
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+                json.dump(leccion_completada, file, indent=4)
+
+        
