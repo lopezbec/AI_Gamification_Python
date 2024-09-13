@@ -1019,15 +1019,17 @@ class MainWindow(QWidget):
         else:
             next_index = current_index - 1
 
-        current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
-        self.log_event(
-            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+        self.log_event(f"{current_page_type.capitalize()} Page Close Time")
 
         current_widget = self.stacked_widget.currentWidget()
         if hasattr(current_widget, "lesson_completed"):
             self.lesson_finished_successfully = True
 
-        # Si el siguiente índice es menor que el número total de páginas, continuar navegando
+        # Cambiar la lógica de Modulo y Leccion para hacerlo dinámico
+        id_modulo = "modulo_5"  # Usa el número de lección para identificar el módulo
+        leccion = f"Leccion{self.lesson_number}"
+
         if next_index < self.stacked_widget.count():
             if forward:
                 self.update_highest_page(next_index)
@@ -1039,73 +1041,69 @@ class MainWindow(QWidget):
                 next_index = current_index - 1
                 self.XP_Ganados -= 1
                 self.progress_bar.decrement_page()
-            # Antes de cambiar de página, añadimos un punto y log para debug.
-            self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
-            self.log_part_change()  # Registrar el cambio a la "Parte 1"
 
-            current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(
-                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            self.stacked_widget.setCurrentIndex(next_index)
+            self.log_part_change()
+
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True,
-                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+                self.SubmitHideContinueShow(True, False)
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False,
-                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False, True)
             else:
-                self.SubmitHideContinueShow(False,
-                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False, False)
 
             if not forward:
                 self.submit_button.hide()
                 self.continue_button.show()
                 self.back_button.hide()
 
-        # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()
             self.terminar_button.show()
-            self.save_log(modulo=5, leccion=7)
+            self.save_log(modulo=id_modulo, leccion=leccion)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
-            self.actualizar_progreso_usuario('Modulo5', 'Leccion7')
-            self.actualizar_leccion_completada('Modulo5', 'Leccion7')
-            update_lesson_status(self.usuario_actual, 'Modulo5', 'Leccion7', self.all_correct)
-            
+            self.actualizar_progreso_usuario(id_modulo, leccion)
+            self.actualizar_leccion_completada(id_modulo, leccion)
+            update_lesson_status(self.usuario_actual, id_modulo, leccion, self.all_correct)
+
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
-            #Badge verification correct anwers streak
+
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
-            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)           
-            update_lesson_dates(self.usuario_actual, "Modulo5", "Leccion_completada7")           
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo5") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
-                    display_badge('modulo_rapido')
-                    update_badge_progress(self.usuario_actual, 'modulo_rapido')           
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo5") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
+            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)
+            update_lesson_dates(self.usuario_actual, id_modulo, f"Leccion_completada{self.lesson_number}")
+
+            if are_lessons_completed_same_day(self.usuario_actual, id_modulo) and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
+                display_badge('modulo_rapido')
+                update_badge_progress(self.usuario_actual, 'modulo_rapido')
+
+            if are_two_lessons_completed_same_day(self.usuario_actual, id_modulo) and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
                 display_badge('doble_aprendizaje')
                 update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
+
             if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
                 display_badge('Explorador_curioso')
                 update_badge_progress(self.usuario_actual, 'Explorador_curioso')
-            if are_all_lessons_completed(self.usuario_actual):
-                display_badge('super_estudiante')
-                update_badge_progress(self.usuario_actual, 'super_estudiante')
+
             if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'dominador_modulo'):
                 display_badge('dominador_modulo')
                 update_badge_progress(self.usuario_actual, 'dominador_modulo')
+
             self.close()
 
         else:
-            print("¡La leccion no se completó, se cerró!.")
+            print("¡La lección no se completó, se cerró!.")
             self.close()
 
-        if next_index == self.highest_page_reached and self.is_rollback == True:
+        if next_index == self.highest_page_reached and self.is_rollback:
             self.is_rollback = False
-            # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
 
-        self.current_page += 1  # Incrementar el número de la página actual
+        self.current_page += 1
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:
