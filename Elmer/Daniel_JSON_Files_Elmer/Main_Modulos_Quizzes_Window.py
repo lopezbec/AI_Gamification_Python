@@ -33,6 +33,27 @@ class JsonLoader:
         except Exception as e:
             print(f"Error al cargar el archivo styles.json: {e}")
             return {}
+    
+    @staticmethod
+    def load_lesson_completed():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+                all_users_progress = json.load(file)
+            return all_users_progress
+        except FileNotFoundError:
+            print("Archivo leccion_completada.json no encontrado.")
+            return {}
+    
+    @staticmethod
+    def load_user_progress():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
+                progreso = json.load(file)
+            return progreso
+        except FileNotFoundError:
+            print("Archivo progreso.json no encontrado.")
+            return {}
 
 
 class QuizLoader:
@@ -187,6 +208,12 @@ class QuizLoader:
 
     def complete_quiz(self):
         self.mark_quiz_complete()
+        self.main_window.unlock_module_first_quiz(
+            JsonLoader.load_user_progress(),
+            JsonLoader.load_lesson_completed(),
+            f'Modulo{int(self.current_module_index) + 1}',
+            self.current_user
+        )
         self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
         self.close_quiz() #Se usa close_quiz en vez de otro metodo para que el menu principal se muestre al cierre del quiz
 
@@ -520,14 +547,28 @@ class Main_Modulos_Quizzes_Window(QWidget):
             estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(clave, False)
             for clave in lecciones_completadas_claves
         )
+ 
+        if nombre_modulo != "Modulo1":
+            numero_modulo = int(nombre_modulo[-1])
+            modulo_anterior = f"Modulo{numero_modulo - 1}"
+            Quiz_completados_claves = [
+                clave for clave in estado_completado.get(modulo_anterior.replace(" ", ""), {})
+                if clave.startswith("Quiz_completado")
+            ]
+            
+            all_previous_quizzes_completed = all(
+            estado_completado.get(modulo_anterior.replace(" ", ""), {}).get(clave, False)
+                for clave in Quiz_completados_claves
+            )
+
+            if all_previous_quizzes_completed and not estado_modulo.get("Quiz1", True):
+                estado_modulo["Quiz1"] = True
+                progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
 
         # Desbloquear el primer quiz si todas las lecciones han sido completadas
-        if todas_las_lecciones_completadas and not estado_modulo.get("Quiz1", True):
+        elif nombre_modulo == "Modulo1" and todas_las_lecciones_completadas and not estado_modulo.get("Quiz1", True):
             estado_modulo["Quiz1"] = True  # Desbloquea el primer quiz
             progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
-
-            # Aquí podrías añadir un mensaje o una acción adicional si es necesario
-            print(f"El primer quiz del módulo {nombre_modulo} ha sido desbloqueado para el usuario {username}.")
 
         with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso_usuario, file, indent=4)

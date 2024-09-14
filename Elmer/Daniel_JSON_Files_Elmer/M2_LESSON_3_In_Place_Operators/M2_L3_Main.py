@@ -21,7 +21,6 @@ from badge_system.badge_verification import BadgeVerification, get_badge_level, 
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from command_line_UI import App
 from congratulation_Feature import CongratulationWindow
-from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
 
 
 class JsonLoader:
@@ -1090,11 +1089,6 @@ class MainWindow(QWidget):
             self.actualizar_progreso_usuario('Modulo2', 'Leccion3')
             self.actualizar_leccion_completada('Modulo2', 'Leccion3')
             update_lesson_status(self.usuario_actual, 'Modulo2', 'Leccion3', self.all_correct)
-            MMQW.unlock_module_first_quiz(
-                JsonLoader.load_user_progress(), 
-                JsonLoader.load_lesson_completed(), 
-                'Modulo2', 
-                self.usuario_actual)
                         
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
