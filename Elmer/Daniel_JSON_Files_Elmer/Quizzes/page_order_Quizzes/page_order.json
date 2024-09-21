@@ -23,16 +23,108 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_Q2_Main.json",
-                    "page_type": "multiplechoice",
+                    "page_type": "draganddrop",
                     "section_number": 1
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M1_Q2_Main.json",
-                    "page_type": "completeblankspace",
+                    "page_type": "multiplechoice",
                     "section_number": 1
                 }
+            ]},
+                {
+                "quiz_number": 1,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M2_Q1_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M2_Q1_Main.json",
+                    "page_type": "completeblankspace",
+                    "section_number": 2
+
+                }
+            ]},
+                    {
+                "quiz_number": 2,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M2_Q2_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M2_Q2_Main.json",
+                    "page_type": "draganddrop",
+                    "section_number": 2
+                }
+            ]},
+        {
+                "quiz_number": 3,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M2_Q3_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 2
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M2_Q3_Main.json",
+                    "page_type": "draganddrop",
+                    "section_number": 2
+                }
+            ]},
+            {
+                "quiz_number": 1,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_Q1_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_Q1_Main.json",
+                    "page_type": "completeblankspace",
+                    "section_number": 3
+                }
             ]
-        }
+        },
+        {
+                "quiz_number": 2,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_Q2_Main.json",
+                    "page_type": "draganddrop",
+                    "section_number": 3
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_Q2_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 3
+                }
+            ]
+        },
+        {
+                "quiz_number": 3,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M3_Q3_Main.json",
+                    "page_type": "multiplechoice",
+                    "section_number": 3
+                }
+            ]}
     ]
 }
