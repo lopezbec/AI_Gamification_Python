@@ -973,18 +973,22 @@ class MainWindow(QWidget):
                     raise KeyError(f'El módulo {modulo} no existe para el usuario {self.usuario_actual}.')
 
                 # Obtener las lecciones del módulo actual
-                lecciones = modulos_usuario[modulo]
+                lecciones = {clave: valor for clave, valor in modulos_usuario[modulo].items() if not clave.startswith("Quiz")}
 
                 # Verificar si todas las lecciones del módulo están completadas
                 todas_completadas = all(lecciones.values())
 
                 if todas_completadas:
                     # Habilitar la primera lección del siguiente módulo
-                    numero_modulo_actual = int(modulo[-1])
-                    siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
-
-                    if siguiente_modulo in modulos_usuario:
-                        progreso_usuario[siguiente_modulo]["Leccion1"] = True
+                    #numero_modulo_actual = int(modulo[-1])
+                    #siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
+                    quiz1 = 'Quiz1';
+        
+                    if quiz1 not in progreso_usuario[modulo]:
+                        raise KeyError(f"La clave Quiz1 no existe en el {modulo}")
+                    progreso_usuario[modulo][quiz1] = True
+            
+            #progreso[self.usuario_actual] = progreso_usuario
 
             with open('progreso.json', 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)

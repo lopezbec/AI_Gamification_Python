@@ -248,8 +248,21 @@ class QuizLoader:
 
             # Desbloquear la siguiente lección o quiz en progreso.json
             siguiente_quiz = f'Quiz{int(self.current_quiz_index) + 1}'
-            # Verificar si el módulo actual tiene el siguiente quiz
-            progress_data[user][module_key][siguiente_quiz] = True
+
+            # Verificar si el siguiente quiz existe en el módulo actual
+            if siguiente_quiz in progress_data[user][module_key]:
+                progress_data[user][module_key][siguiente_quiz] = True  # Desbloquear siguiente quiz
+                print(f"Se ha desbloqueado el {siguiente_quiz} del módulo {module_key}.")
+            else:
+                # Si no existe el siguiente quiz, desbloquear la primera lección del siguiente módulo
+                siguiente_modulo_key = f"Modulo{int(self.current_module_index) + 1}"
+                
+                # Verificar si el siguiente módulo existe en progreso.json para el usuario actual
+                if siguiente_modulo_key in progress_data[user]:
+                    progress_data[user][siguiente_modulo_key]['Leccion1'] = True  # Desbloquear Leccion1 del siguiente módulo
+                    print(f"Se ha desbloqueado Leccion1 del {siguiente_modulo_key}.")
+                else:
+                    print(f"El módulo {siguiente_modulo_key} no existe en progreso.json para el usuario {user}.")
 
             #Se escribe progreso.json con la nueva información
             with open(progress_file_path, 'w', encoding='UTF-8') as file:
@@ -261,8 +274,7 @@ class QuizLoader:
  
             #Verificar Si la clave del modulo existe en el JSON para el usuario actual
             if module_key not in completion_data[user]:
-                # Si el módulo no está presente, inicializa un nuevo diccionario vacío para este módulo en los datos de finalización del usuario.
-                completion_data[user][module_key] = {}
+                raise KeyError(f"la clave {module_key} no existe en leccion_completada.json")
 
             # Marca el quiz como completado estableciendo su clave (quiz_completion_key) en True dentro del módulo correspondiente para el usuario.
             completion_data[user][module_key][quiz_completion_key] = True
@@ -531,49 +543,56 @@ class Main_Modulos_Quizzes_Window(QWidget):
 
     @classmethod
     def unlock_module_first_quiz(cls, progreso_usuario, leccion_completada, nombre_modulo, username):
-        # Obtener el estado del módulo para el usuario actual
-        estado_modulo = progreso_usuario.get(username, {}).get(nombre_modulo.replace(" ", ""), {})
-        # Cargar las lecciones completadas del módulo
-        estado_completado = leccion_completada.get(username, {})
+        try:
+            # Verificar si el usuario existe en progreso_usuario y leccion_completada
+            if username not in progreso_usuario:
+                raise KeyError(f"Usuario '{username}' no encontrado en progreso.json.")
+            if username not in leccion_completada:
+                raise KeyError(f"Usuario '{username}' no encontrado en leccion_completada.json.")
+            
+            # Verificar si el módulo existe para el usuario
+            if nombre_modulo.replace(" ", "") not in progreso_usuario[username]:
+                raise KeyError(f"Módulo '{nombre_modulo}' no encontrado para el usuario '{username}' en progreso.json.")
+            if nombre_modulo.replace(" ", "") not in leccion_completada[username]:
+                raise KeyError(f"Módulo '{nombre_modulo}' no encontrado para el usuario '{username}' en leccion_completada.json.")
+            
+            # Obtener el estado del módulo para el usuario actual
+            estado_modulo = progreso_usuario[username].get(nombre_modulo.replace(" ", ""), {})
+            
+            # Cargar las lecciones completadas del módulo
+            estado_completado = leccion_completada[username].get(nombre_modulo.replace(" ", ""), {})
 
-        # Obtener todas las claves que siguen el patrón "Leccion_completadaX" en el estado completado
-        lecciones_completadas_claves = [
-            clave for clave in estado_completado.get(nombre_modulo.replace(" ", ""), {})
-            if clave.startswith("Leccion_completada")
-        ]
-
-        # Verificar si todas las lecciones del módulo han sido completadas
-        todas_las_lecciones_completadas = all(
-            estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(clave, False)
-            for clave in lecciones_completadas_claves
-        )
- 
-        if nombre_modulo != "Modulo1":
-            numero_modulo = int(nombre_modulo[-1])
-            modulo_anterior = f"Modulo{numero_modulo - 1}"
-            Quiz_completados_claves = [
-                clave for clave in estado_completado.get(modulo_anterior.replace(" ", ""), {})
-                if clave.startswith("Quiz_completado")
+            # Obtener todas las claves que siguen el patrón "Leccion_completadaX" en el estado completado del módulo
+            lecciones_completadas_claves = [
+                clave for clave in estado_completado
+                if clave.startswith("Leccion_completada")
             ]
             
-            all_previous_quizzes_completed = all(
-            estado_completado.get(modulo_anterior.replace(" ", ""), {}).get(clave, False)
-                for clave in Quiz_completados_claves
+            if not lecciones_completadas_claves:
+                raise KeyError(f"No se encontraron claves de lección completada en '{nombre_modulo}' para el usuario '{username}'.")
+
+            # Verificar si todas las lecciones del módulo han sido completadas
+            todas_las_lecciones_completadas = all(
+                estado_completado.get(clave, False)
+                for clave in lecciones_completadas_claves
             )
 
-            if all_previous_quizzes_completed and not estado_modulo.get("Quiz1", True):
-                estado_modulo["Quiz1"] = True
-                progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
+            # Desbloquear el primer quiz si todas las lecciones del módulo han sido completadas
+            if todas_las_lecciones_completadas:
+                if "Quiz1" not in estado_modulo:
+                    raise KeyError(f"'Quiz1' no encontrado en el módulo '{nombre_modulo}' para el usuario '{username}' en progreso.json.")
+                
+                if not estado_modulo.get("Quiz1", True):
+                    estado_modulo["Quiz1"] = True  # Desbloquea el primer quiz
+                    progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
 
-        # Desbloquear el primer quiz si todas las lecciones han sido completadas
-        elif nombre_modulo == "Modulo1" and todas_las_lecciones_completadas and not estado_modulo.get("Quiz1", True):
-            estado_modulo["Quiz1"] = True  # Desbloquea el primer quiz
-            progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
-
-        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
+            # Guardar los cambios en progreso.json y leccion_completada.json
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso_usuario, file, indent=4)
 
-        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
                 json.dump(leccion_completada, file, indent=4)
 
-        
+        except KeyError as e:
+            print(f"Error: {e}")
+            

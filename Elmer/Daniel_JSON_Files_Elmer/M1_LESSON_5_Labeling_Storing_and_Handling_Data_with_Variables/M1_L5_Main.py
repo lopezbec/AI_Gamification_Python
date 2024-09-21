@@ -952,11 +952,15 @@ class MainWindow(QWidget):
 
                 if todas_completadas:
                     # Habilitar la primera lección del siguiente módulo
-                    numero_modulo_actual = int(modulo[-1])
-                    siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
-
-                    if siguiente_modulo in modulos_usuario:
-                        progreso_usuario[siguiente_modulo]["Leccion1"] = True
+                    #numero_modulo_actual = int(modulo[-1])
+                    #siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
+                    quiz1 = 'Quiz1';
+        
+                    if quiz1 not in progreso_usuario[modulo]:
+                        raise KeyError(f"La clave Quiz1 no existe en el {modulo}")
+                    progreso_usuario[modulo][quiz1] = True
+            
+            #progreso[self.usuario_actual] = progreso_usuario
             
             with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
