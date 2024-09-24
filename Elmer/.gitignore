@@ -1,0 +1,10 @@
+# Ignorar todas las carpetas __pycache__ en el proyecto
+**/__pycache__/
+
+# También ignorar archivos .pyc y .pyo que pueden generarse
+*.py[cod]
+
+# Ignorar otros archivos temporales o de entorno
+*.log
+*.env
+.DS_Store

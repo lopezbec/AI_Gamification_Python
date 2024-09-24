@@ -20,7 +20,7 @@ class App(QWidget):
         layout = QVBoxLayout()
 
         self.textbox: QTextEdit = QTextEdit(self)
-        self.textbox.setPlaceholderText('Escribe tu código aquí. Usa "# input" seguido de tus entradas en líneas separadas.')
+        self.textbox.setPlaceholderText('Escribe tu código aquí...')
         layout.addWidget(self.textbox)
 
         self.run_button: QPushButton = QPushButton('Correr', self)
