@@ -1042,5 +1042,92 @@
                 "all_correct": false
             }
         }
+    },
+    "PedritoStudent": {
+        "Modulo1": {
+            "Leccion1": {
+                "all_correct": true
+            },
+            "Leccion2": {
+                "all_correct": true
+            },
+            "Leccion3": {
+                "all_correct": true
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo2": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            }
+        },
+        "Modulo3": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo4": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo5": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            },
+            "Leccion6": {
+                "all_correct": false
+            },
+            "Leccion7": {
+                "all_correct": false
+            }
+        }
     }
 }
