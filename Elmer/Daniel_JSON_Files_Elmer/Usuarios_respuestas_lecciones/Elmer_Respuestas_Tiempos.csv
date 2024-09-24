@@ -1,367 +1,491 @@
 "Modulo 1, Leccion 1",
-Parte 1,15:02:54
-Pedagogical Page Open Time,15:02:54
-Pedagogical Page Close Time,15:02:55
-Multiplechoice Page Open Time,15:02:55
-Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,15:02:59
-Multiplechoice Page Close Time,15:03:01
-Parte 2,15:03:01
-Pedagogical Page Open Time,15:03:01
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,15:03:01
-Pedagogical Page Close Time,15:03:02
-Pedagogical2 Page Open Time,15:03:02
-Playground Page Open,15:03:03
-Playground Page Close,15:03:04
-Pedagogical2 Page Close Time,15:03:05
-Parte 3,15:03:05
-Pedagogical Page Open Time,15:03:05
-Pedagogical Page Close Time,15:03:05
-Multiplechoice Page Open Time,15:03:05
-Checkbox Selected: Verdadero,15:03:07
-Multiplechoice Page Close Time,15:03:08
-Parte 4,15:03:08
-Draganddrop Page Open Time,15:03:08
-Draganddrop Page Close Time,15:03:10
-Correct Answer Selected: print(729),15:03:10
-Pedagogical Page Open Time,15:03:11
-Pedagogical Page Close Time,15:03:11
-Parte 5,15:03:11
-Multiplechoice Page Open Time,15:03:11
-Checkbox Selected: comillas '' ,15:03:13
-Multiplechoice Page Close Time,15:03:14
-Pedagogical Page Open Time,15:03:14
-Pedagogical Page Close Time,15:03:14
-Parte 6,15:03:14
-Pedagogical Page Open Time,15:03:14
-Pedagogical Page Close Time,15:03:15
-
-"Modulo 4, Leccion 1",
-Parte 1,23:51:33
-Pedagogical Page Open Time,23:51:33
-Playground Page Open,23:51:36
-Playground Page Close,23:51:37
-Pedagogical Page Close Time,23:51:38
-Multiplechoice Page Open Time,23:51:38
-Multiplechoice Page Close Time,23:51:42
-Parte 2,23:51:42
-Pedagogical Page Open Time,23:51:42
-Pedagogical Page Close Time,23:51:42
-Multiplechoice Page Open Time,23:51:42
-Checkbox Selected: 4,23:51:42
-Multiplechoice Page Close Time,23:51:45
-Parte 3,23:51:45
-Pedagogical Page Open Time,23:51:45
-Checkbox Selected: 3,23:51:45
-Pedagogical Page Close Time,23:51:46
-Draganddrop Page Open Time,23:51:46
-Correct Drop Event: [,23:51:50
-Correct Drop Event: ],23:51:50
-Draganddrop Page Close Time,23:51:51
-Parte 4,23:51:51
-Pedagogical Page Open Time,23:51:51
-Pedagogical Page Close Time,23:51:58
-Draganddrop Page Open Time,23:51:58
-Incorrect Drop Event: [,23:52:09
-Incorrect Drop Event: 7,23:52:09
-Incorrect Drop Event: [,23:52:09
-Incorrect Drop Event: 7,23:52:09
-Correct Drop Event: [,23:52:17
-Correct Drop Event: 2,23:52:17
-Draganddrop Page Close Time,23:52:18
-Parte 5,23:52:18
-Pedagogical Page Open Time,23:52:18
-Pedagogical Page Close Time,23:52:20
-Multiplechoice Page Open Time,23:52:20
-Checkbox Selected: 7,23:52:25
-Checkbox Selected: 2,23:52:29
-Multiplechoice Page Close Time,23:52:31
-Parte 6,23:52:31
-Pedagogical Page Open Time,23:52:31
-Pedagogical Page Close Time,23:52:31
-Multiplechoice Page Open Time,23:52:31
-Checkbox Selected: 8,23:52:31
-Checkbox Selected: yo,23:52:34
-Multiplechoice Page Close Time,23:52:35
-Parte 7,23:52:35
-Pedagogical Page Open Time,23:52:35
-Pedagogical Page Close Time,23:52:37
-Pedagogical2 Page Open Time,23:52:37
-Pedagogical2 Page Close Time,23:52:38
-Parte 8,23:52:38
-Multiplechoice Page Open Time,23:52:38
-Checkbox Selected: o,23:52:41
-Multiplechoice Page Close Time,23:52:42
-
-"Modulo 1, Leccion 4",
-Parte 1,23:20:02
-Pedagogical Page Open Time,23:20:02
-Pedagogical Page Close Time,23:20:04
-Parte 2,23:20:04
-Pedagogical Page Open Time,23:20:04
-Pedagogical Page Close Time,23:20:04
-Parte 1,23:20:04
-Pedagogical Page Open Time,23:20:04
-Pedagogical Page Close Time,23:20:04
-Parte 2,23:20:04
-Pedagogical Page Open Time,23:20:04
-Parte 1,23:20:04
-Parte 2,23:20:04
-Pedagogical Page Close Time,23:20:05
-Parte 3,23:20:05
-Pedagogical Page Open Time,23:20:05
-Pedagogical Page Close Time,23:20:05
-Parte 4,23:20:05
-Pedagogical Page Open Time,23:20:05
-Parte 3,23:20:05
-Parte 4,23:20:05
-Pedagogical Page Close Time,23:20:06
-Parte 5,23:20:06
-Pedagogical Page Open Time,23:20:06
-Pedagogical Page Close Time,23:20:06
-Parte 7,23:20:06
-Pedagogical2 Page Open Time,23:20:06
-Parte 5,23:20:06
-Parte 7,23:20:06
-Pedagogical2 Page Close Time,23:20:08
-Parte 8,23:20:08
-Draganddrop2 Page Open Time,23:20:08
-Correct Drop Event: a,23:20:14
-Correct Drop Event: +,23:20:14
-Correct Drop Event: b,23:20:14
-Draganddrop2 Page Close Time,23:20:20
-
-"Modulo 1, Leccion 5",
-Parte 1,23:26:29
-Pedagogical Page Open Time,23:26:29
-Pedagogical Page Close Time,23:26:30
-Pedagogical2 Page Open Time,23:26:30
-Pedagogical2 Page Close Time,23:26:30
-Parte 2,23:26:30
-Pedagogical Page Open Time,23:26:30
-Pedagogical Page Close Time,23:26:31
-Parte 4,23:26:31
-Pedagogical Page Open Time,23:26:31
-Pedagogical Page Close Time,23:26:31
-Parte 6,23:26:31
-Pedagogical Page Open Time,23:26:31
-Pedagogical Page Close Time,23:26:31
-Parte 9,23:26:31
-Pedagogical Page Open Time,23:26:31
-Pedagogical Page Close Time,23:26:31
-Parte 10,23:26:31
-Draganddrop Page Open Time,23:26:31
-Parte 4,23:26:31
-Parte 6,23:26:31
-Parte 9,23:26:31
-Parte 10,23:26:31
-Correct Drop Event: '42',23:26:40
-Correct Drop Event: +,23:26:40
-Correct Drop Event: '5',23:26:40
-Draganddrop Page Close Time,23:26:41
-Multiplechoice Page Open Time,23:26:41
-Checkbox Selected: 100,23:26:44
-Checkbox Selected: Ninguno,23:26:47
-Multiplechoice Page Close Time,23:26:49
+Parte 1,10:00:23
+Pedagogical Page Open Time,10:00:23
+Pedagogical Page Close Time,10:00:24
+Multiplechoice Page Open Time,10:00:24
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,10:00:27
+Multiplechoice Page Close Time,10:00:37
+Parte 2,10:00:37
+Pedagogical Page Open Time,10:00:37
+Pedagogical Page Close Time,10:00:38
+Pedagogical2 Page Open Time,10:00:38
+Pedagogical2 Page Close Time,10:00:41
+Parte 3,10:00:41
+Pedagogical Page Open Time,10:00:41
+Pedagogical Page Close Time,10:00:42
+Multiplechoice Page Open Time,10:00:42
+Checkbox Selected: Verdadero,10:00:45
+Multiplechoice Page Close Time,10:00:47
+Parte 4,10:00:47
+Draganddrop Page Open Time,10:00:47
+Correct Answer Selected: print(729),10:00:52
+Draganddrop Page Close Time,10:01:10
+Pedagogical Page Open Time,10:01:10
+Pedagogical Page Close Time,10:01:12
+Parte 5,10:01:12
+Multiplechoice Page Open Time,10:01:12
+Checkbox Selected: punto y coma ;,10:01:16
+Checkbox Selected: barra inclinada /,10:01:18
+Checkbox Selected: comillas '' ,10:01:46
+Multiplechoice Page Close Time,10:01:48
+Pedagogical Page Open Time,10:01:48
+Pedagogical Page Close Time,10:01:50
+Parte 6,10:01:50
+Pedagogical Page Open Time,10:01:50
+Pedagogical Page Close Time,10:01:51
 
 "Modulo 1, Leccion 1",
-Parte 1,15:24:40
-Pedagogical Page Open Time,15:24:40
-Pedagogical Page Close Time,15:24:41
-Multiplechoice Page Open Time,15:24:41
-Multiplechoice Page Close Time,15:24:45
-Parte 2,15:24:45
-Pedagogical Page Open Time,15:24:45
-Parte 1,15:24:45
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,15:24:45
-Pedagogical Page Close Time,15:24:46
-Pedagogical2 Page Open Time,15:24:46
-Pedagogical2 Page Close Time,15:24:47
-Pedagogical Page Open Time,15:24:47
-Pedagogical Page Close Time,15:24:48
-Pedagogical2 Page Open Time,15:24:48
-Playground Page Open,15:24:49
-Playground Page Close,15:24:51
-Pedagogical2 Page Close Time,15:24:52
-Parte 3,15:24:52
-Pedagogical Page Open Time,15:24:52
-Pedagogical Page Close Time,15:24:52
-Multiplechoice Page Open Time,15:24:52
-Checkbox Selected: Verdadero,15:24:54
-Multiplechoice Page Close Time,15:24:55
-Parte 4,15:24:55
-Draganddrop Page Open Time,15:24:55
-Incorrect Answer Selected: <Espacio para respuesta>(729),15:24:55
-Draganddrop Page Close Time,15:24:57
-Pedagogical Page Open Time,15:24:57
-Correct Answer Selected: print(729),15:24:57
-Pedagogical Page Close Time,15:24:58
-Parte 5,15:24:58
-Multiplechoice Page Open Time,15:24:58
-Checkbox Selected: comillas '' ,15:25:00
-Multiplechoice Page Close Time,15:25:01
-Pedagogical Page Open Time,15:25:01
-Pedagogical Page Close Time,15:25:01
-Parte 6,15:25:01
-Pedagogical Page Open Time,15:25:01
-Pedagogical Page Close Time,15:25:02
-
-"Modulo 1, Leccion 2",
-Parte 1,15:25:05
-Pedagogical Page Open Time,15:25:05
-Pedagogical Page Close Time,15:25:06
-Pedagogical2 Page Open Time,15:25:06
-Playground Page Open,15:25:07
-Playground Page Close,15:25:08
-Pedagogical2 Page Close Time,15:25:10
-Parte 2,15:25:10
-Completeblankspace Page Open Time,15:25:10
-Completeblankspace Page Close Time,15:25:16
-Pedagogical Page Open Time,15:25:16
-Correct Answer Selected: +,15:25:16
-Pedagogical Page Close Time,15:25:17
-Parte 3,15:25:17
-Draganddrop Page Open Time,15:25:17
-Correct Answer Selected: print(42 * 3),15:25:21
-Draganddrop Page Close Time,15:25:22
-Pedagogical Page Open Time,15:25:22
-Pedagogical Page Close Time,15:25:22
-Parte 4,15:25:22
-Multiplechoice Page Open Time,15:25:22
-Multiplechoice Page Close Time,15:25:25
-Pedagogical Page Open Time,15:25:25
-Pedagogical Page Close Time,15:25:25
-Parte 5,15:25:25
-Draganddrop Page Open Time,15:25:25
-Parte 4,15:25:25
-Correct Answer Selected: 4.0,15:25:25
-Draganddrop Page Close Time,15:25:30
-Pedagogical Page Open Time,15:25:30
-Parte 5,15:25:30
-Correct Answer Selected: Entero:2,15:25:30
-Correct Answer Selected: Flotante:3.14,15:25:30
-Pedagogical Page Close Time,15:25:33
-Parte 6,15:25:33
-Pedagogical Page Open Time,15:25:33
-Pedagogical Page Close Time,15:25:34
-Pedagogical2 Page Open Time,15:25:34
-Pedagogical2 Page Close Time,15:25:35
-Parte 7,15:25:35
-Pedagogical Page Open Time,15:25:35
-Pedagogical Page Close Time,15:25:37
-
-"Modulo 1, Leccion 4",
-Parte 7,15:48:55
-Pedagogical2 Page Open Time,15:48:55
-Pedagogical2 Page Close Time,15:48:57
-Parte 8,15:48:57
-Draganddrop Page Open Time,15:48:57
-Correct Drop Event: a,15:49:01
-Correct Drop Event: +,15:49:01
-Correct Drop Event: b,15:49:01
-Draganddrop Page Close Time,15:49:02
-Parte 9,15:49:02
-Draganddrop Page Open Time,15:49:02
-Correct Drop Event: 15,15:49:11
-Correct Drop Event: years,15:49:11
-Draganddrop Page Close Time,15:49:12
-
-"Modulo 1, Leccion 5",
-Parte 9,15:54:26
-Pedagogical2 Page Open Time,15:54:26
-Pedagogical2 Page Close Time,15:54:27
-Parte 10,15:54:27
-Draganddrop Page Open Time,15:54:27
-Correct Drop Event: '42',15:54:35
-Correct Drop Event: +,15:54:35
-Correct Drop Event: '5',15:54:35
-Draganddrop Page Close Time,15:54:36
-Parte 9,15:54:36
-Pedagogical2 Page Open Time,15:54:36
-Pedagogical2 Page Close Time,15:54:37
-Parte 10,15:54:37
-Draganddrop Page Open Time,15:54:37
-Incorrect Drop Event: +,15:54:40
-Incorrect Drop Event: '5',15:54:40
-Incorrect Drop Event: '42',15:54:40
-Draganddrop Page Close Time,15:54:45
-Multiplechoice Page Open Time,15:54:45
-Correct Drop Event: '42',15:54:45
-Correct Drop Event: +,15:54:45
-Correct Drop Event: '5',15:54:45
-Checkbox Selected: 100,15:54:54
-Checkbox Selected: Ninguno,15:54:57
-Multiplechoice Page Close Time,15:54:59
+Parte 1,10:39:52
+Pedagogical Page Open Time,10:39:52
+Leaderboard Page Open,10:39:54
+Pedagogical Page Close Time,10:40:01
+Multiplechoice Page Open Time,10:40:01
+Multiplechoice Page Close Time,10:40:03
+Parte 2,10:40:03
+Pedagogical Page Open Time,10:40:03
+Parte 1,10:40:03
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,10:40:03
+Pedagogical Page Close Time,10:40:04
+Pedagogical2 Page Open Time,10:40:04
+Pedagogical2 Page Close Time,10:40:05
+Parte 3,10:40:05
+Pedagogical Page Open Time,10:40:05
+Playground Page Open,10:40:06
+Playground Page Close,10:40:10
+Pedagogical Page Close Time,10:40:12
+Multiplechoice Page Open Time,10:40:12
+Multiplechoice Page Close Time,10:40:16
+Parte 4,10:40:16
+Draganddrop Page Open Time,10:40:16
+Checkbox Selected: Verdadero,10:40:16
+Correct Answer Selected: print(729),10:40:19
+Draganddrop Page Close Time,10:40:20
+Pedagogical Page Open Time,10:40:20
+Pedagogical Page Close Time,10:40:20
+Parte 5,10:40:21
+Multiplechoice Page Open Time,10:40:21
+Checkbox Selected: comillas '' ,10:40:23
+Multiplechoice Page Close Time,10:40:24
+Pedagogical Page Open Time,10:40:24
+Pedagogical Page Close Time,10:40:24
+Parte 6,10:40:24
+Pedagogical Page Open Time,10:40:24
+Pedagogical Page Close Time,10:40:25
 
 "Modulo 1, Leccion 1",
-Parte 1,13:23:52
-Pedagogical Page Open Time,13:23:52
-Pedagogical Page Close Time,13:23:54
-Multiplechoice Page Open Time,13:23:54
-Checkbox Selected: Un lenguaje utilizado por las maquinas para comunicarse con los extraterrestres.,13:23:57
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,13:23:59
-Multiplechoice Page Close Time,13:24:00
-Parte 2,13:24:00
-Pedagogical Page Open Time,13:24:00
-Pedagogical Page Close Time,13:24:00
-Pedagogical2 Page Open Time,13:24:00
-Pedagogical2 Page Close Time,13:24:02
-Parte 3,13:24:02
-Pedagogical Page Open Time,13:24:02
-Pedagogical Page Close Time,13:24:03
-Multiplechoice Page Open Time,13:24:03
-Checkbox Selected: Verdadero,13:24:05
-Multiplechoice Page Close Time,13:24:06
-Parte 4,13:24:06
-Draganddrop Page Open Time,13:24:06
-Draganddrop Page Close Time,13:24:08
-Pedagogical Page Open Time,13:24:08
-Correct Answer Selected: print(729),13:24:08
-Pedagogical Page Close Time,13:24:09
-Parte 5,13:24:09
-Multiplechoice Page Open Time,13:24:09
-Checkbox Selected: comillas '' ,13:24:11
-Multiplechoice Page Close Time,13:24:12
-Pedagogical Page Open Time,13:24:12
-Pedagogical Page Close Time,13:24:12
-Parte 6,13:24:12
-Pedagogical Page Open Time,13:24:12
-Pedagogical Page Close Time,13:24:13
+Parte 1,10:56:34
+Pedagogical Page Open Time,10:56:34
+Leaderboard Page Open,10:56:36
+Pedagogical Page Close Time,10:56:45
+Multiplechoice Page Open Time,10:56:45
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,10:56:46
+Multiplechoice Page Close Time,10:56:47
+Parte 2,10:56:47
+Pedagogical Page Open Time,10:56:47
+Pedagogical Page Close Time,10:56:48
+Pedagogical2 Page Open Time,10:56:48
+Playground Page Open,10:56:50
+Playground Page Close,10:56:58
+Pedagogical2 Page Close Time,10:57:00
+Parte 3,10:57:00
+Pedagogical Page Open Time,10:57:00
+Pedagogical Page Close Time,10:57:00
+Multiplechoice Page Open Time,10:57:00
+Multiplechoice Page Close Time,10:57:03
+Parte 4,10:57:03
+Draganddrop Page Open Time,10:57:03
+Parte 3,10:57:03
+Checkbox Selected: Verdadero,10:57:03
+Draganddrop Page Close Time,10:57:06
+Pedagogical Page Open Time,10:57:06
+Parte 4,10:57:06
+Correct Answer Selected: print(729),10:57:06
+Pedagogical Page Close Time,10:57:07
+Parte 5,10:57:07
+Multiplechoice Page Open Time,10:57:07
+Checkbox Selected: comillas '' ,10:57:09
+Multiplechoice Page Close Time,10:57:10
+Pedagogical Page Open Time,10:57:10
+Pedagogical Page Close Time,10:57:10
+Parte 6,10:57:10
+Pedagogical Page Open Time,10:57:10
+Pedagogical Page Close Time,10:57:11
 
 "Modulo 1, Leccion 1",
-Parte 1,13:24:19
-Pedagogical Page Open Time,13:24:19
-Pedagogical Page Close Time,13:24:20
-Multiplechoice Page Open Time,13:24:20
-Multiplechoice Page Close Time,13:24:23
-Parte 2,13:24:23
-Pedagogical Page Open Time,13:24:23
-Parte 1,13:24:23
-Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,13:24:23
-Pedagogical Page Close Time,13:24:25
-Pedagogical2 Page Open Time,13:24:25
-Pedagogical2 Page Close Time,13:24:26
-Parte 3,13:24:26
-Pedagogical Page Open Time,13:24:26
-Pedagogical Page Close Time,13:24:27
-Multiplechoice Page Open Time,13:24:27
-Multiplechoice Page Close Time,13:24:29
-Parte 4,13:24:29
-Draganddrop Page Open Time,13:24:29
-Parte 3,13:24:29
-Checkbox Selected: Verdadero,13:24:29
-Parte 4,13:24:29
-Incorrect Answer Selected: <Espacio para respuesta>(729),13:24:29
-Correct Answer Selected: print(729),13:24:31
-Draganddrop Page Close Time,13:24:32
-Pedagogical Page Open Time,13:24:32
-Pedagogical Page Close Time,13:24:32
-Parte 5,13:24:32
-Multiplechoice Page Open Time,13:24:32
-Checkbox Selected: comillas '' ,13:24:35
-Multiplechoice Page Close Time,13:24:36
-Pedagogical Page Open Time,13:24:36
-Pedagogical Page Close Time,13:24:37
-Parte 6,13:24:37
-Pedagogical Page Open Time,13:24:37
-Pedagogical Page Close Time,13:24:43
+Parte 1,11:00:12
+Pedagogical Page Open Time,11:00:12
+Leaderboard Page Open,11:00:15
+Pedagogical Page Close Time,11:00:20
+Multiplechoice Page Open Time,11:00:20
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:00:22
+Multiplechoice Page Close Time,11:00:23
+Parte 2,11:00:23
+Pedagogical Page Open Time,11:00:23
+Pedagogical Page Close Time,11:00:23
+Pedagogical2 Page Open Time,11:00:23
+Pedagogical2 Page Close Time,11:00:24
+Parte 3,11:00:24
+Pedagogical Page Open Time,11:00:24
+Pedagogical Page Close Time,11:00:25
+Multiplechoice Page Open Time,11:00:25
+Multiplechoice Page Close Time,11:00:27
+Parte 4,11:00:27
+Draganddrop Page Open Time,11:00:27
+Parte 3,11:00:27
+Checkbox Selected: Verdadero,11:00:27
+Parte 4,11:00:27
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:00:27
+Correct Answer Selected: print(729),11:00:30
+Draganddrop Page Close Time,11:00:31
+Pedagogical Page Open Time,11:00:31
+Pedagogical Page Close Time,11:00:31
+Parte 5,11:00:31
+Multiplechoice Page Open Time,11:00:31
+Checkbox Selected: comillas '' ,11:00:34
+Multiplechoice Page Close Time,11:00:35
+Pedagogical Page Open Time,11:00:35
+Pedagogical Page Close Time,11:00:35
+Parte 6,11:00:35
+Pedagogical Page Open Time,11:00:35
+Pedagogical Page Close Time,11:00:36
+
+"Modulo 1, Leccion 1",
+Parte 1,11:01:21
+Pedagogical Page Open Time,11:01:21
+Leaderboard Page Open,11:01:22
+Pedagogical Page Close Time,11:01:29
+Multiplechoice Page Open Time,11:01:29
+Multiplechoice Page Close Time,11:01:31
+Parte 2,11:01:31
+Pedagogical Page Open Time,11:01:31
+Pedagogical Page Close Time,11:01:31
+Pedagogical2 Page Open Time,11:01:31
+Parte 1,11:01:31
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:01:31
+Pedagogical2 Page Close Time,11:01:32
+Parte 3,11:01:32
+Pedagogical Page Open Time,11:01:32
+Pedagogical Page Close Time,11:01:33
+Multiplechoice Page Open Time,11:01:33
+Multiplechoice Page Close Time,11:01:35
+Parte 4,11:01:35
+Draganddrop Page Open Time,11:01:35
+Parte 3,11:01:35
+Checkbox Selected: Verdadero,11:01:35
+Parte 4,11:01:35
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:01:35
+Correct Answer Selected: print(729),11:01:38
+Draganddrop Page Close Time,11:01:39
+Pedagogical Page Open Time,11:01:39
+Pedagogical Page Close Time,11:01:39
+Parte 5,11:01:39
+Multiplechoice Page Open Time,11:01:39
+Multiplechoice Page Close Time,11:01:42
+Pedagogical Page Open Time,11:01:42
+Checkbox Selected: comillas '' ,11:01:42
+Pedagogical Page Close Time,11:01:43
+Parte 6,11:01:43
+Pedagogical Page Open Time,11:01:43
+Pedagogical Page Close Time,11:01:44
+
+"Modulo 1, Leccion 1",
+Parte 1,11:03:41
+Pedagogical Page Open Time,11:03:41
+Leaderboard Page Open,11:03:42
+Pedagogical Page Close Time,11:03:47
+Multiplechoice Page Open Time,11:03:48
+Multiplechoice Page Close Time,11:03:49
+Parte 2,11:03:49
+Pedagogical Page Open Time,11:03:49
+Parte 1,11:03:49
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:03:49
+Pedagogical Page Close Time,11:03:50
+Pedagogical2 Page Open Time,11:03:50
+Pedagogical2 Page Close Time,11:03:51
+Parte 3,11:03:51
+Pedagogical Page Open Time,11:03:51
+Pedagogical Page Close Time,11:03:51
+Multiplechoice Page Open Time,11:03:51
+Multiplechoice Page Close Time,11:03:54
+Parte 4,11:03:54
+Draganddrop Page Open Time,11:03:54
+Parte 3,11:03:54
+Checkbox Selected: Verdadero,11:03:54
+Parte 4,11:03:54
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:03:54
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:03:54
+Draganddrop Page Close Time,11:03:58
+Pedagogical Page Open Time,11:03:58
+Pedagogical Page Close Time,11:03:58
+Parte 5,11:03:58
+Multiplechoice Page Open Time,11:03:58
+Correct Answer Selected: print(729),11:03:58
+Multiplechoice Page Close Time,11:04:01
+Pedagogical Page Open Time,11:04:01
+Pedagogical Page Close Time,11:04:01
+Parte 6,11:04:01
+Pedagogical Page Open Time,11:04:01
+Checkbox Selected: comillas '' ,11:04:01
+Pedagogical Page Close Time,11:04:02
+
+"Modulo 1, Leccion 1",
+Parte 1,11:05:30
+Pedagogical Page Open Time,11:05:30
+Pedagogical Page Close Time,11:05:43
+Multiplechoice Page Open Time,11:05:43
+Leaderboard Page Open,11:05:50
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:06:07
+Multiplechoice Page Close Time,11:06:08
+Parte 2,11:06:08
+Pedagogical Page Open Time,11:06:08
+Pedagogical Page Close Time,11:06:08
+Pedagogical2 Page Open Time,11:06:08
+Pedagogical2 Page Close Time,11:06:09
+Parte 3,11:06:09
+Pedagogical Page Open Time,11:06:09
+Pedagogical Page Close Time,11:06:10
+Multiplechoice Page Open Time,11:06:10
+Multiplechoice Page Close Time,11:06:12
+Parte 4,11:06:12
+Draganddrop Page Open Time,11:06:12
+Parte 3,11:06:12
+Checkbox Selected: Verdadero,11:06:12
+Draganddrop Page Close Time,11:06:15
+Pedagogical Page Open Time,11:06:15
+Pedagogical Page Close Time,11:06:15
+Parte 5,11:06:15
+Multiplechoice Page Open Time,11:06:15
+Parte 4,11:06:15
+Correct Answer Selected: print(729),11:06:15
+Parte 5,11:06:17
+Checkbox Selected: comillas '' ,11:06:17
+Multiplechoice Page Close Time,11:06:18
+Pedagogical Page Open Time,11:06:18
+Pedagogical Page Close Time,11:06:19
+Parte 6,11:06:19
+Pedagogical Page Open Time,11:06:19
+Pedagogical Page Close Time,11:06:19
+
+"Modulo 1, Leccion 1",
+Parte 1,11:09:55
+Pedagogical Page Open Time,11:09:55
+Leaderboard Page Open,11:09:56
+Pedagogical Page Close Time,11:10:02
+Multiplechoice Page Open Time,11:10:02
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:10:05
+Multiplechoice Page Close Time,11:10:06
+Parte 2,11:10:06
+Pedagogical Page Open Time,11:10:06
+Pedagogical Page Close Time,11:10:06
+Pedagogical2 Page Open Time,11:10:06
+Pedagogical2 Page Close Time,11:10:06
+Parte 3,11:10:06
+Pedagogical Page Open Time,11:10:06
+Pedagogical Page Close Time,11:10:07
+Multiplechoice Page Open Time,11:10:07
+Multiplechoice Page Close Time,11:10:09
+Parte 4,11:10:09
+Draganddrop Page Open Time,11:10:09
+Parte 3,11:10:09
+Checkbox Selected: Verdadero,11:10:09
+Draganddrop Page Close Time,11:10:12
+Pedagogical Page Open Time,11:10:12
+Parte 4,11:10:12
+Correct Answer Selected: print(729),11:10:12
+Pedagogical Page Close Time,11:10:13
+Parte 5,11:10:13
+Multiplechoice Page Open Time,11:10:13
+Multiplechoice Page Close Time,11:10:15
+Pedagogical Page Open Time,11:10:15
+Checkbox Selected: comillas '' ,11:10:15
+Pedagogical Page Close Time,11:10:16
+Parte 6,11:10:16
+Pedagogical Page Open Time,11:10:16
+Pedagogical Page Close Time,11:10:16
+
+"Modulo 1, Leccion 1",
+Parte 1,11:26:47
+Pedagogical Page Open Time,11:26:47
+Leaderboard Page Open,11:26:49
+Pedagogical Page Close Time,11:26:55
+Multiplechoice Page Open Time,11:26:56
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:26:57
+Multiplechoice Page Close Time,11:26:59
+Parte 2,11:26:59
+Pedagogical Page Open Time,11:26:59
+Pedagogical Page Close Time,11:26:59
+Pedagogical2 Page Open Time,11:26:59
+Pedagogical2 Page Close Time,11:27:01
+Parte 3,11:27:01
+Pedagogical Page Open Time,11:27:01
+Pedagogical Page Close Time,11:27:02
+Multiplechoice Page Open Time,11:27:02
+Checkbox Selected: Verdadero,11:27:04
+Multiplechoice Page Close Time,11:27:05
+Parte 4,11:27:05
+Draganddrop Page Open Time,11:27:05
+Correct Answer Selected: print(729),11:27:08
+Draganddrop Page Close Time,11:27:09
+Pedagogical Page Open Time,11:27:09
+Playground Page Open,11:27:10
+Playground Page Close,11:27:11
+Pedagogical Page Close Time,11:27:12
+Parte 5,11:27:12
+Multiplechoice Page Open Time,11:27:12
+Checkbox Selected: comillas '' ,11:27:14
+Multiplechoice Page Close Time,11:27:15
+Pedagogical Page Open Time,11:27:15
+Pedagogical Page Close Time,11:27:16
+Parte 6,11:27:16
+Pedagogical Page Open Time,11:27:16
+Pedagogical Page Close Time,11:27:17
+
+"Modulo 1, Leccion 1",
+Parte 1,11:35:21
+Pedagogical Page Open Time,11:35:21
+Leaderboard Page Open,11:35:23
+Leaderboard Page Open,11:35:27
+Pedagogical Page Close Time,11:35:30
+Multiplechoice Page Open Time,11:35:30
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:35:31
+Multiplechoice Page Close Time,11:35:32
+Parte 2,11:35:32
+Pedagogical Page Open Time,11:35:32
+Pedagogical Page Close Time,11:35:32
+Pedagogical2 Page Open Time,11:35:32
+Pedagogical2 Page Close Time,11:35:33
+Parte 3,11:35:33
+Pedagogical Page Open Time,11:35:33
+Pedagogical Page Close Time,11:35:33
+Multiplechoice Page Open Time,11:35:33
+Checkbox Selected: Verdadero,11:35:35
+Multiplechoice Page Close Time,11:35:36
+Parte 4,11:35:36
+Draganddrop Page Open Time,11:35:36
+Draganddrop Page Close Time,11:35:39
+Pedagogical Page Open Time,11:35:39
+Correct Answer Selected: print(729),11:35:39
+Pedagogical Page Close Time,11:35:40
+Parte 5,11:35:40
+Multiplechoice Page Open Time,11:35:40
+Multiplechoice Page Close Time,11:35:42
+Pedagogical Page Open Time,11:35:42
+Pedagogical Page Close Time,11:35:42
+Parte 6,11:35:42
+Pedagogical Page Open Time,11:35:42
+Parte 5,11:35:42
+Checkbox Selected: comillas '' ,11:35:42
+Pedagogical Page Close Time,11:35:43
+
+"Modulo 1, Leccion 1",
+Parte 1,11:38:14
+Pedagogical Page Open Time,11:38:14
+Leaderboard Page Open,11:38:16
+Pedagogical Page Close Time,11:38:24
+Multiplechoice Page Open Time,11:38:24
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:38:28
+Multiplechoice Page Close Time,11:38:29
+Parte 2,11:38:29
+Pedagogical Page Open Time,11:38:29
+Leaderboard Page Open,11:38:30
+Pedagogical Page Close Time,11:38:33
+Pedagogical2 Page Open Time,11:38:33
+Pedagogical2 Page Close Time,11:38:33
+Parte 3,11:38:33
+Pedagogical Page Open Time,11:38:33
+Pedagogical Page Close Time,11:38:33
+Multiplechoice Page Open Time,11:38:33
+Multiplechoice Page Close Time,11:38:36
+Parte 4,11:38:36
+Draganddrop Page Open Time,11:38:36
+Checkbox Selected: Verdadero,11:38:36
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:38:36
+Draganddrop Page Close Time,11:38:39
+Pedagogical Page Open Time,11:38:39
+Pedagogical Page Close Time,11:38:39
+Parte 5,11:38:39
+Multiplechoice Page Open Time,11:38:39
+Correct Answer Selected: print(729),11:38:39
+Multiplechoice Page Close Time,11:38:42
+Pedagogical Page Open Time,11:38:42
+Pedagogical Page Close Time,11:38:42
+Parte 6,11:38:42
+Pedagogical Page Open Time,11:38:42
+Checkbox Selected: comillas '' ,11:38:42
+Pedagogical Page Close Time,11:38:43
+
+"Modulo 1, Leccion 1",
+Parte 1,11:45:44
+Pedagogical Page Open Time,11:45:44
+Leaderboard Page Open,11:45:46
+Pedagogical Page Close Time,11:45:49
+Multiplechoice Page Open Time,11:45:49
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,11:45:51
+Multiplechoice Page Close Time,11:45:52
+Parte 2,11:45:52
+Pedagogical Page Open Time,11:45:52
+Pedagogical Page Close Time,11:45:52
+Pedagogical2 Page Open Time,11:45:52
+Pedagogical2 Page Close Time,11:45:53
+Parte 3,11:45:53
+Pedagogical Page Open Time,11:45:53
+Pedagogical Page Close Time,11:45:54
+Multiplechoice Page Open Time,11:45:54
+Leaderboard Page Close,11:45:56
+Checkbox Selected: Verdadero,11:45:56
+Multiplechoice Page Close Time,11:45:57
+Parte 4,11:45:57
+Draganddrop Page Open Time,11:45:57
+Incorrect Answer Selected: <Espacio para respuesta>(729),11:45:57
+Draganddrop Page Close Time,11:46:00
+Pedagogical Page Open Time,11:46:00
+Correct Answer Selected: print(729),11:46:00
+Pedagogical Page Close Time,11:46:01
+Parte 5,11:46:01
+Multiplechoice Page Open Time,11:46:01
+Multiplechoice Page Close Time,11:46:03
+Pedagogical Page Open Time,11:46:03
+Pedagogical Page Close Time,11:46:03
+Parte 6,11:46:03
+Pedagogical Page Open Time,11:46:03
+Parte 5,11:46:03
+Checkbox Selected: comillas '' ,11:46:03
+Pedagogical Page Close Time,11:46:04
+
+"Modulo 1, Leccion 1",
+Parte 1,19:50:18
+Pedagogical Page Open Time,19:50:18
+Pedagogical Page Close Time,19:50:21
+Multiplechoice Page Open Time,19:50:21
+Checkbox Selected: Un lenguaje utilizado por los humanos para comunicarse con las maquinas.,19:50:25
+Multiplechoice Page Close Time,19:50:27
+Parte 2,19:50:27
+Pedagogical Page Open Time,19:50:27
+Pedagogical Page Close Time,19:50:27
+Pedagogical2 Page Open Time,19:50:27
+Pedagogical2 Page Close Time,19:50:30
+Parte 3,19:50:30
+Pedagogical Page Open Time,19:50:30
+Pedagogical Page Close Time,19:50:31
+Multiplechoice Page Open Time,19:50:31
+Multiplechoice Page Close Time,19:50:34
+Parte 4,19:50:34
+Draganddrop Page Open Time,19:50:34
+Parte 3,19:50:34
+Checkbox Selected: Verdadero,19:50:34
+Parte 4,19:50:35
+Incorrect Answer Selected: <Espacio para respuesta>(729),19:50:35
+Draganddrop Page Close Time,19:50:38
+Pedagogical Page Open Time,19:50:38
+Correct Answer Selected: print(729),19:50:38
+Pedagogical Page Close Time,19:50:40
+Parte 5,19:50:40
+Multiplechoice Page Open Time,19:50:40
+Checkbox Selected: comillas '' ,19:50:43
+Multiplechoice Page Close Time,19:50:44
+Pedagogical Page Open Time,19:50:44
+Pedagogical Page Close Time,19:50:45
+Parte 6,19:50:45
+Pedagogical Page Open Time,19:50:45
+Pedagogical Page Close Time,19:50:46
 

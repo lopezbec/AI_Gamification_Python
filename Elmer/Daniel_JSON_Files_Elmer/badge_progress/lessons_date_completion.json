@@ -334,7 +334,7 @@
     },
     "Elmer": {
         "Modulo1": {
-            "Leccion_completada1": "",
+            "Leccion_completada1": "2024-08-23",
             "Leccion_completada2": "",
             "Leccion_completada3": "",
             "Leccion_completada4": "",
@@ -408,7 +408,7 @@
     },
     "Marcos": {
         "Modulo1": {
-            "Leccion_completada1": "",
+            "Leccion_completada1": "2024-08-23",
             "Leccion_completada2": "",
             "Leccion_completada3": "",
             "Leccion_completada4": "",
@@ -480,13 +480,13 @@
             "Leccion_completada7": ""
         }
     },
-    "Pepe": {
+    "Daniel": {
         "Modulo1": {
-            "Leccion_completada1": "2024-09-24",
+            "Leccion_completada1": "",
             "Leccion_completada2": "",
             "Leccion_completada3": "",
             "Leccion_completada4": "",
-            "Leccion_completada5": "2024-09-19"
+            "Leccion_completada5": ""
         },
         "Modulo2": {
             "Leccion_completada1": "",
@@ -517,11 +517,11 @@
             "Leccion_completada7": ""
         }
     },
-    "PedritoStudent": {
+    "eLMER": {
         "Modulo1": {
-            "Leccion_completada1": "2024-09-24",
-            "Leccion_completada2": "2024-09-24",
-            "Leccion_completada3": "2024-09-24",
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
             "Leccion_completada4": "",
             "Leccion_completada5": ""
         },

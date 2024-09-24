@@ -2,7 +2,7 @@ import tkinter as tk
 import random
 from datetime import datetime
 class CongratulationWindow:
-    def __init__(self, log_filename="popup_log.txt", duration=3000):
+    def __init__(self, log_filename="popup_log.txt", duration=1800):
         self.log_filename = log_filename
         self.duration = duration
 

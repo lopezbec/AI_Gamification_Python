@@ -61,7 +61,6 @@ class DropLabel(QWidget):
 
     def dropEvent(self, event):
         new_dropped_text = event.mimeData().text()
-        print(f"Texto arrastrado: {new_dropped_text}")  # Agregar print para verificar el texto arrastrado
         if len(self.dropped_texts) < len(self.base_text_parts) - 1:
             self.dropped_texts.append(new_dropped_text)
         else:
@@ -72,5 +71,4 @@ class DropLabel(QWidget):
             self.dropped_texts = [self.dropped_text]  # Reemplaza el texto anterior
 
         self.drop_area.setText(self.get_current_text())
-        print(f"Estado actual de dropped_texts: {self.dropped_texts}")  # Agregar print para verificar dropped_texts
         event.acceptProposedAction()

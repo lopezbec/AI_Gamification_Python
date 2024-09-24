@@ -175,8 +175,9 @@ class JsonWindow(QWidget):
         super().showEvent(event)
         self.update_points_display(self.main_window.XP_Ganados)
 
-    @staticmethod
-    def abrir_leaderboard():
+    def abrir_leaderboard(self):
+        # Registrar el evento de apertura del Leaderboard
+        self.main_window.log_event("Leaderboard Page Open", event_type="time")
         LeaderBoard()
 
     def title(self):

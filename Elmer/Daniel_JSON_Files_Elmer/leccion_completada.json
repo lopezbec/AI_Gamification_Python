@@ -1258,11 +1258,11 @@
             "Quiz_completado2": false
         }
     },
-    "PedritoStudent": {
+    "eLMER": {
         "Modulo1": {
-            "Leccion_completada1": true,
-            "Leccion_completada2": true,
-            "Leccion_completada3": true,
+            "Leccion_completada1": false,
+            "Leccion_completada2": false,
+            "Leccion_completada3": false,
             "Leccion_completada4": false,
             "Leccion_completada5": false,
             "Quiz_completado1": false,

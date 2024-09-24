@@ -785,7 +785,7 @@
     "Marcos": {
         "Modulo1": {
             "Leccion1": {
-                "all_correct": false
+                "all_correct": true
             },
             "Leccion2": {
                 "all_correct": false
@@ -956,7 +956,7 @@
             }
         }
     },
-    "Pepe": {
+    "Daniel": {
         "Modulo1": {
             "Leccion1": {
                 "all_correct": false
@@ -1043,16 +1043,16 @@
             }
         }
     },
-    "PedritoStudent": {
+    "eLMER": {
         "Modulo1": {
             "Leccion1": {
-                "all_correct": true
+                "all_correct": false
             },
             "Leccion2": {
-                "all_correct": true
+                "all_correct": false
             },
             "Leccion3": {
-                "all_correct": true
+                "all_correct": false
             },
             "Leccion4": {
                 "all_correct": false
