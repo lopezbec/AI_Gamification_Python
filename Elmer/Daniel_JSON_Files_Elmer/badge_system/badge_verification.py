@@ -2,7 +2,7 @@ import datetime
 import json
 import os
 import sys
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtWidgets import QApplication, QDialog, QLabel, QVBoxLayout
 
@@ -68,6 +68,9 @@ class BadgeVerification(QDialog):
 
 def display_badge(badge_id: str):
         badge_window = BadgeVerification(badge_id)
+
+        QTimer.singleShot(3000, badge_window.close)
+
         badge_window.exec()
     
 def load_badges():
