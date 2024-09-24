@@ -148,7 +148,8 @@
             "Leccion3": true,
             "Leccion4": true,
             "Leccion5": true,
-            "Leccion6": true
+            "Quiz1": true,
+            "Quiz2": false
         },
         "Modulo2": {
             "Leccion1": true,
