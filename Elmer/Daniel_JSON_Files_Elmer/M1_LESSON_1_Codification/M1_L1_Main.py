@@ -1,59 +1,102 @@
-try:
-    import re
-    import os
-    import sys
-    import csv
-    import json
-    import datetime
-    import drag_drop
-    from PyQt6 import QtWidgets
-    from functools import partial
-    from PyQt6.QtGui import QFont
-    from PyQt6.QtCore import Qt, QTimer
-    from qtconsole.manager import QtKernelManager
-    from game_features.progress_bar import ProgressBar
-    from qtconsole.rich_jupyter_widget import RichJupyterWidget
-    from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
-    from PyQt6.QtWidgets import QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-        QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
-    from Main_Modulos_Intro_Pages import MainWindow as Dashboard
-    from command_line_UI import App
-    from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
-        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
-            update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
-    from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
-    read_stored_streak, update_streak, check_streak_badges
-    from badge_system.display_cabinet import BadgeDisplayCabinet
-    from congratulation_Feature import CongratulationWindow
-except Exception as e:
-    print(f"error en importacion de modulos {e} \n linea {sys.exc_info()[2].tb_lineno}")
-
+import json
+import os
+import sys
+import csv
+import datetime
+import re
+from PyQt6 import QtWidgets
+from functools import partial
+from PyQt6.QtGui import QFont
+from PyQt6.QtCore import Qt, QTimer
+from qtconsole.manager import QtKernelManager
+from game_features.progress_bar import ProgressBar
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
+from PyQt6.QtWidgets import (
+    QTextEdit,
+    QWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QLabel,
+    QPushButton,
+    QStackedWidget,
+    QRadioButton,
+    QButtonGroup,
+    QCheckBox,
+    QFrame,
+)
+from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from command_line_UI import App
+from badge_system.badge_verification import (
+    BadgeVerification,
+    get_badge_level,
+    is_badge_earned,
+    update_lesson_dates,
+    are_lessons_completed_same_day,
+    are_two_lessons_completed_same_day,
+    display_badge,
+    update_badge_progress,
+    are_three_modules_completed,
+    update_lesson_status,
+    check_module_streak_per_user,
+)
+from badge_system.badge_criteria_streak import (
+    BadgeCriteriaStreak,
+    reset_streak,
+    read_stored_streak,
+    update_streak,
+    check_streak_badges,
+)
+from badge_system.display_cabinet import BadgeDisplayCabinet
+from congratulation_Feature import CongratulationWindow
+import drag_drop
 
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
         try:
-            with open(filename, encoding='UTF-8') as json_file:
+            with open(filename, encoding="UTF-8") as json_file:
                 data = json.load(json_file)
             return data
         except Exception as e:
             print(f"Error load_json_data linea {sys.exc_info()[2].tb_lineno}")
-    
+
     @staticmethod
     def load_json_styles():
-        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json")) as styles_file:
+        with open(
+            os.path.join(
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                "styles.json",
+            )
+        ) as styles_file:
             styles = json.load(styles_file)
         return styles
 
     @staticmethod
     def load_active_widgets():
-        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
+        with open(
+            os.path.join(
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                "active_widgets",
+                "game_elements_visibility.json",
+            )
+        ) as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, xp_ganados, user_score, lesson_completed, main_window=None, usuario_actual=None):
+    def __init__(
+        self,
+        filename,
+        page_type,
+        json_number,
+        xp_ganados,
+        user_score,
+        lesson_completed,
+        main_window=None,
+        usuario_actual=None,
+    ):
         super().__init__()
 
         self.data = None
@@ -78,7 +121,9 @@ class JsonWindow(QWidget):
         self.feedback_label = QLabel(self)
         self.lesson_completed = lesson_completed
         self.styles = JsonLoader.load_json_styles()
-        self.lesson_number = self.get_lesson_number(filename)  # Obteniendo el número de lección de alguna manera
+        self.lesson_number = self.get_lesson_number(
+            filename
+        )  # Obteniendo el número de lección de alguna manera
         self.json_number = json_number
         self.usuario_actual = usuario_actual
         self.init_ui()
@@ -91,26 +136,38 @@ class JsonWindow(QWidget):
         hlayout = QHBoxLayout()
 
         # Crear el widget de puntos
-        self.puntos = QLabel(f"XP ganados: {self.user_score + self.XP_Ganados}")
+        self.puntos = QLabel(
+            f"XP ganados: {self.user_score + self.XP_Ganados}"
+        )
         self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
+        self.puntos.setStyleSheet(
+            f"background-color: grey; color: white; border: 2px solid black"
+        )
         puntos_font = QFont()
         puntos_font.setPointSize(self.styles["font_size_normal"])
         self.puntos.setFont(puntos_font)
 
         # Crear el botón de Leaderboard
         self.leaderboard_button = QPushButton("Leaderboard")
-        self.leaderboard_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.leaderboard_button.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         leaderboard_button_font = QFont()
-        leaderboard_button_font.setPointSize(self.styles['font_size_buttons'])
+        leaderboard_button_font.setPointSize(
+            self.styles["font_size_buttons"]
+        )
         self.leaderboard_button.setFont(leaderboard_button_font)
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
 
-        #boton para Vitrina (display cabinet)
+        # Botón para Vitrina (display cabinet)
         self.display_cabinet = QPushButton("Mis insignias")
-        self.display_cabinet.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.display_cabinet.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         display_cabinet_font = QFont()
-        display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
+        display_cabinet_font.setPointSize(
+            self.styles["font_size_buttons"]
+        )
         self.display_cabinet.setFont(display_cabinet_font)
         self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
 
@@ -128,7 +185,9 @@ class JsonWindow(QWidget):
         self.title()  # Ahora añadimos el título
 
         if self.page_type.lower() == "multiplechoice":
-            multiplechoiceplus_value = self.data[self.page_type.lower()][0].get("multiplechoiceplus", False)
+            multiplechoiceplus_value = self.data[self.page_type.lower()][0].get(
+                "multiplechoiceplus", False
+            )
             if multiplechoiceplus_value:
                 self.create_multiple_choice_layout(is_multiple_choice_plus=True)
             else:
@@ -154,7 +213,7 @@ class JsonWindow(QWidget):
         else:
             print("Lo siento, el tipo de página no está disponible todavía.")
 
-        self.setWindowTitle('JsonWindow')
+        self.setWindowTitle("JsonWindow")
         self.setLayout(self.layout)
 
     @staticmethod
@@ -169,7 +228,7 @@ class JsonWindow(QWidget):
 
     def update_points_display(self, new_points):
         self.puntos.setText(f"XP ganados: {self.user_score + new_points}")
-    
+
     def abrir_display_cabinet(self):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
         self.display_cabinet.show()
@@ -182,7 +241,8 @@ class JsonWindow(QWidget):
         title = QLabel(self.data[self.page_type.lower()][0]["title"])
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title.setStyleSheet(
-            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}")
+            f"background-color: {self.styles['title_background_color']}; color: {self.styles['title_text_color']}; border: 2px solid {self.styles['title_border_color']}"
+        )
         title_font = QFont()
         title_font.setPointSize(self.styles["font_size_titles"])
         title.setFont(title_font)
@@ -219,9 +279,10 @@ class JsonWindow(QWidget):
 
     def createResetBottom(self):
         # Add a reset button to the layout
-        reset_button = QPushButton('Reiniciar')
+        reset_button = QPushButton("Reiniciar")
         reset_button.setStyleSheet(
-            f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+            f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px"
+        )
         self.layout.addWidget(reset_button)
         reset_button.clicked.connect(self.reset_button)
 
@@ -238,7 +299,8 @@ class JsonWindow(QWidget):
             elif block["type"] == "Consola":
                 self.hint_label = QLabel(block["text"])
                 self.hint_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px"
+                )
                 self.layout.addWidget(self.hint_label)
                 self.blank_space_index = block["text"].find("_")
                 self.original_hint_text = block["text"]
@@ -250,7 +312,9 @@ class JsonWindow(QWidget):
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
             answer_button = QPushButton(answer["text"])
             answer_button.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
-            answer_button.clicked.connect(partial(self.handle_answer_click, answer["text"], self.original_hint_text))
+            answer_button.clicked.connect(
+                partial(self.handle_answer_click, answer["text"], self.original_hint_text)
+            )
             answers_layout.addWidget(answer_button)
 
         # Añadir el layout horizontal de botones de respuesta al layout principal (vertical)
@@ -270,12 +334,17 @@ class JsonWindow(QWidget):
             block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
             if block["type"] == "Consola":
                 block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px"
+                )
             self.layout.addWidget(block_label)
 
         for idx, answer in enumerate(self.data[self.page_type.lower()][0]["answers"]):
-            button_widget = QCheckBox(answer["text"]) if is_multiple_choice_plus else QRadioButton(answer["text"])
-            button_widget.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px; background-color: white")
+            button_widget = (
+                QCheckBox(answer["text"]) if is_multiple_choice_plus else QRadioButton(answer["text"])
+            )
+            button_widget.setStyleSheet(
+                f"font-size: {self.styles['font_size_normal']}px; background-color: white"
+            )
             self.button_widgets.append(button_widget)
             self.button_group.addButton(button_widget, idx)
             answers_layout.addWidget(button_widget)  # Agregar al layout horizontal en lugar del vertical
@@ -300,8 +369,9 @@ class JsonWindow(QWidget):
                     multiple_drops = False
 
                 if block_type == "Consola":
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(
+                        block["text"], self.styles, question_type=block_type, multiple=multiple_drops
+                    )
                     block_label = drop_labels[block_type]
                 else:
                     block_label = QLabel(block["text"])
@@ -316,8 +386,9 @@ class JsonWindow(QWidget):
 
                 if "correctValue" in block or "correctOrder" in data_block:
                     multiple_drops = "correctOrder" in data_block and len(data_block["correctOrder"]) > 1
-                    drop_labels[block_type] = drag_drop.DropLabel(block["text"], self.styles, question_type=block_type,
-                                                                  multiple=multiple_drops)
+                    drop_labels[block_type] = drag_drop.DropLabel(
+                        block["text"], self.styles, question_type=block_type, multiple=multiple_drops
+                    )
                     block_label = drop_labels[block_type]
                 elif block_type == "Consola":
                     block_label = drag_drop.DropLabel(block["text"], self.styles)
@@ -334,7 +405,8 @@ class JsonWindow(QWidget):
         for idx, answer in enumerate(data_block["answers"]):
             draggable_label = drag_drop.DraggableLabel(answer["text"])
             draggable_label.setStyleSheet(
-                f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px")
+                f"font-size: {self.styles['font_size_normal']}px; background-color: white; border: 1px solid black; padding: 5px; border-radius: 5px"
+            )
             draggable_labels_layout.addWidget(draggable_label)
 
         self.layout.addLayout(draggable_labels_layout)
@@ -367,7 +439,8 @@ class JsonWindow(QWidget):
             self.create_drag_and_drop_layout()
         elif self.page_type.lower() == "multiplechoice":
             self.create_multiple_choice_layout(
-                is_multiple_choice_plus=self.data[self.page_type.lower()][0].get("multiplechoiceplus", False))
+                is_multiple_choice_plus=self.data[self.page_type.lower()][0].get("multiplechoiceplus", False)
+            )
         elif self.page_type.lower() == "completeblankspace":
             self.create_complete_blank_space_layout()
         elif self.page_type.lower() == "pedagogical" or self.page_type.lower() == "pedagogical2":
@@ -386,10 +459,12 @@ class JsonWindow(QWidget):
 
             if block["type"] == "hint":
                 block_label.setStyleSheet(
-                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                    f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px"
+                )
             elif block["type"] == "Consola":
                 block_label.setStyleSheet(
-                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
+                    f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px"
+                )
             else:
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px")
 
@@ -421,14 +496,16 @@ class JsonWindow(QWidget):
                 console_layout.setContentsMargins(5, 5, 5, 5)
                 console_label = QLabel(block["text"])
                 console_label.setStyleSheet(
-                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
+                    f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;"
+                )
                 console_label.setWordWrap(True)
                 console_layout.addWidget(console_label)
 
                 # Botón que desencadenará la adición del widget de la clase 'App'.
                 self.execute_button = QPushButton("Haz clic para ejecutar")
                 self.execute_button.setStyleSheet(
-                    "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+                    f"background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;"
+                )
                 self.execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
 
                 console_layout.addWidget(self.execute_button)
@@ -441,7 +518,8 @@ class JsonWindow(QWidget):
                 block_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
                 if block["type"] == "hint":
                     block_label.setStyleSheet(
-                        f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;")
+                        f"border: {self.styles['hint_border_width']}px solid {self.styles['hint_border_color']}; background-color: {self.styles['hint_background_color']}; font-size: {self.styles['font_size_normal']}px;"
+                    )
                 self.layout.addWidget(block_label)
 
         # Si queda algún texto de "info" después de procesar todos los bloques, créalo como QLabel al final.
@@ -458,7 +536,7 @@ class JsonWindow(QWidget):
     def openCommandLineUI(self, text):
         self.main_window.log_event("Playground Page Open", event_type="time")
         # Verificar si el widget ya ha sido creado y, si no, crearlo y añadirlo al layout.
-        if not hasattr(self, 'commandLineWidget'):
+        if not hasattr(self, "commandLineWidget"):
             # Suponiendo que 'App' es una subclase de QWidget
             self.commandLineWidget = App(self.usuario_actual)
             self.commandLineWidgetPlaceholder.addWidget(self.commandLineWidget)
@@ -466,7 +544,8 @@ class JsonWindow(QWidget):
             # Crear botón para ocultar el widget de la línea de comandos
             self.hideButton = QPushButton("Ocultar")
             self.hideButton.setStyleSheet(
-                "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+                f"background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;"
+            )
             self.hideButton.clicked.connect(self.hideCommandLineWidget)
             self.commandLineWidgetPlaceholder.addWidget(self.hideButton)
             self.execute_button.hide()
@@ -481,7 +560,7 @@ class JsonWindow(QWidget):
         # Registrar el evento de apertura del Leaderboard
         self.main_window.log_event("Leaderboard Page Open", event_type="time")
         LeaderBoard()
-        
+
     def hideCommandLineWidget(self):
         self.main_window.log_event("Playground Page Close", event_type="time")
         # Esta función oculta el widget de la línea de comandos y el botón de ocultar.
@@ -496,8 +575,8 @@ class MainWindow(QWidget):
 
         self.log_data = []
         self.layout = None
-        self.current_xp = 0 #puntos ganados en la respuesta actual 1 a 2 (por respuesta correcta)
-        self.XP_Ganados = 0 #puntos ganados por el jugador durante la leccion (acumulativo)
+        self.current_xp = 0  # puntos ganados en la respuesta actual 1 a 2 (por respuesta correcta)
+        self.XP_Ganados = 0  # puntos ganados por el jugador durante la leccion (acumulativo)
         self.click_data = []
         self.total_pages = 0
         self.completed = None
@@ -526,18 +605,24 @@ class MainWindow(QWidget):
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
         self.leaderboard_window_instace = get_instance()
-        self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
+        self.streak = BadgeCriteriaStreak()  # para manejar la racha de respuestas correctas
         self.all_correct = True
         self.setWindowTitle("Programar: tu nuevo superpoder")
         self.progress_bar = ProgressBar(
             JsonLoader.load_json_data(
-                os.path.join(os.path.dirname(os.path.dirname(
-                    os.path.abspath(__file__))), "Page_order", "page_order_M1.json")
-                    ) #end load_json_data
-                    , 0) #end ProgressBar Class  
-        self.user_score = self.leaderboard_window_instace.get_current_user_score() #puntos ganados por el jugador en todo el juego (acumulativo)
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "Page_order",
+                    "page_order_M1.json",
+                )
+            ),  # end load_json_data
+            0,
+        )  # end ProgressBar Class
+        self.user_score = (
+            self.leaderboard_window_instace.get_current_user_score()
+        )  # puntos ganados por el jugador en todo el juego (acumulativo)
         self.init_ui()
-  
+
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.setStyleSheet(f"background-color: {self.styles['main_background_color']}")
@@ -545,8 +630,16 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados, self.user_score, 
-                                             page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
+                json_window = JsonWindow(
+                    os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]),
+                    page["page_type"],
+                    page["json_number"],
+                    self.XP_Ganados,
+                    self.user_score,
+                    page.get("lesson_completed", False),
+                    main_window=self,
+                    usuario_actual=self.usuario_actual,
+                )
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
@@ -559,22 +652,28 @@ class MainWindow(QWidget):
         self.python_console_widget.hide()
 
         self.continue_button = QPushButton("Continuar")
-        self.continue_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.continue_button.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         continue_button_font = QFont()
         continue_button_font.setPointSize(self.styles["font_size_buttons"])
         self.continue_button.setFont(continue_button_font)
         self.continue_button.clicked.connect(lambda: self.switch_page(forward=True))
 
         self.back_button = QPushButton("Retroceder")
-        self.back_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.back_button.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         back_button_font = QFont()
         back_button_font.setPointSize(self.styles["font_size_buttons"])
         self.back_button.setFont(continue_button_font)
         self.back_button.clicked.connect(lambda: self.switch_page(forward=False))
         self.back_button.hide()
 
-        self.terminar_button = QPushButton("Leccion Completada")
-        self.terminar_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.terminar_button = QPushButton("Lección Completada")
+        self.terminar_button.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         terminar_button_font = QFont()
         terminar_button_font.setPointSize(self.styles["font_size_buttons"])
         self.terminar_button.setFont(terminar_button_font)
@@ -582,15 +681,19 @@ class MainWindow(QWidget):
         self.terminar_button.hide()
 
         self.submit_button = QPushButton("Enviar")
-        self.submit_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.submit_button.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         submit_button_font = QFont()
-        submit_button_font.setPointSize(self.styles['font_size_buttons'])
+        submit_button_font.setPointSize(self.styles["font_size_buttons"])
         self.submit_button.setFont(submit_button_font)
         self.submit_button.clicked.connect(self.submit_answer)
         self.submit_button.hide()
 
-        self.practice_button = QPushButton("Practica")
-        self.practice_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
+        self.practice_button = QPushButton("Práctica")
+        self.practice_button.setStyleSheet(
+            f"background-color: {self.styles['continue_button_color']}; color: white"
+        )
         practice_button_font = QFont()
         practice_button_font.setPointSize(self.styles["font_size_buttons"])
         self.practice_button.setFont(practice_button_font)
@@ -630,7 +733,8 @@ class MainWindow(QWidget):
         if NoSeleciona:
             current_widget.feedback_label.setText("No se ha seleccionado ninguna respuesta")
             current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px"
+            )
             CongratulationWindow.incorrect_response()
         elif Correcto:
             # Incrementa el XP en 2 puntos cuando la respuesta es acertada en el primer intento y tiene 0 xp (0 XP significa primera página con pregunta)
@@ -649,21 +753,23 @@ class MainWindow(QWidget):
                 self.current_xp = 2
 
             if self.current_xp == 2:
-                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 2 puntos.")
+                current_widget.feedback_label.setText(f"Respuesta correcta. Has ganado 2 puntos.")
             else:
-                current_widget.feedback_label.setText(f"Respuesta correcta. Haz ganado 1 punto.")
+                current_widget.feedback_label.setText(f"Respuesta correcta. Has ganado 1 punto.")
 
             current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
             current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
+                f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px"
+            )
             self.SubmitHideContinueShow(True, False)
-            self.streak.correct_answer() #se suma una pregunta correcta a la racha
+            self.streak.correct_answer()  # se suma una pregunta correcta a la racha
             CongratulationWindow.correct_response()
         elif Incorrecto:
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incorrecta. Por favor, inténtalo de nuevo.")
             current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px"
+            )
             self.streak.incorrect_answer()
             reset_streak(self.usuario_actual)
             self.all_correct = False
@@ -672,7 +778,8 @@ class MainWindow(QWidget):
             self.controlador = True
             current_widget.feedback_label.setText("Respuesta incompleta, vuelve a intentarlo.")
             current_widget.feedback_label.setStyleSheet(
-                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px")
+                f"color: {self.styles['incorrect_color']}; font-size: {self.styles['font_size_answers']}px"
+            )
             CongratulationWindow.incorrect_response()
 
     def open_python_console(self):
@@ -691,7 +798,7 @@ class MainWindow(QWidget):
         json_number = self.stacked_widget.currentWidget().json_number
 
         # Si la parte cambia, agrega la entrada de "Parte X"
-        if not hasattr(self, 'current_part') or self.current_part != json_number:
+        if not hasattr(self, "current_part") or self.current_part != json_number:
             self.current_part = json_number
             self.time_log_data.append({"event": f"Parte {self.current_part}", "time": event_time})
 
@@ -717,7 +824,6 @@ class MainWindow(QWidget):
             self.save_log(modulo=1, leccion=1)
         super().closeEvent(event)
 
-
     def save_log(self, modulo, leccion):
         user = self.load_current_user()
         if user is None:
@@ -726,16 +832,16 @@ class MainWindow(QWidget):
 
         filename = f"{user}_Respuestas_Tiempos.csv"
         parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        user_logs_dir = os.path.join(parent_dir, 'Usuarios_respuestas_lecciones')
+        user_logs_dir = os.path.join(parent_dir, "Usuarios_respuestas_lecciones")
         if not os.path.exists(user_logs_dir):
             os.makedirs(user_logs_dir)
 
         filepath = os.path.join(user_logs_dir, filename)
 
-        fieldnames = ['event', 'time']
-        with open(filepath, mode="a", newline="", encoding='utf-8') as csv_file:
+        fieldnames = ["event", "time"]
+        with open(filepath, mode="a", newline="", encoding="utf-8") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            writer.writerow({'event': f"Modulo {modulo}, Leccion {leccion}", 'time': ''})
+            writer.writerow({"event": f"Modulo {modulo}, Leccion {leccion}", "time": ""})
 
             # Escribe la cabecera si es un archivo nuevo
             if csv_file.tell() == 0:
@@ -744,25 +850,29 @@ class MainWindow(QWidget):
                 csv_file.write(f"Modulo {modulo}, Leccion {leccion}\n")
 
             combined_log_data = self.time_log_data + self.mouse_log_data
-            combined_log_data.sort(key=lambda x: x['time'])
+            combined_log_data.sort(key=lambda x: x["time"])
 
             parte_actual = ""
             for log in combined_log_data:
                 # Verifica si el evento es un inicio de "Parte X"
-                if log['event'].startswith('Parte'):
-                    if log['event'] == parte_actual:
+                if log["event"].startswith("Parte"):
+                    if log["event"] == parte_actual:
                         # Omite la escritura si ya se registró el inicio de esta parte
                         continue
                     else:
                         # Actualiza la parte actual y escribe el evento
-                        parte_actual = log['event']
+                        parte_actual = log["event"]
 
                 writer.writerow(log)
 
-            csv_file.write('\n')
+            csv_file.write("\n")
 
     def load_page_order(self):
-        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Page_order', 'page_order_M1.json')
+        file_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "Page_order",
+            "page_order_M1.json",
+        )
 
         with open(file_path, "r") as file:
             data = json.load(file)
@@ -778,8 +888,8 @@ class MainWindow(QWidget):
         current_page_type = current_widget.page_type.lower()
         json_number = current_widget.json_number
 
-        if hasattr(self, 'last_json_number') and self.last_json_number != json_number: self.log_event(
-            f"Parte {json_number}", "mouse")
+        if hasattr(self, "last_json_number") and self.last_json_number != json_number:
+            self.log_event(f"Parte {json_number}", "mouse")
         self.last_json_number = json_number
 
         if current_page_type == "multiplechoice":
@@ -788,10 +898,15 @@ class MainWindow(QWidget):
             # Iterar sobre los botones
             for idx, button in enumerate(current_widget.button_widgets):
                 if button.isChecked():
-                    selected_answers.append({"text": button.text(),
-                                             "correct": current_widget.data[current_page_type][0]["answers"][idx][
-                                                 "correct"]})
-                    self.log_event(f"Checkbox Selected: {button.text()}", event_type="mouse")  # Log mouse event
+                    selected_answers.append(
+                        {
+                            "text": button.text(),
+                            "correct": current_widget.data[current_page_type][0]["answers"][idx]["correct"],
+                        }
+                    )
+                    self.log_event(
+                        f"Checkbox Selected: {button.text()}", event_type="mouse"
+                    )  # Log mouse event
 
             # Iterar sobre las respuestas
             for answer in current_widget.data[current_page_type][0]["answers"]:
@@ -842,7 +957,7 @@ class MainWindow(QWidget):
                                 if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
                                     for text in dropped_texts:
                                         self.log_event(f"Correct Drop Event: {text}", event_type="mouse")
-                                correct_count += 1
+                                    correct_count += 1
 
                             else:
                                 if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
@@ -860,11 +975,15 @@ class MainWindow(QWidget):
                         if correct_answer:
                             if correct_answer["text"] in dropped_texts[0]:
                                 if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
-                                    self.log_event(f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse")
+                                    self.log_event(
+                                        f"Correct Drop Event: {dropped_texts[0]}", event_type="mouse"
+                                    )
                                 correct_count += 1
                             else:
                                 if self.data[self.page_type.lower()][0].get("draganddropSecuence", False):
-                                    self.log_event(f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse")
+                                    self.log_event(
+                                        f"Incorrect Drop Event: {dropped_texts[0]}", event_type="mouse"
+                                    )
 
             else:
                 for label in drop_labels:
@@ -877,9 +996,9 @@ class MainWindow(QWidget):
 
                     if "multipleResponseVariant" in data_block and data_block["multipleResponseVariant"]:
                         if ":" in full_dropped_text:
-                            dropped_text = full_dropped_text.split(':')[1].strip()
+                            dropped_text = full_dropped_text.split(":")[1].strip()
                         else:
-                            dropped_text = full_dropped_text.strip().split('\n')[-1]
+                            dropped_text = full_dropped_text.strip().split("\n")[-1]
 
                         correct_value = None
                         for block in data_block["blocks"]:
@@ -890,22 +1009,31 @@ class MainWindow(QWidget):
                         if "print" in dropped_text:
                             sep_argument = re.findall(r"(sep)=(['\"]([^'\"]*)['\"])", dropped_text)
                             if sep_argument:
-                                dropped_answer = sep_argument[0][0] if correct_value == 'sep' else sep_argument[0][1]
+                                dropped_answer = (
+                                    sep_argument[0][0] if correct_value == "sep" else sep_argument[0][1]
+                                )
                                 if correct_value:
                                     if correct_value == dropped_answer:
                                         correct_count += 1
-                                        self.log_event(f"Correct Answer Selected: {dropped_answer}", event_type="mouse")
+                                        self.log_event(
+                                            f"Correct Answer Selected: {dropped_answer}", event_type="mouse"
+                                        )
                                     else:
-                                        self.log_event(f"Incorrect Answer Selected: {dropped_answer}",
-                                                       event_type="mouse")
+                                        self.log_event(
+                                            f"Incorrect Answer Selected: {dropped_answer}", event_type="mouse"
+                                        )
                         else:
                             if correct_value:
                                 if correct_value == dropped_text:
                                     correct_count += 1
-                                    self.log_event(f"Correct Answer Selected: {dropped_text}", event_type="mouse")
+                                    self.log_event(
+                                        f"Correct Answer Selected: {dropped_text}", event_type="mouse"
+                                    )
 
                                 else:
-                                    self.log_event(f"Incorrect Answer Selected: {dropped_text}", event_type="mouse")
+                                    self.log_event(
+                                        f"Incorrect Answer Selected: {dropped_text}", event_type="mouse"
+                                    )
 
                     else:
                         correct_answer = None
@@ -917,11 +1045,13 @@ class MainWindow(QWidget):
                         if correct_answer:
                             if correct_answer["text"] in full_dropped_text:
                                 correct_count += 1
-                                self.log_event(f"Correct Answer Selected: {full_dropped_text}",
-                                               event_type="mouse")  # Registrar la respuesta correcta como "Correcto"
+                                self.log_event(
+                                    f"Correct Answer Selected: {full_dropped_text}", event_type="mouse"
+                                )  # Registrar la respuesta correcta como "Correcto"
                             else:
-                                self.log_event(f"Incorrect Answer Selected: {full_dropped_text}",
-                                               event_type="mouse")  # Registrar la respuesta incorrecta como "Incorrecto"
+                                self.log_event(
+                                    f"Incorrect Answer Selected: {full_dropped_text}", event_type="mouse"
+                                )  # Registrar la respuesta incorrecta como "Incorrecto"
 
             if unanswered == len(drop_labels):
                 self.SubmitAnswers(True, False, False)
@@ -950,28 +1080,46 @@ class MainWindow(QWidget):
                 self.SubmitAnswers(True, False, False)
 
             elif selected_symbol == correct_answer_text:
-                self.log_event(f"Correct Answer Selected: {correct_answer_text}", event_type="mouse")  # Log mouse event
+                self.log_event(
+                    f"Correct Answer Selected: {correct_answer_text}", event_type="mouse"
+                )  # Log mouse event
                 self.SubmitAnswers(False, True, False)
 
             else:
-                self.log_event(f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse")  # Log mouse event
+                self.log_event(
+                    f"Incorrect Answer Selected: {selected_symbol}", event_type="mouse"
+                )  # Log mouse event
                 self.SubmitAnswers(False, False, True)
 
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'r', encoding='UTF-8') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "progreso.json",
+                ),
+                "r",
+                encoding="UTF-8",
+            ) as file:
                 progreso = json.load(file)
 
             progreso_usuario = progreso.get(self.usuario_actual, {})
 
             # Calcula el número de la siguiente lección para desbloquearla en progreso.json
-            numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
-            siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
+            numero_leccion_actual = int(leccion_completada.replace("leccion", ""))
+            siguiente_leccion = f"Leccion{numero_leccion_actual + 1}"
 
             if modulo in progreso_usuario:
                 progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w', encoding='UTF-8') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "progreso.json",
+                ),
+                "w",
+                encoding="UTF-8",
+            ) as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -979,7 +1127,14 @@ class MainWindow(QWidget):
 
     def actualizar_leccion_completada(self, modulo, leccion_completada):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "leccion_completada.json",
+                ),
+                "r",
+                encoding="UTF-8",
+            ) as file:
                 leccion_completada_data = json.load(file)
 
             leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
@@ -987,11 +1142,20 @@ class MainWindow(QWidget):
             # Marca la lección actual como completada en leccion_completada.json
             if modulo not in leccion_completada_usuario:
                 leccion_completada_usuario[modulo] = {}
-            leccion_completada_usuario[modulo][f"Leccion_completada{leccion_completada.replace('Leccion', '')}"] = True
+            leccion_completada_usuario[modulo][
+                f"Leccion_completada{leccion_completada.replace('leccion', '')}"
+            ] = True
 
             leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
 
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "leccion_completada.json",
+                ),
+                "w",
+                encoding="UTF-8",
+            ) as file:
                 json.dump(leccion_completada_data, file, indent=4)
 
         except Exception as e:
@@ -999,7 +1163,14 @@ class MainWindow(QWidget):
 
     def load_current_user(self):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'current_user.json'), 'r', encoding='UTF-8') as file:
+            with open(
+                os.path.join(
+                    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                    "current_user.json",
+                ),
+                "r",
+                encoding="UTF-8",
+            ) as file:
                 user_data = json.load(file)
             return user_data.get("current_user")
         except FileNotFoundError:
@@ -1008,10 +1179,14 @@ class MainWindow(QWidget):
 
     @staticmethod
     def actualizar_puntos_en_leaderboard(usuario, puntos_ganados):
-        leaderboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Codigos_LeaderBoard', 'leaderboard.json')
+        leaderboard_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "Codigos_LeaderBoard",
+            "leaderboard.json",
+        )
 
         try:
-            with open(leaderboard_path, 'r', encoding='UTF-8') as file:
+            with open(leaderboard_path, "r", encoding="UTF-8") as file:
                 leaderboard = json.load(file)
 
             usuario_existente = False
@@ -1025,7 +1200,7 @@ class MainWindow(QWidget):
                 # Si el usuario no existe en el leaderboard, añadirlo con los puntos iniciales
                 leaderboard.append({"name": usuario, "points": puntos_ganados, "last_active": ""})
 
-            with open(leaderboard_path, 'w', encoding='UTF-8') as file:
+            with open(leaderboard_path, "w", encoding="UTF-8") as file:
                 json.dump(leaderboard, file, indent=4)
 
         except FileNotFoundError:
@@ -1041,7 +1216,9 @@ class MainWindow(QWidget):
             self.continue_button.show()
             next_index = current_index - 1
 
-        current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
+        current_page_type = (
+            self.stacked_widget.currentWidget().page_type.lower()
+        )  # Obtener el tipo de página actual
         self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
 
         current_widget = self.stacked_widget.currentWidget()
@@ -1091,42 +1268,52 @@ class MainWindow(QWidget):
             self.save_log(modulo=1, leccion=1)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
-            self.actualizar_progreso_usuario('Modulo1', 'Leccion1')
-            self.actualizar_leccion_completada('Modulo1', 'Leccion1')
-            update_lesson_status(self.usuario_actual, 'Modulo1', 'Leccion1', self.all_correct)
-            
+            self.actualizar_progreso_usuario("modulo_1", "leccion1")
+            self.actualizar_leccion_completada("modulo_1", "leccion1")
+            update_lesson_status(self.usuario_actual, "modulo_1", "Leccion_completada1", self.all_correct)
+
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
-            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)
-            update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada1")
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
-                    display_badge('modulo_rapido')
-                    update_badge_progress(self.usuario_actual, 'modulo_rapido')            
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
-                display_badge('doble_aprendizaje')
-                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
-            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
-                display_badge('Explorador_curioso')
-                update_badge_progress(self.usuario_actual, 'Explorador_curioso')
-            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'dominador_modulo'):
-                display_badge('dominador_modulo')
-                update_badge_progress(self.usuario_actual, 'dominador_modulo')
+            get_badge_level(
+                self,
+                score=self.leaderboard_window_instace.get_current_user_score()
+                + self.XP_Ganados,
+            )
+            update_lesson_dates(self.usuario_actual, "modulo_1", "Leccion_completada1")
+            if are_lessons_completed_same_day(self.usuario_actual, "modulo_1") and not is_badge_earned(
+                self.usuario_actual, "modulo_rapido"
+            ):
+                display_badge("modulo_rapido")
+                update_badge_progress(self.usuario_actual, "modulo_rapido")
+            if are_two_lessons_completed_same_day(
+                self.usuario_actual, "modulo_1"
+            ) and not is_badge_earned(self.usuario_actual, "doble_aprendizaje"):
+                display_badge("doble_aprendizaje")
+                update_badge_progress(self.usuario_actual, "doble_aprendizaje")
+            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(
+                self.usuario_actual, "Explorador_curioso"
+            ):
+                display_badge("Explorador_curioso")
+                update_badge_progress(self.usuario_actual, "Explorador_curioso")
+            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(
+                self.usuario_actual, "dominador_modulo"
+            ):
+                display_badge("dominador_modulo")
+                update_badge_progress(self.usuario_actual, "dominador_modulo")
             self.close()
         else:
-            print("¡La leccion no se completó, se cerró!.")
-            
+            print("¡La lección no se completó, se cerró!")
+
         if next_index == self.highest_page_reached and self.is_rollback == True:
             self.is_rollback = False
             self.json_windows[next_index].reset_button()
         self.current_page += 1  # Incrementar el número de la página actual
 
-        if self.current_page == 2 and not is_badge_earned(self.usuario_actual, 'gran_paso'):
+        if self.current_page == 2 and not is_badge_earned(self.usuario_actual, "gran_paso"):
             if self.XP_Ganados > 0 and self.XP_Ganados <= 4:
-                display_badge('gran_paso')
-                update_badge_progress(self.usuario_actual, 'gran_paso')
-
-               
+                display_badge("gran_paso")
+                update_badge_progress(self.usuario_actual, "gran_paso")
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:
@@ -1137,6 +1324,7 @@ class MainWindow(QWidget):
         self.dashboard.showMaximized()
         # Luego, cierra la ventana normalmente
         super().closeEvent(event)
+
 
 def M1_L1_Main():
     main_window = MainWindow(lesson_number=1)

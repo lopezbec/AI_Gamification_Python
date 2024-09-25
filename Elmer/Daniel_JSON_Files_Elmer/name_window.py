@@ -120,12 +120,12 @@ class NameWindow(QMainWindow):
     @staticmethod
     def _update_progress_json(username):
         progreso_inicial = {
-            "Modulo1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
-            "Modulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False},
-            "Modulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
-            "Modulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
-            "Modulo5": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False,
-                        "Leccion6": False, "Leccion7": False, "Quiz1": False, "Quiz2": False}
+            "modulo_1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "modulo_2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False},
+            "modulo_3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "modulo_4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "modulo_5": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False,
+                         "Leccion6": False, "Leccion7": False, "Quiz1": False, "Quiz2": False}
         }
 
         try:
@@ -256,15 +256,15 @@ class NameWindow(QMainWindow):
         try:
             if username not in progreso:
                 progreso[username] = {
-                    "Modulo1": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
+                    "modulo_1": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
                                                                                          for i in range(1, 3)},
-                    "Modulo2": {f"Leccion_completada{i}": False for i in range(1, 4)} | {f"Quiz_completado{i}": False
+                    "modulo_2": {f"Leccion_completada{i}": False for i in range(1, 4)} | {f"Quiz_completado{i}": False
                                                                                          for i in range(1, 3)},
-                    "Modulo3": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
+                    "modulo_3": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
                                                                                          for i in range(1, 3)},
-                    "Modulo4": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
+                    "modulo_4": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
                                                                                          for i in range(1, 3)},
-                    "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)} | {f"Quiz_completado{i}": False
+                    "modulo_5": {f"Leccion_completada{i}": False for i in range(1, 8)} | {f"Quiz_completado{i}": False
                                                                                          for i in range(1, 3)}
                 }
 

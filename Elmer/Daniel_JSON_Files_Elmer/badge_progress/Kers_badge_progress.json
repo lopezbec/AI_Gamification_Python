@@ -1,0 +1,17 @@
+{
+    "streak": 1,
+    "gran_paso": true,
+    "hello_world": false,
+    "5_correctas": false,
+    "10_correctas": false,
+    "20_correctas": false,
+    "intermedio": true,
+    "avanzado": false,
+    "experto": false,
+    "doble_aprendizaje": true,
+    "modulo_rapido": true,
+    "dominador_modulo": false,
+    "super_estudiante": false,
+    "Maestro_desafiante": false,
+    "Explorador_curioso": false
+}
