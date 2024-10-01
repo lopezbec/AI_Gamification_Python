@@ -9,7 +9,6 @@ from PyQt6 import QtWidgets, QtCore, QtGui
 from badge_system.badge_verification import save_badge_progress_per_user, create_lessons_date_completion, \
     add_user_streak_per_module
 from badge_system.display_cabinet import BadgeDisplayCabinet
-from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtCore import Qt
 
@@ -242,18 +241,24 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def abrir_quiz_con_motivo(self, nombre_modulo, numero_quiz, motivo):
+        """En esta seccionn se maneja cual Quizz sera abierto o no 
+        (esta se dispara en el metodo añadir_submenu_quiz)"""
         try:
+            #importamos la ventana de los quizzzes aqui para evitar referencias circulares
+            from Main_Modulos_Quizzes_Window import Main_Modulos_Quizzes_Window as MMQW
+            #Obtenemos el objeto JSON del modulo en cuestion {Leccion1: true, Leccion2: false, ...}
             estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+            #Formamos la clave del quiz a mostrar (Quiz1, Quiz2)
             quiz_clave = f"Quiz{numero_quiz}"
+            #Obtenemos el valor booleano de esa clave
             estado_quiz = estado_modulo.get(quiz_clave, False)
 
-            if numero_quiz == 1 and not self.desbloquear_quiz1(estado_modulo):
-                self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Quiz {numero_quiz}", motivo)
-                return
-            elif numero_quiz == 2 and not self.desbloquear_quiz2(estado_modulo):
+            # Si estado_quiz es false se muestra un mensaje de que este quiz esta bloqueado
+            if not estado_quiz:
                 self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Quiz {numero_quiz}", motivo)
                 return
 
+            #mapeo de los JSON de los quizzes
             quiz_mapping = {
                 "Modulo 1": ["M1_Q1_Main.json", "M1_Q2_Main.json"],
                 "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json"],
@@ -262,13 +267,23 @@ class MainWindow(QtWidgets.QMainWindow):
                 "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json"]
             }
 
+            #Comprobar si nombre_modulo es una clave en quiz mapping y, por igua, si numero_quiz
+            #es menor o igual a la cantidad de quizzes disponibles en la lista correspondiente a ese módulo.
             if nombre_modulo in quiz_mapping and numero_quiz <= len(quiz_mapping[nombre_modulo]):
+                #Si es asi se obtiene el quiz file del modulo correspondiente en la posición solicitada
+                #NOTA: a la posicion del quiz se le resta 1 porque la primera posición de una lista es 0 
                 quiz_file = quiz_mapping[nombre_modulo][numero_quiz - 1]
+                #Se crea de manera dinamica la ruta absoluta del archivo quiz_file
                 quiz_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', quiz_file)
-                self.quiz_window = MMQW(quiz_path)
+                #Se instancia la venta de Quizzes con esta ruta, el numero del quiz y el numero del modulo
+                #NOTA: si el nombre modulo es "Modulo1" o "Modulo 1" con hacer nombre_modulo[-1] obtenemos el numero
+                self.quiz_window = MMQW(quiz_path, numero_quiz, nombre_modulo[-1], self.usuario_actual)
+                #Se muestra la ventana completa
                 self.quiz_window.showMaximized()
+                #Se cierra el menu principal para liberar recursos y actualizar el menu al final de cada quizz/leccion
+                self.close()
             else:
-                print(f"Quiz {numero_quiz} no disponible para {nombre_modulo}")
+                print(f"Quiz {numero_quiz} no disponible para {nombre_modulo}")       
         except Exception as e:
             print(f"Error al abrir {nombre_modulo} - Quiz {numero_quiz}: {e}")
             print(f"Error en línea {sys.exc_info()[2].tb_lineno}")
@@ -290,7 +305,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         modulos_menu = QMenu()
         quizzes_menu = QMenu()
-
+        
         if modulo_anterior_completado:
             self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
             self.añadir_submenu_quiz(nombre_modulo, quizzes_menu, numero_quizzes)
@@ -309,15 +324,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
         return modulos_btn, quizzes_btn
         
-    def desbloquear_quiz1(self, estado_modulo):
-        todas_lecciones_completadas = all(estado for clave, estado in estado_modulo.items() if 'Leccion_completada' in clave)
-        return todas_lecciones_completadas
-
-    def desbloquear_quiz2(self, estado_modulo):
-        quiz1_completado = estado_modulo.get("Quiz_completado1", False)
-        return quiz1_completado
-
-
     
     def calcular_progreso_del_modulo(self, estado_modulo):
         lecciones_completadas = sum(estado == True for estado in estado_modulo.values())
@@ -336,7 +342,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def add_module_buttons_to_grid_layout(self, layout, row, modulo_btn, quizzes_btn, col):
         layout.addWidget(modulo_btn, row, col, 1, 1)
-        layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
 
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
         # Obtener el estado de progreso del usuario
@@ -397,9 +402,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
         for quiz_numero in range(1, numero_quizzes + 1):
             quiz_clave = f"Quiz{quiz_numero}"
+            quiz_completado_clave = f"Quiz_completado{quiz_numero}"
+            
             estado_quiz = estado_modulo.get(quiz_clave, False)
-            quiz_completado = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
-                f"Quiz_completado{quiz_numero}", False)
+            quiz_completado = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(quiz_completado_clave, False)
 
             if nombre_modulo in ["Modulo 4", "Modulo 5"]:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
@@ -409,25 +415,25 @@ class MainWindow(QtWidgets.QMainWindow):
                 accion_quiz.triggered.connect(
                     lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_no_disponible(m, n))
             else:
-                if quiz_numero == 1:
-                    desbloqueado = self.desbloquear_quiz1(estado_modulo)
-                    motivo = "por favor completa todas las lecciones."
-                else:
-                    desbloqueado = self.desbloquear_quiz2(estado_modulo)
-                    motivo = "por favor completa el Quiz 1."
-
-                if quiz_completado:
+                if estado_quiz and quiz_completado:
                     icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
-                elif desbloqueado:
+                    desbloqueado = True
+                elif estado_quiz and not quiz_completado:
                     icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
+                    desbloqueado = True
                 else:
                     icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
+                    desbloqueado = False
 
                 accion_quiz = QAction(f"Quiz {quiz_numero}", self)
                 accion_quiz.setIcon(QIcon(icono))
                 accion_quiz.setEnabled(desbloqueado)
-                accion_quiz.triggered.connect(
-                    lambda _, n=quiz_numero, m=nombre_modulo, mot=motivo: self.abrir_quiz_con_motivo(m, n, mot))
+                if desbloqueado:
+                    accion_quiz.triggered.connect(
+                        lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, ""))
+                else:
+                    accion_quiz.triggered.connect(
+                        lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(f"{m} - Quiz {n}", "Completa las lecciones necesarias."))
 
             boton_quiz.addAction(accion_quiz)
 
@@ -450,7 +456,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 progreso = json.load(file)
             self.progreso_usuario = progreso.get(self.usuario_actual, {})
             self.actualizar_lecciones(self.progreso_usuario)
-            self.actualizar_quizzes()
         except Exception as e:
             print(f"Error al recargar el progreso del usuario: {e}")
 
@@ -515,19 +520,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 "Leccion7": estado_usuario.get("Modulo5", {}).get("Leccion7", False)
             }
         }
-
-    def actualizar_quizzes(self):
-        for modulo, lecciones in self.estado_lecciones.items():
-            for i in range(1, len(lecciones) // 2 + 1):
-                if i < len(lecciones) // 2:
-                    leccion_actual = f"Leccion{i}"
-                    leccion_siguiente = f"Leccion{i+1}"
-                    if lecciones[leccion_actual] and not lecciones[leccion_siguiente]:
-                        lecciones[leccion_siguiente] = True
-                else:
-                    quiz_actual = f"Quiz{i - len(lecciones) // 2 + 1}"
-                    if lecciones[f"Leccion{i}"] and not lecciones[quiz_actual]:
-                        lecciones[quiz_actual] = True
 
     def abrir_leccion(self, nombre_modulo, numero_leccion):
         try:

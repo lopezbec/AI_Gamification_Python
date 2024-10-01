@@ -18,7 +18,7 @@
     "font_size_buttons":18,
     "syntax_background_color": "#EDF1F5",
     "cmdExe_text_color": "#000000",
-    "cmd_text_color": "#000000",
+    "cmd_text_color1": "#000000",
     "cmdExe_background_color": "#3572A5",
     "syntax_border_color": "#EDF1F5",
     "syntax_border_width": 0.5,

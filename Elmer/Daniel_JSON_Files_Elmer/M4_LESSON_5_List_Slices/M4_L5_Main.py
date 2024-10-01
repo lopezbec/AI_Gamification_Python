@@ -22,6 +22,7 @@ from badge_system.display_cabinet import BadgeDisplayCabinet
 from command_line_UI import App
 from congratulation_Feature import CongratulationWindow
 
+
 class JsonLoader:
     @staticmethod
     def load_json_data(filename):
@@ -40,9 +41,31 @@ class JsonLoader:
         with open("./active_widgets/game_elements_visibility.json") as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
+    
+    @staticmethod
+    def load_lesson_completed():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+                all_users_progress = json.load(file)
+            return all_users_progress
+        except FileNotFoundError:
+            print("Archivo leccion_completada.json no encontrado.")
+            return {}
+    
+    @staticmethod
+    def load_user_progress():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
+                progreso = json.load(file)
+            return progreso
+        except FileNotFoundError:
+            print("Archivo progreso.json no encontrado.")
+            return {}
+        
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, xp_ganados, lesson_completed, main_window=None, usuario_actual=None):
+    def __init__(self, filename, page_type, json_number, xp_ganados, user_score, lesson_completed, main_window=None, usuario_actual=None):
         super().__init__()
 
         self.data = None
@@ -58,6 +81,7 @@ class JsonWindow(QWidget):
         self.original_hint_text = None
         self.display_cabinet = None
         self.main_window = main_window
+        self.user_score = user_score
         self.puntos = QLabel()
         self.update_points_display(self.main_window.XP_Ganados)
         self.filename = filename
@@ -79,7 +103,7 @@ class JsonWindow(QWidget):
         hlayout = QHBoxLayout()
 
         # Crear el widget de puntos
-        self.puntos = QLabel(f"XP ganados: {self.XP_Ganados}")
+        self.puntos = QLabel(f"XP ganados: {self.user_score + self.XP_Ganados}")
         self.puntos.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.puntos.setStyleSheet(f"background-color: grey; color: white; border: 2px solid black")
         puntos_font = QFont()
@@ -161,7 +185,7 @@ class JsonWindow(QWidget):
             self.main_window.update_xp(new_points)
 
     def update_points_display(self, new_points):
-        self.puntos.setText(f"XP ganados: {new_points}")
+        self.puntos.setText(f"XP ganados: {self.user_score + new_points}")
     
     def abrir_display_cabinet(self):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
@@ -509,6 +533,7 @@ class MainWindow(QWidget):
                     os.path.abspath(__file__))), "Page_order", "page_order_M4.json")
                     )
                     , 4)
+        self.user_score = self.leaderboard_window_instace.get_current_user_score() #puntos ganados por el jugador en todo el juego (acumulativo)
         self.init_ui()
 
     def init_ui(self):
@@ -518,8 +543,8 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados,
-                                         page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados, self.user_score, 
+                                             page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
@@ -938,18 +963,22 @@ class MainWindow(QWidget):
                     raise KeyError(f'El módulo {modulo} no existe para el usuario {self.usuario_actual}.')
 
                 # Obtener las lecciones del módulo actual
-                lecciones = modulos_usuario[modulo]
+                lecciones = {clave: valor for clave, valor in modulos_usuario[modulo].items() if not clave.startswith("Quiz")}
 
                 # Verificar si todas las lecciones del módulo están completadas
                 todas_completadas = all(lecciones.values())
 
                 if todas_completadas:
                     # Habilitar la primera lección del siguiente módulo
-                    numero_modulo_actual = int(modulo[-1])
-                    siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
-
-                    if siguiente_modulo in modulos_usuario:
-                        progreso_usuario[siguiente_modulo]["Leccion1"] = True
+                    #numero_modulo_actual = int(modulo[-1])
+                    #siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
+                    quiz1 = 'Quiz1';
+        
+                    if quiz1 not in progreso_usuario[modulo]:
+                        raise KeyError(f"La clave Quiz1 no existe en el {modulo}")
+                    progreso_usuario[modulo][quiz1] = True
+            
+            #progreso[self.usuario_actual] = progreso_usuario
 
             with open('progreso.json', 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)

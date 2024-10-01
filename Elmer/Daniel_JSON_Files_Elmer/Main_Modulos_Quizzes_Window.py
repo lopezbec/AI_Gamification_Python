@@ -7,7 +7,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-
+from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 
 
 class JsonLoader:
@@ -33,10 +33,31 @@ class JsonLoader:
         except Exception as e:
             print(f"Error al cargar el archivo styles.json: {e}")
             return {}
+    
+    @staticmethod
+    def load_lesson_completed():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+                all_users_progress = json.load(file)
+            return all_users_progress
+        except FileNotFoundError:
+            print("Archivo leccion_completada.json no encontrado.")
+            return {}
+    
+    @staticmethod
+    def load_user_progress():
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
+                progreso = json.load(file)
+            return progreso
+        except FileNotFoundError:
+            print("Archivo progreso.json no encontrado.")
+            return {}
 
 
 class QuizLoader:
-    def __init__(self, layout, styles, quiz_file, page_order_file):
+    def __init__(self, layout, styles, quiz_file, page_order_file, current_quiz_index, current_module_index, main_window):
         self.layout = layout
         self.styles = styles
         self.quiz_file = quiz_file
@@ -47,13 +68,17 @@ class QuizLoader:
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
         self.current_user = self.load_current_user()
+        self.current_quiz_index = current_quiz_index #Numero actual del quiz
+        self.current_module_index = current_module_index #Numero actual del modulo
+        self.main_window = main_window #Instancia actual del Main Modulo Quizzes Window
+        self.section = None #declaracion de section como atributo de la clase
+        self.page_type = None # declaracion de page type  como atributo de la clase
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
             raise FileNotFoundError(f"Archivo no encontrado: {self.page_order_file}")
         with open(self.page_order_file, "r", encoding='UTF-8') as file:
             self.page_order = json.load(file)["quizzes"]
-        self.current_quiz_index = 0
         self.current_section_in_quiz_index = 0
 
     def load_quiz_section(self):
@@ -65,13 +90,38 @@ class QuizLoader:
             with open(quiz_file_path, "r", encoding='UTF-8') as file:
                 quiz_data = json.load(file)
 
-            current_quiz = self.page_order[self.current_quiz_index]
-            current_section = current_quiz["sections"][self.current_section_in_quiz_index]
-            page_type = current_section["page_type"]
-            section_number = current_section["section_number"]
+            # Realizar la búsqueda del quiz paso a paso
+            matching_quizzes = [] #lista de los quizzes que cumplen las condiciones
+            # Se itera sobre los elementos del page_order.json 
+            for quiz in self.page_order:
+                # revisa cada elemento del page order y se compara el numero de quiz y el numero del modulo 
+                if int(quiz["module"]) == int(self.current_module_index) and int(quiz["quiz_number"]) == int(self.current_quiz_index):
+                    # si se cumplen las condiciones se guarda en la lista
+                    matching_quizzes.append(quiz)
 
-            self.section = quiz_data[page_type][section_number - 1]
-            self.page_type = page_type
+            #si se encuentra uno o mas quizzes entonces se toma el primero de la lista
+            if matching_quizzes:
+                current_quiz = matching_quizzes[0]
+            else:
+                #en caso contrario lanzamos unn erorr de FileNotFoundError
+                current_quiz = None
+                raise FileNotFoundError("No se encontró ningún quiz que coincida con los números especificados.")
+            
+            #current_quiz es true (digase hay un quiz en esta variable)
+            if current_quiz:
+                # Verifica que el índice de la sección actual del quiz esté dentro de los límites de las secciones disponibles en el quiz actual.
+                if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):                   
+                    
+                    # Obtiene la sección actual del quiz basado en el índice de la sección actual.
+                    current_section = current_quiz["sections"][self.current_section_in_quiz_index]                   
+                    # Extrae el tipo de página (page_type) de la sección actual.
+                    page_type = current_section["page_type"]                   
+                    # Extrae el número de sección (section_number) de la sección actual.
+                    section_number = current_section["section_number"]                   
+                    # Asigna la sección correspondiente en los datos del quiz usando page_type y section_number (el número de sección es 1-based).
+                    self.section = quiz_data[page_type][section_number - 1]              
+                    # Asigna el tipo de página actual a self.page_type para que pueda ser utilizado más adelante.
+                    self.page_type = page_type
 
             if self.page_type not in quiz_data:
                 raise KeyError(f"La clave '{self.page_type}' no existe en el JSON")
@@ -87,7 +137,6 @@ class QuizLoader:
             self.layout.addWidget(self.leaderboard_button)
 
             section_data = self.section
-
             title = QLabel(section_data["title"])
             title.setAlignment(Qt.AlignmentFlag.AlignCenter)
             title.setStyleSheet(
@@ -144,7 +193,7 @@ class QuizLoader:
 
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
-        current_quiz = self.page_order[self.current_quiz_index]
+        current_quiz = self.page_order[self.current_quiz_index - 1]
         if self.current_section_in_quiz_index >= len(current_quiz["sections"]):
             self.current_quiz_index += 1
             self.current_section_in_quiz_index = 0
@@ -159,8 +208,14 @@ class QuizLoader:
 
     def complete_quiz(self):
         self.mark_quiz_complete()
+        self.main_window.unlock_module_first_quiz(
+            JsonLoader.load_user_progress(),
+            JsonLoader.load_lesson_completed(),
+            f'Modulo{int(self.current_module_index) + 1}',
+            self.current_user
+        )
         self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
-        self.layout.parentWidget().close()
+        self.close_quiz() #Se usa close_quiz en vez de otro metodo para que el menu principal se muestre al cierre del quiz
 
     def mark_quiz_complete(self):
         try:
@@ -172,41 +227,65 @@ class QuizLoader:
             progress_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json')
             completion_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json')
 
-            module_key = f"Modulo{self.current_quiz_index + 1}"
-            quiz_key = f"Quiz{self.current_quiz_index + 1}"
-            quiz_completion_key = f"Quiz_completado{self.current_quiz_index + 1}"
+            """
+            module_key = nombre del modulo actual
+            quiz_key = nombre del quiz actual
+            quiz_completion_key = clave que ira al leccion_completada.json para marcar como completado el quiz
+            """
+            module_key = f"Modulo{self.current_module_index}"
+            quiz_key = f"Quiz{self.current_quiz_index}"
+            quiz_completion_key = f"Quiz_completado{self.current_quiz_index}"
 
             # Actualizar progreso.json
             with open(progress_file_path, 'r', encoding='UTF-8') as file:
                 progress_data = json.load(file)
 
+            #Si la clave del modulo no se encuentra en progreso.json se levanta un key Error 
+            # En caso contrario Se marca el quiz como completado (True) para el usuario actual
             if module_key not in progress_data[user]:
-                progress_data[user][module_key] = {}
+                raise KeyError(f"Error: {module_key} no existe en progreso.json")
             progress_data[user][module_key][quiz_key] = True
 
             # Desbloquear la siguiente lección o quiz en progreso.json
-            numero_leccion_actual = int(quiz_key.replace("Quiz", ""))
-            siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
-            if module_key in progress_data[user]:
-                progress_data[user][module_key][siguiente_leccion] = True
+            siguiente_quiz = f'Quiz{int(self.current_quiz_index) + 1}'
 
+            # Verificar si el siguiente quiz existe en el módulo actual
+            if siguiente_quiz in progress_data[user][module_key]:
+                progress_data[user][module_key][siguiente_quiz] = True  # Desbloquear siguiente quiz
+                print(f"Se ha desbloqueado el {siguiente_quiz} del módulo {module_key}.")
+            else:
+                # Si no existe el siguiente quiz, desbloquear la primera lección del siguiente módulo
+                siguiente_modulo_key = f"Modulo{int(self.current_module_index) + 1}"
+                
+                # Verificar si el siguiente módulo existe en progreso.json para el usuario actual
+                if siguiente_modulo_key in progress_data[user]:
+                    progress_data[user][siguiente_modulo_key]['Leccion1'] = True  # Desbloquear Leccion1 del siguiente módulo
+                    print(f"Se ha desbloqueado Leccion1 del {siguiente_modulo_key}.")
+                else:
+                    print(f"El módulo {siguiente_modulo_key} no existe en progreso.json para el usuario {user}.")
+
+            #Se escribe progreso.json con la nueva información
             with open(progress_file_path, 'w', encoding='UTF-8') as file:
                 json.dump(progress_data, file, indent=4)
 
-            # Actualizar leccion_completada.json
+            #Leer leccion_completada.json
             with open(completion_file_path, 'r', encoding='UTF-8') as file:
                 completion_data = json.load(file)
-
+ 
+            #Verificar Si la clave del modulo existe en el JSON para el usuario actual
             if module_key not in completion_data[user]:
-                completion_data[user][module_key] = {}
+                raise KeyError(f"la clave {module_key} no existe en leccion_completada.json")
+
+            # Marca el quiz como completado estableciendo su clave (quiz_completion_key) en True dentro del módulo correspondiente para el usuario.
             completion_data[user][module_key][quiz_completion_key] = True
 
+            #Se reescribe leccion_completada.json con los nuevos cambios
             with open(completion_file_path, 'w', encoding='UTF-8') as file:
                 json.dump(completion_data, file, indent=4)
 
-            print(f"{quiz_key} completado para {user} en {module_key}")
         except Exception as e:
             print(f"Error al marcar el quiz como completado: {e}")
+            print(f"Linea {sys.exc_info()[2].tb_lineno}")
 
     def abrir_leaderboard(self):
         LeaderBoard()
@@ -416,7 +495,7 @@ class QuizLoader:
 
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
-        current_quiz = self.page_order[self.current_quiz_index]
+        current_quiz = self.page_order[self.current_quiz_index - 1]
         if self.current_section_in_quiz_index >= len(current_quiz["sections"]):
             self.current_quiz_index += 1
             self.current_section_in_quiz_index = 0
@@ -426,18 +505,23 @@ class QuizLoader:
         self.load_quiz_section()
 
     def is_last_section(self):
-        current_quiz = self.page_order[self.current_quiz_index]
+        current_quiz = self.page_order[self.current_quiz_index - 1]
         return self.current_section_in_quiz_index == len(current_quiz["sections"]) - 1
 
     def close_quiz(self):
-        self.layout.parentWidget().close()
+        #Aqui cerramos el quiz pero, previo a esto, creamos y mostramos la ventana del menu principal.
+        self.dashboard = Dashboard()
+        self.dashboard.showMaximized()
+        self.main_window.close()
 
 
 class Main_Modulos_Quizzes_Window(QWidget):
-    def __init__(self, quiz_file):
+    def __init__(self, quiz_file, current_quiz_index, current_module_index, username):
         super().__init__()
         self.styles = JsonLoader.load_json_styles()
         self.quiz_file = quiz_file
+        self.current_quiz_index = current_quiz_index
+        self.current_module_index = current_module_index
         self.init_ui()
 
     def init_ui(self):
@@ -445,8 +529,70 @@ class Main_Modulos_Quizzes_Window(QWidget):
         self.setLayout(self.layout)
 
         # Ubicación fija para page_order_file
-        page_order_file = r"C:\Users\DELL\OneDrive\Escritorio\AI_Gamification_Python\Elmer\Daniel_JSON_Files_Elmer\Quizzes\page_order_Quizzes\page_order.json"
-        self.quiz_loader = QuizLoader(self.layout, self.styles, self.quiz_file, page_order_file)
+        page_order_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'page_order_Quizzes', 'page_order.json')
+        self.quiz_loader = QuizLoader(self.layout, self.styles, self.quiz_file, page_order_file, self.current_quiz_index, self.current_module_index, self)
         self.quiz_loader.load_quiz_section()
 
+    def closeEvent(self, event):
+        #NOTA: el closeEvent es una funcion nativa de la ventana (boton cerrar ó X)
+        #La modificamos para que antes de cerrar la ventana del quiz, abra el menu principal
+        self.dashboard = Dashboard()
+        self.dashboard.showMaximized()
+        # Luego, cierra la ventana normalmente
+        super().closeEvent(event)
 
+    @classmethod
+    def unlock_module_first_quiz(cls, progreso_usuario, leccion_completada, nombre_modulo, username):
+        try:
+            # Verificar si el usuario existe en progreso_usuario y leccion_completada
+            if username not in progreso_usuario:
+                raise KeyError(f"Usuario '{username}' no encontrado en progreso.json.")
+            if username not in leccion_completada:
+                raise KeyError(f"Usuario '{username}' no encontrado en leccion_completada.json.")
+            
+            # Verificar si el módulo existe para el usuario
+            if nombre_modulo.replace(" ", "") not in progreso_usuario[username]:
+                raise KeyError(f"Módulo '{nombre_modulo}' no encontrado para el usuario '{username}' en progreso.json.")
+            if nombre_modulo.replace(" ", "") not in leccion_completada[username]:
+                raise KeyError(f"Módulo '{nombre_modulo}' no encontrado para el usuario '{username}' en leccion_completada.json.")
+            
+            # Obtener el estado del módulo para el usuario actual
+            estado_modulo = progreso_usuario[username].get(nombre_modulo.replace(" ", ""), {})
+            
+            # Cargar las lecciones completadas del módulo
+            estado_completado = leccion_completada[username].get(nombre_modulo.replace(" ", ""), {})
+
+            # Obtener todas las claves que siguen el patrón "Leccion_completadaX" en el estado completado del módulo
+            lecciones_completadas_claves = [
+                clave for clave in estado_completado
+                if clave.startswith("Leccion_completada")
+            ]
+            
+            if not lecciones_completadas_claves:
+                raise KeyError(f"No se encontraron claves de lección completada en '{nombre_modulo}' para el usuario '{username}'.")
+
+            # Verificar si todas las lecciones del módulo han sido completadas
+            todas_las_lecciones_completadas = all(
+                estado_completado.get(clave, False)
+                for clave in lecciones_completadas_claves
+            )
+
+            # Desbloquear el primer quiz si todas las lecciones del módulo han sido completadas
+            if todas_las_lecciones_completadas:
+                if "Quiz1" not in estado_modulo:
+                    raise KeyError(f"'Quiz1' no encontrado en el módulo '{nombre_modulo}' para el usuario '{username}' en progreso.json.")
+                
+                if not estado_modulo.get("Quiz1", True):
+                    estado_modulo["Quiz1"] = True  # Desbloquea el primer quiz
+                    progreso_usuario[username][nombre_modulo.replace(" ", "")] = estado_modulo
+
+            # Guardar los cambios en progreso.json y leccion_completada.json
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'progreso.json'), 'w', encoding='UTF-8') as file:
+                json.dump(progreso_usuario, file, indent=4)
+
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+                json.dump(leccion_completada, file, indent=4)
+
+        except KeyError as e:
+            print(f"Error: {e}")
+            
