@@ -1,15 +1,12 @@
-#Main_Modulos_Quizzes_Window.py
-
 import sys
 import os
 import json
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, \
-    QRadioButton
+from PyQt6.QtWidgets import QMessageBox, QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, QRadioButton
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
-
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance  # Importamos get_instance
+from game_features.progress_bar import ProgressBar
 
 
 class JsonLoader:
@@ -38,17 +35,14 @@ class JsonLoader:
 
 
 class QuizLoader:
-    def __init__(self, layout, styles, quiz_file, page_order_file):
+    def __init__(self, layout, styles, quiz_file, page_order_file, user_score):
         self.layout = layout
         self.styles = styles
         self.quiz_file = quiz_file
         self.page_order_file = page_order_file
+        self.user_score = user_score  # Aquí guardamos los puntos del usuario
         self.current_section_index = 0
         self.load_page_order()
-        self.feedback_label = QLabel('')
-        self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.layout.addWidget(self.feedback_label)
-        self.current_user = self.load_current_user()
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
@@ -81,12 +75,27 @@ class QuizLoader:
             if not quiz_data[self.page_type]:
                 raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
 
+            # Añadir un layout horizontal para los botones y la QLabel de puntos
+            button_top_layout = QHBoxLayout()
+
+            # QLabel para mostrar los puntos acumulados
+            self.puntos_label = QLabel(f"XP ganados: {self.user_score}")
+            self.puntos_label.setStyleSheet(
+                f"background-color: {self.styles['title_background_color']}; color: white; font-size: {self.styles['font_size_titles']}px"
+            )
+            self.puntos_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            button_top_layout.addWidget(self.puntos_label)
+
+            # Botón de "Leaderboard"
             self.leaderboard_button = QPushButton("Leaderboard")
             self.leaderboard_button.setStyleSheet(
                 f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
             )
             self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
-            self.layout.addWidget(self.leaderboard_button)
+            button_top_layout.addWidget(self.leaderboard_button)
+
+            # Añadir el layout horizontal al layout principal
+            self.layout.addLayout(button_top_layout)
 
             section_data = self.section
 
@@ -143,6 +152,17 @@ class QuizLoader:
             print(f"Error de valor: {e}")
         except Exception as e:
             print(f"Error al cargar la sección: {e}")
+
+
+    # Método para mostrar los puntos
+    def mostrar_puntos(self):
+        puntos = self.user_score  # Mostrar los puntos obtenidos
+        msg_box = QMessageBox()
+        msg_box.setIcon(QMessageBox.Icon.Information)
+        msg_box.setWindowTitle("Puntos del Usuario")
+        msg_box.setText(f"Tienes {puntos} puntos acumulados.")
+        msg_box.exec()
+
 
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
@@ -434,7 +454,6 @@ class QuizLoader:
     def close_quiz(self):
         self.layout.parentWidget().close()
 
-
 class Main_Modulos_Quizzes_Window(QWidget):
     def __init__(self, quiz_file):
         super().__init__()
@@ -446,13 +465,16 @@ class Main_Modulos_Quizzes_Window(QWidget):
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
 
+        # Obtener la instancia del leaderboard y los puntos del usuario
+        leaderboard_instance = get_instance()
+        user_score = leaderboard_instance.get_current_user_score()
+
         # Construir la ruta relativa de forma correcta
         base_dir = os.path.dirname(os.path.abspath(__file__))  # Obtiene el directorio actual
-
-        # Asegúrate de no duplicar partes de la ruta, solo concatena lo necesario
         page_order_file = os.path.join(base_dir, 'Quizzes', 'page_order_Quizzes', 'page_order.json')
 
-        self.quiz_loader = QuizLoader(self.layout, self.styles, self.quiz_file, page_order_file)
+        # Pasar los puntos del usuario al QuizLoader
+        self.quiz_loader = QuizLoader(self.layout, self.styles, self.quiz_file, page_order_file, user_score)
         self.quiz_loader.load_quiz_section()
 
 
