@@ -87,8 +87,7 @@ ___________________________________________________
 
  2- Download the repo:
  
- - Go to the "<> Code" button on the top right corner of this screen (you will need to scroll up)
- - Click the "Download Zip" option (this will download the whole repo to your computer)
+ - Click on this LINK to download a .zip file from Google Drive [HERE](https://drive.google.com/file/d/1PFRL3eJIR2rU3b3bCwHLzTKmO7yErAwp/view?usp=sharing)
  - Find the location where the file was downloaded, and decompress the file (like right-click and "extract all" if in Windows)
  - Copy and paste the directory path of this folder (see video how-to for [Windows](https://www.youtube.com/watch?v=QZUpzuQ0X5I) or [Mac](https://www.youtube.com/watch?v=kIhGavBqXYc) 
 
