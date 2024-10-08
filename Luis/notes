@@ -1,0 +1,5 @@
+El sistema de xp, se basara en 1 puntos por preguntas. y 3 puntos extra por completar la leccion entera correctamente.
+
+Con las xp de cada jugador, se creara una interfaz de leaderboards en la que el que tenga mayor xp, estara al tope y asi sucesivamente.
+
+Por cada leccion completada, crear un archivo que guarde los registros xp del jugador.
