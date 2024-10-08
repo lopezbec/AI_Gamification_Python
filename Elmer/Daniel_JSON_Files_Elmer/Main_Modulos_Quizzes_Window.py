@@ -6,7 +6,7 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance  # Importamos get_instance
-from game_features.progress_bar import ProgressBar
+
 
 
 class JsonLoader:
