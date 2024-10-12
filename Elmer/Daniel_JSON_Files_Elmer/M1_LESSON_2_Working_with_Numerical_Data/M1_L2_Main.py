@@ -16,12 +16,12 @@ from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBox
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
-read_stored_streak, update_streak, check_streak_badges
+    read_stored_streak, update_streak, check_streak_badges
 from command_line_UI import App
 from congratulation_Feature import CongratulationWindow
 from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
-        update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
-            update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
+    update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
+    update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
 from badge_system.display_cabinet import BadgeDisplayCabinet
 
 
@@ -34,19 +34,22 @@ class JsonLoader:
 
     @staticmethod
     def load_json_styles():
-        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json")) as styles_file:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                               "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
 
     @staticmethod
     def load_active_widgets():
-        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets",
+                               "game_elements_visibility.json")) as active_widgets:
             widgets = json.load(active_widgets)
         return widgets
 
 
 class JsonWindow(QWidget):
-    def __init__(self, filename, page_type, json_number, xp_ganados, user_score, lesson_completed, main_window=None, usuario_actual=None):
+    def __init__(self, filename, page_type, json_number, xp_ganados, user_score, lesson_completed, main_window=None,
+                 usuario_actual=None):
         super().__init__()
 
         self.data = None
@@ -99,7 +102,7 @@ class JsonWindow(QWidget):
         self.leaderboard_button.setFont(leaderboard_button_font)
         self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
 
-        #boton para Vitrina (display cabinet)
+        # boton para Vitrina (display cabinet)
         self.display_cabinet = QPushButton("Mis insignias")
         self.display_cabinet.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
         display_cabinet_font = QFont()
@@ -162,7 +165,7 @@ class JsonWindow(QWidget):
 
     def update_points_display(self, new_points):
         self.puntos.setText(f"XP ganados: {self.user_score + new_points}")
-    
+
     def abrir_display_cabinet(self):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
         self.display_cabinet.show()
@@ -513,7 +516,7 @@ class MainWindow(QWidget):
         self.styles = JsonLoader.load_json_styles()
         self.usuario_actual = self.load_current_user()
         self.leaderboard_window_instace = get_instance()
-        self.streak = BadgeCriteriaStreak() #para manejar la racha de respuestas correctas
+        self.streak = BadgeCriteriaStreak()  # para manejar la racha de respuestas correctas
         self.all_correct = True
         self.setWindowTitle("Trabajando con datos númericos")
         self.progress_bar = ProgressBar(
@@ -522,7 +525,7 @@ class MainWindow(QWidget):
                     os.path.abspath(__file__))), "Page_order", "page_order_M1.json")
             )
             , 1)
-        self.user_score = self.leaderboard_window_instace.get_current_user_score() #puntos ganados por el jugador en todo el juego (acumulativo)
+        self.user_score = self.leaderboard_window_instace.get_current_user_score()  # puntos ganados por el jugador en todo el juego (acumulativo)
         self.init_ui()
 
     def init_ui(self):
@@ -532,8 +535,10 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados, self.user_score, 
-                                             page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]),
+                                         page["page_type"], page["json_number"], self.XP_Ganados, self.user_score,
+                                         page.get("lesson_completed", False), main_window=self,
+                                         usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
 
@@ -748,7 +753,8 @@ class MainWindow(QWidget):
 
     def load_page_order(self):
         # Construir la ruta al archivo dentro de la carpeta 'Page_order'
-        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Page_order', 'page_order_M1.json')
+        file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Page_order',
+                                 'page_order_M1.json')
 
         with open(file_path, "r") as file:
             data = json.load(file)
@@ -997,7 +1003,8 @@ class MainWindow(QWidget):
 
     def load_current_user(self):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'current_user.json'), 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'current_user.json'),
+                      'r', encoding='UTF-8') as file:
                 user_data = json.load(file)
             return user_data.get("current_user")
         except FileNotFoundError:
@@ -1006,7 +1013,8 @@ class MainWindow(QWidget):
 
     @staticmethod
     def actualizar_puntos_en_leaderboard(usuario, puntos_ganados):
-        leaderboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Codigos_LeaderBoard', 'leaderboard.json')
+        leaderboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                        'Codigos_LeaderBoard', 'leaderboard.json')
 
         try:
             with open(leaderboard_path, 'r', encoding='UTF-8') as file:
@@ -1042,7 +1050,8 @@ class MainWindow(QWidget):
         current_page_type = (
             self.stacked_widget.currentWidget().page_type.lower()
         )  # Obtener el tipo de página actual
-        self.log_event(f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
+        self.log_event(
+            f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
 
         current_widget = self.stacked_widget.currentWidget()
         if hasattr(current_widget, "lesson_completed"):
@@ -1101,26 +1110,26 @@ class MainWindow(QWidget):
             get_badge_level(
                 self,
                 score=self.leaderboard_window_instace.get_current_user_score()
-                + self.XP_Ganados,
+                      + self.XP_Ganados,
             )
             update_lesson_dates(self.usuario_actual, "modulo_1", "Leccion_completada2")
             if are_lessons_completed_same_day(self.usuario_actual, "modulo_1") and not is_badge_earned(
-                self.usuario_actual, "modulo_rapido"
+                    self.usuario_actual, "modulo_rapido"
             ):
                 display_badge("modulo_rapido")
                 update_badge_progress(self.usuario_actual, "modulo_rapido")
             if are_two_lessons_completed_same_day(
-                self.usuario_actual, "modulo_1"
+                    self.usuario_actual, "modulo_1"
             ) and not is_badge_earned(self.usuario_actual, "doble_aprendizaje"):
                 display_badge("doble_aprendizaje")
                 update_badge_progress(self.usuario_actual, "doble_aprendizaje")
             if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(
-                self.usuario_actual, "Explorador_curioso"
+                    self.usuario_actual, "Explorador_curioso"
             ):
                 display_badge("Explorador_curioso")
                 update_badge_progress(self.usuario_actual, "Explorador_curioso")
             if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(
-                self.usuario_actual, "dominador_modulo"
+                    self.usuario_actual, "dominador_modulo"
             ):
                 display_badge("dominador_modulo")
                 update_badge_progress(self.usuario_actual, "dominador_modulo")
@@ -1147,6 +1156,7 @@ class MainWindow(QWidget):
         self.dashboard.showMaximized()
         # Luego, cierra la ventana normalmente
         super().closeEvent(event)
+
 
 def M1_L2_Main():
     main_window = MainWindow(lesson_number=2)

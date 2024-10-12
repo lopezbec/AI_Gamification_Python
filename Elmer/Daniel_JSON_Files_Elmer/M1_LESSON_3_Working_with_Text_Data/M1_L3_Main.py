@@ -40,7 +40,7 @@ class JsonLoader:
         with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "styles.json")) as styles_file:
             styles = json.load(styles_file)
         return styles
-    
+
     @staticmethod
     def load_active_widgets():
         with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "active_widgets", "game_elements_visibility.json")) as active_widgets:
@@ -165,7 +165,7 @@ class JsonWindow(QWidget):
 
     def update_points_display(self, new_points):
         self.puntos.setText(f"XP ganados: {self.user_score + new_points}")
-    
+
     def abrir_display_cabinet(self):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
         self.display_cabinet.show()
@@ -518,7 +518,7 @@ class MainWindow(QWidget):
 
         for page in self.load_page_order():
             if page["type"] == "JsonWindow":
-                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados, self.user_score, 
+                json_window = JsonWindow(os.path.join(os.path.dirname(os.path.abspath(__file__)), page["filename"]), page["page_type"], page["json_number"], self.XP_Ganados, self.user_score,
                                              page.get("lesson_completed", False), main_window=self, usuario_actual=self.usuario_actual)
                 self.json_windows.append(json_window)
                 self.stacked_widget.addWidget(json_window)
@@ -629,8 +629,8 @@ class MainWindow(QWidget):
             current_widget.update_points(self.current_xp)  # actualiza los puntos en el widget actual
             current_widget.feedback_label.setStyleSheet(
             f"color: {self.styles['correct_color']}; font-size: {self.styles['font_size_answers']}px")
-            self.SubmitHideContinueShow(True, False)    
-            self.streak.correct_answer()   
+            self.SubmitHideContinueShow(True, False)
+            self.streak.correct_answer()
             CongratulationWindow.correct_response()
         elif Incorrecto:
             self.controlador = True
@@ -901,19 +901,21 @@ class MainWindow(QWidget):
 
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'r',
+                      encoding='UTF-8') as file:
                 progreso = json.load(file)
 
             progreso_usuario = progreso.get(self.usuario_actual, {})
 
             # Calcula el número de la siguiente lección para desbloquearla en progreso.json
-            numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
+            numero_leccion_actual = int(leccion_completada.replace("leccion", ""))
             siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
 
             if modulo in progreso_usuario:
                 progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
 
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json'), 'w',
+                      encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -921,7 +923,8 @@ class MainWindow(QWidget):
 
     def actualizar_leccion_completada(self, modulo, leccion_completada):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                   'leccion_completada.json'), 'r', encoding='UTF-8') as file:
                 leccion_completada_data = json.load(file)
 
             leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
@@ -929,11 +932,12 @@ class MainWindow(QWidget):
             # Marca la lección actual como completada en leccion_completada.json
             if modulo not in leccion_completada_usuario:
                 leccion_completada_usuario[modulo] = {}
-            leccion_completada_usuario[modulo][f"Leccion_completada{leccion_completada.replace('Leccion', '')}"] = True
+            leccion_completada_usuario[modulo][f"Leccion_completada{leccion_completada.replace('leccion', '')}"] = True
 
             leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
 
-            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'leccion_completada.json'), 'w', encoding='UTF-8') as file:
+            with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                   'leccion_completada.json'), 'w', encoding='UTF-8') as file:
                 json.dump(leccion_completada_data, file, indent=4)
 
         except Exception as e:
@@ -979,15 +983,21 @@ class MainWindow(QWidget):
         if forward:
             next_index = current_index + 1
         else:
+            self.submit_button.hide()
+            self.continue_button.show()
             next_index = current_index - 1
 
-        current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
+        current_page_type = (
+            self.stacked_widget.currentWidget().page_type.lower()
+        )  # Obtener el tipo de página actual
         self.log_event(
             f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
 
         current_widget = self.stacked_widget.currentWidget()
         if hasattr(current_widget, "lesson_completed"):
             self.lesson_finished_successfully = True
+        else:
+            self.closeEvent(None)
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
@@ -998,73 +1008,85 @@ class MainWindow(QWidget):
                 self.progress_bar.increment_page()
             else:
                 self.is_rollback = True
+                self.submit_button.hide()
+                self.continue_button.show()
                 next_index = current_index - 1
                 self.XP_Ganados -= 1
                 self.progress_bar.decrement_page()
-            # Antes de cambiar de página, añadimos un punto y log para debug.
-            self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
-            self.log_part_change()  # Registrar el cambio a la "Parte 1"
 
-            current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(
-                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            # Cambiar a la siguiente página
+            self.stacked_widget.setCurrentIndex(next_index)
+            self.log_part_change()  # Registrar el cambio de parte
+
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True,
-                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+                self.SubmitHideContinueShow(True, False)
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False,
-                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False, True)
             else:
-                self.SubmitHideContinueShow(False,
-                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False, False)
 
             if not forward:
                 self.submit_button.hide()
                 self.continue_button.show()
                 self.back_button.hide()
 
-        # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
+        # Si se alcanzó el final de las páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()
             self.terminar_button.show()
-            self.save_log(modulo=1, leccion=3)
+            self.save_log(modulo=1, leccion=1)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
-            self.actualizar_progreso_usuario('Modulo1', 'Leccion3')
-            self.actualizar_leccion_completada('Modulo1', 'Leccion3')
-            update_lesson_status(self.usuario_actual, 'Modulo1', 'Leccion3', self.all_correct)
-                        
+            self.actualizar_progreso_usuario("modulo_1", "leccion3")
+            self.actualizar_leccion_completada("modulo_1", "leccion3")
+            update_lesson_status(self.usuario_actual, "modulo_1", "Leccion_completada3", self.all_correct)
+
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
-            #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
-            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)
-            update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada3")           
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
-                    display_badge('modulo_rapido')
-                    update_badge_progress(self.usuario_actual, 'modulo_rapido')
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
-                display_badge('doble_aprendizaje')
-                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
-            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
-                display_badge('Explorador_curioso')
-                update_badge_progress(self.usuario_actual, 'Explorador_curioso')
-            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'dominador_modulo'):
-                display_badge('dominador_modulo')
-                update_badge_progress(self.usuario_actual, 'dominador_modulo')
+            get_badge_level(
+                self,
+                score=self.leaderboard_window_instace.get_current_user_score()
+                      + self.XP_Ganados,
+            )
+            update_lesson_dates(self.usuario_actual, "modulo_1", "Leccion_completada3")
+            if are_lessons_completed_same_day(self.usuario_actual, "modulo_1") and not is_badge_earned(
+                    self.usuario_actual, "modulo_rapido"
+            ):
+                display_badge("modulo_rapido")
+                update_badge_progress(self.usuario_actual, "modulo_rapido")
+            if are_two_lessons_completed_same_day(
+                    self.usuario_actual, "modulo_1"
+            ) and not is_badge_earned(self.usuario_actual, "doble_aprendizaje"):
+                display_badge("doble_aprendizaje")
+                update_badge_progress(self.usuario_actual, "doble_aprendizaje")
+            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(
+                    self.usuario_actual, "Explorador_curioso"
+            ):
+                display_badge("Explorador_curioso")
+                update_badge_progress(self.usuario_actual, "Explorador_curioso")
+            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(
+                    self.usuario_actual, "dominador_modulo"
+            ):
+                display_badge("dominador_modulo")
+                update_badge_progress(self.usuario_actual, "dominador_modulo")
             self.close()
-
         else:
-            print("¡La leccion no se completó, se cerró!.")
-            self.close()
-        
-        if next_index == self.highest_page_reached and self.is_rollback == True:
-                self.is_rollback = False
-                #Llamar al método de reinicio con el tipo de página correspondiente
-                self.json_windows[next_index].reset_button()
+            print("¡La lección no se completó, se cerró!")
 
+        if next_index == self.highest_page_reached and self.is_rollback == True:
+            self.is_rollback = False
+            self.json_windows[next_index].reset_button()
         self.current_page += 1  # Incrementar el número de la página actual
+
+        if self.current_page == 2 and not is_badge_earned(self.usuario_actual, "gran_paso"):
+            if self.XP_Ganados > 0 and self.XP_Ganados <= 4:
+                display_badge("gran_paso")
+                update_badge_progress(self.usuario_actual, "gran_paso")
+
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:

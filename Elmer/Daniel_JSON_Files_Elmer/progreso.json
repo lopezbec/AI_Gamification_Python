@@ -136,8 +136,55 @@
             "Leccion5": false,
             "Leccion6": false,
             "Leccion7": false,
-            "Quiz1": false,
-            "Quiz2": false
+            "Quiz1": true,
+            "Quiz2": true
+        }
+    },
+    "HHHH": {
+        "modulo_1": {
+            "Leccion1": true,
+            "Leccion2": true,
+            "Leccion3": true,
+            "Leccion4": true,
+            "Leccion5": true,
+            "Quiz1": true,
+            "Quiz2": true
+        },
+        "modulo_2": {
+            "Leccion1": true,
+            "Leccion2": true,
+            "Leccion3": true,
+            "Quiz1": true,
+            "Quiz2": true
+        },
+        "modulo_3": {
+            "Leccion1": true,
+            "Leccion2": true,
+            "Leccion3": true,
+            "Leccion4": true,
+            "Leccion5": true,
+            "Quiz1": true,
+            "Quiz2": true
+        },
+        "modulo_4": {
+            "Leccion1": true,
+            "Leccion2": true,
+            "Leccion3": true,
+            "Leccion4": true,
+            "Leccion5": true,
+            "Quiz1": true,
+            "Quiz2": true
+        },
+        "modulo_5": {
+            "Leccion1": true,
+            "Leccion2": true,
+            "Leccion3": true,
+            "Leccion4": true,
+            "Leccion5": true,
+            "Leccion6": true,
+            "Leccion7": true,
+            "Quiz1": true,
+            "Quiz2": true
         }
     }
 }
