@@ -2,12 +2,12 @@
     {
         "name": "Elmer",
         "points": 3292,
-        "last_active": "2024-10-01 ; 17h:33m"
+        "last_active": "2024-10-08 ; 13h:22m"
     },
     {
         "name": "Daniel",
         "points": 285,
-        "last_active": "2024-08-22 ; 16h:17m"
+        "last_active": "2024-10-08 ; 13h:22m"
     },
     {
         "name": "Jose",
@@ -103,5 +103,10 @@
         "name": "eLMER",
         "points": 0,
         "last_active": "2024-08-23 ; 10h:55m"
+    },
+    {
+        "name": "Emer",
+        "points": 0,
+        "last_active": "2024-10-08 ; 13h:13m"
     }
 ]

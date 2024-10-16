@@ -8,7 +8,7 @@ from PyQt6.QtCore import Qt
 from Elmer.Daniel_JSON_Files_Elmer.congratulation_Feature import CongratulationWindow
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance  # Importamos get_instance
-from game_features.progress_bar import ProgressBar
+
 
 
 class JsonLoader:

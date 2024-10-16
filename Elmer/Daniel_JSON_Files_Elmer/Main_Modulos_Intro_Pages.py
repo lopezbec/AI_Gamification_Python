@@ -1,3 +1,5 @@
+import csv
+import datetime
 import os
 import sys
 import json
@@ -221,6 +223,42 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addLayout(button_layout)
 
 
+    def log_menu_interaction(self, event):
+        event_time = datetime.datetime.now().strftime("%H:%M:%S")
+        log_data = {"event": event, "time": event_time}
+
+        # Guardar el evento en el archivo CSV
+        self.save_menu_log(log_data)
+
+    def log_menu_restart(self):
+        # Insertar una línea vacía o un delimitador en el archivo CSV para indicar un nuevo inicio
+        self.save_menu_log({"event": "", "time": ""})
+
+    def save_menu_log(self, log_data):
+        # Obtener el nombre del usuario actual
+        usuario_actual = self.cargar_usuario_actual()
+
+        # Crear el nombre del archivo usando el nombre del usuario
+        filename = f"{usuario_actual}_Interacciones_Tiempos_Menu.csv"
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Usuarios_interacciones_menu', filename)
+
+        # Verifica si la carpeta existe, si no, la crea
+        if not os.path.exists(os.path.dirname(filepath)):
+            os.makedirs(os.path.dirname(filepath))
+
+        fieldnames = ['event', 'time']
+        with open(filepath, mode="a", newline="", encoding='utf-8') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+            # Si el archivo está vacío, escribe la cabecera
+            if csv_file.tell() == 0:
+                writer.writeheader()
+
+            # Escribe los datos del evento, incluyendo los saltos de línea si es necesario
+            writer.writerow(log_data)
+
+
+
     def cargar_usuario_actual(self):
         # Cargar el usuario actual desde el archivo JSON
         with open("current_user.json", "r") as file:
@@ -269,6 +307,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.quiz_window.showMaximized()
             else:
                 print(f"Quiz {numero_quiz} no disponible para {nombre_modulo}")
+
+            self.log_event(f"Modulo {nombre_modulo}, Quiz {numero_quiz} abierto", "time")
         except Exception as e:
             print(f"Error al abrir {nombre_modulo} - Quiz {numero_quiz}: {e}")
             print(f"Error en línea {sys.exc_info()[2].tb_lineno}")
@@ -439,9 +479,14 @@ class MainWindow(QtWidgets.QMainWindow):
         LeaderBoard()
 
     def reiniciar_aplicacion(self):
+        # Registrar el reinicio del menú
+        self.log_menu_restart()
+
+        # Lógica para reiniciar la aplicación
         self.close()
         self.new_instance = MainWindow()
         self.new_instance.showMaximized()
+
 
     def recargar_progreso_usuario(self):
         try:
@@ -530,6 +575,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         lecciones[quiz_actual] = True
 
     def abrir_leccion(self, nombre_modulo, numero_leccion):
+        
         try:
             # Aquí mantendremos las importaciones necesarias como se manejan en ambos códigos
             # Importar Lecciones
@@ -696,7 +742,10 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.close()
                         self.m5_lesson7_window.showMaximized()
             else:
+                self.log_menu_interaction(f"{nombre_modulo}, Leccion {numero_leccion} bloqueado, se intento acceder")
                 self.mostrar_mensaje_bloqueado(f"{nombre_modulo} - Lección {numero_leccion}", "por favor completa la lección anterior.")
+
+            self.log_event(f"Modulo {nombre_modulo}, Leccion {numero_leccion} abierto", "time")
         except Exception as e:
             print(f"Error al abrir {nombre_modulo} - Lección {numero_leccion}: {e}")
             print(f"Error en línea {sys.exc_info()[2].tb_lineno}")
