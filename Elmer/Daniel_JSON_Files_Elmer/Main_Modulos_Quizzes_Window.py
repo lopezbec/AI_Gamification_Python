@@ -47,7 +47,9 @@ class QuizLoader:
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
         self.current_user = self.load_current_user()
-        self.current_score = 0
+        self.controlador = False
+        self.XP_Ganados = 0 #este sera nuestro XP_Ganados del quizz
+        self.total_score = 0
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
@@ -102,7 +104,7 @@ class QuizLoader:
             self.total_score = self.leaderboard_instace.get_current_user_score()
 
             # Crear el widget de puntaje total
-            self.puntaje_total = QLabel(f"Puntaje total: {self.total_score + self.current_score}")
+            self.puntaje_total = QLabel(f"XP ganados: {self.total_score + self.XP_Ganados}")
             self.puntaje_total.setStyleSheet("background-color: grey; color: white; border: 2px solid black")
 
             # Ajustar la fuente del widget de puntaje total
@@ -377,6 +379,15 @@ class QuizLoader:
         correct_order = self.section['correctOrder']
 
         if user_order == correct_order:
+            # Incrementa XP por respuesta correcta
+            if self.XP_Ganados == 0 and not self.controlador:
+                self.XP_Ganados = 2  # Primer intento
+            elif self.XP_Ganados == 0 and self.controlador:
+                self.XP_Ganados = 1  # Segundo intento o más
+
+            # Actualizar puntos y visualización
+            self.total_score += self.XP_Ganados
+
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -386,6 +397,7 @@ class QuizLoader:
             else:
                 self.continue_button.setVisible(True)
         else:
+            self.controlador = True  # Marca que hubo un intento incorrecto
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -395,6 +407,15 @@ class QuizLoader:
         correct_answers = [answer["text"] for answer in self.section["answers"] if answer.get("correct", False)]
 
         if selected_answers == correct_answers:
+            # Incrementa XP por respuesta correcta
+            if self.XP_Ganados == 0 and not self.controlador:
+                self.XP_Ganados = 2  # Primer intento
+            elif self.XP_Ganados == 0 and self.controlador:
+                self.XP_Ganados = 1  # Segundo intento o más
+
+            # Actualizar puntos y visualización
+            self.total_score += self.XP_Ganados
+
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -404,6 +425,7 @@ class QuizLoader:
             else:
                 self.continue_button.setVisible(True)
         else:
+            self.controlador = True  # Marca que hubo un intento incorrecto
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -413,6 +435,13 @@ class QuizLoader:
         correct_text = self.section["correctValue"]
 
         if user_text == correct_text:
+             # Incrementa XP por respuesta correcta
+            if self.XP_Ganados == 0 and not self.controlador:
+                self.XP_Ganados = 2  # Primer intento
+            elif self.XP_Ganados == 0 and self.controlador:
+                self.XP_Ganados = 1  # Segundo intento o más
+             # Actualizar puntos y visualización
+            self.total_score += self.XP_Ganados
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -422,6 +451,7 @@ class QuizLoader:
             else:
                 self.continue_button.setVisible(True)
         else:
+            self.controlador = True  # Marca que hubo un intento incorrecto
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -439,6 +469,8 @@ class QuizLoader:
                 return
         self.clear_layout()
         self.load_quiz_section()
+    
+
 
     def is_last_section(self):
         current_quiz = self.page_order[self.current_quiz_index]
