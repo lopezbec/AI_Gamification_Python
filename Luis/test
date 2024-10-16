@@ -1,0 +1,51 @@
+import sys
+from PyQt6.QtCore import Qt, QTimer
+from PyQt6.QtGui import QFont
+from PyQt6.QtWidgets import QApplication, QMainWindow, QProgressBar, QLabel, QVBoxLayout, QWidget
+
+class SoloLearnProgress(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.initUI()
+
+    def initUI(self):
+        # Set the main window properties
+        self.setGeometry(100, 100, 400, 150)
+        self.setWindowTitle('SoloLearn Progress Bar')
+
+        # Create a label to display the progress bar title
+        label = QLabel('Progress:', self)
+        label.move(20, 20)
+        label.setFont(QFont('Arial', 12))
+
+        # Create a progress bar
+        self.progress_bar = QProgressBar(self)
+        self.progress_bar.setGeometry(20, 50, 360, 30)
+        self.progress_bar.setValue(50)
+
+        # Create a label to display the progress percentage
+        self.progress_label = QLabel('50%', self)
+        self.progress_label.move(180, 90)
+        self.progress_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # Create a timer to update the progress bar and label
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_progress)
+        self.timer.start(1000)
+
+    def update_progress(self):
+        # Update the progress bar value
+        value = self.progress_bar.value() + 10
+        if value > 100:
+            value = 0
+        self.progress_bar.setValue(value)
+
+        # Update the progress label text
+        self.progress_label.setText(f'{value}%')
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    sololearn_progress = SoloLearnProgress()
+    sololearn_progress.show()
+    sys.exit(app.exec())
