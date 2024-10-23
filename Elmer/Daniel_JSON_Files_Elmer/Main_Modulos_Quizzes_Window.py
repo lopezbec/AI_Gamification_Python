@@ -4,7 +4,7 @@ import json
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, \
     QRadioButton
 from PyQt6.QtGui import QFont
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 
@@ -48,8 +48,9 @@ class QuizLoader:
         self.layout.addWidget(self.feedback_label)
         self.current_user = self.load_current_user()
         self.controlador = False
-        self.XP_Ganados = 0 #este sera nuestro XP_Ganados del quizz
+        self.XP_Ganados = 0  # este sera nuestro XP_Ganados del quizz
         self.total_score = 0
+        self.puntos_total = 0
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
@@ -82,12 +83,31 @@ class QuizLoader:
             if not quiz_data[self.page_type]:
                 raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
 
+            # Crear un QHBoxLayout para el puntaje y el botón de Leaderboard
+            puntaje_layout = QHBoxLayout()
+
+            # Crear el widget de puntaje total
+            self.puntaje_total = QLabel(f"XP ganados: {self.total_score + self.XP_Ganados}")
+            self.puntaje_total.setStyleSheet("background-color: grey; color: white; border: 2px solid black")
+
+            # Ajustar la fuente del widget de puntaje total
+            puntaje_total_font = QFont()
+            puntaje_total_font.setPointSize(self.styles["font_size_normal"])
+            self.puntaje_total.setFont(puntaje_total_font)
+
+            # Crear el botón de Leaderboard
             self.leaderboard_button = QPushButton("Leaderboard")
             self.leaderboard_button.setStyleSheet(
                 f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
             )
             self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
-            self.layout.addWidget(self.leaderboard_button)
+
+            # Añadir el puntaje y el botón de Leaderboard al layout horizontal
+            puntaje_layout.addWidget(self.puntaje_total)
+            puntaje_layout.addWidget(self.leaderboard_button)
+
+            # Añadir el layout horizontal a la interfaz principal
+            self.layout.addLayout(puntaje_layout)
 
             section_data = self.section
 
@@ -102,16 +122,6 @@ class QuizLoader:
 
             self.leaderboard_instace = get_instance()
             self.total_score = self.leaderboard_instace.get_current_user_score()
-
-            # Crear el widget de puntaje total
-            self.puntaje_total = QLabel(f"XP ganados: {self.total_score + self.XP_Ganados}")
-            self.puntaje_total.setStyleSheet("background-color: grey; color: white; border: 2px solid black")
-
-            # Ajustar la fuente del widget de puntaje total
-            puntaje_total_font = QFont()
-            puntaje_total_font.setPointSize(self.styles["font_size_normal"])
-            self.puntaje_total.setFont(puntaje_total_font)
-            self.layout.addWidget(self.puntaje_total)
 
             if self.page_type == 'multiplechoice':
                 self.create_multiple_choice_layout(section_data)
@@ -158,6 +168,7 @@ class QuizLoader:
         except Exception as e:
             print(f"Error al cargar la sección: {e}")
 
+
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
         current_quiz = self.page_order[self.current_quiz_index]
@@ -174,9 +185,20 @@ class QuizLoader:
         self.load_quiz_section()
 
     def complete_quiz(self):
+        # Mostrar mensaje de que se han ganado 5 puntos
+        self.feedback_label.setText('Haz ganado 5 puntos por terminar el quiz')
+        self.feedback_label.setStyleSheet(
+            f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+        self.submit_button.setVisible(False)
+
+        # Crear un temporizador para esperar 3.5 segundos antes de continuar
+        QTimer.singleShot(3500, self.complete_quiz_actions)  # 3500 milisegundos = 3.5 segundos
+
+    def complete_quiz_actions(self):
+        # Esta función se llamará después de 3.5 segundos
+        print(self.puntos_total)
         self.mark_quiz_complete()
         self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
-        self.current_score = 5
         self.layout.parentWidget().close()
 
     def mark_quiz_complete(self):
@@ -382,15 +404,19 @@ class QuizLoader:
             # Incrementa XP por respuesta correcta
             if self.XP_Ganados == 0 and not self.controlador:
                 self.XP_Ganados = 2  # Primer intento
+                # Actualizar puntos y visualización
+                self.puntos_total =+ self.XP_Ganados
+                print("Puntos total draganddrop: ",self.puntos_total)
+                self.feedback_label.setText('¡Correcto! Haz ganado 2 puntos')
+                self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             elif self.XP_Ganados == 0 and self.controlador:
                 self.XP_Ganados = 1  # Segundo intento o más
+                # Actualizar puntos y visualización
+                self.puntos_total =+ self.XP_Ganados
+                print("Puntos total draganddrop: ",self.puntos_total)
+                self.feedback_label.setText('¡Correcto! Haz ganado 1 punto')
+                self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
 
-            # Actualizar puntos y visualización
-            self.total_score += self.XP_Ganados
-
-            self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
@@ -410,15 +436,19 @@ class QuizLoader:
             # Incrementa XP por respuesta correcta
             if self.XP_Ganados == 0 and not self.controlador:
                 self.XP_Ganados = 2  # Primer intento
+                # Actualizar puntos y visualización
+                self.puntos_total =+ self.XP_Ganados
+                print("Puntos total multiple: ",self.puntos_total)
+                self.feedback_label.setText('¡Correcto! Haz ganado 2 puntos')
+                self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             elif self.XP_Ganados == 0 and self.controlador:
                 self.XP_Ganados = 1  # Segundo intento o más
+                # Actualizar puntos y visualización
+                self.puntos_total =+ self.XP_Ganados
+                print("Puntos total multiple: ",self.puntos_total)
+                self.feedback_label.setText('¡Correcto! Haz ganado 1 punto')
+                self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
 
-            # Actualizar puntos y visualización
-            self.total_score += self.XP_Ganados
-
-            self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
@@ -438,13 +468,19 @@ class QuizLoader:
              # Incrementa XP por respuesta correcta
             if self.XP_Ganados == 0 and not self.controlador:
                 self.XP_Ganados = 2  # Primer intento
+                self.puntos_total =+ self.XP_Ganados
+                print("Puntos total complete: ",self.puntos_total)
+                self.feedback_label.setText('¡Correcto! Haz ganado 2 puntos')
+                self.feedback_label.setStyleSheet(
+                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             elif self.XP_Ganados == 0 and self.controlador:
                 self.XP_Ganados = 1  # Segundo intento o más
-             # Actualizar puntos y visualización
-            self.total_score += self.XP_Ganados
-            self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(
+                self.puntos_total =+ self.XP_Ganados
+                print("Puntos total complete: ",self.puntos_total)
+                self.feedback_label.setText('¡Correcto! Haz ganado 1 punto')
+                self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
