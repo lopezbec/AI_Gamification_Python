@@ -952,47 +952,64 @@ class MainWindow(QWidget):
             except Exception as e:
                 print(f"Error {e}")
 
+    # Para hacer que el codigo Opción 2: Desbloquear el siguiente módulo después de completar los quizzes, entrar a la conversacion de ChatGPT:
+    #https://chatgpt.com/c/671e7cd7-b814-8011-854d-e070e417e27a
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
-            with open('progreso.json', 'r', encoding='UTF-8') as file:
-                progreso = datos = json.load(file)
+            # Ruta al archivo progreso.json
+            ruta_progreso = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'progreso.json')
+
+            # Cargar el progreso actual desde progreso.json
+            with open(ruta_progreso, 'r', encoding='UTF-8') as file:
+                progreso = json.load(file)
 
             progreso_usuario = progreso.get(self.usuario_actual, {})
 
-            # Calcula el número de la siguiente lección para desbloquearla en progreso.json
-            numero_leccion_actual = int(leccion_completada.replace("Leccion", ""))
+            # Obtener el número de la lección actual y calcular la siguiente
+            numero_leccion_actual = int(leccion_completada.replace("leccion", "").replace("Leccion", ""))
             siguiente_leccion = f'Leccion{numero_leccion_actual + 1}'
 
-            if siguiente_leccion in progreso_usuario[modulo]:
-                progreso_usuario[modulo][siguiente_leccion] = True  # Desbloquea la siguiente lección
+            if modulo in progreso_usuario:
+                modulo_actual = progreso_usuario[modulo]
 
-            else:
-                # Obtener la lista de módulos del usuario
-                modulos_usuario = datos.get(self.usuario_actual, {})
+                # Marcar la lección completada como True
+                leccion_key = f'Leccion{numero_leccion_actual}'
+                modulo_actual[leccion_key] = True
 
-                # Verificar si el módulo actual existe en los datos
-                if modulo not in modulos_usuario:
-                    raise KeyError(f'El módulo {modulo} no existe para el usuario {self.usuario_actual}.')
+                # Si la siguiente lección existe en el módulo actual, desbloquearla
+                if siguiente_leccion in modulo_actual:
+                    modulo_actual[siguiente_leccion] = True  # Desbloquea la siguiente lección
+                else:
+                    # Si no existe la siguiente lección, verificar si todas las lecciones están completadas
+                    lecciones = [clave for clave in modulo_actual.keys() if clave.startswith('Leccion')]
+                    lecciones_completadas = all(modulo_actual[leccion] == True for leccion in lecciones)
 
-                # Obtener las lecciones del módulo actual
-                lecciones = {clave: valor for clave, valor in modulos_usuario[modulo].items() if not clave.startswith("Quiz")}
+                    if lecciones_completadas:
+                        # Desbloquear Quiz1 y Quiz2 en el módulo actual
+                        modulo_actual['Quiz1'] = True
+                        # Borrar la linea de abajo solo habilitar el Quiz1, si se completa la ultima Leccion del modulo
+                        modulo_actual['Quiz2'] = True
 
-                # Verificar si todas las lecciones del módulo están completadas
-                todas_completadas = all(lecciones.values())
+                        # Aquí puedes decidir si deseas desbloquear el siguiente módulo inmediatamente
+                        # o después de que se completen los quizzes. Supongamos que quieres desbloquear
+                        # el siguiente módulo después de completar los quizzes.
 
-                if todas_completadas:
-                    # Habilitar la primera lección del siguiente módulo
-                    #numero_modulo_actual = int(modulo[-1])
-                    #siguiente_modulo = f'Modulo{numero_modulo_actual + 1}'
-                    quiz1 = 'Quiz1';
-        
-                    if quiz1 not in progreso_usuario[modulo]:
-                        raise KeyError(f"La clave Quiz1 no existe en el {modulo}")
-                    progreso_usuario[modulo][quiz1] = True
-            
-            #progreso[self.usuario_actual] = progreso_usuario
+                        # Verificar si los quizzes están completados
+                        quizzes_completados = modulo_actual.get('Quiz1', False) and modulo_actual.get('Quiz2', False)
+                        if quizzes_completados:
+                            # Desbloquear la Leccion1 del siguiente módulo
+                            numero_modulo_actual = int(modulo.replace('modulo_', ''))
+                            siguiente_modulo = f'modulo_{numero_modulo_actual + 1}'
 
-            with open('progreso.json', 'w', encoding='UTF-8') as file:
+                            # Inicializar el siguiente módulo si no existe
+                            if siguiente_modulo not in progreso_usuario:
+                                progreso_usuario[siguiente_modulo] = {}
+
+                            # Desbloquear la Leccion1 del siguiente módulo
+                            progreso_usuario[siguiente_modulo]['Leccion1'] = True
+
+            # Guardar los cambios en progreso.json
+            with open(ruta_progreso, 'w', encoding='UTF-8') as file:
                 json.dump(progreso, file, indent=4)
 
         except Exception as e:
@@ -1000,19 +1017,51 @@ class MainWindow(QWidget):
 
     def actualizar_leccion_completada(self, modulo, leccion_completada):
         try:
-            with open('leccion_completada.json', 'r', encoding='UTF-8') as file:
+            # Ruta al archivo leccion_completada.json
+            ruta_leccion_completada = os.path.join(
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                'leccion_completada.json'
+            )
+
+            # Cargar los datos actuales desde leccion_completada.json
+            with open(ruta_leccion_completada, 'r', encoding='UTF-8') as file:
                 leccion_completada_data = json.load(file)
 
             leccion_completada_usuario = leccion_completada_data.get(self.usuario_actual, {})
 
-            # Marca la lección actual como completada en leccion_completada.json
+            # Inicializar el módulo si no existe
             if modulo not in leccion_completada_usuario:
                 leccion_completada_usuario[modulo] = {}
-            leccion_completada_usuario[modulo][f"Leccion_completada{leccion_completada.replace('Leccion', '')}"] = True
 
+            # Marcar la lección actual como completada
+            numero_leccion = leccion_completada.replace('leccion', '').replace('Leccion', '')
+            leccion_key = f"Leccion_completada{numero_leccion}"
+            leccion_completada_usuario[modulo][leccion_key] = True
+
+            # Verificar si todas las lecciones del módulo están completadas
+            # Obtener todas las claves que corresponden a lecciones
+            lecciones_keys = [clave for clave in leccion_completada_usuario[modulo].keys() if
+                              clave.startswith('Leccion_completada')]
+
+            # Definir el número total de lecciones en el módulo (ajústalo según tu módulo)
+            total_lecciones_modulo = 5  # Por ejemplo, el módulo tiene 5 lecciones
+
+            if len(lecciones_keys) == total_lecciones_modulo:
+                # Verificar si todas las lecciones están marcadas como True
+                todas_lecciones_completadas = all(
+                    leccion_completada_usuario[modulo][clave] == True for clave in lecciones_keys
+                )
+                if todas_lecciones_completadas:
+                    # Marcar los quizzes como completados
+                    leccion_completada_usuario[modulo]['Quiz_completado1'] = True
+                    # Borrar la linea de abajo solo habilitar el Quiz_completado1, si se completa la ultima Leccion del modulo
+                    leccion_completada_usuario[modulo]['Quiz_completado2'] = True
+
+            # Actualizar los datos del usuario en el JSON
             leccion_completada_data[self.usuario_actual] = leccion_completada_usuario
 
-            with open('leccion_completada.json', 'w', encoding='UTF-8') as file:
+            # Guardar los cambios en leccion_completada.json
+            with open(ruta_leccion_completada, 'w', encoding='UTF-8') as file:
                 json.dump(leccion_completada_data, file, indent=4)
 
         except Exception as e:
@@ -1059,15 +1108,21 @@ class MainWindow(QWidget):
         if forward:
             next_index = current_index + 1
         else:
+            self.submit_button.hide()
+            self.continue_button.show()
             next_index = current_index - 1
 
-        current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actual
+        current_page_type = (
+            self.stacked_widget.currentWidget().page_type.lower()
+        )  # Obtener el tipo de página actual
         self.log_event(
             f"{current_page_type.capitalize()} Page Close Time")  # Registrar el evento de cierre de la página actual
 
         current_widget = self.stacked_widget.currentWidget()
         if hasattr(current_widget, "lesson_completed"):
             self.lesson_finished_successfully = True
+        else:
+            self.closeEvent(None)
 
         # Si el siguiente índice es menor que el número total de páginas, continuar navegando
         if next_index < self.stacked_widget.count():
@@ -1078,73 +1133,84 @@ class MainWindow(QWidget):
                 self.progress_bar.increment_page()
             else:
                 self.is_rollback = True
+                self.submit_button.hide()
+                self.continue_button.show()
                 next_index = current_index - 1
                 self.XP_Ganados -= 1
                 self.progress_bar.decrement_page()
-            # Antes de cambiar de página, añadimos un punto y log para debug.
-            self.stacked_widget.setCurrentIndex(next_index)  # Cambiar a la siguiente página
-            self.log_part_change()  # Registrar el cambio a la "Parte 1"
 
-            current_page_type = self.stacked_widget.currentWidget().page_type.lower()  # Obtener el tipo de página actualizado
-            self.log_event(
-                f"{current_page_type.capitalize()} Page Open Time")  # Registrar el evento de apertura de la nueva página
+            # Cambiar a la siguiente página
+            self.stacked_widget.setCurrentIndex(next_index)
+            self.log_part_change()  # Registrar el cambio de parte
+
+            current_page_type = self.stacked_widget.currentWidget().page_type.lower()
+            self.log_event(f"{current_page_type.capitalize()} Page Open Time")
 
             if current_page_type == "pedagogical" or current_page_type == "pedagogical2":
-                self.SubmitHideContinueShow(True,
-                                            False)  # Si la nueva página es una pregunta, mostrar el botón de envío y ocultar el botón de continuar
+                self.SubmitHideContinueShow(True, False)
             elif current_page_type == "practica":
-                self.SubmitHideContinueShow(False,
-                                            True)  # Si la nueva página no es una pregunta, y es práctica, ocultar el botón de envío y el de continuar, y mostrar el de practica
+                self.SubmitHideContinueShow(False, True)
             else:
-                self.SubmitHideContinueShow(False,
-                                            False)  # Si la nueva página no es una pregunta, ocultar el botón de envío y mostrar el botón de continuar
+                self.SubmitHideContinueShow(False, False)
 
             if not forward:
                 self.submit_button.hide()
                 self.continue_button.show()
                 self.back_button.hide()
 
-        # Sí se alcanza el final del recorrido de páginas, guardar el registro y cerrar la aplicación
+        # Si se alcanzó el final de las páginas, guardar el registro y cerrar la aplicación
         elif not next_index < self.stacked_widget.count():
             self.continue_button.hide()
             self.terminar_button.show()
-            self.save_log(modulo=3, leccion=5)
+            self.save_log(modulo=5, leccion=1)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
-            self.actualizar_progreso_usuario('Modulo3', 'Leccion5')
-            self.actualizar_leccion_completada('Modulo3', 'Leccion5')
-            update_lesson_status(self.usuario_actual, 'Modulo3', 'Leccion5', self.all_correct)
-                        
+            self.actualizar_progreso_usuario("modulo_3", "leccion5")
+            self.actualizar_leccion_completada("modulo_3", "leccion5")
+            update_lesson_status(self.usuario_actual, "modulo_3", "Leccion_completada5", self.all_correct)
+
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
-            #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
-            get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)           
-            update_lesson_dates(self.usuario_actual, "Modulo3", "Leccion_completada5")           
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo3") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
-                    display_badge('modulo_rapido')
-                    update_badge_progress(self.usuario_actual, 'modulo_rapido')
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo3") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
-                display_badge('doble_aprendizaje')
-                update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
-            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):
-                display_badge('Explorador_curioso')
-                update_badge_progress(self.usuario_actual, 'Explorador_curioso')
-            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'dominador_modulo'):
-                display_badge('dominador_modulo')
-                update_badge_progress(self.usuario_actual, 'dominador_modulo')
+            get_badge_level(
+                self,
+                score=self.leaderboard_window_instace.get_current_user_score()
+                      + self.XP_Ganados,
+            )
+            update_lesson_dates(self.usuario_actual, "modulo_3", "Leccion_completada5")
+            if are_lessons_completed_same_day(self.usuario_actual, "modulo_3") and not is_badge_earned(
+                    self.usuario_actual, "modulo_rapido"
+            ):
+                display_badge("modulo_rapido")
+                update_badge_progress(self.usuario_actual, "modulo_rapido")
+            if are_two_lessons_completed_same_day(
+                    self.usuario_actual, "modulo_3"
+            ) and not is_badge_earned(self.usuario_actual, "doble_aprendizaje"):
+                display_badge("doble_aprendizaje")
+                update_badge_progress(self.usuario_actual, "doble_aprendizaje")
+            if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(
+                    self.usuario_actual, "Explorador_curioso"
+            ):
+                display_badge("Explorador_curioso")
+                update_badge_progress(self.usuario_actual, "Explorador_curioso")
+            if check_module_streak_per_user(self.usuario_actual) and not is_badge_earned(
+                    self.usuario_actual, "dominador_modulo"
+            ):
+                display_badge("dominador_modulo")
+                update_badge_progress(self.usuario_actual, "dominador_modulo")
             self.close()
-
         else:
-            print("¡La leccion no se completó, se cerró!.")
-            self.close()
+            print("¡La lección no se completó, se cerró!")
 
         if next_index == self.highest_page_reached and self.is_rollback == True:
             self.is_rollback = False
-            # Llamar al método de reinicio con el tipo de página correspondiente
             self.json_windows[next_index].reset_button()
-
         self.current_page += 1  # Incrementar el número de la página actual
+
+        if self.current_page == 2 and not is_badge_earned(self.usuario_actual, "gran_paso"):
+            if self.XP_Ganados > 0 and self.XP_Ganados <= 4:
+                display_badge("gran_paso")
+                update_badge_progress(self.usuario_actual, "gran_paso")
 
     def update_highest_page(self, current_page):
         if current_page > self.highest_page_reached:
