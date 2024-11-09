@@ -938,9 +938,8 @@ class MainWindow(QWidget):
             except Exception as e:
                 print(f"Error {e}")
 
-
-
-
+    # Para hacer que el codigo Opción 2: Desbloquear el siguiente módulo después de completar los quizzes, entrar a la conversacion de ChatGPT:
+    # https://chatgpt.com/c/671e7cd7-b814-8011-854d-e070e417e27a
     def actualizar_progreso_usuario(self, modulo, leccion_completada):
         try:
             # Ruta al archivo progreso.json
@@ -1002,8 +1001,7 @@ class MainWindow(QWidget):
             print(f"Error al actualizar el progreso: {e}")
 
 
-    # Para hacer que el codigo Opción 2: Desbloquear el siguiente módulo después de completar los quizzes, entrar a la conversacion de ChatGPT:
-    #https://chatgpt.com/c/671e7cd7-b814-8011-854d-e070e417e27a
+
     def actualizar_leccion_completada(self, modulo, leccion_completada):
         try:
             # Ruta al archivo leccion_completada.json

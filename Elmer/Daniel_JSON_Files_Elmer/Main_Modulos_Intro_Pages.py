@@ -273,7 +273,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def setup_modulos_menu(self, id_modulo, numero_lecciones, numero_quizzes, modulo_anterior_completado):
         modulos_btn = QToolButton()
-        modulos_btn.setText(f"Modulo {id_modulo[-1]}")
+        modulos_btn.setText(f"Módulo {id_modulo[-1]}")
         modulos_btn.setStyleSheet(
             f"background-color: {self.styles['submit_button_color']}; font-size: {self.styles['font_size_buttons']}px;"
             "border: 2px solid black; border-radius: 10px; padding: 5px;")
