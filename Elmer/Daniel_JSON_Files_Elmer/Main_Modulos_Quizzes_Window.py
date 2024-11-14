@@ -215,7 +215,7 @@ class QuizLoader:
             self.current_user
         )
         self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
-        self.close_quiz() #Se usa close_quiz en vez de otro metodo para que el menu principal se muestre al cierre del quiz
+        self.main_window.close()   #Se usa close_quiz en vez de otro metodo para que el menu principal se muestre al cierre del quiz
 
     def mark_quiz_complete(self):
         try:
@@ -507,13 +507,6 @@ class QuizLoader:
     def is_last_section(self):
         current_quiz = self.page_order[self.current_quiz_index - 1]
         return self.current_section_in_quiz_index == len(current_quiz["sections"]) - 1
-
-    def close_quiz(self):
-        #Aqui cerramos el quiz pero, previo a esto, creamos y mostramos la ventana del menu principal.
-        self.dashboard = Dashboard()
-        self.dashboard.showMaximized()
-        self.main_window.close()
-
 
 class Main_Modulos_Quizzes_Window(QWidget):
     def __init__(self, quiz_file, current_quiz_index, current_module_index, username):
