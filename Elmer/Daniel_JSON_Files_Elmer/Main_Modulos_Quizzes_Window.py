@@ -113,14 +113,12 @@ class QuizLoader:
                 if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):                   
                     
                     # Obtiene la sección actual del quiz basado en el índice de la sección actual.
-                    current_section = current_quiz["sections"][self.current_section_in_quiz_index]                   
+                    current_section = current_quiz["sections"][self.current_section_in_quiz_index]             
                     # Extrae el tipo de página (page_type) de la sección actual.
-                    page_type = current_section["page_type"]                   
-                    # Extrae el número de sección (section_number) de la sección actual.
-                    section_number = current_section["section_number"]                   
-                    # Asigna la sección correspondiente en los datos del quiz usando page_type y section_number (el número de sección es 1-based).
-                    self.section = quiz_data[page_type][section_number - 1]              
-                    # Asigna el tipo de página actual a self.page_type para que pueda ser utilizado más adelante.
+                    page_type = current_section["page_type"]                         
+                    # Asigna la sección correspondiente en los datos del quiz usando page_type (el 0 es necesario para sacarlo del array)
+                    self.section = quiz_data[page_type][0]
+                    # Asigna el tipo de página actual
                     self.page_type = page_type
 
             if self.page_type not in quiz_data:
@@ -252,7 +250,6 @@ class QuizLoader:
             # Verificar si el siguiente quiz existe en el módulo actual
             if siguiente_quiz in progress_data[user][module_key]:
                 progress_data[user][module_key][siguiente_quiz] = True  # Desbloquear siguiente quiz
-                print(f"Se ha desbloqueado el {siguiente_quiz} del módulo {module_key}.")
             else:
                 # Si no existe el siguiente quiz, desbloquear la primera lección del siguiente módulo
                 siguiente_modulo_key = f"Modulo{int(self.current_module_index) + 1}"
@@ -260,7 +257,6 @@ class QuizLoader:
                 # Verificar si el siguiente módulo existe en progreso.json para el usuario actual
                 if siguiente_modulo_key in progress_data[user]:
                     progress_data[user][siguiente_modulo_key]['Leccion1'] = True  # Desbloquear Leccion1 del siguiente módulo
-                    print(f"Se ha desbloqueado Leccion1 del {siguiente_modulo_key}.")
                 else:
                     print(f"El módulo {siguiente_modulo_key} no existe en progreso.json para el usuario {user}.")
 
