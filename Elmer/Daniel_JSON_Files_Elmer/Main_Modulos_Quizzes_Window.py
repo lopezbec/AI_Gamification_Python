@@ -113,14 +113,13 @@ class QuizLoader:
                 if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):                   
                     
                     # Obtiene la sección actual del quiz basado en el índice de la sección actual.
-                    current_section = current_quiz["sections"][self.current_section_in_quiz_index]                   
+                    current_section = current_quiz["sections"][self.current_section_in_quiz_index]
+                    print(current_section)                   
                     # Extrae el tipo de página (page_type) de la sección actual.
-                    page_type = current_section["page_type"]                   
-                    # Extrae el número de sección (section_number) de la sección actual.
-                    section_number = current_section["section_number"]                   
-                    # Asigna la sección correspondiente en los datos del quiz usando page_type y section_number (el número de sección es 1-based).
-                    self.section = quiz_data[page_type][section_number - 1]              
-                    # Asigna el tipo de página actual a self.page_type para que pueda ser utilizado más adelante.
+                    page_type = current_section["page_type"]                         
+                    # Asigna la sección correspondiente en los datos del quiz usando page_type (el 0 es necesario para sacarlo del array)
+                    self.section = quiz_data[page_type][0]
+                    # Asigna el tipo de página actual
                     self.page_type = page_type
 
             if self.page_type not in quiz_data:
