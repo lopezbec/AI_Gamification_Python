@@ -324,12 +324,19 @@ class QuizLoader:
             print("Archivo current_user.json no encontrado.")
             return None
 
-    def clear_layout(self):
-        while self.layout.count():
-            child = self.layout.takeAt(0)
+    def clear_layout(self, layout=None):
+        if layout is None:
+            layout = self.layout  # Usa el layout principal si no se pasa ninguno
+        while layout.count():
+            child = layout.takeAt(0)
+
             if child.widget():
-                child.widget().deleteLater()
-        self.layout.update()
+                widget = child.widget()
+                widget.deleteLater()
+            elif child.layout():
+                self.clear_layout(child.layout())  # Llamada recursiva para limpiar el sublayout
+            else:
+                print("Elemento desconocido encontrado en el layout.")
 
     def create_feedback_label(self):
         self.feedback_label = QLabel('')
