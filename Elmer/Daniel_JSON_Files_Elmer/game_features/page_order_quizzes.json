@@ -6,14 +6,12 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_Q1_Main.json",
-                    "page_type": "multiplechoice",
-                    "section_number": 1
+                    "page_type": "multiplechoice"
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M1_Q1_Main.json",
-                    "page_type": "draganddrop",
-                    "section_number": 1
+                    "page_type": "draganddrop"
                 }
             ]
         },
@@ -23,14 +21,12 @@
                 {
                     "type": "JsonWindow",
                     "filename": "M1_Q2_Main.json",
-                    "page_type": "multiplechoice",
-                    "section_number": 1
+                    "page_type": "multiplechoice"
                 },
                 {
                     "type": "JsonWindow",
                     "filename": "M1_Q2_Main.json",
-                    "page_type": "completeblankspace",
-                    "section_number": 1
+                    "page_type": "completeblankspace"
                 }
             ]
         }
