@@ -305,7 +305,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         modulos_menu = QMenu()
         quizzes_menu = QMenu()
-        
+
         if modulo_anterior_completado:
             self.añadir_submenu(nombre_modulo, numero_lecciones, modulos_menu)
             self.añadir_submenu_quiz(nombre_modulo, quizzes_menu, numero_quizzes)
@@ -342,6 +342,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def add_module_buttons_to_grid_layout(self, layout, row, modulo_btn, quizzes_btn, col):
         layout.addWidget(modulo_btn, row, col, 1, 1)
+        layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
 
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
         # Obtener el estado de progreso del usuario
@@ -456,6 +457,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 progreso = json.load(file)
             self.progreso_usuario = progreso.get(self.usuario_actual, {})
             self.actualizar_lecciones(self.progreso_usuario)
+            self.actualizar_quizzes()
         except Exception as e:
             print(f"Error al recargar el progreso del usuario: {e}")
 
@@ -520,6 +522,19 @@ class MainWindow(QtWidgets.QMainWindow):
                 "Leccion7": estado_usuario.get("Modulo5", {}).get("Leccion7", False)
             }
         }
+
+    def actualizar_quizzes(self):
+        for modulo, lecciones in self.estado_lecciones.items():
+            for i in range(1, len(lecciones) // 2 + 1):
+                if i < len(lecciones) // 2:
+                    leccion_actual = f"Leccion{i}"
+                    leccion_siguiente = f"Leccion{i+1}"
+                    if lecciones[leccion_actual] and not lecciones[leccion_siguiente]:
+                        lecciones[leccion_siguiente] = True
+                else:
+                    quiz_actual = f"Quiz{i - len(lecciones) // 2 + 1}"
+                    if lecciones[f"Leccion{i}"] and not lecciones[quiz_actual]:
+                        lecciones[quiz_actual] = True
 
     def abrir_leccion(self, nombre_modulo, numero_leccion):
         try:
@@ -727,4 +742,3 @@ if __name__ == "__main__":
     intro_pages.showMaximized()
     app.exec()
     open_main_window()
-

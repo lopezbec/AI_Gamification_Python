@@ -1,13 +1,13 @@
 [
     {
         "name": "Elmer",
-        "points": 3292,
-        "last_active": "2024-08-23 ; 20h:06m"
+        "points": 3297,
+        "last_active": "2024-11-06 ; 14h:11m"
     },
     {
         "name": "Daniel",
         "points": 285,
-        "last_active": "2024-08-22 ; 16h:17m"
+        "last_active": "2024-10-08 ; 13h:22m"
     },
     {
         "name": "Jose",
@@ -27,7 +27,7 @@
     {
         "name": "Pepe",
         "points": 124,
-        "last_active": ""
+        "last_active": "2024-10-06 ; 14h:00m"
     },
     {
         "name": "Lucas",
@@ -103,5 +103,10 @@
         "name": "eLMER",
         "points": 0,
         "last_active": "2024-08-23 ; 10h:55m"
+    },
+    {
+        "name": "Emer",
+        "points": 0,
+        "last_active": "2024-10-08 ; 13h:13m"
     }
 ]

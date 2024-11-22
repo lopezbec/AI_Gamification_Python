@@ -1,0 +1,49 @@
+event,time
+Parte 1,21:15:20
+Correct Answer Selected: Entero,21:15:35
+Correct Answer Selected: Flotante,21:15:35
+Correct Answer Selected: Cadena,21:15:35
+Parte 2,21:15:36
+Correct Drop Event: print('Nosotros somos los campeones amigos'),21:15:55
+Correct Drop Event: print('Y seguiremos luchando hasta el final'),21:15:55
+Correct Drop Event: print('Somos los campeones'),21:15:55
+Parte 3,21:15:55
+Blank Space Selected,21:15:56
+Incorrect Answer Selected: ____(,21:15:56
+Blank Space Selected,21:15:56
+Incorrect Answer Selected: ____(,21:15:56
+Blank Space Selected,21:15:56
+Incorrect Answer Selected: ____(,21:15:56
+Blank Space Selected,21:15:56
+Incorrect Answer Selected: ____(,21:15:56
+Blank Space Selected,21:15:57
+Incorrect Answer Selected: ____(,21:15:57
+Blank Space Selected,21:15:57
+Incorrect Answer Selected: ____(,21:15:57
+Blank Space Selected,21:15:57
+Incorrect Answer Selected: ____(,21:15:57
+Blank Space Selected,21:15:57
+Incorrect Answer Selected: ____(,21:15:57
+Correct Answer Selected: print,21:16:01
+Parte 4,21:16:01
+Incorrect Answer Selected: '<Espacio para respuesta>',21:16:04
+Incorrect Answer Selected: '<Espacio para respuesta>',21:16:04
+Incorrect Answer Selected: '<Espacio para respuesta>',21:16:04
+Correct Answer Selected: sep,21:16:10
+Correct Answer Selected: '-',21:16:10
+Parte 5,21:16:10
+"Incorrect Answer Selected: <Espacio para respuesta> Outputs a message 
+print('Have a good day!')",21:16:11
+"Incorrect Answer Selected: <Espacio para respuesta> Outputs a message 
+print('Have a good day!')",21:16:12
+"Incorrect Answer Selected: <Espacio para respuesta> Outputs a message 
+print('Have a good day!')",21:16:12
+"Incorrect Answer Selected: <Espacio para respuesta> Outputs a message 
+print('Have a good day!')",21:16:12
+"Incorrect Answer Selected: <Espacio para respuesta> Outputs a message 
+print('Have a good day!')",21:16:12
+"Correct Answer Selected: # Outputs a message 
+print('Have a good day!')",21:16:16
+Parte 6,21:16:16
+Parte 7,21:16:17
+

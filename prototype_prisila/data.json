@@ -1,0 +1,73 @@
+{
+    "pedagogical": [
+        {
+            "title": "Toma de decisiones",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "\n\nLa instruccion 'if' se utiliza para ejecutar algun codigo si una condicion es verdadera.\n\n\nSyntax:"
+                },
+                {
+                    "type": "syntax",
+                    "text": "\nif (condicion) {\n//Declaraciones\n}\n"
+                },
+                {
+                    "type": "hint1",
+                    "text": "\nLa condicion especifica que expresion se va a evaluar. Si la condicion es verdadera, se ejecutan las instrucciones entre llaves."
+                },
+                {
+                    "type": "hint",
+                    "text": "\nSi la condicion es falsa, las instrucciones simplemente se omiten y el programa continua ejecutandose despues del cuerpo de\nlas instrucciones if.",
+                    "background-color": "yellow"
+                }
+            ]
+        }
+    ],
+
+    "question": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "\nCual opcion muestra la sintaxis correcta para la declaracion 'if' en C++?\n"
+                },
+                {
+                    "type": "syntax",
+                    "text": "IF prueba\nif prueba\nif (prueba) {}"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "IF prueba",
+                    "correct": false
+                },
+                {
+                    "text": "if prueba",
+                    "correct": false
+                },
+                {
+                    "text": "if (prueba) {}",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+    "main_background_color": "#EDF1F5",
+    "title_border_color": "#B5E2FF",
+    "title_text_color": "#000000",
+    "font_size_titles": 20,
+    "font_size_normal": 17,
+    "font_size_answers": 22,
+    "text_color": "#000000",
+    "continue_button_color": "#00BFFF",
+    "font_size_buttons":18,
+    "cmd_border_color": "#FFFFFF",
+    "hint_background_color": "#FFFF00",
+    "hint_border_color": "#FFA500",
+    "submit_button_color": "#00BFFF",
+    "syntax_background_color": "#EDF1F5",
+    "syntax_border_color": "#EDF1F5",
+    "title_background_color": "#3572A5",
+    "feedback_bar_color": "#11b811"
+}
