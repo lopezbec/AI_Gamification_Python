@@ -381,6 +381,8 @@ class QuizLoader:
                 self.hint_label.setStyleSheet(
                     f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(self.hint_label)
+                self.blank_space_index = block["text"].find("_")
+                self.indices = [i for i, c in enumerate(block["text"]) if c == "_"]
                 self.original_hint_text = block['text']
 
         answers_layout = QHBoxLayout()
@@ -477,9 +479,16 @@ class QuizLoader:
 
     def check_complete_blank_space_answers(self):
         user_text = self.hint_label.text()
-        correct_text = self.section["correctValue"]
+        user_answer = []
 
-        if user_text == correct_text:
+        # Recorrer los índices y extraer el texto entre los guiones bajos
+        for i in range(len(self.indices) - 1):
+            user_answer.append(user_text[self.indices[i]:self.indices[i + 1]])
+        
+        answers = self.section["answers"]
+        correct_text = [answer["text"] for answer in answers if answer["correct"]][0]
+
+        if ''.join(user_answer) == correct_text:
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
