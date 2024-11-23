@@ -426,8 +426,28 @@ class QuizLoader:
 
     def handle_answer_click(self, answer_text):
         current_text = self.hint_label.text()
-        new_text = current_text.replace("___", answer_text, 1)
-        self.hint_label.setText(new_text)
+    
+        # Encuentra el primer espacio en blanco (___) en el texto actual
+        blank_start = current_text.find("___")
+        
+        if blank_start != -1:
+            # Longitud de la respuesta ingresada
+            answer_length = len(answer_text)
+            
+            # Reemplaza solo el espacio requerido con la respuesta y elimina guiones sobrantes
+            before_blank = current_text[:blank_start]  # Texto antes del espacio
+            after_blank = current_text[blank_start + len(self.indices):]  # Texto después del espacio
+            
+            # Reemplaza el espacio en blanco con la respuesta y ajusta los guiones
+            if answer_length < len(self.indices):  # Si la respuesta es más corta que el espacio
+                # Ajustar guiones sobrantes
+                new_text = f"{before_blank}{answer_text}"
+            else:
+                # La respuesta encaja exactamente o supera el espacio
+                new_text = f"{before_blank}{answer_text[:len(self.indices)]}{after_blank}"
+            
+            # Actualiza el texto en el label
+            self.hint_label.setText(new_text)
 
     def check_answers(self):
         if self.page_type == 'draganddrop':
