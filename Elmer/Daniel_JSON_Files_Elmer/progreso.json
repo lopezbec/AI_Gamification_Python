@@ -149,14 +149,14 @@
             "Leccion4": true,
             "Leccion5": true,
             "Quiz1": true,
-            "Quiz2": false
+            "Quiz2": true
         },
         "Modulo2": {
             "Leccion1": true,
             "Leccion2": true,
             "Leccion3": true,
-            "Quiz1": false,
-            "Quiz2": false
+            "Quiz1": true,
+            "Quiz2": true
         },
         "Modulo3": {
             "Leccion1": true,
@@ -164,8 +164,8 @@
             "Leccion3": true,
             "Leccion4": true,
             "Leccion5": true,
-            "Quiz1": false,
-            "Quiz2": false
+            "Quiz1": true,
+            "Quiz2": true
         },
         "Modulo4": {
             "Leccion1": true,
