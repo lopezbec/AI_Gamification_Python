@@ -31,34 +31,27 @@
     "draganddrop": [
         {
             "title": "QUIZ - MODULO 2 - SEGUNDA PARTE CONTINUACION",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
                     "text": "Arrastra y suelta en los espacios en blanco para declarar una variable, sumarle 5 e imprimir su valor.:"
                 },
                 {
-                    "type": "pregunta1",
-                    "text": "x = 4\nx___= 5",
-                    "correctValue": "+"
-                },
-                {
-                    "type": "pregunta2",
-                    "text": "print___",
-                    "correctValue": "(x)"
+                    "type": "Consola",
+                    "text": "x = 4\nx ___= 5\nprint(___)"
                 }
             ],
             "answers": [
                 {
-                    "text": "(x)",
-                    "correctType": "pregunta2",
-                    "correct": true
+                    "text": "x"
                 },
                 {
-                    "text": "+",
-                    "correctType": "pregunta1",
-                    "correct": true
+                    "text": "+"
                 }
-            ]
+            ],
+            "correctOrder": ["+", "x"]
         }
     ]
 }
