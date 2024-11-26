@@ -12,26 +12,19 @@
                     
                 },
                 {
-                    "type": "pregunta1",
-                    "correctValue": "int",
-                    "text": "grade = ___(input())"
-                },
-                {
-                    "type": "pregunta2",
-                    "correctValue": "70",
-                    "text": "if grade > ___:\nprint('Pass')"
+                    "type": "Consola",
+                    "text": "grade = ___(input())\nif grade > ___:\nprint('Pass')"
                 }
             ],
             "answers": [
                 {
-                    "text": "70",
-                    "correctType": "pregunta2"
+                    "text": "70"
                 },
                 {
-                    "text": "int",
-                    "correctType": "pregunta1"
+                    "text": "int"
                 }
-            ]
+            ],
+            "correctOrder": ["int", "70"]
         }
     ],
 
