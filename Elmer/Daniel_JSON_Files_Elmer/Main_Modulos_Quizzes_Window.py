@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayo
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
-from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
+from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 
 
@@ -68,11 +68,13 @@ class QuizLoader:
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
         self.current_user = self.load_current_user()
+        self.current_score = 0
         self.current_quiz_index = current_quiz_index #Numero actual del quiz
         self.current_module_index = current_module_index #Numero actual del modulo
         self.main_window = main_window #Instancia actual del Main Modulo Quizzes Window
         self.section = None #declaracion de section como atributo de la clase
         self.page_type = None # declaracion de page type  como atributo de la clase
+        self.controlador = False
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
@@ -144,6 +146,17 @@ class QuizLoader:
             title.setFont(title_font)
             self.layout.addWidget(title)
 
+            self.leaderboard_instace = get_instance()
+            self.total_score = self.leaderboard_instace.get_current_user_score()
+            # Crear el widget de puntaje total
+            self.puntaje_total = QLabel(f"Puntaje total: {self.total_score + self.current_score}")
+            self.puntaje_total.setStyleSheet("background-color: grey; color: white; border: 2px solid black")
+            # Ajustar la fuente del widget de puntaje total
+            puntaje_total_font = QFont()
+            puntaje_total_font.setPointSize(self.styles["font_size_normal"])
+            self.puntaje_total.setFont(puntaje_total_font)
+            self.layout.addWidget(self.puntaje_total)
+
             if self.page_type == 'multiplechoice':
                 self.create_multiple_choice_layout(section_data)
             elif self.page_type == 'completeblankspace':
@@ -203,6 +216,16 @@ class QuizLoader:
                 return
         self.clear_layout()
         self.load_quiz_section()
+    
+    def update_points_display(self):
+        self.puntaje_total.setText(f"Puntaje total: {self.total_score + self.current_score}")
+
+    def assign_points(self):
+        if not self.controlador:
+            self.current_score += 2
+        else:
+            self.current_score += 1
+        self.update_points_display()
 
     def complete_quiz(self):
         self.mark_quiz_complete()
@@ -212,7 +235,8 @@ class QuizLoader:
             f'Modulo{int(self.current_module_index) + 1}',
             self.current_user
         )
-        self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
+        self.current_score += 5
+        self.actualizar_puntos_en_leaderboard(self.current_score)  # Añade la cantidad de puntos que consideres.
         self.main_window.close()   #Se usa close_quiz en vez de otro metodo para que el menu principal se muestre al cierre del quiz
 
     def mark_quiz_complete(self):
@@ -474,7 +498,9 @@ class QuizLoader:
                 self.complete_button.setVisible(True)
             else:
                 self.continue_button.setVisible(True)
+            self.assign_points()
         else:
+            self.controlador = True
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -492,7 +518,9 @@ class QuizLoader:
                 self.complete_button.setVisible(True)
             else:
                 self.continue_button.setVisible(True)
+            self.assign_points()
         else:
+            self.controlador = True
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -517,7 +545,9 @@ class QuizLoader:
                 self.complete_button.setVisible(True)
             else:
                 self.continue_button.setVisible(True)
+            self.assign_points()
         else:
+            self.controlador = True
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
