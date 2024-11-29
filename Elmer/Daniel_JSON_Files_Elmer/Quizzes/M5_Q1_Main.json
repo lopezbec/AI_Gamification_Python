@@ -1,0 +1,61 @@
+{
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellena los espacios en blanco para definir una función que tome dos números como argumentos y devuelva el más pequeño."
+                },
+                {
+                    "type": "Consola",
+                    "text": "____ min(x, y):\n    if x <= y:\n      return x\n   else:\n        return y"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "if",
+                    "correct": false
+                },
+                {
+                    "text": "print",
+                    "correct": false
+                },
+                {
+                    "text": "def",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+    
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Selecciona el código final para retornar la suma de todos los números desde el 0 hasta su argumento."
+                },
+                {
+                    "type": "Consola",
+                    "text": "def sum(x):\n    res = 0\n    for i in range(x):\n        res += i"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "return res",
+                    "correct": true
+                },
+                {
+                    "text": "res = 0",
+                    "correct": false
+                },
+                {
+                    "text": "def",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

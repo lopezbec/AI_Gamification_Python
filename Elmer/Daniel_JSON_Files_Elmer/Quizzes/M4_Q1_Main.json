@@ -1,0 +1,60 @@
+{
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "list = [1, 1, 2, 3, 5, 8, 13]\nprint(list[list[4]])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "8",
+                    "correct": true
+                },
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "13",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "for i in range(10):\n\n  if not i % 2 == 0:\n\n    print(i+1)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Imprime todos los numeros pares entre 2 y 10",
+                    "correct": true
+                },
+                {
+                    "text": "Imprime todos los numeros impares entre el 1 y el 9",
+                    "correct": false
+                },
+                {
+                    "text": "Imprime todos los numeros pares entre 0 y 8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

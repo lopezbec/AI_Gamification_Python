@@ -30,6 +30,8 @@
     ],
     "draganddrop": [
         {
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "title": "QUIZ - MODULO 2 - TERCERA PARTE CONTINUACION",
             "blocks": [
                 {
@@ -37,28 +39,21 @@
                     "text": "Arrastra y suelta en los espacios en blanco para para tomar un nombre como entrada y generar un mensaje de bienvenida, que contenga la entrada."
                 },
                 {
-                    "type": "pregunta1",
-                    "text": "name =___",
-                    "correctValue": "input()"
-                },
-                {
-                    "type": "pregunta2",
-                    "text": "print('Welcome'+ ___)",
-                    "correctValue": "name"
+                    "type": "Consola",
+                    "text": "name =___\nprint('Welcome'+ ___)"
                 }
             ],
             "answers": [
                 {
                     "text": "name",
-                    "correctType": "pregunta2",
                     "correct": true
                 },
                 {
                     "text": "input()",
-                    "correctType": "pregunta1",
                     "correct": true
                 }
-            ]
+            ],
+            "correctOrder": ["input()", "name"]
         }
     ]
 }
