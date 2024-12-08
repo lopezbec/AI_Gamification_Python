@@ -1,0 +1,61 @@
+{
+    "completeblankspace": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el número más alto que genera este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def print_nums(x):\n  for i in range(x):\n    print(i)\n    return\nprint_nums(10)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "10",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "0",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+    
+    "completeblankspace2": [
+        {
+            "title": "Selecciona la respuesta correcta",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es el número más alto que genera este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "def func(x):\n  res = 0\n  for i in range(x):\n         res += i\n  return res\n\nprint(func(3))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "1",
+                    "correct": false
+                },
+                {
+                    "text": "2",
+                    "correct": false
+                },
+                {
+                    "text": "3",
+                    "correct": true
+                }
+            ]
+        }
+    ]
+}

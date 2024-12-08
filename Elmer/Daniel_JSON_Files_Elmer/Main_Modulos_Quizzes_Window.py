@@ -146,7 +146,7 @@ class QuizLoader:
 
             if self.page_type == 'multiplechoice':
                 self.create_multiple_choice_layout(section_data)
-            elif self.page_type == 'completeblankspace':
+            elif self.page_type == 'completeblankspace' or self.page_type == 'completeblankspace2':
                 self.create_complete_blank_space_layout(section_data)
             elif self.page_type == 'draganddrop':
                 self.create_drag_and_drop_layout(section_data)
@@ -454,7 +454,7 @@ class QuizLoader:
             self.check_drag_and_drop_answers()
         elif self.page_type == 'multiplechoice':
             self.check_multiple_choice_answers()
-        elif self.page_type == 'completeblankspace':
+        elif self.page_type == 'completeblankspace' or self.page_type == 'completeblankspace2':
             self.check_complete_blank_space_answers()
 
     def check_drag_and_drop_answers(self):

@@ -161,9 +161,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Configurar menús de módulos con estilo moderno
         self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Modulo 1", 5, 2, True)
-        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 3, 2, self.is_modulo_completado("Modulo 1"))
-        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 2, self.is_modulo_completado("Modulo 2"))
-        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 2, self.is_modulo_completado("Modulo 3"))
+        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 3, 3, self.is_modulo_completado("Modulo 1"))
+        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 3, self.is_modulo_completado("Modulo 2"))
+        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 3, self.is_modulo_completado("Modulo 3"))
         self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Modulo 5", 7, 2, self.is_modulo_completado("Modulo 4"))
 
         # Añadir los botones de los módulos y quizzes al layout de la cuadrícula
@@ -261,10 +261,10 @@ class MainWindow(QtWidgets.QMainWindow):
             #mapeo de los JSON de los quizzes
             quiz_mapping = {
                 "Modulo 1": ["M1_Q1_Main.json", "M1_Q2_Main.json"],
-                "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json"],
-                "Modulo 3": ["M3_Q1_Main.json", "M3_Q2_Main.json"],
-                "Modulo 4": ["M4_Q1_Main.json", "M4_Q2_Main.json"],
-                "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json"]
+                "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json", "M2_Q3_Main.json"],
+                "Modulo 3": ["M3_Q1_Main.json", "M3_Q2_Main.json", "M3_Q3_Main.json"],
+                "Modulo 4": ["M4_Q1_Main.json", "M4_Q2_Main.json", "M4_Q3_Main.json"],
+                "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json", "M5_Q3_Main.json"]
             }
 
             #Comprobar si nombre_modulo es una clave en quiz mapping y, por igua, si numero_quiz
