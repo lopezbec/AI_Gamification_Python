@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "____ min(x, y):\n    if x <= y:\n      return x\n   else:\n        return y"
+                    "text": "______ min(x, y):\n    if x <= y:\n      return x\n   else:\n        return y"
                 }
             ],
             "answers": [

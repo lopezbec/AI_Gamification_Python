@@ -1,7 +1,7 @@
 {
     "completeblankspace": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 4 - SEGUNDA PARTE",
             "blocks": [
                 {
                     "type": "info",
@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = [1, 2, 3]\n____ var in list:\nprint(var)"
+                    "text": " list = [1, 2, 3]\n ______ var in list:\n print(var)"
                 }
             ],
             "answers": [
