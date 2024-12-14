@@ -8,6 +8,7 @@ from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from Elmer.Daniel_JSON_Files_Elmer.congratulation_Feature import CongratulationWindow
 
 
 class JsonLoader:
@@ -469,6 +470,7 @@ class QuizLoader:
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.correct_response()
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
@@ -478,6 +480,7 @@ class QuizLoader:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.incorrect_response()
 
     def check_multiple_choice_answers(self):
         selected_answers = [btn.text() for btn in self.button_widgets if btn.isChecked()]
@@ -487,6 +490,7 @@ class QuizLoader:
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.correct_response()
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
@@ -496,6 +500,7 @@ class QuizLoader:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.incorrect_response()
 
     def check_complete_blank_space_answers(self):
         user_text = self.hint_label.text()
@@ -512,6 +517,7 @@ class QuizLoader:
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.correct_response()
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
@@ -521,6 +527,7 @@ class QuizLoader:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.incorrect_response()
 
     def reset_layout(self):
         self.load_quiz_section()
