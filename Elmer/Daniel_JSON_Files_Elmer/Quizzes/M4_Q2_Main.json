@@ -1,0 +1,60 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 4 - SEGUNDA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué resultado se generará al ejecutar este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "nums = [1, 2, 3]\nnums[2] = 5\nprint(nums)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "[1, 2, 5]",
+                    "correct": true
+                },
+                {
+                    "text": "[1, 2, 3]",
+                    "correct": false
+                },
+                {
+                    "text": "[1, 5, 3]",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "completeblankspace": [
+        {
+            "title": "QUIZ - MODULO 4 - SEGUNDA PARTE CONTINUACIÓN",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Rellena los espacios en blanco para verificar si un elemento está en una lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "nombres = ['Ana', 'Luis', 'Carlos']\nprint('Luis' ___ nombres)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "in",
+                    "correct": true
+                },
+                {
+                    "text": "not",
+                    "correct": false
+                },
+                {
+                    "text": "on",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 5 - SEGUNDA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál será la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\nx = [3, 5, 7]\nx.append(9)\nx.insert(2, 6)\nprint(len(x))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "4",
+                    "correct": false
+                },
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": true
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 5 - SEGUNDA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para agregar un elemento al final de la lista 'nombres'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\nnombres = ['Ana', 'Luis']\nnombres.___('Carlos')\nprint(___(nombres))"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "append"
+                },
+                {
+                    "text": "len"
+                },
+                {
+                    "text": "insert"
+                }
+            ],
+            "correctOrder": ["append", "len"]
+        }
+    ]
+}

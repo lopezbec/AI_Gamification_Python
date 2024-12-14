@@ -1,0 +1,60 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 4 - PRIMERA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál será la salida de este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "palabras = ['Python', 'es', 'genial']\nprint(palabras[1])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Python",
+                    "correct": false
+                },
+                {
+                    "text": "es",
+                    "correct": true
+                },
+                {
+                    "text": "genial",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 4 - PRIMERA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para reasignar un valor a un elemento de la lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "números = [10, 20, 30]\n___[1] = 25\nprint(números)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "números"
+                },
+                {
+                    "text": "nums"
+                },
+                {
+                    "text": "listas"
+                }
+            ],
+            "correctOrder": ["números"]
+        }
+    ]
+}

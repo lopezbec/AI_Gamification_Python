@@ -1,0 +1,68 @@
+{
+    "completeblankspace": [
+        {
+            "title": "QUIZ - MODULO 5 - LECCIÓN 7 - PRIMERA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para comentar el texto 'Esto es un comentario'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\nx = 5\n___ Esto es un comentario\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "#",
+                    "correct": true
+                },
+                {
+                    "text": "!",
+                    "correct": false
+                },
+                {
+                    "text": ":",
+                    "correct": false
+                },
+                {
+                    "text": "//",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 5 - LECCIÓN 7 - PRIMERA PARTE CONTINUACIÓN",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué generará este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\nx = 5\n#x += 1\nx += 2\nprint(x)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "7",
+                    "correct": true
+                },
+                {
+                    "text": "5",
+                    "correct": false
+                },
+                {
+                    "text": "6",
+                    "correct": false
+                },
+                {
+                    "text": "8",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

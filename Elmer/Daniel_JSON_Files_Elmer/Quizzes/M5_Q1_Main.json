@@ -1,0 +1,53 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 5 - PRIMERA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál es la principal ventaja de usar funciones en Python?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Permiten reutilizar el código y hacerlo más organizado.",
+                    "correct": true
+                },
+                {
+                    "text": "Hacen que el programa sea más largo y complicado.",
+                    "correct": false
+                },
+                {
+                    "text": "Sirven únicamente para imprimir valores en pantalla.",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 5 - PRIMERA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para llamar a la función print con el argumento 'Hola, mundo'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\n____(____)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "print"
+                },
+                {
+                    "text": "'Hola, mundo'"
+                }
+            ],
+            "correctOrder": ["print", "'Hola, mundo'"]
+        }
+    ]
+}

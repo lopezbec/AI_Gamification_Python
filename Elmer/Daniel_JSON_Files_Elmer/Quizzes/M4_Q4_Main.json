@@ -1,0 +1,92 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 4 - CUARTA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Cuál será la salida de este código si la entrada del usuario es 'Python'?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\ncadena = input()\nprint(cadena[-1])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "P",
+                    "correct": false
+                },
+                {
+                    "text": "n",
+                    "correct": true
+                },
+                {
+                    "text": "o",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "completeblankspace": [
+        {
+            "title": "QUIZ - MODULO 4 - CUARTA PARTE CONTINUACIÓN",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete el código para devolver todos los elementos de una lista excepto el primero y el último."
+                },
+                {
+                    "type": "Consola",
+                    "text": "nombres = ['Ana', 'Luis', 'Carlos', 'Sofía']\nresultado = nombres[___:___]\nprint(resultado)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "1, -1",
+                    "correct": true
+                },
+                {
+                    "text": "0, -1",
+                    "correct": false
+                },
+                {
+                    "text": "1, -2",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 4 - CUARTA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Arrastre y suelte para completar correctamente este bucle for para imprimir el último carácter de cada palabra en una lista."
+                },
+                {
+                    "type": "Consola",
+                    "text": "palabras = ['hola', 'mundo', 'Python']\n___ palabra ___ palabras:\n    print(palabra[___])"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "for"
+                },
+                {
+                    "text": "in"
+                },
+                {
+                    "text": "-1"
+                },
+                {
+                    "text": "0"
+                }
+            ],
+            "correctOrder": ["for", "in", "-1"]
+        }
+    ]
+}

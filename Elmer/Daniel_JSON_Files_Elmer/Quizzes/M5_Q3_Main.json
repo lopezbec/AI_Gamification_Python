@@ -1,0 +1,56 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 5 - PRIMERA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué hace la función len() en Python?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Devuelve el número de elementos en una lista o cadena.",
+                    "correct": true
+                },
+                {
+                    "text": "Devuelve el elemento más grande de una lista.",
+                    "correct": false
+                },
+                {
+                    "text": "Elimina un elemento de una lista.",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 5 - PRIMERA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para imprimir la longitud de la lista llamada 'numeros'."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\nnumeros = [10, 20, 30, 40]\n___(numeros)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "len"
+                },
+                {
+                    "text": "max"
+                },
+                {
+                    "text": "min"
+                }
+            ],
+            "correctOrder": ["len"]
+        }
+    ]
+}

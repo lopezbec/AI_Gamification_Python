@@ -1,0 +1,56 @@
+{
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 5 - SEGUNDA PARTE",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué hace la función range(2, 10)?"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "Crea una lista de números del 2 al 10, excluyendo el 10.",
+                    "correct": true
+                },
+                {
+                    "text": "Crea una lista de números del 2 al 10, incluyendo el 10.",
+                    "correct": false
+                },
+                {
+                    "text": "Crea una lista de números del 2 al 9, incluyendo solo números pares.",
+                    "correct": false
+                }
+            ]
+        }
+    ],
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 5 - SEGUNDA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para crear un rango de números del 5 al 20, excluyendo el 20."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\n____(___, ___)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "range"
+                },
+                {
+                    "text": "5"
+                },
+                {
+                    "text": "20"
+                }
+            ],
+            "correctOrder": ["range", "5", "20"]
+        }
+    ]
+}

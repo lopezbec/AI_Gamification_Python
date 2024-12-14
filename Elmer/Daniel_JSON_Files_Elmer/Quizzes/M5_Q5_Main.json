@@ -1,0 +1,63 @@
+{
+    "draganddrop": [
+        {
+            "title": "QUIZ - MODULO 5 - LECCIÓN 6 - PRIMERA PARTE",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "Complete los espacios en blanco para definir una función que devuelva el cubo de su argumento."
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\n___ cubo(x):\n\t___ x**3"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "def"
+                },
+                {
+                    "text": "return"
+                },
+                {
+                    "text": "print"
+                },
+                {
+                    "text": "if"
+                }
+            ],
+            "correctOrder": ["def", "return"]
+        }
+    ],
+    "multiplechoice": [
+        {
+            "title": "QUIZ - MODULO 5 - LECCIÓN 6 - PRIMERA PARTE CONTINUACIÓN",
+            "blocks": [
+                {
+                    "type": "info",
+                    "text": "¿Qué imprimirá este código?"
+                },
+                {
+                    "type": "Consola",
+                    "text": "Código de Python:\n\ndef foo(x, y):\n    if x > y:\n        return x\n    return y\n\nres = foo(10, 20)\nprint(res)"
+                }
+            ],
+            "answers": [
+                {
+                    "text": "20",
+                    "correct": true
+                },
+                {
+                    "text": "10",
+                    "correct": false
+                },
+                {
+                    "text": "30",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}
