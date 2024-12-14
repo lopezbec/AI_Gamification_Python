@@ -34,7 +34,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "while True:\n   x = input()\n   if x == '0':\n      ______"
+                    "text": "while True:\n   x = input()\n   if x == '0':\n      _________"
                 }
             ],
             "answers": [
