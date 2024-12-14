@@ -508,8 +508,6 @@ class QuizLoader:
         answers = self.section["answers"]
         correct_text = [answer["text"] for answer in answers if answer["correct"]][0]
 
-        print(f"correct answer: {correct_text}")
-        print(f"user answer: {''.join(user_answer)}")
         if ''.join(user_answer) == correct_text:
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
