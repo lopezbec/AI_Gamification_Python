@@ -1,8 +1,8 @@
 [
     {
         "name": "Elmer",
-        "points": 3357,
-        "last_active": "2024-12-14 ; 11h:21m"
+        "points": 3488,
+        "last_active": "2024-12-14 ; 12h:31m"
     },
     {
         "name": "Daniel",
@@ -108,5 +108,15 @@
         "name": "Emer",
         "points": 0,
         "last_active": "2024-10-08 ; 13h:13m"
+    },
+    {
+        "name": "UsuarioNuevo",
+        "points": 0,
+        "last_active": "2024-12-14 ; 12h:20m"
+    },
+    {
+        "name": "NuevoUsuariof",
+        "points": 0,
+        "last_active": "2024-12-14 ; 12h:27m"
     }
 ]
