@@ -45,7 +45,6 @@
                     "type": "JsonWindow",
                     "filename": "M2_Q1_Main.json",
                     "page_type": "completeblankspace"
-
                 }
             ]
         },
@@ -65,23 +64,6 @@
                 }
             ]
         },
-        {
-            "module": 2,
-            "quiz_number": 3,
-            "sections": [
-                {
-                    "type": "JsonWindow",
-                    "filename": "M2_Q3_Main.json",
-                    "page_type": "multiplechoice"
-                },
-                {
-                    "type": "JsonWindow",
-                    "filename": "M2_Q3_Main.json",
-                    "page_type": "draganddrop"
-                }
-            ]
-        },
-            
         {
             "module": 3,
             "quiz_number": 1,
@@ -115,14 +97,68 @@
             ]
         },
         {
-            "module": 3,
-            "quiz_number": 3,
+            "module": 4,
+            "quiz_number": 1,
             "sections": [
                 {
                     "type": "JsonWindow",
-                    "filename": "M3_Q3_Main.json",
+                    "filename": "M4_Q1_Main.json",
                     "page_type": "multiplechoice"
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M4_Q1_Main.json",
+                    "page_type": "draganddrop"
                 }
-            ]}
+            ]
+        },
+        {
+            "module": 4,
+            "quiz_number": 2,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M4_Q2_Main.json",
+                    "page_type": "multiplechoice"
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M4_Q2_Main.json",
+                    "page_type": "completeblankspace"
+                }
+            ]
+        },
+        {
+            "module": 5,
+            "quiz_number": 1,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M5_Q1_Main.json",
+                    "page_type": "multiplechoice"
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M5_Q1_Main.json",
+                    "page_type": "draganddrop"
+                }
+            ]
+        },
+        {
+            "module": 5,
+            "quiz_number": 2,
+            "sections": [
+                {
+                    "type": "JsonWindow",
+                    "filename": "M5_Q2_Main.json",
+                    "page_type": "multiplechoice"
+                },
+                {
+                    "type": "JsonWindow",
+                    "filename": "M5_Q2_Main.json",
+                    "page_type": "draganddrop"
+                }
+            ]
+        }
     ]
 }

@@ -398,45 +398,61 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def añadir_submenu_quiz(self, nombre_modulo, boton_quiz, numero_quizzes):
-        estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
-        estado_completado = self.load_lesson_completed(self.usuario_actual)
+        """
+        Añade dinámicamente los quizzes correspondientes al módulo.
+        Los quizzes se obtienen leyendo el archivo page_order.json.
+        """
+        # Ruta del archivo page_order.json
+        ruta_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'page_order_Quizzes', 'page_order.json')
 
-        for quiz_numero in range(1, numero_quizzes + 1):
+        # Cargar el archivo JSON
+        with open(ruta_json, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        # Buscar los quizzes correspondientes al módulo
+        modulo_numero = int(nombre_modulo.split()[-1])  # Extrae el número del módulo (e.g., "Modulo 4" -> 4)
+        quizzes_modulo = [quiz for quiz in data['quizzes'] if quiz['module'] == modulo_numero]
+
+        # Iterar sobre los quizzes encontrados
+        for quiz in quizzes_modulo:
+            quiz_numero = quiz['quiz_number']
             quiz_clave = f"Quiz{quiz_numero}"
             quiz_completado_clave = f"Quiz_completado{quiz_numero}"
-            
+
+            # Obtener estado del progreso del usuario
+            estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+            estado_completado = self.load_lesson_completed(self.usuario_actual)
             estado_quiz = estado_modulo.get(quiz_clave, False)
             quiz_completado = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(quiz_completado_clave, False)
 
-            if nombre_modulo in ["Modulo 4", "Modulo 5"]:
-                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
-                accion_quiz = QAction(f"Quiz {quiz_numero} (Muy pronto)", self)
-                accion_quiz.setIcon(QIcon(icono))
-                accion_quiz.setEnabled(False)
-                accion_quiz.triggered.connect(
-                    lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_no_disponible(m, n))
+            # Determinar ícono y habilitación según el progreso
+            if estado_quiz and quiz_completado:
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
+                desbloqueado = True
+            elif estado_quiz and not quiz_completado:
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
+                desbloqueado = True
             else:
-                if estado_quiz and quiz_completado:
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
-                    desbloqueado = True
-                elif estado_quiz and not quiz_completado:
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
-                    desbloqueado = True
-                else:
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
-                    desbloqueado = False
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
+                desbloqueado = False
 
-                accion_quiz = QAction(f"Quiz {quiz_numero}", self)
-                accion_quiz.setIcon(QIcon(icono))
-                accion_quiz.setEnabled(desbloqueado)
-                if desbloqueado:
-                    accion_quiz.triggered.connect(
-                        lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, ""))
-                else:
-                    accion_quiz.triggered.connect(
-                        lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(f"{m} - Quiz {n}", "Completa las lecciones necesarias."))
+            # Crear QAction para el quiz
+            accion_quiz = QAction(f"Quiz {quiz_numero}", self)
+            accion_quiz.setIcon(QIcon(icono))
+            accion_quiz.setEnabled(desbloqueado)
 
+            # Conectar la acción según el estado
+            if desbloqueado:
+                accion_quiz.triggered.connect(
+                    lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, ""))
+            else:
+                accion_quiz.triggered.connect(
+                    lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(f"{m} - Quiz {n}", "Completa las lecciones necesarias."))
+
+            # Añadir al menú
             boton_quiz.addAction(accion_quiz)
+
+
 
     def abrir_display_cabinet(self, username):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)

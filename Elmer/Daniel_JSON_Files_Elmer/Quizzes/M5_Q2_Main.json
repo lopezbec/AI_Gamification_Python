@@ -36,18 +36,21 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Código de Python:\n\n____(___, ___)"
+                    "text": "Código de Python:\n\n___(___, ___)"
                 }
             ],
             "answers": [
                 {
-                    "text": "range"
+                    "text": "20"
                 },
                 {
                     "text": "5"
                 },
                 {
-                    "text": "20"
+                    "text": "range"
+                },
+                {
+                    "text": ";"
                 }
             ],
             "correctOrder": ["range", "5", "20"]

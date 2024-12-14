@@ -10,12 +10,16 @@
             ],
             "answers": [
                 {
-                    "text": "Permiten reutilizar el código y hacerlo más organizado.",
-                    "correct": true
+                    "text": "Permiten usar el código nuevamente y hacerlo más largo.",
+                    "correct": false
                 },
                 {
-                    "text": "Hacen que el programa sea más largo y complicado.",
+                    "text": "Hacen que el programa sea más sencillo y rápido.",
                     "correct": false
+                },
+                {
+                    "text": "Permiten reutilizar el código y hacerlo más organizado.",
+                    "correct": true
                 },
                 {
                     "text": "Sirven únicamente para imprimir valores en pantalla.",
@@ -41,10 +45,16 @@
             ],
             "answers": [
                 {
-                    "text": "print"
+                    "text": "'Hola, mundo)'"
                 },
                 {
-                    "text": "'Hola, mundo'"
+                    "text": "print("
+                },
+                {
+                    "text": "'Hola, mundo"
+                },
+                {
+                    "text": "'print'"
                 }
             ],
             "correctOrder": ["print", "'Hola, mundo'"]

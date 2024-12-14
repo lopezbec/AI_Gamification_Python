@@ -39,16 +39,16 @@
             ],
             "answers": [
                 {
-                    "text": "8",
-                    "correct": false
+                    "text": "50",
+                    "correct": true
                 },
                 {
                     "text": "42",
                     "correct": false
                 },
                 {
-                    "text": "50",
-                    "correct": true
+                    "text": "8",
+                    "correct": false
                 }
             ]
         }

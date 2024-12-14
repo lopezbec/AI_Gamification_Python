@@ -1,63 +1,72 @@
 {
-
     "draganddrop": [
-        {
-            "title": "QUIZ - MODULO 3 - SEGUNDA PARTE",
-            "multipleResponses": true,
-            "multipleResponseVariant": true,
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Rellena los espacios en blanco para tomar un número de entrada y generar 'Pass',  si es mayor de 70."
-                    
-                },
-                {
-                    "type": "pregunta1",
-                    "correctValue": "int",
-                    "text": "grade = ___(input())"
-                },
-                {
-                    "type": "pregunta2",
-                    "correctValue": "70",
-                    "text": "if grade > ___:\nprint('Pass')"
-                }
-            ],
-            "answers": [
-                {
-                    "text": "70",
-                    "correctType": "pregunta2"
-                },
-                {
-                    "text": "int",
-                    "correctType": "pregunta1"
-                }
-            ]
-        }
-    ],
+    {
+        "title": "QUIZ - MODULO 3 - SEGUNDA PARTE",
+        "multipleResponses": true,
+        "draganddropSecuence": true,
+        "blocks": [
+            {
+                "type": "info",
+                "text": "Rellena los espacios en blanco para tomar un número de entrada y generar 'Pass' si es mayor de 70."
+            },
+            {
+                "type": "Consola",
+                "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ngrade = ___(input())\nif grade > ___:\n   print('Pass')"
+            }
+        ],
+        "answers": [
+            {
+                "text": "int"
+            },
+            {
+                "text": "int("
+            },
+            {
+                "text": "'70'"
+            },
+            {
+                "text": "70"
+            }
+        ],
+        "correctOrder": ["int", "70"]
+    }
+],
+"multiplechoice": [
+    {
+        "title": "QUIZ - MODULO 3 - SEGUNDA PARTE CONTINUACION",
+        "blocks": [
+            {
+                "type": "info",
+                "text": "¿Cuántas líneas imprimirá este código?"
+            },
+            {
+                "type": "Consola",
+                "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ni = 0\nx = 0\n\nwhile i < 4:\n    x+=i\n    i+=1\n\nprint(x)"
+            }
+        ],
+        "answers": [
+            {
+                "text": "12",
+                "correct": false
+            },
+            {
+                "text": "10",
+                "correct": false
+            },
+            {
+                "text": "6",
+                "correct": true
+            },
+            {
+                "text": "3",
+                "correct": false
+            },
+            {
+                "text": "0",
+                "correct": false
+            }
+        ]
+    }
+]
 
-    "multiplechoice": [
-        {
-            "title": "QUIZ - MODULO 3 - SEGUNDA PARTE CONTINUACION",
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "¿Cuántas líneas imprimirá este código?"
-                },
-                {
-                    "type": "Consola",
-                    "text": "i = 0\n\nx = 0\n\nwhile i < 4:\n\n    x+=i\n\n    i+=1\n\n\n\nprint(x)"
-                }
-            ],
-            "answers": [
-                {
-                    "text": "6",
-                    "correct": true
-                },
-                {
-                    "text": "12",
-                    "correct": false
-                }
-            ]
-        }
-    ]
 }
