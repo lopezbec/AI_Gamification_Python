@@ -449,6 +449,7 @@ class QuizLoader:
             self.feedback_label.setText('¡Correcto!')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.correct_response()
             self.submit_button.setVisible(False)
             if self.is_last_section():
                 self.complete_button.setVisible(True)
