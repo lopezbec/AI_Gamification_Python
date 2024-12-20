@@ -501,6 +501,7 @@ class QuizLoader:
                 self.feedback_label.setText("No se encontró el espacio en blanco en el texto. Verifica el formato.")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                CongratulationWindow.incorrect_response()
                 return
 
             # Extraer todo lo que el usuario ingresó después del espacio en blanco
@@ -523,6 +524,7 @@ class QuizLoader:
                 self.feedback_label.setText("¡Correcto!")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                CongratulationWindow.correct_response()
                 self.submit_button.setVisible(False)
                 if self.is_last_section():
                     self.complete_button.setVisible(True)
@@ -533,6 +535,7 @@ class QuizLoader:
                 self.feedback_label.setText("Respuesta incorrecta. Inténtalo de nuevo.")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                CongratulationWindow.incorrect_response()
         except Exception as e:
             print(f"Error al verificar respuestas de completeblankspace: {e}")
 
