@@ -459,6 +459,7 @@ class QuizLoader:
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            CongratulationWindow.incorrect_response()
 
     def check_multiple_choice_answers(self):
         selected_answers = [btn.text() for btn in self.button_widgets if btn.isChecked()]
