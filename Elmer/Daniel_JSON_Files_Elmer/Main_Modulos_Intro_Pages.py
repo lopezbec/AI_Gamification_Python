@@ -13,6 +13,7 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtCore import Qt
 
 
+
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -306,16 +307,35 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def cargar_usuario_actual(self):
-        # Cargar el usuario actual desde el archivo JSON
-        with open("current_user.json", "r") as file:
-            data = json.load(file)
-        return data["current_user"]
+        ruta_actual = os.path.dirname(os.path.abspath(__file__))
+        ruta_json = os.path.join(ruta_actual, "current_user.json")
+        with open(ruta_json, "r") as file:
+            return json.load(file)
 
     def cargar_lecciones_completadas(self):
-        # Cargar el progreso de lecciones completadas del usuario actual
-        with open("leccion_completada.json", "r") as file:
-            data = json.load(file)
-        return data.get(self.usuario_actual, {})
+        try:
+            # Obtener la ruta absoluta al archivo JSON
+            ruta_actual = os.path.dirname(os.path.abspath(__file__))
+            ruta_json = os.path.join(ruta_actual, "leccion_completada.json")
+
+            # Verificar si el archivo existe
+            if not os.path.exists(ruta_json):
+                print(f"Archivo no encontrado: {ruta_json}")
+                return {}
+
+            # Cargar el progreso de lecciones completadas
+            with open(ruta_json, "r") as file:
+                data = json.load(file)
+
+            # Retornar los datos específicos del usuario actual
+            return data.get(self.usuario_actual, {})
+        except json.JSONDecodeError as e:
+            print(f"Error al leer el archivo JSON: {e}")
+            return {}
+        except Exception as e:
+            print(f"Ocurrió un error: {e}")
+            return {}
+
 
     def is_modulo_completado(self, nombre_modulo):
         lecciones = self.lecciones_completadas_usuario.get(nombre_modulo, {})
@@ -417,12 +437,33 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def load_lesson_completed(self, username):
         try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r', encoding='UTF-8') as file:
+            # Si username es un diccionario, extraer el valor de 'current_user'
+            if isinstance(username, dict):
+                username = username.get('current_user', None)
+                if username is None:
+                    raise ValueError("El diccionario no contiene la clave 'current_user'.")
+
+            # Validar que username sea una cadena
+            if not isinstance(username, str):
+                raise ValueError(f"Se esperaba un string para 'username', pero se recibió: {type(username)}")
+
+            # Cargar el archivo JSON de progreso
+            ruta_archivo = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json')
+            with open(ruta_archivo, 'r', encoding='UTF-8') as file:
                 all_users_progress = json.load(file)
+
+            # Obtener el progreso del usuario o un diccionario vacío si no existe
             return all_users_progress.get(username, {})
         except FileNotFoundError:
             print("Archivo leccion_completada.json no encontrado.")
             return {}
+        except json.JSONDecodeError as e:
+            print(f"Error al leer el archivo JSON: {e}")
+            return {}
+        except Exception as e:
+            print(f"Ocurrió un error inesperado: {e}")
+            return {}
+
 
 
     def add_module_buttons_to_grid_layout(self, layout, row, modulo_btn, quizzes_btn, col):
