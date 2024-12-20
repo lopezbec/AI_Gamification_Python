@@ -8,6 +8,7 @@ from PyQt6.QtCore import Qt
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
+from Elmer.Daniel_JSON_Files_Elmer.congratulation_Feature import CongratulationWindow
 
 
 class JsonLoader:
