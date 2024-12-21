@@ -1,60 +1,60 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 4 - SEGUNDA PARTE",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellena los espacios en blanco para iterar sobre la lista utilizando un bucle for e imprime sus valores."
+                    "text": "¿Qué resultado se generará al ejecutar este código?"
                 },
                 {
                     "type": "Consola",
-                    "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\nlist = [1, 2, 3]\n____ var in list:\nprint(var)"
+                    "text": "nums = [1, 2, 3]\nnums[2] = 5\nprint(nums)"
                 }
             ],
             "answers": [
                 {
-                    "text": "if",
+                    "text": "[1, 2, 4]",
                     "correct": false
                 },
                 {
-                    "text": "print",
+                    "text": "[1, 2, 3]",
                     "correct": false
                 },
                 {
-                    "text": "for",
+                    "text": "[1, 2, 5]",
                     "correct": true
                 }
             ]
         }
     ],
-    "draganddrop": [
+    "completeblankspace": [
         {
-            "title": "Selecciona la respuesta correcta",
-            "multipleResponses": true,
-            "draganddropSecuence": true,
+            "title": "QUIZ - MODULO 4 - SEGUNDA PARTE CONTINUACIÓN",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellene los espacios en blanco para obtener los 3 primeros caracteres de la cadena de entrada."
+                    "text": "Rellena los espacios en blanco para verificar si un elemento está en una lista."
                 },
                 {
                     "type": "Consola",
-                    "text": "x = input()\nprint(x[___ ___ ___])" 
+                    "text": "nombres = ['Ana', 'Luis', 'Carlos']\nprint('Luis' ___ nombres)"
                 }
             ],
             "answers": [
                 {
-                    "text": "0"
+                    "text": "in",
+                    "correct": true
                 },
                 {
-                    "text": ":"
+                    "text": "not",
+                    "correct": false
                 },
                 {
-                    "text": "3"
+                    "text": "on",
+                    "correct": false
                 }
-            ],
-            "correctOrder": ["0", ":", "3"]
+            ]
         }
     ]
 }

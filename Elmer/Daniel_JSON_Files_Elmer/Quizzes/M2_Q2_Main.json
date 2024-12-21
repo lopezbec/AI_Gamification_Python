@@ -29,29 +29,36 @@
         }
     ],
     "draganddrop": [
-        {
-            "title": "QUIZ - MODULO 2 - SEGUNDA PARTE CONTINUACION",
-            "multipleResponses": true,
-            "draganddropSecuence": true,
-            "blocks": [
-                {
-                    "type": "info",
-                    "text": "Arrastra y suelta en los espacios en blanco para declarar una variable, sumarle 5 e imprimir su valor.:"
-                },
-                {
-                    "type": "Consola",
-                    "text": "x = 4\nx ___= 5\nprint(___)"
-                }
-            ],
-            "answers": [
-                {
-                    "text": "x"
-                },
-                {
-                    "text": "+"
-                }
-            ],
-            "correctOrder": ["+", "x"]
-        }
-    ]
+    {
+        "title": "QUIZ - MODULO 2 - SEGUNDA PARTE CONTINUACION",
+        "multipleResponses": true,
+        "draganddropSecuence": false,
+        "blocks": [
+            {
+                "type": "info",
+                "text": "Arrastra y suelta en los espacios en blanco para declarar una variable, sumarle 5 e imprimir su valor."
+            },
+            {
+                "type": "Consola",
+                "text": "x = 4\nx ___= 5\nprint ___"
+            }
+        ],
+        "answers": [
+            {
+                "text": "-"
+            },
+            {
+                "text": "+"
+            },
+            {
+                "text": "x"
+            },
+            {
+                "text": "(x)"
+            }
+        ],
+        "correctOrder": ["+", "(x)"]
+    }
+]
+
 }

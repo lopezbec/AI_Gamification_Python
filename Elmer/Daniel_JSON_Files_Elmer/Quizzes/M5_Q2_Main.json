@@ -1,61 +1,59 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 5 - SEGUNDA PARTE",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Cuál es el número más alto que genera este código?"
-                },
-                {
-                    "type": "Consola",
-                    "text": "def print_nums(x):\n  for i in range(x):\n    print(i)\n    return\nprint_nums(10)"
+                    "text": "¿Qué hace la función range(2, 10)?"
                 }
             ],
             "answers": [
                 {
-                    "text": "10",
-                    "correct": false
-                },
-                {
-                    "text": "2",
-                    "correct": false
-                },
-                {
-                    "text": "0",
+                    "text": "Crea una lista de números del 2 al 10, excluyendo el 10.",
                     "correct": true
+                },
+                {
+                    "text": "Crea una lista de números del 2 al 10, incluyendo el 10.",
+                    "correct": false
+                },
+                {
+                    "text": "Crea una lista de números del 2 al 9, incluyendo solo números pares.",
+                    "correct": false
                 }
             ]
         }
     ],
-    
-    "completeblankspace2": [
+    "draganddrop": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 5 - SEGUNDA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Cuál es el número más alto que genera este código?"
+                    "text": "Complete los espacios en blanco para crear un rango de números del 5 al 20, excluyendo el 20."
                 },
                 {
                     "type": "Consola",
-                    "text": "def func(x):\n  res = 0\n  for i in range(x):\n         res += i\n  return res\n\nprint(func(3))"
+                    "text": "Código de Python:\n\n___(___, ___)"
                 }
             ],
             "answers": [
                 {
-                    "text": "1",
-                    "correct": false
+                    "text": "20"
                 },
                 {
-                    "text": "2",
-                    "correct": false
+                    "text": "5"
                 },
                 {
-                    "text": "3",
-                    "correct": true
+                    "text": "range"
+                },
+                {
+                    "text": ";"
                 }
-            ]
+            ],
+            "correctOrder": ["range", "5", "20"]
         }
     ]
 }

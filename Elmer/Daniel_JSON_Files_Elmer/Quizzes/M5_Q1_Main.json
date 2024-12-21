@@ -1,61 +1,63 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 5 - PRIMERA PARTE",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Rellena los espacios en blanco para definir una función que tome dos números como argumentos y devuelva el más pequeño."
-                },
-                {
-                    "type": "Consola",
-                    "text": "____ min(x, y):\n    if x <= y:\n      return x\n   else:\n        return y"
+                    "text": "¿Cuál es la principal ventaja de usar funciones en Python?"
                 }
             ],
             "answers": [
                 {
-                    "text": "if",
+                    "text": "Permiten usar el código nuevamente y hacerlo más largo.",
                     "correct": false
                 },
                 {
-                    "text": "print",
+                    "text": "Hacen que el programa sea más sencillo y rápido.",
                     "correct": false
                 },
                 {
-                    "text": "def",
+                    "text": "Permiten reutilizar el código y hacerlo más organizado.",
                     "correct": true
+                },
+                {
+                    "text": "Sirven únicamente para imprimir valores en pantalla.",
+                    "correct": false
                 }
             ]
         }
     ],
-    
-    "multiplechoice": [
+    "draganddrop": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 5 - PRIMERA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "Selecciona el código final para retornar la suma de todos los números desde el 0 hasta su argumento."
+                    "text": "Arrastre y suelte para llamar a la función print con el argumento 'Hola, mundo'."
                 },
                 {
                     "type": "Consola",
-                    "text": "def sum(x):\n    res = 0\n    for i in range(x):\n        res += i"
+                    "text": "Código de Python:\n\n____(____)"
                 }
             ],
             "answers": [
                 {
-                    "text": "return res",
-                    "correct": true
+                    "text": "'Hola, mundo)'"
                 },
                 {
-                    "text": "res = 0",
-                    "correct": false
+                    "text": "print("
                 },
                 {
-                    "text": "def",
-                    "correct": false
+                    "text": "'Hola, mundo"
+                },
+                {
+                    "text": "'print'"
                 }
-            ]
+            ],
+            "correctOrder": ["print", "'Hola, mundo'"]
         }
     ]
 }

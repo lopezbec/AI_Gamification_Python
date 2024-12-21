@@ -1,60 +1,60 @@
 {
-    "completeblankspace": [
+    "multiplechoice": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 4 - PRIMERA PARTE",
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Qué generará este código?"
+                    "text": "¿Cuál será la salida de este código?"
                 },
                 {
                     "type": "Consola",
-                    "text": "list = [1, 1, 2, 3, 5, 8, 13]\nprint(list[list[4]])"
+                    "text": "palabras = ['Python', 'es', 'genial']\nprint(palabras[1])"
                 }
             ],
             "answers": [
                 {
-                    "text": "8",
-                    "correct": true
-                },
-                {
-                    "text": "5",
+                    "text": "Python",
                     "correct": false
                 },
                 {
-                    "text": "13",
+                    "text": "es",
+                    "correct": true
+                },
+                {
+                    "text": "genial",
                     "correct": false
                 }
             ]
         }
     ],
-    "multiplechoice": [
+    "draganddrop": [
         {
-            "title": "Selecciona la respuesta correcta",
+            "title": "QUIZ - MODULO 4 - PRIMERA PARTE CONTINUACIÓN",
+            "multipleResponses": true,
+            "draganddropSecuence": true,
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Qué generará este código?"
+                    "text": "Complete los espacios en blanco para reasignar un valor a un elemento de la lista."
                 },
                 {
                     "type": "Consola",
-                    "text": "for i in range(10):\n\n  if not i % 2 == 0:\n\n    print(i+1)"
+                    "text": "números = [10, 20, 30]\n___[1] = 25\nprint(números)"
                 }
             ],
             "answers": [
                 {
-                    "text": "Imprime todos los numeros pares entre 2 y 10",
-                    "correct": true
+                    "text": "números"
                 },
                 {
-                    "text": "Imprime todos los numeros impares entre el 1 y el 9",
-                    "correct": false
+                    "text": "nums"
                 },
                 {
-                    "text": "Imprime todos los numeros pares entre 0 y 8",
-                    "correct": false
+                    "text": "listas"
                 }
-            ]
+            ],
+            "correctOrder": ["números"]
         }
     ]
 }

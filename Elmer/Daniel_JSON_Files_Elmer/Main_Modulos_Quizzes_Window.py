@@ -426,28 +426,9 @@ class QuizLoader:
 
     def handle_answer_click(self, answer_text):
         current_text = self.hint_label.text()
-    
-        # Encuentra el primer espacio en blanco (___) en el texto actual
-        blank_start = current_text.find("___")
+        new_text = current_text.replace("___", answer_text, 1)
+        self.hint_label.setText(new_text)
         
-        if blank_start != -1:
-            # Longitud de la respuesta ingresada
-            answer_length = len(answer_text)
-            
-            # Reemplaza solo el espacio requerido con la respuesta y elimina guiones sobrantes
-            before_blank = current_text[:blank_start]  # Texto antes del espacio
-            after_blank = current_text[blank_start + len(self.indices):]  # Texto después del espacio
-            
-            # Reemplaza el espacio en blanco con la respuesta y ajusta los guiones
-            if answer_length < len(self.indices):  # Si la respuesta es más corta que el espacio
-                # Ajustar guiones sobrantes
-                new_text = f"{before_blank}{answer_text}"
-            else:
-                # La respuesta encaja exactamente o supera el espacio
-                new_text = f"{before_blank}{answer_text[:len(self.indices)]}{after_blank}"
-            
-            # Actualiza el texto en el label
-            self.hint_label.setText(new_text)
 
     def check_answers(self):
         if self.page_type == 'draganddrop':
@@ -498,29 +479,60 @@ class QuizLoader:
                 f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
 
     def check_complete_blank_space_answers(self):
-        user_text = self.hint_label.text()
-        user_answer = []
+        try:
+            # Obtener la respuesta correcta
+            correct_answer_text = None
+            for answer in self.section["answers"]:
+                if answer.get("correct", False):
+                    correct_answer_text = answer["text"]
+                    break
 
-        # Recorrer los índices y extraer el texto entre los guiones bajos
-        for i in range(len(self.indices) - 1):
-            user_answer.append(user_text[self.indices[i]:self.indices[i + 1]])
-        
-        answers = self.section["answers"]
-        correct_text = [answer["text"] for answer in answers if answer["correct"]][0]
+            # Extraer la respuesta del usuario desde el espacio en blanco
+            user_text = self.hint_label.text()
 
-        if ''.join(user_answer) == correct_text:
-            self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
-            self.submit_button.setVisible(False)
-            if self.is_last_section():
-                self.complete_button.setVisible(True)
+            # Buscar la posición del espacio en blanco en el texto original
+            selected_answer_start = self.original_hint_text.find("___")
+
+            # Si no hay espacio en blanco en el texto original, error
+            if selected_answer_start == -1:
+                self.feedback_label.setText("No se encontró el espacio en blanco en el texto. Verifica el formato.")
+                self.feedback_label.setStyleSheet(
+                    f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                return
+
+            # Extraer todo lo que el usuario ingresó después del espacio en blanco
+            selected_answer = user_text[selected_answer_start:].strip()
+
+            # Limpiar cualquier texto adicional que no sea parte de la respuesta del usuario
+            if " " in selected_answer:
+                selected_answer = selected_answer.split()[0]  # Tomar solo la primera "palabra"
+
+            # Validar si el usuario no ingresó respuesta
+            if selected_answer == "___":
+                self.feedback_label.setText("No has ingresado una respuesta. Por favor, inténtalo de nuevo.")
+                self.feedback_label.setStyleSheet(
+                    f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                return
+
+            # Verificar si la respuesta del usuario es correcta
+            print(selected_answer, correct_answer_text)  # Debug
+            if selected_answer == correct_answer_text:
+                self.feedback_label.setText("¡Correcto!")
+                self.feedback_label.setStyleSheet(
+                    f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                self.submit_button.setVisible(False)
+                if self.is_last_section():
+                    self.complete_button.setVisible(True)
+                else:
+                    self.continue_button.setVisible(True)
             else:
-                self.continue_button.setVisible(True)
-        else:
-            self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
-            self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                # Respuesta incorrecta
+                self.feedback_label.setText("Respuesta incorrecta. Inténtalo de nuevo.")
+                self.feedback_label.setStyleSheet(
+                    f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+        except Exception as e:
+            print(f"Error al verificar respuestas de completeblankspace: {e}")
+
 
     def reset_layout(self):
         self.load_quiz_section()

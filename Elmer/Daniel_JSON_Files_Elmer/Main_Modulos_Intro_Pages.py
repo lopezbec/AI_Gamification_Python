@@ -13,19 +13,104 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtCore import Qt
 
 
-
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Guía de Usuario")
-        self.setWindowIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))  # Establece el ícono de la ventana
+        self.setWindowIcon(QtGui.QIcon('Icons/guia_usuario_icon.jpeg'))
         self.setGeometry(100, 100, 800, 600)
+        self.setup_ui()
 
+    def setup_ui(self):
+        # Layout principal
         layout = QtWidgets.QVBoxLayout(self)
-        label = QtWidgets.QLabel(
-            "Sistema de puntos:\nCompletar una página = 1 punto\nResponder respuesta correctamente al primer intento = 2 puntos\nResponder respuesta correctamente al segundo o más intentos = 1 punto\nFinalizar una lección = 5 puntos")
-        label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        layout.addWidget(label)
+
+        # Título principal
+        title_label = QtWidgets.QLabel("Sistema de Puntos")
+        title_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        title_label.setStyleSheet(
+            "font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #007BFF; text-decoration: underline;"
+        )
+        layout.addWidget(title_label)
+
+        # Descripción del sistema de puntos
+        description_label = QtWidgets.QLabel(
+            """
+            <ul style="font-size: 16px; margin-left: 30px; line-height: 1.8;">
+                <li>📝 <b>Completar una página:</b> 1 punto</li>
+                <li>✅ <b>Responder correctamente al primer intento:</b> 2 puntos</li>
+                <li>🔄 <b>Responder correctamente al segundo o más intentos:</b> 1 punto</li>
+                <li>🏆 <b>Finalizar una lección:</b> 5 puntos</li>
+            </ul>
+            """
+        )
+        description_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        description_label.setStyleSheet("margin: 0px 20px;")
+        layout.addWidget(description_label)
+
+        # Título de la sección de preguntas iniciales
+        questions_title = QtWidgets.QLabel("¿Por qué realizamos preguntas iniciales?")
+        questions_title.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        questions_title.setStyleSheet(
+            "font-size: 20px; font-weight: bold; margin-top: 30px; color: #007BFF; text-decoration: underline;"
+        )
+        layout.addWidget(questions_title)
+
+        # Explicación del propósito de las preguntas iniciales
+        questions_explanation = QtWidgets.QLabel(
+            """
+            <p style="font-size: 16px; margin: 0px 20px; text-align: justify;">
+            Al unirte a nuestra plataforma, realizamos un breve cuestionario inicial con preguntas como:
+            </p>
+            <ul style="font-size: 16px; margin-left: 30px; line-height: 1.8;">
+                <li>Me hace feliz ser capaz de ayudar a los demás.</li>
+                <li>Disfruto con las actividades grupales.</li>
+                <li>Ser independiente es importante para mí.</li>
+                <li>No me gusta seguir las reglas.</li>
+            </ul>
+            <p style="font-size: 16px; margin: 0px 20px; text-align: justify;">
+            El propósito de estas preguntas es entender tus preferencias y motivaciones. Esto nos permite:
+            </p>
+            <ul style="font-size: 16px; margin-left: 30px; line-height: 1.8;">
+                <li>Personalizar tu experiencia dentro de la plataforma.</li>
+                <li>Identificar actividades o retos que se alineen con tus intereses.</li>
+                <li>Mejorar continuamente nuestro sistema educativo para que sea más efectivo y motivador.</li>
+            </ul>
+            <p style="font-size: 16px; margin: 0px 20px; text-align: justify;">
+            Apreciamos mucho tus respuestas, ya que nos ayudan a construir un ambiente más dinámico y adaptado a las necesidades de nuestros usuarios.
+            </p>
+            """
+        )
+        questions_explanation.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        questions_explanation.setStyleSheet("margin: 0px 20px;")
+        layout.addWidget(questions_explanation)
+
+        # Botones en la parte inferior
+        button_layout = QtWidgets.QHBoxLayout()
+
+        more_info_button = QtWidgets.QPushButton("Más Información")
+        more_info_button.setStyleSheet(
+            "background-color: #28a745; color: white; font-size: 16px; font-weight: bold; border-radius: 10px; padding: 10px;"
+        )
+        more_info_button.clicked.connect(self.show_more_info)
+        button_layout.addWidget(more_info_button)
+
+        close_button = QtWidgets.QPushButton("Cerrar")
+        close_button.setStyleSheet(
+            "background-color: #007BFF; color: white; font-size: 16px; font-weight: bold; border-radius: 10px; padding: 10px;"
+        )
+        close_button.clicked.connect(self.close)
+        button_layout.addWidget(close_button)
+
+        layout.addLayout(button_layout)
+
+    def show_more_info(self):
+        # Muestra más información sobre el propósito de las preguntas
+        QtWidgets.QMessageBox.information(
+            self,
+            "Más Información",
+            "Si deseas más detalles sobre cómo utilizamos tus respuestas, por favor ponerte en contacto con nosotros."
+        )
 
 
 class Config():
@@ -398,45 +483,61 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def añadir_submenu_quiz(self, nombre_modulo, boton_quiz, numero_quizzes):
-        estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
-        estado_completado = self.load_lesson_completed(self.usuario_actual)
+        """
+        Añade dinámicamente los quizzes correspondientes al módulo.
+        Los quizzes se obtienen leyendo el archivo page_order.json.
+        """
+        # Ruta del archivo page_order.json
+        ruta_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'page_order_Quizzes', 'page_order.json')
 
-        for quiz_numero in range(1, numero_quizzes + 1):
+        # Cargar el archivo JSON
+        with open(ruta_json, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        # Buscar los quizzes correspondientes al módulo
+        modulo_numero = int(nombre_modulo.split()[-1])  # Extrae el número del módulo (e.g., "Modulo 4" -> 4)
+        quizzes_modulo = [quiz for quiz in data['quizzes'] if quiz['module'] == modulo_numero]
+
+        # Iterar sobre los quizzes encontrados
+        for quiz in quizzes_modulo:
+            quiz_numero = quiz['quiz_number']
             quiz_clave = f"Quiz{quiz_numero}"
             quiz_completado_clave = f"Quiz_completado{quiz_numero}"
-            
+
+            # Obtener estado del progreso del usuario
+            estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+            estado_completado = self.load_lesson_completed(self.usuario_actual)
             estado_quiz = estado_modulo.get(quiz_clave, False)
             quiz_completado = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(quiz_completado_clave, False)
 
-            if nombre_modulo in ["Modulo 4", "Modulo 5"]:
-                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
-                accion_quiz = QAction(f"Quiz {quiz_numero} (Muy pronto)", self)
-                accion_quiz.setIcon(QIcon(icono))
-                accion_quiz.setEnabled(False)
-                accion_quiz.triggered.connect(
-                    lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_no_disponible(m, n))
+            # Determinar ícono y habilitación según el progreso
+            if estado_quiz and quiz_completado:
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
+                desbloqueado = True
+            elif estado_quiz and not quiz_completado:
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
+                desbloqueado = True
             else:
-                if estado_quiz and quiz_completado:
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
-                    desbloqueado = True
-                elif estado_quiz and not quiz_completado:
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
-                    desbloqueado = True
-                else:
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
-                    desbloqueado = False
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
+                desbloqueado = False
 
-                accion_quiz = QAction(f"Quiz {quiz_numero}", self)
-                accion_quiz.setIcon(QIcon(icono))
-                accion_quiz.setEnabled(desbloqueado)
-                if desbloqueado:
-                    accion_quiz.triggered.connect(
-                        lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, ""))
-                else:
-                    accion_quiz.triggered.connect(
-                        lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(f"{m} - Quiz {n}", "Completa las lecciones necesarias."))
+            # Crear QAction para el quiz
+            accion_quiz = QAction(f"Quiz {quiz_numero}", self)
+            accion_quiz.setIcon(QIcon(icono))
+            accion_quiz.setEnabled(desbloqueado)
 
+            # Conectar la acción según el estado
+            if desbloqueado:
+                accion_quiz.triggered.connect(
+                    lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, ""))
+            else:
+                accion_quiz.triggered.connect(
+                    lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(f"{m} - Quiz {n}", "Completa las lecciones necesarias."))
+
+            # Añadir al menú
             boton_quiz.addAction(accion_quiz)
+
+
 
     def abrir_display_cabinet(self, username):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
