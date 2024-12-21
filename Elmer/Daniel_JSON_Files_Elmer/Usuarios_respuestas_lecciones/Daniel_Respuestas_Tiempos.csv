@@ -245,3 +245,106 @@ Correct Drop Event: print(x),10:56:29
 Correct Drop Event: x -= 1,10:56:29
 Draganddrop Page Close Time,10:56:30
 
+"Modulo 1, Leccion 4",
+Parte 1,13:06:33
+Pedagogical Page Open Time,13:06:33
+Pedagogical Page Close Time,13:06:37
+Draganddrop Page Open Time,13:06:37
+Correct Answer Selected: Entero,13:06:44
+Correct Answer Selected: Flotante,13:06:44
+Correct Answer Selected: Cadena,13:06:44
+Draganddrop Page Close Time,13:06:45
+Parte 2,13:06:45
+Pedagogical Page Open Time,13:06:45
+Pedagogical Page Close Time,13:06:45
+Draganddrop Page Open Time,13:06:45
+Correct Drop Event: print('Nosotros somos los campeones amigos'),13:06:49
+Correct Drop Event: print('Y seguiremos luchando hasta el final'),13:06:49
+Correct Drop Event: print('Somos los campeones'),13:06:49
+Draganddrop Page Close Time,13:06:50
+Parte 3,13:06:50
+Pedagogical Page Open Time,13:06:50
+Pedagogical Page Close Time,13:06:50
+Completeblankspace Page Open Time,13:06:50
+Blank Space Selected,13:06:51
+Correct Answer Selected: print,13:06:52
+Completeblankspace Page Close Time,13:06:53
+Parte 4,13:06:53
+Pedagogical Page Open Time,13:06:53
+Pedagogical Page Close Time,13:06:53
+Draganddrop Page Open Time,13:06:53
+Incorrect Answer Selected: ____(,13:06:54
+Draganddrop Page Close Time,13:06:57
+Parte 5,13:06:57
+Pedagogical Page Open Time,13:06:57
+Pedagogical Page Close Time,13:06:57
+Draganddrop Page Open Time,13:06:57
+Correct Answer Selected: sep,13:06:57
+Correct Answer Selected: '-',13:06:57
+Draganddrop Page Close Time,13:07:01
+Parte 6,13:07:01
+Pedagogical Page Open Time,13:07:01
+"Correct Answer Selected: # Outputs a message 
+print('Have a good day!')",13:07:01
+Pedagogical Page Close Time,13:07:02
+Pedagogical2 Page Open Time,13:07:02
+Pedagogical2 Page Close Time,13:07:02
+Parte 7,13:07:02
+Pedagogical Page Open Time,13:07:02
+Pedagogical Page Close Time,13:07:03
+Pedagogical2 Page Open Time,13:07:03
+Pedagogical2 Page Close Time,13:07:03
+
+"Modulo 1, Leccion 5",
+Parte 1,13:07:09
+Pedagogical2 Page Open Time,13:07:09
+Pedagogical2 Page Close Time,13:07:10
+Parte 2,13:07:10
+Pedagogical Page Open Time,13:07:10
+Pedagogical Page Close Time,13:07:12
+Pedagogical2 Page Open Time,13:07:12
+Pedagogical2 Page Close Time,13:07:12
+Parte 3,13:07:12
+Multiplechoice Page Open Time,13:07:12
+Multiplechoice Page Close Time,13:07:16
+Draganddrop Page Open Time,13:07:16
+Checkbox Selected: valor.,13:07:16
+Draganddrop Page Close Time,13:07:20
+Parte 4,13:07:20
+Pedagogical Page Open Time,13:07:20
+Correct Drop Event: edad,13:07:20
+Correct Drop Event: 18,13:07:20
+Pedagogical Page Close Time,13:07:21
+Completeblankspace Page Open Time,13:07:21
+Completeblankspace Page Close Time,13:07:24
+Parte 5,13:07:24
+Pedagogical Page Open Time,13:07:24
+Pedagogical Page Close Time,13:07:24
+Multiplechoice Page Open Time,13:07:24
+Correct Answer Selected: 2028,13:07:24
+Multiplechoice Page Close Time,13:07:28
+Parte 6,13:07:28
+Multiplechoice Page Open Time,13:07:28
+Checkbox Selected: 24,13:07:28
+Multiplechoice Page Close Time,13:07:30
+Pedagogical Page Open Time,13:07:30
+Checkbox Selected: 12,13:07:30
+Pedagogical Page Close Time,13:07:31
+Parte 7,13:07:31
+Multiplechoice Page Open Time,13:07:31
+Multiplechoice Page Close Time,13:07:33
+Pedagogical Page Open Time,13:07:33
+Checkbox Selected: un_nombre_variable,13:07:33
+Pedagogical Page Close Time,13:07:34
+Parte 8,13:07:34
+Multiplechoice Page Open Time,13:07:34
+Multiplechoice Page Close Time,13:07:37
+Pedagogical Page Open Time,13:07:37
+Pedagogical Page Close Time,13:07:37
+Parte 9,13:07:37
+Pedagogical Page Open Time,13:07:37
+Checkbox Selected: Balance: € 200,13:07:37
+Pedagogical Page Close Time,13:07:38
+Pedagogical2 Page Open Time,13:07:38
+Pedagogical2 Page Close Time,13:07:38
+
