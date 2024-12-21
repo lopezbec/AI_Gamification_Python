@@ -429,20 +429,22 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addWidget(modulo_btn, row, col, 1, 1)
         layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
 
+    def calcular_progreso_del_modulo(self, estado_modulo):
+        """
+        Calcula el progreso de un módulo sumando las lecciones completadas.
+        """
+        lecciones_completadas = sum(1 for estado in estado_modulo.values() if estado)  # Sumar solo las lecciones completadas
+        total_lecciones = len(estado_modulo)
+        progreso = (lecciones_completadas / total_lecciones) * 100  # Calcular el porcentaje de progreso
+        return progreso
+
     def añadir_submenu(self, nombre_modulo, numero_lecciones, boton_modulo):
-        # Obtener el estado de progreso del usuario
+        """
+        Añade dinámicamente las lecciones al módulo con su barra de progreso.
+        """
         estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
         estado_progreso_modulo = self.lecciones_completadas_usuario.get(nombre_modulo.replace(" ", ""), {})
-        estado_completado = self.load_lesson_completed(self.usuario_actual)
-
-        # Ajustar el número de lecciones según el módulo
-        if nombre_modulo == "Modulo 2":
-            numero_lecciones = 3
-        elif nombre_modulo == "Modulo 5":
-            numero_lecciones = 7
-        else:
-            numero_lecciones = 5
-
+        
         todas_bloqueadas = True
 
         # Iterar sobre las lecciones para crear acciones y establecer íconos
@@ -450,12 +452,12 @@ class MainWindow(QtWidgets.QMainWindow):
             leccion_clave = f"Leccion{leccion_numero}"
             estado_leccion = estado_modulo.get(leccion_clave, False)
 
-            leccion_completada = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(
-                f"Leccion_completada{leccion_numero}", False)
+            leccion_completada = estado_progreso_modulo.get(f"Leccion_completada{leccion_numero}", False)
 
             if leccion_completada or estado_leccion:
                 todas_bloqueadas = False
 
+            # Determinar el ícono basado en el estado de la lección
             if leccion_completada:
                 icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
             elif estado_leccion:
@@ -469,17 +471,21 @@ class MainWindow(QtWidgets.QMainWindow):
             accion_leccion.triggered.connect(lambda _, n=leccion_numero, m=nombre_modulo: self.abrir_leccion(m, n))
             boton_modulo.addAction(accion_leccion)
 
-        # Calcular y agregar la barra de progreso
+        # Calcular el progreso del módulo
         progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo)
+        
+        # Crear y configurar la barra de progreso
         barra_progreso = QProgressBar()
-        barra_progreso.setValue(progreso)
-        barra_progreso.setMaximum(numero_lecciones)
-        barra_progreso.setTextVisible(True)
+        barra_progreso.setValue(int(progreso))  # Establecer el valor de la barra de progreso
+        barra_progreso.setMaximum(100)  # El máximo es 100
+        barra_progreso.setTextVisible(True)  # Mostrar el porcentaje
         barra_progreso_action = QWidgetAction(self)
         barra_progreso_action.setDefaultWidget(barra_progreso)
         boton_modulo.addAction(barra_progreso_action)
 
-        return todas_bloqueadas
+        return todas_bloqueadas  # Devolver True si todas las lecciones están completas
+
+
 
 
     def añadir_submenu_quiz(self, nombre_modulo, boton_quiz, numero_quizzes):
