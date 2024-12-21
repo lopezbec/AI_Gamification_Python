@@ -11,10 +11,10 @@
         },
         "Modulo2": {
             "Leccion1": true,
-            "Leccion2": true,
-            "Leccion3": true,
-            "Quiz1": true,
-            "Quiz2": true
+            "Leccion2": false,
+            "Leccion3": false,
+            "Quiz1": false,
+            "Quiz2": false
         },
         "Modulo3": {
             "Leccion1": true,

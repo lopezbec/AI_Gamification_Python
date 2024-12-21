@@ -246,9 +246,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Configurar menús de módulos con estilo moderno
         self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Modulo 1", 5, 2, True)
-        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 3, 3, self.is_modulo_completado("Modulo 1"))
-        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 3, self.is_modulo_completado("Modulo 2"))
-        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 3, self.is_modulo_completado("Modulo 3"))
+        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Modulo 2", 3, 2, self.is_modulo_completado("Modulo 1"))
+        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Modulo 3", 5, 2, self.is_modulo_completado("Modulo 2"))
+        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Modulo 4", 5, 2, self.is_modulo_completado("Modulo 3"))
         self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Modulo 5", 7, 2, self.is_modulo_completado("Modulo 4"))
 
         # Añadir los botones de los módulos y quizzes al layout de la cuadrícula
@@ -346,10 +346,10 @@ class MainWindow(QtWidgets.QMainWindow):
             #mapeo de los JSON de los quizzes
             quiz_mapping = {
                 "Modulo 1": ["M1_Q1_Main.json", "M1_Q2_Main.json"],
-                "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json", "M2_Q3_Main.json"],
-                "Modulo 3": ["M3_Q1_Main.json", "M3_Q2_Main.json", "M3_Q3_Main.json"],
-                "Modulo 4": ["M4_Q1_Main.json", "M4_Q2_Main.json", "M4_Q3_Main.json"],
-                "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json", "M5_Q3_Main.json"]
+                "Modulo 2": ["M2_Q1_Main.json", "M2_Q2_Main.json"],
+                "Modulo 3": ["M3_Q1_Main.json", "M3_Q2_Main.json"],
+                "Modulo 4": ["M4_Q1_Main.json", "M4_Q2_Main.json"],
+                "Modulo 5": ["M5_Q1_Main.json", "M5_Q2_Main.json"]
             }
 
             #Comprobar si nombre_modulo es una clave en quiz mapping y, por igua, si numero_quiz
@@ -483,64 +483,56 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def añadir_submenu_quiz(self, nombre_modulo, boton_quiz, numero_quizzes):
-        estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
-        estado_completado = self.load_lesson_completed(self.usuario_actual)
+        """
+        Añade dinámicamente los quizzes correspondientes al módulo.
+        Los quizzes se obtienen leyendo el archivo page_order.json.
+        """
+        # Ruta del archivo page_order.json
+        ruta_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'page_order_Quizzes', 'page_order.json')
 
-        # Identificar el módulo previo (e.g., Módulo 3 para Módulo 4)
-        numero_modulo_actual = int(nombre_modulo.split(" ")[-1])  # Número del módulo actual
-        modulo_previo = f"Modulo{numero_modulo_actual - 1}" if numero_modulo_actual > 1 else None
-        modulo_previo_completado = all(
-        estado_completado.get(modulo_previo, {}).get(f"Leccion_completada{i+1}", False)
-        for i in range(5)
-    ) if modulo_previo else True
+        # Cargar el archivo JSON
+        with open(ruta_json, 'r', encoding='utf-8') as file:
+            data = json.load(file)
 
-        for quiz_numero in range(1, numero_quizzes + 1):
+        # Buscar los quizzes correspondientes al módulo
+        modulo_numero = int(nombre_modulo.split()[-1])  # Extrae el número del módulo (e.g., "Modulo 4" -> 4)
+        quizzes_modulo = [quiz for quiz in data['quizzes'] if quiz['module'] == modulo_numero]
+
+        # Iterar sobre los quizzes encontrados
+        for quiz in quizzes_modulo:
+            quiz_numero = quiz['quiz_number']
             quiz_clave = f"Quiz{quiz_numero}"
             quiz_completado_clave = f"Quiz_completado{quiz_numero}"
 
-            estado_quiz = estado_modulo.get(quiz_clave, False)  # ¿Está desbloqueado el quiz?
+            # Obtener estado del progreso del usuario
+            estado_modulo = self.progreso_usuario.get(nombre_modulo.replace(" ", ""), {})
+            estado_completado = self.load_lesson_completed(self.usuario_actual)
+            estado_quiz = estado_modulo.get(quiz_clave, False)
             quiz_completado = estado_completado.get(nombre_modulo.replace(" ", ""), {}).get(quiz_completado_clave, False)
 
-            if nombre_modulo in ["Modulo 4", "Modulo 5"] and not modulo_previo_completado:
-                # Si el módulo anterior no está completado, mostrar "Muy pronto"
-                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
-                accion_quiz = QAction(f"Quiz {quiz_numero} (Muy pronto)", self)
-                accion_quiz.setIcon(QIcon(icono))
-                accion_quiz.setEnabled(False)
-                accion_quiz.triggered.connect(
-                    lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_no_disponible(m, n)
-                )
+            # Determinar ícono y habilitación según el progreso
+            if estado_quiz and quiz_completado:
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
+                desbloqueado = True
+            elif estado_quiz and not quiz_completado:
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
+                desbloqueado = True
             else:
-                # Manejo normal de quizzes
-                if estado_quiz and quiz_completado:
-                    # Quiz completado
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'completado_icon.png')
-                    desbloqueado = True
-                elif estado_quiz and not quiz_completado:
-                    # Quiz desbloqueado pero no completado
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'abierto_icon.png')
-                    desbloqueado = True
-                else:
-                    # Quiz bloqueado
-                    icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
-                    desbloqueado = False
+                icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Icons', 'cerrado_icon.jpg')
+                desbloqueado = False
 
-                accion_quiz = QAction(f"Quiz {quiz_numero}", self)
-                accion_quiz.setIcon(QIcon(icono))
-                accion_quiz.setEnabled(desbloqueado)
+            # Crear QAction para el quiz
+            accion_quiz = QAction(f"Quiz {quiz_numero}", self)
+            accion_quiz.setIcon(QIcon(icono))
+            accion_quiz.setEnabled(desbloqueado)
 
-                if desbloqueado:
-                    # Quiz desbloqueado
-                    accion_quiz.triggered.connect(
-                        lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, "")
-                    )
-                else:
-                    # Quiz bloqueado
-                    accion_quiz.triggered.connect(
-                        lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(
-                            f"{m} - Quiz {n}", "Completa las lecciones necesarias."
-                        )
-                    )
+            # Conectar la acción según el estado
+            if desbloqueado:
+                accion_quiz.triggered.connect(
+                    lambda _, n=quiz_numero, m=nombre_modulo: self.abrir_quiz_con_motivo(m, n, ""))
+            else:
+                accion_quiz.triggered.connect(
+                    lambda _, n=quiz_numero, m=nombre_modulo: self.mostrar_mensaje_bloqueado(f"{m} - Quiz {n}", "Completa las lecciones necesarias."))
 
             # Añadir al menú
             boton_quiz.addAction(accion_quiz)

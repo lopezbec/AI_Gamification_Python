@@ -144,9 +144,9 @@ class QuizLoader:
             title.setFont(title_font)
             self.layout.addWidget(title)
 
-            if self.page_type == 'multiplechoice' or self.page_type == 'multiplechoice2':
+            if self.page_type == 'multiplechoice':
                 self.create_multiple_choice_layout(section_data)
-            elif self.page_type == 'completeblankspace' or self.page_type == 'completeblankspace2':
+            elif self.page_type == 'completeblankspace':
                 self.create_complete_blank_space_layout(section_data)
             elif self.page_type == 'draganddrop':
                 self.create_drag_and_drop_layout(section_data)
@@ -381,8 +381,6 @@ class QuizLoader:
                 self.hint_label.setStyleSheet(
                     f"color: {self.styles['cmd_text_color']}; background-color: {self.styles['cmd_background_color']}; font-size: {self.styles['font_size_normal']}px")
                 self.layout.addWidget(self.hint_label)
-                self.blank_space_index = block["text"].find("_")
-                self.indices = [i for i, c in enumerate(block["text"]) if c == "_"]
                 self.original_hint_text = block['text']
 
         answers_layout = QHBoxLayout()
@@ -433,9 +431,9 @@ class QuizLoader:
     def check_answers(self):
         if self.page_type == 'draganddrop':
             self.check_drag_and_drop_answers()
-        elif self.page_type == 'multiplechoice' or self.page_type == 'multiplechoice2':
+        elif self.page_type == 'multiplechoice':
             self.check_multiple_choice_answers()
-        elif self.page_type == 'completeblankspace' or self.page_type == 'completeblankspace2':
+        elif self.page_type == 'completeblankspace':
             self.check_complete_blank_space_answers()
 
     def check_drag_and_drop_answers(self):
