@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "nums = [1, 2, 3]\nnums[2] = 5\nprint(nums)"
+                    "text": " list = [1, 2, 3]\n ______ var in list:\n print(var)"
                 }
             ],
             "answers": [

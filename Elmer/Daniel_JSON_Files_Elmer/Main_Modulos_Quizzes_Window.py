@@ -144,7 +144,7 @@ class QuizLoader:
             title.setFont(title_font)
             self.layout.addWidget(title)
 
-            if self.page_type == 'multiplechoice':
+            if self.page_type == 'multiplechoice' or self.page_type == 'multiplechoice2':
                 self.create_multiple_choice_layout(section_data)
             elif self.page_type == 'completeblankspace' or self.page_type == 'completeblankspace2':
                 self.create_complete_blank_space_layout(section_data)
@@ -433,7 +433,7 @@ class QuizLoader:
     def check_answers(self):
         if self.page_type == 'draganddrop':
             self.check_drag_and_drop_answers()
-        elif self.page_type == 'multiplechoice':
+        elif self.page_type == 'multiplechoice' or self.page_type == 'multiplechoice2':
             self.check_multiple_choice_answers()
         elif self.page_type == 'completeblankspace' or self.page_type == 'completeblankspace2':
             self.check_complete_blank_space_answers()
