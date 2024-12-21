@@ -971,7 +971,7 @@
                 "all_correct": false
             },
             "Leccion5": {
-                "all_correct": false
+                "all_correct": true
             }
         },
         "Modulo2": {
@@ -1305,6 +1305,441 @@
         }
     },
     "NuevoUsuariof": {
+        "Modulo1": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo2": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            }
+        },
+        "Modulo3": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo4": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo5": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            },
+            "Leccion6": {
+                "all_correct": false
+            },
+            "Leccion7": {
+                "all_correct": false
+            }
+        }
+    },
+    "prueba": {
+        "Modulo1": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo2": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            }
+        },
+        "Modulo3": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo4": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo5": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            },
+            "Leccion6": {
+                "all_correct": false
+            },
+            "Leccion7": {
+                "all_correct": false
+            }
+        }
+    },
+    "pruebA": {
+        "Modulo1": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo2": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            }
+        },
+        "Modulo3": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo4": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo5": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            },
+            "Leccion6": {
+                "all_correct": false
+            },
+            "Leccion7": {
+                "all_correct": false
+            }
+        }
+    },
+    "pruebatest": {
+        "Modulo1": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo2": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            }
+        },
+        "Modulo3": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo4": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo5": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            },
+            "Leccion6": {
+                "all_correct": false
+            },
+            "Leccion7": {
+                "all_correct": false
+            }
+        }
+    },
+    "BorrarPrueba": {
+        "Modulo1": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo2": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            }
+        },
+        "Modulo3": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo4": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            }
+        },
+        "Modulo5": {
+            "Leccion1": {
+                "all_correct": false
+            },
+            "Leccion2": {
+                "all_correct": false
+            },
+            "Leccion3": {
+                "all_correct": false
+            },
+            "Leccion4": {
+                "all_correct": false
+            },
+            "Leccion5": {
+                "all_correct": false
+            },
+            "Leccion6": {
+                "all_correct": false
+            },
+            "Leccion7": {
+                "all_correct": false
+            }
+        }
+    },
+    "asdfasdf": {
         "Modulo1": {
             "Leccion1": {
                 "all_correct": false

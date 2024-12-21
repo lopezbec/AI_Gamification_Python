@@ -334,8 +334,8 @@
     },
     "Elmer": {
         "Modulo1": {
-            "Leccion_completada1": "2024-12-14",
-            "Leccion_completada2": "2024-12-14",
+            "Leccion_completada1": "2024-12-21",
+            "Leccion_completada2": "2024-12-21",
             "Leccion_completada3": "2024-12-14",
             "Leccion_completada4": "2024-12-21",
             "Leccion_completada5": "2024-12-21"
@@ -367,6 +367,10 @@
             "Leccion_completada5": "",
             "Leccion_completada6": "",
             "Leccion_completada7": ""
+        },
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "2024-12-21",
+            "Leccion_completada2": "2024-12-21"
         }
     },
     "Juan": {
@@ -485,8 +489,8 @@
             "Leccion_completada1": "",
             "Leccion_completada2": "",
             "Leccion_completada3": "",
-            "Leccion_completada4": "",
-            "Leccion_completada5": ""
+            "Leccion_completada4": "2024-12-21",
+            "Leccion_completada5": "2024-12-21"
         },
         "Modulo2": {
             "Leccion_completada1": "",
@@ -629,6 +633,207 @@
         }
     },
     "NuevoUsuariof": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
+    },
+    "prueba": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        },
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "2024-12-21",
+            "Leccion_completada2": "2024-12-21",
+            "Leccion_completada3": "2024-12-21",
+            "Leccion_completada4": "2024-12-21",
+            "Leccion_completada5": "2024-12-21"
+        }
+    },
+    "pruebA": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        },
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "2024-12-21"
+        }
+    },
+    "pruebatest": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        },
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "2024-12-21"
+        }
+    },
+    "BorrarPrueba": {
+        "Modulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "Modulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        },
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "2024-12-21"
+        }
+    },
+    "asdfasdf": {
         "Modulo1": {
             "Leccion_completada1": "",
             "Leccion_completada2": "",

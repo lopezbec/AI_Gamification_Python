@@ -120,11 +120,11 @@ class NameWindow(QMainWindow):
     @staticmethod
     def _update_progress_json(username):
         progreso_inicial = {
-            "Modulo1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
-            "Modulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
-            "Modulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
-            "Modulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
-            "Modulo5": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False,
+            "M\u00f3dulo1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "M\u00f3dulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
+            "M\u00f3dulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
+            "M\u00f3dulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
+            "M\u00f3dulo5": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False,
                         "Leccion6": False, "Leccion7": False, "Quiz1": False, "Quiz2": False}
         }
 
@@ -159,7 +159,7 @@ class NameWindow(QMainWindow):
 
         if not self.user_exists(username):  # Check if exists in leaderboard.json
             self.add_user_to_leaderboard(username)  # Add user to leaderboard.json
-            self.agregar_usuario_leccion_completada(username)
+            #self.agregar_usuario_leccion_completada(username)
             self.add_username(username)  # Add user to existing files
             self._open_question_window(username)
             self.close()
@@ -242,38 +242,7 @@ class NameWindow(QMainWindow):
         with open(self.leaderboard_file, 'w', encoding='UTF-8') as file:
             json.dump(users, file, indent=4)
 
-    @staticmethod
-    def agregar_usuario_leccion_completada(username):
-        # Añadir usuario a leccion_completada.json
-        try:
-            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'r',
-                      encoding='UTF-8') as file:
-                progreso = json.load(file)
-        except Exception as e:
-            print(f"Error archivo: {e}")
-            progreso = {}
-
-        try:
-            if username not in progreso:
-                progreso[username] = {
-                    "Modulo1": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
-                                                                                         for i in range(1, 3)},
-                    "Modulo2": {f"Leccion_completada{i}": False for i in range(1, 4)} | {f"Quiz_completado{i}": False
-                                                                                         for i in range(1, 4)},
-                    "Modulo3": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
-                                                                                         for i in range(1, 4)},
-                    "Modulo4": {f"Leccion_completada{i}": False for i in range(1, 6)} | {f"Quiz_completado{i}": False
-                                                                                         for i in range(1, 4)},
-                    "Modulo5": {f"Leccion_completada{i}": False for i in range(1, 8)} | {f"Quiz_completado{i}": False
-                                                                                         for i in range(1, 3)}
-                }
-
-                with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json'), 'w',
-                          encoding='UTF-8') as file:
-                    json.dump(progreso, file, indent=4)
-
-        except Exception as e:
-            print(f"Error: {e}")
+    
 
     def _open_question_window(self, username):
         self.question_window = QuestionWindow()
