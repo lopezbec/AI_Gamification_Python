@@ -446,33 +446,33 @@ def create_lessons_date_completion(username:str):
         if not os.path.exists(filepath):
             # Crear la estructura inicial
             data = {username: {
-                "Modulo1": {
+                "Módulo1": {
                     "Leccion_completada1": "",
                     "Leccion_completada2": "",
                     "Leccion_completada3": "",
                     "Leccion_completada4": "",
                     "Leccion_completada5": ""
                 },
-                "Modulo2": {
+                "Módulo2": {
                     "Leccion_completada1": "",
                     "Leccion_completada2": "",
                     "Leccion_completada3": ""
                 },
-                "Modulo3": {
+                "Módulo3": {
                     "Leccion_completada1": "",
                     "Leccion_completada2": "",
                     "Leccion_completada3": "",
                     "Leccion_completada4": "",
                     "Leccion_completada5": ""
                 },
-                "Modulo4": {
+                "Módulo4": {
                     "Leccion_completada1": "",
                     "Leccion_completada2": "",
                     "Leccion_completada3": "",
                     "Leccion_completada4": "",
                     "Leccion_completada5": ""
                 },
-                "Modulo5": {
+                "Módulo5": {
                     "Leccion_completada1": "",
                     "Leccion_completada2": "",
                     "Leccion_completada3": "",
@@ -495,33 +495,33 @@ def create_lessons_date_completion(username:str):
             if username not in lesson_dates:
                 # Agregar el nuevo usuario al final del diccionario
                 lesson_dates[username] = {
-                    "Modulo1": {
+                    "Módulo1": {
                         "Leccion_completada1": "",
                         "Leccion_completada2": "",
                         "Leccion_completada3": "",
                         "Leccion_completada4": "",
                         "Leccion_completada5": ""
                     },
-                    "Modulo2": {
+                    "Módulo2": {
                         "Leccion_completada1": "",
                         "Leccion_completada2": "",
                         "Leccion_completada3": ""
                     },
-                    "Modulo3": {
+                    "Módulo3": {
                         "Leccion_completada1": "",
                         "Leccion_completada2": "",
                         "Leccion_completada3": "",
                         "Leccion_completada4": "",
                         "Leccion_completada5": ""
                     },
-                    "Modulo4": {
+                    "Módulo4": {
                         "Leccion_completada1": "",
                         "Leccion_completada2": "",
                         "Leccion_completada3": "",
                         "Leccion_completada4": "",
                         "Leccion_completada5": ""
                     },
-                    "Modulo5": {
+                    "Módulo5": {
                         "Leccion_completada1": "",
                         "Leccion_completada2": "",
                         "Leccion_completada3": "",
@@ -573,33 +573,33 @@ def update_lesson_dates(username:str, module:str, lesson:str):
 
 def streak_per_lesson_structure() -> dict:
     return {
-        "Modulo1": {
+        "Módulo1": {
             "Leccion1": {"all_correct": False},
             "Leccion2": {"all_correct": False},
             "Leccion3": {"all_correct": False},
             "Leccion4": {"all_correct": False},
             "Leccion5": {"all_correct": False}
         },
-        "Modulo2": {
+        "Módulo2": {
             "Leccion1": {"all_correct": False},
             "Leccion2": {"all_correct": False},
             "Leccion3": {"all_correct": False}
         },
-        "Modulo3": {
+        "Módulo3": {
             "Leccion1": {"all_correct": False},
             "Leccion2": {"all_correct": False},
             "Leccion3": {"all_correct": False},
             "Leccion4": {"all_correct": False},
             "Leccion5": {"all_correct": False}
         },
-        "Modulo4": {
+        "Módulo4": {
             "Leccion1": {"all_correct": False},
             "Leccion2": {"all_correct": False},
             "Leccion3": {"all_correct": False},
             "Leccion4": {"all_correct": False},
             "Leccion5": {"all_correct": False}
         },
-        "Modulo5": {
+        "Módulo5": {
             "Leccion1": {"all_correct": False},
             "Leccion2": {"all_correct": False},
             "Leccion3": {"all_correct": False},
@@ -680,6 +680,7 @@ def update_lesson_status(username: str, module_name: str, lesson_name: str, all_
 
         # Verificar si el módulo existe en el diccionario del usuario
         if module_name not in data[username]:
+            print(f"data del usuario:\n {data[username]}")
             raise KeyError(f'El módulo {module_name} no existe para el usuario {username}.')
 
         # Verificar si la lección existe en el diccionario del módulo
