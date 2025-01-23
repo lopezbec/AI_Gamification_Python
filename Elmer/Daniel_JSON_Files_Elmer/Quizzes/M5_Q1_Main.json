@@ -5,7 +5,11 @@
             "blocks": [
                 {
                     "type": "info",
-                    "text": "¿Cuál es la principal ventaja de usar funciones en Python?"
+                    "text": "Rellena los espacios en blanco para definir una función que tome dos números como argumentos y devuelva el más pequeño."
+                },
+                {
+                    "type": "Consola",
+                    "text": "______ min(x, y):\n    if x <= y:\n      return x\n   else:\n        return y"
                 }
             ],
             "answers": [

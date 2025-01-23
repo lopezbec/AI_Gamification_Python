@@ -7,7 +7,7 @@ import drag_drop as drag_drop
 
 from functools import partial
 from PyQt6.QtGui import QFont
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt 
 from game_features.progress_bar import ProgressBar
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
@@ -1034,20 +1034,20 @@ class MainWindow(QWidget):
             self.save_log(modulo=4, leccion=4)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
-            self.actualizar_progreso_usuario('Modulo4', 'Leccion4')
-            self.actualizar_leccion_completada('Modulo4', 'Leccion4')
-            update_lesson_status(self.usuario_actual, 'Modulo4', 'Leccion4', self.all_correct)
+            self.actualizar_progreso_usuario('Módulo4', 'Leccion4')
+            self.actualizar_leccion_completada('Módulo4', 'Leccion4')
+            update_lesson_status(self.usuario_actual, 'Módulo4', 'Leccion4', self.all_correct)
                         
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             #Badge verification correct anwers streak
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)           
-            update_lesson_dates(self.usuario_actual, "Modulo4", "Leccion_completada4")           
+            update_lesson_dates(self.usuario_actual, "Módulo4", "Leccion_completada4")           
             if are_lessons_completed_same_day(self.usuario_actual, "Modulo4") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
                     display_badge('modulo_rapido')
                     update_badge_progress(self.usuario_actual, 'modulo_rapido')
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo4") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
+            if are_two_lessons_completed_same_day(self.usuario_actual, "Módulo4") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
                 display_badge('doble_aprendizaje')
                 update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
             if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):

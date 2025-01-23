@@ -26,7 +26,7 @@ try:
     from badge_system.display_cabinet import BadgeDisplayCabinet
     from congratulation_Feature import CongratulationWindow
 except Exception as e:
-    print(f"error en importacion de modulos {e} \n linea {sys.exc_info()[2].tb_lineno}")
+    print(f"error en importacion de módulos {e} \n linea {sys.exc_info()[2].tb_lineno}")
 
 
 class JsonLoader:
@@ -735,13 +735,13 @@ class MainWindow(QWidget):
         fieldnames = ['event', 'time']
         with open(filepath, mode="a", newline="", encoding='utf-8') as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-            writer.writerow({'event': f"Modulo {modulo}, Leccion {leccion}", 'time': ''})
+            writer.writerow({'event': f"Módulo {modulo}, Leccion {leccion}", 'time': ''})
 
             # Escribe la cabecera si es un archivo nuevo
             if csv_file.tell() == 0:
                 writer.writeheader()
                 # Escribe el módulo y la lección al inicio
-                csv_file.write(f"Modulo {modulo}, Leccion {leccion}\n")
+                csv_file.write(f"Módulo {modulo}, Leccion {leccion}\n")
 
             combined_log_data = self.time_log_data + self.mouse_log_data
             combined_log_data.sort(key=lambda x: x['time'])
@@ -1091,19 +1091,19 @@ class MainWindow(QWidget):
             self.save_log(modulo=1, leccion=1)
             self.XP_Ganados += 5  # 5 puntos por terminar la lección.
             self.actualizar_puntos_en_leaderboard(self.usuario_actual, self.XP_Ganados)
-            self.actualizar_progreso_usuario('Modulo1', 'Leccion1')
-            self.actualizar_leccion_completada('Modulo1', 'Leccion1')
-            update_lesson_status(self.usuario_actual, 'Modulo1', 'Leccion1', self.all_correct)
+            self.actualizar_progreso_usuario('Módulo1', 'Leccion1')
+            self.actualizar_leccion_completada('Módulo1', 'Leccion1')
+            update_lesson_status(self.usuario_actual, 'Módulo1', 'Leccion1', self.all_correct)
             
             if self.streak.get_current_streak() > 0:
                 update_streak(self.usuario_actual, self.streak.get_current_streak())
             check_streak_badges(int(read_stored_streak(self.usuario_actual)), self.usuario_actual)
             get_badge_level(self, score=self.leaderboard_window_instace.get_current_user_score() + self.XP_Ganados)
-            update_lesson_dates(self.usuario_actual, "Modulo1", "Leccion_completada1")
-            if are_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
+            update_lesson_dates(self.usuario_actual, "Módulo1", "Leccion_completada1")
+            if are_lessons_completed_same_day(self.usuario_actual, "Módulo1") and not is_badge_earned(self.usuario_actual, 'modulo_rapido'):
                     display_badge('modulo_rapido')
                     update_badge_progress(self.usuario_actual, 'modulo_rapido')            
-            if are_two_lessons_completed_same_day(self.usuario_actual, "Modulo1") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
+            if are_two_lessons_completed_same_day(self.usuario_actual, "Módulo1") and not is_badge_earned(self.usuario_actual, 'doble_aprendizaje'):
                 display_badge('doble_aprendizaje')
                 update_badge_progress(self.usuario_actual, 'doble_aprendizaje')
             if are_three_modules_completed(self.usuario_actual) and not is_badge_earned(self.usuario_actual, 'Explorador_curioso'):

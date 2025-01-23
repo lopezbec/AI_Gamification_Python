@@ -210,7 +210,7 @@ class QuizLoader:
         self.main_window.unlock_module_first_quiz(
             JsonLoader.load_user_progress(),
             JsonLoader.load_lesson_completed(),
-            f'Modulo{int(self.current_module_index) + 1}',
+            f'Módulo{int(self.current_module_index) + 1}',
             self.current_user
         )
         self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
@@ -227,11 +227,11 @@ class QuizLoader:
             completion_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'leccion_completada.json')
 
             """
-            module_key = nombre del modulo actual
+            module_key = nombre del módulo actual
             quiz_key = nombre del quiz actual
             quiz_completion_key = clave que ira al leccion_completada.json para marcar como completado el quiz
             """
-            module_key = f"Modulo{self.current_module_index}"
+            module_key = f"Módulo{self.current_module_index}"
             quiz_key = f"Quiz{self.current_quiz_index}"
             quiz_completion_key = f"Quiz_completado{self.current_quiz_index}"
 
@@ -253,7 +253,7 @@ class QuizLoader:
                 progress_data[user][module_key][siguiente_quiz] = True  # Desbloquear siguiente quiz
             else:
                 # Si no existe el siguiente quiz, desbloquear la primera lección del siguiente módulo
-                siguiente_modulo_key = f"Modulo{int(self.current_module_index) + 1}"
+                siguiente_modulo_key = f"Módulo{int(self.current_module_index) + 1}"
                 
                 # Verificar si el siguiente módulo existe en progreso.json para el usuario actual
                 if siguiente_modulo_key in progress_data[user]:
