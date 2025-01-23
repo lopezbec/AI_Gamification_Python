@@ -121,9 +121,9 @@ class NameWindow(QMainWindow):
     def _update_progress_json(username):
         progreso_inicial = {
             "M\u00f3dulo1": {"Leccion1": True, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
-            "M\u00f3dulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
-            "M\u00f3dulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
-            "M\u00f3dulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False, "Quiz3": False},
+            "M\u00f3dulo2": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Quiz1": False, "Quiz2": False},
+            "M\u00f3dulo3": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
+            "M\u00f3dulo4": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False, "Quiz1": False, "Quiz2": False},
             "M\u00f3dulo5": {"Leccion1": False, "Leccion2": False, "Leccion3": False, "Leccion4": False, "Leccion5": False,
                         "Leccion6": False, "Leccion7": False, "Quiz1": False, "Quiz2": False}
         }

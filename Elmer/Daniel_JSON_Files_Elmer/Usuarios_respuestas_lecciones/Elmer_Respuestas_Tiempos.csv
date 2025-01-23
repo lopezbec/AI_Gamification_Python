@@ -1115,3 +1115,41 @@ Parte 7,13:27:57
 Pedagogical Page Open Time,13:27:57
 Pedagogical Page Close Time,13:27:58
 
+"Modulo 3, Leccion 1",
+Parte 1,15:44:49
+Pedagogical Page Open Time,15:44:49
+Pedagogical Page Close Time,15:44:50
+Multiplechoice Page Open Time,15:44:50
+Checkbox Selected: True y False,15:44:53
+Multiplechoice Page Close Time,15:44:54
+Parte 2,15:44:54
+Pedagogical Page Open Time,15:44:54
+Pedagogical Page Close Time,15:44:54
+Draganddrop Page Open Time,15:44:54
+Draganddrop Page Close Time,15:44:58
+Parte 3,15:44:58
+Pedagogical Page Open Time,15:44:58
+Correct Drop Event: is_online,15:44:58
+Correct Drop Event: True,15:44:58
+Pedagogical Page Close Time,15:44:59
+Completeblankspace Page Open Time,15:44:59
+Completeblankspace Page Close Time,15:45:02
+Parte 4,15:45:02
+Pedagogical Page Open Time,15:45:02
+Pedagogical Page Close Time,15:45:02
+Multiplechoice Page Open Time,15:45:02
+Correct Answer Selected: open,15:45:02
+Checkbox Selected: True,15:45:05
+Multiplechoice Page Close Time,15:45:06
+Parte 5,15:45:06
+Pedagogical Page Open Time,15:45:06
+Pedagogical Page Close Time,15:45:06
+Pedagogical2 Page Open Time,15:45:06
+Pedagogical2 Page Close Time,15:45:06
+Parte 6,15:45:06
+Multiplechoice Page Open Time,15:45:06
+Parte 5,15:45:06
+Parte 6,15:45:06
+Multiplechoice Page Close Time,15:45:08
+Checkbox Selected: 0,15:45:08
+

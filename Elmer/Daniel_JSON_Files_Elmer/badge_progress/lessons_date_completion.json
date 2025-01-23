@@ -371,6 +371,9 @@
         "M\u00f3dulo1": {
             "Leccion_completada1": "2024-12-21",
             "Leccion_completada2": "2024-12-21"
+        },
+        "M\u00f3dulo3": {
+            "Leccion_completada1": "2025-01-23"
         }
     },
     "Juan": {
@@ -861,6 +864,117 @@
             "Leccion_completada5": ""
         },
         "Modulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
+    },
+    "usuarionuevo": {
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "2025-01-23",
+            "Leccion_completada2": "2025-01-23",
+            "Leccion_completada3": "2025-01-23",
+            "Leccion_completada4": "2025-01-23",
+            "Leccion_completada5": "2025-01-23"
+        },
+        "M\u00f3dulo2": {
+            "Leccion_completada1": "2025-01-23",
+            "Leccion_completada2": "2025-01-23",
+            "Leccion_completada3": "2025-01-23"
+        },
+        "M\u00f3dulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
+    },
+    "usuario": {
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": ""
+        },
+        "M\u00f3dulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo5": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": "",
+            "Leccion_completada6": "",
+            "Leccion_completada7": ""
+        }
+    },
+    "nuevousuario": {
+        "M\u00f3dulo1": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo2": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "2025-01-23"
+        },
+        "M\u00f3dulo3": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo4": {
+            "Leccion_completada1": "",
+            "Leccion_completada2": "",
+            "Leccion_completada3": "",
+            "Leccion_completada4": "",
+            "Leccion_completada5": ""
+        },
+        "M\u00f3dulo5": {
             "Leccion_completada1": "",
             "Leccion_completada2": "",
             "Leccion_completada3": "",
