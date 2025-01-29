@@ -9,7 +9,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": " list = [1, 2, 3]\n ______ var in list:\n print(var)"
+                    "text": " nums = [1, 2, 3]\n for var in nums:\n print(var)"
                 }
             ],
             "answers": [
@@ -19,11 +19,11 @@
                 },
                 {
                     "text": "[1, 2, 3]",
-                    "correct": false
+                    "correct": true
                 },
                 {
                     "text": "[1, 2, 5]",
-                    "correct": true
+                    "correct": false
                 }
             ]
         }
