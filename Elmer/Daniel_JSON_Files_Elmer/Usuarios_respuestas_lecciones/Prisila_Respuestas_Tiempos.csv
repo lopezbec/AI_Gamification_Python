@@ -2219,3 +2219,49 @@ Multiplechoice Page Open Time,13:37:23
 Multiplechoice Page Close Time,13:37:36
 Checkbox Selected: ab,13:37:36
 
+"Modulo 4, Leccion 4",
+Parte 1,07:44:25
+Pedagogical Page Open Time,07:44:25
+Pedagogical Page Close Time,07:44:26
+Multiplechoice Page Open Time,07:44:26
+Checkbox Selected: 5,07:44:30
+Multiplechoice Page Close Time,07:44:31
+Parte 2,07:44:31
+Pedagogical Page Open Time,07:44:31
+Pedagogical Page Close Time,07:44:32
+Multiplechoice Page Open Time,07:44:32
+Checkbox Selected: 4,07:44:37
+Multiplechoice Page Close Time,07:44:38
+Parte 3,07:44:38
+Pedagogical Page Open Time,07:44:38
+Pedagogical Page Close Time,07:44:38
+Multiplechoice Page Open Time,07:44:38
+Checkbox Selected: True,07:44:44
+Multiplechoice Page Close Time,07:44:45
+Parte 4,07:44:45
+Pedagogical Page Open Time,07:44:45
+Pedagogical Page Close Time,07:44:46
+Multiplechoice Page Open Time,07:44:46
+Checkbox Selected: 9,07:47:23
+Multiplechoice Page Close Time,07:47:24
+Parte 5,07:47:24
+Pedagogical Page Open Time,07:47:24
+Pedagogical Page Close Time,07:47:24
+Multiplechoice Page Open Time,07:47:24
+Multiplechoice Page Close Time,07:47:36
+Parte 6,07:47:36
+Pedagogical Page Open Time,07:47:36
+Checkbox Selected: 3,07:47:36
+Pedagogical Page Close Time,07:47:37
+Draganddrop Page Open Time,07:47:37
+Correct Drop Event: for,07:47:49
+Correct Drop Event: 2,07:47:49
+Correct Drop Event: i,07:47:49
+Draganddrop Page Close Time,07:47:50
+Parte 7,07:47:50
+Draganddrop Page Open Time,07:47:50
+Correct Drop Event: list,07:48:01
+Correct Drop Event: range,07:48:01
+Correct Drop Event: x,07:48:01
+Draganddrop Page Close Time,07:48:04
+
