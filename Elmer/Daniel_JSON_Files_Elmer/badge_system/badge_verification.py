@@ -680,7 +680,6 @@ def update_lesson_status(username: str, module_name: str, lesson_name: str, all_
 
         # Verificar si el módulo existe en el diccionario del usuario
         if module_name not in data[username]:
-            print(f"data del usuario:\n {data[username]}")
             raise KeyError(f'El módulo {module_name} no existe para el usuario {username}.')
 
         # Verificar si la lección existe en el diccionario del módulo

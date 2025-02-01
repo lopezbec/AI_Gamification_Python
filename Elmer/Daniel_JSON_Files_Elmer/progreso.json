@@ -172,7 +172,7 @@
             "Leccion2": true,
             "Leccion3": true,
             "Leccion4": true,
-            "Leccion5": false,
+            "Leccion5": true,
             "Quiz1": true,
             "Quiz2": false
         },
