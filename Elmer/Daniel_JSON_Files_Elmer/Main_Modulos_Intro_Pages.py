@@ -292,9 +292,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.lecciones_completadas_usuario = self.cargar_lecciones_completadas()
 
         # Cargar la configuración de módulos desde el JSON
-        ruta_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'Modulos_Estados', 'modules_config.json')
+        ruta_module_config = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'Modulos_Estados', 'modules_config.json')
         def cargar_modulos_activos():
-            with open(ruta_json, "r") as file:
+            with open(ruta_module_config, "r") as file:
                 data = json.load(file)
             return {mod["module_name"]: mod["status"] == "active" for mod in data["modules"]}
 
