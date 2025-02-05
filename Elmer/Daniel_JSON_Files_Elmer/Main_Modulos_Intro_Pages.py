@@ -291,19 +291,40 @@ class MainWindow(QtWidgets.QMainWindow):
         self.usuario_actual = self.cargar_usuario_actual()
         self.lecciones_completadas_usuario = self.cargar_lecciones_completadas()
 
-        # Configurar menús de módulos con estilo moderno
-        self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu("Módulo 1", 5, 2, True)
-        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu("Módulo 2", 3, 2, self.is_modulo_completado("Módulo 1"))
-        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu("Módulo 3", 5, 2, self.is_modulo_completado("Módulo 2"))
-        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu("Módulo 4", 5, 2, self.is_modulo_completado("Módulo 3"))
-        self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu("Módulo 5", 7, 2, self.is_modulo_completado("Módulo 4"))
+        # Cargar la configuración de módulos desde el JSON
+        ruta_json = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Quizzes', 'Modulos_Estados', 'modules_config.json')
+        def cargar_modulos_activos():
+            with open(ruta_json, "r") as file:
+                data = json.load(file)
+            return {mod["module_name"]: mod["status"] == "active" for mod in data["modules"]}
 
-        # Añadir los botones de los módulos y quizzes al layout de la cuadrícula
-        self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo1_btn, self.modulo1_quiz_btn, 0)
-        self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo2_btn, self.modulo2_quiz_btn, 1)
-        self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo3_btn, self.modulo3_quiz_btn, 2)
-        self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo4_btn, self.modulo4_quiz_btn, 3)
-        self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo5_btn, self.modulo5_quiz_btn, 4)
+        # Obtener módulos activos
+        modulos_activos = cargar_modulos_activos()
+
+        # Configurar menús de módulos con validación de activación
+        self.modulo1_btn, self.modulo1_quiz_btn = self.setup_modulos_menu(
+            "Módulo 1", 5, 2, modulos_activos.get("Modulo 1", False))
+        self.modulo2_btn, self.modulo2_quiz_btn = self.setup_modulos_menu(
+            "Módulo 2", 3, 2, modulos_activos.get("Modulo 2", False) and self.is_modulo_completado("Módulo 1"))
+        self.modulo3_btn, self.modulo3_quiz_btn = self.setup_modulos_menu(
+            "Módulo 3", 5, 2, modulos_activos.get("Modulo 3", False) and self.is_modulo_completado("Módulo 2") )
+        self.modulo4_btn, self.modulo4_quiz_btn = self.setup_modulos_menu(
+            "Módulo 4", 5, 2, modulos_activos.get("Modulo 4", False) and self.is_modulo_completado("Módulo 3"))
+        self.modulo5_btn, self.modulo5_quiz_btn = self.setup_modulos_menu(
+            "Módulo 5", 7, 2, modulos_activos.get("Modulo 5", False) and self.is_modulo_completado("Módulo 4"))
+
+        # Agregar solo los módulos activos al layout
+        if modulos_activos.get("Modulo 1", False):
+            self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo1_btn, self.modulo1_quiz_btn, 0)
+        if modulos_activos.get("Modulo 2", False):
+            self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo2_btn, self.modulo2_quiz_btn, 1)
+        if modulos_activos.get("Modulo 3", False):
+            self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo3_btn, self.modulo3_quiz_btn, 2)
+        if modulos_activos.get("Modulo 4", False):
+            self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo4_btn, self.modulo4_quiz_btn, 3)
+        if modulos_activos.get("Modulo 5", False):
+            self.add_module_buttons_to_grid_layout(modulos_layout, 0, self.modulo5_btn, self.modulo5_quiz_btn, 4)
+
 
         layout.addWidget(self.modulos_menu_widget)
 
