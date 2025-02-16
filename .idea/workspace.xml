@@ -188,6 +188,8 @@
       <workItem from="1738718654892" duration="555000" />
       <workItem from="1738719552762" duration="24000" />
       <workItem from="1738719725949" duration="969000" />
+      <workItem from="1739714056250" duration="3060000" />
+      <workItem from="1739717678229" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="Input_Issue Fixed">
       <option name="closed" value="true" />
@@ -263,7 +265,7 @@
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_1.coverage" NAME="Main_Module_1 Coverage Results" MODIFIED="1700782293814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 1 - Getting Started with Python" />
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Lesson_5.coverage" NAME="Main_Lesson_5 Coverage Results" MODIFIED="1695768091391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 3 - Control Flow/LESSON_5_while_Loops" />
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$app.coverage" NAME="app Coverage Results" MODIFIED="1722994305594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/prototype_prisila" />
-    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Modulos_Intro_Pages.coverage" NAME="Main_Modulos_Intro_Pages Coverage Results" MODIFIED="1738720655285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer" />
+    <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Modulos_Intro_Pages.coverage" NAME="Main_Modulos_Intro_Pages Coverage Results" MODIFIED="1739716799631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer" />
     <SUITE FILE_PATH="coverage/AI_Gamification_Python$Main_Module_4.coverage" NAME="Main_Module_4 Coverage Results" MODIFIED="1697850583514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Elmer/Daniel_JSON_Files_Elmer/Module 4 - Lists" />
   </component>
 </project>

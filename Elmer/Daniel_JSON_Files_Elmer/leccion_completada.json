@@ -214,6 +214,22 @@
             "Leccion_completada5": true,
             "Quiz_completado1": true,
             "Quiz_completado2": true
+        },
+        "M\u00f3dulo2": {
+            "Leccion_completada1": true,
+            "Leccion_completada2": true,
+            "Leccion_completada3": true,
+            "Quiz_completado1": true,
+            "Quiz_completado2": true
+        },
+        "M\u00f3dulo3": {
+            "Leccion_completada1": true,
+            "Leccion_completada2": true,
+            "Leccion_completada3": true,
+            "Leccion_completada4": true,
+            "Leccion_completada5": true,
+            "Quiz_completado1": true,
+            "Quiz_completado2": true
         }
     }
 }

@@ -2107,10 +2107,10 @@
         },
         "M\u00f3dulo2": {
             "Leccion1": {
-                "all_correct": false
+                "all_correct": true
             },
             "Leccion2": {
-                "all_correct": false
+                "all_correct": true
             },
             "Leccion3": {
                 "all_correct": false
@@ -2130,7 +2130,7 @@
                 "all_correct": false
             },
             "Leccion5": {
-                "all_correct": false
+                "all_correct": true
             }
         },
         "M\u00f3dulo4": {

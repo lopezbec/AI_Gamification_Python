@@ -247,22 +247,22 @@
         },
         "M\u00f3dulo2": {
             "Leccion1": true,
-            "Leccion2": false,
-            "Leccion3": false,
-            "Quiz1": false,
-            "Quiz2": false
+            "Leccion2": true,
+            "Leccion3": true,
+            "Quiz1": true,
+            "Quiz2": true
         },
         "M\u00f3dulo3": {
-            "Leccion1": false,
-            "Leccion2": false,
-            "Leccion3": false,
-            "Leccion4": false,
-            "Leccion5": false,
-            "Quiz1": false,
-            "Quiz2": false
+            "Leccion1": true,
+            "Leccion2": true,
+            "Leccion3": true,
+            "Leccion4": true,
+            "Leccion5": true,
+            "Quiz1": true,
+            "Quiz2": true
         },
         "M\u00f3dulo4": {
-            "Leccion1": false,
+            "Leccion1": true,
             "Leccion2": false,
             "Leccion3": false,
             "Leccion4": false,

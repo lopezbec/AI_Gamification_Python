@@ -11,7 +11,7 @@
             },
             {
                 "type": "Consola",
-                "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ngrade = ___(input())\nif grade > ___:\n   print('Pass')"
+                "text": "grade = ___(input())\nif grade > ___:\n   print('Pass')"
             }
         ],
         "answers": [
@@ -41,7 +41,7 @@
             },
             {
                 "type": "Consola",
-                "text": "Python 3.11.2 (Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\ni = 0\nx = 0\n\nwhile i < 4:\n    x+=i\n    i+=1\n\nprint(x)"
+                "text": "i = 0\nx = 0\n\nwhile i < 4:\n    x+=i\n    i+=1\n\nprint(x)"
             }
         ],
         "answers": [
