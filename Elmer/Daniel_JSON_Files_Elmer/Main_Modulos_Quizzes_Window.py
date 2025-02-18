@@ -9,6 +9,7 @@ from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from congratulation_Feature import CongratulationWindow
+from badge_system.display_cabinet import BadgeDisplayCabinet
 
 
 
@@ -75,6 +76,7 @@ class QuizLoader:
         self.main_window = main_window #Instancia actual del Main Modulo Quizzes Window
         self.section = None #declaracion de section como atributo de la clase
         self.page_type = None # declaracion de page type  como atributo de la clase
+        self.usuario_actual = self.cargar_usuario_actual()
 
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
@@ -82,6 +84,12 @@ class QuizLoader:
         with open(self.page_order_file, "r", encoding='UTF-8') as file:
             self.page_order = json.load(file)["quizzes"]
         self.current_section_in_quiz_index = 0
+
+    def cargar_usuario_actual(self):
+        # Cargar el usuario actual desde el archivo JSON
+        with open("current_user.json", "r") as file:
+            data = json.load(file)
+        return data["current_user"]
 
     def load_quiz_section(self):
         self.clear_layout()
@@ -129,12 +137,31 @@ class QuizLoader:
             if not quiz_data[self.page_type]:
                 raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
 
+            # Crear un nuevo layout horizontal para los botones
+            buttons_layout = QHBoxLayout()
+
+            # Botón para Leaderboard
             self.leaderboard_button = QPushButton("Leaderboard")
             self.leaderboard_button.setStyleSheet(
                 f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
             )
             self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
-            self.layout.addWidget(self.leaderboard_button)
+            buttons_layout.addWidget(self.leaderboard_button)  # Agregar al layout horizontal
+
+            # Botón para Vitrina (display cabinet)
+            self.display_cabinet = QPushButton("Mis Insignias")
+            self.display_cabinet.setStyleSheet(
+                f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
+            )
+            display_cabinet_font = QFont()
+            display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
+            self.display_cabinet.setFont(display_cabinet_font)
+            self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
+            buttons_layout.addWidget(self.display_cabinet)  # Agregar al layout horizontal
+
+            # Agregar el layout horizontal al layout principal
+            self.layout.addLayout(buttons_layout)
+
 
             section_data = self.section
             title = QLabel(section_data["title"])
@@ -190,6 +217,10 @@ class QuizLoader:
             print(f"Error de valor: {e}")
         except Exception as e:
             print(f"Error al cargar la sección: {e}")
+
+    def abrir_display_cabinet(self, username):
+        self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)
+        self.display_cabinet.show()
 
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
