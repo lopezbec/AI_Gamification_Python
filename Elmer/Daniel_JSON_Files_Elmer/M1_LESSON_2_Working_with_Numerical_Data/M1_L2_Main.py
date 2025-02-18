@@ -9,17 +9,16 @@ from functools import partial
 from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
-from PyQt6.QtWidgets import QApplication, QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
-    QStackedWidget, QRadioButton, QButtonGroup, QSizePolicy, QCheckBox, QFrame
+from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+    QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
 from command_line_UI import CMD_Practica as CMDP
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
 from command_line_UI import App
 from congratulation_Feature import CongratulationWindow
-from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
+from badge_system.badge_verification import get_badge_level, is_badge_earned, \
         update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
             update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
 from badge_system.display_cabinet import BadgeDisplayCabinet
