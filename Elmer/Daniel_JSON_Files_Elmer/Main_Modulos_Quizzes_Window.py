@@ -2,17 +2,15 @@ import sys
 import os
 import json
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QButtonGroup, \
-    QRadioButton
+    QRadioButton, QApplication
 from PyQt6.QtGui import QFont
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer, QPropertyAnimation
 from drag_drop import DraggableLabel, DropLabel
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from congratulation_Feature import CongratulationWindow
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from game_features.progress_bar_quizzes import ProgressBar
-
-
 
 class JsonLoader:
     @staticmethod
@@ -247,6 +245,8 @@ class QuizLoader:
         self.clear_layout()
         self.load_quiz_section()
 
+    from PyQt6.QtCore import QTimer, QPropertyAnimation
+
     def complete_quiz(self):
         self.mark_quiz_complete()
         self.main_window.unlock_module_first_quiz(
@@ -255,8 +255,18 @@ class QuizLoader:
             f'Módulo{int(self.current_module_index) + 1}',
             self.current_user
         )
-        self.actualizar_puntos_en_leaderboard(5)  # Añade la cantidad de puntos que consideres.
-        self.main_window.close()   #Se usa close_quiz en vez de otro metodo para que el menu principal se muestre al cierre del quiz
+        self.actualizar_puntos_en_leaderboard(5)
+
+        # Crear una animación para que la barra de progreso se llene suavemente al 100%
+        self.animation = QPropertyAnimation(self.progress_bar, b"value")
+        self.animation.setDuration(500)  # Duración de la animación en milisegundos (3 segundos)
+        self.animation.setStartValue(self.progress_bar.value())
+        self.animation.setEndValue(100)
+        self.animation.start()
+
+        # Esperar 3 segundos antes de cerrar la ventana
+        QTimer.singleShot(750, self.main_window.close)
+
 
     def mark_quiz_complete(self):
         try:
@@ -600,17 +610,34 @@ class QuizLoader:
         if self.current_section_in_quiz_index >= total_sections:
             self.current_quiz_index += 1
             self.current_section_in_quiz_index = 0
+            
+            # Verificar si es el último quiz
             if self.current_quiz_index >= len(self.page_order):
+                # Ocultar botones innecesarios y mostrar "Completar"
                 self.submit_button.setVisible(False)
                 self.reset_button.setVisible(False)
                 self.continue_button.setVisible(False)
                 self.complete_button.setVisible(True)
+
+                # Llenar la barra de progreso al 100%
+                self.update_progress(1, 1)  # 100% progreso
+
+                # Establecer el valor de la barra de progreso al 100% explícitamente
+                self.progress_bar.setValue(100)
+
+                # Forzar el repintado de la barra de progreso
+                self.progress_bar.repaint()  # Asegura el repintado inmediato
+
+                # Procesar eventos pendientes para actualizar la interfaz
+                QApplication.processEvents()
+
                 return
         
-        self.update_progress(self.current_section_in_quiz_index, total_sections)  # Actualiza el progreso
+        # Actualiza el progreso de manera normal para secciones intermedias
+        self.update_progress(self.current_section_in_quiz_index, total_sections)
+        
         self.clear_layout()
         self.load_quiz_section()
-
 
     def is_last_section(self):
         current_quiz = self.page_order[self.current_quiz_index - 1]

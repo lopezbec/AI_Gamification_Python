@@ -5,11 +5,13 @@
             "quiz_number": 1,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M1_Q1_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M1_Q1_Main.json",
                     "page_type": "draganddrop"
@@ -21,11 +23,13 @@
             "quiz_number": 2,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M1_Q2_Main.json",
                     "page_type": "draganddrop"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M1_Q2_Main.json",
                     "page_type": "multiplechoice"
@@ -37,11 +41,13 @@
             "quiz_number": 1,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M2_Q1_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M2_Q1_Main.json",
                     "page_type": "completeblankspace"
@@ -53,11 +59,13 @@
             "quiz_number": 2,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M2_Q2_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M2_Q2_Main.json",
                     "page_type": "draganddrop"
@@ -69,11 +77,13 @@
             "quiz_number": 1,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M3_Q1_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M3_Q1_Main.json",
                     "page_type": "completeblankspace"
@@ -85,11 +95,13 @@
             "quiz_number": 2,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M3_Q2_Main.json",
                     "page_type": "draganddrop"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M3_Q2_Main.json",
                     "page_type": "multiplechoice"
@@ -101,11 +113,13 @@
             "quiz_number": 1,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M4_Q1_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M4_Q1_Main.json",
                     "page_type": "draganddrop"
@@ -117,11 +131,13 @@
             "quiz_number": 2,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M4_Q2_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M4_Q2_Main.json",
                     "page_type": "completeblankspace"
@@ -133,11 +149,13 @@
             "quiz_number": 1,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M5_Q1_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M5_Q1_Main.json",
                     "page_type": "draganddrop"
@@ -149,11 +167,13 @@
             "quiz_number": 2,
             "sections": [
                 {
+                    "section_number": 1,
                     "type": "JsonWindow",
                     "filename": "M5_Q2_Main.json",
                     "page_type": "multiplechoice"
                 },
                 {
+                    "section_number": 2,
                     "type": "JsonWindow",
                     "filename": "M5_Q2_Main.json",
                     "page_type": "draganddrop"
