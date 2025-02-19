@@ -11,7 +11,8 @@ from badge_system.badge_verification import save_badge_progress_per_user, create
 from badge_system.display_cabinet import BadgeDisplayCabinet
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
 from PyQt6.QtCore import Qt
-
+import warnings
+warnings.simplefilter("ignore", DeprecationWarning) #NO QUITAR ESTO, EVITA UN ERROR POR CONSOLA QUE SE PUEDE IGNORAR, CUALQUIER DUDA HABLAR CON ELMER.
 
 class UserGuideDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -934,3 +935,4 @@ if __name__ == "__main__":
     intro_pages.showMaximized()
     app.exec()
     open_main_window()
+

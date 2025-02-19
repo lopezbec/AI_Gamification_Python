@@ -58,7 +58,6 @@ class ProgressBar(QProgressBar):
             font-size: 14px;
             height: 25px;
             padding: 1px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         QProgressBar::chunk {
@@ -67,7 +66,7 @@ class ProgressBar(QProgressBar):
                 spread:pad, x1:0, y1:0, x2:1, y2:1,
                 stop:0 #FF3E3E, stop:1 #32CD32
             );
-            animation: shine 3s linear infinite;
+            
         }
 
         @keyframes shine {
@@ -88,7 +87,7 @@ class ProgressBar(QProgressBar):
             color: #333333;
             font-weight: bold;
             font-size: 14px;
-            animation: textZoom 1s ease-in-out infinite alternate;
+            
         }
 
         @keyframes textZoom {
