@@ -10,6 +10,7 @@ from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from congratulation_Feature import CongratulationWindow
 from badge_system.display_cabinet import BadgeDisplayCabinet
+from game_features.progress_bar_quizzes import ProgressBar
 
 
 
@@ -21,10 +22,13 @@ class JsonLoader:
                 raise FileNotFoundError(f"Archivo no encontrado: {filename}")
             with open(filename, encoding='UTF-8') as json_file:
                 data = json.load(json_file)
-            return data
+                if data is None:
+                    raise ValueError("El contenido del archivo es vacío o no válido.")
+                return data
         except Exception as e:
             print(f"Error al cargar el archivo JSON: {e}")
             return None
+
 
     @staticmethod
     def load_json_styles():
@@ -66,18 +70,39 @@ class QuizLoader:
         self.quiz_file = quiz_file
         self.page_order_file = page_order_file
         self.current_section_index = 0
-        self.load_page_order()
+        self.load_page_order()  # Cargar page_order
         self.feedback_label = QLabel('')
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
         self.current_user = self.load_current_user()
-        self.current_quiz_index = current_quiz_index #Numero actual del quiz
-        self.current_module_index = current_module_index #Numero actual del modulo
-        self.main_window = main_window #Instancia actual del Main Modulo Quizzes Window
-        self.section = None #declaracion de section como atributo de la clase
-        self.page_type = None # declaracion de page type  como atributo de la clase
+        self.current_quiz_index = current_quiz_index
+        self.current_module_index = current_module_index
+        self.main_window = main_window
+        self.section = None
+        self.page_type = None
         self.usuario_actual = self.cargar_usuario_actual()
 
+        # Verifica si ya tienes una instancia de la barra de progreso
+        if not hasattr(self, 'progress_bar'):  # Solo crea la barra si no ha sido creada antes
+            page_order_file = os.path.join(
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                "Daniel_JSON_Files_Elmer", "Quizzes", "page_order_Quizzes", "page_order.json"
+            )
+            if not os.path.isfile(page_order_file):
+                print(f"El archivo no existe en la ruta: {page_order_file}")
+            else:
+                lesson_data = JsonLoader.load_json_data(page_order_file)
+                self.progress_bar = ProgressBar(lesson_data, current_quiz_index=self.current_quiz_index, current_module_index=self.current_module_index)
+
+            
+
+
+    def load_current_quiz(self):
+            # Lógica para cargar el quiz basado en los índices
+            for quiz in self.page_order:
+                if quiz["module"] == self.current_module_index and quiz["quiz_number"] == self.current_quiz_index:
+                    self.current_quiz = quiz
+                    
     def load_page_order(self):
         if not os.path.isfile(self.page_order_file):
             raise FileNotFoundError(f"Archivo no encontrado: {self.page_order_file}")
@@ -100,35 +125,22 @@ class QuizLoader:
             with open(quiz_file_path, "r", encoding='UTF-8') as file:
                 quiz_data = json.load(file)
 
-            # Realizar la búsqueda del quiz paso a paso
-            matching_quizzes = [] #lista de los quizzes que cumplen las condiciones
-            # Se itera sobre los elementos del page_order.json 
+            matching_quizzes = []  # Lista de quizzes coincidentes
             for quiz in self.page_order:
-                # revisa cada elemento del page order y se compara el numero de quiz y el numero del modulo 
                 if int(quiz["module"]) == int(self.current_module_index) and int(quiz["quiz_number"]) == int(self.current_quiz_index):
-                    # si se cumplen las condiciones se guarda en la lista
                     matching_quizzes.append(quiz)
 
-            #si se encuentra uno o mas quizzes entonces se toma el primero de la lista
             if matching_quizzes:
                 current_quiz = matching_quizzes[0]
             else:
-                #en caso contrario lanzamos unn erorr de FileNotFoundError
                 current_quiz = None
                 raise FileNotFoundError("No se encontró ningún quiz que coincida con los números especificados.")
             
-            #current_quiz es true (digase hay un quiz en esta variable)
             if current_quiz:
-                # Verifica que el índice de la sección actual del quiz esté dentro de los límites de las secciones disponibles en el quiz actual.
-                if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):                   
-                    
-                    # Obtiene la sección actual del quiz basado en el índice de la sección actual.
+                if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):
                     current_section = current_quiz["sections"][self.current_section_in_quiz_index]             
-                    # Extrae el tipo de página (page_type) de la sección actual.
                     page_type = current_section["page_type"]                         
-                    # Asigna la sección correspondiente en los datos del quiz usando page_type (el 0 es necesario para sacarlo del array)
                     self.section = quiz_data[page_type][0]
-                    # Asigna el tipo de página actual
                     self.page_type = page_type
 
             if self.page_type not in quiz_data:
@@ -137,18 +149,15 @@ class QuizLoader:
             if not quiz_data[self.page_type]:
                 raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
 
-            # Crear un nuevo layout horizontal para los botones
             buttons_layout = QHBoxLayout()
 
-            # Botón para Leaderboard
             self.leaderboard_button = QPushButton("Leaderboard")
             self.leaderboard_button.setStyleSheet(
                 f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
             )
             self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
-            buttons_layout.addWidget(self.leaderboard_button)  # Agregar al layout horizontal
+            buttons_layout.addWidget(self.leaderboard_button)
 
-            # Botón para Vitrina (display cabinet)
             self.display_cabinet = QPushButton("Mis Insignias")
             self.display_cabinet.setStyleSheet(
                 f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
@@ -157,11 +166,11 @@ class QuizLoader:
             display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
             self.display_cabinet.setFont(display_cabinet_font)
             self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
-            buttons_layout.addWidget(self.display_cabinet)  # Agregar al layout horizontal
+            buttons_layout.addWidget(self.display_cabinet)
 
-            # Agregar el layout horizontal al layout principal
+            
+            self.layout.addWidget(self.progress_bar)  # Asegúrate de agregar la barra de progreso al layout
             self.layout.addLayout(buttons_layout)
-
 
             section_data = self.section
             title = QLabel(section_data["title"])
@@ -211,6 +220,7 @@ class QuizLoader:
             button_layout.addWidget(self.complete_button)
 
             self.layout.addLayout(button_layout)
+
         except KeyError as e:
             print(f"Error al acceder a una clave en el JSON: {e}")
         except ValueError as e:
@@ -356,16 +366,24 @@ class QuizLoader:
     def clear_layout(self, layout=None):
         if layout is None:
             layout = self.layout  # Usa el layout principal si no se pasa ninguno
+        
         while layout.count():
             child = layout.takeAt(0)
 
             if child.widget():
                 widget = child.widget()
-                widget.deleteLater()
+                if isinstance(widget, ProgressBar):
+                    continue  # No eliminar la barra de progreso
+                widget.deleteLater()  # Eliminar otros widgets
             elif child.layout():
-                self.clear_layout(child.layout())  # Llamada recursiva para limpiar el sublayout
+                self.clear_layout(child.layout())  # Llamada recursiva para limpiar los sublayouts
             else:
                 print("Elemento desconocido encontrado en el layout.")
+
+    def update_progress(self, current_section_index, total_sections):
+        progress_value = (current_section_index / total_sections) * 100
+        self.progress_bar.set_value(progress_value)  # Esto actualizaría la barra de progreso
+
 
     def create_feedback_label(self):
         self.feedback_label = QLabel('')
@@ -577,13 +595,22 @@ class QuizLoader:
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
         current_quiz = self.page_order[self.current_quiz_index - 1]
-        if self.current_section_in_quiz_index >= len(current_quiz["sections"]):
+        total_sections = len(current_quiz["sections"])
+        
+        if self.current_section_in_quiz_index >= total_sections:
             self.current_quiz_index += 1
             self.current_section_in_quiz_index = 0
             if self.current_quiz_index >= len(self.page_order):
+                self.submit_button.setVisible(False)
+                self.reset_button.setVisible(False)
+                self.continue_button.setVisible(False)
+                self.complete_button.setVisible(True)
                 return
+        
+        self.update_progress(self.current_section_in_quiz_index, total_sections)  # Actualiza el progreso
         self.clear_layout()
         self.load_quiz_section()
+
 
     def is_last_section(self):
         current_quiz = self.page_order[self.current_quiz_index - 1]
