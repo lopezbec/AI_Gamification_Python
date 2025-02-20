@@ -14,6 +14,20 @@ from game_features.progress_bar_quizzes import ProgressBar
 
 class JsonLoader:
     @staticmethod
+    def load_active_widgets():
+        """Carga el archivo JSON que define qué elementos del juego están activos."""
+        try:
+            file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "active_widgets", "game_elements_visibility.json")
+            with open(file_path, "r", encoding="UTF-8") as file:
+                return json.load(file)
+        except FileNotFoundError:
+            print(f"Archivo {file_path} no encontrado.")
+            return {}
+        except json.JSONDecodeError:
+            print(f"Error en la estructura de {file_path}. Verifique su formato.")
+            return {}
+
+    @staticmethod
     def load_json_data(filename):
         try:
             if not os.path.isfile(filename):
@@ -123,61 +137,66 @@ class QuizLoader:
             with open(quiz_file_path, "r", encoding='UTF-8') as file:
                 quiz_data = json.load(file)
 
-            matching_quizzes = []  # Lista de quizzes coincidentes
-            for quiz in self.page_order:
-                if int(quiz["module"]) == int(self.current_module_index) and int(quiz["quiz_number"]) == int(self.current_quiz_index):
-                    matching_quizzes.append(quiz)
+            matching_quizzes = [quiz for quiz in self.page_order 
+                                if int(quiz["module"]) == int(self.current_module_index) 
+                                and int(quiz["quiz_number"]) == int(self.current_quiz_index)]
 
-            if matching_quizzes:
-                current_quiz = matching_quizzes[0]
-            else:
-                current_quiz = None
+            if not matching_quizzes:
                 raise FileNotFoundError("No se encontró ningún quiz que coincida con los números especificados.")
-            
-            if current_quiz:
-                if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):
-                    current_section = current_quiz["sections"][self.current_section_in_quiz_index]             
-                    page_type = current_section["page_type"]                         
-                    self.section = quiz_data[page_type][0]
-                    self.page_type = page_type
 
-            if self.page_type not in quiz_data:
-                raise KeyError(f"La clave '{self.page_type}' no existe en el JSON")
+            current_quiz = matching_quizzes[0]
 
-            if not quiz_data[self.page_type]:
-                raise ValueError(f"La lista para la clave '{self.page_type}' está vacía")
+            if 0 <= self.current_section_in_quiz_index < len(current_quiz["sections"]):
+                current_section = current_quiz["sections"][self.current_section_in_quiz_index]             
+                page_type = current_section["page_type"]                         
+                self.section = quiz_data.get(page_type, [{}])[0]
+                self.page_type = page_type
+
+            if self.page_type not in quiz_data or not quiz_data[self.page_type]:
+                raise ValueError(f"La clave '{self.page_type}' no existe o está vacía en el JSON.")
+
+            # Cargar configuración de visibilidad de elementos
+            active_widgets = JsonLoader.load_active_widgets()
 
             buttons_layout = QHBoxLayout()
 
-            # Etiqueta para mostrar los puntos en la interfaz
-            self.puntos_label = QLabel(f"XP Ganados: {self.XP_Ganados}")
-            self.puntos_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            self.puntos_label.setStyleSheet(
-                f"background-color: grey; color: white; font-size: {self.styles['font_size_buttons']}px"
-            )
-            puntos_font = QFont()
-            puntos_font.setPointSize(self.styles["font_size_normal"])
-            self.puntos_label.setFont(puntos_font)
-            buttons_layout.addWidget(self.puntos_label)  # Agregar al layout
+            # Etiqueta para mostrar los puntos solo si "points" está activo en la configuración
+            if active_widgets.get("points", True):
+                self.puntos_label = QLabel(f"XP Ganados: {self.XP_Ganados}")
+                self.puntos_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+                self.puntos_label.setStyleSheet(
+                    f"background-color: grey; color: white; font-size: {self.styles['font_size_buttons']}px"
+                )
+                puntos_font = QFont()
+                puntos_font.setPointSize(self.styles["font_size_normal"])
+                self.puntos_label.setFont(puntos_font)
+                buttons_layout.addWidget(self.puntos_label)
 
-            self.leaderboard_button = QPushButton("Leaderboard")
-            self.leaderboard_button.setStyleSheet(
-                f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
-            )
-            self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
-            buttons_layout.addWidget(self.leaderboard_button)
+            # Botón de Leaderboard (si está activado en el JSON)
+            if active_widgets.get("Leaderboard", False):
+                self.leaderboard_button = QPushButton("Leaderboard")
+                self.leaderboard_button.setStyleSheet(
+                    f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
+                )
+                self.leaderboard_button.clicked.connect(self.abrir_leaderboard)
+                buttons_layout.addWidget(self.leaderboard_button)
 
-            self.display_cabinet = QPushButton("Mis Insignias")
-            self.display_cabinet.setStyleSheet(
-                f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
-            )
-            display_cabinet_font = QFont()
-            display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
-            self.display_cabinet.setFont(display_cabinet_font)
-            self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
-            buttons_layout.addWidget(self.display_cabinet)
-            
-            self.layout.addWidget(self.progress_bar)  # Asegúrate de agregar la barra de progreso al layout
+            # Botón de Insignias (si está activado en el JSON)
+            if active_widgets.get("display_cabinet", False):
+                self.display_cabinet = QPushButton("Mis Insignias")
+                self.display_cabinet.setStyleSheet(
+                    f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
+                )
+                display_cabinet_font = QFont()
+                display_cabinet_font.setPointSize(self.styles['font_size_buttons'])
+                self.display_cabinet.setFont(display_cabinet_font)
+                self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
+                buttons_layout.addWidget(self.display_cabinet)
+
+            # Agregar la barra de progreso solo si "progress" está activo en la configuración
+            if active_widgets.get("progress", True):
+                self.layout.addWidget(self.progress_bar)
+
             self.layout.addLayout(buttons_layout)
 
             section_data = self.section
@@ -235,6 +254,8 @@ class QuizLoader:
             print(f"Error de valor: {e}")
         except Exception as e:
             print(f"Error al cargar la sección: {e}")
+
+
 
     def abrir_display_cabinet(self, username):
         self.display_cabinet = BadgeDisplayCabinet(self.usuario_actual)

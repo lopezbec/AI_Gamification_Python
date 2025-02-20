@@ -42,6 +42,7 @@ class UserGuideDialog(QtWidgets.QDialog):
                 <li>✅ <b>Responder correctamente al primer intento:</b> 2 puntos</li>
                 <li>🔄 <b>Responder correctamente al segundo o más intentos:</b> 1 punto</li>
                 <li>🏆 <b>Finalizar una lección/Quiz:</b> 5 puntos</li>
+                <li>📌 <b>Nota:</b> Debe finalizar la lección/quiz para que los puntos acumulados se le guarden y se le reflejen en el leaderboard</li>
             </ul>
             """
         )
