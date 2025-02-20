@@ -41,7 +41,7 @@ class UserGuideDialog(QtWidgets.QDialog):
                 <li>📝 <b>Completar una página:</b> 1 punto</li>
                 <li>✅ <b>Responder correctamente al primer intento:</b> 2 puntos</li>
                 <li>🔄 <b>Responder correctamente al segundo o más intentos:</b> 1 punto</li>
-                <li>🏆 <b>Finalizar una lección:</b> 5 puntos</li>
+                <li>🏆 <b>Finalizar una lección/Quiz:</b> 5 puntos</li>
             </ul>
             """
         )

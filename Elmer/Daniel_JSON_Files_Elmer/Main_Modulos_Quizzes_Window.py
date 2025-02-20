@@ -68,7 +68,7 @@ class QuizLoader:
         self.quiz_file = quiz_file
         self.page_order_file = page_order_file
         self.current_section_index = 0
-        self.load_page_order()  # Cargar page_order
+        self.load_page_order()
         self.feedback_label = QLabel('')
         self.feedback_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.feedback_label)
@@ -79,6 +79,9 @@ class QuizLoader:
         self.section = None
         self.page_type = None
         self.usuario_actual = self.cargar_usuario_actual()
+        self.current_xp = 0  # XP de la respuesta actual
+        self.XP_Ganados = 0  # XP total acumulado en el quiz
+        self.controlador = False  # Control para determinar si la respuesta es en el primer intento
 
         # Verifica si ya tienes una instancia de la barra de progreso
         if not hasattr(self, 'progress_bar'):  # Solo crea la barra si no ha sido creada antes
@@ -91,9 +94,6 @@ class QuizLoader:
             else:
                 lesson_data = JsonLoader.load_json_data(page_order_file)
                 self.progress_bar = ProgressBar(lesson_data, current_quiz_index=self.current_quiz_index, current_module_index=self.current_module_index)
-
-            
-
 
     def load_current_quiz(self):
             # Lógica para cargar el quiz basado en los índices
@@ -149,6 +149,17 @@ class QuizLoader:
 
             buttons_layout = QHBoxLayout()
 
+            # Etiqueta para mostrar los puntos en la interfaz
+            self.puntos_label = QLabel(f"XP Ganados: {self.XP_Ganados}")
+            self.puntos_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            self.puntos_label.setStyleSheet(
+                f"background-color: grey; color: white; font-size: {self.styles['font_size_buttons']}px"
+            )
+            puntos_font = QFont()
+            puntos_font.setPointSize(self.styles["font_size_normal"])
+            self.puntos_label.setFont(puntos_font)
+            buttons_layout.addWidget(self.puntos_label)  # Agregar al layout
+
             self.leaderboard_button = QPushButton("Leaderboard")
             self.leaderboard_button.setStyleSheet(
                 f"background-color: {self.styles['continue_button_color']}; color: white; font-size: {self.styles['font_size_buttons']}px"
@@ -165,7 +176,6 @@ class QuizLoader:
             self.display_cabinet.setFont(display_cabinet_font)
             self.display_cabinet.clicked.connect(self.abrir_display_cabinet)
             buttons_layout.addWidget(self.display_cabinet)
-
             
             self.layout.addWidget(self.progress_bar)  # Asegúrate de agregar la barra de progreso al layout
             self.layout.addLayout(buttons_layout)
@@ -245,7 +255,13 @@ class QuizLoader:
         self.clear_layout()
         self.load_quiz_section()
 
-    from PyQt6.QtCore import QTimer, QPropertyAnimation
+    def actualizar_puntos(self):
+        """Actualiza la etiqueta de puntos en la interfaz."""
+        if hasattr(self, 'puntos_label'):  # Verifica que el label de puntos existe
+            self.puntos_label.setText(f"XP Ganados: {self.XP_Ganados}")
+        else:
+            print("Error: La etiqueta de puntos no está definida.")
+
 
     def complete_quiz(self):
         self.mark_quiz_complete()
@@ -255,7 +271,8 @@ class QuizLoader:
             f'Módulo{int(self.current_module_index) + 1}',
             self.current_user
         )
-        self.actualizar_puntos_en_leaderboard(5)
+        self.XP_Ganados += 5  # 5 puntos por completar el quiz
+        self.actualizar_puntos_en_leaderboard(self.XP_Ganados)
 
         # Crear una animación para que la barra de progreso se llene suavemente al 100%
         self.animation = QPropertyAnimation(self.progress_bar, b"value")
@@ -341,27 +358,22 @@ class QuizLoader:
 
     def actualizar_puntos_en_leaderboard(self, puntos_ganados):
         leaderboard_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Codigos_LeaderBoard', 'leaderboard.json')
-
+        self.puntos_label.setText(f"XP Ganados: {self.XP_Ganados}")
         try:
             with open(leaderboard_path, 'r', encoding='UTF-8') as file:
                 leaderboard = json.load(file)
-
             usuario_existente = False
             for user in leaderboard:
                 if user["name"] == self.current_user:
                     user["points"] += puntos_ganados
                     usuario_existente = True
                     break
-
             if not usuario_existente:
                 leaderboard.append({"name": self.current_user, "points": puntos_ganados})
-
             with open(leaderboard_path, 'w', encoding='UTF-8') as file:
                 json.dump(leaderboard, file, indent=4)
-
         except FileNotFoundError:
             print("Archivo leaderboard.json no encontrado.")
-
 
     @staticmethod
     def load_current_user():
@@ -506,9 +518,19 @@ class QuizLoader:
         correct_order = self.section['correctOrder']
 
         if user_order == correct_order:
-            self.feedback_label.setText('¡Correcto!')
+            if self.current_xp == 0 and not self.controlador:
+                self.current_xp = 2  # Primer intento correcto
+            elif self.current_xp == 0 and self.controlador:
+                self.current_xp = 1  # Correcto después de fallar
+                self.controlador = False
+
+            self.XP_Ganados += self.current_xp
+            self.actualizar_puntos()  # Actualizar la UI con los nuevos puntos
+
+            self.feedback_label.setText(f'¡Correcto! Has ganado {self.current_xp} punto/s.')
             self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px"
+            )
             CongratulationWindow.correct_response()
             self.submit_button.setVisible(False)
             if self.is_last_section():
@@ -516,19 +538,30 @@ class QuizLoader:
             else:
                 self.continue_button.setVisible(True)
         else:
+            self.controlador = True
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
             self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px"
+            )
             CongratulationWindow.incorrect_response()
+
 
     def check_multiple_choice_answers(self):
         selected_answers = [btn.text() for btn in self.button_widgets if btn.isChecked()]
         correct_answers = [answer["text"] for answer in self.section["answers"] if answer.get("correct", False)]
 
         if selected_answers == correct_answers:
-            self.feedback_label.setText('¡Correcto!')
-            self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            if self.current_xp == 0 and not self.controlador:
+                self.current_xp = 2  # Primer intento correcto
+            elif self.current_xp == 0 and self.controlador:
+                self.current_xp = 1  # Correcto después de fallar
+                self.controlador = False
+
+            self.XP_Ganados += self.current_xp
+            self.actualizar_puntos()  # Actualizar la UI con los nuevos puntos
+
+            self.feedback_label.setText(f'¡Correcto! Has ganado {self.current_xp} punto/s.')
+            self.feedback_label.setStyleSheet(f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             CongratulationWindow.correct_response()
             self.submit_button.setVisible(False)
             if self.is_last_section():
@@ -536,51 +569,51 @@ class QuizLoader:
             else:
                 self.continue_button.setVisible(True)
         else:
+            self.controlador = True
             self.feedback_label.setText('Incorrecto, inténtalo de nuevo.')
-            self.feedback_label.setStyleSheet(
-                f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
+            self.feedback_label.setStyleSheet(f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
             CongratulationWindow.incorrect_response()
+
 
     def check_complete_blank_space_answers(self):
         try:
-            # Obtener la respuesta correcta
             correct_answer_text = None
             for answer in self.section["answers"]:
                 if answer.get("correct", False):
                     correct_answer_text = answer["text"]
                     break
 
-            # Extraer la respuesta del usuario desde el espacio en blanco
             user_text = self.hint_label.text()
-
-            # Buscar la posición del espacio en blanco en el texto original
             selected_answer_start = self.original_hint_text.find("___")
 
-            # Si no hay espacio en blanco en el texto original, error
             if selected_answer_start == -1:
                 self.feedback_label.setText("No se encontró el espacio en blanco en el texto. Verifica el formato.")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
                 return
 
-            # Extraer todo lo que el usuario ingresó después del espacio en blanco
             selected_answer = user_text[selected_answer_start:].strip()
 
-            # Limpiar cualquier texto adicional que no sea parte de la respuesta del usuario
             if " " in selected_answer:
-                selected_answer = selected_answer.split()[0]  # Tomar solo la primera "palabra"
+                selected_answer = selected_answer.split()[0]
 
-            # Validar si el usuario no ingresó respuesta
             if selected_answer == "___":
                 self.feedback_label.setText("No has ingresado una respuesta. Por favor, inténtalo de nuevo.")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
                 return
 
-            # Verificar si la respuesta del usuario es correcta
-            print(selected_answer, correct_answer_text)  # Debug
             if selected_answer == correct_answer_text:
-                self.feedback_label.setText("¡Correcto!")
+                if self.current_xp == 0 and not self.controlador:
+                    self.current_xp = 2  # Primer intento correcto
+                elif self.current_xp == 0 and self.controlador:
+                    self.current_xp = 1  # Correcto después de fallar
+                    self.controlador = False
+
+                self.XP_Ganados += self.current_xp
+                self.actualizar_puntos()  # Actualizar la UI con los nuevos puntos
+
+                self.feedback_label.setText(f"¡Correcto! Has ganado {self.current_xp} punto/s.")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('correct_color', '#00FF00')}; font-size: {self.styles.get('font_size_answers', 12)}px")
                 CongratulationWindow.correct_response()
@@ -590,7 +623,7 @@ class QuizLoader:
                 else:
                     self.continue_button.setVisible(True)
             else:
-                # Respuesta incorrecta
+                self.controlador = True
                 self.feedback_label.setText("Respuesta incorrecta. Inténtalo de nuevo.")
                 self.feedback_label.setStyleSheet(
                     f"color: {self.styles.get('incorrect_color', '#FF0000')}; font-size: {self.styles.get('font_size_answers', 12)}px")
@@ -598,12 +631,12 @@ class QuizLoader:
         except Exception as e:
             print(f"Error al verificar respuestas de completeblankspace: {e}")
 
-
     def reset_layout(self):
         self.load_quiz_section()
 
     def load_next_section(self):
         self.current_section_in_quiz_index += 1
+        self.XP_Ganados += 1  # 1 punto por avanzar de sección
         current_quiz = self.page_order[self.current_quiz_index - 1]
         total_sections = len(current_quiz["sections"])
         
