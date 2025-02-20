@@ -15,7 +15,7 @@ from PyQt6.QtWidgets import QTextEdit, QWidget, QVBoxLayout, QHBoxLayout, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
-from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
+from badge_system.badge_verification import get_badge_level, is_badge_earned, \
         update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
             update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user
 from badge_system.display_cabinet import BadgeDisplayCabinet

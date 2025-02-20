@@ -10,12 +10,12 @@ from PyQt6.QtGui import QFont
 from PyQt6.QtCore import Qt
 from game_features.progress_bar import ProgressBar
 from Codigos_LeaderBoard.Main_Leaderboard_FV import LeaderBoard, get_instance
-from PyQt6.QtWidgets import QWidget, QTextEdit, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, \
     QStackedWidget, QRadioButton, QButtonGroup, QCheckBox, QFrame
 from Main_Modulos_Intro_Pages import MainWindow as Dashboard
 from badge_system.badge_criteria_streak import BadgeCriteriaStreak, reset_streak, \
 read_stored_streak, update_streak, check_streak_badges
-from badge_system.badge_verification import BadgeVerification, get_badge_level, is_badge_earned, \
+from badge_system.badge_verification import get_badge_level, is_badge_earned, \
         update_lesson_dates, are_lessons_completed_same_day, are_two_lessons_completed_same_day, display_badge, \
             update_badge_progress, are_three_modules_completed, update_lesson_status, check_module_streak_per_user, \
         are_all_lessons_completed
