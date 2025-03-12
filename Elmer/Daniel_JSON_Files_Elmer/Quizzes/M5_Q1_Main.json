@@ -44,7 +44,7 @@
                 },
                 {
                     "type": "Consola",
-                    "text": "Código de Python:\n\n____(____)"
+                    "text": "Código de Python:\n\n___(___)"
                 }
             ],
             "answers": [
@@ -55,10 +55,10 @@
                     "text": "print("
                 },
                 {
-                    "text": "'Hola, mundo"
+                    "text": "'Hola, mundo'"
                 },
                 {
-                    "text": "'print'"
+                    "text": "print"
                 }
             ],
             "correctOrder": ["print", "'Hola, mundo'"]
