@@ -495,24 +495,28 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addWidget(modulo_btn, row, col, 1, 1)
         layout.addWidget(quizzes_btn, row + 1, col, 1, 1)
 
-    def calcular_progreso_del_modulo(self, estado_modulo):
+    def calcular_progreso_del_modulo(self, estado_modulo, modulo_actual):
         """
         Calcula el progreso de un módulo sumando las lecciones completadas.
         Usa la plantilla base con todas las lecciones en False para calcular el porcentaje.
         """
-        # Usar la plantilla base para obtener el total de lecciones (esto no cambiará)
-        total_lecciones = len(self.plantilla_base["Módulo1"])  # Aquí puedes usar el nombre del módulo para obtener la longitud de lecciones
+        # Eliminar espacios del nombre del módulo antes de verificarlo en la plantilla base
+        modulo_actual = modulo_actual.replace(" ", "")  # Elimina cualquier espacio en el nombre del módulo
+
+        # Asegurarse de que el modulo_actual esté en la plantilla base
+        if modulo_actual not in self.plantilla_base:
+            print(f"El módulo {modulo_actual} no está en la plantilla base.")
+            return 0  # Si el módulo no está en la plantilla base, devuelve 0
+
+        # Obtener el total de lecciones para el módulo actual desde la plantilla base
+        total_lecciones = len(self.plantilla_base[modulo_actual])  # Lecciones para el módulo actual
 
         lecciones_completadas = 0
 
         # Compara los datos del usuario con la plantilla base
         for leccion, completado in estado_modulo.items():
-            # Si la lección está marcada como completada (True en leccion_completada.json), la cuenta
             if completado:
                 lecciones_completadas += 1
-            # Si la lección no está marcada como completada en leccion_completada.json, se sigue considerando como pendiente
-            elif leccion in self.plantilla_base["Módulo1"] and self.plantilla_base["Módulo1"][leccion] == False:
-                lecciones_completadas += 0
 
         # Evitar división por cero
         if total_lecciones == 0:
@@ -560,7 +564,7 @@ class MainWindow(QtWidgets.QMainWindow):
             boton_modulo.addAction(accion_leccion)
 
         # Calcular el progreso del módulo
-        progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo)
+        progreso = self.calcular_progreso_del_modulo(estado_progreso_modulo, nombre_modulo)  # Pasar nombre_modulo
 
         # Crear y configurar la barra de progreso
         barra_progreso = QProgressBar()
@@ -572,6 +576,7 @@ class MainWindow(QtWidgets.QMainWindow):
         boton_modulo.addAction(barra_progreso_action)
 
         return todas_bloqueadas  # Devolver True si todas las lecciones están completas
+
 
 
 
