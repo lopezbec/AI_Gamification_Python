@@ -542,15 +542,6 @@ class MainWindow(QWidget):
         self.layout.addWidget(self.python_console_widget)
         self.python_console_widget.hide()
 
-        # Crea el botón "Abrir Consola"
-        self.btn_open_console = QPushButton("Abrir Consola")
-        self.btn_open_console.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
-        open_console_button_font = QFont()
-        open_console_button_font.setPointSize(self.styles["font_size_buttons"])
-        self.btn_open_console.setFont(open_console_button_font)
-        self.btn_open_console.clicked.connect(self.open_python_console)
-        self.btn_open_console.hide()
-
         self.terminar_button = QPushButton("Leccion Completada")
         self.terminar_button.setStyleSheet(f"background-color: {self.styles['continue_button_color']}; color: white")
         terminar_button_font = QFont()
@@ -592,7 +583,6 @@ class MainWindow(QWidget):
 
         self.button_layout = QHBoxLayout()
         self.button_layout.addWidget(self.back_button)
-        self.button_layout.addWidget(self.btn_open_console)
         self.button_layout.addWidget(self.submit_button)
         self.button_layout.addWidget(self.practice_button)
         self.button_layout.addWidget(self.continue_button)
@@ -682,11 +672,11 @@ class MainWindow(QWidget):
 
     def SubmitHideContinueShow(self, pedagogical, practica):
         if pedagogical:
-            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.show(), self.btn_open_console.show()
+            self.submit_button.hide(), self.practice_button.hide(), self.continue_button.show(), self.back_button.show()
         elif practica:
-            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
+            self.submit_button.hide(), self.practice_button.show(), self.continue_button.hide(), self.back_button.show()
         else:
-            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show(), self.btn_open_console.hide()
+            self.submit_button.show(), self.practice_button.hide(), self.continue_button.hide(), self.back_button.show()
 
     def log_part_change(self):
         event_time = datetime.datetime.now().strftime("%H:%M:%S")
