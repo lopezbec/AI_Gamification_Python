@@ -444,14 +444,14 @@ class JsonWindow(QWidget):
                     f"color: {self.styles['cmdExe_text_color']}; font-size: {self.styles['font_size_normal']}px;")
                 console_label.setWordWrap(True)
                 console_layout.addWidget(console_label)
-                button_layout = QHBoxLayout()
-                button_layout.addStretch(1)
-                execute_button = QPushButton("Haz clic para ejecutar")
-                execute_button.setStyleSheet(
+
+                # Botón que desencadenará la adición del widget de la clase 'App'.
+                self.execute_button = QPushButton("Haz clic para ejecutar")
+                self.execute_button.setStyleSheet(
                     "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
-                execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
-                button_layout.addWidget(execute_button)
-                console_layout.addLayout(button_layout)
+                self.execute_button.clicked.connect(lambda: self.openCommandLineUI(block["text"]))
+
+                console_layout.addWidget(self.execute_button)
                 self.layout.addWidget(console_frame)
 
             # Maneja los otros tipos de bloques como antes.
@@ -470,6 +470,40 @@ class JsonWindow(QWidget):
             info_label.setWordWrap(True)
             info_label.setStyleSheet(f"font-size: {self.styles['font_size_normal']}px;")
             self.layout.addWidget(info_label)
+
+        # Crea un contenedor para el widget de la clase 'App' que será añadido al hacer clic en el botón.
+        self.commandLineWidgetPlaceholder = QVBoxLayout()
+        self.layout.addLayout(self.commandLineWidgetPlaceholder)
+
+    def openCommandLineUI(self, text):
+        self.main_window.log_event("Playground Page Open", event_type="time")
+        # Verificar si el widget ya ha sido creado y, si no, crearlo y añadirlo al layout.
+        if not hasattr(self, 'commandLineWidget'):
+            # Suponiendo que 'App' es una subclase de QWidget
+            self.commandLineWidget = App(current_user=self.usuario_actual)
+            self.commandLineWidgetPlaceholder.addWidget(self.commandLineWidget)
+
+            # Crear botón para ocultar el widget de la línea de comandos
+            self.hideButton = QPushButton("Ocultar")
+            self.hideButton.setStyleSheet(
+                "background-color: orange; font-size: {self.styles['font_size_normal']}px; color: white;")
+            self.hideButton.clicked.connect(self.hideCommandLineWidget)
+            self.commandLineWidgetPlaceholder.addWidget(self.hideButton)
+            self.execute_button.hide()
+
+        # Si el widget ya existe, mostrarlo si está oculto
+        else:
+            self.commandLineWidget.show()
+            self.hideButton.show()
+            self.execute_button.hide()
+
+    def hideCommandLineWidget(self):
+        self.main_window.log_event("Playground Page Close", event_type="time")
+        # Esta función oculta el widget de la línea de comandos y el botón de ocultar.
+        self.commandLineWidget.hide()
+        self.hideButton.hide()
+        self.execute_button.show()
+
 
 class MainWindow(QWidget):
     def __init__(self, lesson_number=3, *args, **kwargs):
